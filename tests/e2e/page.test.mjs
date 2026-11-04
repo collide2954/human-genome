@@ -289,6 +289,35 @@ test('expression charts compare six HPA atlases, GTEx tissues and plasma levels'
   await page.close();
 });
 
+test('axes speak the units of their data and count bins label their own bars', async () => {
+  const { page } = await open();
+  const plasmaTicks = await page.$$eval('#plasma-top-chart text.tick', (ts) => ts.map((t) => t.textContent));
+  assert.ok(plasmaTicks.length >= 2);
+  for (const t of plasmaTicks) assert.match(t, /g\/L$/);
+  const offsets = await page.$$eval('#pfam-per-protein-chart svg', ([svg]) => [...svg.querySelectorAll('text.tick')]
+    .filter((t) => /^\d+\+?$/.test(t.textContent))
+    .map((t) => {
+      const i = Number(t.textContent.replace('+', ''));
+      const bar = svg.querySelector(`[data-bin="${i}"] rect.bar`);
+      return Math.abs(Number(t.getAttribute('x')) - (Number(bar.getAttribute('x')) + Number(bar.getAttribute('width')) / 2));
+    }));
+  assert.ok(offsets.length >= 3);
+  for (const d of offsets) assert.ok(d < 1, `${d}`);
+  await page.close();
+});
+
+test('the family chart compares shares, with each family\'s size at the end', async () => {
+  const { page } = await open();
+  const rows = await page.$$eval('#family-chart [data-row]', (gs) => gs.map((g) => ({
+    width: [...g.querySelectorAll('rect.seg')].reduce((n, r) => n + Number(r.getAttribute('width')), 0),
+    value: g.querySelector('text.val').textContent,
+  })));
+  const widths = rows.map((r) => r.width);
+  assert.ok(Math.max(...widths) - Math.min(...widths) < 2, widths.join(', '));
+  for (const r of rows) assert.match(r.value, /^[\d,]+ targets$/);
+  await page.close();
+});
+
 test('on a phone the tissue heatmap drops its labels and still fits', async () => {
   const { page, context } = await openPhone();
   const n = snapshot.expression.gtex.tissues.length;
