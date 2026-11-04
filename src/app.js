@@ -1,17 +1,17 @@
 import snapshot from './snapshot.js';
 import {
-  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS,
+  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS, GENE_THERAPIES, GENE_THERAPIES_CHECKED, DIAGNOSTIC_YIELD, CFDNA_SCREENING, CARRIER_TIER3,
 } from './facts.js';
 import {
   exact, compact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, AA3, codonOf, perLitre, CHANNELS, SUBSTITUTIONS,
 } from './lib.js';
 import { pearson, linearFit, linearEdges } from './stats.js';
-import { FILES } from './queries.js';
+import { FILES, TRIAL_MODALITIES } from './queries.js';
 import {
   findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons, gtexTissues, plasmaLevel, proteomeResidues, proteinLabel, trnaPairs, titv,
 } from './findings.js';
 import {
-  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, heatmap, genomeMap, dumbbell, grid as shareGrid, lollipop as lollipopChart, spectrum, ranges, lines, observeFigures, countUp, tipLines,
+  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, heatmap, genomeMap, dumbbell, grid as shareGrid, lollipop as lollipopChart, spectrum, ranges, intervals, lines, observeFigures, countUp, tipLines,
 } from './charts.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -2274,6 +2274,265 @@ const renderExpansions = () => {
   attachData('#expansions-years-chart', 'repeat-expansion-years', ['Year', ...present.map(([, label]) => label)], years.map((y) => [y, ...present.map(([key]) => dated.filter((l) => l.location === key && l.year === y).length)]));
 };
 
+const systemName = (name) => {
+  const s = name.replace(/^Abnormality of (the )?/, '');
+  return `${s[0].toUpperCase()}${s.slice(1)}`;
+};
+
+const renderHpo = () => {
+  const H = snapshot.hpo;
+  const { genes } = H;
+  $('#hpo-dek').textContent = `${exact(H.sources.OMIM ?? 0)} OMIM, ${exact(H.sources.ORPHA ?? 0)} Orphanet and ${exact(H.sources.DECIPHER ?? 0)} DECIPHER diseases carry ${exact(H.annotations)} phenotype annotations in the release of ${longDate(H.version)}; ${pct((H.evidence.IEA ?? 0) / H.annotations)} are inferred electronically. ${exact(genes.genes)} genes have a Mendelian link to ${exact(genes.diseases)} diseases; ${genes.top[0].gene} has the most, ${exact(genes.top[0].diseases)}.`;
+  dotplot({
+    mount: $('#hpo-systems-chart'),
+    rows: H.systems.map((s, i) => ({
+      key: s.id, label: systemName(s.name), value: s.diseases, hi: i === 0,
+    })),
+    scale: 'linear',
+    rowH: 20,
+    labelShare: 0.4,
+    aria: 'Rare diseases with at least one phenotype in each organ system',
+    describe: (r) => tipLines(`${exact(r.value)} diseases`, r.label, pct(r.value / H.diseases), { href: `https://hpo.jax.org/browse/term/${r.key}`, text: 'Open in HPO' }),
+  });
+  attachData('#hpo-systems-chart', 'hpo-organ-systems', ['HPO term', 'Organ system', 'Diseases'], H.systems.map((s) => [s.id, s.name, s.diseases]));
+  dotplot({
+    mount: $('#hpo-terms-chart'),
+    rows: H.topTerms.map((t, i) => ({
+      key: t.id, label: t.name, value: t.diseases, hi: i === 0,
+    })),
+    scale: 'linear',
+    rowH: 20,
+    labelShare: 0.4,
+    aria: 'Phenotype terms annotated to the most rare diseases',
+    describe: (r) => tipLines(`${exact(r.value)} diseases`, `${r.label}, ${r.key}`, pct(r.value / H.diseases), { href: `https://hpo.jax.org/browse/term/${r.key}`, text: 'Open in HPO' }),
+  });
+  attachData('#hpo-terms-chart', 'hpo-top-terms', ['HPO term', 'Name', 'Diseases'], H.topTerms.map((t) => [t.id, t.name, t.diseases]));
+  const edges = H.perDisease.edges;
+  const label = (i) => (edges[i + 1] - edges[i] === 1 ? String(edges[i]) : `${exact(edges[i])}–${exact(edges[i + 1] - 1)}`);
+  histo({
+    mount: $('#hpo-perdisease-chart'),
+    bins: H.perDisease.counts.map((_, i) => i),
+    series: [{ key: 'diseases', label: 'Diseases', color: 'var(--data)', values: H.perDisease.counts }],
+    tickEvery: 1,
+    tickLabel: (b) => exact(edges[b]),
+    height: 200,
+    aria: 'Rare diseases by the number of phenotype terms annotated',
+    describe: (i) => tipLines(`${exact(H.perDisease.counts[i])} diseases`, `${label(i)} phenotype terms`),
+  });
+  attachData('#hpo-perdisease-chart', 'hpo-terms-per-disease', ['Terms from', 'Terms to', 'Diseases'], H.perDisease.counts.map((n, i) => [edges[i], edges[i + 1] - 1, n]));
+  dotplot({
+    mount: $('#hpo-genes-chart'),
+    rows: genes.top.map((g, i) => ({
+      key: g.gene, label: g.gene, value: g.diseases, hi: i === 0,
+    })),
+    scale: 'linear',
+    rowH: 20,
+    aria: 'Genes linked to the most Mendelian diseases',
+    describe: (r) => tipLines(`${exact(r.value)} diseases`, r.key),
+  });
+  attachData('#hpo-genes-chart', 'hpo-genes', ['Gene', 'Mendelian diseases'], genes.top.map((g) => [g.gene, g.diseases]));
+};
+
+const PREVALENCE_ORDER = ['<1 / 1 000 000', '1-9 / 1 000 000', '1-9 / 100 000', '1-5 / 10 000', '6-9 / 10 000', '>1 / 1000', 'Unknown', 'Not yet documented', 'Case reports only', 'No point prevalence'];
+const ONSET_ORDER = ['Antenatal', 'Neonatal', 'Infancy', 'Childhood', 'Adolescent', 'Adult', 'Elderly', 'All ages', 'No data available'];
+const ordered = (counts, order) => [...order.filter((k) => k in counts), ...Object.keys(counts).filter((k) => !order.includes(k)).sort((a, b) => counts[b] - counts[a])];
+
+const renderOrphanet = () => {
+  const { genes, prevalence, ages } = snapshot.orphanet;
+  $('#orphanet-dek').textContent = `Orphadata products of ${longDate(prevalence.date)}, counted at the level of single disorders, not groups or subtypes. ${exact(genes.genes)} genes are tied to ${exact(genes.disorders)} disorders, ${pct(genes.perDisorder.counts[0] / genes.disorders)} of them to one gene. ${exact(ages.noOnset)} disorders give no age of onset and ${exact(ages.noInheritance)} no inheritance; one disorder can list several of each.`;
+  const plot = (sel, counts, order, aria, noun, name, head) => {
+    const keys = ordered(counts, order);
+    dotplot({
+      mount: $(sel),
+      rows: keys.map((k) => ({ key: k, label: k, value: counts[k] })),
+      rowH: 20,
+      labelShare: 0.42,
+      aria,
+      describe: (r) => tipLines(`${exact(r.value)} ${noun}`, r.label),
+    });
+    attachData(sel, name, [head, noun[0].toUpperCase() + noun.slice(1)], keys.map((k) => [k, counts[k]]));
+  };
+  plot('#orpha-prevalence-chart', prevalence.classes, PREVALENCE_ORDER, 'Orphanet disorders by point prevalence class, log scale', 'disorders', 'orphanet-prevalence', 'Point prevalence');
+  plot('#orpha-onset-chart', ages.onset, ONSET_ORDER, 'Orphanet disorders by age of onset, log scale', 'disorders', 'orphanet-onset', 'Age of onset');
+  plot('#orpha-inheritance-chart', ages.inheritance, [], 'Orphanet disorders by type of inheritance, log scale', 'disorders', 'orphanet-inheritance', 'Inheritance');
+  plot('#orpha-genes-chart', genes.associations, [], 'Orphanet gene-disorder associations by type, log scale', 'associations', 'orphanet-gene-associations', 'Association');
+};
+
+const GENE_COUNT_LABELS = ['No gene listed', 'One gene', '2 to 10 genes', '11 to 100 genes', '101 to 1,000 genes', 'More than 1,000 genes'];
+
+const renderGtr = () => {
+  const GTRS = snapshot.gtr;
+  const dev = GTRS.development;
+  const lab = dev['Test developed by laboratory (no manufacturer test name)'] ?? 0;
+  const [first, second] = GTRS.countries;
+  $('#gtr-dek').textContent = `${exact(dev['FDA-reviewed (has FDA test name)'] ?? 0)} tests are FDA-reviewed and ${exact(lab)} were developed by the laboratory; ${exact(dev['not stated'] ?? 0)} do not say. ${first.country} hosts ${exact(first.tests)} tests from ${exact(first.labs)} laboratories, ${second.country} ${exact(second.tests)} from ${exact(second.labs)}.`;
+  const methods = GTRS.methods.slice(0, 15);
+  dotplot({
+    mount: $('#gtr-methods-chart'),
+    rows: methods.map((m, i) => ({
+      key: m.method, label: m.method, value: m.tests, hi: i === 0,
+    })),
+    rowH: 20,
+    labelShare: 0.45,
+    aria: 'Current GTR tests by method, log scale',
+    describe: (r) => tipLines(`${exact(r.value)} tests`, r.label, pct(r.value / GTRS.tests)),
+  });
+  attachData('#gtr-methods-chart', 'gtr-methods', ['Method', 'Tests'], GTRS.methods.map((m) => [m.method, m.tests]));
+  dotplot({
+    mount: $('#gtr-genecount-chart'),
+    rows: GTRS.genesPerTest.counts.map((n, i) => ({ key: GTRS.genesPerTest.bins[i], label: GENE_COUNT_LABELS[i], value: n })),
+    rowH: 20,
+    labelShare: 0.36,
+    aria: 'Current GTR tests by the number of genes they cover, log scale',
+    describe: (r) => tipLines(`${exact(r.value)} tests`, r.label, pct(r.value / GTRS.tests)),
+  });
+  attachData('#gtr-genecount-chart', 'gtr-genes-per-test', ['Genes', 'Tests'], GTRS.genesPerTest.counts.map((n, i) => [GENE_COUNT_LABELS[i], n]));
+  dotplot({
+    mount: $('#gtr-countries-chart'),
+    rows: GTRS.countries.map((c, i) => ({
+      key: c.country, label: `${c.country} (${exact(c.labs)})`, value: c.tests, hi: i === 0,
+    })),
+    rowH: 20,
+    labelShare: 0.36,
+    aria: 'Current GTR tests by the country of the laboratory, log scale',
+    describe: (r) => {
+      const c = GTRS.countries.find((x) => x.country === r.key);
+      return tipLines(`${exact(c.tests)} tests`, `${c.country}, ${exact(c.labs)} laboratories`);
+    },
+  });
+  attachData('#gtr-countries-chart', 'gtr-countries', ['Country', 'Laboratories', 'Tests'], GTRS.countries.map((c) => [c.country, c.labs, c.tests]));
+  dotplot({
+    mount: $('#gtr-genes-chart'),
+    rows: GTRS.topGenes.map((g, i) => ({
+      key: g.gene, label: g.gene, value: g.tests, hi: i === 0,
+    })),
+    scale: 'linear',
+    rowH: 20,
+    aria: 'Genes covered by the most current GTR tests',
+    describe: (r) => tipLines(`${exact(r.value)} tests`, r.key, { href: `https://www.ncbi.nlm.nih.gov/gtr/all/tests/?term=${encodeURIComponent(r.key)}`, text: 'Open in GTR' }),
+  });
+  attachData('#gtr-genes-chart', 'gtr-genes', ['Gene', 'Tests'], GTRS.topGenes.map((g) => [g.gene, g.tests]));
+};
+
+const THERAPY_GROUPS = [['AAV', 'var(--accent)'], ['Other in vivo vectors', 'var(--s5)'], ['Blood stem cells', 'var(--s2)'], ['CAR-T and TCR-T cells', 'var(--s3)'], ['Other gene-modified cells', 'var(--s4)']];
+const TRIAL_COLORS = ['var(--accent)', 'var(--s2)', 'var(--s5)', 'var(--s3)', 'var(--s4)', 'var(--ink)', 'var(--data-2)'];
+const PHASE_ORDER = [['Early phase 1', 'var(--data-2)'], ['Phase 1', 'var(--s3)'], ['Phase 2', 'var(--s2)'], ['Phase 3', 'var(--accent)'], ['Phase 4', 'var(--ink)'], ['Not applicable', 'var(--s5)'], ['Not stated', 'var(--s4)']];
+
+const renderTherapy = () => {
+  const T = snapshot.therapies;
+  const listed = new Set(T.fda.map((p) => p.trade));
+  const present = GENE_THERAPIES.filter((g) => listed.has(g.trade));
+  const others = T.fda.length - present.length;
+  const now = Number(snapshot.generated.slice(0, 4));
+  const first = Math.min(...present.map((g) => g.year));
+  const years = Array.from({ length: now - first + 1 }, (_, i) => first + i);
+  const cart = T.trials.cart;
+  const later = sumOf(Object.values(T.trials).map((t) => sumOf(Object.entries(t.byYear).filter(([y]) => Number(y) > now).map(([, n]) => n))));
+  $('#therapy-dek').textContent = `The ${exact(present.length)} products here are FDA’s gene therapies and gene-modified cells; the first approval year and vector of each were read from its package insert on ${longDate(GENE_THERAPIES_CHECKED)}. FDA’s list holds ${exact(others)} more: cord blood, tissue and cell products without genetic modification, and any approved since then. ${exact(cart.total)} interventional studies mention CAR T cells, ${exact(cart.recruiting)} of them recruiting.`;
+  stackedArea({
+    mount: $('#therapy-approvals-chart'),
+    years,
+    series: THERAPY_GROUPS.map(([key, color]) => ({
+      key, label: key, color, values: years.map((y) => present.filter((g) => g.group === key && g.year <= y).length),
+    })),
+    aria: 'FDA-approved gene therapies and gene-modified cell products, cumulative, by kind',
+  });
+  attachData('#therapy-approvals-chart', 'fda-gene-therapies', ['Product', 'Proper name', 'First approval', 'Vector', 'Kind', 'Condition'], present.map((g) => [g.trade, g.proper, g.year, g.vector, g.group, g.condition]));
+  const vectors = new Map();
+  for (const g of present) vectors.set(g.vector, (vectors.get(g.vector) ?? 0) + 1);
+  const vectorRows = [...vectors].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  dotplot({
+    mount: $('#therapy-vectors-chart'),
+    rows: vectorRows.map(([v, n]) => ({ key: v, label: v, value: n })),
+    scale: 'linear',
+    rowH: 20,
+    format: (v) => String(v),
+    tickFormat: (t) => String(t),
+    aria: 'FDA-approved gene therapies by vector or editing method',
+    describe: (r) => tipLines(`${exact(r.value)} products`, r.label, present.filter((g) => g.vector === r.key).map((g) => `${g.trade} ${g.year}, ${g.condition}`).join('; ')),
+  });
+  attachData('#therapy-vectors-chart', 'fda-gene-therapy-vectors', ['Vector', 'Products'], vectorRows);
+  const startYears = Array.from({ length: now - 2000 + 1 }, (_, i) => 2000 + i);
+  lines({
+    mount: $('#therapy-trials-chart'),
+    series: TRIAL_MODALITIES.map((m, i) => ({
+      label: m.label, color: TRIAL_COLORS[i], rows: startYears.map((y) => ({ x: y, y: T.trials[m.key].byYear[y] ?? 0 })),
+    })),
+    scale: 'linear',
+    height: 320,
+    labelW: 170,
+    aria: 'Interventional studies starting each year, by the gene therapy modality their intervention names',
+    describe: (y) => tipLines(String(y), 'studies starting that year', ...TRIAL_MODALITIES.map((m) => `${m.label}: ${exact(T.trials[m.key].byYear[y] ?? 0)}`)),
+  });
+  attachData('#therapy-trials-chart', 'trials-by-modality', ['Start year', ...TRIAL_MODALITIES.map((m) => m.label)], startYears.map((y) => [y, ...TRIAL_MODALITIES.map((m) => T.trials[m.key].byYear[y] ?? 0)]));
+  $('#therapy-trials-note').textContent = `${exact(later)} studies give a planned start after ${now} and are left out.`;
+  hbars({
+    mount: $('#therapy-phases-chart'),
+    rows: TRIAL_MODALITIES.map((m) => {
+      const t = T.trials[m.key];
+      return {
+        key: m.key, label: m.label, n: t.total, values: Object.fromEntries(PHASE_ORDER.map(([p]) => [p, ((t.phases[p] ?? 0) / t.total) * 100])),
+      };
+    }),
+    segments: PHASE_ORDER.map(([key, color]) => ({ key, label: key, color })),
+    max: 100,
+    tickFormat: (t) => `${t}%`,
+    valueText: (r) => exact(r.n),
+    labelShare: 0.3,
+    aria: 'Interventional studies by their highest phase, as a share of each modality',
+    describe: (r) => {
+      const t = T.trials[r.key];
+      return tipLines(`${exact(t.total)} studies`, r.label, ...PHASE_ORDER.filter(([p]) => t.phases[p]).map(([p]) => `${p}: ${exact(t.phases[p])}`), `${exact(t.recruiting)} recruiting`);
+    },
+  });
+  attachData('#therapy-phases-chart', 'trials-by-phase', ['Modality', ...PHASE_ORDER.map(([p]) => p), 'Recruiting'], TRIAL_MODALITIES.map((m) => [m.label, ...PHASE_ORDER.map(([p]) => T.trials[m.key].phases[p] ?? 0), T.trials[m.key].recruiting]));
+};
+
+const STUDY = { miller2010: 'Miller 2010', clark2018: 'Clark 2018', srivastava2019: 'Srivastava 2019' };
+const SHORT_TEST = {
+  'G-banded karyotype': 'Karyotype', 'Chromosomal microarray': 'Microarray', 'Exome sequencing': 'Exome', 'Genome sequencing': 'Genome',
+};
+const shortTest = (test) => test.replace(/^(G-banded karyotype|Chromosomal microarray|Exome sequencing|Genome sequencing)/, (m) => SHORT_TEST[m]);
+const MEASURES = [{ key: 'diagnostic', label: 'Diagnostic yield', color: 'var(--accent)' }, { key: 'clinical', label: 'Changed clinical management', color: 'var(--s2)' }];
+const pctRange = (lo, hi) => `${lo}–${hi}%`;
+
+const renderYield = () => {
+  $('#yield-dek').textContent = 'Clark and colleagues pooled 37 studies of 20,068 children; Miller and colleagues 33 studies of 21,698 people with developmental delay, intellectual disability, autism or congenital anomalies; Srivastava and colleagues 30 articles on neurodevelopmental disorders (NDD). The karyotype figure leaves out Down syndrome and other recognizable chromosomal syndromes.';
+  intervals({
+    mount: $('#yield-chart'),
+    rows: DIAGNOSTIC_YIELD.map((y) => ({
+      ...y, kind: y.measure, label: `${shortTest(y.test)} (${STUDY[y.source].slice(-4)})`,
+    })),
+    domain: [0, 60],
+    ticks: [0, 10, 20, 30, 40, 50, 60],
+    kinds: MEASURES,
+    valueText: (r) => (r.value === null ? pctRange(r.lo, r.hi) : `${r.value}%${r.lo === null ? '' : ` (${pctRange(r.lo, r.hi)})`}`),
+    aria: 'Diagnostic yield and clinical utility of genetic tests in meta-analyses, with 95% confidence intervals',
+    describe: (r) => tipLines(r.value === null ? pctRange(r.lo, r.hi) : `${r.value}%`, `${r.test}: ${r.measure === 'diagnostic' ? 'diagnostic yield' : 'changed clinical management'}`, r.lo !== null && r.value !== null ? `95% CI ${pctRange(r.lo, r.hi)}` : null, { href: SOURCES[r.source], text: STUDY[r.source] }),
+  });
+  attachData('#yield-chart', 'diagnostic-yield', ['Test', 'Measure', 'Percent', 'Low', 'High', 'Source'], DIAGNOSTIC_YIELD.map((y) => [y.test, y.measure, y.value, y.lo, y.hi, STUDY[y.source]]));
+};
+
+const renderPrenatal = () => {
+  $('#prenatal-dek').textContent = `Gil and colleagues pooled 35 studies of singleton pregnancies. Each false-positive rate is shown beside its detection rate. ACMG’s 2021 guidance offers carrier screening to every pregnancy for conditions with a carrier frequency of at least ${CARRIER_TIER3.frequency}: ${exact(CARRIER_TIER3.genes)} autosomal recessive genes, ${exact(CARRIER_TIER3.definitive)} of them definitive in ClinGen when published, plus X-linked genes.`;
+  intervals({
+    mount: $('#prenatal-chart'),
+    rows: CFDNA_SCREENING.map((s) => ({
+      key: s.condition, label: s.condition, value: s.detection, lo: s.lo, hi: s.hi, kind: 'dr', screen: s,
+    })),
+    domain: [60, 100],
+    ticks: [60, 70, 80, 90, 100],
+    kinds: [{ key: 'dr', label: 'Detection rate', color: 'var(--accent)' }],
+    valueText: (r) => `${r.value}%, FPR ${r.screen.fpr}%`,
+    aria: 'Detection rates of cell-free DNA screening with 95% confidence intervals',
+    describe: (r) => {
+      const s = r.screen;
+      return tipLines(`${s.detection}% detected`, s.condition, `95% CI ${pctRange(s.lo, s.hi)}`, `False-positive rate ${s.fpr}% (${pctRange(s.fprLo, s.fprHi)})`, `${exact(s.cases)} affected and ${exact(s.unaffected)} unaffected pregnancies`, { href: SOURCES.gil2017, text: 'Gil 2017' });
+    },
+  });
+  attachData('#prenatal-chart', 'cfdna-screening', ['Condition', 'Detection rate', 'Low', 'High', 'False-positive rate', 'FPR low', 'FPR high', 'Affected', 'Unaffected'], CFDNA_SCREENING.map((s) => [s.condition, s.detection, s.lo, s.hi, s.fpr, s.fprLo, s.fprHi, s.cases, s.unaffected]));
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -2360,6 +2619,15 @@ const DATA_SOURCES = [
   ['ClinGen region curation list, GRCh38', FILES.clingenRegions],
   ['InterPro Pfam matches by UniProt protein', FILES.interproProtein],
   ['STRchive loci, GitHub', FILES.strchive],
+  ['HPO disease annotations, phenotype.hpoa', FILES.hpoAnnotations],
+  ['HPO ontology, hp.obo', FILES.hpoOntology],
+  ['HPO genes to diseases', FILES.hpoGenes],
+  ['Orphadata genes and disorders', FILES.orphaGenes],
+  ['Orphadata prevalence', FILES.orphaPrevalence],
+  ['Orphadata age of onset and inheritance', FILES.orphaAges],
+  ['GTR test versions', FILES.gtrTests],
+  ['FDA approved cellular and gene therapy products', FILES.fdaCgt],
+  ['ClinicalTrials.gov API, studies', FILES.trials],
 ];
 
 const renderSources = () => {
@@ -2470,6 +2738,12 @@ const drawCharts = () => {
   renderValidity();
   renderCnvRegions();
   renderExpansions();
+  renderHpo();
+  renderOrphanet();
+  renderGtr();
+  renderTherapy();
+  renderYield();
+  renderPrenatal();
   applySearch();
 };
 

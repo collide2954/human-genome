@@ -977,8 +977,124 @@
     </figure>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-rare" data-chapter="rare">
     <p class="chapter-no">Part 13</p>
+    <h2 class="chapter-title">Rare disease and testing</h2>
+    <p class="chapter-dek">How rare diseases are described, how common they are, which genetic tests exist and how often they find a cause: HPO’s phenotype annotations, Orphanet’s prevalence, onset and inheritance, the Genetic Testing Registry, gene therapies from FDA approvals to trials, and meta-analyses of diagnostic yield and prenatal screening.</p>
+  </div>
+
+  <section class="story wrap" id="hpo" data-lens="clinic genes" data-nav="Phenotypes">
+    <header class="head"><p class="label">Phenotype annotations</p><h2 data-finding="hpo">Phenotype annotations</h2><p class="dek" id="hpo-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="hpo-systems-chart"></div>
+        <figcaption>Rare diseases with at least one annotated phenotype in each organ system, the children of HPO’s Phenotypic abnormality; a disease counts in every system its terms reach. Source: HPO phenotype.hpoa and hp.obo.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="hpo-terms-chart"></div>
+        <figcaption>The 20 phenotype terms annotated to the most diseases. Annotations marked NOT are left out. Source: HPO phenotype.hpoa.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="hpo-perdisease-chart"></div>
+        <figcaption>Diseases by the number of distinct phenotype terms annotated to them. Source: HPO phenotype.hpoa.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="hpo-genes-chart"></div>
+        <figcaption>Genes with a Mendelian link to the most diseases, from OMIM and Orphanet through HPO. Source: HPO genes_to_disease.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="orphanet" data-lens="clinic" data-nav="Orphanet">
+    <header class="head"><p class="label">Prevalence and onset</p><h2 data-finding="orphanet">Prevalence and onset</h2><p class="dek" id="orphanet-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="orpha-prevalence-chart"></div>
+        <figcaption>Disorders by point prevalence class, log scale; worldwide estimates first, then validated ones. Disorders with only case or family counts, and those with incidence or birth prevalence only, are counted apart. Source: Orphadata en_product9_prev.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="orpha-onset-chart"></div>
+        <figcaption>Disorders by age of onset, from before birth to old age, log scale. Source: Orphadata en_product9_ages.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="orpha-inheritance-chart"></div>
+        <figcaption>Disorders by type of inheritance, log scale. Source: Orphadata en_product9_ages.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="orpha-genes-chart"></div>
+        <figcaption>Gene-disorder associations by type, as Orphanet words them, log scale. Source: Orphadata en_product6.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="gtr" data-lens="clinic genes" data-nav="Testing">
+    <header class="head"><p class="label">Genetic tests</p><h2 data-finding="gtr">Genetic tests</h2><p class="dek" id="gtr-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="gtr-methods-chart"></div>
+        <figcaption>Current tests by method, log scale, the 15 most common; a test can use several. Source: GTR test_version.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="gtr-genecount-chart"></div>
+        <figcaption>Current tests by the number of genes they cover, log scale; tests with no gene are cytogenetic or biochemical. Source: GTR test_version.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="gtr-countries-chart"></div>
+        <figcaption>Current tests by the country of the laboratory, with the number of laboratories in brackets, log scale. Source: GTR test_version.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="gtr-genes-chart"></div>
+        <figcaption>The 20 genes covered by the most current tests, panels included. Source: GTR test_version.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="therapy" data-lens="clinic" data-nav="Gene therapy">
+    <header class="head"><p class="label">Gene therapy</p><h2 data-finding="therapy">Gene therapy</h2><p class="dek" id="therapy-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="therapy-approvals-chart"></div>
+        <figcaption>FDA-approved gene therapies and gene-modified cell products by year of first approval, cumulative, stacked by kind. Source: FDA list of approved cellular and gene therapy products; package inserts.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="therapy-vectors-chart"></div>
+        <figcaption>The same products by vector or editing method, as each package insert describes it. Source: FDA package inserts.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig">
+      <div class="chart" id="therapy-trials-chart"></div>
+      <figcaption>Interventional studies by start year whose intervention matches each search in ClinicalTrials.gov; a study can match several, and vaccine and diagnostic studies can match too. <span id="therapy-trials-note"></span> Source: ClinicalTrials.gov API.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="therapy-phases-chart"></div>
+      <figcaption>The same studies by their highest phase, as a share of each modality, with the number of studies at the end. Source: ClinicalTrials.gov API.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="yield" data-lens="clinic" data-nav="Diagnostic yield">
+    <header class="head"><p class="label">Diagnostic yield</p><h2 data-finding="yield">Diagnostic yield</h2><p class="dek" id="yield-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="yield-chart"></div>
+      <figcaption>Share of patients given a molecular diagnosis, and share whose care changed, by test, with 95% confidence intervals where reported; a bar without a dot is a reported range. Fixed values from three meta-analyses and consensus statements. Source: Miller et al. 2010; Clark et al. 2018; Srivastava et al. 2019.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="prenatal" data-lens="clinic" data-nav="Prenatal screening">
+    <header class="head"><p class="label">Prenatal screening</p><h2 data-finding="prenatal">Prenatal screening</h2><p class="dek" id="prenatal-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="prenatal-chart"></div>
+      <figcaption>Pooled detection rates of cell-free DNA screening in singleton pregnancies with 95% confidence intervals, and false-positive rates (FPR). Fixed values from a meta-analysis. Source: Gil et al. 2017; Gregg et al. 2021.</figcaption>
+    </figure>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 14</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>
