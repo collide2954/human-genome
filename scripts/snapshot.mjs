@@ -25,6 +25,9 @@ import {
   mitoFeatures, mitoVariants, censatSummary, telomeres,
 } from './structure.mjs';
 import {
+  dbsnpNotes, svSummary, constraintSummary, clingenDosage, groupedValues,
+} from './variation.mjs';
+import {
   uniprotSummary, hpaSummary, gtexSummary, pharosSummary, tissueSites, pfamNames, alignSites,
 } from './proteins.mjs';
 import { runSections } from './sections.mjs';
@@ -196,8 +199,36 @@ const structure = async () => ({
   telomeres: telomeres(await text(FILES.telomeres)),
 });
 
+const feed = async (url, accumulator) => {
+  for await (const line of await anyLines(await file(url))) if (line) accumulator.add(line);
+  return accumulator;
+};
+
+const variation = async () => {
+  const sv = svSummary();
+  for (const key of ['nr_deletions', 'nr_duplications', 'nr_insertions']) await feed(FILES[key], sv);
+  return { dbsnp: dbsnpNotes(await text(FILES.dbsnpNotes)), sv: sv.result() };
+};
+
+let constraintRun;
+const constraintFile = () => {
+  constraintRun ??= feed(FILES.gnomadConstraint, constraintSummary());
+  return constraintRun;
+};
+
+const constraint = async () => {
+  const acc = await constraintFile();
+  const gnomad = acc.result();
+  const { hiGenes, ...dosage } = clingenDosage(await text(FILES.clingenGenes));
+  return {
+    gnomad,
+    dosage,
+    byDosage: groupedValues(acc.values(), new Map([...hiGenes].map((g) => [g, 'sufficient'])), gnomad.loeuf.edges),
+  };
+};
+
 const SECTIONS = {
-  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure,
+  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint,
 };
 
 const now = new Date();
