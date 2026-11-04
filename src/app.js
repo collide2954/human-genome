@@ -1,17 +1,19 @@
 import snapshot from './snapshot.js';
 import {
-  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS, GENE_THERAPIES, GENE_THERAPIES_CHECKED, DIAGNOSTIC_YIELD, CFDNA_SCREENING, CARRIER_TIER3,
+  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS, GENE_THERAPIES, GENE_THERAPIES_CHECKED, DIAGNOSTIC_YIELD, CFDNA_SCREENING, CARRIER_TIER3, BIOBANKS, GNOMAD_V4,
 } from './facts.js';
 import {
-  exact, cell, compact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, AA3, codonOf, perLitre, CHANNELS, SUBSTITUTIONS,
+  exact, cell, compact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, AA3, codonOf, perLitre, CHANNELS, SUBSTITUTIONS, wordy,
 } from './lib.js';
-import { pearson, linearFit, linearEdges } from './stats.js';
-import { FILES, TRIAL_MODALITIES } from './queries.js';
+import {
+  pearson, linearFit, linearEdges, summary,
+} from './stats.js';
+import { FILES, TRIAL_MODALITIES, assemblyPage } from './queries.js';
 import {
   findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons, gtexTissues, plasmaLevel, proteomeResidues, proteinLabel, trnaPairs, titv,
 } from './findings.js';
 import {
-  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, heatmap, genomeMap, dumbbell, grid as shareGrid, lollipop as lollipopChart, spectrum, ranges, intervals, lines, observeFigures, countUp, tipLines, measureWidths, forgetWidths,
+  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, dotmap, logo, codonTable, heatmap, genomeMap, dumbbell, grid as shareGrid, lollipop as lollipopChart, spectrum, ranges, intervals, lines, observeFigures, countUp, tipLines, measureWidths, forgetWidths,
 } from './charts.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -1838,6 +1840,292 @@ const renderDosage = () => {
   attachData('#dosage-chart', 'clingen-dosage', ['Curation', ...DOSAGE_SCORES.map(([, label]) => label)], [['Haploinsufficiency', ...DOSAGE_SCORES.map(([k]) => hi[k] ?? 0)], ['Triplosensitivity', ...DOSAGE_SCORES.map(([k]) => ts[k] ?? 0)]]);
 };
 
+const yearOfDate = (iso) => {
+  const [y, m, d] = iso.split('-').map(Number);
+  return y + (Date.UTC(y, m - 1, d) - Date.UTC(y, 0, 1)) / (Date.UTC(y + 1, 0, 1) - Date.UTC(y, 0, 1));
+};
+
+const ANC = snapshot.ancestry;
+const AAD = snapshot.ancient;
+const KG = snapshot.igsr;
+const ASM = snapshot.assemblies;
+
+const ANCESTRY = [
+  ['European', 'European', 'var(--s2)'],
+  ['East Asian', 'East Asian', 'var(--s4)'],
+  ['African American or Afro-Caribbean', 'African American or Afro-Caribbean', 'var(--s1)'],
+  ['Hispanic or Latin American', 'Hispanic or Latin American', 'var(--s3)'],
+  ['South Asian', 'South Asian', 'var(--s5)'],
+  ['Multiple categories', 'Multiple categories', 'var(--ink-2)'],
+  ['NR', 'NR (not reported)', 'var(--data-2)'],
+  ['other', 'Other categories', 'var(--data)'],
+];
+const NAMED_ANCESTRY = ANCESTRY.map(([k]) => k).filter((k) => k !== 'other');
+const ancestryOf = (counts) => ({
+  ...Object.fromEntries(NAMED_ANCESTRY.map((k) => [k, counts[k] ?? 0])),
+  other: sumOf(Object.entries(counts).filter(([k]) => !NAMED_ANCESTRY.includes(k)).map(([, n]) => n)),
+});
+const sharesOf = (values) => {
+  const total = sumOf(Object.values(values));
+  return Object.fromEntries(Object.entries(values).map(([k, v]) => [k, total ? (v / total) * 100 : 0]));
+};
+const pctOf = (v) => pct(v / 100);
+
+const renderAncestry = () => {
+  const years = Object.keys(ANC.byYear).map(Number).sort((a, b) => a - b);
+  const counts = years.map((y) => ancestryOf(ANC.byYear[y]));
+  const yearShares = counts.map(sharesOf);
+  const totals = counts.map((c) => sumOf(Object.values(c)));
+  const stages = [['initial', 'Discovery'], ['replication', 'Replication']].map(([key, label]) => {
+    const values = ancestryOf(ANC.stages[key]);
+    return {
+      key, label, n: sumOf(Object.values(values)), counts: values, values: sharesOf(values),
+    };
+  });
+  const replication = stages[1];
+  const eu = (i) => yearShares[i].European;
+  const large = years.map((_, i) => i).filter((i) => totals[i] >= 1e6);
+  const low = large.reduce((a, b) => (eu(b) < eu(a) ? b : a), large[0]);
+  const high = large.reduce((a, b) => (eu(b) > eu(a) ? b : a), large[0]);
+  const last = years.length - 1;
+  $('#ancestry-dek').textContent = `${exact(ANC.studies)} studies list ${wordy(ANC.participants)} participant entries; a cohort counts again in every study that uses it. At replication, ${pctOf(replication.values.European)} are listed as European and ${pctOf(replication.values.NR)} have no ancestry reported. Among years with a million or more entries, the European share of discovery participants ranged from ${pctOf(eu(low))} in ${years[low]} to ${pctOf(eu(high))} in ${years[high]}; it is ${pctOf(eu(last))} for studies published in ${years[last]}.`;
+  stackedArea({
+    mount: $('#ancestry-years-chart'),
+    years,
+    series: ANCESTRY.map(([key, label, color]) => ({
+      key, label, color, values: yearShares.map((s) => s[key]),
+    })),
+    max: 100,
+    format: pctOf,
+    yFormat: (v) => `${v}%`,
+    head: (i) => `${years[i]}: ${exact(ANC.studiesByYear[years[i]] ?? 0)} studies, ${compact(totals[i])} entries`,
+    aria: 'Share of GWAS discovery participants by broad ancestral category and publication year',
+  });
+  const ranked = (tables) => {
+    const sums = {};
+    for (const t of tables) for (const [c, n] of Object.entries(t)) sums[c] = (sums[c] ?? 0) + n;
+    return Object.keys(sums).sort((a, b) => sums[b] - sums[a]);
+  };
+  const yearCats = ranked(years.map((y) => ANC.byYear[y]));
+  attachData('#ancestry-years-chart', 'gwas-ancestry-by-year', ['Year', 'Studies', 'Discovery participant entries', ...yearCats], years.map((y, i) => [y, ANC.studiesByYear[y] ?? 0, totals[i], ...yearCats.map((c) => ANC.byYear[y][c] ?? 0)]));
+  hbars({
+    mount: $('#ancestry-stages-chart'),
+    rows: stages,
+    segments: ANCESTRY.map(([key, label, color]) => ({ key, label, color })),
+    max: 100,
+    tickFormat: (t) => `${t}%`,
+    valueText: (r) => compact(r.n),
+    labelShare: 0.2,
+    aria: 'Share of GWAS participant entries by broad ancestral category at discovery and replication',
+    describe: (r) => tipLines(`${exact(r.n)} participant entries`, `${r.label} stage`, ...ANCESTRY.map(([k, label]) => `${label}: ${pctOf(r.values[k])}`)),
+  });
+  const stageCats = ranked(stages.map((r) => ANC.stages[r.key]));
+  attachData('#ancestry-stages-chart', 'gwas-ancestry-by-stage', ['Stage', ...stageCats], stages.map((r) => [r.label, ...stageCats.map((c) => ANC.stages[r.key][c] ?? 0)]));
+  dotplot({
+    mount: $('#ancestry-countries-chart'),
+    rows: ANC.countries.map((c, i) => ({
+      key: c.country, label: c.country, value: c.participants, hi: i === 0,
+    })),
+    format: compact,
+    rowH: 20,
+    aria: 'Countries of recruitment with the most GWAS participant entries, log scale',
+    describe: (r) => tipLines(`${exact(r.value)} participant entries`, r.key, `${pct(r.value / ANC.participants)} of all entries`),
+  });
+  attachData('#ancestry-countries-chart', 'gwas-countries', ['Country of recruitment', 'Participant entries'], ANC.countries.map((c) => [c.country, c.participants]));
+};
+
+const binRange = (edges, i, unit, format = exact) => {
+  if (i === 0) return `under ${format(edges[1])} ${unit}`;
+  if (i === edges.length - 2) return `${format(edges[i])} ${unit} or more`;
+  return `${format(edges[i])} to ${format(edges[i + 1])} ${unit}`;
+};
+const cellSpan = (v, size, pos, neg) => (v >= 0 ? `${v}–${v + size}°${pos}` : `${-v - size}–${-v}°${neg}`);
+const cellName = (c) => `${cellSpan(c.lat, 2, 'N', 'S')}, ${cellSpan(c.lon, 2, 'E', 'W')}`;
+
+const renderAncient = () => {
+  const {
+    ages, snps, dataTypes, sex, grid,
+  } = AAD;
+  const old = sumOf(ages.counts.filter((_, i) => ages.edges[i] >= 1e4));
+  const densest = grid.reduce((a, b) => (b.n > a.n ? b : a));
+  const release = AAD.released ? ` of ${longDate(AAD.released)}` : '';
+  $('#ancient-dek').textContent = `Ages are mean dates in years before 1950 CE; the median is ${exact(ages.median)}, and ${exact(old)} individuals date to 10,000 or more years before present. ${exact(dataTypes.Capture ?? 0)} were genotyped by targeted capture, ${exact(dataTypes.Shotgun ?? 0)} by shotgun sequencing and ${exact(dataTypes['Capture and shotgun'] ?? 0)} by both. Molecular sex: ${exact(sex.M ?? 0)} male, ${exact(sex.F ?? 0)} female, ${exact(sex.U ?? 0)} not determined. The densest 2° cell, ${cellName(densest)}, holds ${exact(densest.n)}. Release ${AAD.version}${release} also lists ${exact(AAD.present)} present-day people, left out here.`;
+  histo({
+    mount: $('#ancient-ages-chart'),
+    bins: ages.counts.map((_, i) => i),
+    series: [{
+      key: 'ages', label: 'Individuals', color: 'var(--data)', values: ages.counts,
+    }],
+    tickEvery: 4,
+    tickLabel: (b) => exact(ages.edges[b]),
+    height: 200,
+    aria: 'Ancient individuals by mean date, log scale of time',
+    describe: (i) => tipLines(`${exact(ages.counts[i])} individuals`, binRange(ages.edges, i, 'years before present')),
+  });
+  attachData('#ancient-ages-chart', 'aadr-ages', ['Years BP from', 'Years BP to', 'Individuals'], ages.counts.map((n, i) => [Math.round(ages.edges[i]), Math.round(ages.edges[i + 1]), n]));
+  const listed = Object.keys(AAD.published).map(Number);
+  const first = Math.min(...listed);
+  const releaseYear = AAD.released ? Number(AAD.released.slice(0, 4)) : null;
+  const published = Array.from({ length: Math.max(...listed) - first + 1 }, (_, i) => ({
+    year: first + i, n: AAD.published[first + i] ?? 0, partial: first + i === releaseYear,
+  }));
+  columns({
+    mount: $('#ancient-published-chart'),
+    rows: published,
+    key: (r) => r.year,
+    value: (r) => r.n,
+    height: 200,
+    aria: 'Ancient individuals by the year they were first published',
+    describe: (r) => tipLines(`${exact(r.n)} individuals`, `first published in ${r.year}${r.partial ? `, up to the release${release}` : ''}`),
+  });
+  attachData('#ancient-published-chart', 'aadr-first-published', ['Year', 'Individuals'], published.map((r) => [r.year, r.n]));
+  dotmap({
+    mount: $('#ancient-map-chart'),
+    cells: grid,
+    size: 2,
+    top: Math.max(84, ...grid.map((c) => c.lat + 2)),
+    bottom: Math.min(-56, ...grid.map((c) => c.lat)),
+    aria: 'Ancient individuals per 2 by 2 degree cell of latitude and longitude',
+    describe: (c) => tipLines(`${exact(c.n)} individuals`, cellName(c), `median ${exact(c.age)} years before present`),
+  });
+  attachData('#ancient-map-chart', 'aadr-grid', ['Latitude from', 'Longitude from', 'Individuals', 'Median years BP'], grid.map((c) => [c.lat, c.lon, c.n, c.age]));
+  dotplot({
+    mount: $('#ancient-countries-chart'),
+    rows: AAD.countries.map((c, i) => ({
+      key: c.country, label: c.country, value: c.n, hi: i === 0,
+    })),
+    scale: 'linear',
+    rowH: 20,
+    aria: 'Countries with the most ancient individuals',
+    describe: (r) => tipLines(`${exact(r.value)} individuals`, r.key, `${pct(r.value / AAD.individuals)} of all`),
+  });
+  attachData('#ancient-countries-chart', 'aadr-countries', ['Country', 'Individuals'], AAD.countries.map((c) => [c.country, c.n]));
+  histo({
+    mount: $('#ancient-snps-chart'),
+    bins: snps.counts.map((_, i) => i),
+    series: [{
+      key: 'snps', label: 'Individuals', color: 'var(--data)', values: snps.counts,
+    }],
+    tickEvery: 4,
+    tickLabel: (b) => compact(snps.edges[b]),
+    height: 200,
+    aria: 'Ancient individuals by the number of 1240k sites covered, log scale',
+    describe: (i) => tipLines(`${exact(snps.counts[i])} individuals`, binRange(snps.edges, i, 'sites covered')),
+  });
+  attachData('#ancient-snps-chart', 'aadr-sites-covered', ['Sites from', 'Sites to', 'Individuals'], snps.counts.map((n, i) => [Math.round(snps.edges[i]), Math.round(snps.edges[i + 1]), n]));
+  for (const [kind, list, label] of [['y', AAD.y, 'Y'], ['mt', AAD.mt, 'mtDNA']]) {
+    dotplot({
+      mount: $(`#ancient-${kind}-chart`),
+      rows: list.map((g, i) => ({
+        key: g.group, label: g.group, value: g.n, hi: i === 0,
+      })),
+      scale: 'linear',
+      rowH: 18,
+      labelShare: 0.1,
+      aria: `Ancient individuals by major ${label} haplogroup`,
+      describe: (r) => tipLines(`${exact(r.value)} individuals`, `${label} haplogroup ${r.key}`),
+    });
+    attachData(`#ancient-${kind}-chart`, `aadr-${kind}-haplogroups`, [`${label} haplogroup`, 'Individuals'], list.map((g) => [g.group, g.n]));
+  }
+};
+
+const SUPER_COLORS = {
+  AFR: 'var(--s1)', AMR: 'var(--s3)', EAS: 'var(--s4)', EUR: 'var(--s2)', SAS: 'var(--s5)',
+};
+const QUALIFIER = { about: '~', 'more than': '>' };
+const shortCite = (key) => SOURCE_TITLES[key]?.[1].split(', ')[0] ?? key;
+
+const renderPanels = () => {
+  const { panel } = KG;
+  const supers = [...new Set(panel.populations.map((p) => p.superpopulation))].sort();
+  const superName = Object.fromEntries(panel.populations.map((p) => [p.superpopulation, p.superpopulationName]));
+  const rows = supers.flatMap((sp) => panel.populations.filter((p) => p.superpopulation === sp).map((p) => ({
+    key: p.code, label: `${p.name} (${p.code})`, values: { [sp]: p.n }, pop: p,
+  })));
+  const bySuper = (sp) => sumOf(panel.populations.filter((p) => p.superpopulation === sp).map((p) => p.n));
+  $('#panels-dek').textContent = `The 30x set has ${exact(panel.sex.M ?? 0)} male and ${exact(panel.sex.F ?? 0)} female samples: ${supers.map((sp) => `${exact(bySuper(sp))} ${sp}`).join(', ')}. IGSR holds ${exact(KG.total)} samples across ${exact(KG.collections.length)} data collections. gnomAD v4 pools exomes from ${exact(GNOMAD_V4.exomes)} people, ${exact(GNOMAD_V4.ukBiobank)} of them from UK Biobank, and genomes from ${exact(GNOMAD_V4.genomes)}; about ${exact(GNOMAD_V4.nonEuropean)} are of non-European genetic ancestry.`;
+  hbars({
+    mount: $('#panels-1kg-chart'),
+    rows,
+    segments: supers.map((sp) => ({ key: sp, label: `${superName[sp]} (${sp})`, color: SUPER_COLORS[sp] ?? 'var(--data)' })),
+    labelShare: 0.34,
+    labelMax: 180,
+    rowH: 18,
+    aria: 'Samples per population in the 1000 Genomes 30x set, by superpopulation',
+    describe: (r) => tipLines(`${exact(r.pop.n)} samples`, `${r.pop.name} (${r.pop.code})`, `${r.pop.superpopulationName} (${r.pop.superpopulation})`),
+  });
+  attachData('#panels-1kg-chart', '1000-genomes-30x-populations', ['Code', 'Population', 'Superpopulation', 'Samples'], rows.map((r) => [r.pop.code, r.pop.name, r.pop.superpopulationName, r.pop.n]));
+  dotplot({
+    mount: $('#panels-biobanks-chart'),
+    rows: BIOBANKS.map((b, i) => ({
+      key: b.name, label: b.name, value: b.people, hi: i === 0, bank: b,
+    })),
+    scale: 'linear',
+    format: (v, r) => `${QUALIFIER[r.bank.qualifier] ?? ''}${exact(v)}`,
+    aria: 'Participants in eight large biobanks, as each cohort paper reports them',
+    describe: (r) => tipLines(`${r.bank.qualifier ? `${r.bank.qualifier} ` : ''}${exact(r.value)} ${r.bank.measure}`, r.bank.name, { href: SOURCES[r.bank.source], text: shortCite(r.bank.source) }),
+  });
+  attachData('#panels-biobanks-chart', 'biobank-sizes', ['Biobank', 'Qualifier', 'Count', 'Counted as', 'Source'], BIOBANKS.map((b) => [b.name, b.qualifier ?? '', b.people, b.measure, SOURCES[b.source]]));
+};
+
+const ASSEMBLY_LEVELS = [['Contig', 'var(--s4)'], ['Scaffold', 'var(--s3)'], ['Chromosome', 'var(--s2)'], ['Complete Genome', 'var(--s5)']];
+
+const renderAssemblies = () => {
+  const known = ASSEMBLY_LEVELS.map(([l]) => l);
+  const levels = [...ASSEMBLY_LEVELS.filter(([l]) => l in ASM.levels), ...Object.keys(ASM.levels).filter((l) => !known.includes(l)).map((l) => [l, 'var(--data)'])];
+  const colorOf = Object.fromEntries(levels);
+  const listed = Object.keys(ASM.byYear).map(Number);
+  const first = Math.min(...listed);
+  const years = Array.from({ length: Math.max(...listed) - first + 1 }, (_, i) => first + i);
+  const perYear = years.map((y) => ASM.byYear[y] ?? {});
+  const n50Of = (y) => ASM.n50.filter((p) => p[0].startsWith(String(y))).map((p) => p[1]);
+  const busy = years.filter((y) => n50Of(y).length >= 10);
+  const [y0, y1] = [busy[0], busy.at(-1)];
+  const over100 = ASM.n50.filter((p) => p[1] >= 1e8).length;
+  const best = ASM.best;
+  $('#assemblies-dek').textContent = `By assembly level: ${Object.entries(ASM.levels).sort((a, b) => b[1] - a[1]).map(([l, n]) => `${l.toLowerCase()} ${exact(n)}`).join(', ')}. The median contig N50 was ${bases(summary(n50Of(y0)).median)} for assemblies released in ${y0} and ${bases(summary(n50Of(y1)).median)} for ${y1}. ${exact(over100)} have a contig N50 of 100 Mb or more; the longest is ${best.name} (${best.accession}) from ${best.submitter}.`;
+  const toDate = perYear.map((_, i) => Object.fromEntries(levels.map(([l]) => [l, sumOf(perYear.slice(0, i + 1).map((x) => x[l] ?? 0))])));
+  stackedArea({
+    mount: $('#assemblies-years-chart'),
+    years,
+    series: levels.map(([l, color]) => ({
+      key: l, label: l, color, values: toDate.map((x) => x[l]),
+    })),
+    head: (i) => `${years[i]}: ${exact(sumOf(Object.values(toDate[i])))} by year end, ${exact(sumOf(Object.values(perYear[i])))} released that year`,
+    aria: 'Human genome assemblies at NCBI released by the end of each year, by assembly level',
+  });
+  attachData('#assemblies-years-chart', 'assemblies-by-year', ['Year', ...levels.map(([l]) => `${l} released`), 'All released by year end'], years.map((y, i) => [y, ...levels.map(([l]) => perYear[i][l] ?? 0), sumOf(Object.values(toDate[i]))]));
+  const points = ASM.n50.filter(([date]) => /^\d{4}-\d{2}-\d{2}/.test(date)).map(([date, n50, level, accession]) => ({
+    key: accession, x: yearOfDate(date), y: n50, color: colorOf[level] ?? 'var(--data)', hi: accession === best.accession, date, level, accession,
+  }));
+  scatter({
+    mount: $('#assemblies-n50-chart'),
+    points,
+    yLog: true,
+    xFormat: (v) => String(v),
+    yFormat: (v) => (v >= 1e9 ? `${v / 1e9} Gb` : v >= 1e6 ? `${v / 1e6} Mb` : v >= 1e3 ? `${v / 1e3} kb` : `${v} bp`),
+    xLabel: 'release date',
+    yLabel: 'contig N50, log scale',
+    legend: levels.map(([label, color]) => ({ label, color })),
+    aria: 'Contig N50 of each human genome assembly at NCBI by release date, log scale',
+    describe: (p) => tipLines(bases(p.y), `contig N50 of ${p.accession}`, `${p.level}, released ${longDate(p.date)}`),
+  });
+  attachData('#assemblies-n50-chart', 'assemblies-contig-n50', ['Accession', 'Release date', 'Level', 'Contig N50'], ASM.n50.map(([date, n50, level, accession]) => [accession, date, level, n50]));
+  dotplot({
+    mount: $('#assemblies-submitters-chart'),
+    rows: ASM.submitters.map((s, i) => ({
+      key: s.submitter, label: s.submitter, value: s.n, hi: i === 0,
+    })),
+    scale: 'linear',
+    rowH: 20,
+    labelShare: 0.48,
+    labelMax: 530,
+    aria: 'Submitters of the most human genome assemblies at NCBI',
+    describe: (r) => tipLines(`${exact(r.value)} assemblies`, r.key, pct(r.value / ASM.total)),
+  });
+  attachData('#assemblies-submitters-chart', 'assembly-submitters', ['Submitter', 'Assemblies'], ASM.submitters.map((s) => [s.submitter, s.n]));
+};
+
 const CV = snapshot.clinvar;
 const CT = snapshot.clinvarTable;
 const CLASS_KEYS = ['Pathogenic', 'Pathogenic/Likely pathogenic', 'Likely pathogenic', 'Uncertain significance', 'Likely benign', 'Benign/Likely benign', 'Benign', 'Conflicting', 'Other'];
@@ -1999,11 +2287,6 @@ const renderReview = () => {
     },
   });
   attachData('#review-types-chart', 'clinvar-submitter-types', ['Type', 'Organizations', 'Submissions'], O.types.map((t) => [t.type, t.orgs, t.submissions]));
-};
-
-const yearOfDate = (iso) => {
-  const [y, m, d] = iso.split('-').map(Number);
-  return y + (Date.UTC(y, m - 1, d) - Date.UTC(y, 0, 1)) / (Date.UTC(y + 1, 0, 1) - Date.UTC(y, 0, 1));
 };
 
 const renderGrowth = () => {
@@ -2622,6 +2905,10 @@ const DATA_SOURCES = [
   ['dbVar non-redundant insertions, GRCh38', FILES.nr_insertions],
   ['gnomAD v4.1 constraint metrics', FILES.gnomadConstraint],
   ['ClinGen gene curation list, GRCh38', FILES.clingenGenes],
+  ['GWAS Catalog ancestry download', FILES.gwasAncestry],
+  ['Allen Ancient DNA Resource on Harvard Dataverse', FILES.aadrDataset],
+  ['IGSR sample search API', FILES.igsrSamples],
+  ['NCBI Datasets human genome assembly reports', assemblyPage()],
   ['ClinVar GRCh38 VCF', FILES.clinvarVcf],
   ['ClinVar GRCh38 VCF archive', FILES.clinvarArchive],
   ['ClinVar variant_summary', FILES.clinvarTable],
@@ -2705,8 +2992,9 @@ const RENDERERS = [
   renderSplicing, renderTranslation, renderCodons, renderProteome, renderStructures, renderMembrane, renderDomains, renderModifications,
   renderTargets, renderSpecificity, renderGtex, renderPlasma, renderInteractions, renderPathways, renderOntology, renderCcres,
   renderCpgIslands, renderTrna, renderEncode, renderMito, renderCensat, renderSexchrom, renderDbsnp, renderSv, renderConstraint,
-  renderDosage, renderClinvar, renderReview, renderGrowth, renderLollipops, renderSpectrum, renderValidity, renderCnvRegions,
-  renderExpansions, renderHpo, renderOrphanet, renderGtr, renderTherapy, renderYield, renderPrenatal,
+  renderDosage, renderAncestry, renderAncient, renderPanels, renderAssemblies, renderClinvar, renderReview, renderGrowth, renderLollipops,
+  renderSpectrum, renderValidity, renderCnvRegions, renderExpansions, renderHpo, renderOrphanet, renderGtr, renderTherapy, renderYield,
+  renderPrenatal,
 ];
 
 let drawRun = 0;

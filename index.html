@@ -54,8 +54,8 @@
   <aside class="readme wrap" id="readme" aria-labelledby="readme-title">
     <h2 class="readme-title" id="readme-title">How to read these numbers</h2>
     <ul>
-      <li><b>Rebuilt weekly.</b> Counts come from the files and APIs of NCBI, UCSC, GENCODE, EBI, ClinGen, HPO, Orphanet, FDA, ClinicalTrials.gov and STRchive, pulled every Sunday. A source that fails keeps last week’s numbers and its own date. Tap a mark for its numbers.</li>
-      <li><b>Fixed values.</b> A few figures come from cited papers rather than files, such as diagnostic yields and screening rates; their captions say so, and they change only when the page is edited.</li>
+      <li><b>Rebuilt weekly.</b> Counts come from the files and APIs of NCBI, UCSC, GENCODE, EBI and its GWAS Catalog, ClinGen, HPO, Orphanet, IGSR, the Allen Ancient DNA Resource, FDA, ClinicalTrials.gov and STRchive, pulled every Sunday. A source that fails keeps last week’s numbers and its own date. Tap a mark for its numbers.</li>
+      <li><b>Fixed values.</b> A few figures come from cited papers rather than files, such as biobank sizes, diagnostic yields and screening rates; their captions say so, and they change only when the page is edited.</li>
       <li><b>GRCh38 coordinates.</b> Positions are on GRCh38.p14, counted from 1 with both ends included, as genome browsers show them. The UCSC tables count from 0; they are converted.</li>
       <li><b>Two assemblies.</b> GRCh38 is the reference the databases annotate. T2T-CHM13v2.0 is the first gapless assembly, from one cell line, with chromosome Y from a second person.</li>
       <li><b>Chromosomes only.</b> Counts cover chromosomes 1 to 22, X, Y and the mitochondrial genome where it says so. Alternate loci, patches and unplaced scaffolds are counted apart.</li>
@@ -834,8 +834,98 @@
     </figure>
   </section>
 
-  <div class="chapter wrap" id="ch-clinical" data-chapter="clinical">
+  <div class="chapter wrap" id="ch-populations" data-chapter="populations">
     <p class="chapter-no">Part 12</p>
+    <h2 class="chapter-title">Populations and ancient genomes</h2>
+    <p class="chapter-dek">Whose genomes the data come from: the ancestry of participants in the studies the GWAS Catalog curates, the ancient individuals in the Allen Ancient DNA Resource, the 1000 Genomes reference panel and eight large biobanks, and every human genome assembly at NCBI.</p>
+  </div>
+
+  <section class="story wrap" id="ancestry" data-lens="variation clinic" data-nav="GWAS ancestry">
+    <header class="head"><p class="label">GWAS participants by ancestry</p><h2 data-finding="ancestry">GWAS participants by ancestry</h2><p class="dek" id="ancestry-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="ancestry-years-chart"></div>
+      <figcaption>Discovery-stage participants by the GWAS Catalog’s broad ancestral category, as a share of each publication year. Participants are summed over studies, so a cohort used in many studies counts in each. A sample group listed under several categories counts as Multiple categories; smaller categories are grouped as Other categories, and the data table keeps every one. Source: GWAS Catalog ancestry download.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="ancestry-stages-chart"></div>
+        <figcaption>Participant entries by broad ancestral category at the discovery and replication stages, as a share of each, with the stage’s total at the end. Source: GWAS Catalog.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="ancestry-countries-chart"></div>
+        <figcaption>The 20 countries of recruitment with the most participant entries, both stages, log scale. A row listing several countries counts in each, so the countries add up to more than the total. Source: GWAS Catalog.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="ancient" data-lens="variation" data-nav="Ancient DNA">
+    <header class="head"><p class="label">Ancient genomes</p><h2 data-finding="ancient">Ancient genomes</h2><p class="dek" id="ancient-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="ancient-map-chart"></div>
+      <figcaption>Ancient individuals per cell of 2° latitude by 2° longitude, on an equirectangular grid, shaded by the log of the count; individuals without coordinates are left out. Each cell gives its count and median date. Source: Allen Ancient DNA Resource, 1240k annotation file.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="ancient-ages-chart"></div>
+        <figcaption>Ancient individuals by mean date in years before 1950 CE, four bins per tenfold step; the first bin also holds anyone younger. Source: AADR.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="ancient-published-chart"></div>
+        <figcaption>Ancient individuals by the year of the paper that first reported them; the last year runs to the release date. Individuals whose first publication has no year are left out. Source: AADR.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="ancient-countries-chart"></div>
+        <figcaption>The 20 present-day countries where the most ancient individuals were found. Source: AADR.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="ancient-snps-chart"></div>
+        <figcaption>Ancient individuals by the number of autosomal 1240k target sites with data, four bins per tenfold step. Source: AADR.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="ancient-y-chart"></div>
+        <figcaption>The 15 commonest major Y haplogroups, the first letter of the ISOGG call. Source: AADR.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="ancient-mt-chart"></div>
+        <figcaption>The 15 commonest major mtDNA haplogroups. L haplogroups keep their number and HV and JT stay whole; the rest take their first letter. Source: AADR.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="panels" data-lens="variation" data-nav="Panels and biobanks">
+    <header class="head"><p class="label">Reference panels and biobanks</p><h2 data-finding="panels">Reference panels and biobanks</h2><p class="dek" id="panels-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="panels-1kg-chart"></div>
+      <figcaption>Samples in the 1000 Genomes 30x set on GRCh38 by population, grouped by superpopulation, with names and codes as IGSR gives them. Source: IGSR sample API; Byrska-Bishop et al. 2022.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="panels-biobanks-chart"></div>
+      <figcaption>Fixed values. Participants in eight large biobanks as each cohort paper counts them, which differs from paper to paper: recruited, registered, analysed or sequenced; ~ marks about and &gt; more than. Each dot names its measure and paper. Sources: Verma et al. 2024; Chen et al. 2011; Bycroft et al. 2018; All of Us 2024; Kurki et al. 2023; Nagai et al. 2017; Ziyatdinov et al. 2023; Feng et al. 2022.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="assemblies" data-lens="variation sequence" data-nav="Assemblies">
+    <header class="head"><p class="label">Human genome assemblies</p><h2 data-finding="assemblies">Human genome assemblies</h2><p class="dek" id="assemblies-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="assemblies-n50-chart"></div>
+      <figcaption>Contig N50 of each current human assembly at NCBI by release date, log scale: half of the assembled sequence sits in contigs at least this long. GenBank (GCA) and RefSeq (GCF) records count separately. Color is the assembly level. Source: NCBI Datasets genome reports, taxon 9606.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="assemblies-years-chart"></div>
+      <figcaption>Current assemblies released by the end of each year, by assembly level, stacked; the last year runs to the snapshot date. A replaced version drops out, so earlier years count only what is still current. Source: NCBI Datasets.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="assemblies-submitters-chart"></div>
+      <figcaption>The 12 submitters with the most assemblies, named as NCBI lists them. Source: NCBI Datasets.</figcaption>
+    </figure>
+  </section>
+
+  <div class="chapter wrap" id="ch-clinical" data-chapter="clinical">
+    <p class="chapter-no">Part 13</p>
     <h2 class="chapter-title">Clinical variants</h2>
     <p class="chapter-dek">How variants are judged for disease: ClinVar’s germline classes by consequence, review and submitter, its growth since 2017, the variants along four proteins, the substitutions behind pathogenic SNVs, ClinGen’s curation of genes and dosage-sensitive regions, and the repeat expansion loci STRchive tracks.</p>
   </div>
@@ -979,7 +1069,7 @@
   </section>
 
   <div class="chapter wrap" id="ch-rare" data-chapter="rare">
-    <p class="chapter-no">Part 13</p>
+    <p class="chapter-no">Part 14</p>
     <h2 class="chapter-title">Rare disease and testing</h2>
     <p class="chapter-dek">How rare diseases are described, how common they are, which genetic tests exist and how often they find a cause: HPO’s phenotype annotations, Orphanet’s prevalence, onset and inheritance, the Genetic Testing Registry, gene therapies from FDA approvals to trials, and meta-analyses of diagnostic yield and prenatal screening.</p>
   </div>
@@ -1095,7 +1185,7 @@
   </section>
 
   <div class="chapter wrap" id="ch-reference" data-chapter="reference">
-    <p class="chapter-no">Part 14</p>
+    <p class="chapter-no">Part 15</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>
