@@ -5,8 +5,11 @@ import { join } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { retry } from '../src/lib.js';
 import {
-  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS,
+  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS, TRIAL_MODALITIES, trialPage,
 } from '../src/queries.js';
+import {
+  hpoTerms, hpoAnnotations, geneDiseases, orphaGenes, orphaPrevalence, orphaAges, gtrTests, fdaProducts, trialYears,
+} from './rare.mjs';
 import { linearEdges } from '../src/stats.js';
 import {
   buildAssembly, latestFile, toModule, rmskSummary, superDupsSummary, tandemSummary, parseAssemblyReport,
@@ -285,8 +288,40 @@ const expansions = async () => {
   return { updated: last?.commit?.committer?.date?.slice(0, 10) ?? null, ...repeatLoci(await json(FILES.strchive)) };
 };
 
+const hpo = async () => {
+  const onto = hpoTerms(await text(FILES.hpoOntology));
+  return {
+    ontology: onto.version, terms: onto.terms.size, ...hpoAnnotations(await text(FILES.hpoAnnotations), onto), genes: geneDiseases(await text(FILES.hpoGenes)),
+  };
+};
+
+const orphanet = async () => ({
+  genes: orphaGenes(await text(FILES.orphaGenes)),
+  prevalence: orphaPrevalence(await text(FILES.orphaPrevalence)),
+  ages: orphaAges(await text(FILES.orphaAges)),
+});
+
+const gtr = async () => gtrTests(await text(FILES.gtrTests));
+
+const allStudies = async (query) => {
+  const studies = [];
+  let token = null;
+  do {
+    const page = await json(trialPage(query, token));
+    studies.push(...(page.studies ?? []));
+    token = page.nextPageToken ?? null;
+  } while (token);
+  return studies;
+};
+
+const therapies = async () => {
+  const trials = {};
+  for (const m of TRIAL_MODALITIES) trials[m.key] = trialYears(await allStudies(m.query));
+  return { fda: fdaProducts(await text(FILES.fdaCgt)), trials };
+};
+
 const SECTIONS = {
-  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint, clinvar, clinvarTable, clinvarGrowth, validity, regions, expansions,
+  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint, clinvar, clinvarTable, clinvarGrowth, validity, regions, expansions, hpo, orphanet, gtr, therapies,
 };
 
 const now = new Date();
