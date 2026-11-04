@@ -122,8 +122,62 @@
     </figure>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-repeats" data-chapter="repeats">
     <p class="chapter-no">Part 2</p>
+    <h2 class="chapter-title">Repeats</h2>
+    <p class="chapter-dek">Transposon families and how long ago they spread, duplicated blocks, and tandem repeats, as annotated on GRCh38.</p>
+  </div>
+
+  <section class="story wrap" id="transposons" data-lens="sequence" data-nav="Transposons">
+    <header class="head"><p class="label">Repeat families</p><h2 data-finding="transposons">Repeat families</h2><p class="dek" id="transposons-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="repeat-chart"></div>
+      <figcaption>Bases RepeatMasker assigns to each repeat family on chromosomes 1 to 22, X and Y, colored by class: LINE red, SINE blue, LTR ochre, DNA transposons green, satellites purple. The smallest families are grouped as other. Source: UCSC hg38 rmsk table.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="landscape" data-lens="sequence" data-nav="Landscape">
+    <header class="head"><p class="label">Repeat landscape</p><h2 data-finding="alu">Repeat landscape</h2><p class="dek" id="landscape-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="landscape-chart"></div>
+      <figcaption>Bases in each transposon class by each copy’s percent divergence from its family consensus, in one-point bins; copies that inserted longer ago have had longer to diverge. Divergence is RepeatMasker’s mismatch rate, not corrected for CpG decay or multiple hits. Source: UCSC hg38 rmsk table.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="alu-chart"></div>
+      <figcaption>Alu copies by subfamily, oldest (AluJ) to youngest (AluY). Each square is 1%. Source: UCSC hg38 rmsk table.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="segdups" data-lens="sequence" data-nav="Duplications">
+    <header class="head"><p class="label">Segmental duplications</p><h2 data-finding="segdups">Segmental duplications</h2><p class="dek" id="segdups-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="segdup-chart"></div>
+        <figcaption>Pairs of duplicated blocks, at least 1 kb long and 90% identical, by identity in half-point bins. Source: UCSC hg38 genomicSuperDups table.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="segdup-chrom-chart"></div>
+        <figcaption>Bases of each chromosome inside at least one duplicated block. Source: UCSC hg38 genomicSuperDups table.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="tandem" data-lens="sequence" data-nav="Tandem repeats">
+    <header class="head"><p class="label">Tandem repeats</p><h2 data-finding="tandem">Tandem repeats</h2><p class="dek" id="tandem-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="tandem-chart"></div>
+        <figcaption>Tandem repeats called by Tandem Repeats Finder, by the length of the repeated unit. Calls can overlap when a region fits more than one unit. Source: UCSC hg38 simpleRepeat table.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="motif-chart"></div>
+        <figcaption>The 15 most frequent units of 1 to 6 bases, each counted with its rotations and its reverse complement, log scale. Source: UCSC hg38 simpleRepeat table.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 3</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>
