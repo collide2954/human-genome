@@ -52,6 +52,7 @@ const CHAPTERS = {
   structure: ['mito', 'censat', 'sexchrom'],
   variation: ['dbsnp', 'sv'],
   constraint: ['constraint', 'dosage'],
+  populations: ['ancestry', 'ancient', 'panels', 'assemblies'],
   clinical: ['clinvar', 'review', 'growth', 'lollipops', 'spectrum', 'validity', 'cnvregions', 'expansions'],
   rare: ['hpo', 'orphanet', 'gtr', 'therapy', 'yield', 'prenatal'],
   reference: ['decoder', 'sources'],
@@ -463,6 +464,32 @@ test('constraint charts compare LOEUF for haploinsufficient genes and all others
   assert.equal(await count('#misz-chart [data-bin]'), C.gnomad.misZ.counts.length);
   assert.equal(await count('#constrained-chart [data-row]'), C.gnomad.top.length);
   assert.equal(await count('#dosage-chart [data-row]'), 2);
+  await page.close();
+});
+
+test('population charts cover GWAS ancestry, ancient genomes on a grid map, reference panels, biobanks and assemblies', async () => {
+  const { page } = await open();
+  const G = snapshot.ancestry;
+  const A = snapshot.ancient;
+  const I = snapshot.igsr;
+  const S = snapshot.assemblies;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#ancestry-years-chart path.area'), 8);
+  assert.equal(await count('#ancestry-stages-chart [data-row]'), 2);
+  assert.equal(await count('#ancestry-countries-chart [data-row]'), G.countries.length);
+  assert.equal(await count('#ancient-ages-chart [data-bin]'), A.ages.counts.length);
+  const years = Object.keys(A.published).map(Number);
+  assert.equal(await count('#ancient-published-chart [data-year]'), Math.max(...years) - Math.min(...years) + 1);
+  assert.equal(await count('#ancient-map-chart [data-cell]'), A.grid.length);
+  assert.equal(await count('#ancient-countries-chart [data-row]'), A.countries.length);
+  assert.equal(await count('#ancient-snps-chart [data-bin]'), A.snps.counts.length);
+  assert.equal(await count('#ancient-y-chart [data-row]'), A.y.length);
+  assert.equal(await count('#ancient-mt-chart [data-row]'), A.mt.length);
+  assert.equal(await count('#panels-1kg-chart [data-row]'), I.panel.populations.length);
+  assert.equal(await count('#panels-biobanks-chart [data-row]'), 8);
+  assert.equal(await count('#assemblies-years-chart path.area'), Object.keys(S.levels).length);
+  assert.equal(await count('#assemblies-n50-chart circle.pt'), S.n50.length);
+  assert.equal(await count('#assemblies-submitters-chart [data-row]'), S.submitters.length);
   await page.close();
 });
 
