@@ -50,7 +50,19 @@ export const SOURCES = {
   gardinerGarden1987: 'https://doi.org/10.1016/0022-2836(87)90689-9',
   gtrnadb: 'https://gtrnadb.ucsc.edu/',
   chan2016: 'https://doi.org/10.1093/nar/gkv1309',
+  anderson1981: 'https://doi.org/10.1038/290457a0',
+  andrews1999: 'https://doi.org/10.1038/13779',
+  laricchia2022: 'https://doi.org/10.1101/gr.276013.121',
+  gnomadMito: 'https://gnomad.broadinstitute.org/news/2020-11-gnomad-v3-1-mitochondrial-dna-variants/',
+  altemose2022: 'https://doi.org/10.1126/science.abl4178',
+  rhie2023: 'https://doi.org/10.1038/s41586-023-06457-y',
+  t2tAnnotation: 'https://github.com/marbl/CHM13',
 };
+
+export const PARS = [
+  { name: 'PAR1', x: [10001, 2781479], y: [10001, 2781479] },
+  { name: 'PAR2', x: [155701383, 156030895], y: [56887903, 57217415] },
+];
 
 export const SOURCE_TITLES = {
   grch38: ['Assemblies and sequence', 'GRCh38.p14 (GCF_000001405.40), NCBI Datasets'],
@@ -99,6 +111,13 @@ export const SOURCE_TITLES = {
   gardinerGarden1987: ['Expression and regulation', 'Gardiner-Garden and Frommer 1987, CpG islands in vertebrate genomes, Journal of Molecular Biology 196:261'],
   gtrnadb: ['Genes and proteins', 'GtRNAdb, the genomic tRNA database'],
   chan2016: ['Genes and proteins', 'Chan and Lowe 2016, GtRNAdb 2.0: an expanded database of transfer RNA genes, Nucleic Acids Research 44:D184'],
+  anderson1981: ['Assemblies and sequence', 'Anderson et al. 1981, Sequence and organization of the human mitochondrial genome, Nature 290:457'],
+  andrews1999: ['Assemblies and sequence', 'Andrews et al. 1999, Reanalysis and revision of the Cambridge reference sequence for human mitochondrial DNA, Nature Genetics 23:147'],
+  laricchia2022: ['Assemblies and sequence', 'Laricchia et al. 2022, Mitochondrial DNA variation across 56,434 individuals in gnomAD, Genome Research 32:569'],
+  gnomadMito: ['Assemblies and sequence', 'gnomAD v3.1 mitochondrial DNA variants'],
+  altemose2022: ['Assemblies and sequence', 'Altemose et al. 2022, Complete genomic and epigenetic maps of human centromeres, Science 376:eabl4178'],
+  rhie2023: ['Assemblies and sequence', 'Rhie et al. 2023, The complete sequence of a human Y chromosome, Nature 621:344'],
+  t2tAnnotation: ['Assemblies and sequence', 'T2T-CHM13 annotation files, including CenSat and telomeres'],
 };
 
 export const EXAMPLES = [
