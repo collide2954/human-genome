@@ -614,12 +614,14 @@ export const codonTable = ({
       const n = order.push(codon) - 1;
       const x = L + j * colW;
       const yy = T + (i * 4 + k) * rowH;
+      const shade = c.aa === '*' ? 0.25 : heat(c.perK, 0, max);
+      const on = shade > 0.62 ? ' on' : '';
       return el('g', { 'data-codon': codon, 'data-k': n, 'data-rank': n },
         el('rect', {
-          class: `cell codon${c.aa === '*' ? ' stop' : ''}`, x: x + 1, y: yy + 1, width: colW - 2, height: rowH - 2, style: `fill:${c.aa === '*' ? 'var(--accent)' : 'var(--s2)'};fill-opacity:${c.aa === '*' ? 0.25 : heat(c.perK, 0, max)};--i:${n}`,
+          class: `cell codon${c.aa === '*' ? ' stop' : ''}`, x: x + 1, y: yy + 1, width: colW - 2, height: rowH - 2, style: `fill:${c.aa === '*' ? 'var(--accent)' : 'var(--s2)'};fill-opacity:${shade};--i:${n}`,
         }),
-        el('text', { class: 'codon-lab', x: x + 6, y: yy + rowH / 2 + 4 }, wide ? `${codon}  ${c.aa3}` : `${codon} ${c.aa}`),
-        wide ? el('text', { class: 'codon-val', x: x + colW - 6, y: yy + rowH / 2 + 4, 'text-anchor': 'end' }, c.aa === '*' ? 'stop' : c.perK.toFixed(1)) : null);
+        el('text', { class: `codon-lab${on}`, x: x + 6, y: yy + rowH / 2 + 4 }, wide ? `${codon}  ${c.aa3}` : `${codon} ${c.aa}`),
+        wide ? el('text', { class: `codon-val${on}`, x: x + colW - 6, y: yy + rowH / 2 + 4, 'text-anchor': 'end' }, c.aa === '*' ? 'stop' : c.perK.toFixed(1)) : null);
     }))));
   hover(svg, (k) => describe(order[Number(k)]));
   return mountSvg(mount, svg);

@@ -854,6 +854,11 @@ h2,
   pointer-events: none;
 }
 
+.chart .codon-lab.on,
+.chart .codon-val.on {
+  fill: #fff;
+}
+
 .chart .codon:hover,
 .chart g.sel .codon {
   stroke: var(--ink);
