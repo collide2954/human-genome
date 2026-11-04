@@ -101,7 +101,7 @@ export const gwasAssociations = ({ parents }) => {
       const gene = c[col.MAPPED_GENE] ?? '';
       for (const g of new Set(gene.split(/\s+-\s+|,\s*|;\s*/).map((x) => x.trim()).filter(Boolean))) genes.set(genes.has(g) ? g : own(g), (genes.get(g) ?? 0) + 1);
       const ctx = c[col.CONTEXT] ?? '';
-      bump(context, !ctx ? 'Not given' : / x /.test(ctx) ? 'Interaction' : own(ctx));
+      bump(context, !ctx ? 'Not given' : / x /.test(ctx) ? 'Interaction' : ctx.includes(';') ? 'Several variants' : own(ctx));
       const mlog = Number(c[col.PVALUE_MLOG]);
       if (Number.isFinite(mlog) && mlog >= MLOG_5E8) significant += 1;
       const chrom = c[col.CHR_ID];
