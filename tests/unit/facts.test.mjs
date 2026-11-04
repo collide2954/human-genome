@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS,
+  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS, GENE_THERAPIES, DIAGNOSTIC_YIELD, CFDNA_SCREENING, CARRIER_TIER3,
 } from '../../src/facts.js';
 
 test('chromosome structure sources are cited', () => {
@@ -27,6 +27,44 @@ import { identify } from '../../src/lib.js';
 test('clinical variant sources are cited', () => {
   for (const key of ['clinvar', 'landrum2018', 'landrum2025', 'richards2015', 'strande2017', 'clingenValidity', 'dosageMap', 'riggs2012', 'strchive', 'hiatt2025']) assert.equal(SOURCE_TITLES[key]?.[0], 'Clinical genetics', key);
   for (const key of ['mclaren2016', 'alexandrov2020']) assert.equal(SOURCE_TITLES[key]?.[0], 'Variation and populations', key);
+});
+
+test('rare disease and testing sources are cited', () => {
+  for (const key of ['hpo', 'gargano2024', 'orphanet', 'nguengang2020', 'gtr', 'rubinstein2013', 'clinicaltrials', 'fdaCgt', 'miller2010', 'clark2018', 'srivastava2019', 'gil2017', 'gregg2021']) {
+    assert.equal(SOURCE_TITLES[key]?.[0], 'Clinical genetics', key);
+  }
+});
+
+test('gene therapies list each FDA product with its first approval year, vector and group', () => {
+  assert.equal(GENE_THERAPIES.length, 34);
+  assert.equal(new Set(GENE_THERAPIES.map((g) => g.trade)).size, 34);
+  const groups = new Set(['AAV', 'Other in vivo vectors', 'CAR-T and TCR-T cells', 'Blood stem cells', 'Other gene-modified cells']);
+  for (const g of GENE_THERAPIES) {
+    assert.ok(groups.has(g.group), g.trade);
+    assert.ok(g.year >= 2015 && g.year <= 2026, g.trade);
+    assert.ok(g.vector && g.condition && g.proper, g.trade);
+  }
+  assert.deepEqual(GENE_THERAPIES.find((g) => g.trade === 'LUXTURNA'), {
+    trade: 'LUXTURNA', proper: 'voretigene neparvovec-rzyl', year: 2017, vector: 'AAV2', group: 'AAV', condition: 'biallelic RPE65 retinal dystrophy',
+  });
+  assert.equal(GENE_THERAPIES.find((g) => g.trade === 'IMLYGIC').year, 2015);
+  assert.equal(GENE_THERAPIES.filter((g) => g.group === 'AAV').length, 11);
+});
+
+test('diagnostic yields, cfDNA screening and carrier screening come from cited meta-analyses and guidance', () => {
+  for (const y of DIAGNOSTIC_YIELD) {
+    assert.ok(['miller2010', 'clark2018', 'srivastava2019'].includes(y.source), y.key);
+    assert.ok(y.value !== null || (y.lo !== null && y.hi !== null), y.key);
+    if (y.lo !== null) assert.ok(y.lo <= (y.value ?? y.lo) && (y.value ?? y.hi) <= y.hi, y.key);
+  }
+  assert.deepEqual(DIAGNOSTIC_YIELD.find((y) => y.key === 'wgs'), {
+    key: 'wgs', test: 'Genome sequencing', measure: 'diagnostic', value: 41, lo: 34, hi: 48, source: 'clark2018',
+  });
+  assert.equal(CFDNA_SCREENING.length, 5);
+  assert.deepEqual(CFDNA_SCREENING[0], {
+    condition: 'Trisomy 21', detection: 99.7, lo: 99.1, hi: 99.9, fpr: 0.04, fprLo: 0.02, fprHi: 0.07, cases: 1963, unaffected: 223932,
+  });
+  assert.deepEqual(CARRIER_TIER3, { genes: 97, definitive: 39, frequency: '1 in 200' });
 });
 
 test('every source is an https URL with a title in a known group', () => {
