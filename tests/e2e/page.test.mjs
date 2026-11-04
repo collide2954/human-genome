@@ -42,6 +42,7 @@ const tipLinesOf = (page) => page.$$eval('#tip > *', (els) => els.map((e) => e.t
 
 const CHAPTERS = {
   assembly: ['chromosomes', 'gaps', 't2t', 'composition'],
+  repeats: ['transposons', 'landscape', 'segdups', 'tandem'],
   reference: ['decoder', 'sources'],
 };
 
@@ -136,6 +137,33 @@ test('CpG and G-quadruplex charts list every chromosome', async () => {
   assert.equal(await page.locator('#cpg-chart [data-row]').count(), 25);
   assert.equal(await page.locator('#g4-chart [data-row]').count(), 24);
   assert.equal(await page.locator('#g4-chart .legend li').count(), 2);
+  await page.close();
+});
+
+test('the repeat treemap tiles the largest families and names them on hover', async () => {
+  const { page } = await open();
+  assert.ok(await page.locator('#repeat-chart [data-key]').count() >= 12);
+  await page.hover('#repeat-chart [data-key="LINE/L1"]');
+  assert.match(await page.textContent('#tip'), /L1[\s\S]*LINE[\s\S]*copies/);
+  await page.close();
+});
+
+test('the repeat landscape stacks four transposon classes by divergence', async () => {
+  const { page } = await open();
+  assert.equal(await page.locator('#landscape-chart path[data-key]').count(), 4);
+  assert.equal(await page.locator('#landscape-chart .legend li').count(), 4);
+  assert.equal(await page.locator('#alu-chart .legend li').count(), 3);
+  await page.close();
+});
+
+test('segmental duplication and tandem repeat charts cover every bin, chromosome and unit', async () => {
+  const { page } = await open();
+  assert.equal(await page.locator('#segdup-chart [data-bin]').count(), snapshot.repeats.superDups.identity.counts.length);
+  assert.equal(await page.locator('#segdup-chrom-chart [data-row]').count(), 24);
+  assert.equal(await page.locator('#tandem-chart [data-row]').count(), 9);
+  assert.equal(await page.locator('#motif-chart [data-row]').count(), 15);
+  await page.hover('#motif-chart [data-row="AC"]');
+  assert.match(await page.textContent('#tip'), /\(AC\)n/);
   await page.close();
 });
 

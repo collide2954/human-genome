@@ -46,6 +46,28 @@ const fixture = {
   },
 };
 
+fixture.repeats = {
+  rmsk: {
+    total: { count: 50, bp: 1000 },
+    families: [{ cls: 'LINE', family: 'L1', count: 10, bp: 400 }, { cls: 'SINE', family: 'Alu', count: 30, bp: 300 }],
+    alu: { AluY: { count: 5, bp: 50 }, AluS: { count: 20, bp: 200 }, AluJ: { count: 5, bp: 50 } },
+    l1hs: { count: 8, fullLength: 3 },
+  },
+  superDups: { pairs: 4, kinds: { intra: 1, inter: 3 }, covered: { 1: 60, 19: 40 } },
+  tandem: {
+    units: [{ unit: '1', count: 7, bp: 70 }, { unit: '2', count: 5, bp: 50 }],
+    motifs: [{ motif: 'A', count: 7, bp: 70 }, { motif: 'AC', count: 4, bp: 40 }],
+  },
+};
+
+test('findings state the repeat sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.transposons, 'RepeatMasker marks 50% of GRCh38’s sequenced bases as repeats; L1 elements alone cover 20%');
+  assert.equal(f.alu, '30 Alu copies, 5 in the youngest subfamily, AluY; 8 L1HS copies, 3 of them at least 6 kb long');
+  assert.equal(f.segdups, 'Segmental duplications cover 100 bases, 5% of GRCh38; 3 of 4 pairs join different chromosomes');
+  assert.equal(f.tandem, 'Tandem Repeats Finder calls 12 tandem repeats; the most frequent units are A, then AC');
+});
+
 test('sequenceNumbers totals the nuclear chromosomes and the CpG ratio', () => {
   const n = sequenceNumbers(fixture);
   assert.equal(n.acgt, 2000);
