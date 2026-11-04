@@ -833,8 +833,152 @@
     </figure>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-clinical" data-chapter="clinical">
     <p class="chapter-no">Part 12</p>
+    <h2 class="chapter-title">Clinical variants</h2>
+    <p class="chapter-dek">How variants are judged for disease: ClinVar’s germline classes by consequence, review and submitter, its growth since 2017, the variants along four proteins, the substitutions behind pathogenic SNVs, ClinGen’s curation of genes and dosage-sensitive regions, and the repeat expansion loci STRchive tracks.</p>
+  </div>
+
+  <section class="story wrap" id="clinvar" data-lens="clinic variation" data-nav="ClinVar">
+    <header class="head"><p class="label">ClinVar classifications</p><h2 data-finding="clinvar">ClinVar classifications</h2><p class="dek" id="clinvar-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="clinvar-grid-chart"></div>
+      <figcaption>Each row splits one molecular consequence across ClinVar’s aggregate germline classes, as a percent of the row; n is the row’s count. A variant takes its most severe consequence over all transcripts, in Ensembl VEP’s order. P pathogenic, LP likely pathogenic, VUS uncertain significance, LB likely benign, B benign; P/LP and B/LB mark submitters split between the two. Source: ClinVar GRCh38 VCF.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="clinvar-genes-chart"></div>
+        <figcaption>The 20 protein-coding genes with the most pathogenic or likely pathogenic alleles, with their alleles of uncertain significance, log scale. An allele spanning several genes counts in each. Source: ClinVar gene_specific_summary; HGNC.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="clinvar-lorenz-chart"></div>
+        <figcaption>Share of all P/LP alleles held by the top percent of genes, ranked from the gene with the most, among genes with at least one. Source: ClinVar gene_specific_summary; HGNC.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig narrow">
+      <div class="chart" id="clinvar-types-chart"></div>
+      <figcaption>ClinVar variants placed on GRCh38 by type, log scale, including the copy number gains and losses the VCF leaves out. Source: ClinVar variant_summary.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="review" data-lens="clinic" data-nav="Review">
+    <header class="head"><p class="label">Review and submitters</p><h2 data-finding="review">Review and submitters</h2><p class="dek" id="review-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="review-stars-chart"></div>
+        <figcaption>Review stars as a share of each germline class, with the class’s count at the end. 0: no assertion criteria; 1: criteria from one submitter, or from several who conflict; 2: several submitters who agree; 3: an expert panel; 4: a practice guideline. Source: ClinVar GRCh38 VCF.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="review-submitters-chart"></div>
+        <figcaption>Submitters behind each classified variant, as a share of each group. A conflict needs two submitters. Source: ClinVar variant_summary, GRCh38 rows.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig">
+      <div class="chart" id="review-evaluated-chart"></div>
+      <figcaption>Classified variants by the year their aggregate classification was last evaluated; earlier years are grouped. Source: ClinVar variant_summary.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="review-orgs-chart"></div>
+        <figcaption>The 15 organizations with the most ClinVar submissions, log scale. Source: ClinVar organization_summary.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="review-types-chart"></div>
+        <figcaption>Submissions by type of organization, with the number of organizations in brackets, log scale. Source: ClinVar organization_summary.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="growth" data-lens="clinic" data-nav="Growth">
+    <header class="head"><p class="label">ClinVar over time</p><h2 data-finding="growth">ClinVar over time</h2><p class="dek" id="growth-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="growth-chart"></div>
+      <figcaption>Records in ClinVar’s GRCh38 VCF by germline class at the end of each year, stacked; records without a germline classification are left out. Labels give the year each file was written. Source: ClinVar VCF archive.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="lollipops" data-lens="clinic" data-nav="Four proteins">
+    <header class="head"><p class="label">Variants along four proteins</p><h2 data-finding="lollipops">Variants along four proteins</h2><p class="dek" id="lollipops-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="lollipop-TP53-chart"></div>
+      <figcaption>TP53. Stalks count distinct ClinVar variants at each residue, not patients: P/LP above the axis, B/LB below, on one scale; a head’s color is the commonest kind at that residue. Splice-site variants sit at the codon at the exon edge. Pfam domains on the axis. Source: ClinVar variant_summary; InterPro.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="lollipop-BRCA1-chart"></div>
+      <figcaption>BRCA1, drawn the same way. Source: ClinVar variant_summary; InterPro.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="lollipop-CFTR-chart"></div>
+      <figcaption>CFTR, drawn the same way. Source: ClinVar variant_summary; InterPro.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="lollipop-MYH7-chart"></div>
+      <figcaption>MYH7, drawn the same way. Source: ClinVar variant_summary; InterPro.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="spectrum" data-lens="clinic variation" data-nav="Spectrum">
+    <header class="head"><p class="label">Mutation spectrum</p><h2 data-finding="spectrum">Mutation spectrum</h2><p class="dek" id="spectrum-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="spectrum-chart"></div>
+      <figcaption>Single-nucleotide variants in the 96 trinucleotide channels of mutational signature analysis: six substitution classes, each split by the base before and after. Bars are shares of each group, P/LP above and B/LB below. Source: ClinVar GRCh38 VCF; hg38 2bit sequence.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="spectrum-classes-chart"></div>
+      <figcaption>The six substitution classes as a share of each group. Source: ClinVar GRCh38 VCF; hg38 2bit sequence.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="validity" data-lens="clinic genes" data-nav="Validity">
+    <header class="head"><p class="label">Gene–disease validity</p><h2 data-finding="validity">Gene–disease validity</h2><p class="dek" id="validity-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="validity-chart"></div>
+        <figcaption>ClinGen gene–disease curations by mode of inheritance and classification. AD autosomal dominant, AR autosomal recessive, XL X-linked, SD semidominant, MT mitochondrial, UD undetermined. Source: ClinGen gene-disease validity.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="validity-years-chart"></div>
+        <figcaption>Curations by the year of their current classification, stacked; the current year is to date. Source: ClinGen gene-disease validity.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="validity-loeuf-chart"></div>
+        <figcaption>gnomAD LOEUF of genes with a definitive, strong or moderate link to a dominant or to a recessive disease, as a share of each group; genes with both are left out. Source: ClinGen; gnomAD v4.1.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="validity-gcep-chart"></div>
+        <figcaption>The 12 gene curation expert panels with the most curations. Source: ClinGen gene-disease validity.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="cnvregions" data-lens="clinic" data-nav="Dosage regions">
+    <header class="head"><p class="label">Dosage-sensitive regions</p><h2 data-finding="cnvregions">Dosage-sensitive regions</h2><p class="dek" id="cnvregions-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="regions-ideogram-chart"></div>
+      <figcaption>Regions ClinGen scores 3, sufficient evidence, for haploinsufficiency or triplosensitivity, outlined on the GRCh38 ideogram. Source: ClinGen region curation list.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="regions-size-chart"></div>
+      <figcaption>The same regions by size, log scale; highlighted dots mark regions sensitive to both loss and gain. Tap a row for its coordinates and scores. Source: ClinGen region curation list.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="expansions" data-lens="clinic sequence" data-nav="Repeat expansions">
+    <header class="head"><p class="label">Repeat expansions</p><h2 data-finding="expansions">Repeat expansions</h2><p class="dek" id="expansions-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="expansions-chart"></div>
+      <figcaption>Benign, intermediate and pathogenic repeat counts at each locus with definitive or strong evidence, ordered by the smallest pathogenic allele, log scale. The ranges are STRchive’s, each with its own references, often the GeneReviews chapter. Source: STRchive.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="expansions-years-chart"></div>
+      <figcaption>Loci found by each year, by where the repeat sits in its gene, stacked. Source: STRchive.</figcaption>
+    </figure>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 13</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>

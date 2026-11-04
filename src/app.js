@@ -3,15 +3,15 @@ import {
   SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS,
 } from './facts.js';
 import {
-  exact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, AA3, codonOf, perLitre,
+  exact, compact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, AA3, codonOf, perLitre, CHANNELS, SUBSTITUTIONS,
 } from './lib.js';
-import { pearson, linearFit } from './stats.js';
+import { pearson, linearFit, linearEdges } from './stats.js';
 import { FILES } from './queries.js';
 import {
-  findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons, gtexTissues, plasmaLevel, proteomeResidues, proteinLabel, trnaPairs,
+  findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons, gtexTissues, plasmaLevel, proteomeResidues, proteinLabel, trnaPairs, titv,
 } from './findings.js';
 import {
-  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, heatmap, genomeMap, dumbbell, observeFigures, countUp, tipLines,
+  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, heatmap, genomeMap, dumbbell, grid as shareGrid, lollipop as lollipopChart, spectrum, ranges, lines, observeFigures, countUp, tipLines,
 } from './charts.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -1828,6 +1828,452 @@ const renderDosage = () => {
   attachData('#dosage-chart', 'clingen-dosage', ['Curation', ...DOSAGE_SCORES.map(([, label]) => label)], [['Haploinsufficiency', ...DOSAGE_SCORES.map(([k]) => hi[k] ?? 0)], ['Triplosensitivity', ...DOSAGE_SCORES.map(([k]) => ts[k] ?? 0)]]);
 };
 
+const CV = snapshot.clinvar;
+const CT = snapshot.clinvarTable;
+const CLASS_KEYS = ['Pathogenic', 'Pathogenic/Likely pathogenic', 'Likely pathogenic', 'Uncertain significance', 'Likely benign', 'Benign/Likely benign', 'Benign', 'Conflicting', 'Other'];
+const CLASS_SHORT = ['P', 'P/LP', 'LP', 'VUS', 'LB', 'B/LB', 'B', 'Confl.', 'Other'];
+const GROUPS = [
+  ['P/LP', 'Pathogenic or likely pathogenic', 'var(--accent)'],
+  ['VUS', 'Uncertain significance', 'var(--s5)'],
+  ['B/LB', 'Benign or likely benign', 'var(--s2)'],
+  ['Conflicting', 'Conflicting', 'var(--s3)'],
+  ['Other', 'Other classifications', 'var(--data-2)'],
+];
+const GROUP_OF = {
+  Pathogenic: 'P/LP', 'Pathogenic/Likely pathogenic': 'P/LP', 'Likely pathogenic': 'P/LP', 'Uncertain significance': 'VUS', 'Likely benign': 'B/LB', 'Benign/Likely benign': 'B/LB', Benign: 'B/LB', Conflicting: 'Conflicting', Other: 'Other',
+};
+const byGroup = (classes) => Object.fromEntries(GROUPS.map(([g]) => [g, sumOf(CLASS_KEYS.filter((c) => GROUP_OF[c] === g).map((c) => classes[c] ?? 0))]));
+
+const renderClinvar = () => {
+  const cons = Object.keys(CV.consequences);
+  const counts = cons.map((k) => CLASS_KEYS.map((c) => CV.consequences[k][c] ?? 0));
+  const totals = counts.map(sumOf);
+  const rowShares = counts.map((r, i) => r.map((v) => (totals[i] ? v / totals[i] : 0)));
+  const rowShare = (k, group) => {
+    const i = cons.indexOf(k);
+    return sumOf(CLASS_KEYS.map((c, j) => (GROUP_OF[c] === group ? counts[i][j] : 0))) / totals[i];
+  };
+  $('#clinvar-dek').textContent = `${pct(rowShare('nonsense', 'P/LP'))} of nonsense and ${pct(rowShare('frameshift', 'P/LP'))} of frameshift variants are pathogenic or likely pathogenic, against ${pct(rowShare('missense', 'P/LP'))} of the ${exact(totals[cons.indexOf('missense')])} missense variants, ${pct(rowShare('missense', 'VUS'))} of which are of uncertain significance. ${exact(CV.classes.none)} records carry no aggregate germline classification and are left out.`;
+  shareGrid({
+    mount: $('#clinvar-grid-chart'),
+    rows: cons,
+    cols: CLASS_SHORT,
+    values: rowShares,
+    totals,
+    aria: 'ClinVar germline classes as a share of each molecular consequence',
+    describe: (i, j) => tipLines(pct(rowShares[i][j]), `of ${cons[i]} variants are ${CLASS_KEYS[j].toLowerCase()}`, `${exact(counts[i][j])} of ${exact(totals[i])}`),
+  });
+  attachData('#clinvar-grid-chart', 'clinvar-classes-by-consequence', ['Consequence', ...CLASS_KEYS, 'Total'], cons.map((k, i) => [k, ...counts[i], totals[i]]));
+  const types = Object.entries(CT.types).sort((a, b) => b[1] - a[1]);
+  dotplot({
+    mount: $('#clinvar-types-chart'),
+    rows: types.map(([t, n], i) => ({
+      key: t, label: t, value: n, hi: i === 0,
+    })),
+    aria: 'ClinVar variants on GRCh38 by type, log scale',
+    describe: (r) => tipLines(`${exact(r.value)} variants`, r.label, pct(r.value / CT.records)),
+  });
+  attachData('#clinvar-types-chart', 'clinvar-types', ['Type', 'Variants'], types);
+  const GN = CV.genes;
+  dumbbell({
+    mount: $('#clinvar-genes-chart'),
+    rows: GN.top.map((g) => ({
+      key: g.gene, label: g.gene, a: g.plp, b: g.vus,
+    })),
+    years: ['P/LP alleles', 'VUS alleles'],
+    valueText: (r) => `${exact(r.a)} · ${exact(r.b)}`,
+    aria: 'Protein-coding genes with the most pathogenic or likely pathogenic ClinVar alleles, with their VUS, log scale',
+    describe: (r) => {
+      const g = GN.top.find((x) => x.gene === r.key);
+      return tipLines(`${exact(g.plp)} P/LP alleles`, g.gene, `${exact(g.vus)} of uncertain significance`, `${exact(g.conflicts)} with conflicting classifications`, `${exact(g.alleles)} alleles in all`, { href: `https://www.ncbi.nlm.nih.gov/clinvar/?term=${encodeURIComponent(`${g.gene}[gene]`)}`, text: 'Open in ClinVar' });
+    },
+  });
+  attachData('#clinvar-genes-chart', 'clinvar-genes', ['Gene', 'P/LP alleles', 'VUS alleles', 'Conflicting alleles', 'All alleles'], GN.top.map((g) => [g.gene, g.plp, g.vus, g.conflicts, g.alleles]));
+  lines({
+    mount: $('#clinvar-lorenz-chart'),
+    series: [{ label: 'P/LP alleles', rows: GN.lorenz.map((v, x) => ({ x, y: v * 100 })), cls: 'alt' }],
+    scale: 'linear',
+    height: 240,
+    yFormat: (v) => `${v}%`,
+    labelW: 84,
+    aria: 'Cumulative share of P/LP alleles held by the genes with the most',
+    describe: (x) => tipLines(`${(GN.lorenz[x] * 100).toFixed(1)}%`, `of P/LP alleles sit in the top ${x}% of the ${exact(GN.withPlp)} genes with any`),
+  });
+  attachData('#clinvar-lorenz-chart', 'clinvar-lorenz', ['Top share of genes (%)', 'Share of P/LP alleles (%)'], GN.lorenz.map((v, x) => [x, Number((v * 100).toFixed(2))]));
+};
+
+const STARS = [['0 stars', 'var(--data-2)'], ['1 star', 'var(--s3)'], ['2 stars', 'var(--s2)'], ['3 stars', 'var(--s4)'], ['4 stars', 'var(--ink)']];
+
+const renderReview = () => {
+  const rows = CLASS_KEYS.map((c, i) => {
+    const s = CV.stars[c];
+    const n = sumOf(s);
+    return {
+      key: c, label: CLASS_SHORT[i], n, counts: s, values: Object.fromEntries(s.map((v, k) => [k, n ? (v / n) * 100 : 0])),
+    };
+  });
+  const sub = CT.submitters;
+  const groupNames = ['P/LP', 'VUS', 'B/LB', 'Conflicting'];
+  const several = (g) => 1 - sub[g][0] / sumOf(sub[g]);
+  const O = CV.organizations;
+  const lead = O.top[0];
+  $('#review-dek').textContent = `Practice guidelines cover ${exact(sumOf(Object.values(CV.stars).map((s) => s[4])))} variants. ${pct(several('P/LP'))} of P/LP variants have two or more submitters, against ${pct(several('VUS'))} of VUS. ${exact(O.organizations)} organizations have made ${exact(O.submissions)} submissions; ${lead.name.split(';')[0]} alone made ${exact(lead.submissions)}, ${pct(lead.submissions / O.submissions)}.`;
+  hbars({
+    mount: $('#review-stars-chart'),
+    rows,
+    segments: STARS.map(([label, color], k) => ({ key: String(k), label, color })),
+    max: 100,
+    tickFormat: (t) => `${t}%`,
+    valueText: (r) => compact(r.n),
+    labelShare: 0.1,
+    aria: 'ClinVar review stars as a share of each germline class',
+    describe: (r) => tipLines(`${exact(r.n)} variants`, r.key, ...r.counts.map((v, k) => `${STARS[k][0]}: ${exact(v)}, ${r.n ? pct(v / r.n) : '0%'}`)),
+  });
+  attachData('#review-stars-chart', 'clinvar-stars', ['Class', ...STARS.map(([label]) => label)], rows.map((r) => [r.key, ...r.counts]));
+  const share = (g) => sub[g].map((v) => (v / sumOf(sub[g])) * 100);
+  histo({
+    mount: $('#review-submitters-chart'),
+    bins: sub.bins,
+    series: groupNames.map((g) => ({
+      key: g, label: g, color: GROUPS.find((x) => x[0] === g)[2], values: share(g),
+    })),
+    centered: true,
+    tickEvery: 1,
+    tickLabel: (b) => b,
+    yFormat: (v) => `${v}%`,
+    aria: 'Submitters per ClinVar variant, as a share of each group',
+    describe: (i) => tipLines(`${sub.bins[i]} submitter${sub.bins[i] === '1' ? '' : 's'}`, 'share of each group', ...groupNames.map((g) => `${g}: ${share(g)[i].toFixed(1)}%, ${exact(sub[g][i])}`)),
+  });
+  attachData('#review-submitters-chart', 'clinvar-submitters', ['Submitters', ...groupNames], sub.bins.map((b, i) => [b, ...groupNames.map((g) => sub[g][i])]));
+  const years = new Map();
+  for (const g of groupNames) {
+    for (const [y, n] of Object.entries(CT.evaluated[g])) if (y !== 'none') years.set(Number(y), (years.get(Number(y)) ?? 0) + n);
+  }
+  const last = Math.max(...years.keys());
+  const early = sumOf([...years].filter(([y]) => y < 2005).map(([, n]) => n));
+  const evalRows = [{ key: 'early', label: '<2005', value: early }, ...Array.from({ length: last - 2004 }, (_, i) => ({ key: 2005 + i, label: String(2005 + i), value: years.get(2005 + i) ?? 0 }))];
+  const undated = sumOf(groupNames.map((g) => CT.evaluated[g].none ?? 0));
+  columns({
+    mount: $('#review-evaluated-chart'),
+    rows: evalRows,
+    key: (r) => r.key,
+    value: (r) => r.value,
+    label: (r) => r.label,
+    aria: 'ClinVar classified variants by the year their classification was last evaluated',
+    describe: (r) => tipLines(`${exact(r.value)} variants`, r.key === 'early' ? 'last evaluated before 2005' : `last evaluated in ${r.label}${r.key === last ? ', to date' : ''}`, `${exact(undated)} have no date`),
+  });
+  attachData('#review-evaluated-chart', 'clinvar-last-evaluated', ['Year', ...groupNames], [['before 2005', ...groupNames.map((g) => sumOf(Object.entries(CT.evaluated[g]).filter(([y]) => y !== 'none' && Number(y) < 2005).map(([, n]) => n)))], ...evalRows.slice(1).map((r) => [r.label, ...groupNames.map((g) => CT.evaluated[g][r.label] ?? 0)]), ['no date', ...groupNames.map((g) => CT.evaluated[g].none ?? 0)]]);
+  dotplot({
+    mount: $('#review-orgs-chart'),
+    rows: O.top.map((o, i) => ({
+      key: o.name, label: o.name, value: o.submissions, hi: i === 0,
+    })),
+    labelShare: 0.42,
+    labelMax: 300,
+    aria: 'Organizations with the most ClinVar submissions, log scale',
+    describe: (r) => {
+      const o = O.top.find((x) => x.name === r.key);
+      return tipLines(`${exact(o.submissions)} submissions`, o.name, `${o.type}, ${o.country}`, pct(o.submissions / O.submissions));
+    },
+  });
+  attachData('#review-orgs-chart', 'clinvar-submitters-top', ['Organization', 'Type', 'Country', 'Submissions'], O.top.map((o) => [o.name, o.type, o.country, o.submissions]));
+  dotplot({
+    mount: $('#review-types-chart'),
+    rows: O.types.map((t, i) => ({
+      key: t.type, label: `${t.type} (${exact(t.orgs)})`, value: t.submissions, hi: i === 0,
+    })),
+    aria: 'ClinVar submissions by type of organization, log scale',
+    describe: (r) => {
+      const t = O.types.find((x) => x.type === r.key);
+      return tipLines(`${exact(t.submissions)} submissions`, `${t.type}: ${exact(t.orgs)} organizations`, pct(t.submissions / O.submissions));
+    },
+  });
+  attachData('#review-types-chart', 'clinvar-submitter-types', ['Type', 'Organizations', 'Submissions'], O.types.map((t) => [t.type, t.orgs, t.submissions]));
+};
+
+const yearOfDate = (iso) => {
+  const [y, m, d] = iso.split('-').map(Number);
+  return y + (Date.UTC(y, m - 1, d) - Date.UTC(y, 0, 1)) / (Date.UTC(y + 1, 0, 1) - Date.UTC(y, 0, 1));
+};
+
+const renderGrowth = () => {
+  const { points } = snapshot.clinvarGrowth;
+  const xs = points.map((p) => yearOfDate(p.release));
+  const groups = points.map((p) => byGroup(p.classes));
+  const first = points[0];
+  const last = points.at(-1);
+  const share = (p, g) => byGroup(p.classes)[g] / sumOf(Object.values(byGroup(p.classes)));
+  $('#growth-dek').textContent = `Counts of the first GRCh38 VCF in each year’s archive folder, written in the last days of the year before, and the current file of ${longDate(last.release)}. The share of uncertain significance went from ${pct(share(first, 'VUS'))} to ${pct(share(last, 'VUS'))}; pathogenic or likely pathogenic from ${pct(share(first, 'P/LP'))} to ${pct(share(last, 'P/LP'))}.`;
+  stackedArea({
+    mount: $('#growth-chart'),
+    years: xs,
+    series: GROUPS.map(([g, label, color]) => ({
+      key: g, label, color, values: groups.map((x) => x[g]),
+    })),
+    xTicks: xs,
+    xTick: (v) => String(Math.floor(v)),
+    xFormat: (v) => longDate(points[xs.indexOf(v)].release),
+    aria: 'ClinVar GRCh38 VCF records by germline class at the end of each year',
+  });
+  attachData('#growth-chart', 'clinvar-growth', ['File date', 'Records', ...GROUPS.map(([g]) => g), 'No germline class'], points.map((p, i) => [p.release, p.records, ...GROUPS.map(([g]) => groups[i][g]), p.classes.none]));
+};
+
+const VARIANT_KINDS = [
+  { key: 'missense', label: 'Missense', color: 'var(--s2)' },
+  { key: 'truncating', label: 'Nonsense or frameshift', color: 'var(--accent)' },
+  { key: 'splice', label: 'Splice site, at the exon edge', color: 'var(--s4)' },
+  { key: 'inframe', label: 'In-frame indel', color: 'var(--s3)' },
+  { key: 'synonymous', label: 'Synonymous', color: 'var(--data-2)' },
+  { key: 'other', label: 'Start or stop codon', color: 'var(--s5)' },
+];
+const KIND_LABEL = Object.fromEntries(VARIANT_KINDS.map((k) => [k.key, k.label.toLowerCase()]));
+const AA3_TO_1 = Object.fromEntries(Object.entries(AA3).map(([one, three]) => [three, one]));
+
+const sitesOf = (lollipop) => {
+  const map = new Map();
+  for (const side of ['up', 'down']) {
+    for (const [pos, kind, n, aa] of lollipop[side]) {
+      const key = `${side}:${pos}`;
+      const s = map.get(key) ?? {
+        key, side, pos, n: 0, kinds: {}, aa: '',
+      };
+      s.n += n;
+      s.kinds[kind] = (s.kinds[kind] ?? 0) + n;
+      s.aa ||= aa;
+      map.set(key, s);
+    }
+  }
+  return [...map.values()].map((s) => ({ ...s, kind: Object.entries(s.kinds).sort((a, b) => b[1] - a[1])[0][0] }));
+};
+
+const shortDomain = (name) => name.replace(/^Zinc finger, C3HC4 type \(RING finger\)$/, 'RING').replace(/^BRCA1 C Terminus \(BRCT\) domain$/, 'BRCT').replace(/^ABC transporter transmembrane region$/, 'TMD').replace(/^ABC transporter$/, 'NBD').replace(/^Cystic fibrosis TM conductance regulator \(CFTR\), regulator domain$/, 'R domain')
+  .replace(/^Myosin head \(motor domain\)$/, 'Motor domain')
+  .replace(/^Myosin N-terminal SH3-like domain$/, 'SH3')
+  .replace(/^Myosin tail$/, 'Coiled-coil tail')
+  .replace(/^P53 DNA-binding domain$/, 'DNA-binding')
+  .replace(/^P53 tetramerisation motif$/, 'Tet')
+  .replace(/^P53 transactivation motif$/, 'TAD1')
+  .replace(/^Transactivation domain 2$/, 'TAD2')
+  .replace(/^Serine-rich domain associated with BRCT$/, 'Ser-rich');
+
+const renderLollipops = () => {
+  const genes = ['TP53', 'BRCA1', 'CFTR', 'MYH7'];
+  const placed = (list) => sumOf(list.map((r) => r[2]));
+  $('#lollipops-dek').textContent = `${genes.map((g) => `${g} ${exact(placed(CT.lollipops[g].up))} P/LP and ${exact(placed(CT.lollipops[g].down))} B/LB`).join('; ')}, placed on ${genes.map((g) => CT.lollipops[g].transcript).join(', ')}. Large deletions, deep intronic and untranslated variants have no residue and are left out.`;
+  for (const gene of genes) {
+    const l = CT.lollipops[gene];
+    const p = CT.proteins[gene];
+    const sites = sitesOf(l);
+    const ids = [...new Set(p.domains.map((d) => d.id))];
+    const domains = p.domains.map((d) => ({ ...d, short: shortDomain(d.name), color: CAT[ids.indexOf(d.id) % CAT.length] }));
+    const labels = sites.filter((s) => s.side === 'up' && s.kind !== 'splice').sort((a, b) => b.n - a.n || a.pos - b.pos).slice(0, 3)
+      .map((s) => ({ ...s, label: `${AA3_TO_1[s.aa] ?? ''}${s.pos}` }));
+    lollipopChart({
+      mount: $(`#lollipop-${gene}-chart`),
+      length: p.length ?? Math.max(...sites.map((s) => s.pos)),
+      domains,
+      sites,
+      kinds: VARIANT_KINDS,
+      labels,
+      sideLabel: `P/LP above, ${exact(placed(l.up))} · B/LB below, ${exact(placed(l.down))}`,
+      aria: `${gene} protein with ClinVar P/LP variants above and B/LB variants below, by residue`,
+      describe: (s) => tipLines(`${s.aa ? `${s.aa}${s.pos}` : `codon ${s.pos}`}: ${exact(s.n)} variant${s.n === 1 ? '' : 's'}`, `${gene}, ${s.side === 'up' ? 'pathogenic or likely pathogenic' : 'benign or likely benign'}`, ...Object.entries(s.kinds).map(([k, n]) => `${KIND_LABEL[k]}: ${exact(n)}`)),
+      describeDomain: (d) => tipLines(d.name, `${d.id}, residues ${exact(d.start)} to ${exact(d.end)}`, { href: `https://www.ebi.ac.uk/interpro/entry/pfam/${d.id}/`, text: 'Open in InterPro' }),
+    });
+    attachData(`#lollipop-${gene}-chart`, `lollipop-${gene.toLowerCase()}`, ['Side', 'Residue', 'Amino acid', 'Kind', 'Variants'], [...l.up.map((r) => ['P/LP', r[0], r[3] || null, r[1], r[2]]), ...l.down.map((r) => ['B/LB', r[0], r[3] || null, r[1], r[2]])]);
+  }
+};
+
+const SUB_COLORS = ['var(--s2)', 'var(--ink)', 'var(--accent)', 'var(--data-2)', 'var(--s3)', 'var(--s4)'];
+
+const renderSpectrum = () => {
+  const s = CV.spectrum;
+  const nUp = sumOf(s.plp);
+  const nDown = sumOf(s.blb);
+  const up = s.plp.map((v) => (v / nUp) * 100);
+  const down = s.blb.map((v) => (v / nDown) * 100);
+  const cpg = (list) => sumOf([2, 6, 10, 14].map((k) => list[32 + k])) / sumOf(list);
+  $('#spectrum-dek').textContent = `${exact(nUp)} P/LP and ${exact(nDown)} B/LB single-nucleotide variants, each read with its two neighbours from the hg38 sequence and turned to the pyrimidine strand. C>T at CpG makes up ${pct(cpg(s.plp))} of P/LP and ${pct(cpg(s.blb))} of B/LB SNVs; transitions per transversion are ${titv(s.plp).toFixed(2)} and ${titv(s.blb).toFixed(2)}. ${s.mismatches ? `${exact(s.mismatches)} reference alleles disagree with hg38.` : 'Every reference allele matches hg38.'}`;
+  spectrum({
+    mount: $('#spectrum-chart'),
+    channels: CHANNELS,
+    up,
+    down,
+    colors: SUB_COLORS,
+    groups: SUBSTITUTIONS,
+    upLabel: `P/LP, ${exact(nUp)} SNVs`,
+    downLabel: `B/LB, ${exact(nDown)} SNVs`,
+    aria: 'Trinucleotide substitution profile of P/LP SNVs above and B/LB SNVs below',
+    describe: (i) => tipLines(CHANNELS[i], `${SUBSTITUTIONS[Math.floor(i / 16)]} with ${CHANNELS[i][0]} before and ${CHANNELS[i][6]} after`, `P/LP: ${up[i].toFixed(2)}%, ${exact(s.plp[i])}`, `B/LB: ${down[i].toFixed(2)}%, ${exact(s.blb[i])}`),
+  });
+  attachData('#spectrum-chart', 'clinvar-snv-spectrum', ['Channel', 'P/LP SNVs', 'B/LB SNVs'], CHANNELS.map((c, i) => [c, s.plp[i], s.blb[i]]));
+  const sixUp = SUBSTITUTIONS.map((_, g) => sumOf(up.slice(g * 16, g * 16 + 16)));
+  const sixDown = SUBSTITUTIONS.map((_, g) => sumOf(down.slice(g * 16, g * 16 + 16)));
+  histo({
+    mount: $('#spectrum-classes-chart'),
+    bins: SUBSTITUTIONS,
+    series: [
+      { key: 'plp', label: 'P/LP', color: 'var(--accent)', values: sixUp },
+      { key: 'blb', label: 'B/LB', color: 'var(--s2)', values: sixDown },
+    ],
+    centered: true,
+    tickEvery: 1,
+    tickLabel: (b) => b,
+    yFormat: (v) => `${v}%`,
+    height: 200,
+    aria: 'Six substitution classes as a share of P/LP and B/LB SNVs',
+    describe: (i) => tipLines(SUBSTITUTIONS[i], 'share of SNVs', `P/LP: ${sixUp[i].toFixed(1)}%`, `B/LB: ${sixDown[i].toFixed(1)}%`),
+  });
+  attachData('#spectrum-classes-chart', 'clinvar-substitution-classes', ['Substitution', 'P/LP share (%)', 'B/LB share (%)'], SUBSTITUTIONS.map((x, i) => [x, Number(sixUp[i].toFixed(2)), Number(sixDown[i].toFixed(2))]));
+};
+
+const VALIDITY = [['Definitive', 'var(--accent)'], ['Strong', 'var(--s4)'], ['Moderate', 'var(--s5)'], ['Limited', 'var(--s3)'], ['Disputed', 'var(--s2)'], ['Refuted', 'var(--ink)'], ['No Known Disease Relationship', 'var(--data-2)']];
+const MOI = {
+  AD: 'autosomal dominant', AR: 'autosomal recessive', XL: 'X-linked', SD: 'semidominant', MT: 'mitochondrial', UD: 'undetermined',
+};
+
+const renderValidity = () => {
+  const V = snapshot.validity;
+  const mois = Object.keys(V.byMoi).sort((a, b) => sumOf(Object.values(V.byMoi[b])) - sumOf(Object.values(V.byMoi[a])));
+  const { AD, AR } = V.loeufByMoi;
+  $('#validity-dek').textContent = `${exact(V.diseases)} diseases, as MONDO terms, from the curation file of ${longDate(V.date)}. Genes with a definitive, strong or moderate dominant link have a median LOEUF of ${AD.median.toFixed(2)}, recessive ones ${AR.median.toFixed(2)}. The ${V.gceps.length} expert panels are led by ${V.gceps[0].name.replace(/ Gene Curation Expert Panel$/, '')}, with ${exact(V.gceps[0].n)} curations.`;
+  hbars({
+    mount: $('#validity-chart'),
+    rows: mois.map((m) => ({ key: m, label: m, values: V.byMoi[m] })),
+    segments: VALIDITY.map(([key, color]) => ({ key, label: key, color })),
+    labelShare: 0.08,
+    aria: 'ClinGen gene-disease curations by mode of inheritance and classification',
+    describe: (r) => tipLines(`${exact(sumOf(Object.values(r.values)))} curations`, `${r.key}, ${MOI[r.key] ?? r.key}`, ...VALIDITY.filter(([k]) => r.values[k]).map(([k]) => `${k}: ${exact(r.values[k])}`)),
+  });
+  attachData('#validity-chart', 'clingen-validity', ['Inheritance', ...VALIDITY.map(([k]) => k)], mois.map((m) => [m, ...VALIDITY.map(([k]) => V.byMoi[m][k] ?? 0)]));
+  const years = Object.keys(V.byYear).map(Number).sort((a, b) => a - b);
+  stackedArea({
+    mount: $('#validity-years-chart'),
+    years,
+    series: VALIDITY.map(([key, color]) => ({
+      key, label: key, color, values: years.map((y) => V.byYear[y][key] ?? 0),
+    })),
+    aria: 'ClinGen gene-disease curations by year of classification',
+  });
+  attachData('#validity-years-chart', 'clingen-validity-years', ['Year', ...VALIDITY.map(([k]) => k)], years.map((y) => [y, ...VALIDITY.map(([k]) => V.byYear[y][k] ?? 0)]));
+  const bins = binsOf(linearEdges(0, 2, 0.05));
+  const share = (g) => g.counts.map((c) => (c / g.n) * 100);
+  histo({
+    mount: $('#validity-loeuf-chart'),
+    bins,
+    series: [
+      { key: 'AD', label: `Dominant (${exact(AD.n)} genes)`, color: 'var(--accent)', values: share(AD) },
+      { key: 'AR', label: `Recessive (${exact(AR.n)} genes)`, color: 'var(--s2)', values: share(AR) },
+    ],
+    tickEvery: 4,
+    tickLabel: (b) => b.lo.toFixed(1),
+    yFormat: (v) => `${v}%`,
+    height: 200,
+    aria: 'LOEUF of genes with a supported dominant or recessive disease link',
+    describe: (i) => tipLines(`LOEUF ${bins[i].lo.toFixed(2)} to ${bins[i].hi.toFixed(2)}`, 'share of each group', `Dominant: ${share(AD)[i].toFixed(1)}%, ${exact(AD.counts[i])}`, `Recessive: ${share(AR)[i].toFixed(1)}%, ${exact(AR.counts[i])}`),
+  });
+  attachData('#validity-loeuf-chart', 'clingen-validity-loeuf', ['LOEUF from', 'LOEUF to', 'Dominant genes', 'Recessive genes'], bins.map((b, i) => [b.lo, b.hi, AD.counts[i], AR.counts[i]]));
+  const top = V.gceps.slice(0, 12);
+  dotplot({
+    mount: $('#validity-gcep-chart'),
+    rows: top.map((g, i) => ({
+      key: g.name, label: g.name.replace(/ Gene Curation Expert Panel$/, ''), value: g.n, hi: i === 0,
+    })),
+    scale: 'linear',
+    labelShare: 0.4,
+    aria: 'ClinGen gene curation expert panels with the most curations',
+    describe: (r) => tipLines(`${exact(r.value)} curations`, r.key),
+  });
+  attachData('#validity-gcep-chart', 'clingen-expert-panels', ['Expert panel', 'Curations'], V.gceps.map((g) => [g.name, g.n]));
+};
+
+const renderCnvRegions = () => {
+  const RG = snapshot.regions;
+  const sizes = RG.sensitive.map((r) => r.end - r.start + 1);
+  const both = RG.sensitive.filter((r) => r.hi === 3 && r.ts === 3).length;
+  $('#cnvregions-dek').textContent = `${exact(RG.sensitive.length)} regions have sufficient evidence for at least one direction, ${exact(both)} for both a loss and a gain; ${exact(RG.sensitive.filter((r) => r.recurrent).length)} are recurrent, flanked by segmental duplications. They span ${bases(Math.min(...sizes))} to ${bases(Math.max(...sizes))}. ${exact(RG.hi[40] ?? 0)} regions are scored as unlikely to be haploinsufficient.`;
+  ideogram({
+    mount: $('#regions-ideogram-chart'),
+    chromosomes: NUCLEAR,
+    bands: A.bands,
+    marks: RG.sensitive.map((r) => ({
+      chrom: r.chrom, start: r.start - 1, end: r.end, label: r.id,
+    })),
+    aria: 'ClinGen dosage-sensitive regions on the GRCh38 chromosomes',
+    describe: (band) => tipLines(`${band.chrom}${band.name}`, coords(band.chrom, band.start + 1, band.end), ...RG.sensitive.filter((r) => r.chrom === band.chrom && r.start <= band.end && r.end > band.start).map((r) => r.name)),
+  });
+  attachData('#regions-ideogram-chart', 'clingen-dosage-regions', ['ID', 'Region', 'Band', 'Chromosome', 'Start', 'End', 'Haploinsufficiency', 'Triplosensitivity'], RG.sensitive.map((r) => [r.id, r.name, r.band, r.chrom, r.start, r.end, r.hi, r.ts]));
+  const rows = RG.sensitive.map((r) => ({
+    key: r.id, label: r.name, value: r.end - r.start + 1, hi: r.hi === 3 && r.ts === 3,
+  })).sort((a, b) => b.value - a.value);
+  dotplot({
+    mount: $('#regions-size-chart'),
+    rows,
+    format: bases,
+    tickFormat: bases,
+    rowH: 20,
+    labelShare: 0.5,
+    labelMax: 380,
+    aria: 'Size of each dosage-sensitive region, log scale',
+    describe: (row) => {
+      const r = RG.sensitive.find((x) => x.id === row.key);
+      return tipLines(bases(row.value), r.name, `${r.band}, ${coords(r.chrom, r.start, r.end)}`, `Haploinsufficiency ${r.hi ?? 'not scored'}, triplosensitivity ${r.ts ?? 'not scored'}`, { href: `https://search.clinicalgenome.org/kb/regions/${r.id}`, text: 'Open in ClinGen' });
+    },
+  });
+  attachData('#regions-size-chart', 'clingen-region-sizes', ['ID', 'Region', 'Bases', 'Haploinsufficiency', 'Triplosensitivity', 'Recurrent'], rows.map((row) => {
+    const r = RG.sensitive.find((x) => x.id === row.key);
+    return [r.id, r.name, row.value, r.hi, r.ts, r.recurrent ? 'yes' : 'no'];
+  }));
+};
+
+const RANGE_KINDS = [
+  { key: 'benign', label: 'Benign', color: 'var(--data-2)' },
+  { key: 'intermediate', label: 'Intermediate', color: 'var(--s5)' },
+  { key: 'pathogenic', label: 'Pathogenic', color: 'var(--accent)' },
+];
+const LOCATIONS = [["5' UTR", "5′ UTR or promoter", 'var(--s5)'], ['coding exon', 'Coding exon', 'var(--accent)'], ['exon', 'Unspecified exon', 'var(--s4)'], ['intron', 'Intron', 'var(--s2)'], ["3' UTR", "3′ UTR", 'var(--s3)'], ['non-coding', 'Non-coding RNA', 'var(--ink)'], ['unknown', 'Not stated', 'var(--data-2)']];
+
+const renderExpansions = () => {
+  const E = snapshot.expansions;
+  const ranged = E.loci.filter((l) => ['Definitive', 'Strong'].includes(l.evidence) && l.pathogenic).sort((a, b) => a.pathogenic[0] - b.pathogenic[0] || a.gene.localeCompare(b.gene));
+  const rows = ranged.map((l) => ({
+    key: l.id,
+    label: `${l.gene} ${l.motif ?? ''}`.trim(),
+    segments: [['benign', l.benign], ['intermediate', l.intermediate], ['pathogenic', l.pathogenic]].filter(([, r]) => r).map(([kind, [lo, hi]]) => ({ kind, lo, hi })),
+    locus: l,
+  }));
+  const contracts = (l) => l.benign && l.pathogenic[1] < l.benign[0];
+  const grows = ranged.filter((l) => !contracts(l));
+  const shrink = ranged.filter(contracts);
+  const lows = grows[0];
+  const highs = grows.at(-1);
+  $('#expansions-dek').textContent = `${exact(ranged.length)} loci with definitive or strong evidence, from STRchive’s data of ${longDate(E.updated)}. Pathogenic expansions start at ${exact(lows.pathogenic[0])} repeats in ${lows.gene} and at ${exact(highs.pathogenic[0])} in ${highs.gene}${shrink.length ? `; at ${shrink.map((l) => l.gene).join(' and ')} the pathogenic allele is shorter than the benign one` : ''}. ${exact(E.loci.filter((l) => l.location === 'coding exon').length)} of the ${exact(E.loci.length)} loci sit in coding exons, ${exact(E.loci.filter((l) => l.location === 'intron').length)} in introns.`;
+  ranges({
+    mount: $('#expansions-chart'),
+    rows,
+    kinds: RANGE_KINDS,
+    valueText: (r) => (contracts(r.locus) ? `≤${exact(r.locus.pathogenic[1])}` : `≥${exact(r.locus.pathogenic[0])}`),
+    aria: 'Benign, intermediate and pathogenic repeat counts at each locus, log scale',
+    describe: (r) => {
+      const l = r.locus;
+      return tipLines(`${l.gene} ${l.motif ?? ''}`, `${l.name} (${l.disease}), ${l.inheritance}`, ...r.segments.map((s) => `${s.kind}: ${exact(s.lo)} to ${exact(s.hi)} repeats`), l.onset ? `Typical onset at ${l.onset[0]} to ${l.onset[1]} years` : null, l.year ? `Found in ${l.year}` : null, l.genereviews ? { href: `https://www.ncbi.nlm.nih.gov/books/${l.genereviews}/`, text: 'GeneReviews chapter' } : null);
+    },
+  });
+  attachData('#expansions-chart', 'repeat-expansion-ranges', ['Locus', 'Gene', 'Motif', 'Disease', 'Inheritance', 'Benign from', 'Benign to', 'Intermediate from', 'Intermediate to', 'Pathogenic from', 'Pathogenic to', 'Year'], ranged.map((l) => [l.id, l.gene, l.motif, l.name, l.inheritance, l.benign?.[0] ?? null, l.benign?.[1] ?? null, l.intermediate?.[0] ?? null, l.intermediate?.[1] ?? null, l.pathogenic[0], l.pathogenic[1], l.year]));
+  const dated = E.loci.filter((l) => l.year);
+  const years = Array.from({ length: Math.max(...dated.map((l) => l.year)) - Math.min(...dated.map((l) => l.year)) + 1 }, (_, i) => Math.min(...dated.map((l) => l.year)) + i);
+  const present = LOCATIONS.filter(([key]) => dated.some((l) => l.location === key));
+  stackedArea({
+    mount: $('#expansions-years-chart'),
+    years,
+    series: present.map(([key, label, color]) => ({
+      key, label, color, values: years.map((y) => dated.filter((l) => l.location === key && l.year <= y).length),
+    })),
+    aria: 'Repeat expansion loci found by each year, by where they sit in the gene',
+  });
+  attachData('#expansions-years-chart', 'repeat-expansion-years', ['Year', ...present.map(([, label]) => label)], years.map((y) => [y, ...present.map(([key]) => dated.filter((l) => l.location === key && l.year === y).length)]));
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -1905,6 +2351,15 @@ const DATA_SOURCES = [
   ['dbVar non-redundant insertions, GRCh38', FILES.nr_insertions],
   ['gnomAD v4.1 constraint metrics', FILES.gnomadConstraint],
   ['ClinGen gene curation list, GRCh38', FILES.clingenGenes],
+  ['ClinVar GRCh38 VCF', FILES.clinvarVcf],
+  ['ClinVar GRCh38 VCF archive', FILES.clinvarArchive],
+  ['ClinVar variant_summary', FILES.clinvarTable],
+  ['ClinVar gene_specific_summary', FILES.clinvarGenes],
+  ['ClinVar organization_summary', FILES.clinvarOrgs],
+  ['ClinGen gene-disease validity download', FILES.clingenValidity],
+  ['ClinGen region curation list, GRCh38', FILES.clingenRegions],
+  ['InterPro Pfam matches by UniProt protein', FILES.interproProtein],
+  ['STRchive loci, GitHub', FILES.strchive],
 ];
 
 const renderSources = () => {
@@ -2007,6 +2462,14 @@ const drawCharts = () => {
   renderSv();
   renderConstraint();
   renderDosage();
+  renderClinvar();
+  renderReview();
+  renderGrowth();
+  renderLollipops();
+  renderSpectrum();
+  renderValidity();
+  renderCnvRegions();
+  renderExpansions();
   applySearch();
 };
 
