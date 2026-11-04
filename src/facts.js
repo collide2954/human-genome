@@ -1,0 +1,54 @@
+export const SOURCE_GROUPS = [
+  'Assemblies and sequence', 'Genes and proteins', 'Expression and regulation', 'Variation and populations', 'Clinical genetics',
+  'Pharmacogenomics', 'Complex traits', 'Research and funding', 'Methods', 'Landmark papers', 'History',
+];
+
+export const SOURCES = {
+  grch38: 'https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/',
+  t2t: 'https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_009914755.1/',
+  grc: 'https://www.ncbi.nlm.nih.gov/grc/human',
+  ucscHg38: 'https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/',
+  ucscGap: 'https://genome.ucsc.edu/cgi-bin/hgTables?db=hg38&hgta_group=map&hgta_track=gap&hgta_doSchema=describe+table+schema',
+  nurk2022: 'https://doi.org/10.1126/science.abj6987',
+  iscn: 'https://doi.org/10.1159/isbn.978-3-318-07384-8',
+};
+
+export const SOURCE_TITLES = {
+  grch38: ['Assemblies and sequence', 'GRCh38.p14 (GCF_000001405.40), NCBI Datasets'],
+  t2t: ['Assemblies and sequence', 'T2T-CHM13v2.0 (GCF_009914755.1), NCBI Datasets'],
+  grc: ['Assemblies and sequence', 'Genome Reference Consortium, human assembly data'],
+  ucscHg38: ['Assemblies and sequence', 'UCSC Genome Browser hg38 annotation tables'],
+  ucscGap: ['Assemblies and sequence', 'UCSC hg38 gap table schema'],
+  nurk2022: ['Assemblies and sequence', 'Nurk et al. 2022, The complete sequence of a human genome, Science 376:44'],
+  iscn: ['Assemblies and sequence', 'ISCN 2024: An International System for Human Cytogenomic Nomenclature'],
+};
+
+export const EXAMPLES = [
+  { id: 'NM_000546.6:c.215C>G', is: 'TP53 p.Pro72Arg, a common polymorphism' },
+  { id: 'NM_000492.4:c.1521_1523del', is: 'CFTR p.Phe508del, the most frequent cystic fibrosis variant' },
+  { id: 'NM_007294.4:c.68_69del', is: 'BRCA1 185delAG, an Ashkenazi founder variant' },
+  { id: 'NC_012920.1:m.3243A>G', is: 'MT-TL1 variant behind most MELAS' },
+  { id: 'rs334', is: 'HBB p.Glu7Val, the sickle cell variant' },
+  { id: '17-7676154-G-C', is: 'TP53 p.Pro72Arg as a gnomAD ID' },
+  { id: 'NC_000017.11:7676153:G:C', is: 'TP53 p.Pro72Arg in SPDI' },
+  { id: 'CYP2D6*4', is: 'The most frequent no-function CYP2D6 allele in Europeans' },
+  { id: 'HLA-B*57:01', is: 'Abacavir hypersensitivity risk allele' },
+  { id: 'ENSG00000141510', is: 'TP53 gene' },
+  { id: 'ENST00000269305.9', is: 'TP53 MANE Select transcript' },
+  { id: 'NC_000017.11', is: 'Chromosome 17 in GRCh38' },
+  { id: 'NC_060941.1', is: 'Chromosome 17 in T2T-CHM13v2.0' },
+  { id: 'GCF_000001405.40', is: 'GRCh38.p14 in RefSeq' },
+  { id: '17p13.1', is: 'The band holding TP53' },
+  { id: 'chr7:117,480,025-117,668,665', is: 'The CFTR gene in GRCh38' },
+  { id: 'P04637', is: 'Cellular tumor antigen p53, UniProtKB' },
+  { id: '1TUP', is: 'p53 core domain bound to DNA' },
+  { id: 'HGNC:11998', is: 'TP53' },
+  { id: 'GeneID:7157', is: 'TP53' },
+  { id: 'MIM:219700', is: 'Cystic fibrosis' },
+  { id: 'ORPHA:586', is: 'Cystic fibrosis' },
+  { id: 'HP:0001250', is: 'Seizure' },
+  { id: 'GO:0006915', is: 'Apoptotic process' },
+  { id: 'LRG_292', is: 'BRCA1' },
+  { id: 'NBK1250', is: 'GeneReviews: CFTR-Related Disorders' },
+  { id: 'R-HSA-109582', is: 'Hemostasis' },
+];
