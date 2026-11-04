@@ -18,7 +18,7 @@ const open = async ({ width = 1280, height = 900, search = '', motion = 'reduce'
   page.on('console', (m) => m.type() === 'error' && !/net::ERR_FAILED|fonts\.g/.test(m.text()) && errors.push(m.text()));
   await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort());
   await page.goto(`${base}${search}`);
-  await page.waitForSelector('#ideogram-chart svg', { state: 'attached' });
+  await page.waitForSelector('html[data-drawn]', { state: 'attached' });
   return { page, errors };
 };
 
@@ -27,7 +27,7 @@ const openPhone = async () => {
   const page = await context.newPage();
   await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort());
   await page.goto(base);
-  await page.waitForSelector('#ideogram-chart svg', { state: 'attached' });
+  await page.waitForSelector('html[data-drawn]', { state: 'attached' });
   return { page, context };
 };
 
@@ -573,8 +573,47 @@ test('on a phone the tissue heatmap drops its labels and still fits', async () =
   await context.close();
 });
 
+test('figure tables and CSV files are built only when asked for', async () => {
+  const { page } = await open();
+  assert.equal(await page.locator('.fig figcaption details.data table').count(), 0);
+  assert.ok(await page.locator('.fig figcaption details.data').count() >= 4);
+  const csv = page.locator('#ideogram-chart').locator('xpath=ancestor::figure').locator('a.csv');
+  assert.doesNotMatch(await csv.getAttribute('href') ?? '', /^data:/);
+  await page.locator('#ideogram-chart').locator('xpath=ancestor::figure').locator('details.data summary').click();
+  assert.equal(await page.locator('#ideogram-chart').locator('xpath=ancestor::figure').locator('details.data table').count(), 1);
+  await csv.dispatchEvent('pointerdown');
+  assert.match(await csv.getAttribute('href'), /^data:text\/csv;charset=utf-8,Chromosome/);
+  await page.close();
+});
+
+test('switching the theme keeps the drawn charts', async () => {
+  const { page } = await open();
+  await page.evaluate(() => { document.querySelector('#ideogram-chart svg').dataset.mark = 'kept'; });
+  await page.click('#theme');
+  assert.equal(await page.locator('#ideogram-chart svg[data-mark="kept"]').count(), 1);
+  await page.close();
+});
+
+test('the page draws without long main-thread stalls and keeps the DOM small', async () => {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce' });
+  await page.addInitScript(() => {
+    window.stalls = [];
+    new PerformanceObserver((list) => list.getEntries().forEach((e) => window.stalls.push(e.duration))).observe({ type: 'longtask', buffered: true });
+  });
+  await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort());
+  await page.goto(base);
+  await page.waitForSelector('html[data-drawn]', { state: 'attached' });
+  const { longest, nodes } = await page.evaluate(() => ({ longest: Math.max(0, ...window.stalls), nodes: document.getElementsByTagName('*').length }));
+  assert.ok(longest < 1000, `longest task ${Math.round(longest)} ms`);
+  assert.ok(nodes < 100000, `${nodes} nodes`);
+  await page.close();
+});
+
 test('every figure offers its numbers as a table and as CSV', async () => {
   const { page } = await open();
+  await page.evaluate(() => document.querySelectorAll('.fig figcaption details.data').forEach((d) => { d.open = true; }));
+  await page.waitForFunction(() => [...document.querySelectorAll('.fig figcaption details.data')].every((d) => d.querySelector('table')));
+  await page.evaluate(() => document.querySelectorAll('.fig figcaption a.csv').forEach((a) => a.dispatchEvent(new PointerEvent('pointerdown'))));
   const figs = await page.$$eval('.fig', (els) => els.map((f) => ({
     id: f.querySelector('.chart')?.id,
     table: !!f.querySelector('figcaption details.data table'),
