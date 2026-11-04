@@ -691,8 +691,72 @@
     </div>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-structure" data-chapter="structure">
     <p class="chapter-no">Part 9</p>
+    <h2 class="chapter-title">Chromosome structure</h2>
+    <p class="chapter-dek">The parts of the genome built differently: the 16.6 kb mitochondrial circle, the satellite arrays at centromeres and on the acrocentric arms that only T2T-CHM13 resolves, the telomeres at every end, and the X and Y chromosomes.</p>
+  </div>
+
+  <section class="story wrap" id="mito" data-lens="sequence variation" data-nav="Mitochondria">
+    <header class="head"><p class="label">The mitochondrial genome</p><h2 data-finding="mito">The mitochondrial genome</h2><p class="dek" id="mito-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="mito-map-chart"></div>
+      <figcaption>Genes of the revised Cambridge Reference Sequence on each strand of the reference, from position 1 to 16,569; the D-loop control region spans the origin. Hover for names and positions. Source: NCBI NC_012920.1 feature table.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="mito-variant-chart"></div>
+      <figcaption>Variants passing gnomAD filters per 100 bp of the mitochondrial genome, on the same scale as the map above. Source: gnomAD v3.1 mitochondrial variants.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="mito-top-chart"></div>
+        <figcaption>The 15 variants most often homoplasmic in gnomAD, share of samples. Most mark where the reference, a European haplogroup H2a2a1 sequence, differs from most people. Source: gnomAD v3.1.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="mito-het-chart"></div>
+        <figcaption>Variants by the highest heteroplasmy level gnomAD observed for them, in steps of 5%, log scale; the last bin holds variants seen at 95% or more. Source: gnomAD v3.1.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="censat" data-lens="sequence" data-nav="Satellites">
+    <header class="head"><p class="label">Centromeres and satellites</p><h2 data-finding="censat">Centromeres and satellites</h2><p class="dek" id="censat-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="censat-chart"></div>
+      <figcaption>Satellite arrays on each T2T-CHM13 chromosome, in megabases, by family. Active α-satellite higher-order repeats mark the functional centromere. Transition regions between arrays are left out. Source: T2T CenSat annotation v2.1.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="censat-class-chart"></div>
+        <figcaption>Satellite bases by family across the genome, log scale. Source: as above.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="telomere-chart"></div>
+        <figcaption>Telomere repeat length at the p-arm and q-arm end of each T2T-CHM13 chromosome, log scale. CHM13 is a cell line, so these are its telomeres, not population values. Source: T2T telomere annotation.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="sexchrom" data-lens="sequence genes" data-nav="X and Y">
+    <header class="head"><p class="label">X and Y</p><h2 data-finding="sexchrom">X and Y</h2><p class="dek" id="sexchrom-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="par-chart"></div>
+      <figcaption>GRCh38 X and Y with their Giemsa bands; red outlines mark the two pseudoautosomal regions, which pair and recombine in male meiosis. Source: UCSC cytogenetic bands; GRC PAR coordinates.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="xy-genes-chart"></div>
+        <figcaption>GENCODE genes on X, on Y and on an average autosome, by type; genes in the PARs are counted on both X and Y. Source: GENCODE.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="y-satellite-chart"></div>
+        <figcaption>The T2T-CHM13 Y chromosome by satellite family; each square is 1%. Source: T2T CenSat annotation v2.1.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 10</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>

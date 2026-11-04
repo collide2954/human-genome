@@ -1,6 +1,6 @@
 import snapshot from './snapshot.js';
 import {
-  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES,
+  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS,
 } from './facts.js';
 import {
   exact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, AA3, codonOf, perLitre,
@@ -11,7 +11,7 @@ import {
   findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons, gtexTissues, plasmaLevel, proteomeResidues, proteinLabel, trnaPairs,
 } from './findings.js';
 import {
-  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, heatmap, observeFigures, countUp, tipLines,
+  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, heatmap, genomeMap, dumbbell, observeFigures, countUp, tipLines,
 } from './charts.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -1454,6 +1454,206 @@ const renderEncode = () => {
   ranked('#encode-target-chart', 'encode-targets', ENC.targets, 'ENCODE experiments by target class', 'log', 0.44);
 };
 
+const ST = snapshot.structure;
+const MT_KINDS = [
+  { key: 'protein', label: 'Protein-coding', color: 'var(--s2)' },
+  { key: 'rRNA', label: 'rRNA', color: 'var(--s4)' },
+  { key: 'tRNA', label: 'tRNA', color: 'var(--s3)' },
+  { key: 'dloop', label: 'D-loop', color: 'var(--data)' },
+];
+
+const renderMito = () => {
+  const { genes, dloop, variants: v } = ST.mito;
+  const mt = S.chromosomes.find((c) => c.chrom === 'MT');
+  const length = mt.length;
+  const minus = genes.filter((g) => g.strand === '-');
+  const features = (strand) => genes.filter((g) => g.strand === strand).map((g) => ({ ...g, key: g.name, label: g.kind === 'tRNA' ? null : g.name }));
+  const loop = dloop.map(([start, end]) => ({
+    key: 'D-loop', name: 'D-loop', start, end, kind: 'dloop', strand: '+', product: 'control region', label: end - start > 400 ? 'D-loop' : null,
+  }));
+  $('#mito-dek').textContent = `The sequence is ${gcPct((mt.C + mt.G) / acgtOf(mt))} G and C. ${minus.length} genes, ${minus.map((g) => g.name).join(', ')}, lie on the minus strand of the reference; the rest on the plus strand. gnomAD v3.1 calls ${exact(v.variants)} variants across ${exact(v.samples)} samples; ${exact(v.homoplasmic)} are seen homoplasmic in someone and ${exact(v.heteroplasmicOnly)} only as heteroplasmy.`;
+  genomeMap({
+    mount: $('#mito-map-chart'),
+    length,
+    span: v.bins.length * 100,
+    lanes: [{ key: '+', label: '+', features: [...features('+'), ...loop] }, { key: '-', label: '−', features: features('-') }],
+    kinds: MT_KINDS,
+    aria: 'Map of the mitochondrial genome',
+    describe: (f) => tipLines(f.name, f.product ?? f.kind, `positions ${exact(f.start)} to ${exact(f.end)}, ${exact(f.end - f.start + 1)} bp`, `${f.strand === '-' ? 'minus' : 'plus'} strand of the reference`, f.kind === 'dloop' ? null : { href: `https://www.ncbi.nlm.nih.gov/gene/?term=MT-${f.name}`, text: 'Search NCBI Gene' }),
+  });
+  attachData('#mito-map-chart', 'mitochondrial-genes', ['Gene', 'Kind', 'Product', 'Start', 'End', 'Strand'], [...genes.map((g) => [g.name, g.kind, g.product, g.start, g.end, g.strand]), ...loop.map((l) => [l.name, 'control region', l.product, l.start, l.end, '+'])]);
+  const totals = v.bins.map((b) => b.hom + b.het);
+  histo({
+    mount: $('#mito-variant-chart'),
+    bins: v.bins.map((b, i) => ({ lo: i * 100 })),
+    series: [{ key: 'variants', label: 'Variants', color: 'var(--data)', values: totals }],
+    height: 140,
+    tickEvery: 20,
+    tickLabel: (b) => shortBases(b.lo),
+    aria: 'gnomAD mitochondrial variants per 100 bp',
+    describe: (i) => tipLines(`${exact(totals[i])} variants`, `positions ${exact(i * 100 + 1)} to ${exact(Math.min((i + 1) * 100, length))}`, `${exact(v.bins[i].hom)} seen homoplasmic`, `${exact(v.bins[i].het)} only heteroplasmic`),
+  });
+  attachData('#mito-variant-chart', 'mitochondrial-variants-per-100bp', ['From', 'To', 'Homoplasmic in someone', 'Only heteroplasmic'], v.bins.map((b, i) => [i * 100 + 1, Math.min((i + 1) * 100, length), b.hom, b.het]));
+  const name = (t) => `m.${t.pos}${t.ref}>${t.alt}`;
+  dotplot({
+    mount: $('#mito-top-chart'),
+    rows: v.top.map((t, i) => ({ key: name(t), label: name(t), value: t.afHom * 100, hi: i === 0 })),
+    scale: 'linear',
+    rowH: 20,
+    format: (x) => `${x.toFixed(1)}%`,
+    aria: 'Most frequent homoplasmic mitochondrial variants',
+    describe: (r) => {
+      const t = v.top.find((x) => name(x) === r.key);
+      return tipLines(`${(t.afHom * 100).toFixed(2)}% homoplasmic`, r.label, `${(t.afHet * 100).toFixed(3)}% heteroplasmic`);
+    },
+  });
+  attachData('#mito-top-chart', 'mitochondrial-top-variants', ['Variant', 'Homoplasmic share', 'Heteroplasmic share'], v.top.map((t) => [name(t), t.afHom, t.afHet]));
+  const hBins = binsOf(v.heteroplasmy.edges);
+  histo({
+    mount: $('#mito-het-chart'),
+    bins: hBins,
+    series: [{ key: 'variants', label: 'Variants', color: 'var(--data)', values: v.heteroplasmy.counts }],
+    yLog: true,
+    tickEvery: 4,
+    tickLabel: (b) => `${Math.round(b.lo * 100)}%`,
+    aria: 'Variants by highest observed heteroplasmy',
+    describe: (i) => tipLines(`${exact(v.heteroplasmy.counts[i])} variants`, `highest heteroplasmy ${Math.round(hBins[i].lo * 100)}% to ${Math.round(hBins[i].hi * 100)}%`),
+  });
+  attachData('#mito-het-chart', 'mitochondrial-heteroplasmy', ['Heteroplasmy from', 'Heteroplasmy to', 'Variants'], hBins.map((b, i) => [b.lo, b.hi, v.heteroplasmy.counts[i]]));
+};
+
+const SAT_GROUPS = [
+  ['hor', 'Active α-satellite HOR', ['hor'], 'var(--s1)'],
+  ['alpha', 'Other α-satellite', ['dhor', 'mon'], 'var(--s5)'],
+  ['hsat1', 'HSat1A and HSat1B', ['hsat1A', 'hsat1B'], 'var(--s4)'],
+  ['hsat2', 'HSat2', ['hsat2'], 'var(--s2)'],
+  ['hsat3', 'HSat3', ['hsat3'], 'var(--s3)'],
+  ['bsat', 'β-satellite', ['bsat'], 'var(--data)'],
+  ['gsat', 'γ-satellite', ['gsat'], 'var(--ink-2)'],
+  ['rDNA', 'rDNA arrays', ['rDNA'], 'var(--muted)'],
+  ['other', 'Other satellites', [], 'var(--data-2)'],
+];
+const groupOf = (cls) => SAT_GROUPS.find(([, , members]) => members.includes(cls))?.[0] ?? 'other';
+const satGroups = (byClass) => {
+  const out = Object.fromEntries(SAT_GROUPS.map(([key]) => [key, 0]));
+  for (const [cls, bp] of Object.entries(byClass ?? {})) out[groupOf(cls)] += bp;
+  return out;
+};
+
+const renderCensat = () => {
+  const { byChrom, classes, total, transition } = ST.censat;
+  const t2tLength = A.t2t.chromosomes.filter((c) => c.chrom !== 'MT').reduce((n, c) => n + c.length, 0);
+  const all = satGroups(classes);
+  const hor = [...ST.censat.arrays.hor].sort((a, b) => b.bp - a.bp);
+  $('#censat-dek').textContent = `Satellites make up ${pct(total / t2tLength)} of T2T-CHM13, and the transition regions between arrays another ${bases(transition)}. Active HOR arrays run from ${bases(hor.at(-1).bp)} on chromosome ${hor.at(-1).chrom} to ${bases(hor[0].bp)} on chromosome ${hor[0].chrom}. HSat3 is the largest family after α-satellite HORs, ${bases(all.hsat3)}.`;
+  const chroms = A.t2t.chromosomes.filter((c) => c.chrom !== 'MT');
+  hbars({
+    mount: $('#censat-chart'),
+    rows: chroms.map((c) => ({ key: c.chrom, label: c.chrom, values: Object.fromEntries(Object.entries(satGroups(byChrom[c.chrom])).map(([k, bp]) => [k, bp / 1e6])) })),
+    segments: SAT_GROUPS.map(([key, label, , color]) => ({ key, label, color })),
+    labelShare: 0.05,
+    rowH: 18,
+    format: (v) => `${v.toFixed(1)} Mb`,
+    tickFormat: (t) => `${t} Mb`,
+    aria: 'Satellite arrays per T2T-CHM13 chromosome by family',
+    describe: (r) => tipLines(`${sumOf(Object.values(r.values)).toFixed(2)} Mb of satellites`, `chromosome ${r.key}`, ...SAT_GROUPS.filter(([key]) => r.values[key] > 0).map(([key, label]) => `${label}: ${r.values[key].toFixed(2)} Mb`)),
+  });
+  attachData('#censat-chart', 'satellites-by-chromosome', ['Chromosome', ...SAT_GROUPS.map(([key]) => `${key} bp`)], chroms.map((c) => {
+    const g = satGroups(byChrom[c.chrom]);
+    return [c.chrom, ...SAT_GROUPS.map(([key]) => g[key])];
+  }));
+  const groups = SAT_GROUPS.filter(([key]) => all[key] > 0).sort((a, b) => all[b[0]] - all[a[0]]);
+  dotplot({
+    mount: $('#censat-class-chart'),
+    rows: groups.map(([key, label], i) => ({ key, label, value: all[key], hi: i === 0 })),
+    format: bases,
+    tickFormat: (t) => bases(t).replace(' ', ''),
+    labelShare: 0.46,
+    rowH: 20,
+    aria: 'Satellite bases by family',
+    describe: (r) => tipLines(bases(r.value), r.label, `${pct(r.value / t2tLength)} of T2T-CHM13`),
+  });
+  attachData('#censat-class-chart', 'satellite-families', ['Family', 'Bases'], groups.map(([key, label]) => [label, all[key]]));
+  dumbbell({
+    mount: $('#telomere-chart'),
+    rows: ST.telomeres.map((t) => ({
+      key: t.chrom, label: t.chrom, a: t.p, b: t.q,
+    })),
+    years: ['p arm', 'q arm'],
+    format: (v) => `${(v / 1000).toFixed(1)} kb`,
+    valueText: (r) => `${(r.a / 1000).toFixed(1)} and ${(r.b / 1000).toFixed(1)} kb`,
+    tickFormat: (t) => `${t / 1000} kb`,
+    aria: 'Telomere lengths at both ends of each chromosome',
+    describe: (r) => tipLines(`p ${exact(r.a)} bp, q ${exact(r.b)} bp`, `chromosome ${r.key} telomeres`),
+  });
+  attachData('#telomere-chart', 't2t-telomeres', ['Chromosome', 'p-arm telomere bp', 'q-arm telomere bp'], ST.telomeres.map((t) => [t.chrom, t.p, t.q]));
+};
+
+const BIOTYPE_GROUPS = [
+  ['protein', 'Protein-coding', 'var(--s1)'],
+  ['lnc', 'lncRNA', 'var(--s2)'],
+  ['pseudo', 'Pseudogenes', 'var(--s3)'],
+  ['small', 'Small RNAs', 'var(--s4)'],
+  ['other', 'Other', 'var(--data-2)'],
+];
+const SMALL_RNAS = new Set(['miRNA', 'snRNA', 'snoRNA', 'misc_RNA', 'scaRNA', 'rRNA', 'sRNA', 'vault_RNA', 'ribozyme', 'scRNA', 'Mt_tRNA', 'Mt_rRNA']);
+const biotypeGroup = (type) => {
+  if (type === 'protein_coding') return 'protein';
+  if (type === 'lncRNA') return 'lnc';
+  if (/pseudogene$/.test(type)) return 'pseudo';
+  return SMALL_RNAS.has(type) ? 'small' : 'other';
+};
+
+const renderSexchrom = () => {
+  const by = G.genes.byChrom;
+  const grouped = (types) => {
+    const out = Object.fromEntries(BIOTYPE_GROUPS.map(([key]) => [key, 0]));
+    for (const [type, n] of Object.entries(types ?? {})) out[biotypeGroup(type)] += n;
+    return out;
+  };
+  const autosomes = Array.from({ length: 22 }, (_, i) => grouped(by[String(i + 1)]));
+  const mean = Object.fromEntries(BIOTYPE_GROUPS.map(([key]) => [key, sumOf(autosomes.map((a) => a[key])) / 22]));
+  const rows = [
+    { key: 'X', label: 'X', values: grouped(by.X) },
+    { key: 'Y', label: 'Y', values: grouped(by.Y) },
+    { key: 'autosome', label: 'Autosome mean', values: mean },
+  ];
+  const xy = NUCLEAR.filter((c) => c.chrom === 'X' || c.chrom === 'Y');
+  const ySat = satGroups(ST.censat.byChrom.Y);
+  const y2 = A.t2t.chromosomes.find((c) => c.chrom === 'Y').length;
+  const par1 = PARS[0].x[1] - PARS[0].x[0] + 1;
+  const par2 = PARS[1].x[1] - PARS[1].x[0] + 1;
+  $('#sexchrom-dek').textContent = `PAR1 spans ${bases(par1)} at the tips of Xp and Yp and PAR2 ${bases(par2)} at the tips of Xq and Yq. Y is ${bases(xy[1].length)} long in GRCh38 and ${bases(y2)} in T2T-CHM13, which resolves its heterochromatin as ${bases(ySat.hsat3)} of HSat3 and ${bases(ySat.hsat1)} of HSat1. X carries ${exact(rows[0].values.protein)} protein-coding genes against an autosome mean of ${exact(mean.protein)}.`;
+  ideogram({
+    mount: $('#par-chart'),
+    chromosomes: xy,
+    bands: A.bands.filter((b) => b.chrom === 'X' || b.chrom === 'Y'),
+    marks: PARS.flatMap((p) => [{ chrom: 'X', start: p.x[0], end: p.x[1], label: p.name }, { chrom: 'Y', start: p.y[0], end: p.y[1], label: p.name }]),
+    aria: 'X and Y with the pseudoautosomal regions',
+    describe: (band) => tipLines(`${band.chrom}${band.name}`, coords(band.chrom, band.start + 1, band.end), STAINS[band.stain] ?? band.stain),
+  });
+  attachData('#par-chart', 'pseudoautosomal-regions', ['Region', 'X start', 'X end', 'Y start', 'Y end'], PARS.map((p) => [p.name, ...p.x, ...p.y]));
+  hbars({
+    mount: $('#xy-genes-chart'),
+    rows,
+    segments: BIOTYPE_GROUPS.map(([key, label, color]) => ({ key, label, color })),
+    labelShare: 0.26,
+    format: (v) => exact(v),
+    aria: 'Genes on X, Y and an average autosome by type',
+    describe: (r) => tipLines(`${exact(sumOf(Object.values(r.values)))} genes`, r.label, ...BIOTYPE_GROUPS.map(([key, label]) => `${label}: ${exact(r.values[key])}`)),
+  });
+  attachData('#xy-genes-chart', 'x-y-genes', ['Chromosome', ...BIOTYPE_GROUPS.map(([, label]) => label)], rows.map((r) => [r.label, ...BIOTYPE_GROUPS.map(([key]) => Math.round(r.values[key]))]));
+  const satTotal = sumOf(Object.values(ySat));
+  const parts = [
+    ...SAT_GROUPS.filter(([key]) => ySat[key] > 0).sort((a, b) => ySat[b[0]] - ySat[a[0]]).map(([key, label, , color]) => ({ label, value: ySat[key], color })),
+    { label: 'Not satellite', value: y2 - satTotal, color: 'var(--g0)' },
+  ];
+  waffle({
+    mount: $('#y-satellite-chart'), parts, aria: 'T2T-CHM13 Y chromosome by satellite family', format: bases,
+  });
+  attachData('#y-satellite-chart', 'y-satellites', ['Family', 'Bases'], parts.map((p) => [p.label, p.value]));
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -1521,6 +1721,10 @@ const DATA_SOURCES = [
   ['UCSC hg38 CpG islands', FILES.cpgIslands],
   ['GtRNAdb hg38 high-confidence mature tRNAs', FILES.trnas],
   ['ENCODE portal, released human experiments', FILES.encode],
+  ['NCBI feature table for NC_012920.1, the rCRS', FILES.mitoFeatures],
+  ['gnomAD v3.1 mitochondrial variants', FILES.gnomadMito],
+  ['T2T-CHM13 CenSat satellite annotation', FILES.censat],
+  ['T2T-CHM13 telomere annotation', FILES.telomeres],
 ];
 
 const renderSources = () => {
@@ -1616,6 +1820,9 @@ const drawCharts = () => {
   renderCpgIslands();
   renderTrna();
   renderEncode();
+  renderMito();
+  renderCensat();
+  renderSexchrom();
   applySearch();
 };
 
