@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS, TRIAL_MODALITIES, trialPage, assemblyPage,
+  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS, TRIAL_MODALITIES, trialPage, assemblyPage, intogenFile, gdcSsmPage,
 } from '../../src/queries.js';
 
 test('network, pathway and ontology files point at STRING, Reactome and the GO release', () => {
@@ -25,6 +25,7 @@ test('every data file is an https URL on a known host', () => {
     'eutils.ncbi.nlm.nih.gov', 'api.ncbi.nlm.nih.gov', 'rest.ensembl.org', 'www.ebi.ac.uk', 'gtexportal.org', 'pharos-api.ncats.io',
     'string-db.org', 'reactome.org', 'current.geneontology.org', 'gtrnadb.ucsc.edu', 'www.encodeproject.org', 's3-us-west-2.amazonaws.com',
     'raw.githubusercontent.com', 'api.github.com', 'www.orphadata.com', 'www.fda.gov', 'clinicaltrials.gov', 'dataverse.harvard.edu', 'www.internationalgenome.org',
+    'www.intogen.org', 'api.gdc.cancer.gov', 'api.clinpgx.org',
   ]);
   for (const [key, url] of Object.entries(FILES)) {
     const u = new URL(url);
@@ -166,6 +167,53 @@ test('population files point at the GWAS Catalog, the AADR on Dataverse, IGSR an
   assert.equal(first.searchParams.get('page_size'), '1000');
   assert.equal(first.searchParams.has('page_token'), false);
   assert.equal(new URL(assemblyPage('t1')).searchParams.get('page_token'), 't1');
+});
+
+test('cancer files point at the IntOGen downloads and the GDC API', () => {
+  assert.equal(FILES.intogenDownload, 'https://www.intogen.org/download');
+  assert.equal(intogenFile('IntOGen-Drivers-20240920.zip'), 'https://www.intogen.org/download?file=IntOGen-Drivers-20240920.zip');
+  assert.equal(FILES.gdcStatus, 'https://api.gdc.cancer.gov/status');
+  const projects = new URL(FILES.gdcProjects);
+  assert.equal(`${projects.origin}${projects.pathname}`, 'https://api.gdc.cancer.gov/projects');
+  assert.equal(projects.searchParams.get('size'), '1000');
+  assert.deepEqual(projects.searchParams.get('fields').split(','), ['project_id', 'name', 'program.name', 'summary.case_count']);
+  const sites = new URL(FILES.gdcSites);
+  assert.equal(`${sites.origin}${sites.pathname}`, 'https://api.gdc.cancer.gov/cases');
+  assert.equal(sites.searchParams.get('facets'), 'primary_site');
+  assert.equal(sites.searchParams.get('size'), '0');
+  const tested = new URL(FILES.gdcTested);
+  assert.equal(`${tested.origin}${tested.pathname}`, 'https://api.gdc.cancer.gov/cases');
+  assert.equal(tested.searchParams.get('facets'), 'project.project_id');
+  assert.deepEqual(JSON.parse(tested.searchParams.get('filters')), {
+    op: 'and',
+    content: [
+      { op: 'in', content: { field: 'cases.project.program.name', value: ['TCGA'] } },
+      { op: 'in', content: { field: 'cases.summary.data_categories.data_category', value: ['Simple Nucleotide Variation'] } },
+    ],
+  });
+  const ssm = new URL(gdcSsmPage('KRAS', 5000));
+  assert.equal(`${ssm.origin}${ssm.pathname}`, 'https://api.gdc.cancer.gov/ssm_occurrences');
+  assert.deepEqual(JSON.parse(ssm.searchParams.get('filters')), {
+    op: 'and',
+    content: [
+      { op: 'in', content: { field: 'ssm.consequence.transcript.gene.symbol', value: ['KRAS'] } },
+      { op: 'in', content: { field: 'case.project.program.name', value: ['TCGA'] } },
+    ],
+  });
+  assert.equal(ssm.searchParams.get('fields'), 'case.case_id,case.project.project_id');
+  assert.equal(ssm.searchParams.get('size'), '5000');
+  assert.equal(ssm.searchParams.get('from'), '5000');
+  assert.equal(new URL(gdcSsmPage('TP53')).searchParams.get('from'), '0');
+});
+
+test('pharmacogenomic files point at the CPIC API, the FDA biomarker table and ClinPGx downloads', () => {
+  const cpic = 'https://api.cpicpgx.org/v1/';
+  assert.equal(FILES.cpicPairs, `${cpic}pair?select=genesymbol,drugid,cpiclevel,clinpgxlevel,pgxtesting,removed`);
+  assert.equal(FILES.cpicAlleles, `${cpic}allele?select=genesymbol,name,clinicalfunctionalstatus,activityvalue,frequency`);
+  assert.equal(FILES.cpicResults, `${cpic}gene_result?select=genesymbol,result,activityscore,ehrpriority,frequency`);
+  assert.equal(FILES.fdaPgx, 'https://www.fda.gov/drugs/science-and-research-drugs/table-pharmacogenomic-biomarkers-drug-labeling');
+  assert.equal(FILES.clinpgxAnnotations, 'https://api.clinpgx.org/v1/download/file/data/clinicalAnnotations.zip');
+  assert.equal(FILES.clinpgxLabels, 'https://api.clinpgx.org/v1/download/file/data/drugLabels.zip');
 });
 
 test('lollipop proteins name their UniProt accessions', () => {
