@@ -293,6 +293,26 @@ test('findings state the clinical variant sections as numbers', () => {
   assert.equal(f.expansions, 'STRchive lists 4 disease-linked tandem repeat loci, 2 with definitive evidence; 2 were found since 2015');
 });
 
+fixture.hpo = {
+  diseases: 1000, perDisease: { median: 15 }, systems: [{ id: 'HP:0033127', name: 'Abnormality of the musculoskeletal system', diseases: 662 }],
+};
+fixture.orphanet = {
+  prevalence: { disorders: 5807, classes: { '<1 / 1 000 000': 3470 } },
+  ages: { onset: { Neonatal: 2754 } },
+};
+fixture.gtr = { tests: 63430, labs: 291, genesPerTest: { counts: [2391, 54890, 3209, 2435, 486, 19] } };
+fixture.therapies = { fda: [{ trade: 'LUXTURNA' }, { trade: 'ZOLGENSMA' }, { trade: 'KYMRIAH' }, { trade: 'HEMACORD' }] };
+
+test('findings state the rare disease and testing sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.hpo, 'HPO annotates 1,000 rare diseases, a median of 15 phenotype terms each; 66.2% involve the musculoskeletal system');
+  assert.equal(f.orphanet, '3,470 of 5,807 Orphanet disorders affect fewer than 1 in a million people; 2,754 can start in the newborn period');
+  assert.equal(f.gtr, 'The Genetic Testing Registry lists 63,430 current tests from 291 laboratories; 86.5% look at a single gene');
+  assert.equal(f.therapy, 'FDA lists 4 approved cell and gene therapy products; 3 deliver or modify genes, 2 of them with AAV vectors');
+  assert.equal(f.yield, 'Genome sequencing diagnosed 41% of children with a suspected genetic disease, exome 36% and microarray 10%');
+  assert.equal(f.prenatal, 'Cell-free DNA screening detects 99.7% of trisomy 21 pregnancies with a false-positive rate of 0.04%');
+});
+
 test('findings state the variation and constraint sections as numbers', () => {
   const f = findings(fixture);
   assert.equal(f.dbsnp, 'dbSNP build 157 holds 1,206,053,617 reference SNP records from 4,849,775,973 submitted variants; 1,172,689,405 are live');
