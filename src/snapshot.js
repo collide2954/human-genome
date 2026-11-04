@@ -1,5 +1,5 @@
 export default {
-  "generated": "2026-11-04T18:41:30.522Z",
+  "generated": "2026-11-04T20:10:27.759Z",
   "asOf": {
     "assembly": "2026-11-04T05:28:42.686Z",
     "sequence": "2026-11-04T06:07:32.158Z",
@@ -38,7 +38,10 @@ export default {
     "gdc": "2026-11-04T18:41:30.522Z",
     "cpic": "2026-11-04T18:39:57.310Z",
     "fdaPgx": "2026-11-04T18:39:57.310Z",
-    "clinpgx": "2026-11-04T18:39:57.310Z"
+    "clinpgx": "2026-11-04T18:39:57.310Z",
+    "gwas": "2026-11-04T20:10:27.759Z",
+    "pgs": "2026-11-04T20:08:34.311Z",
+    "panukb": "2026-11-04T20:08:34.311Z"
   },
   "failed": [],
   "assembly": {
@@ -109881,6 +109884,24865 @@ export default {
       ],
       "cancer": 388,
       "onFdaList": 497
+    }
+  },
+  "gwas": {
+    "associations": 1205644,
+    "studies": 76646,
+    "significant": 1027700,
+    "placed": 988764,
+    "latestAdded": "2026-10-23",
+    "byYear": {
+      "2005": {
+        "associations": 2,
+        "studies": 2
+      },
+      "2006": {
+        "associations": 8,
+        "studies": 5
+      },
+      "2007": {
+        "associations": 440,
+        "studies": 107
+      },
+      "2008": {
+        "associations": 977,
+        "studies": 159
+      },
+      "2009": {
+        "associations": 1390,
+        "studies": 213
+      },
+      "2010": {
+        "associations": 2602,
+        "studies": 330
+      },
+      "2011": {
+        "associations": 2686,
+        "studies": 369
+      },
+      "2012": {
+        "associations": 4911,
+        "studies": 402
+      },
+      "2013": {
+        "associations": 8074,
+        "studies": 500
+      },
+      "2014": {
+        "associations": 4768,
+        "studies": 646
+      },
+      "2015": {
+        "associations": 13550,
+        "studies": 622
+      },
+      "2016": {
+        "associations": 17566,
+        "studies": 898
+      },
+      "2017": {
+        "associations": 25593,
+        "studies": 1362
+      },
+      "2018": {
+        "associations": 62293,
+        "studies": 2640
+      },
+      "2019": {
+        "associations": 45230,
+        "studies": 2227
+      },
+      "2020": {
+        "associations": 76748,
+        "studies": 2364
+      },
+      "2021": {
+        "associations": 127907,
+        "studies": 10943
+      },
+      "2022": {
+        "associations": 138746,
+        "studies": 14014
+      },
+      "2023": {
+        "associations": 127950,
+        "studies": 8101
+      },
+      "2024": {
+        "associations": 186064,
+        "studies": 11228
+      },
+      "2025": {
+        "associations": 274946,
+        "studies": 14540
+      },
+      "2026": {
+        "associations": 83193,
+        "studies": 4974
+      }
+    },
+    "manhattan": {
+      "1": [
+        [
+          0,
+          37.3,
+          71,
+          "amount of agrin in blood",
+          "FAM41C - LINC02593",
+          "rs149737509"
+        ],
+        [
+          1,
+          840.5,
+          360,
+          "AGRN/BTN2A1 protein amount ratio in blood",
+          "AGRN",
+          "rs2710890"
+        ],
+        [
+          2,
+          235,
+          663,
+          "protein measurement",
+          "MMEL1",
+          "rs6422657"
+        ],
+        [
+          3,
+          234,
+          499,
+          "mean corpuscular hemoglobin concentration",
+          "SMIM1",
+          "rs1175550"
+        ],
+        [
+          4,
+          39.1,
+          112,
+          "severe acute respiratory syndrome, COVID-19",
+          "AJAP1",
+          "rs2101196"
+        ],
+        [
+          5,
+          300,
+          70,
+          "bone tissue density",
+          "LINC02782 - MIR4689",
+          "rs188212940"
+        ],
+        [
+          6,
+          201.7,
+          310,
+          "JT interval",
+          "RNF207",
+          "rs846111"
+        ],
+        [
+          7,
+          760.3,
+          269,
+          "PARK7/PEBP1 protein amount ratio in blood",
+          "PARK7",
+          "rs35675666"
+        ],
+        [
+          8,
+          2891.4,
+          527,
+          "amount of carbonic anhydrase 6 (human) in blood",
+          "CA6",
+          "rs3765963"
+        ],
+        [
+          9,
+          459,
+          390,
+          "protein measurement",
+          "CLSTN1",
+          "rs116383848"
+        ],
+        [
+          10,
+          300,
+          705,
+          "bone tissue density",
+          "CIROZ",
+          "rs188188624"
+        ],
+        [
+          11,
+          954.7,
+          705,
+          "angiopoietin-related protein 7 measurement",
+          "EXOSC10, EXOSC10-AS1",
+          "rs534975221"
+        ],
+        [
+          12,
+          438.5,
+          161,
+          "TNFRSF1A/TNFRSF1B protein amount ratio in blood",
+          "TNFRSF1B",
+          "rs5746012"
+        ],
+        [
+          13,
+          77.5,
+          74,
+          "amount of leucine-rich repeat-containing protein 38 in blood",
+          "PRAMEF20 - LRRC38",
+          "rs3013102"
+        ],
+        [
+          14,
+          15.5,
+          84,
+          "gram-negative bacterial infections",
+          "KAZN",
+          "rs181411722"
+        ],
+        [
+          15,
+          1347.7,
+          330,
+          "CELA3A/CTRC protein amount ratio in blood",
+          "CTRC",
+          "rs545634"
+        ],
+        [
+          16,
+          366.3,
+          556,
+          "serum gamma-glutamyl transferase measurement",
+          "EPHA2-AS1 - ARHGEF19",
+          "rs10907282"
+        ],
+        [
+          17,
+          447.5,
+          279,
+          "FEN1/PADI4 protein amount ratio in blood",
+          "PADI4",
+          "rs2240335"
+        ],
+        [
+          18,
+          161.7,
+          225,
+          "bone tissue density",
+          "IGSF21 - KLHDC7A",
+          "rs181978318"
+        ],
+        [
+          19,
+          999.7,
+          397,
+          "phospholipase A2, membrane associated amount",
+          "PLA2G2A",
+          "rs11573156"
+        ],
+        [
+          20,
+          275,
+          339,
+          "alkaline phosphatase measurement",
+          "HP1BP3",
+          "rs529876271"
+        ],
+        [
+          21,
+          1311,
+          632,
+          "alkaline phosphatase measurement",
+          "ALPL",
+          "rs149344982"
+        ],
+        [
+          22,
+          300,
+          671,
+          "bone tissue density",
+          "EPHB2 - LACTBL1",
+          "rs185093006"
+        ],
+        [
+          23,
+          2175.3,
+          555,
+          "amount of tissue alpha-L-fucosidase in blood",
+          "FUCA1",
+          "rs13551"
+        ],
+        [
+          24,
+          328.7,
+          466,
+          "interferon lambda receptor 1 measurement",
+          "GRHL3",
+          "rs2011271"
+        ],
+        [
+          25,
+          538.4,
+          744,
+          "intercellular adhesion molecule 4 measurement",
+          "RSRP1",
+          "rs72660908"
+        ],
+        [
+          26,
+          300,
+          1416,
+          "bone tissue density",
+          "DHDDS, DHDDS-AS1",
+          "rs80313266"
+        ],
+        [
+          27,
+          300,
+          227,
+          "bone tissue density",
+          "NPM1P39",
+          "rs148483958"
+        ],
+        [
+          28,
+          300,
+          248,
+          "bone tissue density",
+          "PHACTR4",
+          "rs143498585"
+        ],
+        [
+          29,
+          87.5,
+          150,
+          "mean reticulocyte volume",
+          "EPB41",
+          "rs10915225"
+        ],
+        [
+          30,
+          106.7,
+          168,
+          "body height",
+          "MATN1-AS1",
+          "rs1149048"
+        ],
+        [
+          31,
+          213.7,
+          312,
+          "body height",
+          "SPOCD1 - PTP4A2",
+          "rs682654"
+        ],
+        [
+          32,
+          28,
+          217,
+          "smoking initiation",
+          "NHSL3",
+          "rs12022304"
+        ],
+        [
+          33,
+          110,
+          185,
+          "body height",
+          "PHC2-AS1, PHC2",
+          "rs4652856"
+        ],
+        [
+          34,
+          300,
+          141,
+          "bone tissue density",
+          "MIR552 - SMIM12",
+          "rs76146718"
+        ],
+        [
+          35,
+          300,
+          94,
+          "bone tissue density",
+          "KIAA0319L",
+          "rs184915120"
+        ],
+        [
+          36,
+          300,
+          348,
+          "bone tissue density",
+          "MAP7D1",
+          "rs139650826"
+        ],
+        [
+          37,
+          300,
+          375,
+          "bone tissue density",
+          "EPHA10 - ACTN4P2",
+          "rs112352675"
+        ],
+        [
+          38,
+          177.7,
+          159,
+          "Kunitz-type protease inhibitor 1 measurement",
+          "RRAGC-DT, RHBDL2",
+          "rs3790442"
+        ],
+        [
+          39,
+          239.3,
+          1121,
+          "peptidyl-prolyl cis-trans isomerase E measurement",
+          "PPIE",
+          "rs514868"
+        ],
+        [
+          40,
+          300,
+          255,
+          "body height",
+          "CTPS1",
+          "rs12408576"
+        ],
+        [
+          41,
+          300,
+          496,
+          "body height",
+          "SLFNL1, SLFNL1-AS1",
+          "rs17357905"
+        ],
+        [
+          42,
+          300,
+          179,
+          "bone tissue density",
+          "HNRNPFP1 - GUCA2B",
+          "rs138554701"
+        ],
+        [
+          43,
+          255.2,
+          673,
+          "amount of tyrosine-protein kinase receptor Tie-1 in blood",
+          "TIE1",
+          "rs4660729"
+        ],
+        [
+          44,
+          45,
+          138,
+          "heart rate",
+          "RNF220",
+          "rs272564"
+        ],
+        [
+          45,
+          354,
+          386,
+          "protein measurement",
+          "NASP",
+          "rs72688441"
+        ],
+        [
+          46,
+          171.1,
+          421,
+          "oleoyl ethanolamide measurement",
+          "LURAP1 - RAD54L",
+          "rs570404435"
+        ],
+        [
+          47,
+          323.3,
+          456,
+          "brain attribute",
+          "RPL21P24 - ATP6V0E1P4",
+          "rs61784835"
+        ],
+        [
+          48,
+          300,
+          114,
+          "bone tissue density",
+          "AGBL4",
+          "rs17374251"
+        ],
+        [
+          49,
+          59.1,
+          96,
+          "bone tissue density",
+          "AGBL4",
+          "rs553130998"
+        ],
+        [
+          50,
+          300,
+          609,
+          "body height",
+          "CDKN2C",
+          "rs3176466"
+        ],
+        [
+          51,
+          58.7,
+          209,
+          "amount of Thyroid stimulating hormone",
+          "CDKN2C - MIR4421",
+          "rs35311109"
+        ],
+        [
+          52,
+          1129,
+          103,
+          "glutathione peroxidase 7 measurement",
+          "EEF1GP7 - GPX7",
+          "rs1097234"
+        ],
+        [
+          53,
+          300,
+          298,
+          "bone tissue density",
+          "NDC1",
+          "rs41313377"
+        ],
+        [
+          54,
+          209.5,
+          339,
+          "body height",
+          "SSBP3 - LINC02784",
+          "rs6691924"
+        ],
+        [
+          55,
+          1363.5,
+          1924,
+          "low density lipoprotein cholesterol measurement",
+          "PCSK9",
+          "rs11591147"
+        ],
+        [
+          56,
+          592.2,
+          525,
+          "semenogelin-1 measurement",
+          "C8B",
+          "rs626457"
+        ],
+        [
+          57,
+          41,
+          140,
+          "adolescent idiopathic scoliosis",
+          "DAB1",
+          "rs3754260"
+        ],
+        [
+          58,
+          2295.2,
+          158,
+          "tumor-associated calcium signal transducer 2 measurement",
+          "RN7SL713P - TACSTD2",
+          "rs232840"
+        ],
+        [
+          59,
+          62,
+          212,
+          "pulse pressure measurement",
+          "JUN-DT, FGGY-DT",
+          "rs60199046"
+        ],
+        [
+          60,
+          243.2,
+          120,
+          "bone tissue density",
+          "C1orf87",
+          "rs77868945"
+        ],
+        [
+          61,
+          300,
+          461,
+          "bone tissue density",
+          "NFIA-AS2, NFIA",
+          "rs116218990"
+        ],
+        [
+          62,
+          598.2,
+          2912,
+          "triglyceride measurement",
+          "DOCK7",
+          "rs636523"
+        ],
+        [
+          63,
+          300,
+          139,
+          "bone tissue density",
+          "PGM1 - ROR1",
+          "rs115515529"
+        ],
+        [
+          64,
+          735.4,
+          252,
+          "IFNGR1/ROR1 protein amount ratio in blood",
+          "ROR1, ROR1-AS1",
+          "rs1408416"
+        ],
+        [
+          65,
+          3146,
+          769,
+          "leptin receptor measurement",
+          "LEPR",
+          "rs10399687"
+        ],
+        [
+          66,
+          300,
+          345,
+          "bone tissue density",
+          "PDE4B",
+          "rs142992016"
+        ],
+        [
+          67,
+          169.7,
+          424,
+          "inflammatory bowel disease",
+          "IL23R - RNU4ATAC4P",
+          "rs7547569"
+        ],
+        [
+          68,
+          300,
+          212,
+          "bone tissue density",
+          "DEPDC1-AS1 - LINC01707",
+          "rs146216231"
+        ],
+        [
+          69,
+          300,
+          64,
+          "bone tissue density",
+          "LINC01707",
+          "rs115963171"
+        ],
+        [
+          70,
+          146.3,
+          86,
+          "cystathionine measurement",
+          "CTH",
+          "rs28941785"
+        ],
+        [
+          71,
+          84,
+          115,
+          "body height",
+          "ZRANB2-DT",
+          "rs12038830"
+        ],
+        [
+          72,
+          98.4,
+          749,
+          "body mass index",
+          "LINC02796",
+          "rs2568952"
+        ],
+        [
+          73,
+          75.7,
+          683,
+          "smoking initiation",
+          "LINC01360 - LINC02238",
+          "rs3964487"
+        ],
+        [
+          74,
+          2146.5,
+          177,
+          "protein measurement",
+          "TYW3",
+          "rs28602706"
+        ],
+        [
+          75,
+          349.5,
+          311,
+          "protein measurement",
+          "ACADM",
+          "rs145024038"
+        ],
+        [
+          76,
+          78,
+          129,
+          "body height",
+          "ST6GALNAC3",
+          "rs699829"
+        ],
+        [
+          77,
+          157,
+          432,
+          "body height",
+          "AK5",
+          "rs6695572"
+        ],
+        [
+          78,
+          301.7,
+          265,
+          "amount of PDZ domain-containing protein GIPC2 in blood",
+          "GIPC2",
+          "rs7537908"
+        ],
+        [
+          79,
+          300,
+          80,
+          "bone tissue density",
+          "ADGRL4",
+          "rs150718497"
+        ],
+        [
+          80,
+          81.3,
+          91,
+          "bone tissue density",
+          "HMGB1P18 - HNRNPA1P64",
+          "rs142461292"
+        ],
+        [
+          81,
+          339.4,
+          111,
+          "amount of leucine-rich repeat transmembrane protein FLRT2 (human) in blood",
+          "ADGRL2",
+          "rs3748770"
+        ],
+        [
+          82,
+          41,
+          117,
+          "body height",
+          "ADGRL2 - LINC01362",
+          "rs10874312"
+        ],
+        [
+          83,
+          19.5,
+          83,
+          "smoking initiation",
+          "LINC01725",
+          "rs6660879"
+        ],
+        [
+          84,
+          215,
+          94,
+          "di-N-acetylchitobiase measurement",
+          "SPATA1",
+          "rs182493595"
+        ],
+        [
+          85,
+          131.2,
+          245,
+          "amount of N(G),N(G)-dimethylarginine dimethylaminohydrolase 1 in blood",
+          "BCL10-AS1, DDAH1",
+          "rs2284797"
+        ],
+        [
+          86,
+          98.7,
+          97,
+          "amount of collagen alpha-1(XXIV) chain in blood",
+          "COL24A1",
+          "rs148644471"
+        ],
+        [
+          87,
+          300,
+          251,
+          "bone tissue density",
+          "LINC02801",
+          "rs115270024"
+        ],
+        [
+          88,
+          386.3,
+          352,
+          "imidazole lactate measurement",
+          "KYAT3",
+          "rs2893083"
+        ],
+        [
+          89,
+          190.2,
+          186,
+          "amount of guanylate-binding protein 1 in blood serum",
+          "GBP4 - GBP5",
+          "rs553221202"
+        ],
+        [
+          90,
+          300,
+          235,
+          "bone tissue density",
+          "LINC02609",
+          "rs138611161"
+        ],
+        [
+          91,
+          300,
+          346,
+          "hematological measurement",
+          "TGFBR3",
+          "rs17575497"
+        ],
+        [
+          92,
+          586.3,
+          395,
+          "monocyte count",
+          "RN7SL824P - GFI1",
+          "rs150649461"
+        ],
+        [
+          93,
+          84.7,
+          460,
+          "body height",
+          "DR1",
+          "rs1559828"
+        ],
+        [
+          94,
+          311.5,
+          159,
+          "amount of tissue factor (human) in blood",
+          "SLC44A3-AS1",
+          "rs12408284"
+        ],
+        [
+          95,
+          29.1,
+          189,
+          "bone tissue density",
+          "LINC02607",
+          "rs116202135"
+        ],
+        [
+          96,
+          300,
+          274,
+          "bone tissue density",
+          "NDUFS5P2 - RPL7P9",
+          "rs578101153"
+        ],
+        [
+          97,
+          300,
+          212,
+          "bone tissue density",
+          "DPYD",
+          "rs115346130"
+        ],
+        [
+          98,
+          24.5,
+          239,
+          "educational attainment",
+          "LINC01776 - SNX7-DT",
+          "rs12124493"
+        ],
+        [
+          99,
+          123.7,
+          107,
+          "aortic stenosis",
+          "LINC01708",
+          "rs6702619"
+        ],
+        [
+          100,
+          77.7,
+          207,
+          "hematological measurement",
+          "VCAM1 - EXTL2",
+          "rs6684679"
+        ],
+        [
+          101,
+          300,
+          269,
+          "bone tissue density",
+          "OLFM3",
+          "rs115490659"
+        ],
+        [
+          102,
+          93.3,
+          192,
+          "body height",
+          "COL11A1",
+          "rs12138977"
+        ],
+        [
+          103,
+          300,
+          220,
+          "body height",
+          "COL11A1",
+          "rs11164665"
+        ],
+        [
+          104,
+          300,
+          82,
+          "bone tissue density",
+          "THAP3P1",
+          "rs72689191"
+        ],
+        [
+          105,
+          27.7,
+          47,
+          "amount of alpha-amylase 2A in blood",
+          "THAP3P1 - CDK4P1",
+          "rs12736294"
+        ],
+        [
+          106,
+          164,
+          103,
+          "restless legs syndrome",
+          "LINC01677 - MTATP6P14",
+          "rs12044119"
+        ],
+        [
+          107,
+          544.4,
+          340,
+          "netrin-G1 measurement",
+          "PRMT6 - NTNG1",
+          "rs115668827"
+        ],
+        [
+          108,
+          28.7,
+          102,
+          "progranulin measurement",
+          "FNDC7",
+          "rs4970808"
+        ],
+        [
+          109,
+          2740.4,
+          2878,
+          "progranulin measurement",
+          "CELSR2",
+          "rs12740374"
+        ],
+        [
+          110,
+          1207.3,
+          205,
+          "amount of prokineticin-1 (human) in blood",
+          "LAMTOR5-AS1 - PROK1",
+          "rs1857513"
+        ],
+        [
+          111,
+          138,
+          478,
+          "adolescent idiopathic scoliosis",
+          "TMIGD3",
+          "rs41320847"
+        ],
+        [
+          112,
+          300,
+          642,
+          "bone tissue density",
+          "LINC02884",
+          "rs116532272"
+        ],
+        [
+          113,
+          544,
+          462,
+          "hypothyroidism",
+          "PHTF1 - RSBN1",
+          "rs6679677"
+        ],
+        [
+          114,
+          304.5,
+          175,
+          "bone tissue density",
+          "CSDE1",
+          "rs35037659"
+        ],
+        [
+          115,
+          300,
+          265,
+          "bone tissue density",
+          "CASQ2",
+          "rs72703628"
+        ],
+        [
+          116,
+          430.5,
+          261,
+          "prostaglandin F2 receptor negative regulator measurement",
+          "PTGFRN",
+          "rs4233450"
+        ],
+        [
+          117,
+          303.4,
+          465,
+          "amount of immunoglobulin superfamily member 2 in blood",
+          "CD101, CD101-AS1",
+          "rs34223095"
+        ],
+        [
+          118,
+          300,
+          605,
+          "body height",
+          "RNA5SP56 - PSMC1P12",
+          "rs7513580"
+        ],
+        [
+          119,
+          239.7,
+          618,
+          "leukocyte quantity",
+          "NOTCH2",
+          "rs10923929"
+        ],
+        [
+          120,
+          56.4,
+          39,
+          "leukocyte quantity",
+          "NOTCH2",
+          "rs2603961"
+        ],
+        [
+          121,
+          55.3,
+          71,
+          "leukocyte quantity",
+          "PDE4DIPP4",
+          "rs150576011"
+        ],
+        [
+          122,
+          8,
+          2,
+          "Anxiety",
+          "EMBP1 - RNA5SP533",
+          "rs1162154200"
+        ],
+        [
+          123,
+          13.2,
+          1,
+          "carotid artery disorder",
+          "EMBP1 - RNA5SP533",
+          "rs1340396994"
+        ],
+        [
+          125,
+          9,
+          2,
+          "Alzheimer disease, family history of Alzheimer’s disease",
+          "EMBP1 - RNA5SP533",
+          "rs1445112456"
+        ],
+        [
+          143,
+          115.7,
+          15,
+          "Alzheimer disease, family history of Alzheimer’s disease",
+          "EMBP1 - RNA5SP533",
+          "rs1225279127"
+        ],
+        [
+          144,
+          46.7,
+          2,
+          "leukocyte quantity",
+          "PPIAL4E",
+          "rs594576"
+        ],
+        [
+          145,
+          894,
+          143,
+          "amount of CD160 antigen (human) in blood",
+          "PDZK1 - CD160",
+          "rs3753436"
+        ],
+        [
+          146,
+          27.7,
+          12,
+          "repulsive guidance molecule A measurement",
+          "HJV - RNVU1-6",
+          "rs147440039"
+        ],
+        [
+          147,
+          4525.7,
+          307,
+          "amount of lysophosphatidic acid phosphatase type 6 in blood",
+          "ACP6",
+          "rs28700004"
+        ],
+        [
+          148,
+          121.5,
+          52,
+          "amount of lysophosphatidic acid phosphatase type 6 in blood",
+          "LINC02806, LINC01138",
+          "rs12130062"
+        ],
+        [
+          149,
+          797.2,
+          320,
+          "protein measurement",
+          "BOLA1",
+          "rs1451641"
+        ],
+        [
+          150,
+          921,
+          1271,
+          "cathepsin S measurement",
+          "ANXA9",
+          "rs11204752"
+        ],
+        [
+          151,
+          2164.4,
+          577,
+          "PTPN1/TDRKH protein amount ratio in blood",
+          "TDRKH",
+          "rs12756855"
+        ],
+        [
+          152,
+          2281.5,
+          466,
+          "amount of cornulin in blood",
+          "CCDST",
+          "rs10494275"
+        ],
+        [
+          153,
+          1076.2,
+          346,
+          "protein S100-A7 measurement",
+          "S100A7",
+          "rs3014837"
+        ],
+        [
+          154,
+          5876.4,
+          977,
+          "interleukin 6 receptor subunit alpha measurement",
+          "IL6R",
+          "rs12126142"
+        ],
+        [
+          155,
+          3323.4,
+          1247,
+          "amount of disintegrin and metalloproteinase domain-containing protein 15 in blood",
+          "ADAM15",
+          "rs11589479"
+        ],
+        [
+          156,
+          6099,
+          1073,
+          "amount of hepatoma-derived growth factor in blood",
+          "HDGF",
+          "rs4501833"
+        ],
+        [
+          157,
+          5086,
+          374,
+          "Fc receptor-like protein 3 measurement",
+          "FCRL3",
+          "rs2210912"
+        ],
+        [
+          158,
+          350.5,
+          434,
+          "reticulocyte amount",
+          "SPTA1",
+          "rs2022003"
+        ],
+        [
+          159,
+          4339.1,
+          950,
+          "SLAM family member 8 measurement",
+          "SLAMF8",
+          "rs34687326"
+        ],
+        [
+          160,
+          3148.7,
+          447,
+          "amount of SLAM family member 7 (human) in blood",
+          "SLAMF7",
+          "rs11581248"
+        ],
+        [
+          161,
+          6400.2,
+          1465,
+          "low affinity immunoglobulin gamma Fc region receptor II-a measurement",
+          "FCGR2A",
+          "rs4657041"
+        ],
+        [
+          162,
+          794,
+          440,
+          "JT interval",
+          "OLFML2B - NOS1AP",
+          "rs12143842"
+        ],
+        [
+          163,
+          79.3,
+          208,
+          "leukocyte quantity",
+          "NUF2 - RNA5SP62",
+          "rs4475722"
+        ],
+        [
+          164,
+          68.7,
+          146,
+          "refractive error",
+          "U3 - NMNAT1P2",
+          "rs6672382"
+        ],
+        [
+          165,
+          142.2,
+          242,
+          "open-angle glaucoma",
+          "TMCO1",
+          "rs7528177"
+        ],
+        [
+          166,
+          300,
+          126,
+          "bone tissue density",
+          "FAM78B - FMO7P",
+          "rs116411633"
+        ],
+        [
+          167,
+          490.2,
+          304,
+          "EPCAM/GPA33 protein amount ratio in blood",
+          "GPA33",
+          "rs72689400"
+        ],
+        [
+          168,
+          3375.3,
+          291,
+          "lymphotactin measurement",
+          "QRSL1P1 - XCL2",
+          "rs7543171"
+        ],
+        [
+          169,
+          1684,
+          844,
+          "calcium/calmodulin-dependent protein kinase type 1 measurement",
+          "F5",
+          "rs6662696"
+        ],
+        [
+          170,
+          705.3,
+          446,
+          "dorsal root ganglia homeobox protein measurement",
+          "GORAB - PRRX1",
+          "rs1234282"
+        ],
+        [
+          171,
+          695,
+          469,
+          "platelet component distribution width",
+          "DNM3",
+          "rs6425522"
+        ],
+        [
+          172,
+          300,
+          686,
+          "body height",
+          "DNM3",
+          "rs17350579"
+        ],
+        [
+          173,
+          193,
+          284,
+          "amount of tenascin-N in blood",
+          "SLC9C2",
+          "rs115678523"
+        ],
+        [
+          174,
+          142.2,
+          278,
+          "amount of tenascin-N in blood",
+          "RABGAP1L",
+          "rs77144320"
+        ],
+        [
+          175,
+          947.3,
+          188,
+          "tenascin-R measurement",
+          "TNR",
+          "rs2235256"
+        ],
+        [
+          176,
+          300,
+          220,
+          "body height",
+          "PAPPA2",
+          "rs6656137"
+        ],
+        [
+          177,
+          214.4,
+          485,
+          "body mass index",
+          "LINC01741 - SEC16B",
+          "rs539515"
+        ],
+        [
+          178,
+          501.2,
+          294,
+          "angiopoietin-related protein 1 measurement",
+          "C1orf220 - RNA5SP69",
+          "rs17361251"
+        ],
+        [
+          179,
+          300,
+          409,
+          "bone tissue density",
+          "TDRD5",
+          "rs148158461"
+        ],
+        [
+          180,
+          148.7,
+          328,
+          "body height",
+          "KIAA1614",
+          "rs3795503"
+        ],
+        [
+          181,
+          24.4,
+          120,
+          "body height",
+          "LINC01732",
+          "rs7541438"
+        ],
+        [
+          182,
+          202.7,
+          418,
+          "amount of N-acetylneuraminate lyase in blood serum",
+          "NPL",
+          "rs12142654"
+        ],
+        [
+          183,
+          848.5,
+          377,
+          "protein measurement",
+          "LAMC2",
+          "rs2276543"
+        ],
+        [
+          184,
+          300,
+          406,
+          "body height",
+          "TSEN15",
+          "rs1046934"
+        ],
+        [
+          185,
+          36.2,
+          135,
+          "amount of granzyme H (human) in blood",
+          "GS1-279B7.1 - RNU7-183P",
+          "rs7364556"
+        ],
+        [
+          186,
+          195,
+          152,
+          "CASP3/PLA2G4A protein amount ratio in blood",
+          "PLA2G4A",
+          "rs12720704"
+        ],
+        [
+          187,
+          300,
+          55,
+          "bone tissue density",
+          "LINC01036",
+          "rs79408666"
+        ],
+        [
+          188,
+          18,
+          42,
+          "smoking initiation",
+          "LINC03121 - RPS3AP9",
+          "rs3011970"
+        ],
+        [
+          189,
+          13.2,
+          37,
+          "insomnia",
+          "LINC01701 - BRINP3",
+          "rs925839"
+        ],
+        [
+          190,
+          300,
+          184,
+          "bone tissue density",
+          "BRINP3",
+          "rs75014188"
+        ],
+        [
+          191,
+          300,
+          94,
+          "bone tissue density",
+          "LINC02770",
+          "rs148089846"
+        ],
+        [
+          192,
+          166.2,
+          75,
+          "bone tissue density",
+          "LINC02770 - RGS18",
+          "rs181819396"
+        ],
+        [
+          193,
+          284.1,
+          78,
+          "HCLS1/TRIAP1 protein amount ratio in blood",
+          "GLRX2",
+          "rs148212596"
+        ],
+        [
+          194,
+          15.5,
+          65,
+          "complement factor H-related protein 2 measurement",
+          "RNU6-983P - LINC01724",
+          "rs114253008"
+        ],
+        [
+          195,
+          57.7,
+          85,
+          "complement factor H-related protein 4 measurement",
+          "RNU6-983P - LINC01724",
+          "rs1376812"
+        ],
+        [
+          196,
+          2376.5,
+          2489,
+          "protein measurement",
+          "CFH",
+          "rs10801553"
+        ],
+        [
+          197,
+          384.4,
+          429,
+          "platelet-derived growth factor receptor alpha measurement",
+          "CFHR5 - F13B",
+          "rs79801780"
+        ],
+        [
+          198,
+          269.2,
+          356,
+          "hematological measurement",
+          "ATP6V1G3 - PTPRC",
+          "rs16843346"
+        ],
+        [
+          199,
+          300,
+          441,
+          "hematological measurement",
+          "LINC01221",
+          "rs1036332"
+        ],
+        [
+          200,
+          300,
+          327,
+          "bone tissue density",
+          "CAMSAP2",
+          "rs12354382"
+        ],
+        [
+          201,
+          300,
+          440,
+          "bone tissue density",
+          "NAV1, IPO9-AS1",
+          "rs2981825"
+        ],
+        [
+          202,
+          87.5,
+          181,
+          "protein measurement",
+          "ARL8A",
+          "rs4950771"
+        ],
+        [
+          203,
+          6801.7,
+          630,
+          "chitotriosidase-1 measurement",
+          "CHIT1",
+          "rs872583"
+        ],
+        [
+          204,
+          820,
+          394,
+          "NFASC/PLXNB2 protein amount ratio in blood",
+          "NFASC",
+          "rs6657372"
+        ],
+        [
+          205,
+          3297.7,
+          998,
+          "amount of contactin-2 (human) in blood",
+          "CNTN2",
+          "rs1572995"
+        ],
+        [
+          206,
+          469.5,
+          276,
+          "IL19/PRSS27 protein amount ratio in blood",
+          "IL19",
+          "rs2243191"
+        ],
+        [
+          207,
+          781.7,
+          769,
+          "CD55/ITGB1 protein amount ratio in blood",
+          "LINC02942",
+          "rs1429904"
+        ],
+        [
+          208,
+          41.2,
+          152,
+          "brain attribute",
+          "PLXNA2 - LINC01735",
+          "rs2801194"
+        ],
+        [
+          209,
+          71,
+          244,
+          "orofacial cleft",
+          "IRF6 - UTP25",
+          "rs72741048"
+        ],
+        [
+          210,
+          60.5,
+          191,
+          "cleft lip",
+          "HHAT",
+          "rs542463933"
+        ],
+        [
+          211,
+          55.5,
+          182,
+          "body height",
+          "NEK2-DT - LPGAT1",
+          "rs3862952"
+        ],
+        [
+          212,
+          94,
+          351,
+          "body height",
+          "LINC02608",
+          "rs4951583"
+        ],
+        [
+          213,
+          221.3,
+          278,
+          "alanine measurement",
+          "PROX1-AS1",
+          "rs17712208"
+        ],
+        [
+          214,
+          295.7,
+          422,
+          "body height",
+          "PTPN14",
+          "rs4655345"
+        ],
+        [
+          215,
+          34.7,
+          58,
+          "body height",
+          "KCNK2",
+          "rs12088480"
+        ],
+        [
+          216,
+          72,
+          184,
+          "autosomal dominant compelling helio-ophthalmic outburst syndrome",
+          "ESRRG",
+          "rs12755398"
+        ],
+        [
+          217,
+          79.2,
+          140,
+          "body height",
+          "SPATA17",
+          "rs10495062"
+        ],
+        [
+          218,
+          300,
+          601,
+          "body height",
+          "TGFB2",
+          "rs6657275"
+        ],
+        [
+          219,
+          190,
+          1606,
+          "body height",
+          "ZC3H11B - SLC30A10",
+          "rs10746387"
+        ],
+        [
+          220,
+          300,
+          999,
+          "bone tissue density",
+          "RPLP0P5 - RPL7AP81",
+          "rs114893028"
+        ],
+        [
+          221,
+          300,
+          269,
+          "bone tissue density",
+          "LINC02817 - DUSP10",
+          "rs12145454"
+        ],
+        [
+          222,
+          316.7,
+          161,
+          "bone tissue density",
+          "LINC01705 - QRSL1P2",
+          "rs148081548"
+        ],
+        [
+          223,
+          300,
+          99,
+          "bone tissue density",
+          "TLR5 - SUSD4",
+          "rs5744091"
+        ],
+        [
+          224,
+          168.5,
+          204,
+          "body height",
+          "CNIH3",
+          "rs10916619"
+        ],
+        [
+          225,
+          616,
+          196,
+          "protein measurement",
+          "LEFTY1",
+          "rs1223245"
+        ],
+        [
+          226,
+          103.7,
+          321,
+          "blood protein amount",
+          "H3-3A - LINC01703",
+          "rs138805395"
+        ],
+        [
+          227,
+          300,
+          332,
+          "body height",
+          "TUBB8P9 - RNA5SP77",
+          "rs12093031"
+        ],
+        [
+          228,
+          89.7,
+          149,
+          "basal cell carcinoma",
+          "RHOU - LINC02814",
+          "rs61824911"
+        ],
+        [
+          229,
+          63.2,
+          144,
+          "amount of myeloperoxidase (human) in blood",
+          "ABCB10 - HMGN2P19",
+          "rs767301"
+        ],
+        [
+          230,
+          480.7,
+          1490,
+          "polypeptide N-acetylgalactosaminyltransferase 2 measurement",
+          "GALNT2",
+          "rs4846914"
+        ],
+        [
+          231,
+          300,
+          173,
+          "bone tissue density",
+          "RNA5SP80 - EXOC8",
+          "rs77547241"
+        ],
+        [
+          232,
+          72.3,
+          98,
+          "bone tissue density",
+          "RNU1-74P - NTPCR",
+          "rs149310507"
+        ],
+        [
+          233,
+          32.2,
+          78,
+          "thyroid gland carcinoma, nodular goiter",
+          "PCNX2",
+          "rs12133184"
+        ],
+        [
+          234,
+          227.2,
+          840,
+          "total cholesterol measurement",
+          "LINC00184 - LINC01132",
+          "rs557933"
+        ],
+        [
+          235,
+          300,
+          240,
+          "bone tissue density",
+          "TBCE",
+          "rs190251443"
+        ],
+        [
+          236,
+          826,
+          237,
+          "LGALS8/SERPINB6 protein amount ratio in blood",
+          "HEATR1",
+          "rs2275689"
+        ],
+        [
+          237,
+          20,
+          124,
+          "type 2 diabetes mellitus",
+          "RYR2",
+          "rs2997971"
+        ],
+        [
+          238,
+          18.5,
+          55,
+          "body height",
+          "MIPEPP2 - CHRM3",
+          "rs2689143"
+        ],
+        [
+          239,
+          51.7,
+          104,
+          "FEV/FVC ratio",
+          "CHRM3, CHRM3-AS2",
+          "rs1155612"
+        ],
+        [
+          240,
+          299,
+          188,
+          "bone tissue density",
+          "FMN2",
+          "rs1414660"
+        ],
+        [
+          241,
+          300,
+          167,
+          "bone tissue density",
+          "OPN3",
+          "rs560407144"
+        ],
+        [
+          242,
+          159.4,
+          95,
+          "bone tissue density",
+          "PLD5",
+          "rs149348393"
+        ],
+        [
+          243,
+          194,
+          469,
+          "amount of serologically defined colon cancer antigen 8 in blood",
+          "SDCCAG8",
+          "rs953492"
+        ],
+        [
+          244,
+          116.7,
+          102,
+          "amount of dynein regulatory complex protein 8 in blood",
+          "EFCAB2",
+          "rs2632551"
+        ],
+        [
+          245,
+          25.2,
+          97,
+          "amount of dynein regulatory complex protein 8 in blood",
+          "EFCAB2",
+          "rs56065399"
+        ],
+        [
+          246,
+          36,
+          218,
+          "bone tissue density",
+          "SMYD3",
+          "rs115710002"
+        ],
+        [
+          247,
+          592.7,
+          1023,
+          "dynein light chain roadblock-type 1 measurement",
+          "TRIM58",
+          "rs1339847"
+        ],
+        [
+          248,
+          300,
+          100,
+          "bone tissue density",
+          "OR2M3 - OR2M4",
+          "rs114031343"
+        ]
+      ],
+      "2": [
+        [
+          0,
+          5290.3,
+          949,
+          "low molecular weight phosphotyrosine protein phosphatase measurement",
+          "ALKAL2",
+          "rs7566279"
+        ],
+        [
+          1,
+          236,
+          189,
+          "autoimmune thyroid disease",
+          "TPO",
+          "rs11675342"
+        ],
+        [
+          2,
+          93,
+          105,
+          "bone tissue density",
+          "MYT1L - LINC01250",
+          "rs142272354"
+        ],
+        [
+          3,
+          670.7,
+          416,
+          "collectin-11 measurement",
+          "RPS7 - COLEC11",
+          "rs6542680"
+        ],
+        [
+          4,
+          300,
+          114,
+          "bone tissue density",
+          "LINC01249 - RNU6-649P",
+          "rs192418124"
+        ],
+        [
+          5,
+          33.4,
+          117,
+          "body height",
+          "LINC01248",
+          "rs3922853"
+        ],
+        [
+          6,
+          56.5,
+          130,
+          "balding measurement",
+          "LINC01247 - LINC01824",
+          "rs59167614"
+        ],
+        [
+          7,
+          48.4,
+          120,
+          "visual perception quality",
+          "LINC01871 - LINC00299",
+          "rs6751195"
+        ],
+        [
+          8,
+          300,
+          379,
+          "hematological measurement",
+          "SNRPEP5 - ID2-AS1",
+          "rs6730558"
+        ],
+        [
+          9,
+          132.2,
+          207,
+          "protein measurement",
+          "ITGB1BP1",
+          "rs74488278"
+        ],
+        [
+          10,
+          300,
+          223,
+          "bone tissue density",
+          "ATP6V1C2",
+          "rs183751660"
+        ],
+        [
+          11,
+          93.7,
+          226,
+          "body height",
+          "SLC66A3 - ROCK2",
+          "rs921322"
+        ],
+        [
+          12,
+          59,
+          328,
+          "hypothyroidism",
+          "MIR3681HG",
+          "rs1534424"
+        ],
+        [
+          13,
+          19.7,
+          47,
+          "hematological measurement",
+          "TRIB2 - LINC00276",
+          "rs10208064"
+        ],
+        [
+          14,
+          16,
+          57,
+          "glioma pathogenesis-related protein 1 measurement",
+          "LRATD1 - NBAS",
+          "rs559617690"
+        ],
+        [
+          15,
+          300,
+          200,
+          "bone tissue density",
+          "LRATD1 - NBAS",
+          "rs115922586"
+        ],
+        [
+          16,
+          300,
+          183,
+          "bone tissue density",
+          "GACAT3",
+          "rs150829526"
+        ],
+        [
+          17,
+          300,
+          102,
+          "bone tissue density",
+          "RN7SKP168 - ZFYVE9P2",
+          "rs114900805"
+        ],
+        [
+          18,
+          83.7,
+          232,
+          "brain attribute",
+          "KCNS3 - RDH14",
+          "rs4637120"
+        ],
+        [
+          19,
+          239,
+          329,
+          "matrilin-3 measurement",
+          "WDR35",
+          "rs141994715"
+        ],
+        [
+          20,
+          1806.4,
+          1365,
+          "matrilin-3 measurement",
+          "MATN3",
+          "rs11694716"
+        ],
+        [
+          21,
+          970,
+          2503,
+          "low density lipoprotein cholesterol measurement",
+          "APOB - TDRD15",
+          "rs934197"
+        ],
+        [
+          22,
+          300,
+          231,
+          "bone tissue density",
+          "RN7SKP27 - LINC02923",
+          "rs187117333"
+        ],
+        [
+          23,
+          300,
+          393,
+          "body height",
+          "KLHL29",
+          "rs1991083"
+        ],
+        [
+          24,
+          705.1,
+          676,
+          "DAB2/FKBP1B protein amount ratio in blood",
+          "FAM228B, TP53I3",
+          "rs2303287"
+        ],
+        [
+          25,
+          300,
+          621,
+          "body height",
+          "DNMT3A",
+          "rs11694842"
+        ],
+        [
+          26,
+          300,
+          834,
+          "bone tissue density",
+          "CENPA, SLC35F6",
+          "rs142326416"
+        ],
+        [
+          27,
+          2055,
+          6057,
+          "CGREF1/FAM3C protein amount ratio in blood",
+          "OST4 - EMILIN1",
+          "rs11126857"
+        ],
+        [
+          28,
+          624.5,
+          1021,
+          "amount of ribokinase in blood",
+          "BABAM2",
+          "rs184637812"
+        ],
+        [
+          29,
+          56,
+          90,
+          "amount of phospholipase B1, membrane-associated in blood",
+          "TOGARAM2 - PCARE",
+          "rs12714257"
+        ],
+        [
+          30,
+          176.1,
+          134,
+          "protein measurement",
+          "GALNT14",
+          "rs2288101"
+        ],
+        [
+          31,
+          586.7,
+          345,
+          "platelet component distribution width",
+          "EHD3",
+          "rs655029"
+        ],
+        [
+          32,
+          386.7,
+          290,
+          "interleukin 18 measurement",
+          "NLRC4",
+          "rs659239"
+        ],
+        [
+          33,
+          300,
+          350,
+          "body height",
+          "LTBP1",
+          "rs6715793"
+        ],
+        [
+          34,
+          16.3,
+          115,
+          "educational attainment",
+          "LINC01320",
+          "rs6717900"
+        ],
+        [
+          35,
+          27.7,
+          81,
+          "glioma pathogenesis-related protein 1 measurement",
+          "MRPL50P1 - RPL21P36",
+          "rs578162017"
+        ],
+        [
+          36,
+          300,
+          564,
+          "body height",
+          "CRIM1, FEZ2",
+          "rs711245"
+        ],
+        [
+          37,
+          439.5,
+          388,
+          "amount of glutaminyl-peptide cyclotransferase (human) in blood",
+          "QPCT",
+          "rs2255991"
+        ],
+        [
+          38,
+          580,
+          227,
+          "protein measurement",
+          "GALM",
+          "rs13012704"
+        ],
+        [
+          39,
+          31.5,
+          100,
+          "body height",
+          "MAP4K3",
+          "rs4670932"
+        ],
+        [
+          40,
+          53,
+          207,
+          "QT interval",
+          "SLC8A1",
+          "rs10490255"
+        ],
+        [
+          41,
+          117,
+          186,
+          "heel bone mineral density",
+          "LINC02898 - PKDCC",
+          "rs35657711"
+        ],
+        [
+          42,
+          136.2,
+          421,
+          "body height",
+          "EML4-AS1",
+          "rs12612527"
+        ],
+        [
+          43,
+          714.7,
+          1845,
+          "gallstones",
+          "ABCG8",
+          "rs11887534"
+        ],
+        [
+          44,
+          260.7,
+          462,
+          "body height",
+          "PPM1B-DT",
+          "rs6544744"
+        ],
+        [
+          45,
+          61.3,
+          226,
+          "body height",
+          "SRBD1",
+          "rs3731946"
+        ],
+        [
+          46,
+          379.3,
+          470,
+          "hematocrit",
+          "PRKCE",
+          "rs10495928"
+        ],
+        [
+          47,
+          180.4,
+          188,
+          "epithelial cell adhesion molecule measurement",
+          "EPCAM",
+          "rs144077629"
+        ],
+        [
+          48,
+          300,
+          444,
+          "bone tissue density",
+          "PPP1R21",
+          "rs112104790"
+        ],
+        [
+          49,
+          24.2,
+          117,
+          "brain attribute",
+          "MIR548BAHG, FSHR",
+          "rs12996623"
+        ],
+        [
+          50,
+          35,
+          181,
+          "educational attainment",
+          "NRXN1",
+          "rs62140599"
+        ],
+        [
+          51,
+          37,
+          155,
+          "educational attainment",
+          "NRXN1-DT",
+          "rs13010288"
+        ],
+        [
+          52,
+          300,
+          107,
+          "bone tissue density",
+          "NRXN1-DT - GGCTP3",
+          "rs116620097"
+        ],
+        [
+          53,
+          103.3,
+          240,
+          "amount of glutathione-specific gamma-glutamylcyclotransferase 2 in blood",
+          "ASB3",
+          "rs78694551"
+        ],
+        [
+          54,
+          471.2,
+          540,
+          "protein measurement",
+          "SPTBN1",
+          "rs12713268"
+        ],
+        [
+          55,
+          437.4,
+          1095,
+          "body height",
+          "EFEMP1",
+          "rs59985551"
+        ],
+        [
+          56,
+          40.5,
+          152,
+          "body height",
+          "CCDC85A",
+          "rs6735003"
+        ],
+        [
+          57,
+          58,
+          365,
+          "brain attribute",
+          "VRK2",
+          "rs2678871"
+        ],
+        [
+          58,
+          47.5,
+          499,
+          "body mass index",
+          "LINC01122",
+          "rs4671328"
+        ],
+        [
+          59,
+          123.2,
+          431,
+          "body height",
+          "RNA5SP94 - MIR4432HG",
+          "rs13005495"
+        ],
+        [
+          60,
+          349.7,
+          836,
+          "fetal hemoglobin measurement",
+          "BCL11A",
+          "rs1427407"
+        ],
+        [
+          61,
+          204.2,
+          385,
+          "proteoglycan 3 measurement",
+          "USP34",
+          "rs7587389"
+        ],
+        [
+          62,
+          193.2,
+          480,
+          "HEPACAM family member 2 measurement",
+          "RN7SL51P - RN7SL18P",
+          "rs4672497"
+        ],
+        [
+          63,
+          300,
+          237,
+          "bone tissue density",
+          "WDPCP",
+          "rs72815394"
+        ],
+        [
+          64,
+          232.5,
+          364,
+          "valine measurement",
+          "SLC1A4, LINC02245",
+          "rs72538440"
+        ],
+        [
+          65,
+          240,
+          689,
+          "brain attribute",
+          "LINC02934",
+          "rs56213130"
+        ],
+        [
+          66,
+          1371,
+          411,
+          "restless legs syndrome",
+          "MEIS1",
+          "rs113851554"
+        ],
+        [
+          67,
+          177.7,
+          312,
+          "restless legs syndrome",
+          "LINC01812 - FBXL12P1",
+          "rs1820987"
+        ],
+        [
+          68,
+          316.7,
+          385,
+          "TFF1/TFF2 protein amount ratio in blood",
+          "GKN2",
+          "rs62133345"
+        ],
+        [
+          69,
+          300,
+          342,
+          "bone tissue density",
+          "AAK1",
+          "rs13034378"
+        ],
+        [
+          70,
+          1069.2,
+          346,
+          "amount of C-type lectin domain family 4 member K (human) in blood",
+          "CD207",
+          "rs17718987"
+        ],
+        [
+          71,
+          300,
+          388,
+          "body height",
+          "ZNF638",
+          "rs7590738"
+        ],
+        [
+          72,
+          71.5,
+          123,
+          "body height",
+          "EXOC6B - SPR",
+          "rs4852895"
+        ],
+        [
+          73,
+          1983.7,
+          771,
+          "amount of metabolite in blood",
+          "NAT8, ALMS1P1, ALMS1P1",
+          "rs13538"
+        ],
+        [
+          74,
+          172.2,
+          118,
+          "amount of bifunctional methylenetetrahydrofolate dehydrogenase/cyclohydrolase, mitochondrial in blood",
+          "M1AP",
+          "rs568602257"
+        ],
+        [
+          75,
+          21.4,
+          89,
+          "restless legs syndrome",
+          "GCFC2 - SUCLA2P2",
+          "rs7568435"
+        ],
+        [
+          76,
+          300,
+          127,
+          "bone tissue density",
+          "LRRTM4",
+          "rs56311006"
+        ],
+        [
+          77,
+          23.5,
+          115,
+          "chronotype measurement",
+          "LRRTM4",
+          "rs7586062"
+        ],
+        [
+          78,
+          16,
+          36,
+          "smoking initiation",
+          "CYCSP6 - RNU6-827P",
+          "rs1519624"
+        ],
+        [
+          79,
+          378.7,
+          200,
+          "amount of lithostathine-1-alpha (human) in blood",
+          "REG1B - REG1A",
+          "rs11126696"
+        ],
+        [
+          80,
+          29,
+          82,
+          "free cholesterol measurement",
+          "CTNNA2",
+          "rs141519390"
+        ],
+        [
+          81,
+          177.7,
+          103,
+          "bone tissue density",
+          "CTNNA2 - ANKRD11P1",
+          "rs184515375"
+        ],
+        [
+          82,
+          300,
+          45,
+          "bone tissue density",
+          "RBX1P1 - MTND4P25",
+          "rs114517246"
+        ],
+        [
+          83,
+          14,
+          73,
+          "smoking initiation",
+          "DHFRP3 - LINC01809",
+          "rs7587086"
+        ],
+        [
+          84,
+          36.7,
+          57,
+          "DBI/TMSB10 protein amount ratio in blood",
+          "TRABD2A",
+          "rs13409738"
+        ],
+        [
+          85,
+          4276.7,
+          620,
+          "AMBP/CAPG protein amount ratio in blood",
+          "CAPG",
+          "rs6886"
+        ],
+        [
+          86,
+          553,
+          230,
+          "amount of T-cell surface glycoprotein CD8 alpha chain in blood",
+          "CD8A",
+          "rs3020726"
+        ],
+        [
+          87,
+          87.7,
+          15,
+          "corneal endothelial cell attribute",
+          "CENPNP1 - LINC01955",
+          "rs71413012"
+        ],
+        [
+          88,
+          591,
+          240,
+          "FABP1/RBP2 protein amount ratio in blood",
+          "FABP1",
+          "rs2241883"
+        ],
+        [
+          89,
+          86.3,
+          30,
+          "SLAM family member 8 measurement",
+          "IGKV3-15 - IGKV1-16",
+          "rs201445496"
+        ],
+        [
+          90,
+          37.5,
+          20,
+          "blood protein amount",
+          "IGKV6D-41 - IGKV1D-17",
+          "rs17620337"
+        ],
+        [
+          91,
+          32,
+          12,
+          "SLAM family member 8 measurement",
+          "ABCD1P5 - PABPC1P6",
+          "rs145465900"
+        ],
+        [
+          92,
+          14.7,
+          7,
+          "body height",
+          "IGKV1OR2-2 - BMS1P23",
+          "rs200027753"
+        ],
+        [
+          94,
+          300,
+          36,
+          "bone tissue density",
+          "RPS24P6 - MAL-AS1",
+          "rs71427005"
+        ],
+        [
+          95,
+          300,
+          56,
+          "bone tissue density",
+          "PROM2",
+          "rs35733728"
+        ],
+        [
+          96,
+          300,
+          213,
+          "bone tissue density",
+          "ARID5A - KANSL3",
+          "rs184919665"
+        ],
+        [
+          97,
+          45.4,
+          191,
+          "hematological measurement",
+          "TMEM131",
+          "rs13404788"
+        ],
+        [
+          98,
+          300,
+          93,
+          "bone tissue density",
+          "TMEM131 - VWA3B",
+          "rs34400755"
+        ],
+        [
+          99,
+          300,
+          202,
+          "bone tissue density",
+          "TSGA10",
+          "rs143375671"
+        ],
+        [
+          100,
+          101.5,
+          529,
+          "educational attainment",
+          "LINC01104",
+          "rs4583487"
+        ],
+        [
+          101,
+          2261,
+          241,
+          "amount of interleukin-1 receptor type 2 (human) in blood",
+          "IL1R2",
+          "rs2310170"
+        ],
+        [
+          102,
+          4635,
+          849,
+          "interleukin 18 receptor 1 measurement",
+          "IL18R1",
+          "rs12712145"
+        ],
+        [
+          103,
+          81,
+          307,
+          "smoking initiation",
+          "TMEM182 - CRLF3P1",
+          "rs1093422"
+        ],
+        [
+          104,
+          300,
+          171,
+          "bone tissue density",
+          "LINC01831",
+          "rs113085510"
+        ],
+        [
+          105,
+          82,
+          204,
+          "body height",
+          "FHL2",
+          "rs6738207"
+        ],
+        [
+          106,
+          300,
+          123,
+          "bone tissue density",
+          "RPL27AP4 - ILRUNP1",
+          "rs140184084"
+        ],
+        [
+          107,
+          300,
+          34,
+          "bone tissue density",
+          "PPP1R2P5 - LINC01789",
+          "rs11681967"
+        ],
+        [
+          108,
+          875.7,
+          182,
+          "EDAR/F2R protein amount ratio in blood",
+          "EDAR - Metazoa_SRP",
+          "rs6750059"
+        ],
+        [
+          109,
+          64.5,
+          100,
+          "body height",
+          "SH3RF3",
+          "rs3749060"
+        ],
+        [
+          110,
+          129,
+          201,
+          "amount of C-X-C motif chemokine 16 (human) in blood",
+          "ACOXL",
+          "rs13395354"
+        ],
+        [
+          111,
+          611.7,
+          986,
+          "amount of tyrosine-protein kinase Mer in blood",
+          "MERTK",
+          "rs10180345"
+        ],
+        [
+          112,
+          107,
+          357,
+          "platelet volume",
+          "CKAP2L, NT5DC4",
+          "rs76036957"
+        ],
+        [
+          113,
+          328.2,
+          739,
+          "amount of interleukin-1 receptor antagonist protein (human) in blood",
+          "IL1F10 - RNU6-1180P",
+          "rs6734238"
+        ],
+        [
+          114,
+          31,
+          70,
+          "inactive dipeptidyl peptidase 10 measurement",
+          "DPP10",
+          "rs186464473"
+        ],
+        [
+          115,
+          391.2,
+          84,
+          "amount of inactive dipeptidyl peptidase 10 (human) in blood",
+          "DPP10, DPP10-AS1",
+          "rs13313771"
+        ],
+        [
+          116,
+          19.5,
+          43,
+          "smoking initiation",
+          "DPP10 - MTCYBP39",
+          "rs1480496"
+        ],
+        [
+          117,
+          66,
+          98,
+          "bone tissue density",
+          "RNU7-190P - DDX18",
+          "rs116172667"
+        ],
+        [
+          118,
+          490.4,
+          434,
+          "amount of macrophage receptor MARCO in blood",
+          "MARCO",
+          "rs6751745"
+        ],
+        [
+          119,
+          1718.7,
+          126,
+          "DBI/TMSB10 protein amount ratio in blood",
+          "DBI",
+          "rs3731607"
+        ],
+        [
+          120,
+          285.7,
+          620,
+          "body height",
+          "GLI2",
+          "rs2166898"
+        ],
+        [
+          121,
+          34.7,
+          123,
+          "hematocrit",
+          "TFCP2L1",
+          "rs35847463"
+        ],
+        [
+          122,
+          13,
+          58,
+          "glioma pathogenesis-related protein 1 measurement",
+          "LINC01823 - LINC01826",
+          "rs566402595"
+        ],
+        [
+          123,
+          300,
+          57,
+          "bone tissue density",
+          "LINC01823 - LINC01826",
+          "rs114705302"
+        ],
+        [
+          124,
+          63.7,
+          173,
+          "restless legs syndrome",
+          "CNTNAP5",
+          "rs11689768"
+        ],
+        [
+          125,
+          14.4,
+          56,
+          "educational attainment",
+          "RNU6-259P - LINC01941",
+          "rs6743032"
+        ],
+        [
+          126,
+          300,
+          97,
+          "bone tissue density",
+          "RNU6-675P - TEX51",
+          "rs113888970"
+        ],
+        [
+          127,
+          254,
+          353,
+          "amount of vitamin K-dependent protein C (human) in blood",
+          "PROC",
+          "rs1799809"
+        ],
+        [
+          128,
+          236.7,
+          127,
+          "heparan-sulfate 6-o-sulfotransferase 1 measurement",
+          "HS6ST1 - Y_RNA",
+          "rs4630712"
+        ],
+        [
+          129,
+          18.2,
+          72,
+          "type 2 diabetes mellitus",
+          "PPIAP65 - LINC02572",
+          "rs77986901"
+        ],
+        [
+          130,
+          24.7,
+          26,
+          "amount of cryptic protein (human) in cerebrospinal fluid",
+          "POTEI",
+          "rs10928974"
+        ],
+        [
+          131,
+          313.2,
+          23,
+          "bone tissue density",
+          "SMIM39, ARHGEF4",
+          "rs113502795"
+        ],
+        [
+          132,
+          300,
+          64,
+          "bone tissue density",
+          "NCKAP5",
+          "rs112245600"
+        ],
+        [
+          133,
+          126.2,
+          112,
+          "body height",
+          "RN7SKP93 - MGAT5",
+          "rs6716309"
+        ],
+        [
+          134,
+          401,
+          479,
+          "CD163/FOLR2 protein amount ratio in blood",
+          "MGAT5",
+          "rs62165726"
+        ],
+        [
+          135,
+          1450.5,
+          480,
+          "lactase-phlorizin hydrolase measurement",
+          "MCM6",
+          "rs4988235"
+        ],
+        [
+          136,
+          246.5,
+          320,
+          "leukocyte quantity",
+          "DARS1-AS1",
+          "rs76806892"
+        ],
+        [
+          137,
+          260,
+          89,
+          "amount of histamine N-methyltransferase in blood",
+          "HNMT",
+          "rs145871487"
+        ],
+        [
+          138,
+          3528.3,
+          72,
+          "EFNA4/HNMT protein amount ratio in blood",
+          "HNMT",
+          "rs1801105"
+        ],
+        [
+          139,
+          33.7,
+          60,
+          "amount of histamine N-methyltransferase in blood",
+          "AHCYP4 - SNORA72",
+          "rs78688253"
+        ],
+        [
+          140,
+          214,
+          69,
+          "adolescent idiopathic scoliosis",
+          "LRP1B",
+          "rs41497646"
+        ],
+        [
+          141,
+          26.7,
+          148,
+          "educational attainment",
+          "LRP1B",
+          "rs11685467"
+        ],
+        [
+          142,
+          372,
+          106,
+          "amount of kynureninase (human) in blood",
+          "KYNU",
+          "rs6711280"
+        ],
+        [
+          143,
+          519,
+          449,
+          "kynureninase measurement",
+          "KYNU",
+          "rs73961713"
+        ],
+        [
+          144,
+          300,
+          471,
+          "bone tissue density",
+          "TEX41",
+          "rs74774921"
+        ],
+        [
+          145,
+          260,
+          354,
+          "autosomal dominant compelling helio-ophthalmic outburst syndrome",
+          "RPL6P5 - METAP2P1",
+          "rs1533426"
+        ],
+        [
+          146,
+          68.3,
+          223,
+          "Abnormality of refraction",
+          "METAP2P1 - RNU7-2P",
+          "rs61049169"
+        ],
+        [
+          147,
+          57.2,
+          233,
+          "body height",
+          "ACVR2A",
+          "rs17692648"
+        ],
+        [
+          148,
+          300,
+          105,
+          "bone tissue density",
+          "MBD5",
+          "rs550517608"
+        ],
+        [
+          149,
+          73.3,
+          75,
+          "brain attribute",
+          "LYPD6B",
+          "rs7594794"
+        ],
+        [
+          150,
+          30,
+          94,
+          "FEV/FVC ratio",
+          "LINC01818",
+          "rs72855749"
+        ],
+        [
+          151,
+          228,
+          159,
+          "blood protein amount",
+          "NMI - TNFAIP6",
+          "rs2278089"
+        ],
+        [
+          152,
+          48.3,
+          153,
+          "body height",
+          "PRPF40A",
+          "rs4664605"
+        ],
+        [
+          153,
+          18,
+          54,
+          "protein measurement",
+          "RPRM - DNAJA1P2",
+          "rs13385260"
+        ],
+        [
+          154,
+          39,
+          151,
+          "smoking initiation",
+          "KCNJ3",
+          "rs2652448"
+        ],
+        [
+          155,
+          300,
+          121,
+          "bone tissue density",
+          "MTCYBP9 - RNU6-546P",
+          "rs182772626"
+        ],
+        [
+          156,
+          56,
+          218,
+          "refractive error",
+          "GPD2",
+          "rs7558733"
+        ],
+        [
+          157,
+          236,
+          221,
+          "amount of polypeptide N-acetylgalactosaminyltransferase 5 in blood",
+          "GALNT5",
+          "rs62175180"
+        ],
+        [
+          158,
+          115,
+          159,
+          "restless legs syndrome",
+          "CCDC148",
+          "rs77276698"
+        ],
+        [
+          159,
+          4882.5,
+          469,
+          "amount of lymphocyte antigen 75 isoform 4 and LY75-CD302 fusion isoforms V34-2/V33-2 (human) in blood",
+          "LY75 - PLA2R1",
+          "rs72957586"
+        ],
+        [
+          160,
+          619,
+          424,
+          "secretory phospholipase A2 receptor measurement",
+          "PLA2R1",
+          "rs3749117"
+        ],
+        [
+          161,
+          92.5,
+          435,
+          "amount of dipeptidyl peptidase 4 in blood serum",
+          "DPP4",
+          "rs144519975"
+        ],
+        [
+          162,
+          300,
+          455,
+          "bone tissue density",
+          "EIF3EP2 - GCG",
+          "rs141102226"
+        ],
+        [
+          163,
+          42,
+          118,
+          "body height",
+          "FIGN",
+          "rs970953"
+        ],
+        [
+          164,
+          126.3,
+          1952,
+          "BMI-adjusted waist-hip ratio",
+          "COBLL1",
+          "rs13389219"
+        ],
+        [
+          165,
+          708.4,
+          172,
+          "amount of polypeptide N-acetylgalactosaminyltransferase 3 (human) in blood",
+          "TTC21B",
+          "rs2116546"
+        ],
+        [
+          166,
+          54.4,
+          91,
+          "polypeptide N-acetylgalactosaminyltransferase 3 measurement",
+          "SCN1A-AS1, SCN1A",
+          "rs72877472"
+        ],
+        [
+          167,
+          28,
+          67,
+          "visual perception quality",
+          "B3GALT1",
+          "rs61095853"
+        ],
+        [
+          168,
+          751,
+          710,
+          "glucose measurement",
+          "SPC25, G6PC2",
+          "rs560887"
+        ],
+        [
+          169,
+          193.1,
+          428,
+          "serum creatinine amount",
+          "LRP2",
+          "rs3821129"
+        ],
+        [
+          170,
+          99.2,
+          192,
+          "lobe attachment",
+          "MYO3B - ERICH2-DT",
+          "rs10198822"
+        ],
+        [
+          171,
+          237.3,
+          266,
+          "body height",
+          "TLK1",
+          "rs2676131"
+        ],
+        [
+          172,
+          507,
+          215,
+          "protein measurement",
+          "ITGA6-AS1",
+          "rs7584089"
+        ],
+        [
+          173,
+          300,
+          321,
+          "bone tissue density",
+          "PPIAP66 - RPL5P7",
+          "rs113297503"
+        ],
+        [
+          174,
+          79,
+          229,
+          "HbA1c measurement",
+          "SCRN3",
+          "rs12611808"
+        ],
+        [
+          175,
+          27.5,
+          80,
+          "free cholesterol measurement",
+          "EXTL2P1 - LNPK",
+          "rs57576081"
+        ],
+        [
+          176,
+          75.4,
+          378,
+          "facial morphology trait",
+          "RPSAP25 - MTX2",
+          "rs970797"
+        ],
+        [
+          177,
+          242.1,
+          211,
+          "body height",
+          "PDE11A, PDE11A-AS1",
+          "rs17400325"
+        ],
+        [
+          178,
+          282.1,
+          374,
+          "heart rate",
+          "CCDC141",
+          "rs151041685"
+        ],
+        [
+          179,
+          543.7,
+          123,
+          "mannan-binding lectin serine protease 1 amount",
+          "ZNF385B - CWC22",
+          "rs1486236"
+        ],
+        [
+          180,
+          78.7,
+          170,
+          "hematological measurement",
+          "UBE2E3",
+          "rs6433879"
+        ],
+        [
+          181,
+          991.5,
+          444,
+          "monocyte count",
+          "LINC01934 - ITGA4",
+          "rs6731125"
+        ],
+        [
+          182,
+          969.1,
+          268,
+          "Secreted frizzled-related protein 3 measurement",
+          "FRZB",
+          "rs13009"
+        ],
+        [
+          183,
+          695.3,
+          116,
+          "Secreted frizzled-related protein 3 measurement",
+          "NCKAP1 - KRT8P10",
+          "rs72890325"
+        ],
+        [
+          184,
+          300,
+          143,
+          "bone tissue density",
+          "MIR548AE1 - ZNF804A",
+          "rs56085469"
+        ],
+        [
+          185,
+          32.7,
+          78,
+          "amount of tissue factor pathway inhibitor (human) in blood",
+          "FSIP2-AS1, FSIP2",
+          "rs140928551"
+        ],
+        [
+          186,
+          152.7,
+          113,
+          "protein FAM171B measurement",
+          "FAM171B",
+          "rs371859516"
+        ],
+        [
+          187,
+          1254.4,
+          306,
+          "amount of tissue factor pathway inhibitor (human) in blood",
+          "CALCRL-AS1, TFPI",
+          "rs3771061"
+        ],
+        [
+          188,
+          85.7,
+          78,
+          "bone tissue density",
+          "GULP1",
+          "rs143408165"
+        ],
+        [
+          189,
+          133.7,
+          164,
+          "amount of iron in brain",
+          "KDM3AP1 - SLC40A1",
+          "rs11884632"
+        ],
+        [
+          190,
+          257.7,
+          307,
+          "blood protein amount",
+          "HIBCH",
+          "rs291444"
+        ],
+        [
+          191,
+          160,
+          348,
+          "systemic lupus erythematosus",
+          "STAT4",
+          "rs10168266"
+        ],
+        [
+          192,
+          35.2,
+          83,
+          "educational attainment",
+          "PCGEM1 - SLC44A3P1",
+          "rs4850810"
+        ],
+        [
+          193,
+          19.7,
+          61,
+          "educational attainment",
+          "DNAJC17P1 - SEC61GP1",
+          "rs2264021"
+        ],
+        [
+          194,
+          300,
+          30,
+          "bone tissue density",
+          "SEC61GP1 - GLULP6",
+          "rs547008332"
+        ],
+        [
+          195,
+          300,
+          68,
+          "bone tissue density",
+          "LINC01790 - RNU6-169P",
+          "rs116316647"
+        ],
+        [
+          196,
+          36.3,
+          96,
+          "amount of tumor necrosis factor receptor superfamily member 10C in blood",
+          "PGAP1 - ANKRD44",
+          "rs10182318"
+        ],
+        [
+          197,
+          63.7,
+          251,
+          "hematological measurement",
+          "PLCL1",
+          "rs62277889"
+        ],
+        [
+          198,
+          104.3,
+          311,
+          "body height",
+          "PLCL1 - RNU7-147P",
+          "rs1456529"
+        ],
+        [
+          199,
+          300,
+          231,
+          "bone tissue density",
+          "FTCDNL1 - RN7SL717P",
+          "rs116010331"
+        ],
+        [
+          200,
+          300,
+          319,
+          "bone tissue density",
+          "SPATS2L",
+          "rs148202660"
+        ],
+        [
+          201,
+          630.4,
+          337,
+          "CASP8/CIAPIN1 protein amount ratio in blood",
+          "CASP8",
+          "rs1045485"
+        ],
+        [
+          202,
+          201.4,
+          549,
+          "monocyte measurement",
+          "MTCO1P54 - FAM117B",
+          "rs10208580"
+        ],
+        [
+          203,
+          250.5,
+          503,
+          "autoimmune thyroid disease",
+          "CTLA4 - ICOS",
+          "rs11571297"
+        ],
+        [
+          204,
+          25,
+          138,
+          "amount of neuropilin-2 (human) in blood",
+          "DSTNP5 - PARD3B",
+          "rs7599719"
+        ],
+        [
+          205,
+          170.3,
+          144,
+          "CRIM1/NRP2 protein amount ratio in blood",
+          "PARD3B",
+          "rs2289023"
+        ],
+        [
+          206,
+          1767.2,
+          193,
+          "amount of disintegrin and metalloproteinase domain-containing protein 23 (human) in blood",
+          "ADAM23",
+          "rs1448903"
+        ],
+        [
+          207,
+          60.2,
+          299,
+          "body height",
+          "PLEKHM3",
+          "rs12619380"
+        ],
+        [
+          208,
+          166.5,
+          97,
+          "gamma-crystallin D measurement",
+          "CRYGB",
+          "rs71350714"
+        ],
+        [
+          209,
+          165.5,
+          105,
+          "X-13431 measurement",
+          "UNC80",
+          "rs2887870"
+        ],
+        [
+          210,
+          14952,
+          1148,
+          "glycine measurement",
+          "CPS1",
+          "rs1047891"
+        ],
+        [
+          211,
+          300,
+          191,
+          "bone tissue density",
+          "ERBB4",
+          "rs141108194"
+        ],
+        [
+          212,
+          217.4,
+          292,
+          "amount of receptor tyrosine-protein kinase erbB-4 (human) in blood",
+          "ERBB4 - LINC01878",
+          "rs6735267"
+        ],
+        [
+          213,
+          40.7,
+          118,
+          "eosinophil percentage of leukocytes",
+          "IKZF2",
+          "rs1586068"
+        ],
+        [
+          214,
+          159,
+          134,
+          "bone tissue density",
+          "SPAG16",
+          "rs7593608"
+        ],
+        [
+          215,
+          152.7,
+          292,
+          "blood protein amount",
+          "FN1",
+          "rs1250258"
+        ],
+        [
+          216,
+          357.5,
+          294,
+          "amount of Thyroid stimulating hormone",
+          "TESHL",
+          "rs7568039"
+        ],
+        [
+          217,
+          296.1,
+          516,
+          "body height",
+          "DIRC3",
+          "rs1478576"
+        ],
+        [
+          218,
+          1711.2,
+          1052,
+          "putative chondrosarcoma-associated gene 1 protein measurement",
+          "PNKD",
+          "rs10203039"
+        ],
+        [
+          219,
+          307,
+          585,
+          "body height",
+          "NHEJ1",
+          "rs16859517"
+        ],
+        [
+          220,
+          300,
+          64,
+          "bone tissue density",
+          "MIR4268 - EPHA4",
+          "rs148935997"
+        ],
+        [
+          221,
+          251,
+          136,
+          "promotilin measurement",
+          "MIR4268 - EPHA4",
+          "rs16862260"
+        ],
+        [
+          222,
+          103.1,
+          137,
+          "synophrys measurement",
+          "PAX3",
+          "rs2053316"
+        ],
+        [
+          223,
+          300,
+          151,
+          "bone tissue density",
+          "SCG2 - AP1S3",
+          "rs147322558"
+        ],
+        [
+          224,
+          1483.7,
+          550,
+          "ANGPT1/PDGFB protein amount ratio in blood",
+          "SERPINE2",
+          "rs13412535"
+        ],
+        [
+          225,
+          39.3,
+          127,
+          "smoking initiation",
+          "NYAP2",
+          "rs6729386"
+        ],
+        [
+          226,
+          203,
+          1539,
+          "high density lipoprotein cholesterol measurement",
+          "NYAP2 - MIR5702",
+          "rs2176040"
+        ],
+        [
+          227,
+          52,
+          226,
+          "C-C motif chemokine 20 measurement",
+          "SNRPGP8 - CCL20",
+          "rs1395338"
+        ],
+        [
+          228,
+          90.1,
+          146,
+          "FEV/FVC ratio",
+          "LINC01807",
+          "rs62201738"
+        ],
+        [
+          229,
+          490.3,
+          246,
+          "amount of delta and Notch-like epidermal growth factor-related receptor (human) in blood",
+          "DNER - TRIP12",
+          "rs62193248"
+        ],
+        [
+          230,
+          158.7,
+          198,
+          "mosaic loss of chromosome X measurement",
+          "SP140L",
+          "rs11686798"
+        ],
+        [
+          231,
+          300,
+          366,
+          "body height",
+          "NPPC - DIS3L2",
+          "rs749052"
+        ],
+        [
+          232,
+          524,
+          619,
+          "ALPP/LAMP3 protein amount ratio in blood",
+          "ALPG - ECEL1P1",
+          "rs72617176"
+        ],
+        [
+          233,
+          26676.5,
+          1383,
+          "bilirubin measurement",
+          "UGT1A6, UGT1A3, UGT1A10, UGT1A5, UGT1A7, UGT1A4, UGT1A9, UGT1A8",
+          "rs35754645"
+        ],
+        [
+          234,
+          184,
+          139,
+          "bilirubin measurement",
+          "TRPM8 - SPP2",
+          "rs60697520"
+        ],
+        [
+          235,
+          58.7,
+          172,
+          "body height",
+          "AGAP1",
+          "rs10929146"
+        ],
+        [
+          236,
+          69.4,
+          150,
+          "cortical thickness",
+          "ACKR3 - COPS8-DT",
+          "rs13012716"
+        ],
+        [
+          237,
+          97.3,
+          217,
+          "body height",
+          "COL6A3 - MLPH",
+          "rs7602387"
+        ],
+        [
+          238,
+          227.7,
+          325,
+          "KYNU/SCLY protein amount ratio in blood",
+          "SCLY, UBE2F-SCLY",
+          "rs1374386"
+        ],
+        [
+          239,
+          24.5,
+          138,
+          "balding measurement",
+          "LINC01940 - HDAC4",
+          "rs4075018"
+        ],
+        [
+          240,
+          850,
+          478,
+          "platelet volume",
+          "RNPEPL1",
+          "rs78909033"
+        ],
+        [
+          241,
+          1022,
+          728,
+          "protein measurement",
+          "MTERF4 - PASK",
+          "rs16843274"
+        ],
+        [
+          242,
+          11.5,
+          8,
+          "programmed cell death protein 1 measurement",
+          "LINC01237",
+          "rs4973683"
+        ]
+      ],
+      "3": [
+        [
+          0,
+          500.5,
+          119,
+          "neural cell adhesion molecule L1-like protein amount",
+          "CHL1",
+          "rs7618545"
+        ],
+        [
+          1,
+          87.7,
+          109,
+          "bone tissue density",
+          "CNTN6",
+          "rs149405000"
+        ],
+        [
+          2,
+          290.7,
+          173,
+          "contactin-4 measurement",
+          "RN7SKP144 - CNTN4",
+          "rs13071423"
+        ],
+        [
+          3,
+          3269,
+          336,
+          "amount of leucine-rich repeat neuronal protein 1 (human) in blood",
+          "SUMF1",
+          "rs9839475"
+        ],
+        [
+          4,
+          278.7,
+          276,
+          "histone-lysine N-methyltransferase SETMAR measurement",
+          "SUMF1",
+          "rs35083095"
+        ],
+        [
+          5,
+          300,
+          103,
+          "bone tissue density",
+          "RN7SL553P - MTARC2P1",
+          "rs183841377"
+        ],
+        [
+          6,
+          300,
+          67,
+          "bone tissue density",
+          "GRM7-AS3",
+          "rs62245325"
+        ],
+        [
+          7,
+          30.3,
+          129,
+          "gestational age",
+          "GRM7 - LMCD1-AS1",
+          "rs13068706"
+        ],
+        [
+          8,
+          60,
+          192,
+          "refractive error",
+          "LMCD1-AS1",
+          "rs178597"
+        ],
+        [
+          9,
+          1814.7,
+          219,
+          "cysteine-rich with EGF-like domain protein 1 measurement",
+          "CRELD1, PRRT3",
+          "rs7650290"
+        ],
+        [
+          10,
+          540.2,
+          272,
+          "ghrelin measurement",
+          "GHRL, GHRLOS",
+          "rs34911341"
+        ],
+        [
+          11,
+          300,
+          281,
+          "bone tissue density",
+          "VGLL4",
+          "rs76695644"
+        ],
+        [
+          12,
+          935.1,
+          1661,
+          "metalloproteinase inhibitor 4 measurement",
+          "SYN2",
+          "rs307608"
+        ],
+        [
+          13,
+          300,
+          289,
+          "body height",
+          "HDAC11 - FBLN2",
+          "rs2675229"
+        ],
+        [
+          14,
+          93.4,
+          363,
+          "HCLS1/TRIAP1 protein amount ratio in blood",
+          "TPRXL - CHCHD4",
+          "rs9847221"
+        ],
+        [
+          15,
+          681.4,
+          285,
+          "protein measurement",
+          "BTD",
+          "rs13078881"
+        ],
+        [
+          16,
+          408.2,
+          386,
+          "CCL17/PDGFB protein amount ratio in blood",
+          "PLCL2",
+          "rs76472873"
+        ],
+        [
+          17,
+          94.7,
+          137,
+          "CCL17/CCL22 protein amount ratio in blood",
+          "PLCL2 - TBC1D5",
+          "rs35545382"
+        ],
+        [
+          18,
+          300,
+          355,
+          "bone tissue density",
+          "SATB1-AS1",
+          "rs185297675"
+        ],
+        [
+          19,
+          28.5,
+          38,
+          "body height",
+          "RAB5A",
+          "rs13078869"
+        ],
+        [
+          20,
+          69.7,
+          275,
+          "erythrocyte volume",
+          "KAT2B",
+          "rs12636078"
+        ],
+        [
+          21,
+          16.1,
+          100,
+          "glioma pathogenesis-related protein 1 measurement",
+          "VENTXP7 - ZNF385D",
+          "rs2134134"
+        ],
+        [
+          22,
+          20.5,
+          64,
+          "motion sickness",
+          "HMGB1P5 - FCRL4P1",
+          "rs11129078"
+        ],
+        [
+          23,
+          81.2,
+          270,
+          "type 2 diabetes mellitus",
+          "UBE2E2",
+          "rs13094957"
+        ],
+        [
+          24,
+          300,
+          516,
+          "bone tissue density",
+          "RARB",
+          "rs112182879"
+        ],
+        [
+          25,
+          220,
+          386,
+          "bone tissue density",
+          "RARB",
+          "rs116669101"
+        ],
+        [
+          26,
+          300,
+          45,
+          "bone tissue density",
+          "LRRC3B - NEK10",
+          "rs116384459"
+        ],
+        [
+          27,
+          300,
+          368,
+          "bone tissue density",
+          "RNU1-96P - Y_RNA",
+          "rs76718747"
+        ],
+        [
+          28,
+          48.7,
+          163,
+          "multiple sclerosis",
+          "LINC01967",
+          "rs438613"
+        ],
+        [
+          29,
+          47.3,
+          132,
+          "body height",
+          "RBMS3",
+          "rs1979113"
+        ],
+        [
+          30,
+          110,
+          181,
+          "N-acetylcarnosine measurement",
+          "TGFBR2 - GADL1",
+          "rs6800284"
+        ],
+        [
+          31,
+          47.2,
+          69,
+          "body height",
+          "THRAP3P1 - STT3B",
+          "rs12639135"
+        ],
+        [
+          32,
+          47,
+          185,
+          "serum IgM amount",
+          "CMTM7",
+          "rs614004"
+        ],
+        [
+          33,
+          300,
+          248,
+          "bone tissue density",
+          "CLASP2",
+          "rs115015930"
+        ],
+        [
+          34,
+          32.7,
+          99,
+          "bone tissue density",
+          "LINC01811",
+          "rs11707388"
+        ],
+        [
+          35,
+          19.7,
+          123,
+          "glioma pathogenesis-related protein 1 measurement",
+          "RPL36AP17 - RFC3P1",
+          "rs539655086"
+        ],
+        [
+          36,
+          52.1,
+          221,
+          "body height",
+          "TRANK1",
+          "rs9857252"
+        ],
+        [
+          37,
+          300,
+          191,
+          "bone tissue density",
+          "GOLGA4",
+          "rs78200573"
+        ],
+        [
+          38,
+          633.2,
+          656,
+          "PR interval",
+          "SCN10A",
+          "rs6801957"
+        ],
+        [
+          39,
+          108,
+          322,
+          "monocyte count",
+          "CX3CR1",
+          "rs3732378"
+        ],
+        [
+          40,
+          44.4,
+          75,
+          "protein measurement",
+          "RPS27P4 - MRPS31P1",
+          "rs35470271"
+        ],
+        [
+          41,
+          152.1,
+          383,
+          "bone tissue density",
+          "RPS27P4 - MRPS31P1",
+          "rs370387"
+        ],
+        [
+          42,
+          487,
+          410,
+          "C-C motif chemokine 17 amount",
+          "ACKR2, CYP8B1",
+          "rs2228467"
+        ],
+        [
+          43,
+          256.7,
+          226,
+          "protein O-linked-mannose beta-1,4-N-acetylglucosaminyltransferase 2 measurement",
+          "POMGNT2",
+          "rs4683355"
+        ],
+        [
+          44,
+          58.7,
+          128,
+          "bone tissue density",
+          "ZKSCAN7-AS1 - SOCS5P3",
+          "rs143352056"
+        ],
+        [
+          45,
+          460.2,
+          386,
+          "amount of CUB domain-containing protein 1 (human) in blood",
+          "CDCP1 - RPS24P8",
+          "rs62244475"
+        ],
+        [
+          46,
+          8410.2,
+          788,
+          "amount of teratocarcinoma-derived growth factor 1",
+          "CRIPTO, LRRC2",
+          "rs6769392"
+        ],
+        [
+          47,
+          309.2,
+          509,
+          "bone tissue density",
+          "KLHL18",
+          "rs62246467"
+        ],
+        [
+          48,
+          300,
+          608,
+          "bone tissue density",
+          "RPL17P16 - CDC25A",
+          "rs116797718"
+        ],
+        [
+          49,
+          4025.2,
+          1340,
+          "amount of hepatocyte growth factor-like protein",
+          "APEH",
+          "rs11130213"
+        ],
+        [
+          50,
+          626.3,
+          796,
+          "neutrophil measurement",
+          "HYAL3",
+          "rs13100173"
+        ],
+        [
+          51,
+          269.2,
+          312,
+          "N-acetylalanine measurement",
+          "ACY1, ABHD14A-ACY1",
+          "rs121912698"
+        ],
+        [
+          52,
+          2702.5,
+          1599,
+          "GGT1/MME protein amount ratio in blood",
+          "ITIH4",
+          "rs4687657"
+        ],
+        [
+          53,
+          3424.2,
+          704,
+          "interleukin 17 receptor B measurement",
+          "CHDH",
+          "rs6801605"
+        ],
+        [
+          54,
+          56.7,
+          142,
+          "interleukin 17 receptor B measurement",
+          "SELENOK - CABYRP1",
+          "rs138328725"
+        ],
+        [
+          55,
+          137.1,
+          186,
+          "body height",
+          "LINC02030 - WNT5A",
+          "rs12497254"
+        ],
+        [
+          56,
+          1673.4,
+          2278,
+          "platelet volume",
+          "ARHGEF3",
+          "rs9861033"
+        ],
+        [
+          57,
+          421.1,
+          272,
+          "interleukin 17 receptor D measurement",
+          "IL17RD",
+          "rs76645245"
+        ],
+        [
+          58,
+          262.7,
+          472,
+          "protein FAM3D measurement",
+          "FAM3D",
+          "rs13097314"
+        ],
+        [
+          59,
+          165.5,
+          99,
+          "FHIT/MIF protein amount ratio in blood",
+          "FHIT",
+          "rs2687899"
+        ],
+        [
+          60,
+          27.3,
+          123,
+          "diet measurement",
+          "FHIT",
+          "rs2736748"
+        ],
+        [
+          61,
+          300,
+          263,
+          "bone tissue density",
+          "PTPRG",
+          "rs113904951"
+        ],
+        [
+          62,
+          92,
+          174,
+          "body height",
+          "PTPRG",
+          "rs804415"
+        ],
+        [
+          63,
+          161,
+          217,
+          "bone tissue density",
+          "SYNPR, SYNPR-AS1",
+          "rs62252075"
+        ],
+        [
+          64,
+          300,
+          502,
+          "bone tissue density",
+          "ADAMTS9-AS2",
+          "rs147078822"
+        ],
+        [
+          65,
+          300,
+          136,
+          "bone tissue density",
+          "LINC02040 - MAGI1",
+          "rs143460385"
+        ],
+        [
+          66,
+          4086.7,
+          295,
+          "amount of leucine-rich repeats and immunoglobulin-like domains protein 1 in blood serum",
+          "SLC25A26, LRIG1",
+          "rs2306272"
+        ],
+        [
+          67,
+          132.2,
+          121,
+          "body height",
+          "SUCLG2",
+          "rs17806888"
+        ],
+        [
+          68,
+          300,
+          72,
+          "bone tissue density",
+          "TAFA1",
+          "rs1510357"
+        ],
+        [
+          69,
+          56.1,
+          321,
+          "sialic acid-binding Ig-like lectin 8 measurement",
+          "MITF",
+          "rs55921103"
+        ],
+        [
+          70,
+          51.2,
+          278,
+          "body height",
+          "FOXP1",
+          "rs6802472"
+        ],
+        [
+          71,
+          1259.2,
+          533,
+          "protein measurement",
+          "PROK2",
+          "rs7644362"
+        ],
+        [
+          72,
+          300,
+          290,
+          "body height",
+          "RYBP",
+          "rs9863706"
+        ],
+        [
+          73,
+          83.2,
+          124,
+          "body height",
+          "PPP4R2, EBLN2",
+          "rs1060584"
+        ],
+        [
+          74,
+          300,
+          78,
+          "bone tissue density",
+          "CNTN3",
+          "rs141045350"
+        ],
+        [
+          75,
+          300,
+          32,
+          "bone tissue density",
+          "CNTN3 - NIPA2P2",
+          "rs115532981"
+        ],
+        [
+          76,
+          29.7,
+          93,
+          "bone tissue density",
+          "ROBO2",
+          "rs139928627"
+        ],
+        [
+          77,
+          71.4,
+          125,
+          "amount of roundabout homolog 2 (human) in blood",
+          "ROBO2",
+          "rs2272163"
+        ],
+        [
+          78,
+          202.7,
+          119,
+          "roundabout homolog 1 measurement",
+          "ROBO1",
+          "rs3773244"
+        ],
+        [
+          79,
+          226.7,
+          57,
+          "bone tissue density",
+          "ROBO1",
+          "rs111285519"
+        ],
+        [
+          80,
+          300,
+          40,
+          "bone tissue density",
+          "HMGB1P38 - OSBPL9P1",
+          "rs185474827"
+        ],
+        [
+          81,
+          95.7,
+          98,
+          "bone tissue density",
+          "LINC02027 - GBE1",
+          "rs116528462"
+        ],
+        [
+          82,
+          300,
+          85,
+          "bone tissue density",
+          "LINC02008 - CYP51A1P1",
+          "rs78820568"
+        ],
+        [
+          83,
+          26.5,
+          76,
+          "smoking initiation",
+          "CYP51A1P1 - SRRM1P2",
+          "rs1376967"
+        ],
+        [
+          84,
+          79.7,
+          190,
+          "bone tissue density",
+          "SRRM1P2 - LINC00971",
+          "rs138252208"
+        ],
+        [
+          85,
+          300,
+          540,
+          "bone tissue density",
+          "CADM2",
+          "rs115251164"
+        ],
+        [
+          86,
+          65.7,
+          117,
+          "body height",
+          "VGLL3",
+          "rs1836918"
+        ],
+        [
+          87,
+          300,
+          115,
+          "bone tissue density",
+          "KRT8P25 - APOOP2",
+          "rs551936986"
+        ],
+        [
+          88,
+          63.2,
+          148,
+          "body height",
+          "CGGBP1",
+          "rs9861443"
+        ],
+        [
+          89,
+          311,
+          157,
+          "brain attribute",
+          "EPHA3",
+          "rs35124509"
+        ],
+        [
+          90,
+          56.7,
+          61,
+          "vitamin k-dependent protein S measurement",
+          "U3 - RNU6-712P",
+          "rs562281690"
+        ],
+        [
+          93,
+          38,
+          43,
+          "vitamin k-dependent protein S measurement",
+          "PROS1",
+          "rs374832548"
+        ],
+        [
+          94,
+          36,
+          161,
+          "body mass index",
+          "NSUN3 - ARMC10P1",
+          "rs1454687"
+        ],
+        [
+          95,
+          49.7,
+          35,
+          "bone tissue density",
+          "MTHFD2P1 - HNRNPKP4",
+          "rs114022386"
+        ],
+        [
+          96,
+          15.4,
+          35,
+          "body height",
+          "MTHFD2P1 - HNRNPKP4",
+          "rs11714452"
+        ],
+        [
+          97,
+          300,
+          32,
+          "bone tissue density",
+          "ARL6 - CRYBG3",
+          "rs138460596"
+        ],
+        [
+          98,
+          4664.5,
+          742,
+          "amount of intercellular adhesion molecule 2 (human) in blood",
+          "WWP1P1 - ST3GAL6-AS1",
+          "rs10935473"
+        ],
+        [
+          99,
+          590.5,
+          342,
+          "amount of intercellular adhesion molecule 2 (human) in blood",
+          "LINC00973",
+          "rs142647684"
+        ],
+        [
+          100,
+          467.7,
+          161,
+          "PTPN1/TBC1D23 protein amount ratio in blood",
+          "TBC1D23",
+          "rs277653"
+        ],
+        [
+          101,
+          118.7,
+          270,
+          "amount of alpha-fetoprotein",
+          "SENP7",
+          "rs9859077"
+        ],
+        [
+          102,
+          17.1,
+          49,
+          "interleukin-17C measurement",
+          "RDUR - ZPLD1",
+          "rs1081618"
+        ],
+        [
+          103,
+          25.5,
+          57,
+          "educational attainment",
+          "SSX2IPP1 - TUBBP11",
+          "rs1464018"
+        ],
+        [
+          104,
+          300,
+          165,
+          "bone tissue density",
+          "TUBBP11 - RAP1BP2",
+          "rs149171970"
+        ],
+        [
+          105,
+          300,
+          152,
+          "bone tissue density",
+          "EZRP1 - ALCAM",
+          "rs115445517"
+        ],
+        [
+          106,
+          42,
+          70,
+          "body height",
+          "CBLB - Y_RNA",
+          "rs6809315"
+        ],
+        [
+          107,
+          300,
+          223,
+          "bone tissue density",
+          "LINC00636 - CD47",
+          "rs114651875"
+        ],
+        [
+          108,
+          300,
+          207,
+          "bone tissue density",
+          "LINC01215",
+          "rs114064324"
+        ],
+        [
+          109,
+          300,
+          43,
+          "bone tissue density",
+          "DPPA4 - RLIG1P2",
+          "rs141872751"
+        ],
+        [
+          110,
+          21,
+          53,
+          "smoking initiation",
+          "NECTIN3-AS1",
+          "rs1112659"
+        ],
+        [
+          111,
+          185.5,
+          86,
+          "bone tissue density",
+          "ABHD10",
+          "rs146238752"
+        ],
+        [
+          112,
+          3172.4,
+          189,
+          "amount of cell surface glycoprotein CD200 receptor 1 (human) in blood",
+          "CD200R1",
+          "rs79556290"
+        ],
+        [
+          113,
+          337.5,
+          240,
+          "GRAM domain-containing protein 1C measurement",
+          "GRAMD1C",
+          "rs1872823"
+        ],
+        [
+          114,
+          169.3,
+          192,
+          "body height",
+          "ZBTB20-AS5, ZBTB20",
+          "rs9873460"
+        ],
+        [
+          115,
+          56.1,
+          131,
+          "brain attribute",
+          "EIF4E2P2 - GAP43",
+          "rs34073213"
+        ],
+        [
+          116,
+          26.2,
+          77,
+          "limbic system-associated membrane protein amount",
+          "LSAMP",
+          "rs2116308"
+        ],
+        [
+          117,
+          81.4,
+          210,
+          "body height",
+          "LSAMP, LINC03051",
+          "rs10804533"
+        ],
+        [
+          118,
+          87.2,
+          145,
+          "protein measurement",
+          "IGSF11",
+          "rs2903250"
+        ],
+        [
+          119,
+          176.7,
+          278,
+          "protein O-glucosyltransferase 1 measurement",
+          "ARHGAP31",
+          "rs115630304"
+        ],
+        [
+          120,
+          300,
+          92,
+          "bone tissue density",
+          "FSTL1 - CDK2AP1P1",
+          "rs76311806"
+        ],
+        [
+          121,
+          78.4,
+          187,
+          "DFFA/HCLS1 protein amount ratio in blood",
+          "HCLS1",
+          "rs3772126"
+        ],
+        [
+          122,
+          615.5,
+          370,
+          "calcium measurement",
+          "CASR - HNRNPA1P23",
+          "rs73186030"
+        ],
+        [
+          123,
+          1451.2,
+          553,
+          "protein disulfide-isomerase A5 measurement",
+          "PDIA5",
+          "rs3804749"
+        ],
+        [
+          124,
+          336.5,
+          402,
+          "orotate measurement",
+          "UMPS",
+          "rs2242247"
+        ],
+        [
+          125,
+          286.4,
+          166,
+          "protein HEG homolog 1 measurement",
+          "HEG1",
+          "rs2333041"
+        ],
+        [
+          126,
+          379.2,
+          267,
+          "glycine measurement",
+          "ALDH1L1-AS2, ALDH1L1",
+          "rs10934753"
+        ],
+        [
+          127,
+          346.7,
+          228,
+          "amount of podocalyxin-like protein 2 in blood",
+          "PODXL2",
+          "rs114895876"
+        ],
+        [
+          128,
+          475.4,
+          1002,
+          "eosinophil count",
+          "LINC01565 - RPN1",
+          "rs13089722"
+        ],
+        [
+          129,
+          300,
+          508,
+          "body height",
+          "HMCES",
+          "rs6765930"
+        ],
+        [
+          130,
+          79.5,
+          78,
+          "restless legs syndrome",
+          "PIK3R4 - RN7SKP212",
+          "rs6439256"
+        ],
+        [
+          131,
+          300,
+          128,
+          "bone tissue density",
+          "CPNE4",
+          "rs138801345"
+        ],
+        [
+          132,
+          300,
+          392,
+          "bone tissue density",
+          "UBA5, NPHP3-ACAD11, ACAD11",
+          "rs115251940"
+        ],
+        [
+          133,
+          609.1,
+          332,
+          "iron biomarker measurement, transferrin measurement",
+          "TF",
+          "rs8177240"
+        ],
+        [
+          134,
+          298.2,
+          284,
+          "body height",
+          "HMGB3P13 - ANAPC13",
+          "rs9841212"
+        ],
+        [
+          135,
+          36,
+          83,
+          "cerebellar volume measurement",
+          "EPHB1",
+          "rs202203163"
+        ],
+        [
+          136,
+          300,
+          1330,
+          "body height",
+          "PPP2R3A",
+          "rs13079205"
+        ],
+        [
+          137,
+          136.5,
+          98,
+          "bone tissue density",
+          "HSPA8P9 - CLDN18",
+          "rs111726420"
+        ],
+        [
+          138,
+          336.2,
+          254,
+          "protein measurement",
+          "FAIM",
+          "rs641320"
+        ],
+        [
+          139,
+          599,
+          140,
+          "amount of calsyntenin-2 (human) in blood",
+          "TRMT112P5 - CLSTN2",
+          "rs12629320"
+        ],
+        [
+          140,
+          635.5,
+          95,
+          "amount of calsyntenin-2 (human) in blood",
+          "CLSTN2",
+          "rs149752767"
+        ],
+        [
+          141,
+          579,
+          895,
+          "body height",
+          "ZBTB38",
+          "rs7624084"
+        ],
+        [
+          142,
+          366.4,
+          461,
+          "erythrocyte volume",
+          "RPL6P9 - RNA5SP143",
+          "rs6792259"
+        ],
+        [
+          143,
+          76.3,
+          148,
+          "N-glycan measurement",
+          "PBX2P1 - SLC9A9",
+          "rs9879103"
+        ],
+        [
+          144,
+          300,
+          71,
+          "bone tissue density",
+          "RNA5SP144 - LARP7P4",
+          "rs76469337"
+        ],
+        [
+          145,
+          11.7,
+          26,
+          "brain aneurysm",
+          "RNA5SP144 - LARP7P4",
+          "rs185733981"
+        ],
+        [
+          146,
+          79.5,
+          101,
+          "procollagen-lysine,2-oxoglutarate 5-dioxygenase 2 measurement",
+          "PLOD2",
+          "rs6801418"
+        ],
+        [
+          147,
+          279,
+          302,
+          "brain attribute",
+          "ZIC4",
+          "rs2279829"
+        ],
+        [
+          148,
+          267.7,
+          108,
+          "CPA1/CPB1 protein amount ratio in blood",
+          "CPB1",
+          "rs1059502"
+        ],
+        [
+          149,
+          115.5,
+          220,
+          "histidine measurement",
+          "CP",
+          "rs10935742"
+        ],
+        [
+          150,
+          89.3,
+          389,
+          "mosaic loss of chromosome Y measurement",
+          "LINC01214",
+          "rs4681200"
+        ],
+        [
+          151,
+          74.2,
+          241,
+          "balding measurement",
+          "AADACL2-AS1 - LINC02917",
+          "rs56188194"
+        ],
+        [
+          152,
+          48.5,
+          263,
+          "body height",
+          "MBNL1 - ATP5MGP5",
+          "rs4513429"
+        ],
+        [
+          153,
+          19,
+          88,
+          "platelet count",
+          "RN7SL300P - LINC03109",
+          "rs9868297"
+        ],
+        [
+          154,
+          74.5,
+          207,
+          "programmed cell death 1 ligand 2 amount",
+          "ARHGEF26 - DHX36",
+          "rs138771264"
+        ],
+        [
+          155,
+          300,
+          156,
+          "bone tissue density",
+          "PLCH1",
+          "rs78906837"
+        ],
+        [
+          156,
+          74,
+          175,
+          "bone tissue density",
+          "LEKR1",
+          "rs344078"
+        ],
+        [
+          157,
+          162.7,
+          585,
+          "body height",
+          "LINC00881, VEPH1",
+          "rs1403108"
+        ],
+        [
+          158,
+          2513.3,
+          322,
+          "retinoic acid receptor responder protein 1 measurement",
+          "MFSD1",
+          "rs61696028"
+        ],
+        [
+          159,
+          482.4,
+          210,
+          "Oral ulcer",
+          "IL12A-AS1",
+          "rs76830965"
+        ],
+        [
+          160,
+          107,
+          242,
+          "glutamine measurement",
+          "TRIM59-IFT80, SMC4",
+          "rs12632030"
+        ],
+        [
+          161,
+          300,
+          140,
+          "bone tissue density",
+          "NMD3",
+          "rs114858781"
+        ],
+        [
+          162,
+          22,
+          62,
+          "smoking initiation",
+          "OTOL1 - TOMM22P6",
+          "rs9868656"
+        ],
+        [
+          163,
+          11.1,
+          19,
+          "bone fracture",
+          "LINC01192",
+          "rs142227994"
+        ],
+        [
+          164,
+          15.7,
+          34,
+          "free cholesterol measurement",
+          "MIR1263 - LINC01324",
+          "rs34775880"
+        ],
+        [
+          165,
+          483,
+          675,
+          "protein measurement",
+          "LINC01322",
+          "rs17713088"
+        ],
+        [
+          166,
+          82,
+          58,
+          "amount of cholinesterase in blood",
+          "LINC01322 - MTND4P17",
+          "rs73879450"
+        ],
+        [
+          167,
+          300,
+          110,
+          "bone tissue density",
+          "SERPINI1 - LRRC77P",
+          "rs115435532"
+        ],
+        [
+          168,
+          300,
+          136,
+          "bone tissue density",
+          "EGFEM1P",
+          "rs16852365"
+        ],
+        [
+          169,
+          300,
+          819,
+          "bone tissue density",
+          "MECOM",
+          "rs76197604"
+        ],
+        [
+          170,
+          279,
+          350,
+          "bone tissue density",
+          "SLC7A14-AS1, SLC7A14",
+          "rs76071127"
+        ],
+        [
+          171,
+          215.5,
+          402,
+          "bone tissue density",
+          "PLD1",
+          "rs77264235"
+        ],
+        [
+          172,
+          311.7,
+          810,
+          "amount of tumor necrosis factor ligand superfamily member 11 (human) in blood",
+          "LINC02068",
+          "rs79287178"
+        ],
+        [
+          173,
+          31.2,
+          134,
+          "body mass index",
+          "SPATA16 - NLGN1",
+          "rs247975"
+        ],
+        [
+          174,
+          17.4,
+          68,
+          "educational attainment",
+          "NLGN1",
+          "rs4894651"
+        ],
+        [
+          175,
+          157,
+          69,
+          "bone tissue density",
+          "NAALADL2",
+          "rs80195939"
+        ],
+        [
+          176,
+          300,
+          77,
+          "bone tissue density",
+          "TMEM38BP1 - LINC01208",
+          "rs114044871"
+        ],
+        [
+          177,
+          122.4,
+          166,
+          "brain attribute",
+          "LINC00578",
+          "rs11716881"
+        ],
+        [
+          178,
+          300,
+          76,
+          "bone tissue density",
+          "KCNMB2-AS1, KCNMB2",
+          "rs71308190"
+        ],
+        [
+          179,
+          75,
+          158,
+          "hematological measurement",
+          "ZMAT3 - Y_RNA",
+          "rs66667727"
+        ],
+        [
+          180,
+          26,
+          66,
+          "bone tissue density",
+          "PEX5L - RNA5SP149",
+          "rs80018702"
+        ],
+        [
+          181,
+          67,
+          179,
+          "senile cataract",
+          "SOX2-OT",
+          "rs6414493"
+        ],
+        [
+          182,
+          300,
+          106,
+          "bone tissue density",
+          "LINC01206 - LINC01994",
+          "rs142593476"
+        ],
+        [
+          183,
+          310.7,
+          269,
+          "lysosome-associated membrane glycoprotein 3 measurement",
+          "MCCC1",
+          "rs11921884"
+        ],
+        [
+          184,
+          304,
+          430,
+          "platelet count",
+          "THPO",
+          "rs6141"
+        ],
+        [
+          185,
+          300,
+          578,
+          "body height",
+          "IGF2BP2 - TRA2B",
+          "rs11705701"
+        ],
+        [
+          186,
+          3110.7,
+          1569,
+          "protein measurement",
+          "HRG-AS1, HRG",
+          "rs7625980"
+        ],
+        [
+          187,
+          300,
+          496,
+          "bone tissue density",
+          "MASP1",
+          "rs190858137"
+        ],
+        [
+          188,
+          543.7,
+          500,
+          "amount of interleukin-12 subunit beta in blood",
+          "LPP",
+          "rs9860547"
+        ],
+        [
+          189,
+          156.4,
+          154,
+          "amount of secretoglobin family 3A member 2 in blood",
+          "TP63",
+          "rs1515498"
+        ],
+        [
+          190,
+          2654.3,
+          644,
+          "interleukin 1 Receptor accessory protein measurement",
+          "IL1RAP",
+          "rs7642797"
+        ],
+        [
+          191,
+          300,
+          102,
+          "bone tissue density",
+          "PYDC2-AS1 - Y_RNA",
+          "rs140323895"
+        ],
+        [
+          192,
+          24.4,
+          111,
+          "Alzheimer disease, family history of Alzheimer’s disease",
+          "MB21D2",
+          "rs1242199581"
+        ],
+        [
+          193,
+          32.3,
+          112,
+          "adolescent idiopathic scoliosis",
+          "LINC02026",
+          "rs1388100"
+        ],
+        [
+          194,
+          1026.4,
+          399,
+          "apolipoprotein L1 measurement",
+          "CPN2",
+          "rs6809081"
+        ],
+        [
+          195,
+          300,
+          291,
+          "bone tissue density",
+          "XXYLT1",
+          "rs75884405"
+        ],
+        [
+          196,
+          1756.5,
+          721,
+          "soluble transferrin receptor measurement",
+          "TFRC",
+          "rs3817672"
+        ],
+        [
+          197,
+          120.1,
+          130,
+          "amount of melanotransferrin in blood",
+          "MELTF",
+          "rs112341952"
+        ],
+        [
+          198,
+          46.5,
+          14,
+          "blood protein amount",
+          "LMLN-AS1, ANKRD18DP",
+          "rs9839302"
+        ]
+      ],
+      "4": [
+        [
+          0,
+          1969,
+          453,
+          "amount of alpha-L-iduronidase (human) in blood",
+          "SLC26A1, IDUA",
+          "rs3822020"
+        ],
+        [
+          1,
+          1228.1,
+          646,
+          "CDKN2D/TACC3 protein amount ratio in blood",
+          "TACC3",
+          "rs28420470"
+        ],
+        [
+          2,
+          307.3,
+          258,
+          "SH3 domain-binding protein 2 measurement",
+          "TNIP2 - SH3BP2",
+          "rs2880007"
+        ],
+        [
+          3,
+          1631.2,
+          1541,
+          "amount of hepatocyte growth factor activator",
+          "HGFAC",
+          "rs2498323"
+        ],
+        [
+          4,
+          59.3,
+          253,
+          "cerebellar volume measurement",
+          "STX18-AS1",
+          "rs1318947"
+        ],
+        [
+          5,
+          170.3,
+          179,
+          "protein measurement",
+          "CYTL1",
+          "rs11722554"
+        ],
+        [
+          6,
+          1295.1,
+          413,
+          "epididymis-specific alpha-mannosidase measurement",
+          "MAN2B2",
+          "rs2301791"
+        ],
+        [
+          7,
+          1043,
+          461,
+          "vps10 domain-containing receptor sorcs2 measurement",
+          "SORCS2",
+          "rs4234797"
+        ],
+        [
+          8,
+          191,
+          145,
+          "body height",
+          "CPZ, GPR78",
+          "rs11723641"
+        ],
+        [
+          9,
+          3948.7,
+          451,
+          "uric acid measurement",
+          "SLC2A9",
+          "rs62294282"
+        ],
+        [
+          10,
+          1953.2,
+          444,
+          "urate measurement",
+          "RAF1P1 - ZNF518B",
+          "rs4643800"
+        ],
+        [
+          11,
+          26.5,
+          118,
+          "urate measurement",
+          "LINC02498 - MIR572",
+          "rs142309009"
+        ],
+        [
+          12,
+          300,
+          129,
+          "body height",
+          "ECM1P2 - U6",
+          "rs763318"
+        ],
+        [
+          13,
+          300,
+          128,
+          "bone tissue density",
+          "U6 - HSP90AB2P",
+          "rs116583355"
+        ],
+        [
+          14,
+          300,
+          85,
+          "bone tissue density",
+          "LINC01182 - LINC00504",
+          "rs115468670"
+        ],
+        [
+          15,
+          5694.5,
+          480,
+          "ADP-ribosyl cyclase/cyclic ADP-ribose hydrolase 2 measurement",
+          "BST1",
+          "rs2302465"
+        ],
+        [
+          16,
+          311.7,
+          146,
+          "bone tissue density",
+          "LDB2",
+          "rs143869920"
+        ],
+        [
+          17,
+          3053.7,
+          464,
+          "GLOD4/QDPR protein amount ratio in blood",
+          "CLRN2",
+          "rs10020773"
+        ],
+        [
+          18,
+          300,
+          306,
+          "body height",
+          "LCORL - LINC02438",
+          "rs2125654"
+        ],
+        [
+          19,
+          29,
+          67,
+          "glioma pathogenesis-related protein 1 measurement",
+          "RPL21P46 - SLIT2",
+          "rs183130707"
+        ],
+        [
+          20,
+          300,
+          122,
+          "bone tissue density",
+          "SLIT2 - PACRGL",
+          "rs550569688"
+        ],
+        [
+          21,
+          34.5,
+          88,
+          "educational attainment",
+          "KCNIP4",
+          "rs4467547"
+        ],
+        [
+          22,
+          377,
+          111,
+          "methyl glucopyranoside (alpha + beta) measurement",
+          "GBA3",
+          "rs358231"
+        ],
+        [
+          23,
+          56,
+          225,
+          "pulse pressure measurement",
+          "PPARGC1A - DHX15",
+          "rs372822970"
+        ],
+        [
+          24,
+          413,
+          141,
+          "protein measurement",
+          "SOD3",
+          "rs1799895"
+        ],
+        [
+          25,
+          61.1,
+          258,
+          "body mass index",
+          "ANAPC4",
+          "rs34811474"
+        ],
+        [
+          26,
+          49.4,
+          382,
+          "body height",
+          "SMIM20 - LINC02357",
+          "rs13135018"
+        ],
+        [
+          27,
+          259.4,
+          102,
+          "bone tissue density",
+          "LINC02261 - IGBP1P5",
+          "rs184903793"
+        ],
+        [
+          28,
+          86,
+          123,
+          "bone tissue density",
+          "IGBP1P5 - RN7SL101P",
+          "rs200940736"
+        ],
+        [
+          29,
+          300,
+          58,
+          "bone tissue density",
+          "LINC02364 - LINC02472",
+          "rs77035612"
+        ],
+        [
+          30,
+          52.4,
+          131,
+          "amount of protocadherin-7 in blood",
+          "PCDH7",
+          "rs1374657"
+        ],
+        [
+          31,
+          47.7,
+          103,
+          "smoking initiation",
+          "LINC02497",
+          "rs7679162"
+        ],
+        [
+          32,
+          14.4,
+          41,
+          "body mass index",
+          "LINC02506 - LINC02353",
+          "rs10001912"
+        ],
+        [
+          33,
+          9.5,
+          40,
+          "schizophrenia",
+          "MAPRE1P2 - RPL31P31",
+          "rs1454606"
+        ],
+        [
+          34,
+          17,
+          39,
+          "smoking initiation",
+          "LINC02484 - SEC63P2",
+          "rs1511865"
+        ],
+        [
+          35,
+          99.7,
+          93,
+          "bone tissue density",
+          "RNU6-573P - ARAP2",
+          "rs116739882"
+        ],
+        [
+          36,
+          49,
+          109,
+          "bone tissue density",
+          "ARAP2",
+          "rs193254940"
+        ],
+        [
+          37,
+          300,
+          111,
+          "bone tissue density",
+          "Y_RNA - RPL21P45",
+          "rs182596204"
+        ],
+        [
+          38,
+          404.2,
+          766,
+          "protein measurement",
+          "TLR10 - TLR1",
+          "rs55903115"
+        ],
+        [
+          39,
+          3162.2,
+          462,
+          "amount of beta-klotho in blood",
+          "RPL9",
+          "rs13103023"
+        ],
+        [
+          40,
+          124.7,
+          193,
+          "body height",
+          "KRT18P25 - N4BP2",
+          "rs794016"
+        ],
+        [
+          41,
+          17.4,
+          85,
+          "glioma pathogenesis-related protein 1 measurement",
+          "APBB2",
+          "rs150004393"
+        ],
+        [
+          42,
+          36,
+          109,
+          "body height",
+          "BEND4",
+          "rs4132888"
+        ],
+        [
+          43,
+          300,
+          64,
+          "bone tissue density",
+          "GRXCR1 - LINC02383",
+          "rs112046091"
+        ],
+        [
+          44,
+          261.4,
+          73,
+          "amount of glucosamine-6-phosphate isomerase 2 in blood",
+          "GNPDA2",
+          "rs769805766"
+        ],
+        [
+          45,
+          300,
+          341,
+          "bone tissue density",
+          "THAP12P9 - RNU6-931P",
+          "rs116177629"
+        ],
+        [
+          46,
+          64.7,
+          98,
+          "bone tissue density",
+          "GABRA4",
+          "rs116740572"
+        ],
+        [
+          47,
+          147.1,
+          542,
+          "metabolite measurement",
+          "ATP10D",
+          "rs35818294"
+        ],
+        [
+          48,
+          187.4,
+          267,
+          "body height",
+          "ZAR1 - FRYL",
+          "rs10031777"
+        ],
+        [
+          49,
+          15.3,
+          33,
+          "HbA1c measurement",
+          "MTND3P22 - ANKRD20A17P",
+          "rs12511346"
+        ],
+        [
+          51,
+          113.2,
+          40,
+          "body height",
+          "SNX18P25 - DCUN1D4",
+          "rs4379113"
+        ],
+        [
+          52,
+          48.7,
+          151,
+          "brain attribute",
+          "SCFD2",
+          "rs1047959"
+        ],
+        [
+          53,
+          68,
+          330,
+          "pulse pressure measurement",
+          "LNX1 - RPL21P44",
+          "rs871606"
+        ],
+        [
+          54,
+          659.4,
+          618,
+          "erythrocyte volume",
+          "LINC02283 - LINC02260",
+          "rs218243"
+        ],
+        [
+          55,
+          1414,
+          272,
+          "amount of vascular endothelial growth factor receptor 2 (human) in blood",
+          "KDR",
+          "rs34231037"
+        ],
+        [
+          56,
+          300,
+          370,
+          "body height",
+          "REST",
+          "rs781663"
+        ],
+        [
+          57,
+          773.5,
+          126,
+          "amount of insulin-like growth factor-binding protein 7 (human) in blood",
+          "IGFBP7",
+          "rs10866442"
+        ],
+        [
+          58,
+          21.2,
+          48,
+          "cerebellar volume measurement",
+          "LINC02494 - LINC02619",
+          "rs7436474"
+        ],
+        [
+          59,
+          300,
+          77,
+          "bone tissue density",
+          "LINC02429 - Y_RNA",
+          "rs78234685"
+        ],
+        [
+          60,
+          16.7,
+          52,
+          "mathematical ability",
+          "MIR548AG1 - LINC02271",
+          "rs2631043"
+        ],
+        [
+          61,
+          22.5,
+          75,
+          "coronary artery disorder",
+          "ADGRL3",
+          "rs192210727"
+        ],
+        [
+          62,
+          68.3,
+          45,
+          "bone tissue density",
+          "ADGRL3-AS1",
+          "rs188913253"
+        ],
+        [
+          63,
+          16.5,
+          27,
+          "glioma pathogenesis-related protein 1 measurement",
+          "EXOC5P1 - LARP1BP1",
+          "rs574286874"
+        ],
+        [
+          64,
+          15.2,
+          106,
+          "body mass index",
+          "LINC02232",
+          "rs62313879"
+        ],
+        [
+          65,
+          56.5,
+          89,
+          "cerebellar volume measurement",
+          "RNU2-40P - IFITM3P1",
+          "rs17756088"
+        ],
+        [
+          66,
+          300,
+          136,
+          "bone tissue density",
+          "IFITM3P1 - MIR1269A",
+          "rs80026561"
+        ],
+        [
+          67,
+          64.7,
+          118,
+          "transmembrane protease serine 11D measurement",
+          "UBA6-DT, TMPRSS11D",
+          "rs17088693"
+        ],
+        [
+          68,
+          1225,
+          900,
+          "amount of metabolite in blood serum",
+          "TMPRSS11E",
+          "rs3792631"
+        ],
+        [
+          69,
+          55.5,
+          162,
+          "pulse pressure measurement",
+          "UGT2A1",
+          "rs184330259"
+        ],
+        [
+          70,
+          285.7,
+          107,
+          "amount of odontogenic ameloblast-associated protein in blood",
+          "ODAM",
+          "rs10518073"
+        ],
+        [
+          71,
+          7245,
+          377,
+          "vitamin D-binding protein measurement",
+          "GC",
+          "rs7041"
+        ],
+        [
+          72,
+          300,
+          463,
+          "body height",
+          "ADAMTS3 - HNRNPA1P67",
+          "rs4694508"
+        ],
+        [
+          73,
+          2251.7,
+          726,
+          "amount of C-X-C motif chemokine 6",
+          "CXCL6",
+          "rs16850073"
+        ],
+        [
+          74,
+          877.2,
+          352,
+          "amount of probetacellulin in blood",
+          "BTC",
+          "rs6842490"
+        ],
+        [
+          75,
+          2149.7,
+          174,
+          "amount of N-acylethanolamine-hydrolyzing acid amidase (human) in blood",
+          "NAAA",
+          "rs112197434"
+        ],
+        [
+          76,
+          456.4,
+          798,
+          "EFNA4/SCARB2 protein amount ratio in blood",
+          "SCARB2",
+          "rs11097262"
+        ],
+        [
+          77,
+          27.5,
+          69,
+          "lymphocyte amount",
+          "RPL7P17 - RNU6-1187P",
+          "rs35495922"
+        ],
+        [
+          78,
+          300,
+          231,
+          "bone tissue density",
+          "ANXA3 - LINC01094",
+          "rs139188921"
+        ],
+        [
+          79,
+          300,
+          175,
+          "bone tissue density",
+          "NAA11, LINC01088",
+          "rs116128373"
+        ],
+        [
+          80,
+          2821.7,
+          727,
+          "amount of fibroblast growth factor 5",
+          "PRDM8 - FGF5",
+          "rs12509595"
+        ],
+        [
+          81,
+          300,
+          299,
+          "body height",
+          "PRKG2",
+          "rs3114135"
+        ],
+        [
+          82,
+          180.5,
+          312,
+          "hematological measurement",
+          "SCD5",
+          "rs17005922"
+        ],
+        [
+          83,
+          171.2,
+          182,
+          "age at menopause",
+          "HELQ",
+          "rs12651246"
+        ],
+        [
+          84,
+          28,
+          52,
+          "type 2 diabetes mellitus",
+          "LINC02994 - NKX6-1",
+          "rs117624659"
+        ],
+        [
+          85,
+          177.7,
+          200,
+          "PR interval",
+          "ARHGAP24",
+          "rs2624021"
+        ],
+        [
+          86,
+          122.3,
+          309,
+          "hematological measurement",
+          "C4orf36, C4orf36",
+          "rs11097124"
+        ],
+        [
+          87,
+          2785.1,
+          1462,
+          "SPARC-like protein 1 measurement",
+          "SPARCL1",
+          "rs4693826"
+        ],
+        [
+          88,
+          1421,
+          1183,
+          "gout",
+          "ABCG2",
+          "rs2231142"
+        ],
+        [
+          89,
+          169.4,
+          225,
+          "Parkinson disease",
+          "SNCA",
+          "rs356182"
+        ],
+        [
+          90,
+          70,
+          95,
+          "delivery measurement",
+          "CCSER1",
+          "rs62312862"
+        ],
+        [
+          91,
+          20.7,
+          54,
+          "bone tissue density",
+          "CCSER1 - KRT19P6",
+          "rs77681106"
+        ],
+        [
+          92,
+          33.3,
+          21,
+          "bone tissue density",
+          "GRID2",
+          "rs62311172"
+        ],
+        [
+          93,
+          34.1,
+          107,
+          "amount of coiled-coil domain-containing glutamate-rich protein 2 (human) in blood",
+          "ATOH1 - SMARCAD1-DT",
+          "rs113185208"
+        ],
+        [
+          94,
+          1120.7,
+          267,
+          "amount of prostaglandin-H2 D-isomerase (human) in blood",
+          "HPGDS - RPL35AP11",
+          "rs7438414"
+        ],
+        [
+          95,
+          97.2,
+          144,
+          "bone tissue density",
+          "RPL30P6 - PDHA2",
+          "rs144346829"
+        ],
+        [
+          96,
+          59.4,
+          70,
+          "body height",
+          "LINC02267",
+          "rs6532646"
+        ],
+        [
+          97,
+          19.5,
+          126,
+          "brain attribute",
+          "COX7A2P2 - STPG2",
+          "rs6840385"
+        ],
+        [
+          98,
+          107,
+          112,
+          "amount of complement C1q subcomponent subunit A in blood",
+          "BTF3P13 - EIF4E",
+          "rs2120377"
+        ],
+        [
+          99,
+          323.3,
+          1299,
+          "alcohol consumption characteristic",
+          "ADH1B",
+          "rs1229984"
+        ],
+        [
+          100,
+          110.2,
+          175,
+          "alcohol consumption characteristic",
+          "DDIT4L-AS1 - EMCN",
+          "rs188514326"
+        ],
+        [
+          101,
+          157.7,
+          523,
+          "calcineurin measurement",
+          "BANK1",
+          "rs1125271"
+        ],
+        [
+          102,
+          391.7,
+          2117,
+          "AXIN1/BANK1 protein amount ratio in blood",
+          "BANK1",
+          "rs3113676"
+        ],
+        [
+          103,
+          109.5,
+          157,
+          "body height",
+          "TACR3",
+          "rs3733632"
+        ],
+        [
+          104,
+          93.7,
+          216,
+          "amount of fms-related tyrosine kinase 3 ligand (human) in blood",
+          "CXXC4-AS1 - RPL6P14",
+          "rs144317085"
+        ],
+        [
+          105,
+          300,
+          931,
+          "body height",
+          "RNU6-351P - TET2",
+          "rs7661349"
+        ],
+        [
+          106,
+          164,
+          55,
+          "blood protein amount",
+          "ACTR6P1 - DKK2",
+          "rs114497723"
+        ],
+        [
+          107,
+          194,
+          57,
+          "bone tissue density",
+          "PAPSS1 - SGMS2",
+          "rs114772075"
+        ],
+        [
+          108,
+          277,
+          201,
+          "body height",
+          "RPL34-DT",
+          "rs17583662"
+        ],
+        [
+          109,
+          374.2,
+          484,
+          "CLEC1B/EGF protein amount ratio in blood",
+          "EGF",
+          "rs4444903"
+        ],
+        [
+          110,
+          1140.7,
+          471,
+          "atrial fibrillation",
+          "LINC01438",
+          "rs6843082"
+        ],
+        [
+          111,
+          43.7,
+          108,
+          "bone tissue density",
+          "LYPLA1P2 - RNU6-289P",
+          "rs72672241"
+        ],
+        [
+          112,
+          52,
+          149,
+          "pulse pressure measurement",
+          "ANK2",
+          "rs570984510"
+        ],
+        [
+          113,
+          300,
+          127,
+          "bone tissue density",
+          "CAMK2D - ARSJ",
+          "rs116747203"
+        ],
+        [
+          114,
+          59,
+          359,
+          "amount of ceramide",
+          "ARSJ - UGT8",
+          "rs11098258"
+        ],
+        [
+          115,
+          72.5,
+          42,
+          "pulse pressure measurement",
+          "RPF2P2",
+          "rs147077988"
+        ],
+        [
+          116,
+          300,
+          37,
+          "bone tissue density",
+          "RNU6-119P - TRAM1L1",
+          "rs35224638"
+        ],
+        [
+          117,
+          13.5,
+          59,
+          "glioma pathogenesis-related protein 1 measurement",
+          "LINC02264",
+          "rs191347746"
+        ],
+        [
+          118,
+          53.2,
+          106,
+          "AGRN/HSPG2 protein amount ratio in blood",
+          "PRSS12 - NDUFS5P5",
+          "rs1913577"
+        ],
+        [
+          119,
+          1674.2,
+          297,
+          "protein measurement",
+          "KLHL2P1",
+          "rs9994354"
+        ],
+        [
+          120,
+          132.3,
+          103,
+          "bone tissue density",
+          "MAD2L1-DT - PRDM5",
+          "rs72674377"
+        ],
+        [
+          121,
+          189,
+          185,
+          "body height",
+          "PP12613 - EXOSC9",
+          "rs6838153"
+        ],
+        [
+          122,
+          2421,
+          434,
+          "amount of fibroblast growth factor 2 (human) in blood",
+          "FGF2",
+          "rs2922979"
+        ],
+        [
+          123,
+          77.4,
+          232,
+          "body height",
+          "LINC01091 - PPIAP76",
+          "rs1519224"
+        ],
+        [
+          124,
+          81.2,
+          112,
+          "bone tissue density",
+          "ANKRD50",
+          "rs147332798"
+        ],
+        [
+          125,
+          26,
+          79,
+          "glioma pathogenesis-related protein 1 measurement",
+          "FAT4",
+          "rs544638172"
+        ],
+        [
+          126,
+          39.4,
+          67,
+          "bone tissue density",
+          "TMEM248P1 - LINC02379",
+          "rs74497309"
+        ],
+        [
+          127,
+          30.4,
+          87,
+          "mean corpuscular hemoglobin concentration",
+          "HSPA4L - PLK4",
+          "rs141430271"
+        ],
+        [
+          128,
+          26.5,
+          114,
+          "mean corpuscular hemoglobin",
+          "LARP1B",
+          "rs143778001"
+        ],
+        [
+          129,
+          167.5,
+          136,
+          "X-26054 measurement",
+          "C4orf33",
+          "rs337276"
+        ],
+        [
+          130,
+          300,
+          61,
+          "bone tissue density",
+          "LINC02465 - LINC02479",
+          "rs190979944"
+        ],
+        [
+          131,
+          28.1,
+          34,
+          "bone tissue density",
+          "GAPDHP56 - RNU6-224P",
+          "rs138894520"
+        ],
+        [
+          132,
+          300,
+          64,
+          "bone tissue density",
+          "ELL2P2 - LINC01256",
+          "rs141707092"
+        ],
+        [
+          133,
+          25.3,
+          42,
+          "amount of epithelial cell adhesion molecule (human) in blood",
+          "PCDH10 - PABPC4L",
+          "rs903094"
+        ],
+        [
+          134,
+          300,
+          89,
+          "bone tissue density",
+          "LINC02462",
+          "rs141265451"
+        ],
+        [
+          135,
+          20.7,
+          41,
+          "smoking initiation",
+          "KRT18P54 - TARS2P1",
+          "rs6844991"
+        ],
+        [
+          136,
+          300,
+          122,
+          "bone tissue density",
+          "TERF1P3 - LINC02511",
+          "rs116341640"
+        ],
+        [
+          137,
+          300,
+          184,
+          "bone tissue density",
+          "STMN1P2 - RPS23P2",
+          "rs114685875"
+        ],
+        [
+          138,
+          51,
+          112,
+          "body height",
+          "SLC7A11-AS1, LINC00616",
+          "rs1982203"
+        ],
+        [
+          139,
+          113,
+          255,
+          "body height",
+          "RN7SL311P - Y_RNA",
+          "rs11941589"
+        ],
+        [
+          140,
+          279.4,
+          145,
+          "amount of calmegin in blood",
+          "SCOC-AS1, SCOC",
+          "rs114434632"
+        ],
+        [
+          141,
+          24,
+          55,
+          "natural cytotoxicity triggering receptor 1 measurement",
+          "IL15 - INPP4B",
+          "rs13104208"
+        ],
+        [
+          142,
+          65.4,
+          118,
+          "platelet component distribution width",
+          "INPP4B",
+          "rs7696969"
+        ],
+        [
+          143,
+          210.7,
+          257,
+          "body height",
+          "SMARCA5 - GUSBP5",
+          "rs17017907"
+        ],
+        [
+          144,
+          300,
+          1356,
+          "body height",
+          "KRT18P51 - HHIP-AS1",
+          "rs62346126"
+        ],
+        [
+          145,
+          439.2,
+          481,
+          "serum gamma-glutamyl transferase measurement",
+          "ZNF827",
+          "rs28590383"
+        ],
+        [
+          146,
+          300,
+          119,
+          "bone tissue density",
+          "TTC29",
+          "rs75033583"
+        ],
+        [
+          147,
+          55.7,
+          200,
+          "smoking initiation",
+          "TTC29 - MIR548G",
+          "rs7674049"
+        ],
+        [
+          148,
+          336.7,
+          298,
+          "amount of Thyroid stimulating hormone",
+          "RNA5SP166 - ATP5MGP4",
+          "rs56373655"
+        ],
+        [
+          149,
+          43.4,
+          41,
+          "bone tissue density",
+          "LINC02355",
+          "rs62340784"
+        ],
+        [
+          150,
+          52,
+          147,
+          "body height",
+          "LRBA",
+          "rs11933114"
+        ],
+        [
+          151,
+          84.5,
+          167,
+          "body height",
+          "FHIP1A",
+          "rs2053566"
+        ],
+        [
+          152,
+          159.3,
+          212,
+          "arfaptin-1 measurement",
+          "ARFIP1",
+          "rs4619875"
+        ],
+        [
+          153,
+          162.3,
+          314,
+          "blood protein amount",
+          "SFRP2",
+          "rs4643790"
+        ],
+        [
+          154,
+          283.7,
+          303,
+          "venous thromboembolism",
+          "FGG",
+          "rs2066864"
+        ],
+        [
+          155,
+          200.2,
+          243,
+          "cathepsin O measurement",
+          "CTSO",
+          "rs2334114"
+        ],
+        [
+          156,
+          86.4,
+          344,
+          "amount of cathepsin O (human) in blood",
+          "FTH1P21 - LINC02272",
+          "rs62327784"
+        ],
+        [
+          157,
+          21.7,
+          30,
+          "blood protein amount",
+          "RPPH1-3P - Y_RNA",
+          "rs11729279"
+        ],
+        [
+          158,
+          275.7,
+          177,
+          "peptidyl-prolyl cis-trans isomerase D measurement",
+          "PPID",
+          "rs17843929"
+        ],
+        [
+          159,
+          87.2,
+          62,
+          "body height",
+          "Y_RNA - RAPGEF2",
+          "rs2014078"
+        ],
+        [
+          160,
+          188,
+          38,
+          "bone tissue density",
+          "LINC02233 - LINC02477",
+          "rs185409931"
+        ],
+        [
+          161,
+          31.4,
+          75,
+          "protein measurement",
+          "FSTL5",
+          "rs6820464"
+        ],
+        [
+          162,
+          15.1,
+          67,
+          "educational attainment",
+          "TOMM22P4 - MIR4454",
+          "rs1841023"
+        ],
+        [
+          163,
+          161,
+          113,
+          "chromosome, telomeric region length",
+          "MIR4454 - NAF1",
+          "rs4691069"
+        ],
+        [
+          164,
+          28.7,
+          99,
+          "coronary artery disorder",
+          "MARCHF1, ANP32CP",
+          "rs61734696"
+        ],
+        [
+          165,
+          310.7,
+          135,
+          "carboxypeptidase e measurement",
+          "MSMO1",
+          "rs1550270"
+        ],
+        [
+          166,
+          16.1,
+          47,
+          "blood protein amount",
+          "SPOCK3",
+          "rs2124456"
+        ],
+        [
+          167,
+          186,
+          54,
+          "blood protein amount",
+          "SPOCK3",
+          "rs62353586"
+        ],
+        [
+          168,
+          300,
+          113,
+          "bone tissue density",
+          "PALLD",
+          "rs115727363"
+        ],
+        [
+          169,
+          17.7,
+          80,
+          "body height",
+          "CLCN3",
+          "rs1010713"
+        ],
+        [
+          170,
+          31.4,
+          179,
+          "amount of thyroxine",
+          "AADAT",
+          "rs6854260"
+        ],
+        [
+          171,
+          30.7,
+          47,
+          "bone tissue density",
+          "MIR6082 - LINC02504",
+          "rs76206178"
+        ],
+        [
+          172,
+          110,
+          57,
+          "urate measurement",
+          "GALNTL6",
+          "rs143791481"
+        ],
+        [
+          173,
+          300,
+          170,
+          "bone tissue density",
+          "HAND2-AS1, HAND2",
+          "rs115738185"
+        ],
+        [
+          174,
+          27.5,
+          81,
+          "breast cancer, ovarian carcinoma",
+          "ADAM29",
+          "rs6826366"
+        ],
+        [
+          175,
+          25.7,
+          117,
+          "educational attainment",
+          "GPM6A",
+          "rs63303162"
+        ],
+        [
+          176,
+          239.3,
+          132,
+          "amount of vascular endothelial growth factor C",
+          "VEGFC",
+          "rs41278571"
+        ],
+        [
+          177,
+          88.7,
+          91,
+          "aspartate measurement",
+          "AGA",
+          "rs13149149"
+        ],
+        [
+          178,
+          73,
+          40,
+          "bone tissue density",
+          "RNU1-45P - RNA5SP173",
+          "rs116085205"
+        ],
+        [
+          179,
+          13.4,
+          85,
+          "diastolic blood pressure",
+          "RNA5SP173 - NDUFB5P1",
+          "rs11131920"
+        ],
+        [
+          180,
+          36,
+          71,
+          "cerebellar volume measurement",
+          "RNA5SP173 - NDUFB5P1",
+          "rs1972962"
+        ],
+        [
+          181,
+          19.4,
+          116,
+          "cerebellar volume measurement",
+          "LINC02500 - TENM3-AS1",
+          "rs6552520"
+        ],
+        [
+          182,
+          300,
+          124,
+          "bone tissue density",
+          "TENM3",
+          "rs150474015"
+        ],
+        [
+          183,
+          241.5,
+          113,
+          "body height",
+          "WWC2",
+          "rs955748"
+        ],
+        [
+          184,
+          679.3,
+          229,
+          "CASP3/DBNL protein amount ratio in blood",
+          "PRIMPOL",
+          "rs55746424"
+        ],
+        [
+          185,
+          117,
+          130,
+          "body height",
+          "SORBS2",
+          "rs2310357"
+        ],
+        [
+          186,
+          5651.3,
+          681,
+          "amount of Toll-like receptor 3 in blood",
+          "TLR3 - FAM149A",
+          "rs12641237"
+        ],
+        [
+          187,
+          15.2,
+          76,
+          "viral load",
+          "LINC02374 - LINC02514",
+          "rs35290534"
+        ],
+        [
+          188,
+          25.7,
+          87,
+          "bone tissue density",
+          "LINC01060",
+          "rs148381154"
+        ],
+        [
+          189,
+          34.4,
+          67,
+          "urinary albumin to creatinine ratio",
+          "FRG1-DT",
+          "rs189107782"
+        ]
+      ],
+      "5": [
+        [
+          0,
+          273.7,
+          348,
+          "amount of programmed cell death protein 6 in blood",
+          "PDCD6, PDCD6-AHRR",
+          "rs575791160"
+        ],
+        [
+          1,
+          310.7,
+          1350,
+          "Red cell distribution width",
+          "SLC12A7",
+          "rs4535497"
+        ],
+        [
+          2,
+          16.5,
+          114,
+          "body height",
+          "Y_RNA - LSINCT5",
+          "rs924218"
+        ],
+        [
+          3,
+          300,
+          172,
+          "bone tissue density",
+          "LINC01377 - LINC01019",
+          "rs111243809"
+        ],
+        [
+          4,
+          300,
+          134,
+          "bone tissue density",
+          "LINC02114 - LINC01020",
+          "rs116443029"
+        ],
+        [
+          5,
+          207.7,
+          82,
+          "bone tissue density",
+          "ADAMTS16",
+          "rs72647743"
+        ],
+        [
+          6,
+          91.2,
+          76,
+          "body height",
+          "TENT4A",
+          "rs2290616"
+        ],
+        [
+          7,
+          300,
+          150,
+          "bone tissue density",
+          "LINC02196",
+          "rs114151079"
+        ],
+        [
+          8,
+          300,
+          46,
+          "bone tissue density",
+          "MIR4458HG - MTND6P2",
+          "rs75310201"
+        ],
+        [
+          9,
+          1688.7,
+          99,
+          "semaphorin-5A measurement",
+          "SNHG18",
+          "rs17329324"
+        ],
+        [
+          10,
+          281.2,
+          146,
+          "amount of vitamin D",
+          "LINC02112 - ATPSCKMT",
+          "rs13361160"
+        ],
+        [
+          11,
+          22.5,
+          80,
+          "retinal layer thickness",
+          "CTNND2",
+          "rs2190989"
+        ],
+        [
+          12,
+          23.7,
+          49,
+          "smoking initiation",
+          "RNU6-679P - LINC01194",
+          "rs4552595"
+        ],
+        [
+          13,
+          300,
+          78,
+          "bone tissue density",
+          "RPL29P13 - DNAH5",
+          "rs546076172"
+        ],
+        [
+          14,
+          519.2,
+          229,
+          "citrate measurement",
+          "ANKH",
+          "rs10065666"
+        ],
+        [
+          15,
+          26,
+          67,
+          "brain attribute",
+          "FBXL7",
+          "rs6554893"
+        ],
+        [
+          16,
+          209.4,
+          93,
+          "bone tissue density",
+          "NACAP6 - LINC02150",
+          "rs114110227"
+        ],
+        [
+          17,
+          300,
+          84,
+          "bone tissue density",
+          "BASP1 - RN7SKP133",
+          "rs566484286"
+        ],
+        [
+          18,
+          10.4,
+          38,
+          "alopecia areata",
+          "RPL36AP21 - SNORD81",
+          "rs529313147"
+        ],
+        [
+          19,
+          300,
+          55,
+          "bone tissue density",
+          "RPL32P14 - HSPD1P15",
+          "rs116808587"
+        ],
+        [
+          20,
+          27.2,
+          54,
+          "urate measurement",
+          "LINC02146, LINC02241",
+          "rs181984907"
+        ],
+        [
+          21,
+          12.3,
+          45,
+          "Tietze syndrome",
+          "LINC02241 - GUSBP1",
+          "rs185321370"
+        ],
+        [
+          22,
+          39.5,
+          42,
+          "free cholesterol measurement",
+          "CDH12",
+          "rs113018931"
+        ],
+        [
+          23,
+          245.7,
+          49,
+          "recombination measurement",
+          "PRDM9 - TRPC6P9",
+          "rs6889665"
+        ],
+        [
+          24,
+          300,
+          56,
+          "bone tissue density",
+          "CDH10 - TRPC6P6",
+          "rs78116990"
+        ],
+        [
+          25,
+          14.5,
+          67,
+          "body height",
+          "LINC02211",
+          "rs1396166"
+        ],
+        [
+          26,
+          22.7,
+          92,
+          "educational attainment",
+          "CDH9",
+          "rs17563464"
+        ],
+        [
+          27,
+          26.4,
+          62,
+          "restless legs syndrome",
+          "PURPL - LINC02103",
+          "rs28693620"
+        ],
+        [
+          28,
+          12,
+          48,
+          "trigeminal nerve disorder",
+          "LINC02103 - RNU6-909P",
+          "rs144604256"
+        ],
+        [
+          29,
+          11.4,
+          50,
+          "benign neoplasm of adrenal gland",
+          "LINC02109 - LINC02064",
+          "rs193070759"
+        ],
+        [
+          30,
+          1464.4,
+          144,
+          "amount of cadherin-6 (human) in blood",
+          "HPRT1P2 - RPL19P11",
+          "rs1921087"
+        ],
+        [
+          31,
+          1082,
+          216,
+          "CDH6/NTRK2 protein amount ratio in blood",
+          "RPL19P11 - CDH6",
+          "rs13170907"
+        ],
+        [
+          32,
+          300,
+          524,
+          "body height",
+          "NPR3",
+          "rs3762988"
+        ],
+        [
+          33,
+          389.3,
+          571,
+          "cutaneous melanoma, hair color",
+          "SLC45A2",
+          "rs26722"
+        ],
+        [
+          34,
+          120.5,
+          208,
+          "3-aminoisobutyrate measurement",
+          "AGXT2",
+          "rs16899974"
+        ],
+        [
+          35,
+          4083,
+          636,
+          "amount of interleukin-7 receptor subunit alpha (human) in blood",
+          "IL7R - CAPSL",
+          "rs11742270"
+        ],
+        [
+          36,
+          242.3,
+          236,
+          "body height",
+          "NIPBL",
+          "rs158796"
+        ],
+        [
+          37,
+          426,
+          118,
+          "glial cell line-derived neurotrophic factor measurement",
+          "GDNF, GDNF-AS1",
+          "rs949859"
+        ],
+        [
+          38,
+          1799.2,
+          235,
+          "oncostatin-M-specific receptor subunit beta measurement",
+          "OSMR",
+          "rs9292723"
+        ],
+        [
+          39,
+          216,
+          346,
+          "body height",
+          "DAB2",
+          "rs9292741"
+        ],
+        [
+          40,
+          212.5,
+          455,
+          "complement component C7 measurement",
+          "C7",
+          "rs74480769"
+        ],
+        [
+          41,
+          269.3,
+          122,
+          "complement component C7 measurement",
+          "MROH2B",
+          "rs62357111"
+        ],
+        [
+          42,
+          300,
+          195,
+          "body height",
+          "GHR",
+          "rs2910875"
+        ],
+        [
+          43,
+          300,
+          270,
+          "bone tissue density",
+          "NIM1K",
+          "rs116303985"
+        ],
+        [
+          44,
+          80,
+          163,
+          "breast carcinoma",
+          "MRPS30-DT",
+          "rs10941679"
+        ],
+        [
+          45,
+          27,
+          127,
+          "estrogen-receptor positive breast cancer, schizophrenia",
+          "MRPS30 - HCN1",
+          "rs10035564"
+        ],
+        [
+          46,
+          18.2,
+          41,
+          "HbA1c measurement",
+          "HCN1 - EMB",
+          "rs11748834"
+        ],
+        [
+          50,
+          18.2,
+          86,
+          "basophil measurement",
+          "EMB - PARP8",
+          "rs12654329"
+        ],
+        [
+          51,
+          63.5,
+          206,
+          "body height",
+          "RNU6-1296P - ISL1-DT",
+          "rs9291693"
+        ],
+        [
+          52,
+          265.7,
+          486,
+          "reticulocyte amount",
+          "ITGA1, PELO-AS1, PELO",
+          "rs116734477"
+        ],
+        [
+          53,
+          300,
+          467,
+          "bone tissue density",
+          "RPL13AP13 - FST",
+          "rs75580782"
+        ],
+        [
+          54,
+          161.3,
+          350,
+          "endothelial cell-specific molecule 1 measurement",
+          "CSPG4BP - ESM1",
+          "rs4865884"
+        ],
+        [
+          55,
+          300,
+          218,
+          "body height",
+          "AK4P2 - SLC38A9",
+          "rs10940473"
+        ],
+        [
+          56,
+          300,
+          1841,
+          "bone tissue density",
+          "MIER3",
+          "rs114488115"
+        ],
+        [
+          57,
+          33.5,
+          139,
+          "body height",
+          "LNCBRM - LINC02225",
+          "rs1835874"
+        ],
+        [
+          58,
+          40.2,
+          223,
+          "body height",
+          "PDE4D",
+          "rs829258"
+        ],
+        [
+          59,
+          81.4,
+          178,
+          "body height",
+          "PDE4D",
+          "rs7728050"
+        ],
+        [
+          60,
+          109.4,
+          205,
+          "platelet volume",
+          "ELOVL7",
+          "rs6869332"
+        ],
+        [
+          61,
+          163.2,
+          331,
+          "platelet count",
+          "ZSWIM6",
+          "rs150506902"
+        ],
+        [
+          62,
+          33.7,
+          148,
+          "hematological measurement",
+          "RN7SKP157 - KIF2A",
+          "rs10062757"
+        ],
+        [
+          63,
+          300,
+          119,
+          "bone tissue density",
+          "ISCA1P1 - HTR1A",
+          "rs75489226"
+        ],
+        [
+          64,
+          25.1,
+          146,
+          "body mass index",
+          "RGS7BP - MRPL49P1",
+          "rs1459192"
+        ],
+        [
+          65,
+          177,
+          358,
+          "body height",
+          "ADAMTS6",
+          "rs10077096"
+        ],
+        [
+          66,
+          39,
+          162,
+          "platelet volume",
+          "MAST4",
+          "rs10940072"
+        ],
+        [
+          67,
+          112.4,
+          143,
+          "body height",
+          "LINC02997",
+          "rs1490822"
+        ],
+        [
+          68,
+          172.7,
+          490,
+          "body height",
+          "PIK3R1",
+          "rs3756668"
+        ],
+        [
+          69,
+          106.7,
+          129,
+          "amount of occludin in blood",
+          "OCLN",
+          "rs78811453"
+        ],
+        [
+          70,
+          25.5,
+          10,
+          "amount of lymphocyte activation gene 3 protein (human) in blood",
+          "NAIP",
+          "rs373000606"
+        ],
+        [
+          71,
+          44,
+          94,
+          "soluble CD163 measurement",
+          "LINC02197, PMCHL2, PMCHL2",
+          "rs115216147"
+        ],
+        [
+          72,
+          141.3,
+          471,
+          "body height",
+          "ZNF366 - TNPO1-DT",
+          "rs1379263"
+        ],
+        [
+          73,
+          132,
+          348,
+          "serum albumin amount",
+          "FCHO2",
+          "rs470926"
+        ],
+        [
+          74,
+          94.3,
+          108,
+          "protein measurement",
+          "GFM2",
+          "rs13164140"
+        ],
+        [
+          75,
+          602,
+          1633,
+          "low density lipoprotein cholesterol measurement",
+          "CERT1, HMGCR",
+          "rs12916"
+        ],
+        [
+          76,
+          1780,
+          373,
+          "amount of corticotropin-releasing factor-binding protein (human) in blood",
+          "S100Z",
+          "rs6871700"
+        ],
+        [
+          77,
+          780.2,
+          295,
+          "amount of Thyroid stimulating hormone",
+          "PDE8B, PDE8B",
+          "rs2046045"
+        ],
+        [
+          78,
+          776,
+          296,
+          "ARSB/SIAE protein amount ratio in blood",
+          "ARSB",
+          "rs193123"
+        ],
+        [
+          79,
+          297,
+          400,
+          "dimethylglycine measurement",
+          "DMGDH",
+          "rs2947610"
+        ],
+        [
+          80,
+          434.7,
+          165,
+          "COMP/THBS4 protein amount ratio in blood",
+          "THBS4 - SERINC5",
+          "rs2438637"
+        ],
+        [
+          81,
+          300,
+          131,
+          "bone tissue density",
+          "SSBP2 - SEM1P1",
+          "rs115178470"
+        ],
+        [
+          82,
+          300,
+          215,
+          "bone tissue density",
+          "ATP6AP1L - RPL5P16",
+          "rs145300059"
+        ],
+        [
+          83,
+          2584.5,
+          1551,
+          "versican core protein measurement",
+          "VCAN-AS1, VCAN",
+          "rs309559"
+        ],
+        [
+          84,
+          33,
+          56,
+          "amount of EGF-like repeat and discoidin I-like domain-containing protein 3 in blood",
+          "EDIL3",
+          "rs57877116"
+        ],
+        [
+          85,
+          21.2,
+          38,
+          "bone tissue density",
+          "RBBP4P6 - RPL5P17",
+          "rs76899004"
+        ],
+        [
+          86,
+          300,
+          78,
+          "bone tissue density",
+          "LINC02059 - MIR4280HG",
+          "rs79154868"
+        ],
+        [
+          87,
+          300,
+          196,
+          "bone tissue density",
+          "LINC02488",
+          "rs62367636"
+        ],
+        [
+          88,
+          311.7,
+          997,
+          "platelet count",
+          "MEF2C-AS1, MEF2C",
+          "rs114694170"
+        ],
+        [
+          89,
+          143.7,
+          289,
+          "body height",
+          "MEF2C-AS1",
+          "rs2011071"
+        ],
+        [
+          90,
+          300,
+          174,
+          "bone tissue density",
+          "ADGRV1",
+          "rs576453170"
+        ],
+        [
+          91,
+          53.4,
+          143,
+          "body height",
+          "ADGRV1, LUCAT1",
+          "rs7707023"
+        ],
+        [
+          92,
+          27.7,
+          166,
+          "mathematical ability",
+          "LDHBP3 - LINC02058",
+          "rs17669337"
+        ],
+        [
+          93,
+          173.1,
+          245,
+          "brain attribute",
+          "NR2F1-AS1",
+          "rs115877304"
+        ],
+        [
+          94,
+          24.4,
+          122,
+          "smoking initiation",
+          "MCTP1",
+          "rs42417"
+        ],
+        [
+          95,
+          1571.2,
+          192,
+          "EIF4EBP1/GLRX protein amount ratio in blood",
+          "LINC01554",
+          "rs6556891"
+        ],
+        [
+          96,
+          4960.3,
+          659,
+          "endoplasmic reticulum aminopeptidase 2 measurement",
+          "ERAP2",
+          "rs2927608"
+        ],
+        [
+          97,
+          300,
+          73,
+          "bone tissue density",
+          "LIX1-AS1",
+          "rs114423732"
+        ],
+        [
+          98,
+          300,
+          123,
+          "bone tissue density",
+          "MTCO1P24 - CTBP2P4",
+          "rs116366915"
+        ],
+        [
+          99,
+          30.1,
+          43,
+          "body height",
+          "CHD1-DT - LINC02113",
+          "rs7708256"
+        ],
+        [
+          100,
+          49.2,
+          72,
+          "hematological measurement",
+          "FAM174A - RN7SKP62",
+          "rs62387563"
+        ],
+        [
+          101,
+          300,
+          64,
+          "bone tissue density",
+          "OR7H2P - RNA5SP188",
+          "rs145213865"
+        ],
+        [
+          102,
+          596.7,
+          312,
+          "peptidyl-glycine alpha-amidating monooxygenase measurement",
+          "PAM",
+          "rs72783884"
+        ],
+        [
+          103,
+          1412,
+          328,
+          "peptidyl-glycine alpha-amidating monooxygenase measurement",
+          "PAM",
+          "rs35658696"
+        ],
+        [
+          104,
+          57,
+          421,
+          "daytime rest measurement",
+          "NIHCOLE - RNU6-334P",
+          "rs2431108"
+        ],
+        [
+          105,
+          23.3,
+          49,
+          "bone tissue density",
+          "RAB9BP1 - RNA5SP189",
+          "rs145353199"
+        ],
+        [
+          106,
+          23.5,
+          80,
+          "body height",
+          "RNA5SP189 - LINC01950",
+          "rs11242576"
+        ],
+        [
+          107,
+          63.4,
+          269,
+          "serum gamma-glutamyl transferase measurement",
+          "EFNA5",
+          "rs6879279"
+        ],
+        [
+          108,
+          300,
+          332,
+          "bone tissue density",
+          "FBXL17 - LINC01023",
+          "rs35519731"
+        ],
+        [
+          109,
+          36,
+          130,
+          "amount of phospholipase B1, membrane-associated in blood",
+          "KRT18P42 - MAN2A1-DT",
+          "rs370575"
+        ],
+        [
+          110,
+          61.3,
+          94,
+          "Eczematoid dermatitis",
+          "SLC25A46 - BCLAF1P1",
+          "rs3853750"
+        ],
+        [
+          111,
+          139.2,
+          471,
+          "platelet count",
+          "STARD4-AS1, NREP",
+          "rs56116444"
+        ],
+        [
+          112,
+          300,
+          151,
+          "bone tissue density",
+          "EPB41L4A",
+          "rs112202630"
+        ],
+        [
+          113,
+          109.5,
+          161,
+          "body height",
+          "DCP2",
+          "rs7670"
+        ],
+        [
+          114,
+          34.2,
+          117,
+          "atrial fibrillation",
+          "KCNN2",
+          "rs337683"
+        ],
+        [
+          115,
+          300,
+          209,
+          "bone tissue density",
+          "LINC01957 - TRIM36",
+          "rs115497203"
+        ],
+        [
+          116,
+          152.7,
+          125,
+          "protein measurement",
+          "COMMD10",
+          "rs17138866"
+        ],
+        [
+          117,
+          24.3,
+          96,
+          "brain attribute",
+          "LINC02214 - RPL35AP15",
+          "rs1494821"
+        ],
+        [
+          118,
+          145.5,
+          89,
+          "bone tissue density",
+          "DTWD2",
+          "rs77489299"
+        ],
+        [
+          119,
+          134.7,
+          323,
+          "bromodomain testis-specific protein measurement",
+          "HSD17B4",
+          "rs25640"
+        ],
+        [
+          120,
+          311.5,
+          131,
+          "bone tissue density",
+          "TUBAP15 - RNU6-718P",
+          "rs546017831"
+        ],
+        [
+          121,
+          300,
+          104,
+          "bone tissue density",
+          "RPL23AP44 - FTMT",
+          "rs116719654"
+        ],
+        [
+          122,
+          1895.5,
+          177,
+          "protein measurement",
+          "SNX24",
+          "rs2438150"
+        ],
+        [
+          123,
+          593,
+          632,
+          "protein measurement",
+          "SNX24, PPIC",
+          "rs17388251"
+        ],
+        [
+          124,
+          132.3,
+          179,
+          "body height",
+          "LINC01170 - ZNF608",
+          "rs10079392"
+        ],
+        [
+          125,
+          50,
+          120,
+          "body height",
+          "LINC02240",
+          "rs7709555"
+        ],
+        [
+          126,
+          73.5,
+          123,
+          "6-oxopiperidine-2-carboxylate measurement",
+          "ALDH7A1",
+          "rs114276199"
+        ],
+        [
+          127,
+          634,
+          160,
+          "CD58/MEGF10 protein amount ratio in blood",
+          "SELENOTP2 - MEGF10",
+          "rs10478764"
+        ],
+        [
+          128,
+          526.2,
+          547,
+          "Red cell distribution width",
+          "SLC12A2 - FBN2",
+          "rs251216"
+        ],
+        [
+          129,
+          247.5,
+          170,
+          "brain attribute",
+          "ADAMTS19-AS1",
+          "rs12187568"
+        ],
+        [
+          130,
+          146.3,
+          122,
+          "body height",
+          "ARL2BPP4 - HINT1",
+          "rs34119525"
+        ],
+        [
+          131,
+          158.2,
+          231,
+          "hematological measurement",
+          "FNIP1",
+          "rs12523195"
+        ],
+        [
+          132,
+          300,
+          1815,
+          "body height",
+          "MIR3936HG",
+          "rs10058074"
+        ],
+        [
+          133,
+          300,
+          301,
+          "bone tissue density",
+          "FSTL4 - WSPAR",
+          "rs35154657"
+        ],
+        [
+          134,
+          300,
+          409,
+          "body height",
+          "PCBD2, CATSPER3",
+          "rs299364"
+        ],
+        [
+          135,
+          841.7,
+          372,
+          "protein measurement",
+          "LECT2 - TGFBI",
+          "rs2428665"
+        ],
+        [
+          136,
+          1847.7,
+          185,
+          "amount of transforming growth factor-beta-induced protein ig-h3 (human) in blood",
+          "TGFBI",
+          "rs13159365"
+        ],
+        [
+          137,
+          105.3,
+          176,
+          "testican-1 measurement",
+          "SPOCK1",
+          "rs4835737"
+        ],
+        [
+          138,
+          140.3,
+          227,
+          "atrial fibrillation",
+          "WNT8A",
+          "rs2040862"
+        ],
+        [
+          139,
+          131.1,
+          278,
+          "interferon-induced protein with tetratricopeptide repeats 3 measurement",
+          "SMIM33 - STING1",
+          "rs55792153"
+        ],
+        [
+          140,
+          123.2,
+          445,
+          "soluble CD14 measurement",
+          "CD14 - NDUFA2",
+          "rs75652866"
+        ],
+        [
+          141,
+          165.4,
+          222,
+          "amount of protocadherin beta-15 in blood",
+          "TAF7",
+          "rs143483447"
+        ],
+        [
+          142,
+          153.3,
+          461,
+          "amount of glucosamine-6-phosphate isomerase 2 in blood",
+          "GNPDA1 - NDFIP1",
+          "rs9324861"
+        ],
+        [
+          143,
+          91.5,
+          296,
+          "body height",
+          "MIR5197 - HMHB1",
+          "rs6864427"
+        ],
+        [
+          144,
+          21.4,
+          83,
+          "alcohol consumption characteristic",
+          "RN7SKP246 - NAMPTP2",
+          "rs62403684"
+        ],
+        [
+          145,
+          59.7,
+          71,
+          "bone tissue density",
+          "GRXCR2",
+          "rs115612122"
+        ],
+        [
+          146,
+          300,
+          92,
+          "bone tissue density",
+          "PLAC8L1",
+          "rs201447862"
+        ],
+        [
+          147,
+          853.2,
+          142,
+          "amount of serine protease inhibitor Kazal-type 1 (human) in blood",
+          "SPINK1",
+          "rs6580502"
+        ],
+        [
+          148,
+          976.1,
+          410,
+          "NECTIN4/SPINK5 protein amount ratio in blood",
+          "FBXO38-DT, SPINK5",
+          "rs3777134"
+        ],
+        [
+          149,
+          97.2,
+          252,
+          "amount of beta-type platelet-derived growth factor receptor",
+          "TIGD6",
+          "rs140912228"
+        ],
+        [
+          150,
+          8106.2,
+          326,
+          "amount of beta-type platelet-derived growth factor receptor",
+          "PDGFRB",
+          "rs2304058"
+        ],
+        [
+          151,
+          168.7,
+          417,
+          "amount of ganglioside GM2 activator in blood",
+          "GM2A",
+          "rs62377872"
+        ],
+        [
+          152,
+          233,
+          127,
+          "bone tissue density",
+          "LINC01933 - NMUR2",
+          "rs143268025"
+        ],
+        [
+          153,
+          126.5,
+          248,
+          "polypeptide N-acetylgalactosaminyltransferase 10 measurement",
+          "LINC01861 - FAM114A2",
+          "rs2053311"
+        ],
+        [
+          154,
+          690.5,
+          399,
+          "amount of polypeptide N-acetylgalactosaminyltransferase 10 (human) in blood",
+          "GALNT10, MFAP3",
+          "rs10515706"
+        ],
+        [
+          155,
+          300,
+          88,
+          "bone tissue density",
+          "RPL6P32 - RNA5SP199",
+          "rs74599719"
+        ],
+        [
+          156,
+          1334.7,
+          704,
+          "AMBP/HAVCR1 protein amount ratio in blood",
+          "TIMD4 - HAVCR1",
+          "rs6863148"
+        ],
+        [
+          157,
+          2306.7,
+          757,
+          "amount of hepatitis A virus cellular receptor 1 (human) in blood",
+          "HAVCR1",
+          "rs6555821"
+        ],
+        [
+          158,
+          266.4,
+          719,
+          "balding measurement",
+          "EBF1",
+          "rs7736883"
+        ],
+        [
+          159,
+          2107.5,
+          446,
+          "amount of interleukin-12 subunit beta in blood",
+          "IL12B-AS1",
+          "rs4244437"
+        ],
+        [
+          160,
+          300,
+          203,
+          "bone tissue density",
+          "ATP10B",
+          "rs111272623"
+        ],
+        [
+          161,
+          20.5,
+          77,
+          "smoking initiation",
+          "GABRB2",
+          "rs17463127"
+        ],
+        [
+          162,
+          15.4,
+          60,
+          "bone tissue density",
+          "RNU6-164P - ARL2BPP5",
+          "rs72807522"
+        ],
+        [
+          163,
+          53,
+          152,
+          "amount of meprin A subunit alpha in blood",
+          "HMMR",
+          "rs299282"
+        ],
+        [
+          164,
+          15,
+          45,
+          "glioma pathogenesis-related protein 1 measurement",
+          "LINC03000",
+          "rs561410077"
+        ],
+        [
+          165,
+          29.7,
+          165,
+          "major depressive disorder",
+          "LINC03000",
+          "rs11135349"
+        ],
+        [
+          166,
+          25.1,
+          158,
+          "body height",
+          "RPLP0P9 - LINC01947",
+          "rs2961854"
+        ],
+        [
+          167,
+          49.5,
+          182,
+          "smoking initiation",
+          "TENM2",
+          "rs10475853"
+        ],
+        [
+          168,
+          300,
+          213,
+          "body height",
+          "SLIT3",
+          "rs4282339"
+        ],
+        [
+          169,
+          37.4,
+          100,
+          "adolescent idiopathic scoliosis",
+          "DOCK2",
+          "rs7729471"
+        ],
+        [
+          170,
+          300,
+          131,
+          "bone tissue density",
+          "LCP2",
+          "rs72830349"
+        ],
+        [
+          171,
+          300,
+          426,
+          "body height",
+          "FGF18",
+          "rs4073717"
+        ],
+        [
+          172,
+          70,
+          225,
+          "transmembrane protein 230 measurement",
+          "SH3PXD2B - LINC01944",
+          "rs2731695"
+        ],
+        [
+          173,
+          300,
+          777,
+          "bone tissue density",
+          "LINC01485 - CPEB4",
+          "rs113290216"
+        ],
+        [
+          174,
+          25,
+          134,
+          "urinary bladder cancer",
+          "LINC01411",
+          "rs4446484"
+        ],
+        [
+          175,
+          21.5,
+          83,
+          "refractive error",
+          "LINC01951 - ARL2BPP6",
+          "rs13190379"
+        ],
+        [
+          176,
+          267.5,
+          138,
+          "age at menopause",
+          "UIMC1",
+          "rs353478"
+        ],
+        [
+          177,
+          407.2,
+          1339,
+          "amount of fibroblast growth factor receptor 4",
+          "FGFR4",
+          "rs351855"
+        ],
+        [
+          178,
+          128,
+          201,
+          "blood protein amount",
+          "PHYKPL",
+          "rs141523394"
+        ],
+        [
+          179,
+          204,
+          280,
+          "body height",
+          "ADAMTS2",
+          "rs2059776"
+        ],
+        [
+          180,
+          607.5,
+          255,
+          "amount of vascular endothelial growth factor receptor 3 (human) in blood",
+          "FLT4",
+          "rs34221241"
+        ],
+        [
+          181,
+          96.4,
+          53,
+          "body height",
+          "TRIM7 - TRIM41",
+          "rs17080884"
+        ]
+      ],
+      "6": [
+        [
+          0,
+          581,
+          708,
+          "suntan",
+          "IRF4",
+          "rs12203592"
+        ],
+        [
+          1,
+          97,
+          331,
+          "body height",
+          "GMDS",
+          "rs722585"
+        ],
+        [
+          2,
+          475,
+          395,
+          "RWDD1/SERPINB6 protein amount ratio in blood",
+          "SERPINB6 - LINC01011",
+          "rs9378751"
+        ],
+        [
+          3,
+          802.3,
+          230,
+          "protein measurement",
+          "NQO2",
+          "rs138616686"
+        ],
+        [
+          4,
+          772.5,
+          102,
+          "protein measurement",
+          "TEX56P, TEX56P",
+          "rs853417"
+        ],
+        [
+          5,
+          24.5,
+          92,
+          "Red cell distribution width",
+          "LYRM4",
+          "rs111557465"
+        ],
+        [
+          6,
+          300,
+          436,
+          "bone tissue density",
+          "F13A1 - LY86-AS1",
+          "rs116617212"
+        ],
+        [
+          7,
+          300,
+          1028,
+          "body height",
+          "RPL29P1 - BMP6",
+          "rs3812163"
+        ],
+        [
+          8,
+          131.7,
+          98,
+          "cerebellar volume measurement",
+          "HULC",
+          "rs72831708"
+        ],
+        [
+          9,
+          176.1,
+          198,
+          "balding measurement",
+          "HULC - OFCC1",
+          "rs1590534"
+        ],
+        [
+          10,
+          421.1,
+          295,
+          "ALCAM/LRRC25 protein amount ratio in blood",
+          "GCNT2",
+          "rs111904887"
+        ],
+        [
+          11,
+          51.2,
+          315,
+          "triglyceride measurement",
+          "ELOVL2",
+          "rs3798719"
+        ],
+        [
+          12,
+          216.7,
+          442,
+          "amount of endothelin-1 in blood serum",
+          "EDN1",
+          "rs5370"
+        ],
+        [
+          13,
+          48.7,
+          166,
+          "aspartate aminotransferase measurement",
+          "RPS4XP7 - RN7SKP204",
+          "rs2560767"
+        ],
+        [
+          14,
+          190.5,
+          180,
+          "CD83/TNFRSF4 protein amount ratio in blood",
+          "RNF182 - CD83",
+          "rs62386711"
+        ],
+        [
+          15,
+          300,
+          199,
+          "bone tissue density",
+          "DTNBP1",
+          "rs112654238"
+        ],
+        [
+          16,
+          5403.3,
+          656,
+          "protein measurement",
+          "GMPR",
+          "rs2327958"
+        ],
+        [
+          17,
+          170.4,
+          137,
+          "bone tissue density",
+          "ATXN1-AS1 - STMND1",
+          "rs115768385"
+        ],
+        [
+          18,
+          1704,
+          219,
+          "CHAC2/TPMT protein amount ratio in blood",
+          "TPMT",
+          "rs77339739"
+        ],
+        [
+          19,
+          300,
+          322,
+          "body height",
+          "ID4",
+          "rs1047014"
+        ],
+        [
+          20,
+          415.5,
+          692,
+          "type 2 diabetes mellitus",
+          "CDKAL1",
+          "rs7766070"
+        ],
+        [
+          21,
+          73,
+          352,
+          "serum gamma-glutamyl transferase measurement",
+          "CASC15",
+          "rs12190285"
+        ],
+        [
+          22,
+          300,
+          432,
+          "bone tissue density",
+          "CASC15",
+          "rs149571122"
+        ],
+        [
+          23,
+          300,
+          133,
+          "bone tissue density",
+          "RNU6-1060P - SPTLC1P2",
+          "rs62401565"
+        ],
+        [
+          24,
+          799.2,
+          394,
+          "alkaline phosphatase measurement",
+          "GPLD1",
+          "rs573778305"
+        ],
+        [
+          25,
+          505,
+          1389,
+          "mean corpuscular hemoglobin concentration",
+          "SLC17A2",
+          "rs80215559"
+        ],
+        [
+          26,
+          3344,
+          2244,
+          "BTN2A1/BTN3A2 protein amount ratio in blood",
+          "H3C9P - BTN3A2",
+          "rs9393708"
+        ],
+        [
+          27,
+          300,
+          1295,
+          "bone tissue density",
+          "OR2B2",
+          "rs34788973"
+        ],
+        [
+          28,
+          343.2,
+          1377,
+          "erythrocyte volume",
+          "COX11P1 - OR2E1P",
+          "rs34124863"
+        ],
+        [
+          29,
+          432.5,
+          2499,
+          "KLK6/MOG protein amount ratio in blood",
+          "SUMO2P1 - MOG",
+          "rs29234"
+        ],
+        [
+          30,
+          703.2,
+          1715,
+          "amount of epithelial discoidin domain-containing receptor 1 (human) in blood",
+          "LINC02570",
+          "rs3095351"
+        ],
+        [
+          31,
+          4207.7,
+          7949,
+          "amount of lymphotoxin-alpha (human) in blood",
+          "LTA",
+          "rs2229092"
+        ],
+        [
+          32,
+          1732.4,
+          8880,
+          "CD74/LILRB4 protein amount ratio in blood",
+          "HLA-DRA - HLA-DRB9",
+          "rs3129889"
+        ],
+        [
+          33,
+          736.4,
+          1410,
+          "MLN/TNFRSF12A protein amount ratio in blood",
+          "MLN - LINC01016",
+          "rs2894342"
+        ],
+        [
+          34,
+          416,
+          1594,
+          "body height",
+          "SMIM29",
+          "rs1150781"
+        ],
+        [
+          35,
+          1531.3,
+          928,
+          "FKBP5/TBCB protein amount ratio in blood",
+          "FKBP5",
+          "rs2817032"
+        ],
+        [
+          36,
+          451,
+          699,
+          "peptidyl-prolyl cis-trans isomerase-like 1 measurement",
+          "PPIL1",
+          "rs12194408"
+        ],
+        [
+          37,
+          8809.3,
+          328,
+          "amount of MAM domain-containing glycosylphosphatidylinositol anchor protein 1 in blood",
+          "MDGA1",
+          "rs9349050"
+        ],
+        [
+          38,
+          948,
+          181,
+          "GLO1/GLOD4 protein amount ratio in blood",
+          "GLO1",
+          "rs4746"
+        ],
+        [
+          39,
+          115.5,
+          399,
+          "brain attribute",
+          "KIF6",
+          "rs6458117"
+        ],
+        [
+          40,
+          59.2,
+          210,
+          "amount of triggering receptor expressed on myeloid cells 2 (human) in cerebrospinal fluid",
+          "LRFN2 - UNC5CL",
+          "rs187370608"
+        ],
+        [
+          41,
+          896.4,
+          920,
+          "trem-like transcript 2 protein measurement",
+          "TREML2",
+          "rs62396356"
+        ],
+        [
+          42,
+          535.1,
+          484,
+          "TBCB/TBCC protein amount ratio in blood",
+          "TBCC",
+          "rs2234026"
+        ],
+        [
+          43,
+          3079.2,
+          2154,
+          "DKK1/VEGFA protein amount ratio in blood",
+          "SCIRT",
+          "rs7767396"
+        ],
+        [
+          44,
+          300,
+          502,
+          "body height",
+          "CDC5L - SUPT3H",
+          "rs16872574"
+        ],
+        [
+          45,
+          242,
+          320,
+          "body height",
+          "SUPT3H",
+          "rs9395066"
+        ],
+        [
+          46,
+          1110.7,
+          231,
+          "ectonucleotide pyrophosphatase/phosphodiesterase family member 5 measurement",
+          "ENPP5",
+          "rs77991465"
+        ],
+        [
+          47,
+          767.2,
+          286,
+          "CD2AP/PLPBP protein amount ratio in blood",
+          "CD2AP",
+          "rs9296558"
+        ],
+        [
+          48,
+          52.3,
+          64,
+          "cysteine-rich secretory protein 2 measurement",
+          "RBMXP1 - PRR11P1",
+          "rs161761"
+        ],
+        [
+          49,
+          1791.7,
+          147,
+          "cysteine-rich secretory protein 2 measurement",
+          "CRISP3 - PGK2",
+          "rs586874"
+        ],
+        [
+          50,
+          167.3,
+          466,
+          "cysteine-rich secretory protein 3 measurement",
+          "DEFB112 - TFAP2D",
+          "rs141218036"
+        ],
+        [
+          51,
+          102,
+          344,
+          "cysteine-rich secretory protein 2 measurement",
+          "FTH1P5 - TIAL1P1",
+          "rs1327265"
+        ],
+        [
+          52,
+          1385.3,
+          525,
+          "ADH4/GSTA1 protein amount ratio in blood",
+          "GSTA1",
+          "rs6917325"
+        ],
+        [
+          53,
+          88.3,
+          168,
+          "body height",
+          "GCLC-AS1",
+          "rs9382212"
+        ],
+        [
+          54,
+          117.1,
+          181,
+          "serum gamma-glutamyl transferase measurement",
+          "MLIP, MLIP-AS1",
+          "rs9296736"
+        ],
+        [
+          55,
+          310.7,
+          288,
+          "GDNF family receptor alpha-like measurement",
+          "GFRAL - HMGCLL1",
+          "rs10948914"
+        ],
+        [
+          56,
+          300,
+          156,
+          "bone tissue density",
+          "DST",
+          "rs17684277"
+        ],
+        [
+          57,
+          40.7,
+          29,
+          "body height",
+          "ZNF451",
+          "rs9367711"
+        ],
+        [
+          58,
+          300,
+          22,
+          "bone tissue density",
+          "RBBP4P4 - PRIM2BP",
+          "rs189233850"
+        ],
+        [
+          60,
+          15.5,
+          31,
+          "Alzheimer disease, polygenic risk score",
+          "RBBP4P3 - KHDRBS2",
+          "rs6916215"
+        ],
+        [
+          61,
+          300,
+          65,
+          "bone tissue density",
+          "RBBP4P3 - KHDRBS2",
+          "rs140889764"
+        ],
+        [
+          62,
+          21.7,
+          33,
+          "Alzheimer disease, polygenic risk score",
+          "KHDRBS2 - DHFRP5",
+          "rs9360446"
+        ],
+        [
+          63,
+          16.4,
+          68,
+          "amount of Thyroid stimulating hormone",
+          "PTP4A1",
+          "rs1211293"
+        ],
+        [
+          64,
+          16.5,
+          63,
+          "body height",
+          "EYS",
+          "rs4710276"
+        ],
+        [
+          65,
+          15.2,
+          104,
+          "glioma pathogenesis-related protein 1 measurement",
+          "EYS",
+          "rs529340517"
+        ],
+        [
+          66,
+          41.2,
+          84,
+          "smoking initiation",
+          "RNU7-66P - RNA5SP208",
+          "rs146628116"
+        ],
+        [
+          67,
+          35,
+          58,
+          "amount of adhesion G protein-coupled receptor B3 in blood",
+          "RNA5SP208 - RNU6-280P",
+          "rs147160927"
+        ],
+        [
+          68,
+          4507.7,
+          106,
+          "amount of adhesion G protein-coupled receptor B3 in blood",
+          "ADGRB3",
+          "rs3798969"
+        ],
+        [
+          69,
+          572.7,
+          101,
+          "amount of adhesion G protein-coupled receptor B3 in blood",
+          "ADGRB3",
+          "rs3799038"
+        ],
+        [
+          70,
+          292.4,
+          85,
+          "stromal membrane-associated protein 1 measurement",
+          "SDHAF4 - SLC25A6P6",
+          "rs1917342"
+        ],
+        [
+          71,
+          92.7,
+          87,
+          "body height",
+          "LINC01626",
+          "rs852928"
+        ],
+        [
+          72,
+          300,
+          169,
+          "bone tissue density",
+          "RIMS1 - KCNQ5-DT",
+          "rs75911966"
+        ],
+        [
+          73,
+          3714.4,
+          231,
+          "amount of CD109 antigen (human) in blood",
+          "CD109",
+          "rs4708083"
+        ],
+        [
+          74,
+          269,
+          85,
+          "CD109 antigen measurement",
+          "TXNP7 - FAM136FP",
+          "rs142412170"
+        ],
+        [
+          75,
+          300,
+          222,
+          "body height",
+          "FILIP1",
+          "rs12209223"
+        ],
+        [
+          76,
+          15.4,
+          51,
+          "body height",
+          "LINC02540 - HTR1B",
+          "rs9343522"
+        ],
+        [
+          77,
+          300,
+          68,
+          "bone tissue density",
+          "MEI4 - IRAK1BP1",
+          "rs139426865"
+        ],
+        [
+          78,
+          300,
+          100,
+          "bone tissue density",
+          "MEI4 - IRAK1BP1",
+          "rs117320177"
+        ],
+        [
+          79,
+          42.1,
+          101,
+          "body height",
+          "LINC01621 - ELOVL4",
+          "rs74783274"
+        ],
+        [
+          80,
+          306.5,
+          405,
+          "body height",
+          "RPL17P25 - RPSAP72",
+          "rs9344003"
+        ],
+        [
+          81,
+          301.5,
+          290,
+          "body height",
+          "RPSAP72 - TENT5A",
+          "rs548365"
+        ],
+        [
+          82,
+          99,
+          111,
+          "body height",
+          "UBE3D",
+          "rs11758364"
+        ],
+        [
+          83,
+          91,
+          136,
+          "body height",
+          "SNAP91",
+          "rs12193281"
+        ],
+        [
+          84,
+          117.2,
+          138,
+          "body height",
+          "TBX18, TBX18-AS1",
+          "rs4320330"
+        ],
+        [
+          85,
+          1831,
+          138,
+          "amount of 5'-nucleotidase (human) in blood",
+          "NT5E",
+          "rs2229523"
+        ],
+        [
+          86,
+          300,
+          74,
+          "bone tissue density",
+          "RN7SL643P - HTR1E",
+          "rs149923162"
+        ],
+        [
+          87,
+          77.3,
+          210,
+          "amount of Thyroid stimulating hormone",
+          "CGA - RCN1P1",
+          "rs1998615"
+        ],
+        [
+          88,
+          65,
+          42,
+          "bone tissue density",
+          "ACTBP8 - RNGTT",
+          "rs752632731"
+        ],
+        [
+          89,
+          73,
+          205,
+          "N-acetylcarnosine measurement",
+          "SRSF12 - PM20D2",
+          "rs35693340"
+        ],
+        [
+          90,
+          300,
+          403,
+          "bone tissue density",
+          "BACH2",
+          "rs146058897"
+        ],
+        [
+          91,
+          94,
+          120,
+          "brain attribute",
+          "MAP3K7 - MIR4643",
+          "rs9345125"
+        ],
+        [
+          92,
+          38,
+          86,
+          "brain attribute",
+          "U3 - LINC02531",
+          "rs4706408"
+        ],
+        [
+          93,
+          20.1,
+          97,
+          "protein measurement",
+          "EPHA7 - MTCYBP36",
+          "rs2046801"
+        ],
+        [
+          94,
+          21.7,
+          56,
+          "free cholesterol measurement",
+          "MTCYBP36 - CYCSP17",
+          "rs62418519"
+        ],
+        [
+          95,
+          1585.7,
+          82,
+          "glycoprotein endo-alpha-1,2-mannosidase measurement",
+          "MANEA",
+          "rs35772543"
+        ],
+        [
+          96,
+          263.7,
+          239,
+          "amount of chymotrypsin-C (human) in blood",
+          "FUT9",
+          "rs4364486"
+        ],
+        [
+          97,
+          36.5,
+          339,
+          "educational attainment",
+          "MMS22L - MIR2113",
+          "rs12208753"
+        ],
+        [
+          98,
+          96.5,
+          429,
+          "educational attainment",
+          "MIR2113 - EIF4EBP2P3",
+          "rs9372734"
+        ],
+        [
+          99,
+          300,
+          183,
+          "bone tissue density",
+          "PNISR",
+          "rs79629641"
+        ],
+        [
+          100,
+          274.7,
+          390,
+          "amount of glutamate receptor ionotropic, kainate 2 in blood",
+          "ASCC3 - GRIK2",
+          "rs59321237"
+        ],
+        [
+          101,
+          76.7,
+          41,
+          "bone tissue density",
+          "GRIK2",
+          "rs62419309"
+        ],
+        [
+          102,
+          215.5,
+          34,
+          "bone tissue density",
+          "GRIK2 - R3HDM2P2",
+          "rs117733936"
+        ],
+        [
+          103,
+          28,
+          101,
+          "bone tissue density",
+          "GRIK2 - R3HDM2P2",
+          "rs117693242"
+        ],
+        [
+          104,
+          323,
+          337,
+          "body height",
+          "LIN28B",
+          "rs314265"
+        ],
+        [
+          105,
+          65,
+          212,
+          "blood protein amount",
+          "PREP",
+          "rs1051484"
+        ],
+        [
+          106,
+          60.7,
+          223,
+          "blood protein amount",
+          "LINC02532",
+          "rs72948545"
+        ],
+        [
+          107,
+          79.7,
+          312,
+          "hematological measurement",
+          "BEND3 - RNU6-1299P",
+          "rs12208103"
+        ],
+        [
+          108,
+          194.7,
+          553,
+          "body height",
+          "FOXO3",
+          "rs3813498"
+        ],
+        [
+          109,
+          486.7,
+          637,
+          "mean corpuscular hemoglobin concentration",
+          "CCDC162P",
+          "rs13191948"
+        ],
+        [
+          110,
+          1015.2,
+          309,
+          "USP8/WASF1 protein amount ratio in blood",
+          "METTL24 - DDO",
+          "rs7748253"
+        ],
+        [
+          111,
+          789.1,
+          356,
+          "tyrosine measurement",
+          "MFSD4B-DT",
+          "rs12206654"
+        ],
+        [
+          112,
+          146.3,
+          78,
+          "ESAM/LAMA4 protein amount ratio in blood",
+          "LAMA4",
+          "rs1050349"
+        ],
+        [
+          113,
+          250,
+          131,
+          "bone tissue density",
+          "FCF1P10 - SOCS5P5",
+          "rs80064628"
+        ],
+        [
+          114,
+          162.7,
+          70,
+          "bone tissue density",
+          "HDAC2-AS2, HS3ST5",
+          "rs144937763"
+        ],
+        [
+          115,
+          53.5,
+          150,
+          "total cholesterol measurement",
+          "FRK",
+          "rs3822855"
+        ],
+        [
+          116,
+          213.5,
+          430,
+          "body height",
+          "DSE",
+          "rs6908915"
+        ],
+        [
+          117,
+          287.3,
+          327,
+          "body height",
+          "RNA5SP214 - VGLL2",
+          "rs1405212"
+        ],
+        [
+          118,
+          245.2,
+          389,
+          "QT interval",
+          "SLC35F1 - CEP85L",
+          "rs11153730"
+        ],
+        [
+          119,
+          1259.1,
+          146,
+          "amount of cobalamin binding intrinsic factor in blood",
+          "MAN1A1 - MIR3144",
+          "rs10782195"
+        ],
+        [
+          120,
+          33,
+          53,
+          "amount of cobalamin binding intrinsic factor in blood",
+          "RNU6-214P - RNA5SP215",
+          "rs9401309"
+        ],
+        [
+          121,
+          323,
+          240,
+          "heart rate",
+          "RPL23AP48 - HMGB3P18",
+          "rs9388001"
+        ],
+        [
+          122,
+          3822.7,
+          240,
+          "SMPD1/SMPDL3A protein amount ratio in blood",
+          "SMPDL3A",
+          "rs28385609"
+        ],
+        [
+          123,
+          44,
+          85,
+          "acid sphingomyelinase-like phosphodiesterase 3a measurement",
+          "CLVS2 - TRDN",
+          "rs189298603"
+        ],
+        [
+          124,
+          35.7,
+          102,
+          "bone tissue density",
+          "NKAIN2",
+          "rs77490164"
+        ],
+        [
+          125,
+          300,
+          299,
+          "bone tissue density",
+          "NCOA7 - HINT3",
+          "rs138135097"
+        ],
+        [
+          126,
+          300,
+          1073,
+          "body height",
+          "MIR588 - RNU6-200P",
+          "rs9401888"
+        ],
+        [
+          127,
+          442.3,
+          1524,
+          "bone tissue density",
+          "RSPO3",
+          "rs7741021"
+        ],
+        [
+          128,
+          300,
+          75,
+          "bone tissue density",
+          "PTPRK-AS1, PTPRK",
+          "rs76588298"
+        ],
+        [
+          129,
+          300,
+          167,
+          "refractive error",
+          "LAMA2",
+          "rs12193446"
+        ],
+        [
+          130,
+          300,
+          691,
+          "body height",
+          "L3MBTL3",
+          "rs7740188"
+        ],
+        [
+          131,
+          549.1,
+          311,
+          "CCN2/VEGFC protein amount ratio in blood",
+          "LINC01013",
+          "rs9493150"
+        ],
+        [
+          132,
+          812.2,
+          293,
+          "protein measurement",
+          "VNN2",
+          "rs9493423"
+        ],
+        [
+          133,
+          300,
+          532,
+          "bone tissue density",
+          "TARID",
+          "rs138674862"
+        ],
+        [
+          134,
+          300,
+          282,
+          "mean corpuscular hemoglobin",
+          "MEMO1P2 - ALDH8A1",
+          "rs6899500"
+        ],
+        [
+          135,
+          2445.2,
+          1306,
+          "mean corpuscular hemoglobin concentration",
+          "HBS1L",
+          "rs9399136"
+        ],
+        [
+          136,
+          48.7,
+          194,
+          "secretogranin-1 measurement",
+          "RPL35AP3 - NHEG1",
+          "rs2876355"
+        ],
+        [
+          137,
+          300,
+          340,
+          "bone tissue density",
+          "IFNGR1 - OLIG3",
+          "rs12195682"
+        ],
+        [
+          138,
+          116.7,
+          138,
+          "desmoglein-2 measurement",
+          "PERP",
+          "rs648802"
+        ],
+        [
+          139,
+          582,
+          1311,
+          "erythrocyte volume",
+          "LINC01625 - ATP5PBP6",
+          "rs17585887"
+        ],
+        [
+          140,
+          132.5,
+          121,
+          "body height",
+          "RPS3AP24 - RN7SKP106",
+          "rs9376553"
+        ],
+        [
+          141,
+          39.7,
+          110,
+          "body height",
+          "RN7SKP106 - RPS3AP23",
+          "rs4410752"
+        ],
+        [
+          142,
+          300,
+          544,
+          "body height",
+          "ADGRG6",
+          "rs1891308"
+        ],
+        [
+          143,
+          8408.2,
+          325,
+          "amount of tissue alpha-L-fucosidase in blood",
+          "FUCA2",
+          "rs11155297"
+        ],
+        [
+          144,
+          146,
+          181,
+          "amount of resistin (human) in blood",
+          "PLAGL1 - SF3B5",
+          "rs73008259"
+        ],
+        [
+          145,
+          83.7,
+          68,
+          "amount of EF-hand domain-containing protein D1 in blood",
+          "EPM2A-DT, FBXO30",
+          "rs777233686"
+        ],
+        [
+          146,
+          300,
+          84,
+          "bone tissue density",
+          "RAB32 - ADGB-DT",
+          "rs190584254"
+        ],
+        [
+          147,
+          143.2,
+          183,
+          "bone tissue density",
+          "SAMD5 - SASH1",
+          "rs114982011"
+        ],
+        [
+          148,
+          101.7,
+          128,
+          "uronyl 2-sulfotransferase measurement",
+          "UST",
+          "rs11757768"
+        ],
+        [
+          149,
+          2467.2,
+          308,
+          "LRP11/NECTIN2 protein amount ratio in blood",
+          "NUP43",
+          "rs10872646"
+        ],
+        [
+          150,
+          300,
+          290,
+          "bone tissue density",
+          "IYD",
+          "rs74678912"
+        ],
+        [
+          151,
+          411.7,
+          879,
+          "bone tissue density",
+          "ESR1",
+          "rs2982573"
+        ],
+        [
+          152,
+          300,
+          345,
+          "body height",
+          "ESR1",
+          "rs3020411"
+        ],
+        [
+          153,
+          520.1,
+          247,
+          "peptide chain release factor 1-like, mitochondrial measurement",
+          "MTRF1L",
+          "rs12206911"
+        ],
+        [
+          154,
+          114,
+          173,
+          "IPCEF1/TXLNA protein amount ratio in blood",
+          "IPCEF1 - CNKSR3",
+          "rs2473546"
+        ],
+        [
+          155,
+          134,
+          141,
+          "body height",
+          "TIAM2",
+          "rs11751128"
+        ],
+        [
+          156,
+          300,
+          210,
+          "bone tissue density",
+          "ARID1B",
+          "rs117335421"
+        ],
+        [
+          157,
+          155,
+          163,
+          "bone tissue density",
+          "SNX9",
+          "rs149727756"
+        ],
+        [
+          158,
+          230.2,
+          215,
+          "body height",
+          "TULP4",
+          "rs705930"
+        ],
+        [
+          159,
+          528.1,
+          496,
+          "lipoprotein A measurement",
+          "MAS1",
+          "rs12207188"
+        ],
+        [
+          160,
+          22135.2,
+          5962,
+          "lipoprotein A measurement",
+          "LPA",
+          "rs10455872"
+        ],
+        [
+          161,
+          510.3,
+          327,
+          "lipoprotein A measurement",
+          "AGPAT4",
+          "rs61735260"
+        ],
+        [
+          162,
+          48.2,
+          131,
+          "bone tissue density",
+          "PACRG",
+          "rs150354829"
+        ],
+        [
+          163,
+          137,
+          274,
+          "body height",
+          "QKI - RN7SL366P",
+          "rs4709741"
+        ],
+        [
+          164,
+          146.4,
+          207,
+          "hematological measurement",
+          "RN7SL366P - C6orf118",
+          "rs4709819"
+        ],
+        [
+          165,
+          498,
+          264,
+          "amount of Thyroid stimulating hormone",
+          "PDE10A",
+          "rs1033701"
+        ],
+        [
+          166,
+          206.3,
+          230,
+          "amount of ribonuclease T2 in blood",
+          "RNASET2",
+          "rs11159"
+        ],
+        [
+          167,
+          112.4,
+          243,
+          "N-acetylglucosaminylasparagine measurement",
+          "UNC93A",
+          "rs2076007"
+        ],
+        [
+          168,
+          905.5,
+          269,
+          "amount of SPARC-related modular calcium-binding protein 2 (human) in blood",
+          "SMOC2",
+          "rs56296467"
+        ],
+        [
+          169,
+          1271.1,
+          198,
+          "amount of thrombospondin-2 (human) in blood",
+          "THBS2, THBS2-AS1",
+          "rs73043837"
+        ],
+        [
+          170,
+          149.2,
+          206,
+          "protein measurement",
+          "PDCD2",
+          "rs17860826"
+        ]
+      ],
+      "7": [
+        [
+          0,
+          79.3,
+          448,
+          "HDL particle size",
+          "CYP2W1 - CHLSN",
+          "rs9769088"
+        ],
+        [
+          1,
+          274.2,
+          1014,
+          "serum creatinine amount",
+          "UNCX - MICALL2",
+          "rs62435145"
+        ],
+        [
+          2,
+          300,
+          881,
+          "body height",
+          "AMZ1",
+          "rs798554"
+        ],
+        [
+          3,
+          69,
+          253,
+          "smoking initiation",
+          "SDK1",
+          "rs13237637"
+        ],
+        [
+          4,
+          312.1,
+          146,
+          "bone tissue density",
+          "SDK1",
+          "rs6965018"
+        ],
+        [
+          5,
+          300,
+          220,
+          "bone tissue density",
+          "RNF216",
+          "rs138517607"
+        ],
+        [
+          6,
+          171.5,
+          568,
+          "hematological measurement",
+          "DAGLB, KDELR2",
+          "rs6796"
+        ],
+        [
+          7,
+          222.7,
+          318,
+          "collagen alpha-1(XXVIII) chain measurement",
+          "UMAD1, RPA3",
+          "rs12155316"
+        ],
+        [
+          8,
+          254.2,
+          178,
+          "body height",
+          "GLCCI1",
+          "rs10253861"
+        ],
+        [
+          9,
+          13.2,
+          75,
+          "body height",
+          "CPAMD8P1 - U3",
+          "rs1557978"
+        ],
+        [
+          10,
+          11.7,
+          47,
+          "protozoa infectious disease",
+          "CPAMD8P1 - U3",
+          "rs577891520"
+        ],
+        [
+          11,
+          45.2,
+          140,
+          "educational attainment",
+          "THSD7A",
+          "rs118134876"
+        ],
+        [
+          12,
+          79,
+          249,
+          "body height",
+          "TMEM106B",
+          "rs6460895"
+        ],
+        [
+          13,
+          300,
+          147,
+          "bone tissue density",
+          "RBMX2P4 - ETV1",
+          "rs145537769"
+        ],
+        [
+          14,
+          75.5,
+          218,
+          "testosterone measurement",
+          "DGKB - GTF3AP5",
+          "rs9986829"
+        ],
+        [
+          15,
+          300,
+          301,
+          "bone tissue density",
+          "AGMO",
+          "rs117247611"
+        ],
+        [
+          16,
+          300,
+          181,
+          "bone tissue density",
+          "CRPPA",
+          "rs112232083"
+        ],
+        [
+          17,
+          248.7,
+          748,
+          "coffee consumption measurement, tea consumption measurement",
+          "AHR",
+          "rs4410790"
+        ],
+        [
+          18,
+          282.5,
+          304,
+          "balding measurement",
+          "HDAC9",
+          "rs67248060"
+        ],
+        [
+          19,
+          300,
+          370,
+          "body height",
+          "FERD3L - POLR1F",
+          "rs17141563"
+        ],
+        [
+          20,
+          300,
+          382,
+          "body height",
+          "ITGB8",
+          "rs10265149"
+        ],
+        [
+          21,
+          112,
+          574,
+          "total cholesterol measurement",
+          "DNAH11",
+          "rs55696093"
+        ],
+        [
+          22,
+          300,
+          329,
+          "bone tissue density",
+          "RAPGEF5",
+          "rs138507002"
+        ],
+        [
+          23,
+          666,
+          289,
+          "transmembrane glycoprotein NMB measurement",
+          "GPNMB",
+          "rs75801644"
+        ],
+        [
+          24,
+          300,
+          227,
+          "bone tissue density",
+          "GSDME",
+          "rs73079954"
+        ],
+        [
+          25,
+          271.2,
+          1050,
+          "body height",
+          "LINC03007 - MIR148A",
+          "rs41469349"
+        ],
+        [
+          26,
+          54.7,
+          339,
+          "BMI-adjusted waist-hip ratio",
+          "SNX10",
+          "rs1534696"
+        ],
+        [
+          27,
+          300,
+          646,
+          "bone tissue density",
+          "TAX1BP1-AS1",
+          "rs75590449"
+        ],
+        [
+          28,
+          300,
+          1090,
+          "body height",
+          "JAZF1",
+          "rs849137"
+        ],
+        [
+          29,
+          229.4,
+          232,
+          "amount of probable serine carboxypeptidase CPVL (human) in cerebrospinal fluid",
+          "CPVL",
+          "rs34219043"
+        ],
+        [
+          30,
+          120,
+          206,
+          "bone tissue density",
+          "LINC01176 - NOD1",
+          "rs182554209"
+        ],
+        [
+          31,
+          300,
+          84,
+          "bone tissue density",
+          "ADCYAP1R1 - NEUROD6",
+          "rs140105641"
+        ],
+        [
+          32,
+          88.3,
+          292,
+          "body height",
+          "KBTBD2",
+          "rs17161546"
+        ],
+        [
+          33,
+          300,
+          175,
+          "bone tissue density",
+          "BBS9",
+          "rs538292275"
+        ],
+        [
+          34,
+          74,
+          60,
+          "body height",
+          "DPY19L1",
+          "rs1649220"
+        ],
+        [
+          35,
+          115.7,
+          353,
+          "bone tissue density",
+          "TBX20",
+          "rs148061220"
+        ],
+        [
+          36,
+          37.2,
+          212,
+          "platelet count",
+          "SEPTIN7P3 - MARK2P13",
+          "rs2700938"
+        ],
+        [
+          37,
+          178,
+          337,
+          "bone tissue density",
+          "ELMO1",
+          "rs79354223"
+        ],
+        [
+          38,
+          276.7,
+          373,
+          "body height",
+          "SFRP4 - STARD3NL",
+          "rs6963134"
+        ],
+        [
+          39,
+          300,
+          167,
+          "bone tissue density",
+          "YAE1-DT",
+          "rs80218618"
+        ],
+        [
+          40,
+          75.4,
+          155,
+          "bone tissue density",
+          "SUGCT",
+          "rs80006387"
+        ],
+        [
+          41,
+          300,
+          149,
+          "bone tissue density",
+          "LINC01449 - INHBA",
+          "rs34464403"
+        ],
+        [
+          42,
+          120.7,
+          135,
+          "bone tissue density",
+          "GLI3",
+          "rs73100840"
+        ],
+        [
+          43,
+          50.4,
+          91,
+          "brain attribute",
+          "MRPL32 - Y_RNA",
+          "rs11770051"
+        ],
+        [
+          44,
+          441.5,
+          1253,
+          "blood glucose amount",
+          "CAMK2B",
+          "rs2075066"
+        ],
+        [
+          45,
+          1028.5,
+          285,
+          "insulin-like growth factor-binding protein 3 measurement",
+          "IGFBP3",
+          "rs2854744"
+        ],
+        [
+          46,
+          280.2,
+          491,
+          "body height",
+          "ZNF619P1 - HMGN1P19",
+          "rs1007358"
+        ],
+        [
+          47,
+          85.5,
+          185,
+          "corneal topography",
+          "LINC02902 - PKD1L1",
+          "rs12702376"
+        ],
+        [
+          48,
+          300,
+          88,
+          "bone tissue density",
+          "ABCA13",
+          "rs141867809"
+        ],
+        [
+          49,
+          1409.7,
+          138,
+          "EPHB6/VWC2 protein amount ratio in blood",
+          "VWC2",
+          "rs482968"
+        ],
+        [
+          50,
+          1072,
+          1101,
+          "aromatic-l-amino-acid decarboxylase measurement",
+          "DDC, DDC-AS1",
+          "rs11575302"
+        ],
+        [
+          51,
+          64.1,
+          74,
+          "retinal layer thickness",
+          "COBL",
+          "rs12719025"
+        ],
+        [
+          52,
+          25,
+          54,
+          "amount of Thyroid stimulating hormone",
+          "RN7SL292P - SGO1P2",
+          "rs148032471"
+        ],
+        [
+          53,
+          267.2,
+          78,
+          "bone tissue density",
+          "RN7SKP218 - LINC01446",
+          "rs150847114"
+        ],
+        [
+          54,
+          126.3,
+          201,
+          "bone tissue density",
+          "VSTM2A-OT1 - RNU6-1125P",
+          "rs149249000"
+        ],
+        [
+          55,
+          165.5,
+          164,
+          "amount of epidermal growth factor receptor",
+          "EGFR",
+          "rs10081281"
+        ],
+        [
+          56,
+          1422.3,
+          150,
+          "amount of inactive C-alpha-formylglycine-generating enzyme 2 in blood",
+          "SUMF2",
+          "rs35384521"
+        ],
+        [
+          57,
+          52.4,
+          29,
+          "ERP44/SUMF2 protein amount ratio in blood",
+          "MTND4P4",
+          "rs117517657"
+        ],
+        [
+          61,
+          38.7,
+          5,
+          "amount of inactive C-alpha-formylglycine-generating enzyme 2 in blood",
+          "BSNDP4 - RNU6-417P",
+          "rs556893622"
+        ],
+        [
+          62,
+          25,
+          16,
+          "amount of inactive C-alpha-formylglycine-generating enzyme 2 in blood",
+          "BSNDP4 - RNU6-417P",
+          "rs564830149"
+        ],
+        [
+          63,
+          20.7,
+          21,
+          "immunoglobulin G4-related sclerosing disease",
+          "CICP24 - GABPAP",
+          "rs4717156"
+        ],
+        [
+          64,
+          181.3,
+          66,
+          "cysteine-rich secretory protein 2 measurement",
+          "LINC01005 - ZNF727",
+          "rs6460105"
+        ],
+        [
+          65,
+          134.7,
+          83,
+          "protein measurement",
+          "GUSB",
+          "rs9530"
+        ],
+        [
+          66,
+          322.4,
+          103,
+          "protein measurement",
+          "SBDS",
+          "rs79344818"
+        ],
+        [
+          67,
+          12.5,
+          64,
+          "glioma pathogenesis-related protein 1 measurement",
+          "MTCO3P41 - MTCO1P57",
+          "rs565918605"
+        ],
+        [
+          68,
+          300,
+          109,
+          "bone tissue density",
+          "MTND4P3 - RNA5SP231",
+          "rs76860438"
+        ],
+        [
+          69,
+          300,
+          170,
+          "bone tissue density",
+          "Y_RNA - CT66",
+          "rs75527694"
+        ],
+        [
+          70,
+          300,
+          289,
+          "bone tissue density",
+          "AUTS2",
+          "rs113112399"
+        ],
+        [
+          71,
+          34.7,
+          119,
+          "bone tissue density",
+          "CALN1",
+          "rs73183297"
+        ],
+        [
+          72,
+          300,
+          433,
+          "bone tissue density",
+          "TYW1B",
+          "rs111693203"
+        ],
+        [
+          73,
+          808.7,
+          2724,
+          "triglyceride measurement",
+          "MLXIPL",
+          "rs3812316"
+        ],
+        [
+          74,
+          297.7,
+          359,
+          "systemic lupus erythematosus",
+          "GTF2I-AS1, GTF2I",
+          "rs117026326"
+        ],
+        [
+          75,
+          4923.4,
+          595,
+          "C-C motif chemokine 24 measurement",
+          "CCL24 - RHBDD2",
+          "rs2024050"
+        ],
+        [
+          76,
+          1847.2,
+          322,
+          "amount of heat shock protein beta-1 (human) in blood",
+          "SRRM3 - HSPB1",
+          "rs2868371"
+        ],
+        [
+          77,
+          103.7,
+          389,
+          "body height",
+          "PHTF2",
+          "rs2428939"
+        ],
+        [
+          78,
+          300,
+          174,
+          "bone tissue density",
+          "MAGI2",
+          "rs201097970"
+        ],
+        [
+          79,
+          687.2,
+          49,
+          "membrane-associated guanylate kinase, WW and PDZ domain-containing protein 2 measurement",
+          "MAGI2",
+          "rs73147474"
+        ],
+        [
+          80,
+          145.7,
+          528,
+          "amount of platelet glycoprotein 4",
+          "CD36 - SEMA3C",
+          "rs139906208"
+        ],
+        [
+          81,
+          160.7,
+          178,
+          "bone tissue density",
+          "SEMA3C - EIF4EP4",
+          "rs78465953"
+        ],
+        [
+          82,
+          300,
+          151,
+          "bone tissue density",
+          "MTHFD2P5 - PCLO",
+          "rs74505363"
+        ],
+        [
+          83,
+          923.7,
+          140,
+          "semaphorin-3E measurement",
+          "SEMA3E",
+          "rs56921187"
+        ],
+        [
+          84,
+          91.4,
+          120,
+          "body height",
+          "HMGN2P11 - HNRNPA1P8",
+          "rs12707695"
+        ],
+        [
+          85,
+          84.4,
+          85,
+          "hematological measurement",
+          "SEMA3D",
+          "rs199659468"
+        ],
+        [
+          86,
+          69,
+          123,
+          "bone tissue density",
+          "GRM3",
+          "rs73211614"
+        ],
+        [
+          87,
+          2410.7,
+          224,
+          "ADAM22/EPHB6 protein amount ratio in blood",
+          "ADAM22",
+          "rs2279542"
+        ],
+        [
+          88,
+          511.7,
+          68,
+          "amount of disintegrin and metalloproteinase domain-containing protein 22 in blood",
+          "ADAM22",
+          "rs13243228"
+        ],
+        [
+          89,
+          70.4,
+          39,
+          "bone tissue density",
+          "ZNF804B - RNU6-274P",
+          "rs117933022"
+        ],
+        [
+          90,
+          61.3,
+          98,
+          "body height",
+          "CDK14",
+          "rs6465282"
+        ],
+        [
+          91,
+          180.5,
+          76,
+          "bone tissue density",
+          "CDK14",
+          "rs138166406"
+        ],
+        [
+          92,
+          370.3,
+          870,
+          "leukocyte quantity",
+          "CDK6",
+          "rs445"
+        ],
+        [
+          93,
+          842.7,
+          291,
+          "NUB1/SAMD9L protein amount ratio in blood",
+          "HEPACAM2",
+          "rs17165143"
+        ],
+        [
+          94,
+          93.1,
+          125,
+          "amount of serum paraoxonase/arylesterase 2 in blood serum",
+          "COL1A2 - RNU6-1328P",
+          "rs780249818"
+        ],
+        [
+          95,
+          3327.7,
+          533,
+          "amount of serum paraoxonase/arylesterase 2 (human) in blood",
+          "PON2",
+          "rs3735586"
+        ],
+        [
+          96,
+          323.3,
+          312,
+          "brain attribute",
+          "SEM1",
+          "rs6964260"
+        ],
+        [
+          97,
+          68.5,
+          106,
+          "bone tissue density",
+          "DLX5 - SDHAF3",
+          "rs117901163"
+        ],
+        [
+          98,
+          231.7,
+          299,
+          "sex hormone-binding globulin measurement",
+          "BRI3",
+          "rs7015"
+        ],
+        [
+          99,
+          1106.7,
+          764,
+          "androsterone sulfate measurement",
+          "CYP3A7 - CYP3A4",
+          "rs45446698"
+        ],
+        [
+          100,
+          7881.2,
+          1225,
+          "PILRB/TNFRSF1A protein amount ratio in blood",
+          "NYAP1",
+          "rs12539172"
+        ],
+        [
+          101,
+          452.2,
+          411,
+          "FIS1/MGLL protein amount ratio in blood",
+          "FIS1",
+          "rs10241107"
+        ],
+        [
+          102,
+          54,
+          246,
+          "body height",
+          "CUX1",
+          "rs16869536"
+        ],
+        [
+          103,
+          300,
+          187,
+          "bone tissue density",
+          "DPY19L2P2, DPY19L2P2",
+          "rs138373846"
+        ],
+        [
+          104,
+          35.4,
+          157,
+          "educational attainment",
+          "KMT2E, KMT2E-AS1",
+          "rs56016333"
+        ],
+        [
+          105,
+          59.5,
+          222,
+          "body height",
+          "SRPK2",
+          "rs2299308"
+        ],
+        [
+          106,
+          1223.4,
+          954,
+          "platelet volume",
+          "CCDC71L - LINC02577",
+          "rs12535463"
+        ],
+        [
+          107,
+          77.7,
+          305,
+          "amount of laminin subunit beta-1 in blood",
+          "LAMB1",
+          "rs2237687"
+        ],
+        [
+          108,
+          492.2,
+          129,
+          "IL6ST/NRCAM protein amount ratio in blood",
+          "NRCAM",
+          "rs10953562"
+        ],
+        [
+          109,
+          24.7,
+          97,
+          "bone tissue density",
+          "BUB3P1 - EIF3IP1",
+          "rs532998267"
+        ],
+        [
+          110,
+          21.3,
+          65,
+          "type 2 diabetes mellitus",
+          "RPL3P8 - IMMP2L",
+          "rs719530"
+        ],
+        [
+          111,
+          300,
+          93,
+          "bone tissue density",
+          "IMMP2L",
+          "rs79470474"
+        ],
+        [
+          112,
+          28.3,
+          81,
+          "body height",
+          "LINC03076",
+          "rs1614000"
+        ],
+        [
+          113,
+          33,
+          160,
+          "body height",
+          "SMIM30 - PPP1R3A",
+          "rs2968844"
+        ],
+        [
+          114,
+          48,
+          376,
+          "brain attribute",
+          "FOXP2",
+          "rs10261780"
+        ],
+        [
+          115,
+          66.3,
+          162,
+          "smoking initiation",
+          "LINC01392 - POLR2DP2",
+          "rs10270358"
+        ],
+        [
+          116,
+          300,
+          442,
+          "bone tissue density",
+          "COMETT",
+          "rs73208143"
+        ],
+        [
+          117,
+          300,
+          318,
+          "CFTR mutation carrier status",
+          "CFTR",
+          "rs7802924"
+        ],
+        [
+          118,
+          30.1,
+          45,
+          "smoking initiation",
+          "CTTNBP2 - LSM8",
+          "rs10240110"
+        ],
+        [
+          119,
+          13,
+          41,
+          "spinal cord injury",
+          "LINC02476",
+          "rs529197005"
+        ],
+        [
+          120,
+          300,
+          74,
+          "bone tissue density",
+          "KCND2",
+          "rs78719398"
+        ],
+        [
+          121,
+          1952.4,
+          818,
+          "bone tissue density",
+          "CPED1 - WNT16",
+          "rs2908007"
+        ],
+        [
+          122,
+          300,
+          154,
+          "bone tissue density",
+          "PTPRZ1",
+          "rs1147501"
+        ],
+        [
+          123,
+          121.7,
+          162,
+          "platelet count",
+          "WASL-DT - RNU6-11P",
+          "rs77844289"
+        ],
+        [
+          124,
+          2693.5,
+          166,
+          "CLEC1A/GPR37 protein amount ratio in blood",
+          "SSU72L6 - RNU6-102P",
+          "rs11772431"
+        ],
+        [
+          125,
+          300,
+          62,
+          "bone tissue density",
+          "POT1-AS1",
+          "rs144065755"
+        ],
+        [
+          126,
+          30.5,
+          125,
+          "type 2 diabetes mellitus",
+          "GRM8",
+          "rs117737118"
+        ],
+        [
+          127,
+          179,
+          373,
+          "type 2 diabetes mellitus",
+          "PAX4",
+          "rs2233580"
+        ],
+        [
+          128,
+          142.7,
+          455,
+          "systemic lupus erythematosus",
+          "IRF5 - TNPO3",
+          "rs10488631"
+        ],
+        [
+          129,
+          156.4,
+          329,
+          "HAVCR2/LRRC25 protein amount ratio in blood",
+          "CYCSP20 - TSPAN33",
+          "rs12667978"
+        ],
+        [
+          130,
+          3799.7,
+          1370,
+          "carboxypeptidase A4 measurement",
+          "CPA4",
+          "rs34587586"
+        ],
+        [
+          131,
+          308.7,
+          275,
+          "amount of podocalyxin (human) in blood",
+          "PODXL",
+          "rs3212298"
+        ],
+        [
+          132,
+          67.5,
+          138,
+          "body height",
+          "CHCHD3",
+          "rs12667678"
+        ],
+        [
+          133,
+          300,
+          239,
+          "bone tissue density",
+          "EXOC4",
+          "rs187051347"
+        ],
+        [
+          134,
+          300,
+          250,
+          "bone tissue density",
+          "LRGUK",
+          "rs187934097"
+        ],
+        [
+          135,
+          300,
+          281,
+          "bone tissue density",
+          "CNOT4",
+          "rs145221603"
+        ],
+        [
+          136,
+          36.2,
+          86,
+          "heart rate",
+          "CHRM2",
+          "rs6943656"
+        ],
+        [
+          137,
+          225.3,
+          239,
+          "bone tissue density",
+          "DGKI",
+          "rs117238291"
+        ],
+        [
+          138,
+          240,
+          159,
+          "bone tissue density",
+          "AKR1D1",
+          "rs73155711"
+        ],
+        [
+          139,
+          300,
+          178,
+          "bone tissue density",
+          "KLRG2 - CLEC2L",
+          "rs555782760"
+        ],
+        [
+          140,
+          300,
+          246,
+          "bone tissue density",
+          "KDM7A-DT - RNU6-797P",
+          "rs13242576"
+        ],
+        [
+          141,
+          482.7,
+          106,
+          "C-type lectin domain family 5 member A measurement",
+          "MGAM",
+          "rs6962383"
+        ],
+        [
+          142,
+          462.7,
+          197,
+          "ephrin type-B receptor 6 amount",
+          "TRBV30 - EPHB6",
+          "rs7789303"
+        ],
+        [
+          143,
+          777.4,
+          161,
+          "ephrin type-A receptor 1 amount",
+          "EPHA1",
+          "rs4725617"
+        ],
+        [
+          144,
+          228.7,
+          97,
+          "amount of Rho guanine nucleotide exchange factor 5 in blood",
+          "TPK1",
+          "rs13230714"
+        ],
+        [
+          145,
+          1517.3,
+          84,
+          "CNTNAP2/DPP6 protein amount ratio in blood",
+          "DPY19L4P2 - CNTNAP2",
+          "rs10952625"
+        ],
+        [
+          146,
+          177.1,
+          97,
+          "amount of contactin-associated protein-like 2 (human) in blood",
+          "CNTNAP2",
+          "rs2462603"
+        ],
+        [
+          147,
+          16.7,
+          98,
+          "amount of contactin-associated protein-like 2 (human) in blood",
+          "CNTNAP2",
+          "rs13245543"
+        ],
+        [
+          148,
+          300,
+          249,
+          "body height",
+          "RN7SL569P - RNY4",
+          "rs822531"
+        ],
+        [
+          149,
+          300,
+          207,
+          "bone tissue density",
+          "ZNF425",
+          "rs146874759"
+        ],
+        [
+          150,
+          1178.3,
+          816,
+          "protein measurement",
+          "AOC1",
+          "rs10452848"
+        ],
+        [
+          151,
+          245.5,
+          746,
+          "hematocrit",
+          "PRKAG2",
+          "rs10224210"
+        ],
+        [
+          152,
+          43.5,
+          75,
+          "platelet volume",
+          "XRCC2 - ATP5PBP3",
+          "rs3218382"
+        ],
+        [
+          153,
+          51.5,
+          116,
+          "alcohol consumption characteristic",
+          "DPP6",
+          "rs2622238"
+        ],
+        [
+          154,
+          386.7,
+          82,
+          "DPP6/NELL2 protein amount ratio in blood",
+          "DPP6",
+          "rs3734960"
+        ],
+        [
+          155,
+          60.5,
+          211,
+          "glomerular filtration rate",
+          "SHH - Y_RNA",
+          "rs288766"
+        ],
+        [
+          156,
+          64.4,
+          223,
+          "blood protein amount",
+          "Y_RNA - RNF32-DT",
+          "rs10225292"
+        ],
+        [
+          157,
+          300,
+          170,
+          "bone tissue density",
+          "PTPRN2",
+          "rs117493864"
+        ],
+        [
+          158,
+          195.2,
+          144,
+          "MOG/PTPRN2 protein amount ratio in blood",
+          "PTPRN2",
+          "rs3800860"
+        ],
+        [
+          159,
+          44.5,
+          62,
+          "refractive error",
+          "VIPR2",
+          "rs12234576"
+        ]
+      ],
+      "8": [
+        [
+          0,
+          300,
+          88,
+          "bone tissue density",
+          "DLGAP2",
+          "rs73181042"
+        ],
+        [
+          1,
+          227.3,
+          212,
+          "rho guanine nucleotide exchange factor 10 measurement",
+          "KBTBD11-OT1",
+          "rs62477464"
+        ],
+        [
+          2,
+          80.4,
+          90,
+          "bone tissue density",
+          "MYOM2 - LINC03021",
+          "rs118074671"
+        ],
+        [
+          3,
+          34.7,
+          171,
+          "mean corpuscular hemoglobin concentration",
+          "CSMD1",
+          "rs73185547"
+        ],
+        [
+          4,
+          300,
+          246,
+          "bone tissue density",
+          "CSMD1",
+          "rs117708146"
+        ],
+        [
+          5,
+          19.5,
+          145,
+          "bone tissue density",
+          "RN7SL318P - RPL23AP54",
+          "rs147139776"
+        ],
+        [
+          6,
+          554.7,
+          476,
+          "protein measurement",
+          "GS1-24F4.2",
+          "rs2978857"
+        ],
+        [
+          7,
+          312.4,
+          236,
+          "neutrophil measurement",
+          "DEFA1B - DEFT1P2",
+          "rs149286471"
+        ],
+        [
+          8,
+          115.7,
+          1800,
+          "hematological measurement",
+          "MFHAS1",
+          "rs12677543"
+        ],
+        [
+          9,
+          1074.2,
+          3621,
+          "GYS1/PPP1R2 protein amount ratio in blood",
+          "PPP1R3B-DT",
+          "rs3748136"
+        ],
+        [
+          10,
+          300,
+          2344,
+          "bone tissue density",
+          "XKR6",
+          "rs147614383"
+        ],
+        [
+          11,
+          422.3,
+          2721,
+          "cathepsin B measurement",
+          "CTSB",
+          "rs1736084"
+        ],
+        [
+          12,
+          300,
+          191,
+          "bone tissue density",
+          "LINC03019",
+          "rs117167001"
+        ],
+        [
+          13,
+          124.2,
+          248,
+          "body height",
+          "DLC1",
+          "rs2046193"
+        ],
+        [
+          14,
+          135.2,
+          168,
+          "adolescent idiopathic scoliosis",
+          "SGCZ",
+          "rs41416745"
+        ],
+        [
+          15,
+          152.2,
+          164,
+          "bone tissue density",
+          "SGCZ",
+          "rs117238169"
+        ],
+        [
+          16,
+          322.2,
+          142,
+          "amount of macrophage scavenger receptor types I and II (human) in blood",
+          "MSR1",
+          "rs76393968"
+        ],
+        [
+          17,
+          418.4,
+          275,
+          "protein measurement",
+          "FGL1",
+          "rs7815429"
+        ],
+        [
+          18,
+          1296,
+          917,
+          "5-acetylamino-6-formylamino-3-methyluracil measurement",
+          "NAT2 - PSD3",
+          "rs4921913"
+        ],
+        [
+          19,
+          1503.4,
+          4142,
+          "triglyceride measurement",
+          "LPL",
+          "rs117199990"
+        ],
+        [
+          20,
+          514.2,
+          1751,
+          "total lipids in large HDL",
+          "LPL - RPL30P9",
+          "rs115849089"
+        ],
+        [
+          21,
+          446.2,
+          329,
+          "amount of GDNF family receptor alpha-2 (human) in blood",
+          "LINC03093 - GFRA2",
+          "rs2410696"
+        ],
+        [
+          22,
+          276,
+          342,
+          "protein measurement",
+          "PEBP4, EGR3-AS1",
+          "rs1047398"
+        ],
+        [
+          23,
+          1441.5,
+          1017,
+          "EFNA4/TNFRSF10A protein amount ratio in blood",
+          "TNFRSF10A-DT",
+          "rs79037040"
+        ],
+        [
+          24,
+          300,
+          131,
+          "body height",
+          "ADAM7-AS1",
+          "rs2013265"
+        ],
+        [
+          25,
+          253.2,
+          734,
+          "body height",
+          "CDCA2",
+          "rs3812421"
+        ],
+        [
+          26,
+          90.7,
+          389,
+          "body height",
+          "PNMA2",
+          "rs9886448"
+        ],
+        [
+          27,
+          990.7,
+          595,
+          "SCARA5/TNC protein amount ratio in blood",
+          "SCARA5",
+          "rs2685411"
+        ],
+        [
+          28,
+          75.7,
+          145,
+          "scavenger receptor class A member 5 measurement",
+          "SCARA5 - NUGGC",
+          "rs13268250"
+        ],
+        [
+          29,
+          32.2,
+          89,
+          "low density lipoprotein cholesterol measurement",
+          "KIF13B",
+          "rs117139027"
+        ],
+        [
+          30,
+          161.7,
+          284,
+          "body height",
+          "RBPMS",
+          "rs13248936"
+        ],
+        [
+          31,
+          42.2,
+          134,
+          "educational attainment",
+          "PURG",
+          "rs12234936"
+        ],
+        [
+          32,
+          300,
+          229,
+          "bone tissue density",
+          "NRG1",
+          "rs139389953"
+        ],
+        [
+          33,
+          410,
+          93,
+          "alpha-(1,3)-fucosyltransferase 10 measurement",
+          "FUT10",
+          "rs62510527"
+        ],
+        [
+          34,
+          300,
+          103,
+          "bone tissue density",
+          "RPL10AP3 - LINC01288",
+          "rs184905742"
+        ],
+        [
+          35,
+          93.4,
+          73,
+          "bone tissue density",
+          "UNC5D",
+          "rs139807600"
+        ],
+        [
+          36,
+          253.4,
+          102,
+          "bone tissue density",
+          "RPL23P10 - RNA5SP264",
+          "rs188663015"
+        ],
+        [
+          37,
+          61.3,
+          115,
+          "bone tissue density",
+          "ADGRA2",
+          "rs113270504"
+        ],
+        [
+          38,
+          260.3,
+          265,
+          "age at menopause",
+          "RPL12P48 - EIF4EBP1",
+          "rs3750243"
+        ],
+        [
+          39,
+          75,
+          66,
+          "amount of disintegrin and metalloproteinase domain-containing protein 9 in blood",
+          "ADAM9",
+          "rs61753672"
+        ],
+        [
+          40,
+          127.4,
+          148,
+          "refractive error",
+          "ZMAT4",
+          "rs16890057"
+        ],
+        [
+          41,
+          558.5,
+          572,
+          "erythrocyte volume",
+          "ANK1",
+          "rs4737010"
+        ],
+        [
+          42,
+          369.7,
+          262,
+          "amount of dickkopf-related protein 4 (human) in blood",
+          "POLB",
+          "rs3136745"
+        ],
+        [
+          43,
+          28.7,
+          62,
+          "mean reticulocyte volume",
+          "CYP4F44P - HSPA8P13",
+          "rs544948835"
+        ],
+        [
+          45,
+          10.7,
+          5,
+          "intraocular pressure measurement",
+          "CYP4F44P - HSPA8P13",
+          "rs8188557"
+        ],
+        [
+          46,
+          300,
+          49,
+          "bone tissue density",
+          "CYP4F44P - HSPA8P13",
+          "rs117059893"
+        ],
+        [
+          47,
+          77,
+          135,
+          "hematological measurement",
+          "CEBPD - PRKDC",
+          "rs45577137"
+        ],
+        [
+          48,
+          234.2,
+          129,
+          "body height",
+          "RPL29P19 - LINC02947",
+          "rs7014106"
+        ],
+        [
+          49,
+          68.2,
+          42,
+          "metabolite measurement",
+          "PPDPFL",
+          "rs7009890"
+        ],
+        [
+          50,
+          21.2,
+          53,
+          "smoking initiation",
+          "SNTG1",
+          "rs203620"
+        ],
+        [
+          51,
+          249.7,
+          93,
+          "peroxidasin-like protein measurement",
+          "PXDNL",
+          "rs7833909"
+        ],
+        [
+          52,
+          37.5,
+          95,
+          "pulse pressure measurement",
+          "ST18 - ALKAL1",
+          "rs551353004"
+        ],
+        [
+          53,
+          25.5,
+          80,
+          "body height",
+          "NPBWR1 - OPRK1",
+          "rs975045"
+        ],
+        [
+          54,
+          118,
+          195,
+          "lysosomal Pro-X carboxypeptidase measurement",
+          "RP1",
+          "rs10104997"
+        ],
+        [
+          55,
+          59.5,
+          139,
+          "platelet volume",
+          "TGS1 - LYN",
+          "rs13259933"
+        ],
+        [
+          56,
+          304.1,
+          413,
+          "body height",
+          "CHCHD7 - SDR16C5",
+          "rs36063247"
+        ],
+        [
+          57,
+          47.7,
+          50,
+          "body height",
+          "LINC01606",
+          "rs6997668"
+        ],
+        [
+          58,
+          172.2,
+          693,
+          "total cholesterol measurement",
+          "UBXN2B - CYP7A1",
+          "rs9297994"
+        ],
+        [
+          59,
+          300,
+          170,
+          "bone tissue density",
+          "RNA5SP267 - SLC2A13P1",
+          "rs76439253"
+        ],
+        [
+          60,
+          209.4,
+          407,
+          "hematological measurement",
+          "CHD7",
+          "rs11775560"
+        ],
+        [
+          61,
+          48,
+          94,
+          "aspartyl/asparaginyl beta-hydroxylase measurement",
+          "MIR4470 - LINC02842",
+          "rs2350578"
+        ],
+        [
+          62,
+          126.5,
+          47,
+          "gamma-glutamyl hydrolase measurement",
+          "NKAIN3",
+          "rs34587886"
+        ],
+        [
+          63,
+          260.1,
+          251,
+          "gamma-glutamyl hydrolase measurement",
+          "GGH",
+          "rs12676348"
+        ],
+        [
+          64,
+          39.7,
+          111,
+          "smoking initiation",
+          "LINC01414",
+          "rs7832370"
+        ],
+        [
+          65,
+          34.4,
+          127,
+          "bone tissue density",
+          "CYP7B1 - RPL31P41",
+          "rs150043903"
+        ],
+        [
+          66,
+          301,
+          96,
+          "corticoliberin measurement",
+          "RRS1-DT",
+          "rs61160606"
+        ],
+        [
+          67,
+          50.2,
+          92,
+          "myeloid leukocyte count",
+          "NDUFS5P6 - PREX2",
+          "rs62511286"
+        ],
+        [
+          68,
+          63.5,
+          95,
+          "body height",
+          "C8orf34 - LINC01592",
+          "rs4737917"
+        ],
+        [
+          69,
+          92,
+          142,
+          "leukocyte quantity",
+          "SLCO5A1",
+          "rs4738028"
+        ],
+        [
+          70,
+          410.5,
+          268,
+          "amount of gastrotropin in blood",
+          "XKR9",
+          "rs56043721"
+        ],
+        [
+          71,
+          300,
+          413,
+          "bone tissue density",
+          "EYA1",
+          "rs78343200"
+        ],
+        [
+          72,
+          31.7,
+          164,
+          "body height",
+          "KCNB2",
+          "rs7845090"
+        ],
+        [
+          73,
+          78,
+          163,
+          "protein measurement",
+          "SBSPON",
+          "rs2291219"
+        ],
+        [
+          74,
+          272.2,
+          160,
+          "body height",
+          "PI15 - CRISPLD1",
+          "rs2956605"
+        ],
+        [
+          75,
+          200.4,
+          434,
+          "body height",
+          "CRISPLD1 - CASC9",
+          "rs10104443"
+        ],
+        [
+          76,
+          94,
+          222,
+          "basal cell carcinoma",
+          "ZFHX4-AS1",
+          "rs35251485"
+        ],
+        [
+          77,
+          300,
+          188,
+          "body height",
+          "HIGD1AP18 - PKIA-AS1",
+          "rs4735765"
+        ],
+        [
+          78,
+          147,
+          208,
+          "hematological measurement",
+          "ZC2HC1A, IL7",
+          "rs111205650"
+        ],
+        [
+          79,
+          94,
+          51,
+          "bone tissue density",
+          "MITA1 - RPL3P9",
+          "rs184903378"
+        ],
+        [
+          80,
+          88,
+          364,
+          "hematological measurement",
+          "ZBTB10",
+          "rs73691909"
+        ],
+        [
+          81,
+          311,
+          153,
+          "IMPA1/TBCC protein amount ratio in blood",
+          "IMPA1",
+          "rs1058401"
+        ],
+        [
+          82,
+          22.3,
+          36,
+          "CA13/VTA1 protein amount ratio in blood",
+          "HNRNPA1P4 - DPPA3P9",
+          "rs118078845"
+        ],
+        [
+          83,
+          300,
+          45,
+          "bone tissue density",
+          "LINC01419 - TPM3P3",
+          "rs150314432"
+        ],
+        [
+          84,
+          69,
+          90,
+          "bone tissue density",
+          "RALYL",
+          "rs181435237"
+        ],
+        [
+          85,
+          2105.4,
+          151,
+          "CA13/PPIB protein amount ratio in blood",
+          "CA13",
+          "rs7827175"
+        ],
+        [
+          86,
+          345.4,
+          177,
+          "protein measurement",
+          "RMDN1",
+          "rs10106141"
+        ],
+        [
+          87,
+          300,
+          82,
+          "bone tissue density",
+          "CNBD1",
+          "rs72670864"
+        ],
+        [
+          88,
+          77,
+          124,
+          "matrix metalloproteinase-16 measurement",
+          "MMP16 - RNA5SP272",
+          "rs4961089"
+        ],
+        [
+          89,
+          46,
+          78,
+          "Oral ulcer",
+          "PARAIL",
+          "rs11989430"
+        ],
+        [
+          90,
+          300,
+          116,
+          "bone tissue density",
+          "LINC00534, LINC01030",
+          "rs117035011"
+        ],
+        [
+          91,
+          55,
+          103,
+          "body height",
+          "LRRC69, SLC26A7",
+          "rs4339600"
+        ],
+        [
+          92,
+          30.7,
+          145,
+          "smoking initiation",
+          "RUNX1T1 - FLJ46284",
+          "rs9987376"
+        ],
+        [
+          93,
+          300,
+          75,
+          "bone tissue density",
+          "PDP1",
+          "rs185353942"
+        ],
+        [
+          94,
+          541.3,
+          364,
+          "amount of cadherin-17 (human) in blood",
+          "CDH17",
+          "rs11786049"
+        ],
+        [
+          95,
+          300,
+          131,
+          "bone tissue density",
+          "CFAP418-AS1",
+          "rs182145350"
+        ],
+        [
+          96,
+          264.5,
+          84,
+          "amount of carboxypeptidase Q in blood",
+          "CPQ",
+          "rs141107654"
+        ],
+        [
+          97,
+          812.5,
+          177,
+          "amount of matrilin-2 (human) in blood",
+          "MATN2",
+          "rs1869609"
+        ],
+        [
+          98,
+          215.2,
+          90,
+          "amount of protein tyrosine phosphatase type IVA 3 in blood serum",
+          "RIDA",
+          "rs2242197"
+        ],
+        [
+          99,
+          199.7,
+          126,
+          "corticoliberin measurement",
+          "VPS13B",
+          "rs1979117"
+        ],
+        [
+          100,
+          174.5,
+          297,
+          "amount of sperm-associated antigen 1 in blood",
+          "RNF19A - MIR4471",
+          "rs35269620"
+        ],
+        [
+          101,
+          43,
+          109,
+          "body height",
+          "NCALD",
+          "rs512202"
+        ],
+        [
+          102,
+          300,
+          290,
+          "bone tissue density",
+          "UBR5",
+          "rs17435182"
+        ],
+        [
+          103,
+          143.5,
+          68,
+          "amount of collagen triple helix repeat-containing protein 1 in blood",
+          "BAALC-AS1",
+          "rs1095723"
+        ],
+        [
+          104,
+          300,
+          172,
+          "bone tissue density",
+          "DPYS",
+          "rs186653089"
+        ],
+        [
+          105,
+          646,
+          1199,
+          "EDAR/ENO2 protein amount ratio in blood",
+          "ZFPM2, ZFPM2-AS1",
+          "rs6993770"
+        ],
+        [
+          106,
+          22.5,
+          62,
+          "ANGPT1/APP protein amount ratio in blood",
+          "ABRA - HMGB1P46",
+          "rs1462014"
+        ],
+        [
+          107,
+          68.2,
+          252,
+          "ANGPT1/PDGFA protein amount ratio in blood",
+          "ABRA - HMGB1P46",
+          "rs2927122"
+        ],
+        [
+          108,
+          103.5,
+          156,
+          "balding measurement",
+          "AURKBP1 - EIF3E",
+          "rs79206101"
+        ],
+        [
+          109,
+          100.5,
+          116,
+          "EBAG9/MITD1 protein amount ratio in blood",
+          "EBAG9",
+          "rs2703386"
+        ],
+        [
+          110,
+          25.5,
+          38,
+          "bone tissue density",
+          "KCNV1 - RPSAP48",
+          "rs72671073"
+        ],
+        [
+          111,
+          300,
+          62,
+          "bone tissue density",
+          "LINC01609",
+          "rs147529551"
+        ],
+        [
+          112,
+          300,
+          41,
+          "bone tissue density",
+          "CSMD3",
+          "rs192964443"
+        ],
+        [
+          113,
+          13.4,
+          43,
+          "adolescent idiopathic scoliosis",
+          "CSMD3",
+          "rs9283946"
+        ],
+        [
+          114,
+          16.3,
+          58,
+          "smoking initiation",
+          "Y_RNA - CARS1P2",
+          "rs7829948"
+        ],
+        [
+          115,
+          300,
+          1084,
+          "bone tissue density",
+          "CARS1P2 - TRPS1",
+          "rs79510715"
+        ],
+        [
+          116,
+          208.3,
+          199,
+          "body height",
+          "LINC00536 - EIF3H",
+          "rs1550162"
+        ],
+        [
+          117,
+          300,
+          326,
+          "bone tissue density",
+          "EXT1",
+          "rs142610507"
+        ],
+        [
+          118,
+          300,
+          228,
+          "bone tissue density",
+          "SAMD12-AS1",
+          "rs72680349"
+        ],
+        [
+          119,
+          489.2,
+          459,
+          "amount of autotaxin (human) in blood",
+          "ENPP2",
+          "rs13267597"
+        ],
+        [
+          120,
+          91.7,
+          183,
+          "body height",
+          "COL14A1",
+          "rs17833457"
+        ],
+        [
+          121,
+          300,
+          98,
+          "bone tissue density",
+          "SNTB1-AS1 - RPL35AP19",
+          "rs77556601"
+        ],
+        [
+          122,
+          139.2,
+          106,
+          "body height",
+          "ZHX2",
+          "rs3802266"
+        ],
+        [
+          123,
+          54.2,
+          200,
+          "atrial fibrillation",
+          "FBXO32",
+          "rs78332318"
+        ],
+        [
+          124,
+          30.2,
+          140,
+          "benign neoplasm of eye",
+          "LINC00964",
+          "rs55679363"
+        ],
+        [
+          125,
+          893.7,
+          3849,
+          "triglyceride measurement",
+          "TRIB1AL",
+          "rs28601761"
+        ],
+        [
+          126,
+          300,
+          138,
+          "bone tissue density",
+          "RNU6-869P - LRATD2",
+          "rs151329245"
+        ],
+        [
+          127,
+          567,
+          960,
+          "prostate carcinoma",
+          "CASC8 - CASC11",
+          "rs11986220"
+        ],
+        [
+          128,
+          202.4,
+          455,
+          "body height",
+          "PVT1",
+          "rs1902778"
+        ],
+        [
+          129,
+          701.5,
+          825,
+          "monocyte count",
+          "CCDC26",
+          "rs2395906"
+        ],
+        [
+          130,
+          117.7,
+          174,
+          "platelet volume",
+          "ASAP1",
+          "rs1158569"
+        ],
+        [
+          131,
+          12.5,
+          74,
+          "body mass index",
+          "SNORA72 - EFR3A",
+          "rs6983749"
+        ],
+        [
+          132,
+          632.5,
+          194,
+          "protein measurement",
+          "TG",
+          "rs2739063"
+        ],
+        [
+          133,
+          999.3,
+          303,
+          "amount of CCN family member 4 in blood",
+          "CCN4",
+          "rs60282000"
+        ],
+        [
+          134,
+          300,
+          355,
+          "body height",
+          "ZFAT",
+          "rs12541381"
+        ],
+        [
+          135,
+          300,
+          48,
+          "bone tissue density",
+          "KHDRBS3",
+          "rs80057088"
+        ],
+        [
+          136,
+          27.7,
+          48,
+          "atopic eczema",
+          "LINC02055",
+          "rs1841513"
+        ],
+        [
+          137,
+          20.4,
+          68,
+          "body weight",
+          "RNU6-144P - ZYXP1",
+          "rs73712228"
+        ],
+        [
+          138,
+          27,
+          111,
+          "retinal degeneration",
+          "COL22A1",
+          "rs10094560"
+        ],
+        [
+          139,
+          46,
+          104,
+          "body height",
+          "KCNK9",
+          "rs11988314"
+        ],
+        [
+          140,
+          300,
+          229,
+          "bone tissue density",
+          "AGO2",
+          "rs183539675"
+        ],
+        [
+          141,
+          45.3,
+          401,
+          "aspartate aminotransferase measurement",
+          "SLC45A4",
+          "rs4961258"
+        ],
+        [
+          142,
+          1206.7,
+          628,
+          "LY6D/NECTIN4 protein amount ratio in blood",
+          "LY6D - GML",
+          "rs2585158"
+        ],
+        [
+          143,
+          300,
+          887,
+          "bone tissue density",
+          "EPPK1 - PLEC",
+          "rs77372006"
+        ],
+        [
+          144,
+          652.7,
+          465,
+          "serum alanine aminotransferase amount",
+          "GPT",
+          "rs147998249"
+        ],
+        [
+          145,
+          8,
+          1,
+          "body height",
+          "ZNF252P-AS1",
+          "rs187149998"
+        ]
+      ],
+      "9": [
+        [
+          0,
+          205.3,
+          359,
+          "platelet volume",
+          "DOCK8",
+          "rs10813766"
+        ],
+        [
+          1,
+          61.4,
+          258,
+          "synophrys measurement",
+          "DMRT2 - RPS27AP14",
+          "rs7861975"
+        ],
+        [
+          2,
+          278.7,
+          296,
+          "amount of vascular endothelial growth factor A",
+          "VLDLR - KCNV2",
+          "rs11789392"
+        ],
+        [
+          3,
+          300,
+          174,
+          "bone tissue density",
+          "RFX3",
+          "rs140510068"
+        ],
+        [
+          4,
+          511.1,
+          1141,
+          "platelet count",
+          "AK3 - ECM1P1",
+          "rs692502"
+        ],
+        [
+          5,
+          2775.3,
+          556,
+          "amount of programmed cell death 1 ligand 2 (human) in blood",
+          "PDCD1LG2",
+          "rs62556120"
+        ],
+        [
+          6,
+          395,
+          478,
+          "eosinophil count",
+          "GTF3AP1 - IL33",
+          "rs1888909"
+        ],
+        [
+          7,
+          153.7,
+          145,
+          "bone tissue density",
+          "DMAC1 - PTPRD",
+          "rs10976700"
+        ],
+        [
+          8,
+          300,
+          184,
+          "bone tissue density",
+          "DMAC1 - PTPRD",
+          "rs201667680"
+        ],
+        [
+          9,
+          67.5,
+          108,
+          "restless legs syndrome",
+          "PTPRD",
+          "rs4596705"
+        ],
+        [
+          10,
+          300,
+          131,
+          "bone tissue density",
+          "LINC03131",
+          "rs72706858"
+        ],
+        [
+          11,
+          69.7,
+          202,
+          "bone tissue density",
+          "LINC03131 - JKAMPP1",
+          "rs77043780"
+        ],
+        [
+          12,
+          249.3,
+          96,
+          "eye color",
+          "LURAP1L-AS1",
+          "rs13297008"
+        ],
+        [
+          13,
+          91.4,
+          227,
+          "corneal resistance factor",
+          "LINC01235 - LINC00583",
+          "rs34944131"
+        ],
+        [
+          14,
+          213.2,
+          285,
+          "protein measurement",
+          "FREM1",
+          "rs10810270"
+        ],
+        [
+          15,
+          158,
+          617,
+          "total lipids in large LDL",
+          "TTC39B",
+          "rs686030"
+        ],
+        [
+          16,
+          172.4,
+          700,
+          "basal cell carcinoma",
+          "BNC2",
+          "rs2153271"
+        ],
+        [
+          17,
+          99,
+          153,
+          "body height",
+          "BNC2 - RN7SL720P",
+          "rs10962813"
+        ],
+        [
+          18,
+          300,
+          149,
+          "bone tissue density",
+          "ADAMTSL1",
+          "rs10963790"
+        ],
+        [
+          19,
+          300,
+          170,
+          "bone tissue density",
+          "SLC24A2 - MLLT3",
+          "rs144789655"
+        ],
+        [
+          20,
+          300,
+          153,
+          "bone tissue density",
+          "FOCAD",
+          "rs78134633"
+        ],
+        [
+          21,
+          300,
+          326,
+          "bone tissue density",
+          "IFNA22P - IFNA5",
+          "rs185140648"
+        ],
+        [
+          22,
+          355.1,
+          1308,
+          "type 2 diabetes mellitus",
+          "CDKN2B-AS1",
+          "rs10811661"
+        ],
+        [
+          23,
+          83.3,
+          402,
+          "educational attainment",
+          "LINC03142",
+          "rs4557790"
+        ],
+        [
+          24,
+          16.2,
+          57,
+          "adolescent idiopathic scoliosis",
+          "IZUMO3 - RMRPP5",
+          "rs12338478"
+        ],
+        [
+          25,
+          13.2,
+          105,
+          "body height",
+          "RN7SKP120 - TUSC1",
+          "rs3126962"
+        ],
+        [
+          26,
+          300,
+          89,
+          "bone tissue density",
+          "GARIN3P1 - LINC03106",
+          "rs72712645"
+        ],
+        [
+          27,
+          955,
+          206,
+          "amount of angiopoietin-1 receptor (human) in blood",
+          "TEK",
+          "rs511619"
+        ],
+        [
+          28,
+          74.7,
+          263,
+          "body mass index",
+          "LINGO2",
+          "rs10968576"
+        ],
+        [
+          29,
+          300,
+          97,
+          "bone tissue density",
+          "LINGO2 - ME2P1",
+          "rs36114921"
+        ],
+        [
+          30,
+          23.2,
+          85,
+          "prostate cancer",
+          "FTLP4 - HSPA8P17",
+          "rs143976741"
+        ],
+        [
+          31,
+          27,
+          71,
+          "motion sickness",
+          "LINC01243",
+          "rs10970305"
+        ],
+        [
+          32,
+          358,
+          175,
+          "amount of antiviral innate immune response receptor RIG-I in blood",
+          "ACO1 - RIGI",
+          "rs7045087"
+        ],
+        [
+          33,
+          3105.1,
+          503,
+          "REG4/SPINK4 protein amount ratio in blood",
+          "SPINK4",
+          "rs1702669"
+        ],
+        [
+          34,
+          581.7,
+          397,
+          "INPP1/NUDT2 protein amount ratio in blood",
+          "NUDT2",
+          "rs7039222"
+        ],
+        [
+          35,
+          504,
+          324,
+          "RGMA/RGMB protein amount ratio in blood",
+          "TMEM8B",
+          "rs2236293"
+        ],
+        [
+          36,
+          300,
+          98,
+          "bone tissue density",
+          "PAX5",
+          "rs138296128"
+        ],
+        [
+          37,
+          300,
+          181,
+          "bone tissue density",
+          "ZCCHC7",
+          "rs140817625"
+        ],
+        [
+          38,
+          880.7,
+          163,
+          "amount of insulin-like growth factor-binding protein-like 1 in blood",
+          "ALDH1B1 - IGFBPL1",
+          "rs4878201"
+        ],
+        [
+          39,
+          7.3,
+          4,
+          "sleep apnea measurement during non-REM sleep",
+          "CNTNAP3",
+          "rs28839606"
+        ],
+        [
+          40,
+          10.3,
+          3,
+          "chromosome, telomeric region length",
+          "MEP1AP1 - FAM95B1",
+          "rs117401093"
+        ],
+        [
+          41,
+          7.5,
+          1,
+          "amount of vitamin D",
+          "RN7SL565P - FAM242F",
+          "rs1391339232"
+        ],
+        [
+          42,
+          14.1,
+          2,
+          "visual perception quality",
+          "ANKRD20A7P",
+          "rs28575663"
+        ],
+        [
+          61,
+          16.4,
+          2,
+          "visual perception quality",
+          "Y_RNA - RN7SL722P",
+          "rs138877551"
+        ],
+        [
+          63,
+          11,
+          7,
+          "Anxiety",
+          "MYO5BP3 - CDK2AP2P3",
+          "rs77922510"
+        ],
+        [
+          64,
+          8.7,
+          1,
+          "alcohol consumption characteristic",
+          "FLJ43315 - ANKRD20A4P",
+          "rs1388110958"
+        ],
+        [
+          65,
+          7.5,
+          3,
+          "glomerular filtration rate",
+          "IGKV1OR9-1 - FOXD4L5",
+          "rs369765037"
+        ],
+        [
+          67,
+          8.5,
+          1,
+          "serum creatinine amount",
+          "ANKRD20A1",
+          "rs534922938"
+        ],
+        [
+          68,
+          108.5,
+          136,
+          "serum creatinine amount",
+          "PIP5K1B",
+          "rs4744712"
+        ],
+        [
+          69,
+          190.1,
+          147,
+          "MAM domain-containing protein 2 measurement",
+          "CFAP95 - MAMDC2-AS1",
+          "rs62572585"
+        ],
+        [
+          70,
+          54.7,
+          158,
+          "corneal resistance factor",
+          "MAMDC2-AS1, MAMDC2",
+          "rs139498917"
+        ],
+        [
+          71,
+          80.7,
+          87,
+          "amount of cell surface hyaluronidase in blood",
+          "CEMIP2",
+          "rs191912523"
+        ],
+        [
+          72,
+          104,
+          65,
+          "ALDH1A1/RBKS protein amount ratio in blood",
+          "ALDH1A1",
+          "rs348463"
+        ],
+        [
+          73,
+          53,
+          106,
+          "annexin A1 measurement",
+          "ANXA1",
+          "rs62541553"
+        ],
+        [
+          74,
+          47.5,
+          179,
+          "body height",
+          "RORB",
+          "rs1327827"
+        ],
+        [
+          75,
+          300,
+          161,
+          "bone tissue density",
+          "NMRK1",
+          "rs117415762"
+        ],
+        [
+          76,
+          961.3,
+          217,
+          "beta-1,3-galactosyl-O-glycosyl-glycoprotein beta-1,6-N-acetylglucosaminyltransferase measurement",
+          "GCNT1",
+          "rs3808903"
+        ],
+        [
+          77,
+          236,
+          97,
+          "bone tissue density",
+          "VPS13A",
+          "rs112578477"
+        ],
+        [
+          78,
+          300,
+          112,
+          "bone tissue density",
+          "CEP78",
+          "rs76831994"
+        ],
+        [
+          79,
+          112,
+          207,
+          "amount of C-type lectin domain family 10 member A in blood",
+          "TLE4",
+          "rs13294683"
+        ],
+        [
+          80,
+          300,
+          109,
+          "bone tissue density",
+          "LINC01507 - NPAP1P4",
+          "rs117644227"
+        ],
+        [
+          81,
+          300,
+          175,
+          "bone tissue density",
+          "RPS19P6 - RPS20P25",
+          "rs147684499"
+        ],
+        [
+          82,
+          104.4,
+          124,
+          "body height",
+          "MTCO3P40 - RPS6P12",
+          "rs13295637"
+        ],
+        [
+          83,
+          120.4,
+          360,
+          "heel bone mineral density, sex hormone-binding globulin measurement",
+          "HNRNPK",
+          "rs796004"
+        ],
+        [
+          84,
+          300,
+          219,
+          "bone tissue density",
+          "SLC28A3",
+          "rs144953509"
+        ],
+        [
+          85,
+          23.2,
+          52,
+          "glioma pathogenesis-related protein 1 measurement",
+          "AGTPBP1 - PHB1P7",
+          "rs773717544"
+        ],
+        [
+          86,
+          300,
+          192,
+          "body height",
+          "RNU2-36P - LINC02834",
+          "rs466390"
+        ],
+        [
+          87,
+          179.7,
+          141,
+          "body height",
+          "LINC02872 - DAPK1",
+          "rs277751"
+        ],
+        [
+          88,
+          282,
+          299,
+          "body height",
+          "SPATA31C2 - RPSAP49",
+          "rs10780905"
+        ],
+        [
+          89,
+          1163.3,
+          377,
+          "semaphorin-4D measurement",
+          "SEMA4D",
+          "rs45464494"
+        ],
+        [
+          90,
+          55.2,
+          145,
+          "adolescent idiopathic scoliosis",
+          "OR7E108P",
+          "rs12380216"
+        ],
+        [
+          91,
+          168.5,
+          218,
+          "body height",
+          "ROR2",
+          "rs10761129"
+        ],
+        [
+          92,
+          3780.7,
+          363,
+          "COL6A3/OGN protein amount ratio in blood",
+          "ASPN, CENPP",
+          "rs8067"
+        ],
+        [
+          93,
+          301.7,
+          491,
+          "amount of ninjurin-1 in blood",
+          "CARD19 - NINJ1",
+          "rs11379524"
+        ],
+        [
+          94,
+          573,
+          309,
+          "amount of fructose-1,6-bisphosphatase 1 (human) in blood",
+          "PCAT7",
+          "rs117815264"
+        ],
+        [
+          95,
+          300,
+          638,
+          "body height",
+          "PTCH1",
+          "rs28701981"
+        ],
+        [
+          96,
+          696.7,
+          519,
+          "protein measurement",
+          "ZNF367 - HABP4",
+          "rs10820606"
+        ],
+        [
+          97,
+          952.2,
+          476,
+          "hypothyroidism",
+          "PTCSC2",
+          "rs925489"
+        ],
+        [
+          98,
+          169.2,
+          225,
+          "brain attribute",
+          "GALNT12 - NME2P3",
+          "rs7023465"
+        ],
+        [
+          99,
+          168,
+          231,
+          "collagen alpha-1(XV) chain measurement",
+          "COL15A1",
+          "rs10819566"
+        ],
+        [
+          100,
+          62.3,
+          130,
+          "bone tissue density",
+          "ACTG1P19 - GAPDHP26",
+          "rs77362123"
+        ],
+        [
+          101,
+          134.4,
+          197,
+          "alkaline phosphatase measurement",
+          "ALDOB - TMEM246-AS1",
+          "rs768202369"
+        ],
+        [
+          102,
+          300,
+          52,
+          "bone tissue density",
+          "ARL2BPP7 - RNU6-329P",
+          "rs76839492"
+        ],
+        [
+          103,
+          20.4,
+          47,
+          "body height",
+          "SMC2-DT",
+          "rs1348455"
+        ],
+        [
+          104,
+          491.4,
+          1929,
+          "high density lipoprotein cholesterol measurement",
+          "ABCA1",
+          "rs2740488"
+        ],
+        [
+          105,
+          241.1,
+          139,
+          "bone tissue density",
+          "SLC44A1",
+          "rs145834655"
+        ],
+        [
+          106,
+          300,
+          404,
+          "body height",
+          "ZNF462",
+          "rs7874161"
+        ],
+        [
+          107,
+          300,
+          267,
+          "bone tissue density",
+          "ZNF462 - RAD23B",
+          "rs143619196"
+        ],
+        [
+          108,
+          300,
+          214,
+          "bone tissue density",
+          "ACTL7B - ACTL7A",
+          "rs148677168"
+        ],
+        [
+          109,
+          177.3,
+          305,
+          "amount of paralemmin-2 (human) in blood",
+          "PALM2AKAP2",
+          "rs17202329"
+        ],
+        [
+          110,
+          220,
+          392,
+          "bone tissue density",
+          "PALM2AKAP2",
+          "rs72757010"
+        ],
+        [
+          111,
+          568.4,
+          540,
+          "monocyte count",
+          "RNY4P18 - MIR7702",
+          "rs115162333"
+        ],
+        [
+          112,
+          123.5,
+          189,
+          "SCARF1/SUSD1 protein amount ratio in blood",
+          "SUSD1",
+          "rs7875332"
+        ],
+        [
+          113,
+          76.2,
+          228,
+          "body height",
+          "RGS3",
+          "rs7021491"
+        ],
+        [
+          114,
+          318.4,
+          686,
+          "amount of transforming growth factor-beta-induced protein ig-h3 (human) in blood",
+          "ORM1",
+          "rs10982156"
+        ],
+        [
+          115,
+          1959.4,
+          342,
+          "protein measurement",
+          "DELEC1, TNC",
+          "rs1138545"
+        ],
+        [
+          116,
+          300,
+          733,
+          "body height",
+          "PAPPA",
+          "rs751543"
+        ],
+        [
+          117,
+          216.7,
+          318,
+          "toll-like receptor 4:Lymphocyte antigen 96 complex amount",
+          "TLR4",
+          "rs117343502"
+        ],
+        [
+          118,
+          11,
+          70,
+          "body mass index",
+          "TPT1P9 - LINC02578",
+          "rs1327808"
+        ],
+        [
+          119,
+          116.5,
+          173,
+          "body height",
+          "BRINP1 - LINC01613",
+          "rs11794984"
+        ],
+        [
+          120,
+          532,
+          250,
+          "EGFR/MEGF9 protein amount ratio in blood",
+          "MEGF9 - AHCYP2",
+          "rs7036196"
+        ],
+        [
+          121,
+          300,
+          197,
+          "bone tissue density",
+          "GSN",
+          "rs117584126"
+        ],
+        [
+          122,
+          86.2,
+          121,
+          "body height",
+          "RABGAP1",
+          "rs10818768"
+        ],
+        [
+          123,
+          117.4,
+          307,
+          "body height",
+          "RABGAP1",
+          "rs2241083"
+        ],
+        [
+          124,
+          133.5,
+          244,
+          "strand of hair color",
+          "LHX2 - NEK6",
+          "rs4838097"
+        ],
+        [
+          125,
+          111.5,
+          306,
+          "rab9 effector protein with kelch motifs measurement",
+          "RABEPK",
+          "rs11788700"
+        ],
+        [
+          126,
+          151.7,
+          306,
+          "bone tissue density",
+          "RALGPS1",
+          "rs77738809"
+        ],
+        [
+          127,
+          354.7,
+          311,
+          "amount of endoglin (human) in blood",
+          "ENG",
+          "rs11794565"
+        ],
+        [
+          128,
+          503.7,
+          424,
+          "2'-O-methyluridine measurement",
+          "PHYHD1",
+          "rs28373373"
+        ],
+        [
+          129,
+          300,
+          252,
+          "bone tissue density",
+          "IER5L-AS1 - LINC02975",
+          "rs192906910"
+        ],
+        [
+          130,
+          300,
+          287,
+          "body height",
+          "ASS1 - FUBP3",
+          "rs7030440"
+        ],
+        [
+          131,
+          1596.7,
+          166,
+          "protein measurement",
+          "LAMC3",
+          "rs2315073"
+        ],
+        [
+          132,
+          418.7,
+          592,
+          "platelet count",
+          "GFI1B",
+          "rs150813342"
+        ],
+        [
+          133,
+          5247.4,
+          5074,
+          "histo-blood group ABO system transferase measurement",
+          "ABO",
+          "rs576125"
+        ],
+        [
+          134,
+          2317.2,
+          760,
+          "ficolin-2 measurement",
+          "FCN2",
+          "rs7041446"
+        ],
+        [
+          135,
+          2807,
+          218,
+          "PAEP/PROK1 protein amount ratio in blood",
+          "LINC01502",
+          "rs697449"
+        ],
+        [
+          136,
+          305.2,
+          997,
+          "mast cell-expressed membrane protein 1 measurement",
+          "NACC2 - LINC02846",
+          "rs10776883"
+        ],
+        [
+          137,
+          1546,
+          305,
+          "DPP7/SIAE protein amount ratio in blood",
+          "DPP7",
+          "rs10747049"
+        ],
+        [
+          138,
+          12.5,
+          21,
+          "smoking initiation",
+          "CACNA1B",
+          "rs11137374"
+        ]
+      ],
+      "10": [
+        [
+          0,
+          128.2,
+          208,
+          "hematological measurement",
+          "LARP4B-DT",
+          "rs71494940"
+        ],
+        [
+          1,
+          224,
+          116,
+          "amount of isopentenyl-diphosphate Delta-isomerase 2 in blood",
+          "IDI2, IDI2-AS1",
+          "rs3829163"
+        ],
+        [
+          2,
+          85.7,
+          102,
+          "melanoma-associated antigen 10 measurement",
+          "LINC02645 - PFKP-DT",
+          "rs7095637"
+        ],
+        [
+          3,
+          381.1,
+          301,
+          "pyruvate measurement",
+          "PFKP",
+          "rs2388594"
+        ],
+        [
+          4,
+          300,
+          188,
+          "body height",
+          "AKR1C6P - U8",
+          "rs12774134"
+        ],
+        [
+          5,
+          901.2,
+          595,
+          "IL2RA/NCR1 protein amount ratio in blood",
+          "IL15RA - IL2RA",
+          "rs7911500"
+        ],
+        [
+          6,
+          1732.1,
+          580,
+          "amount of interleukin-2 receptor subunit alpha (human) in blood",
+          "RBM17",
+          "rs12778662"
+        ],
+        [
+          7,
+          561,
+          200,
+          "pentraxin-related protein PTX3 measurement",
+          "ITIH2",
+          "rs10795566"
+        ],
+        [
+          8,
+          300,
+          517,
+          "bone tissue density",
+          "GATA3 - PRPF38AP1",
+          "rs76018225"
+        ],
+        [
+          9,
+          103.7,
+          269,
+          "calcium measurement",
+          "LINC00709 - HSP90AB7P",
+          "rs35009121"
+        ],
+        [
+          10,
+          30.7,
+          139,
+          "body height",
+          "CELF2",
+          "rs2224693"
+        ],
+        [
+          11,
+          224.7,
+          211,
+          "amount of enoyl-CoA hydratase domain-containing protein 3, mitochondrial in blood",
+          "ECHDC3",
+          "rs11257300"
+        ],
+        [
+          12,
+          300,
+          453,
+          "body height",
+          "CCDC3",
+          "rs12779328"
+        ],
+        [
+          13,
+          146.7,
+          254,
+          "protein measurement",
+          "UCMA",
+          "rs2399954"
+        ],
+        [
+          14,
+          284.3,
+          151,
+          "bone tissue density",
+          "FRMD4A",
+          "rs111234478"
+        ],
+        [
+          15,
+          300,
+          103,
+          "bone tissue density",
+          "ITGA8",
+          "rs45460298"
+        ],
+        [
+          16,
+          395.7,
+          223,
+          "protein FAM163B measurement",
+          "RSU1",
+          "rs812426"
+        ],
+        [
+          17,
+          785.4,
+          769,
+          "aspartate aminotransferase measurement",
+          "MRC1",
+          "rs56278466"
+        ],
+        [
+          18,
+          300,
+          407,
+          "bone tissue density",
+          "NSUN6",
+          "rs536720921"
+        ],
+        [
+          19,
+          186.3,
+          188,
+          "amount of nidogen-1 (human) in blood",
+          "PLXDC2",
+          "rs927826"
+        ],
+        [
+          20,
+          55.2,
+          151,
+          "bone tissue density",
+          "PLXDC2",
+          "rs2460577"
+        ],
+        [
+          21,
+          82,
+          408,
+          "brain attribute",
+          "MLLT10",
+          "rs10828247"
+        ],
+        [
+          22,
+          92,
+          192,
+          "bone tissue density",
+          "SPAG6 - PIP4K2A",
+          "rs139160329"
+        ],
+        [
+          23,
+          90,
+          96,
+          "bone tissue density",
+          "C10orf67-AS1 - OTUD1",
+          "rs75272927"
+        ],
+        [
+          24,
+          884.7,
+          333,
+          "PMVK/PRTFDC1 protein amount ratio in blood",
+          "PRTFDC1",
+          "rs143356584"
+        ],
+        [
+          25,
+          62.1,
+          88,
+          "body height",
+          "ENKUR - LINC01516",
+          "rs11014382"
+        ],
+        [
+          26,
+          350.2,
+          165,
+          "APBB1IP/POLR2F protein amount ratio in blood",
+          "GAD2 - APBB1IP",
+          "rs9284109"
+        ],
+        [
+          27,
+          300,
+          233,
+          "bone tissue density",
+          "PTCHD3 - RAB18",
+          "rs72810097"
+        ],
+        [
+          28,
+          115,
+          260,
+          "body height",
+          "WAC - RNU4ATAC6P",
+          "rs332189"
+        ],
+        [
+          29,
+          177.3,
+          179,
+          "amount of lysozyme-like protein 2 (human) in cerebrospinal fluid",
+          "LYZL1",
+          "rs10763704"
+        ],
+        [
+          30,
+          191.7,
+          297,
+          "lysozyme-like protein 2 measurement",
+          "RN7SL63P - LYZL2",
+          "rs116792212"
+        ],
+        [
+          31,
+          67.5,
+          148,
+          "body height",
+          "ARHGAP12",
+          "rs7077016"
+        ],
+        [
+          32,
+          64.7,
+          87,
+          "body height",
+          "EPC1",
+          "rs11592754"
+        ],
+        [
+          33,
+          556.1,
+          256,
+          "neuropilin-1 measurement",
+          "NRP1",
+          "rs734186"
+        ],
+        [
+          34,
+          111.7,
+          102,
+          "amount of paraneoplastic antigen Ma1 in blood",
+          "PARD3",
+          "rs200851860"
+        ],
+        [
+          35,
+          34.7,
+          61,
+          "body height",
+          "LINC02630 - MTND5P17",
+          "rs772069"
+        ],
+        [
+          36,
+          29.5,
+          72,
+          "body composition measurement",
+          "LINC02630 - MTND5P17",
+          "rs1360736"
+        ],
+        [
+          37,
+          83.7,
+          67,
+          "proto-oncogene tyrosine-protein kinase receptor Ret measurement",
+          "ZNF248",
+          "rs78731678"
+        ],
+        [
+          38,
+          84.7,
+          66,
+          "amount of proto-oncogene tyrosine-protein kinase receptor Ret (human) in blood",
+          "SLC9B1P3 - ACTR3BP5",
+          "rs189906184"
+        ],
+        [
+          39,
+          30.2,
+          1,
+          "Alzheimer disease, family history of Alzheimer’s disease",
+          "CHEK2P5 - KSR1P1",
+          "rs1355114191"
+        ],
+        [
+          41,
+          13.3,
+          7,
+          "proto-oncogene tyrosine-protein kinase receptor Ret measurement",
+          "CHEK2P5 - KSR1P1",
+          "rs138597449"
+        ],
+        [
+          42,
+          724.1,
+          49,
+          "amount of proto-oncogene tyrosine-protein kinase receptor Ret (human) in blood",
+          "BMS1 - LINC02623",
+          "rs2796560"
+        ],
+        [
+          43,
+          468.1,
+          236,
+          "amount of proto-oncogene tyrosine-protein kinase receptor Ret (human) in blood",
+          "LINC01264 - RET",
+          "rs2435366"
+        ],
+        [
+          44,
+          300,
+          445,
+          "bone tissue density",
+          "LINC00841 - LINC03089",
+          "rs150100949"
+        ],
+        [
+          45,
+          292.4,
+          554,
+          "beta-microseminoprotein measurement",
+          "ZFAND4",
+          "rs541781976"
+        ],
+        [
+          46,
+          5546.2,
+          200,
+          "beta-microseminoprotein measurement",
+          "MSMB",
+          "rs10993994"
+        ],
+        [
+          47,
+          53.7,
+          100,
+          "body height",
+          "PTPN20 - GDF10",
+          "rs4584515"
+        ],
+        [
+          48,
+          269.5,
+          149,
+          "bone tissue density",
+          "MAPK8 - ARHGAP22",
+          "rs41311235"
+        ],
+        [
+          49,
+          537.7,
+          237,
+          "amount of V-set and transmembrane domain-containing protein 4 (human) in cerebrospinal fluid",
+          "VSTM4",
+          "rs13088"
+        ],
+        [
+          50,
+          1649,
+          366,
+          "neutral ceramidase measurement",
+          "ASAH2",
+          "rs2574935"
+        ],
+        [
+          51,
+          162.5,
+          154,
+          "amount of cGMP-dependent protein kinase 1 in blood",
+          "PRKG1",
+          "rs1937682"
+        ],
+        [
+          52,
+          1288.5,
+          387,
+          "mannose-binding protein C measurement",
+          "MBL2 - Y_RNA",
+          "rs7899547"
+        ],
+        [
+          53,
+          300,
+          37,
+          "bone tissue density",
+          "RNA5SP318 - PCDH15",
+          "rs116888369"
+        ],
+        [
+          54,
+          28,
+          74,
+          "smoking initiation",
+          "PCDH15",
+          "rs1733758"
+        ],
+        [
+          55,
+          16.7,
+          40,
+          "glioma pathogenesis-related protein 1 measurement",
+          "GAPDHP21 - ZWINT",
+          "rs753557382"
+        ],
+        [
+          56,
+          300,
+          49,
+          "bone tissue density",
+          "ZWINT - MIR3924",
+          "rs143206505"
+        ],
+        [
+          57,
+          208.4,
+          36,
+          "bone tissue density",
+          "MIR3924 - MRPS35P3",
+          "rs191567663"
+        ],
+        [
+          58,
+          222.7,
+          292,
+          "mitochondrial heteroplasmy measurement",
+          "TFAM",
+          "rs1049432"
+        ],
+        [
+          59,
+          443.7,
+          403,
+          "carnitine measurement",
+          "SLC16A9",
+          "rs1171617"
+        ],
+        [
+          60,
+          59.2,
+          159,
+          "body height",
+          "ANK3",
+          "rs10821746"
+        ],
+        [
+          61,
+          300,
+          371,
+          "bone tissue density",
+          "TMEM26-AS1 - CABCOCO1",
+          "rs113456187"
+        ],
+        [
+          62,
+          125.5,
+          687,
+          "eosinophil count",
+          "LINC02929",
+          "rs10995248"
+        ],
+        [
+          63,
+          954.4,
+          2700,
+          "sex hormone-binding globulin measurement",
+          "JMJD1C",
+          "rs10822163"
+        ],
+        [
+          64,
+          21,
+          62,
+          "free cholesterol measurement",
+          "DBF4P1 - RPL17P35",
+          "rs117533231"
+        ],
+        [
+          65,
+          93.2,
+          94,
+          "testosterone measurement",
+          "MYL6P3 - LINC01515",
+          "rs7912521"
+        ],
+        [
+          66,
+          21,
+          158,
+          "educational attainment",
+          "CTNNA3",
+          "rs10822745"
+        ],
+        [
+          67,
+          88.5,
+          96,
+          "pulse pressure measurement",
+          "CTNNA3",
+          "rs560625443"
+        ],
+        [
+          68,
+          245.5,
+          435,
+          "optic disc size trait",
+          "LINC02640",
+          "rs7916410"
+        ],
+        [
+          69,
+          1744.4,
+          774,
+          "hemoglobin A1 measurement",
+          "HK1",
+          "rs17476364"
+        ],
+        [
+          70,
+          300,
+          225,
+          "bone tissue density",
+          "CEP57L1P1 - EIF4EBP2",
+          "rs140007218"
+        ],
+        [
+          71,
+          980.4,
+          334,
+          "MCFD2/VSIR protein amount ratio in blood",
+          "CDH23",
+          "rs10999995"
+        ],
+        [
+          72,
+          300,
+          248,
+          "bone tissue density",
+          "ASCC1",
+          "rs41282256"
+        ],
+        [
+          73,
+          191.2,
+          314,
+          "amount of urokinase-type plasminogen activator (human) in blood",
+          "C10orf55, PLAU",
+          "rs55744193"
+        ],
+        [
+          74,
+          35.2,
+          160,
+          "amount of urokinase-type plasminogen activator (human) in blood",
+          "VCL",
+          "rs138437684"
+        ],
+        [
+          75,
+          116.2,
+          264,
+          "blood protein amount",
+          "DUSP29 - PPIAP13",
+          "rs2395137"
+        ],
+        [
+          76,
+          71,
+          201,
+          "balding measurement",
+          "LRMDA",
+          "rs11001783"
+        ],
+        [
+          77,
+          316.7,
+          248,
+          "serum gamma-glutamyl transferase measurement",
+          "DLG5",
+          "rs2278218"
+        ],
+        [
+          78,
+          23.7,
+          95,
+          "body height",
+          "LINC00595 - ZMIZ1-AS1",
+          "rs574984"
+        ],
+        [
+          79,
+          4418.4,
+          850,
+          "amount of pulmonary surfactant-associated protein D (human) in blood",
+          "SFTPD",
+          "rs721917"
+        ],
+        [
+          80,
+          272.7,
+          336,
+          "amount of pulmonary surfactant-associated protein A2 in blood",
+          "ANXA11",
+          "rs117650749"
+        ],
+        [
+          81,
+          300,
+          49,
+          "bone tissue density",
+          "RPA2P2 - NRG3",
+          "rs78530928"
+        ],
+        [
+          82,
+          23.7,
+          50,
+          "venous thromboembolism",
+          "NRG3",
+          "rs1649936"
+        ],
+        [
+          83,
+          300,
+          48,
+          "bone tissue density",
+          "NRG3 - RNU6-478P",
+          "rs188892731"
+        ],
+        [
+          84,
+          275,
+          107,
+          "cadherin-related family member 1 measurement",
+          "GPR15LG - CDHR1",
+          "rs7916271"
+        ],
+        [
+          85,
+          300,
+          120,
+          "bone tissue density",
+          "RPS3AP5 - LINC01519",
+          "rs76244854"
+        ],
+        [
+          86,
+          5413,
+          192,
+          "amount of gamma-synuclein in blood",
+          "MMRN2",
+          "rs873110"
+        ],
+        [
+          87,
+          3421,
+          304,
+          "FABP4/SNCG protein amount ratio in blood",
+          "AGAP11",
+          "rs1745901"
+        ],
+        [
+          88,
+          764,
+          378,
+          "lipase member N measurement",
+          "LIPN",
+          "rs10509554"
+        ],
+        [
+          89,
+          571.1,
+          384,
+          "tumor necrosis factor receptor superfamily member 6 measurement",
+          "FAS",
+          "rs7911226"
+        ],
+        [
+          90,
+          300,
+          63,
+          "bone tissue density",
+          "HTR7",
+          "rs72810808"
+        ],
+        [
+          91,
+          276.5,
+          262,
+          "body height",
+          "PCGF5",
+          "rs2648725"
+        ],
+        [
+          92,
+          222.5,
+          486,
+          "type 2 diabetes mellitus",
+          "HHEX - Y_RNA",
+          "rs1977833"
+        ],
+        [
+          93,
+          118.4,
+          1197,
+          "body height",
+          "NIP7P1 - XRCC6P1",
+          "rs11596645"
+        ],
+        [
+          94,
+          167.2,
+          728,
+          "X-11787 measurement",
+          "CYP2C9",
+          "rs9332172"
+        ],
+        [
+          95,
+          897,
+          355,
+          "lymphocyte count",
+          "ENTPD1, ENTPD1-AS1",
+          "rs4539246"
+        ],
+        [
+          96,
+          303,
+          252,
+          "AARSD1/PIK3AP1 protein amount ratio in blood",
+          "PIK3AP1",
+          "rs17112076"
+        ],
+        [
+          97,
+          2780.3,
+          323,
+          "amount of cartilage acidic protein 1 in blood",
+          "GOLGA7B, CRTAC1",
+          "rs56007204"
+        ],
+        [
+          98,
+          5399.2,
+          526,
+          "N6-methyllysine measurement",
+          "PYROXD2",
+          "rs2147896"
+        ],
+        [
+          99,
+          609,
+          478,
+          "aspartate aminotransferase measurement",
+          "GOT1",
+          "rs749913156"
+        ],
+        [
+          100,
+          381.3,
+          1107,
+          "apolipoprotein L1 measurement",
+          "CYP2C23P",
+          "rs72840032"
+        ],
+        [
+          101,
+          2408.5,
+          267,
+          "amount of Kazal-type serine protease inhibitor domain-containing protein 1 in blood",
+          "KAZALD1",
+          "rs11190812"
+        ],
+        [
+          102,
+          300,
+          1308,
+          "body height",
+          "MFSD13A, ACTR1A",
+          "rs7342070"
+        ],
+        [
+          103,
+          262.3,
+          992,
+          "chromosome, telomeric region length",
+          "STN1",
+          "rs1265164"
+        ],
+        [
+          104,
+          1648.4,
+          300,
+          "glutathione S-transferase omega-1 measurement",
+          "MIR4482",
+          "rs45596840"
+        ],
+        [
+          105,
+          22.7,
+          163,
+          "educational attainment",
+          "LINC02627",
+          "rs12764593"
+        ],
+        [
+          106,
+          17.1,
+          65,
+          "metabolite measurement",
+          "SORCS1",
+          "rs4918270"
+        ],
+        [
+          107,
+          22.4,
+          76,
+          "adolescent idiopathic scoliosis",
+          "LINC01435",
+          "rs10884569"
+        ],
+        [
+          108,
+          18.7,
+          102,
+          "substance-related disorder",
+          "LINC02661",
+          "rs7074871"
+        ],
+        [
+          109,
+          15,
+          56,
+          "hematological measurement",
+          "ADD3, ADD3-AS1",
+          "rs10884919"
+        ],
+        [
+          110,
+          66.4,
+          219,
+          "heparan sulfate glucosamine 3-O-sulfotransferase 3A1 measurement",
+          "ADD3",
+          "rs1009532"
+        ],
+        [
+          111,
+          60.2,
+          97,
+          "blood glucose amount",
+          "ADRA2A - BTBD7P2",
+          "rs35824917"
+        ],
+        [
+          112,
+          1314.5,
+          1703,
+          "type 2 diabetes mellitus",
+          "TCF7L2",
+          "rs7903146"
+        ],
+        [
+          113,
+          300,
+          512,
+          "bone tissue density",
+          "TCF7L2",
+          "rs139522156"
+        ],
+        [
+          114,
+          64.3,
+          450,
+          "body height",
+          "NHLRC2 - ADRB1",
+          "rs740746"
+        ],
+        [
+          115,
+          113.2,
+          36,
+          "bone tissue density",
+          "ATRNL1",
+          "rs146539390"
+        ],
+        [
+          116,
+          10062.7,
+          408,
+          "PLA2G1B/PNLIPRP2 protein amount ratio in blood",
+          "PNLIPRP2",
+          "rs4751996"
+        ],
+        [
+          117,
+          49.4,
+          278,
+          "bone tissue density",
+          "EMX2 - LINC02674",
+          "rs141322663"
+        ],
+        [
+          118,
+          69.3,
+          119,
+          "Dermatochalasis",
+          "CASC2",
+          "rs10886198"
+        ],
+        [
+          119,
+          435.7,
+          458,
+          "C-C motif chemokine 17 amount",
+          "GRK5",
+          "rs10886430"
+        ],
+        [
+          120,
+          57.2,
+          86,
+          "prostate specific antigen amount",
+          "WDR11 - RPL19P16",
+          "rs12766083"
+        ],
+        [
+          121,
+          419,
+          567,
+          "prostate specific antigen amount",
+          "LINC01153 - RN7SKP167",
+          "rs10886902"
+        ],
+        [
+          122,
+          1191.2,
+          508,
+          "age-related macular degeneration",
+          "HTRA1-AS1, ARMS2",
+          "rs36212733"
+        ],
+        [
+          123,
+          203.5,
+          198,
+          "amount of short/branched chain specific acyl-CoA dehydrogenase, mitochondrial in blood",
+          "ACADSB",
+          "rs7913063"
+        ],
+        [
+          124,
+          1799,
+          584,
+          "DNPH1/LHPP protein amount ratio in blood",
+          "LHPP",
+          "rs11245061"
+        ],
+        [
+          125,
+          300,
+          268,
+          "bone tissue density",
+          "CTBP2",
+          "rs76550923"
+        ],
+        [
+          126,
+          73.1,
+          151,
+          "amount of disintegrin and metalloproteinase domain-containing protein 12 in blood",
+          "ADAM12",
+          "rs11244909"
+        ],
+        [
+          127,
+          14.1,
+          95,
+          "glioma pathogenesis-related protein 1 measurement",
+          "DOCK1",
+          "rs142384800"
+        ],
+        [
+          128,
+          35.4,
+          95,
+          "bone tissue density",
+          "MKI67",
+          "rs151328961"
+        ],
+        [
+          129,
+          2724.3,
+          241,
+          "IRAK4/MGMT protein amount ratio in blood",
+          "MGMT",
+          "rs1711667"
+        ],
+        [
+          130,
+          28.7,
+          71,
+          "adolescent idiopathic scoliosis",
+          "LINC02646 - Y_RNA",
+          "rs10829757"
+        ],
+        [
+          131,
+          300,
+          140,
+          "bone tissue density",
+          "TCERG1L - LINC01164",
+          "rs76407461"
+        ],
+        [
+          132,
+          300,
+          305,
+          "bone tissue density",
+          "INPP5A",
+          "rs35625198"
+        ],
+        [
+          133,
+          1088.3,
+          182,
+          "amount of disintegrin and metalloproteinase domain-containing protein 8 in blood",
+          "ADAM8",
+          "rs2995310"
+        ]
+      ],
+      "11": [
+        [
+          0,
+          1898,
+          1068,
+          "cadherin-related family member 5 measurement",
+          "CDHR5",
+          "rs12360820"
+        ],
+        [
+          1,
+          812,
+          691,
+          "amount of cathepsin D (human) in blood",
+          "CTSD",
+          "rs55861089"
+        ],
+        [
+          2,
+          484.5,
+          1508,
+          "type 2 diabetes mellitus",
+          "KCNQ1",
+          "rs2237897"
+        ],
+        [
+          3,
+          142,
+          130,
+          "amount of ecto-ADP-ribosyltransferase 5 in blood serum",
+          "ART5",
+          "rs75902876"
+        ],
+        [
+          4,
+          323,
+          213,
+          "mean corpuscular hemoglobin concentration",
+          "MMP26",
+          "rs150981042"
+        ],
+        [
+          5,
+          1130,
+          834,
+          "IKBKG/TRIM5 protein amount ratio in blood",
+          "TRIM5",
+          "rs11038642"
+        ],
+        [
+          6,
+          970.7,
+          208,
+          "PLA2G15/SMPD1 protein amount ratio in blood",
+          "SMPD1",
+          "rs1050239"
+        ],
+        [
+          7,
+          300,
+          161,
+          "bone tissue density",
+          "RBMXL2 - MIR302E",
+          "rs190096135"
+        ],
+        [
+          8,
+          300,
+          485,
+          "bone tissue density",
+          "LMO1 - STK33",
+          "rs61881897"
+        ],
+        [
+          9,
+          732.5,
+          394,
+          "switch-associated protein 70 measurement",
+          "SWAP70",
+          "rs6483656"
+        ],
+        [
+          10,
+          300,
+          666,
+          "bone tissue density",
+          "SBF2",
+          "rs61877055"
+        ],
+        [
+          11,
+          300,
+          189,
+          "diastolic blood pressure",
+          "GALNT18",
+          "rs10047474"
+        ],
+        [
+          12,
+          736.1,
+          272,
+          "amount of dickkopf-related protein 3 (human) in blood",
+          "DKK3 - LINC02547",
+          "rs11022114"
+        ],
+        [
+          13,
+          71.5,
+          477,
+          "body height",
+          "BMAL1",
+          "rs1481892"
+        ],
+        [
+          14,
+          774.7,
+          585,
+          "amount of vitamin D",
+          "CYP2R1",
+          "rs117913124"
+        ],
+        [
+          15,
+          94.7,
+          216,
+          "protein measurement",
+          "CALCB - INSC",
+          "rs4757283"
+        ],
+        [
+          16,
+          693.3,
+          559,
+          "pleckstrin homology domain-containing family A member 7 measurement",
+          "PLEKHA7",
+          "rs425325"
+        ],
+        [
+          17,
+          1523.2,
+          413,
+          "NUCB2/P4HB protein amount ratio in blood",
+          "NUCB2",
+          "rs214084"
+        ],
+        [
+          18,
+          771,
+          441,
+          "serum amyloid A-1 protein amount",
+          "SAA1",
+          "rs35179000"
+        ],
+        [
+          19,
+          89.2,
+          209,
+          "bone tissue density",
+          "CSRP3-AS1 - NAV2",
+          "rs562357367"
+        ],
+        [
+          20,
+          1325,
+          143,
+          "oxidoreductase HTATIP2 measurement",
+          "HTATIP2",
+          "rs10437608"
+        ],
+        [
+          21,
+          40.3,
+          70,
+          "protein kinase C-binding protein NELL1 measurement",
+          "NELL1",
+          "rs938592"
+        ],
+        [
+          22,
+          76,
+          140,
+          "amount of myomesin-3 in blood serum",
+          "ANO5",
+          "rs7481951"
+        ],
+        [
+          23,
+          24.5,
+          38,
+          "amount of leucine zipper protein 2 in blood",
+          "RNU6-783P - LINC02686",
+          "rs7118930"
+        ],
+        [
+          24,
+          113.2,
+          96,
+          "amount of leucine zipper protein 2 in blood",
+          "Y_RNA - LUZP2",
+          "rs12285881"
+        ],
+        [
+          25,
+          221.2,
+          69,
+          "amount of leucine zipper protein 2 in blood",
+          "LUZP2",
+          "rs76794772"
+        ],
+        [
+          26,
+          67,
+          119,
+          "body height",
+          "FIBIN",
+          "rs149580940"
+        ],
+        [
+          27,
+          247.5,
+          936,
+          "bone tissue density",
+          "LGR4",
+          "rs34804482"
+        ],
+        [
+          28,
+          54.2,
+          212,
+          "body height",
+          "METTL15 - LINC02758",
+          "rs7396827"
+        ],
+        [
+          29,
+          66.2,
+          137,
+          "testosterone measurement",
+          "LINC02742 - LINC02755",
+          "rs1994721"
+        ],
+        [
+          30,
+          208.4,
+          678,
+          "serum creatinine amount",
+          "MPPED2-AS1 - DCDC1",
+          "rs963837"
+        ],
+        [
+          31,
+          106.2,
+          166,
+          "amount of extracellular glycoprotein lacritin in blood",
+          "PAUPAR",
+          "rs7103054"
+        ],
+        [
+          32,
+          59.7,
+          599,
+          "Hernia of the abdominal wall",
+          "WT1-AS",
+          "rs2301250"
+        ],
+        [
+          33,
+          360.1,
+          166,
+          "protein measurement",
+          "KIAA1549L",
+          "rs2753408"
+        ],
+        [
+          34,
+          616,
+          172,
+          "protein measurement",
+          "APIP",
+          "rs2915212"
+        ],
+        [
+          35,
+          749.5,
+          195,
+          "amount of inactive serine protease PAMR1 (human) in blood",
+          "PAMR1, SLC1A2-AS2",
+          "rs61736408"
+        ],
+        [
+          36,
+          80.3,
+          351,
+          "atopic eczema",
+          "PRR5L",
+          "rs28520436"
+        ],
+        [
+          37,
+          21,
+          35,
+          "bone tissue density",
+          "IFTAP - RPL7AP56",
+          "rs77411423"
+        ],
+        [
+          38,
+          181.3,
+          50,
+          "bone tissue density",
+          "LINC02760 - DNAAF11P1",
+          "rs117881242"
+        ],
+        [
+          39,
+          300,
+          37,
+          "bone tissue density",
+          "RNU6-99P - LRRC4C",
+          "rs148727583"
+        ],
+        [
+          40,
+          213.4,
+          80,
+          "refractive error",
+          "LRRC4C",
+          "rs11602008"
+        ],
+        [
+          41,
+          29.7,
+          69,
+          "smoking initiation",
+          "LRRC4C - LINC02741",
+          "rs10837649"
+        ],
+        [
+          42,
+          20.3,
+          53,
+          "smoking initiation",
+          "LINC02740 - HNRNPKP3",
+          "rs7930009"
+        ],
+        [
+          43,
+          164.5,
+          264,
+          "protein measurement",
+          "ALKBH3-AS1 - C11orf96",
+          "rs2434484"
+        ],
+        [
+          44,
+          300,
+          371,
+          "bone tissue density",
+          "TP53I11",
+          "rs148920420"
+        ],
+        [
+          45,
+          215.5,
+          307,
+          "amount of Thyroid stimulating hormone",
+          "PRDM11",
+          "rs11038357"
+        ],
+        [
+          46,
+          300,
+          624,
+          "bone tissue density",
+          "HARBI1",
+          "rs117766417"
+        ],
+        [
+          47,
+          300,
+          2094,
+          "bone tissue density",
+          "CSTPP1",
+          "rs72899647"
+        ],
+        [
+          48,
+          300,
+          628,
+          "bone tissue density",
+          "PTPRJ",
+          "rs117942291"
+        ],
+        [
+          49,
+          330.5,
+          498,
+          "N-acetyl-aspartyl-glutamate (NAAG) measurement",
+          "FOLH1 - NOX4P1",
+          "rs609280"
+        ],
+        [
+          50,
+          115.4,
+          328,
+          "N-acetyl-aspartyl-glutamate (NAAG) measurement",
+          "LINC02750 - OR4C50P",
+          "rs8186410"
+        ],
+        [
+          54,
+          151.3,
+          346,
+          "triglyceride measurement",
+          "OR4A6P - TRIM48",
+          "rs4625441"
+        ],
+        [
+          55,
+          300,
+          733,
+          "bone tissue density",
+          "OR5L1",
+          "rs199917722"
+        ],
+        [
+          56,
+          300,
+          695,
+          "bone tissue density",
+          "OR5AL2P - OR5AL1",
+          "rs148158820"
+        ],
+        [
+          57,
+          1114.5,
+          671,
+          "plasma protease C1 inhibitor measurement",
+          "SERPING1",
+          "rs11606677"
+        ],
+        [
+          58,
+          300,
+          242,
+          "bone tissue density",
+          "GLYAT - TMA16P1",
+          "rs145369023"
+        ],
+        [
+          59,
+          300,
+          158,
+          "bone tissue density",
+          "GLYATL1, GLYATL1-AS1",
+          "rs189205316"
+        ],
+        [
+          60,
+          2724,
+          515,
+          "CD5/CD6 protein amount ratio in blood",
+          "CD6",
+          "rs11230556"
+        ],
+        [
+          61,
+          7681.7,
+          24188,
+          "polyunsaturated fatty acids to total fatty acids percentage",
+          "FADS2, FADS1",
+          "rs174564"
+        ],
+        [
+          62,
+          300,
+          2074,
+          "bone tissue density",
+          "LINC02733",
+          "rs117863042"
+        ],
+        [
+          63,
+          812.2,
+          204,
+          "metabolite measurement",
+          "SLC22A24",
+          "rs182462158"
+        ],
+        [
+          64,
+          1947.3,
+          1278,
+          "uric acid measurement",
+          "SLC22A12",
+          "rs121907892"
+        ],
+        [
+          65,
+          930.7,
+          1608,
+          "amount of latent-transforming growth factor beta-binding protein 3 in blood",
+          "LTBP3",
+          "rs4099470"
+        ],
+        [
+          66,
+          394,
+          560,
+          "amount of beta-1,4-glucuronyltransferase 1 (human) in blood",
+          "B4GAT1-DT",
+          "rs10896113"
+        ],
+        [
+          67,
+          314.3,
+          520,
+          "protein measurement",
+          "GSTP1",
+          "rs1695"
+        ],
+        [
+          68,
+          329.3,
+          1102,
+          "polyunsaturated fatty acids to total fatty acids percentage",
+          "CPT1A",
+          "rs2229738"
+        ],
+        [
+          69,
+          307.7,
+          1088,
+          "hair color",
+          "TPCN2",
+          "rs72917317"
+        ],
+        [
+          70,
+          279,
+          206,
+          "ANXA4/FADD protein amount ratio in blood",
+          "ANO1",
+          "rs72942971"
+        ],
+        [
+          71,
+          406,
+          124,
+          "amount of vitamin D",
+          "ACTE1P, ACTE1P",
+          "rs12803256"
+        ],
+        [
+          72,
+          5219.4,
+          457,
+          "FGFR2/FOLR3 protein amount ratio in blood",
+          "FOLR3",
+          "rs139130389"
+        ],
+        [
+          73,
+          885.1,
+          296,
+          "RELT/TNFRSF1A protein amount ratio in blood",
+          "ARHGEF17-AS1, ARHGEF17",
+          "rs3741151"
+        ],
+        [
+          74,
+          381.2,
+          226,
+          "chordin-like protein 2 measurement",
+          "CHRDL2",
+          "rs574672574"
+        ],
+        [
+          75,
+          300,
+          842,
+          "body height",
+          "SERPINH1",
+          "rs606452"
+        ],
+        [
+          76,
+          300,
+          474,
+          "bone tissue density",
+          "GVQW3",
+          "rs184702201"
+        ],
+        [
+          77,
+          300,
+          150,
+          "bone tissue density",
+          "RSF1",
+          "rs544736584"
+        ],
+        [
+          78,
+          156.7,
+          226,
+          "bone tissue density",
+          "NDUFC2-KCTD14",
+          "rs7120766"
+        ],
+        [
+          79,
+          25.7,
+          113,
+          "serum gamma-glutamyl transferase measurement",
+          "TENM4",
+          "rs491437"
+        ],
+        [
+          80,
+          35.1,
+          83,
+          "brain attribute",
+          "RNU6-544P - ARL6IP1P3",
+          "rs1880692"
+        ],
+        [
+          81,
+          28.3,
+          71,
+          "bone tissue density",
+          "COX6A1P4 - MTND4LP18",
+          "rs79537065"
+        ],
+        [
+          82,
+          122.5,
+          71,
+          "lysosomal Pro-X carboxypeptidase measurement",
+          "LINC02734",
+          "rs543233230"
+        ],
+        [
+          83,
+          67.5,
+          91,
+          "amount of lysosomal Pro-X carboxypeptidase (human) in blood",
+          "DLG2",
+          "rs532926994"
+        ],
+        [
+          84,
+          56,
+          70,
+          "refractive error",
+          "DLG2",
+          "rs1073986"
+        ],
+        [
+          85,
+          67.7,
+          128,
+          "body height",
+          "SYTL2",
+          "rs678376"
+        ],
+        [
+          86,
+          82,
+          347,
+          "body height",
+          "EED",
+          "rs2291813"
+        ],
+        [
+          87,
+          300,
+          158,
+          "bone tissue density",
+          "TMEM135",
+          "rs182053975"
+        ],
+        [
+          88,
+          2110.5,
+          223,
+          "amount of dipeptidyl peptidase 1 (human) in blood",
+          "CTSC",
+          "rs72966841"
+        ],
+        [
+          89,
+          279.4,
+          492,
+          "sunburn",
+          "TYR",
+          "rs1126809"
+        ],
+        [
+          90,
+          300,
+          150,
+          "bone tissue density",
+          "DISC1FP1",
+          "rs12285406"
+        ],
+        [
+          91,
+          225.2,
+          90,
+          "bone tissue density",
+          "LINC02748 - LINC02756",
+          "rs534812773"
+        ],
+        [
+          92,
+          323.3,
+          417,
+          "brain attribute",
+          "FAT3",
+          "rs2845876"
+        ],
+        [
+          93,
+          20.2,
+          116,
+          "type 2 diabetes mellitus",
+          "SLC36A4 - DEUP1",
+          "rs57235767"
+        ],
+        [
+          94,
+          203.5,
+          192,
+          "amount of angiomotin in blood",
+          "AMOTL1",
+          "rs16921059"
+        ],
+        [
+          95,
+          77.3,
+          464,
+          "hypothyroidism",
+          "LNCRNA-IUR - FAM76B",
+          "rs4409785"
+        ],
+        [
+          96,
+          32.7,
+          125,
+          "cerebellar volume measurement",
+          "MAML2",
+          "rs648086"
+        ],
+        [
+          97,
+          158,
+          49,
+          "amount of contactin-5 (human) in blood",
+          "RNA5SP347 - LINC02713",
+          "rs2199562"
+        ],
+        [
+          98,
+          30.3,
+          64,
+          "contactin-5 measurement",
+          "LINC02713 - CNTN5",
+          "rs10892510"
+        ],
+        [
+          99,
+          1250.4,
+          169,
+          "amount of contactin-5 (human) in blood",
+          "CNTN5",
+          "rs961168"
+        ],
+        [
+          100,
+          221.2,
+          448,
+          "amount of contactin-5 (human) in blood",
+          "CNTN5",
+          "rs12806505"
+        ],
+        [
+          101,
+          300,
+          95,
+          "bone tissue density",
+          "PGR-AS1 - TRPC6",
+          "rs139754837"
+        ],
+        [
+          102,
+          2722.2,
+          726,
+          "amount of stromelysin-1 in blood",
+          "WTAPP1, WTAPP1",
+          "rs10895366"
+        ],
+        [
+          103,
+          115.1,
+          187,
+          "amount of macrophage metalloelastase",
+          "DYNC2H1",
+          "rs192017283"
+        ],
+        [
+          104,
+          244.4,
+          97,
+          "blood protein amount",
+          "PDGFD",
+          "rs10895596"
+        ],
+        [
+          105,
+          300,
+          71,
+          "bone tissue density",
+          "CARD18",
+          "rs111857530"
+        ],
+        [
+          106,
+          14.2,
+          56,
+          "glioma pathogenesis-related protein 1 measurement",
+          "LINC02719 - GUCY1A2",
+          "rs576182939"
+        ],
+        [
+          107,
+          300,
+          115,
+          "bone tissue density",
+          "ALKBH8 - ELMOD1",
+          "rs145486958"
+        ],
+        [
+          108,
+          300,
+          326,
+          "bone tissue density",
+          "C11orf65",
+          "rs189426461"
+        ],
+        [
+          109,
+          21.4,
+          53,
+          "glioma pathogenesis-related protein 1 measurement",
+          "LINC02715",
+          "rs183939393"
+        ],
+        [
+          110,
+          106.5,
+          167,
+          "3beta-hydroxy-5-cholestenoate measurement",
+          "LINC02732",
+          "rs2724417"
+        ],
+        [
+          111,
+          1110.7,
+          509,
+          "EFNA4/LAYN protein amount ratio in blood",
+          "LAYN",
+          "rs4938792"
+        ],
+        [
+          112,
+          566.7,
+          400,
+          "interleukin 18 measurement",
+          "BCO2",
+          "rs2250417"
+        ],
+        [
+          113,
+          3878,
+          671,
+          "GFRA3/TMPRSS5 protein amount ratio in blood",
+          "TMPRSS5",
+          "rs7110736"
+        ],
+        [
+          114,
+          1168.4,
+          389,
+          "CEP85/ZBTB16 protein amount ratio in blood",
+          "ZBTB16",
+          "rs73000929"
+        ],
+        [
+          115,
+          85.2,
+          216,
+          "bone tissue density",
+          "CADM1",
+          "rs1048932"
+        ],
+        [
+          116,
+          3751,
+          9561,
+          "triglyceride measurement",
+          "ZPR1",
+          "rs964184"
+        ],
+        [
+          117,
+          1551.3,
+          1908,
+          "proprotein convertase subtilisin/kexin type 7 measurement",
+          "PCSK7, TAGLN",
+          "rs35186251"
+        ],
+        [
+          118,
+          828,
+          597,
+          "protein measurement",
+          "JAML",
+          "rs1805"
+        ],
+        [
+          119,
+          433.3,
+          524,
+          "amount of Thy-1 membrane glycoprotein in blood",
+          "USP2-AS1",
+          "rs117424934"
+        ],
+        [
+          120,
+          383,
+          351,
+          "out at first protein homolog measurement",
+          "OAF - POU2F3",
+          "rs2845705"
+        ],
+        [
+          121,
+          154.1,
+          272,
+          "amount of C-type lectin domain family 4 member C in blood",
+          "SC5D - BMPR1AP2",
+          "rs2060009"
+        ],
+        [
+          122,
+          602.7,
+          589,
+          "CRTAM/LY9 protein amount ratio in blood",
+          "CRTAM",
+          "rs2370794"
+        ],
+        [
+          123,
+          804.5,
+          276,
+          "amount of CXADR-like membrane protein (human) in blood",
+          "CLMP",
+          "rs2302605"
+        ],
+        [
+          124,
+          345,
+          135,
+          "ARSB/SIAE protein amount ratio in blood",
+          "SIAE",
+          "rs78778622"
+        ],
+        [
+          125,
+          141.3,
+          176,
+          "body height",
+          "CDON",
+          "rs519781"
+        ],
+        [
+          126,
+          417.5,
+          1870,
+          "amount of T-cell immunoglobulin and mucin domain-containing protein 4 in blood",
+          "ST3GAL4",
+          "rs112771035"
+        ],
+        [
+          127,
+          37,
+          102,
+          "adolescent idiopathic scoliosis",
+          "KIRREL3-AS3 - LINC02712",
+          "rs11220727"
+        ],
+        [
+          128,
+          144.2,
+          796,
+          "body height",
+          "FLI1 - KCNJ1",
+          "rs681296"
+        ],
+        [
+          129,
+          83,
+          112,
+          "body height",
+          "ARHGAP32",
+          "rs590458"
+        ],
+        [
+          130,
+          1054,
+          417,
+          "ADAMTS8/FAP protein amount ratio in blood",
+          "ZBTB44-DT, ADAMTS8",
+          "rs2131535"
+        ],
+        [
+          131,
+          243.4,
+          179,
+          "protein measurement",
+          "RN7SL167P - NTM",
+          "rs2511504"
+        ],
+        [
+          132,
+          39.7,
+          168,
+          "refractive error",
+          "NTM",
+          "rs1790165"
+        ],
+        [
+          133,
+          300,
+          249,
+          "bone tissue density",
+          "LINC02743",
+          "rs142801543"
+        ],
+        [
+          134,
+          167,
+          214,
+          "N-glycan measurement",
+          "B3GAT1",
+          "rs78760579"
+        ],
+        [
+          135,
+          14.3,
+          7,
+          "bone tissue density",
+          "LINC02717 - LINC02684",
+          "rs139002360"
+        ]
+      ],
+      "12": [
+        [
+          0,
+          339.1,
+          788,
+          "amount of sclerostin (human) in blood",
+          "B4GALNT3",
+          "rs215226"
+        ],
+        [
+          1,
+          300,
+          142,
+          "bone tissue density",
+          "CACNA2D4, LRTM2",
+          "rs77934635"
+        ],
+        [
+          2,
+          309.3,
+          407,
+          "testosterone measurement",
+          "ITFG2-AS1, FKBP4",
+          "rs56196860"
+        ],
+        [
+          3,
+          353,
+          434,
+          "CRACR2A/TBC1D5 protein amount ratio in blood",
+          "PARP11",
+          "rs10744628"
+        ],
+        [
+          4,
+          264.7,
+          930,
+          "hematological measurement",
+          "HSPA8P5 - CCND2-AS1",
+          "rs10849022"
+        ],
+        [
+          5,
+          129,
+          149,
+          "neurotrophin-3 measurement",
+          "NTF3",
+          "rs73039984"
+        ],
+        [
+          6,
+          5080.7,
+          1025,
+          "tapasin-related protein measurement",
+          "TAPBPL",
+          "rs2532497"
+        ],
+        [
+          7,
+          3908.2,
+          709,
+          "amount of C-type lectin domain family 4 member C in blood",
+          "CLEC4C",
+          "rs7302014"
+        ],
+        [
+          8,
+          2076.5,
+          433,
+          "CLEC4D/CLEC6A protein amount ratio in blood",
+          "CLEC6A",
+          "rs4264222"
+        ],
+        [
+          9,
+          5733,
+          491,
+          "C-type lectin domain family 12 member A measurement",
+          "CLEC12A",
+          "rs588272"
+        ],
+        [
+          10,
+          4511.7,
+          341,
+          "amount of C-type lectin domain family 7 member A (human) in blood",
+          "CLEC7A",
+          "rs79522375"
+        ],
+        [
+          11,
+          301.2,
+          254,
+          "body height",
+          "ETV6",
+          "rs10845408"
+        ],
+        [
+          12,
+          564.3,
+          527,
+          "protein measurement",
+          "HEBP1, GPRC5D-AS1",
+          "rs1941"
+        ],
+        [
+          13,
+          133.3,
+          180,
+          "bone tissue density",
+          "FAM234B - EMP1",
+          "rs117481343"
+        ],
+        [
+          14,
+          1650,
+          216,
+          "ecto-ADP-ribosyltransferase 4 measurement",
+          "C12orf60, ART4",
+          "rs10772808"
+        ],
+        [
+          15,
+          50,
+          184,
+          "glomerular filtration rate",
+          "RERG",
+          "rs10846156"
+        ],
+        [
+          16,
+          35.2,
+          133,
+          "high density lipoprotein cholesterol measurement",
+          "MGST1",
+          "rs9332891"
+        ],
+        [
+          17,
+          80.7,
+          81,
+          "bone tissue density",
+          "LINC02378 - MIR3974",
+          "rs68004896"
+        ],
+        [
+          18,
+          56.7,
+          58,
+          "retinal layer thickness",
+          "CAPZA3 - RPL7P6",
+          "rs10841116"
+        ],
+        [
+          19,
+          220,
+          156,
+          "bone tissue density",
+          "PLEKHA5",
+          "rs111663459"
+        ],
+        [
+          20,
+          526.5,
+          823,
+          "bilirubin measurement",
+          "SLCO1B3-SLCO1B7, SLCO1B3",
+          "rs557250003"
+        ],
+        [
+          21,
+          775.2,
+          1292,
+          "glycochenodeoxycholate glucuronide (1) measurement",
+          "SLCO1B1",
+          "rs4149056"
+        ],
+        [
+          22,
+          74.3,
+          123,
+          "bone tissue density",
+          "LINC02955",
+          "rs74393301"
+        ],
+        [
+          23,
+          181,
+          230,
+          "body height",
+          "SOX5",
+          "rs17478946"
+        ],
+        [
+          24,
+          301,
+          493,
+          "amount of branched-chain-amino-acid aminotransferase, cytosolic in blood",
+          "RN7SL38P - BCAT1",
+          "rs11047635"
+        ],
+        [
+          25,
+          71.2,
+          193,
+          "sex hormone-binding globulin measurement",
+          "KRAS - RNU4-67P",
+          "rs75130744"
+        ],
+        [
+          26,
+          79.5,
+          622,
+          "balding measurement",
+          "SSPN, SSPN-AS1",
+          "rs10842700"
+        ],
+        [
+          27,
+          569,
+          332,
+          "MANSC domain-containing protein 4 measurement",
+          "MANSC4",
+          "rs9668702"
+        ],
+        [
+          28,
+          300,
+          466,
+          "body height",
+          "CCDC91",
+          "rs11049620"
+        ],
+        [
+          29,
+          317.7,
+          234,
+          "platelet volume",
+          "FAR2",
+          "rs2015599"
+        ],
+        [
+          30,
+          201,
+          124,
+          "bone tissue density",
+          "RNA5SP356 - IPO8",
+          "rs149369002"
+        ],
+        [
+          31,
+          126,
+          199,
+          "IGF-1 measurement",
+          "RNU6-1069P - LINC02422",
+          "rs9738365"
+        ],
+        [
+          32,
+          93.1,
+          124,
+          "platelet volume",
+          "FGD4 - DNM1L",
+          "rs10844279"
+        ],
+        [
+          33,
+          300,
+          155,
+          "bone tissue density",
+          "RNU6-400P - RNU6-472P",
+          "rs78608482"
+        ],
+        [
+          34,
+          34.5,
+          35,
+          "chronotype measurement",
+          "Y_RNA - ALG10",
+          "rs1705773"
+        ],
+        [
+          37,
+          32.7,
+          43,
+          "chronotype measurement",
+          "ZNF970P - AK6P2",
+          "rs11180986"
+        ],
+        [
+          38,
+          42.7,
+          84,
+          "chronotype measurement",
+          "ALG10B - CPNE8",
+          "rs1843888"
+        ],
+        [
+          39,
+          31.1,
+          68,
+          "body height",
+          "CPNE8-AS1 - LINC02406",
+          "rs10506133"
+        ],
+        [
+          40,
+          343.5,
+          248,
+          "amount of contactin-1 (human) in blood",
+          "MUC19 - CNTN1",
+          "rs11177623"
+        ],
+        [
+          41,
+          95.5,
+          136,
+          "amount of contactin-1 (human) in blood",
+          "CNTN1 - PDZRN4",
+          "rs71451508"
+        ],
+        [
+          42,
+          167.7,
+          135,
+          "glucoside xylosyltransferase 1 measurement",
+          "GXYLT1",
+          "rs139695917"
+        ],
+        [
+          43,
+          300,
+          106,
+          "bone tissue density",
+          "EEF1A1P17 - PUS7L",
+          "rs547414171"
+        ],
+        [
+          44,
+          185,
+          24,
+          "NELL2/SEZ6L protein amount ratio in blood",
+          "NELL2",
+          "rs2055673"
+        ],
+        [
+          45,
+          300,
+          181,
+          "bone tissue density",
+          "U6 - LINC00938",
+          "rs75709284"
+        ],
+        [
+          46,
+          212,
+          334,
+          "glutamine measurement",
+          "SLC38A4-AS1, SLC38A4",
+          "rs113674212"
+        ],
+        [
+          47,
+          155,
+          424,
+          "poly(U)-specific endoribonuclease measurement",
+          "STBD1P1 - RPAP3",
+          "rs551169725"
+        ],
+        [
+          48,
+          1339.5,
+          472,
+          "protein measurement",
+          "COL2A1 - SENP1",
+          "rs719008"
+        ],
+        [
+          49,
+          300,
+          539,
+          "bone tissue density",
+          "TUBA1C - TROAP-AS1",
+          "rs140613508"
+        ],
+        [
+          50,
+          300,
+          387,
+          "bone tissue density",
+          "RACGAP1",
+          "rs61926111"
+        ],
+        [
+          51,
+          565,
+          390,
+          "amount of activin receptor type-1-like (human) in blood",
+          "ACVRL1",
+          "rs2277382"
+        ],
+        [
+          52,
+          136.1,
+          289,
+          "basal cell carcinoma",
+          "KRT5",
+          "rs11170164"
+        ],
+        [
+          53,
+          320.5,
+          705,
+          "CALCOCO1/IKBKG protein amount ratio in blood",
+          "CALCOCO1",
+          "rs3741659"
+        ],
+        [
+          54,
+          414.7,
+          1097,
+          "platelet volume",
+          "COPZ1",
+          "rs7297265"
+        ],
+        [
+          55,
+          173.2,
+          210,
+          "Abnormality of refraction",
+          "RDH5",
+          "rs3138142"
+        ],
+        [
+          56,
+          2018.3,
+          1014,
+          "glutamine measurement",
+          "SPRYD4, GLS2",
+          "rs2657879"
+        ],
+        [
+          57,
+          4287.7,
+          1350,
+          "inhibin beta C chain measurement",
+          "INHBC",
+          "rs3741414"
+        ],
+        [
+          58,
+          49,
+          89,
+          "leucine-rich repeats and immunoglobulin-like domains protein 3 measurement",
+          "LRIG3",
+          "rs144365133"
+        ],
+        [
+          59,
+          142.7,
+          81,
+          "bone tissue density",
+          "SLC16A7",
+          "rs140536163"
+        ],
+        [
+          60,
+          76,
+          79,
+          "blood protein amount",
+          "Y_RNA - DUX4L52",
+          "rs12810354"
+        ],
+        [
+          61,
+          69,
+          56,
+          "urate measurement",
+          "Y_RNA - DUX4L52",
+          "rs550153912"
+        ],
+        [
+          62,
+          48.7,
+          209,
+          "body height",
+          "USP15 - MON2",
+          "rs7308021"
+        ],
+        [
+          63,
+          19.5,
+          79,
+          "body height",
+          "AVPR1A - HNRNPA1P69",
+          "rs11174852"
+        ],
+        [
+          64,
+          236.5,
+          201,
+          "platelet volume",
+          "RASSF3",
+          "rs1716505"
+        ],
+        [
+          65,
+          300,
+          973,
+          "body height",
+          "HMGA2",
+          "rs8756"
+        ],
+        [
+          66,
+          300,
+          189,
+          "body height",
+          "HMGA2 - MIR6074",
+          "rs10878359"
+        ],
+        [
+          67,
+          37,
+          163,
+          "body height",
+          "LINC02408",
+          "rs1317854"
+        ],
+        [
+          68,
+          204.2,
+          206,
+          "protein measurement",
+          "IL22 - MDM1",
+          "rs1026790"
+        ],
+        [
+          69,
+          542.4,
+          456,
+          "lysozyme C measurement",
+          "C1GALT1P1 - LYZ",
+          "rs4761234"
+        ],
+        [
+          70,
+          149.5,
+          178,
+          "receptor-type tyrosine-protein phosphatase R measurement",
+          "PTPRR",
+          "rs144705265"
+        ],
+        [
+          71,
+          127.7,
+          159,
+          "amount of tetraspanin-8 in blood",
+          "TSPAN8",
+          "rs371004787"
+        ],
+        [
+          72,
+          127.7,
+          54,
+          "small integral membrane protein 9 measurement",
+          "TRHDE",
+          "rs4584622"
+        ],
+        [
+          73,
+          300,
+          55,
+          "bone tissue density",
+          "LINC02444 - LINC02882",
+          "rs80294517"
+        ],
+        [
+          74,
+          19,
+          76,
+          "body height",
+          "LINC02882",
+          "rs11180078"
+        ],
+        [
+          75,
+          35.7,
+          126,
+          "atrial fibrillation",
+          "SNORA70 - RN7SL734P",
+          "rs1565765"
+        ],
+        [
+          76,
+          300,
+          56,
+          "bone tissue density",
+          "OSBPL8",
+          "rs150529549"
+        ],
+        [
+          77,
+          219.3,
+          224,
+          "body height",
+          "E2F7",
+          "rs310796"
+        ],
+        [
+          78,
+          158,
+          80,
+          "sodium measurement",
+          "LINC02424 - SYT1",
+          "rs11109717"
+        ],
+        [
+          79,
+          300,
+          144,
+          "bone tissue density",
+          "SYT1",
+          "rs151016298"
+        ],
+        [
+          80,
+          300,
+          56,
+          "bone tissue density",
+          "OTOGL",
+          "rs117023172"
+        ],
+        [
+          81,
+          21.7,
+          101,
+          "body height",
+          "PPFIA2",
+          "rs7300895"
+        ],
+        [
+          82,
+          31.7,
+          58,
+          "body height",
+          "TMTC2",
+          "rs11115413"
+        ],
+        [
+          83,
+          132.4,
+          171,
+          "cup-to-disc ratio measurement",
+          "RPL6P25 - SLC6A15",
+          "rs10506895"
+        ],
+        [
+          84,
+          30.7,
+          106,
+          "body height",
+          "RPL6P25 - SLC6A15",
+          "rs10862912"
+        ],
+        [
+          85,
+          37,
+          97,
+          "brain attribute",
+          "LRRIQ1",
+          "rs11609649"
+        ],
+        [
+          86,
+          13.4,
+          51,
+          "smoking initiation",
+          "MGAT4C",
+          "rs6538040"
+        ],
+        [
+          87,
+          28.2,
+          34,
+          "strand of hair color",
+          "LINC02258",
+          "rs35466244"
+        ],
+        [
+          88,
+          307.7,
+          155,
+          "hair color",
+          "RNU1-117P - LINC02458",
+          "rs12821256"
+        ],
+        [
+          89,
+          476.2,
+          764,
+          "CD300C/HAVCR2 protein amount ratio in blood",
+          "GALNT4, POC1B-GALNT4, POC1B",
+          "rs10858894"
+        ],
+        [
+          90,
+          300,
+          202,
+          "bone tissue density",
+          "LINC02822",
+          "rs139026938"
+        ],
+        [
+          91,
+          53.4,
+          117,
+          "body height",
+          "LUM",
+          "rs3168534"
+        ],
+        [
+          92,
+          40.1,
+          101,
+          "body height",
+          "LINC01619",
+          "rs1826535"
+        ],
+        [
+          93,
+          300,
+          475,
+          "body height",
+          "SOCS2",
+          "rs3825199"
+        ],
+        [
+          94,
+          219.7,
+          197,
+          "plexin-C1 measurement",
+          "PLXNC1",
+          "rs115651556"
+        ],
+        [
+          95,
+          300,
+          362,
+          "bone tissue density",
+          "PGAM1P5",
+          "rs117628803"
+        ],
+        [
+          96,
+          148,
+          124,
+          "amount of Thyroid stimulating hormone",
+          "LINC02452 - ELK3",
+          "rs61938844"
+        ],
+        [
+          97,
+          59.2,
+          202,
+          "body height",
+          "RMST",
+          "rs10777859"
+        ],
+        [
+          98,
+          26.3,
+          80,
+          "body height",
+          "MIR4303 - RNU4-41P",
+          "rs7134104"
+        ],
+        [
+          99,
+          24,
+          102,
+          "sex hormone-binding globulin measurement",
+          "ANKS1B",
+          "rs191591035"
+        ],
+        [
+          100,
+          300,
+          124,
+          "bone tissue density",
+          "ANO4",
+          "rs141898297"
+        ],
+        [
+          101,
+          825,
+          728,
+          "amount of N-acylethanolamine-hydrolyzing acid amidase (human) in blood",
+          "GNPTAB",
+          "rs7964859"
+        ],
+        [
+          102,
+          608,
+          554,
+          "phenylalanine measurement",
+          "PAH",
+          "rs1814728"
+        ],
+        [
+          103,
+          794.4,
+          656,
+          "endoplasmin measurement",
+          "HSP90B1, UQCC6",
+          "rs1165693"
+        ],
+        [
+          104,
+          188.2,
+          160,
+          "carbohydrate sulfotransferase 11 measurement",
+          "CHST11",
+          "rs61022741"
+        ],
+        [
+          105,
+          36.7,
+          141,
+          "adolescent idiopathic scoliosis",
+          "CASC18 - ST13P3",
+          "rs12296982"
+        ],
+        [
+          106,
+          260,
+          458,
+          "brain attribute",
+          "NUAK1",
+          "rs12146713"
+        ],
+        [
+          107,
+          109.1,
+          131,
+          "body height",
+          "CRY1",
+          "rs10778528"
+        ],
+        [
+          108,
+          2504.1,
+          360,
+          "P-selectin glycoprotein ligand 1 measurement",
+          "SELPLG",
+          "rs7311687"
+        ],
+        [
+          109,
+          637.4,
+          725,
+          "protein measurement",
+          "UBE3B - MMAB",
+          "rs76118041"
+        ],
+        [
+          110,
+          323.3,
+          349,
+          "alcohol consumption characteristic",
+          "C12orf76",
+          "rs142915423"
+        ],
+        [
+          111,
+          4740,
+          3419,
+          "alcohol drinking",
+          "ALDH2",
+          "rs671"
+        ],
+        [
+          112,
+          538.7,
+          887,
+          "serum gamma-glutamyl transferase measurement",
+          "HECTD4",
+          "rs144504271"
+        ],
+        [
+          113,
+          300,
+          129,
+          "bone tissue density",
+          "TPCN1",
+          "rs73192827"
+        ],
+        [
+          114,
+          300,
+          680,
+          "bone tissue density",
+          "TBX3-AS1 - UBA52P7",
+          "rs75722275"
+        ],
+        [
+          115,
+          300,
+          482,
+          "bone tissue density",
+          "TBX3-AS1 - UBA52P7",
+          "rs73202233"
+        ],
+        [
+          116,
+          133,
+          379,
+          "body height",
+          "MED13L",
+          "rs7969182"
+        ],
+        [
+          117,
+          763.7,
+          282,
+          "calcineurin B homologous protein 3 measurement",
+          "TESC",
+          "rs59756806"
+        ],
+        [
+          118,
+          307,
+          199,
+          "blood protein amount",
+          "TAOK3",
+          "rs12296288"
+        ],
+        [
+          119,
+          218.3,
+          144,
+          "IRAK1/PRKAB1 protein amount ratio in blood",
+          "CIT",
+          "rs11064881"
+        ],
+        [
+          120,
+          3061.2,
+          1905,
+          "LSP1/PXN protein amount ratio in blood",
+          "PXN",
+          "rs4767884"
+        ],
+        [
+          121,
+          2432.3,
+          890,
+          "platelet volume",
+          "TMEM120B, RHOF",
+          "rs11553699"
+        ],
+        [
+          122,
+          300,
+          1000,
+          "body height",
+          "PITPNM2",
+          "rs1463877"
+        ],
+        [
+          123,
+          300,
+          1501,
+          "body height",
+          "RILPL2",
+          "rs4930718"
+        ],
+        [
+          124,
+          293.4,
+          1734,
+          "body height",
+          "NCOR2",
+          "rs2229840"
+        ],
+        [
+          125,
+          45,
+          91,
+          "metabolite measurement",
+          "BRI3BP - AACS",
+          "rs10846815"
+        ],
+        [
+          126,
+          14.7,
+          50,
+          "glioma pathogenesis-related protein 1 measurement",
+          "LINC02350",
+          "rs184697424"
+        ],
+        [
+          127,
+          44.2,
+          45,
+          "bone tissue density",
+          "LINC00508, LINC00507",
+          "rs58077463"
+        ],
+        [
+          128,
+          300,
+          106,
+          "bone tissue density",
+          "LINC00508 - LINC02441",
+          "rs117366287"
+        ],
+        [
+          129,
+          300,
+          88,
+          "bone tissue density",
+          "TMEM132D",
+          "rs117043263"
+        ],
+        [
+          130,
+          293.2,
+          155,
+          "protein measurement",
+          "ADGRD1",
+          "rs12823753"
+        ],
+        [
+          131,
+          238.1,
+          151,
+          "amount of adhesion G-protein coupled receptor D1 in blood",
+          "ADGRD1",
+          "rs144740398"
+        ],
+        [
+          132,
+          142.1,
+          373,
+          "body height",
+          "GOLGA3",
+          "rs2291256"
+        ],
+        [
+          133,
+          21,
+          40,
+          "neuronal pentraxin-2 measurement",
+          "ZNF268",
+          "rs36127550"
+        ]
+      ],
+      "13": [
+        [
+          16,
+          9.4,
+          2,
+          "Anxiety",
+          "NA - FAM230C",
+          "rs1170817771"
+        ],
+        [
+          18,
+          23.5,
+          20,
+          "body mass index, blood insulin amount",
+          "ZNF965P - CYP4F34P",
+          "rs9552416"
+        ],
+        [
+          19,
+          79.2,
+          53,
+          "immunoglobulin G4-related sclerosing disease",
+          "TPTE2",
+          "rs150048756"
+        ],
+        [
+          20,
+          924.7,
+          177,
+          "interleukin-17D measurement",
+          "IFT88",
+          "rs2314235"
+        ],
+        [
+          21,
+          85.7,
+          178,
+          "body composition measurement",
+          "FGF9 - RN7SL766P",
+          "rs646026"
+        ],
+        [
+          22,
+          300,
+          215,
+          "bone tissue density",
+          "LINC00540 - FTH1P7",
+          "rs191184695"
+        ],
+        [
+          23,
+          323,
+          145,
+          "amount of tumor necrosis factor receptor superfamily member 19 (human) in blood",
+          "TNFRSF19",
+          "rs61947047"
+        ],
+        [
+          24,
+          255.7,
+          166,
+          "complement C1q and tumor necrosis factor-related protein 9A measurement",
+          "LINC00566",
+          "rs111925263"
+        ],
+        [
+          25,
+          19.7,
+          62,
+          "body height",
+          "MTMR6",
+          "rs4468451"
+        ],
+        [
+          26,
+          91.1,
+          176,
+          "amount of actin-binding protein WASF3 in blood",
+          "WASF3, WASF3-AS1",
+          "rs2133813"
+        ],
+        [
+          27,
+          133.7,
+          333,
+          "hematological measurement",
+          "PDX1",
+          "rs78382412"
+        ],
+        [
+          28,
+          846,
+          648,
+          "monocyte count",
+          "FLT3",
+          "rs76428106"
+        ],
+        [
+          29,
+          300,
+          107,
+          "bone tissue density",
+          "UBL3",
+          "rs187452800"
+        ],
+        [
+          30,
+          59,
+          276,
+          "protein measurement",
+          "KATNAL1 - LINC00427",
+          "rs4769824"
+        ],
+        [
+          31,
+          355.1,
+          209,
+          "beta-1,3-glucosyltransferase measurement",
+          "B3GLCT",
+          "rs1995970"
+        ],
+        [
+          32,
+          186.5,
+          482,
+          "body height",
+          "N4BP2L2 - PDS5B",
+          "rs7328733"
+        ],
+        [
+          33,
+          300,
+          100,
+          "bone tissue density",
+          "KL - STARD13",
+          "rs147845442"
+        ],
+        [
+          34,
+          14.2,
+          49,
+          "glioma pathogenesis-related protein 1 measurement",
+          "LINC00457 - Metazoa_SRP",
+          "rs567002787"
+        ],
+        [
+          35,
+          29.4,
+          117,
+          "body height",
+          "NBEA",
+          "rs1197852"
+        ],
+        [
+          36,
+          45,
+          119,
+          "body height",
+          "SPART, SPART-AS1",
+          "rs9547387"
+        ],
+        [
+          37,
+          286.5,
+          152,
+          "periostin measurement",
+          "LINC01048",
+          "rs9547922"
+        ],
+        [
+          38,
+          29.5,
+          76,
+          "protein measurement",
+          "FREM2",
+          "rs9532275"
+        ],
+        [
+          39,
+          230.3,
+          155,
+          "NHL repeat-containing protein 3 measurement",
+          "NHLRC3",
+          "rs41286947"
+        ],
+        [
+          40,
+          233.3,
+          503,
+          "monocyte count",
+          "LINC00598",
+          "rs1892548"
+        ],
+        [
+          41,
+          167,
+          235,
+          "bone tissue density",
+          "OR7E37P - RGCC",
+          "rs147014103"
+        ],
+        [
+          42,
+          169.1,
+          415,
+          "heel bone mineral density",
+          "LINC02341",
+          "rs9594738"
+        ],
+        [
+          43,
+          93,
+          104,
+          "leprosy",
+          "LACC1 - NRAD1",
+          "rs9567307"
+        ],
+        [
+          44,
+          300,
+          144,
+          "bone tissue density",
+          "SMIM2-AS1",
+          "rs117266119"
+        ],
+        [
+          45,
+          97.2,
+          93,
+          "protein measurement",
+          "SIAH3 - ZC3H13",
+          "rs561445307"
+        ],
+        [
+          46,
+          2460.7,
+          318,
+          "protein measurement",
+          "CPB2-AS1, CPB2",
+          "rs1926446"
+        ],
+        [
+          47,
+          60,
+          66,
+          "body height",
+          "GNG5P5 - RN7SL700P",
+          "rs17326362"
+        ],
+        [
+          48,
+          100,
+          149,
+          "body height",
+          "RB1",
+          "rs4151450"
+        ],
+        [
+          49,
+          300,
+          289,
+          "bone tissue density",
+          "EBPL",
+          "rs117371109"
+        ],
+        [
+          50,
+          302.2,
+          957,
+          "body height",
+          "DLEU7, DLEU1",
+          "rs3118905"
+        ],
+        [
+          51,
+          300,
+          123,
+          "bone tissue density",
+          "WDFY2",
+          "rs118073911"
+        ],
+        [
+          52,
+          337.5,
+          72,
+          "thrombospondin type-1 domain-containing protein 1 measurement",
+          "THSD1",
+          "rs41292808"
+        ],
+        [
+          53,
+          306,
+          435,
+          "olfactomedin-4 measurement",
+          "PCDH8 - OLFM4",
+          "rs58893622"
+        ],
+        [
+          54,
+          18.7,
+          115,
+          "olfactomedin-4 measurement",
+          "LINC00458 - MIR1297",
+          "rs9596937"
+        ],
+        [
+          55,
+          186.7,
+          219,
+          "bone tissue density",
+          "LINC02335 - HNF4GP1",
+          "rs141884382"
+        ],
+        [
+          56,
+          21.5,
+          55,
+          "bone tissue density",
+          "SPATA2P1 - RN7SKP6",
+          "rs8001649"
+        ],
+        [
+          57,
+          89.1,
+          175,
+          "educational attainment",
+          "PCDH17 - RNA5SP30",
+          "rs1334297"
+        ],
+        [
+          58,
+          36.7,
+          234,
+          "body height",
+          "LINC02338",
+          "rs9316973"
+        ],
+        [
+          59,
+          718.4,
+          162,
+          "NRCAM/PCDH17 protein amount ratio in blood",
+          "RPP40P2 - RNU7-88P",
+          "rs4884338"
+        ],
+        [
+          60,
+          56.7,
+          56,
+          "amount of coiled-coil domain-containing glutamate-rich protein 2 (human) in blood",
+          "TDRD3 - RNA5SP31",
+          "rs11148502"
+        ],
+        [
+          61,
+          19.4,
+          137,
+          "glioma pathogenesis-related protein 1 measurement",
+          "MIR3169 - PCDH20",
+          "rs573454747"
+        ],
+        [
+          62,
+          18,
+          72,
+          "glioma pathogenesis-related protein 1 measurement",
+          "LINC01075",
+          "rs543456405"
+        ],
+        [
+          63,
+          11.7,
+          37,
+          "glioma pathogenesis-related protein 1 measurement",
+          "LINC00376 - LINC00395",
+          "rs138053665"
+        ],
+        [
+          64,
+          15.5,
+          76,
+          "mathematical ability",
+          "LINC00355 - LGMNP1",
+          "rs1856765"
+        ],
+        [
+          65,
+          43,
+          85,
+          "body weight",
+          "STARP1 - HNRNPA3P5",
+          "rs1333010"
+        ],
+        [
+          66,
+          48.3,
+          148,
+          "protocadherin-9 measurement",
+          "PCDH9",
+          "rs4884685"
+        ],
+        [
+          67,
+          222.5,
+          162,
+          "protocadherin-9 measurement",
+          "PCDH9",
+          "rs5804316"
+        ],
+        [
+          68,
+          300,
+          85,
+          "bone tissue density",
+          "OR7E33P - ELL2P3",
+          "rs73212611"
+        ],
+        [
+          69,
+          17.2,
+          80,
+          "body height",
+          "LINC00383 - SRSF1P1",
+          "rs9541921"
+        ],
+        [
+          70,
+          300,
+          98,
+          "bone tissue density",
+          "RNU6-54P - MTCL1P1",
+          "rs73216454"
+        ],
+        [
+          71,
+          68.7,
+          240,
+          "serum creatinine amount",
+          "DACH1",
+          "rs9529913"
+        ],
+        [
+          72,
+          300,
+          149,
+          "bone tissue density",
+          "PIBF1",
+          "rs77808365"
+        ],
+        [
+          73,
+          163.2,
+          428,
+          "bone tissue density",
+          "FABP5P1 - RNU6-66P",
+          "rs192054699"
+        ],
+        [
+          74,
+          300,
+          161,
+          "bone tissue density",
+          "KLF12",
+          "rs117029633"
+        ],
+        [
+          75,
+          300,
+          183,
+          "bone tissue density",
+          "LINC00561 - LINC01034",
+          "rs34312781"
+        ],
+        [
+          76,
+          81.4,
+          45,
+          "bone tissue density",
+          "RN7SL571P - KCTD12",
+          "rs17691201"
+        ],
+        [
+          77,
+          270.2,
+          89,
+          "strand of hair color",
+          "EDNRB-AS1",
+          "rs1759977"
+        ],
+        [
+          78,
+          300,
+          114,
+          "bone tissue density",
+          "OBI1-AS1",
+          "rs117776778"
+        ],
+        [
+          79,
+          36.2,
+          167,
+          "amount of Thyroid stimulating hormone",
+          "LINC00382 - LINC01080",
+          "rs3861146"
+        ],
+        [
+          80,
+          104.2,
+          285,
+          "type 2 diabetes mellitus",
+          "LINC01080",
+          "rs1215468"
+        ],
+        [
+          81,
+          10.7,
+          50,
+          "socioeconomic status",
+          "LINC00377 - DPPA3P3",
+          "rs7988627"
+        ],
+        [
+          82,
+          300,
+          51,
+          "bone tissue density",
+          "PTMAP5 - GYG1P2",
+          "rs146595431"
+        ],
+        [
+          83,
+          73,
+          38,
+          "SLIT and NTRK-like protein 1 measurement",
+          "RNU6-67P - SLITRK1",
+          "rs2876803"
+        ],
+        [
+          84,
+          31.2,
+          83,
+          "Abnormality of refraction",
+          "LINC00333 - LINC00375",
+          "rs9547035"
+        ],
+        [
+          85,
+          712.2,
+          125,
+          "amount of SLIT and NTRK-like protein 6 in blood serum",
+          "SLITRK6",
+          "rs12863734"
+        ],
+        [
+          86,
+          21.2,
+          32,
+          "type 2 diabetes mellitus",
+          "DDX6P2 - TXNL1P1",
+          "rs78471707"
+        ],
+        [
+          87,
+          11.2,
+          38,
+          "amount of SLIT and NTRK-like protein 6 in blood serum",
+          "UBBP5 - LIN28AP2",
+          "rs141576122"
+        ],
+        [
+          88,
+          83,
+          56,
+          "bone tissue density",
+          "LINC00373",
+          "rs181824294"
+        ],
+        [
+          89,
+          55.7,
+          41,
+          "bone tissue density",
+          "LINC02336 - PEX12P1",
+          "rs148027207"
+        ],
+        [
+          90,
+          300,
+          40,
+          "bone tissue density",
+          "FAR1P1 - KRT18P27",
+          "rs192199504"
+        ],
+        [
+          91,
+          3717.4,
+          250,
+          "glypican-5 measurement",
+          "GPC5",
+          "rs342702"
+        ],
+        [
+          92,
+          298.5,
+          80,
+          "bone tissue density",
+          "GPC5 - LINC00363",
+          "rs117782072"
+        ],
+        [
+          93,
+          59.7,
+          125,
+          "bone tissue density",
+          "GPC5 - LINC00363",
+          "rs4091792"
+        ],
+        [
+          94,
+          109.2,
+          290,
+          "strand of hair color",
+          "DCT - TGDS",
+          "rs6492711"
+        ],
+        [
+          95,
+          227.5,
+          179,
+          "platelet count",
+          "ABCC4",
+          "rs4148435"
+        ],
+        [
+          96,
+          79.5,
+          180,
+          "bone tissue density",
+          "HS6ST3",
+          "rs111987003"
+        ],
+        [
+          97,
+          17.5,
+          169,
+          "viral load",
+          "MBNL2",
+          "rs75122859"
+        ],
+        [
+          98,
+          91,
+          270,
+          "body height",
+          "DOCK9",
+          "rs4772157"
+        ],
+        [
+          99,
+          54,
+          284,
+          "protein measurement",
+          "CLYBL",
+          "rs3783185"
+        ],
+        [
+          100,
+          138.1,
+          185,
+          "amount of gamma-glutamylaminecyclotransferase in blood",
+          "GGACT",
+          "rs71439670"
+        ],
+        [
+          101,
+          264,
+          88,
+          "amount of integrin beta-like protein 1 in blood",
+          "ITGBL1",
+          "rs3783221"
+        ],
+        [
+          102,
+          22,
+          88,
+          "atrial fibrillation",
+          "FGF14",
+          "rs9557850"
+        ],
+        [
+          103,
+          300,
+          162,
+          "bone tissue density",
+          "SLC10A2 - LINC01309",
+          "rs76326658"
+        ],
+        [
+          104,
+          35.5,
+          59,
+          "cerebellar volume measurement",
+          "ATP6V1G1P7 - RPL7P45",
+          "rs713607"
+        ],
+        [
+          105,
+          73.2,
+          140,
+          "ephrin type-B receptor 4 amount",
+          "LINC00343 - RNA5SP38",
+          "rs9558661"
+        ],
+        [
+          106,
+          27.3,
+          107,
+          "ephrin type-B receptor 4 amount",
+          "LINC00343 - RNA5SP38",
+          "rs9555221"
+        ],
+        [
+          107,
+          44.5,
+          115,
+          "diverticular disease",
+          "NALF1",
+          "rs67153654"
+        ],
+        [
+          108,
+          296.5,
+          329,
+          "amount of tumor necrosis factor ligand superfamily member 13B (human) in blood",
+          "TNFSF13B",
+          "rs374039502"
+        ],
+        [
+          109,
+          89,
+          335,
+          "platelet count",
+          "IRS2 - RN7SKP10",
+          "rs11841319"
+        ],
+        [
+          110,
+          186.2,
+          519,
+          "amount of collagen alpha-1(IV) chain (human) in blood",
+          "COL4A1",
+          "rs652572"
+        ],
+        [
+          111,
+          300,
+          146,
+          "bone tissue density",
+          "TEX29 - LINC02337",
+          "rs534919147"
+        ],
+        [
+          112,
+          221,
+          236,
+          "guanine nucleotide exchange factor DBS measurement",
+          "MCF2L",
+          "rs3011487"
+        ],
+        [
+          113,
+          1815.7,
+          1148,
+          "F7/F9 protein amount ratio in blood",
+          "MCF2L - F7",
+          "rs1755685"
+        ],
+        [
+          114,
+          173.5,
+          150,
+          "body height",
+          "CFAP97D2 - CDC16",
+          "rs7994556"
+        ]
+      ],
+      "14": [
+        [
+          18,
+          5.4,
+          2,
+          "lipid measurement",
+          "SSBP3P4 - RPL22P20",
+          "rs28701881"
+        ],
+        [
+          19,
+          7.4,
+          4,
+          "Tics, Stuttering",
+          "OR4N2",
+          "rs575901604"
+        ],
+        [
+          20,
+          2404.4,
+          420,
+          "ribonuclease K6 measurement",
+          "RNASE6 - LINC03058",
+          "rs72669422"
+        ],
+        [
+          21,
+          178.3,
+          277,
+          "body height",
+          "CHD8",
+          "rs17197107"
+        ],
+        [
+          22,
+          93.5,
+          226,
+          "hematological measurement",
+          "AJUBA-DT, C14orf93",
+          "rs997154"
+        ],
+        [
+          23,
+          354,
+          646,
+          "Red cell distribution width",
+          "PSMB5",
+          "rs8013143"
+        ],
+        [
+          24,
+          570.7,
+          789,
+          "amount of granzyme B (human) in blood",
+          "GZMB, GZMH-AS1",
+          "rs8192917"
+        ],
+        [
+          25,
+          55,
+          148,
+          "bone tissue density",
+          "OR7K1P - LINC02306",
+          "rs80247595"
+        ],
+        [
+          26,
+          31.2,
+          87,
+          "educational attainment",
+          "NOVA1",
+          "rs8020023"
+        ],
+        [
+          27,
+          17,
+          53,
+          "smoking initiation",
+          "MIR3171HG - BNIP3P1",
+          "rs2022815"
+        ],
+        [
+          28,
+          49.7,
+          70,
+          "brain attribute",
+          "FOXG1-AS1",
+          "rs1955454"
+        ],
+        [
+          29,
+          48.7,
+          330,
+          "educational attainment",
+          "LINC02327",
+          "rs12897763"
+        ],
+        [
+          30,
+          300,
+          179,
+          "bone tissue density",
+          "SCFD1 - RPL12P5",
+          "rs79477389"
+        ],
+        [
+          31,
+          37,
+          100,
+          "protein measurement",
+          "DTD2 - GPR33",
+          "rs10135161"
+        ],
+        [
+          32,
+          300,
+          294,
+          "bone tissue density",
+          "AKAP6",
+          "rs147702673"
+        ],
+        [
+          33,
+          300,
+          108,
+          "bone tissue density",
+          "NPAS3",
+          "rs190318871"
+        ],
+        [
+          34,
+          128.5,
+          279,
+          "tenascin-R measurement",
+          "EGLN3",
+          "rs12879626"
+        ],
+        [
+          35,
+          424.5,
+          354,
+          "protein FAM177A1 measurement",
+          "FAM177A1",
+          "rs799473"
+        ],
+        [
+          36,
+          256.2,
+          239,
+          "amount of Thyroid stimulating hormone",
+          "LINC00609 - MBIP",
+          "rs116909374"
+        ],
+        [
+          37,
+          300,
+          143,
+          "bone tissue density",
+          "MIPOL1",
+          "rs118154399"
+        ],
+        [
+          38,
+          44.3,
+          85,
+          "body height",
+          "CLEC14A - LINC00639",
+          "rs1168462"
+        ],
+        [
+          39,
+          54.4,
+          146,
+          "amount of vitamin D",
+          "SEC23A",
+          "rs2144530"
+        ],
+        [
+          40,
+          29,
+          59,
+          "body height",
+          "FBXO33 - LINC02315",
+          "rs4903755"
+        ],
+        [
+          41,
+          300,
+          110,
+          "bone tissue density",
+          "LRFN5",
+          "rs78621769"
+        ],
+        [
+          42,
+          18.7,
+          264,
+          "educational attainment",
+          "LRFN5 - YWHAQP1",
+          "rs72672601"
+        ],
+        [
+          43,
+          75.3,
+          33,
+          "bone tissue density",
+          "YWHAQP1 - TUBBP3",
+          "rs35296859"
+        ],
+        [
+          44,
+          13,
+          38,
+          "body height",
+          "RRAGAP1-AS1",
+          "rs143409715"
+        ],
+        [
+          45,
+          25.7,
+          34,
+          "age at menopause",
+          "FANCM",
+          "rs45547534"
+        ],
+        [
+          46,
+          37.4,
+          106,
+          "immunoglobulin G4-related sclerosing disease",
+          "MDGA2",
+          "rs73237216"
+        ],
+        [
+          47,
+          151,
+          60,
+          "protein measurement",
+          "LINC00648",
+          "rs61991840"
+        ],
+        [
+          48,
+          89,
+          58,
+          "protein measurement",
+          "RNU6-297P - RPL18P1",
+          "rs62009808"
+        ],
+        [
+          49,
+          75.3,
+          103,
+          "amount of glypican-1 (human) in blood",
+          "DNAAF2 - POLE2",
+          "rs3007036"
+        ],
+        [
+          50,
+          1373,
+          411,
+          "MAP4K5/TBCB protein amount ratio in blood",
+          "MAP4K5",
+          "rs17780143"
+        ],
+        [
+          51,
+          147.3,
+          112,
+          "adolescent idiopathic scoliosis",
+          "TRIM9 - TMX1",
+          "rs3007163"
+        ],
+        [
+          52,
+          4579.7,
+          297,
+          "APP/NID2 protein amount ratio in blood",
+          "NID2",
+          "rs1151580"
+        ],
+        [
+          53,
+          196,
+          285,
+          "heel bone mineral density",
+          "BMP4",
+          "rs35107139"
+        ],
+        [
+          54,
+          178,
+          242,
+          "body height",
+          "SAMD4A - GCH1",
+          "rs8021957"
+        ],
+        [
+          55,
+          2157.1,
+          261,
+          "galectin-3 measurement",
+          "LGALS3",
+          "rs2075601"
+        ],
+        [
+          56,
+          42.4,
+          155,
+          "body height",
+          "PELI2",
+          "rs11626451"
+        ],
+        [
+          57,
+          127.2,
+          87,
+          "cerebellar volume measurement",
+          "OTX2-AS1",
+          "rs117332043"
+        ],
+        [
+          58,
+          300,
+          303,
+          "bone tissue density",
+          "RPL9P5 - DACT1",
+          "rs142277084"
+        ],
+        [
+          59,
+          323.3,
+          318,
+          "brain attribute",
+          "LINC01500",
+          "rs73313052"
+        ],
+        [
+          60,
+          300,
+          364,
+          "body height",
+          "C14orf39 - SALRNA1",
+          "rs10483727"
+        ],
+        [
+          61,
+          148.7,
+          121,
+          "bone tissue density",
+          "LINC01303",
+          "rs34314571"
+        ],
+        [
+          62,
+          60.5,
+          86,
+          "bone tissue density",
+          "LINC00644 - ATP5F1AP4",
+          "rs183281098"
+        ],
+        [
+          63,
+          238.2,
+          1007,
+          "Sphingomyelin (d18:1/14:0, d16:1/16:0) measurement",
+          "SYNE2",
+          "rs35372182"
+        ],
+        [
+          64,
+          215,
+          433,
+          "erythrocyte volume",
+          "SPTB",
+          "rs2285005"
+        ],
+        [
+          65,
+          3231.4,
+          665,
+          "amount of alpha-(1,6)-fucosyltransferase in blood",
+          "PTBP1P - MIR4708",
+          "rs2127870"
+        ],
+        [
+          66,
+          300,
+          33,
+          "bone tissue density",
+          "GPHN",
+          "rs149283784"
+        ],
+        [
+          67,
+          244.4,
+          370,
+          "1-(1-enyl-palmitoyl)-2-palmitoyl-GPC (P-16:0/16:0) measurement",
+          "TMEM229B",
+          "rs1885041"
+        ],
+        [
+          68,
+          189.5,
+          687,
+          "body height",
+          "RAD51B",
+          "rs725453"
+        ],
+        [
+          69,
+          440.2,
+          392,
+          "Intrahepatic cholestasis of pregnancy",
+          "ERH",
+          "rs147525203"
+        ],
+        [
+          70,
+          169,
+          333,
+          "body height",
+          "SMOC1",
+          "rs12050076"
+        ],
+        [
+          71,
+          52.5,
+          174,
+          "QRS duration",
+          "SIPA1L1",
+          "rs17178387"
+        ],
+        [
+          72,
+          72.2,
+          419,
+          "chromosome, telomeric region length",
+          "DCAF4",
+          "rs137901416"
+        ],
+        [
+          73,
+          1067.2,
+          455,
+          "amount of nucleoside diphosphate phosphatase ENTPD5 (human) in blood",
+          "ENTPD5",
+          "rs113257091"
+        ],
+        [
+          74,
+          374.1,
+          567,
+          "amount of nucleoside diphosphate phosphatase ENTPD5 (human) in blood",
+          "LIN52",
+          "rs139569341"
+        ],
+        [
+          75,
+          300,
+          254,
+          "bone tissue density",
+          "TGFB3, IFT43",
+          "rs749812878"
+        ],
+        [
+          76,
+          139.3,
+          169,
+          "METAP1D/VASH1 protein amount ratio in blood",
+          "VASH1-DT",
+          "rs10483877"
+        ],
+        [
+          77,
+          3728,
+          201,
+          "protein measurement",
+          "GSTZ1",
+          "rs7975"
+        ],
+        [
+          78,
+          34,
+          91,
+          "glioma pathogenesis-related protein 1 measurement",
+          "NRXN3",
+          "rs112079849"
+        ],
+        [
+          79,
+          100.3,
+          259,
+          "bone tissue density",
+          "NRXN3 - DIO2",
+          "rs142945493"
+        ],
+        [
+          80,
+          136.5,
+          109,
+          "Graves disease",
+          "TSHR",
+          "rs28414437"
+        ],
+        [
+          81,
+          151,
+          175,
+          "bone tissue density",
+          "GTF2A1",
+          "rs200963934"
+        ],
+        [
+          82,
+          138.5,
+          52,
+          "bone tissue density",
+          "LINC02301 - RNU7-51P",
+          "rs150236961"
+        ],
+        [
+          83,
+          30.2,
+          56,
+          "FEV/FVC ratio",
+          "RNU6ATAC28P - LINC02305",
+          "rs1756281"
+        ],
+        [
+          84,
+          22.1,
+          108,
+          "educational attainment",
+          "MTCYBP27 - RNU6-976P",
+          "rs58694847"
+        ],
+        [
+          85,
+          1609.3,
+          167,
+          "amount of leucine-rich repeat transmembrane protein FLRT2 (human) in blood",
+          "FLRT2",
+          "rs17646457"
+        ],
+        [
+          86,
+          47.1,
+          57,
+          "bone tissue density",
+          "LINC02309",
+          "rs183216002"
+        ],
+        [
+          87,
+          300,
+          88,
+          "blood protein amount",
+          "GALC",
+          "rs380142"
+        ],
+        [
+          88,
+          300,
+          156,
+          "bone tissue density",
+          "HISLA",
+          "rs34164338"
+        ],
+        [
+          89,
+          46,
+          191,
+          "blood glucose amount",
+          "FOXN3",
+          "rs35889227"
+        ],
+        [
+          90,
+          300,
+          108,
+          "bone tissue density",
+          "RPS6KA5",
+          "rs117151272"
+        ],
+        [
+          91,
+          300,
+          426,
+          "body height",
+          "FBLN5",
+          "rs3783937"
+        ],
+        [
+          92,
+          307.7,
+          618,
+          "hair color",
+          "RNU6-366P - SLC24A4",
+          "rs941799"
+        ],
+        [
+          93,
+          188.2,
+          424,
+          "probable serine carboxypeptidase CPVL measurement",
+          "LYSET",
+          "rs145078947"
+        ],
+        [
+          94,
+          3380.3,
+          1845,
+          "amount of serpin A12 in blood",
+          "SERPINA12 - SERPINA4",
+          "rs17091005"
+        ],
+        [
+          95,
+          501.5,
+          226,
+          "FCRL1/TCL1A protein amount ratio in blood",
+          "TCL1B - TCL1A",
+          "rs78986913"
+        ],
+        [
+          96,
+          22.2,
+          117,
+          "glioma pathogenesis-related protein 1 measurement",
+          "PAPOLA - RN7SKP108",
+          "rs780646109"
+        ],
+        [
+          97,
+          40.3,
+          121,
+          "adolescent idiopathic scoliosis",
+          "LINC02312 - LINC01550",
+          "rs1999613"
+        ],
+        [
+          98,
+          300,
+          241,
+          "bone tissue density",
+          "RN7SL714P - LINC02914",
+          "rs10151467"
+        ],
+        [
+          99,
+          457.2,
+          323,
+          "Ena/VASP-like protein measurement",
+          "RNU1-47P - VDAC3P1",
+          "rs75416067"
+        ],
+        [
+          100,
+          1788.2,
+          535,
+          "amount of protein delta homolog 1 (human) in blood",
+          "LINC00523 - DLK1",
+          "rs12881760"
+        ],
+        [
+          101,
+          63.7,
+          216,
+          "hematological measurement",
+          "DYNC1H1",
+          "rs1555407402"
+        ],
+        [
+          102,
+          377,
+          586,
+          "protein amnionless measurement",
+          "TRAF3",
+          "rs12898022"
+        ],
+        [
+          103,
+          466.7,
+          743,
+          "serum gamma-glutamyl transferase measurement",
+          "EXOC3L4",
+          "rs11628185"
+        ],
+        [
+          104,
+          293,
+          409,
+          "asparagine measurement",
+          "ASPG",
+          "rs12587599"
+        ],
+        [
+          105,
+          907.7,
+          672,
+          "multiple coagulation factor deficiency protein 2 measurement",
+          "IGHG1",
+          "rs12147642"
+        ],
+        [
+          106,
+          277.2,
+          365,
+          "rho GTPase-activating protein 5 measurement",
+          "IGHV1-69",
+          "rs55891010"
+        ]
+      ],
+      "15": [
+        [
+          20,
+          5.7,
+          4,
+          "COVID-19",
+          "BMS1P15",
+          "rs1274967637"
+        ],
+        [
+          21,
+          7.5,
+          2,
+          "vitamin D deficiency",
+          "POTEB3",
+          "rs2605913"
+        ],
+        [
+          22,
+          31.3,
+          41,
+          "platelet component distribution width",
+          "CYFIP1",
+          "rs7170637"
+        ],
+        [
+          23,
+          43,
+          62,
+          "body height",
+          "RNU6-741P - PWRN4",
+          "rs12148769"
+        ],
+        [
+          24,
+          300,
+          67,
+          "bone tissue density",
+          "PWRN1",
+          "rs149515593"
+        ],
+        [
+          25,
+          28.2,
+          74,
+          "bone tissue density",
+          "SNHG14",
+          "rs138063983"
+        ],
+        [
+          26,
+          25.5,
+          108,
+          "bone tissue density",
+          "LINC02346 - LINC00929",
+          "rs17558247"
+        ],
+        [
+          27,
+          582,
+          345,
+          "eye color",
+          "OCA2",
+          "rs4778218"
+        ],
+        [
+          28,
+          28538.7,
+          863,
+          "eye color",
+          "HERC2",
+          "rs1129038"
+        ],
+        [
+          29,
+          300,
+          71,
+          "bone tissue density",
+          "TJP1",
+          "rs141821231"
+        ],
+        [
+          30,
+          19.7,
+          21,
+          "Huntington disease, age at onset",
+          "FAN1",
+          "rs150393409"
+        ],
+        [
+          31,
+          300,
+          225,
+          "bone tissue density",
+          "OTUD7A",
+          "rs145869122"
+        ],
+        [
+          32,
+          1393.7,
+          144,
+          "gremlin-1 measurement",
+          "SCG5 - GREM1",
+          "rs58658771"
+        ],
+        [
+          33,
+          20.5,
+          126,
+          "hematocrit",
+          "FMN1",
+          "rs12903271"
+        ],
+        [
+          34,
+          289.7,
+          134,
+          "refractive error",
+          "LINC02252 - GJD2",
+          "rs634990"
+        ],
+        [
+          35,
+          300,
+          108,
+          "bone tissue density",
+          "PRELID1P4 - DPH6",
+          "rs763738648"
+        ],
+        [
+          36,
+          300,
+          169,
+          "bone tissue density",
+          "LINC02853",
+          "rs182293460"
+        ],
+        [
+          37,
+          22.7,
+          99,
+          "body height",
+          "MEIS2",
+          "rs11638361"
+        ],
+        [
+          38,
+          300,
+          380,
+          "bone tissue density",
+          "SPRED1",
+          "rs148021236"
+        ],
+        [
+          39,
+          323.3,
+          457,
+          "cortical thickness",
+          "LINC02915 - THBS1",
+          "rs56003663"
+        ],
+        [
+          40,
+          516.4,
+          594,
+          "amount of Kunitz-type protease inhibitor 1 (human) in blood",
+          "SPINT1",
+          "rs17658212"
+        ],
+        [
+          41,
+          2218.4,
+          657,
+          "IL6ST/TYRO3 protein amount ratio in blood",
+          "RPAP1",
+          "rs2297381"
+        ],
+        [
+          42,
+          300,
+          407,
+          "bone tissue density",
+          "TTBK2",
+          "rs117525194"
+        ],
+        [
+          43,
+          202.7,
+          1476,
+          "triglyceride measurement",
+          "CATSPER2P1, CATSPER2P1",
+          "rs139974673"
+        ],
+        [
+          44,
+          309.7,
+          389,
+          "bone tissue density",
+          "TRIM69",
+          "rs140147160"
+        ],
+        [
+          45,
+          324.5,
+          278,
+          "glomerular filtration rate",
+          "SLC28A2-AS1 - RNU6-953P",
+          "rs1617634"
+        ],
+        [
+          46,
+          32.2,
+          84,
+          "body height",
+          "MTND5P40 - RNU6-1014P",
+          "rs17248705"
+        ],
+        [
+          47,
+          72.5,
+          406,
+          "restless legs syndrome",
+          "RN7SKP101 - SEMA6D",
+          "rs111652004"
+        ],
+        [
+          48,
+          236.4,
+          327,
+          "body height",
+          "FBN1",
+          "rs363820"
+        ],
+        [
+          49,
+          278.4,
+          223,
+          "nodular goiter",
+          "FAM227B",
+          "rs17477923"
+        ],
+        [
+          50,
+          405.1,
+          454,
+          "MICA/TEK protein amount ratio in blood, MICB/TEK protein amount ratio in blood",
+          "USP8",
+          "rs146125856"
+        ],
+        [
+          51,
+          2844.7,
+          469,
+          "SCG3/SEZ6L protein amount ratio in blood",
+          "DMXL2",
+          "rs17524906"
+        ],
+        [
+          52,
+          84.1,
+          220,
+          "secretogranin-3 measurement",
+          "MYO5A",
+          "rs4238392"
+        ],
+        [
+          53,
+          300,
+          372,
+          "bone tissue density",
+          "WDR72",
+          "rs191932055"
+        ],
+        [
+          54,
+          19,
+          84,
+          "amount of protogenin in blood",
+          "UNC13C - RSL24D1",
+          "rs35869454"
+        ],
+        [
+          55,
+          1048.4,
+          175,
+          "amount of protogenin in blood",
+          "PRTG",
+          "rs2008336"
+        ],
+        [
+          56,
+          91,
+          262,
+          "hematological measurement",
+          "TEX9",
+          "rs2718953"
+        ],
+        [
+          57,
+          81.7,
+          323,
+          "white matter microstructure measurement",
+          "ALDH1A2",
+          "rs3784264"
+        ],
+        [
+          58,
+          3837.3,
+          7820,
+          "triglycerides in large HDL measurement",
+          "ALDH1A2",
+          "rs261290"
+        ],
+        [
+          59,
+          300,
+          123,
+          "bone tissue density",
+          "GTF2A2, GCNT3",
+          "rs189845338"
+        ],
+        [
+          60,
+          986.2,
+          519,
+          "annexin A2 measurement",
+          "ANXA2",
+          "rs8033800"
+        ],
+        [
+          61,
+          198.2,
+          269,
+          "bone tissue density",
+          "VPS13C",
+          "rs72747892"
+        ],
+        [
+          62,
+          300,
+          288,
+          "bone tissue density",
+          "VPS13C",
+          "rs72749763"
+        ],
+        [
+          63,
+          361.7,
+          859,
+          "amount of carbonic anhydrase 12 in blood serum",
+          "LINC02568",
+          "rs28372792"
+        ],
+        [
+          64,
+          211,
+          357,
+          "platelet component distribution width",
+          "PLEKHO2 - ANKDD1A",
+          "rs1719285"
+        ],
+        [
+          65,
+          300,
+          302,
+          "hematological measurement",
+          "DPP8",
+          "rs7227"
+        ],
+        [
+          66,
+          300,
+          395,
+          "bone tissue density",
+          "SMAD6",
+          "rs149403125"
+        ],
+        [
+          67,
+          287,
+          789,
+          "restless legs syndrome",
+          "MAP2K5",
+          "rs868036"
+        ],
+        [
+          68,
+          390.4,
+          152,
+          "ITGA11/ITGAV protein amount ratio in blood",
+          "ITGA11",
+          "rs2306022"
+        ],
+        [
+          69,
+          693,
+          260,
+          "D-glucuronyl C5-epimerase measurement",
+          "GLCE",
+          "rs35810867"
+        ],
+        [
+          70,
+          300,
+          266,
+          "body height",
+          "TLE3",
+          "rs8039718"
+        ],
+        [
+          71,
+          196.3,
+          249,
+          "FEV/FVC ratio",
+          "THSD4",
+          "rs11853359"
+        ],
+        [
+          72,
+          192.2,
+          177,
+          "bone tissue density",
+          "GRAMD2A",
+          "rs112705105"
+        ],
+        [
+          73,
+          3566.2,
+          580,
+          "CD276/CD58 protein amount ratio in blood",
+          "CD276",
+          "rs11574479"
+        ],
+        [
+          74,
+          695.2,
+          795,
+          "CNPY4/MPI protein amount ratio in blood",
+          "FAM219B, MPI",
+          "rs6495127"
+        ],
+        [
+          75,
+          518.3,
+          475,
+          "MPI/PPCDC protein amount ratio in blood",
+          "PPCDC",
+          "rs12148488"
+        ],
+        [
+          76,
+          165,
+          267,
+          "body height",
+          "SCAPER",
+          "rs16968467"
+        ],
+        [
+          77,
+          136.4,
+          378,
+          "body height",
+          "HMG20A - LINGO1",
+          "rs1317320"
+        ],
+        [
+          78,
+          3816,
+          1820,
+          "amount of cathepsin H in blood",
+          "CTSH - RASGRF1",
+          "rs7177831"
+        ],
+        [
+          79,
+          314.3,
+          314,
+          "5-formyltetrahydrofolate cyclo-ligase measurement",
+          "ST20-MTHFS, ST20",
+          "rs4994246"
+        ],
+        [
+          80,
+          373,
+          297,
+          "fumarylacetoacetase measurement",
+          "FAH",
+          "rs11555096"
+        ],
+        [
+          81,
+          2544.7,
+          222,
+          "amount of pro-interleukin-16 (human) in blood",
+          "IL16",
+          "rs4778639"
+        ],
+        [
+          82,
+          45.7,
+          206,
+          "interleukin 16 measurement",
+          "ACTG1P17",
+          "rs139576939"
+        ],
+        [
+          83,
+          300,
+          712,
+          "body height",
+          "ADAMTSL3",
+          "rs7177929"
+        ],
+        [
+          84,
+          300,
+          424,
+          "body height",
+          "EFL1P1 - DNM1P41",
+          "rs12911223"
+        ],
+        [
+          85,
+          137.3,
+          349,
+          "body height",
+          "AKAP13",
+          "rs12913754"
+        ],
+        [
+          86,
+          32,
+          97,
+          "metabolic syndrome",
+          "AGBL1",
+          "rs1496890"
+        ],
+        [
+          87,
+          300,
+          102,
+          "bone tissue density",
+          "LINC00052 - NTRK3",
+          "rs35620181"
+        ],
+        [
+          88,
+          698.7,
+          561,
+          "lactadherin measurement",
+          "MFGE8",
+          "rs34239095"
+        ],
+        [
+          89,
+          1066.4,
+          417,
+          "amount of aminopeptidase N in blood",
+          "ANPEP",
+          "rs1042499"
+        ],
+        [
+          90,
+          431.2,
+          779,
+          "Red cell distribution width",
+          "RCCD1 - PRC1",
+          "rs77554484"
+        ],
+        [
+          91,
+          300,
+          134,
+          "bone tissue density",
+          "VPS33B-DT - SV2B",
+          "rs142339226"
+        ],
+        [
+          92,
+          87.5,
+          178,
+          "amount of neural cell adhesion molecule 1 in blood serum",
+          "ST8SIA2",
+          "rs2035645"
+        ],
+        [
+          93,
+          344,
+          189,
+          "amount of repulsive guidance molecule A (human) in blood",
+          "RGMA",
+          "rs3752102"
+        ],
+        [
+          94,
+          204.5,
+          171,
+          "body height",
+          "LINC01579, LINC01581",
+          "rs7181724"
+        ],
+        [
+          95,
+          72.4,
+          164,
+          "autosomal dominant compelling helio-ophthalmic outburst syndrome",
+          "RNU2-3P - NR2F2-AS1",
+          "rs1541995"
+        ],
+        [
+          96,
+          320,
+          255,
+          "sex hormone-binding globulin measurement",
+          "NR2F2-AS1",
+          "rs56332871"
+        ],
+        [
+          97,
+          33.2,
+          141,
+          "sodium measurement",
+          "ARRDC4",
+          "rs61747226"
+        ],
+        [
+          98,
+          300,
+          640,
+          "body height",
+          "IRAIN",
+          "rs1319868"
+        ],
+        [
+          99,
+          300,
+          150,
+          "body height",
+          "ADAMTS17",
+          "rs2573650"
+        ],
+        [
+          100,
+          323,
+          394,
+          "body height",
+          "ADAMTS17",
+          "rs72755233"
+        ],
+        [
+          101,
+          259.2,
+          585,
+          "ANGPT1/PDGFB protein amount ratio in blood",
+          "PCSK6",
+          "rs1552948"
+        ]
+      ],
+      "16": [
+        [
+          0,
+          2176,
+          1696,
+          "amount of mesothelin (human) in blood",
+          "CIAO3 - MSLN",
+          "rs2235503"
+        ],
+        [
+          1,
+          3575,
+          562,
+          "amount of tryptase alpha/beta-1 in blood",
+          "TPSAB1",
+          "rs71380254"
+        ],
+        [
+          2,
+          310.2,
+          535,
+          "amount of serine protease 27 (human) in blood",
+          "PRSS27",
+          "rs71386687"
+        ],
+        [
+          3,
+          300.2,
+          524,
+          "interleukin-32 measurement",
+          "MMP25 - IL32",
+          "rs56001810"
+        ],
+        [
+          4,
+          1002.7,
+          751,
+          "ITGB1/VASN protein amount ratio in blood",
+          "VASN, CORO7, CORO7-PAM16",
+          "rs35713275"
+        ],
+        [
+          5,
+          103.4,
+          157,
+          "n-acetylglucosamine-1-phosphodiester alpha-N-acetylglucosaminidase measurement",
+          "SEC14L5 - NAGPA",
+          "rs76557209"
+        ],
+        [
+          6,
+          300,
+          250,
+          "bone tissue density",
+          "RBFOX1",
+          "rs188655999"
+        ],
+        [
+          7,
+          195.5,
+          287,
+          "refractive error",
+          "RBFOX1",
+          "rs10500355"
+        ],
+        [
+          8,
+          300,
+          275,
+          "bone tissue density",
+          "RBFOX1 - LINC02152",
+          "rs144092395"
+        ],
+        [
+          9,
+          57.1,
+          179,
+          "body height",
+          "HAPSTR1 - RPL21P119",
+          "rs12925781"
+        ],
+        [
+          10,
+          108.7,
+          275,
+          "CD74/IL18BP protein amount ratio in blood",
+          "CIITA",
+          "rs12922863"
+        ],
+        [
+          11,
+          141.7,
+          767,
+          "JT interval",
+          "LITAF",
+          "rs7191330"
+        ],
+        [
+          12,
+          3045.7,
+          249,
+          "CPPED1/PPCDC protein amount ratio in blood",
+          "CPPED1 - RPL35AP34",
+          "rs7187602"
+        ],
+        [
+          13,
+          41.2,
+          195,
+          "sunburn",
+          "ERCC4",
+          "rs1799802"
+        ],
+        [
+          14,
+          300,
+          701,
+          "body height",
+          "MIR193BHG",
+          "rs246185"
+        ],
+        [
+          15,
+          457.3,
+          2412,
+          "degree of unsaturation measurement",
+          "PDXDC1, RRN3",
+          "rs11644601"
+        ],
+        [
+          16,
+          987.5,
+          293,
+          "amount of nodal modulator 1 in blood",
+          "NOMO3",
+          "rs62032164"
+        ],
+        [
+          17,
+          94,
+          126,
+          "biglycan measurement",
+          "XYLT1",
+          "rs61758388"
+        ],
+        [
+          18,
+          54,
+          42,
+          "amount of nodal modulator 1 in blood",
+          "NOMO2 - ABCC6P1",
+          "rs118073312"
+        ],
+        [
+          19,
+          74.7,
+          249,
+          "blood protein amount",
+          "COQ7-DT, COQ7",
+          "rs11074359"
+        ],
+        [
+          20,
+          3499.5,
+          1043,
+          "ERBB4/UMOD protein amount ratio in blood",
+          "UMOD",
+          "rs12917707"
+        ],
+        [
+          21,
+          112.4,
+          75,
+          "amount of ketimine reductase mu-crystallin in blood",
+          "CRYM, ANKS4B",
+          "rs72782835"
+        ],
+        [
+          22,
+          300,
+          69,
+          "bone tissue density",
+          "HS3ST2",
+          "rs10444989"
+        ],
+        [
+          23,
+          27.7,
+          136,
+          "prostate cancer",
+          "PRKCB",
+          "rs75964872"
+        ],
+        [
+          24,
+          158.2,
+          349,
+          "body height",
+          "TNRC6A",
+          "rs13336226"
+        ],
+        [
+          25,
+          50,
+          114,
+          "smoking initiation",
+          "ZKSCAN2-DT",
+          "rs6497840"
+        ],
+        [
+          26,
+          217.5,
+          72,
+          "bone tissue density",
+          "HS3ST4 - LINC02195",
+          "rs117821195"
+        ],
+        [
+          27,
+          634.7,
+          250,
+          "amount of interleukin-4 receptor subunit alpha (human) in blood",
+          "IL4R",
+          "rs6498011"
+        ],
+        [
+          28,
+          304,
+          975,
+          "amount of apolipoprotein B receptor in blood",
+          "NPIPB6",
+          "rs763318273"
+        ],
+        [
+          29,
+          300,
+          297,
+          "bone tissue density",
+          "ZG16",
+          "rs143840454"
+        ],
+        [
+          30,
+          303,
+          822,
+          "bone tissue density",
+          "PPP4C",
+          "rs72791226"
+        ],
+        [
+          31,
+          209.2,
+          454,
+          "amount of serine protease 53 in blood",
+          "PRSS53",
+          "rs11150606"
+        ],
+        [
+          32,
+          18.2,
+          7,
+          "amount of serine protease 53 in blood",
+          "ACTR3BP3 - PABPC1P13",
+          "rs183761855"
+        ],
+        [
+          33,
+          13.3,
+          2,
+          "ventricular septal defect",
+          "ARHGAP23P1",
+          "rs62039223"
+        ],
+        [
+          34,
+          17,
+          14,
+          "adolescent idiopathic scoliosis",
+          "DUX4L45 - PCMTD1P2",
+          "rs7500645"
+        ],
+        [
+          35,
+          15.1,
+          31,
+          "viral load",
+          "RNA5SP407 - RNA5SP408",
+          "rs17841547"
+        ],
+        [
+          36,
+          7.5,
+          1,
+          "bone tissue density",
+          "PPP1R1AP2 - ANKRD26P1",
+          "rs116858008"
+        ],
+        [
+          46,
+          32.5,
+          17,
+          "amount of serine protease 53 in blood",
+          "VPS35",
+          "rs8045759"
+        ],
+        [
+          47,
+          82.7,
+          48,
+          "bone tissue density",
+          "LINC02133",
+          "rs149130813"
+        ],
+        [
+          48,
+          1071.7,
+          95,
+          "cerebellin-1 measurement",
+          "RNU6-257P - MTND4LP25",
+          "rs12596832"
+        ],
+        [
+          49,
+          90.2,
+          247,
+          "body height",
+          "ZNF423",
+          "rs933561"
+        ],
+        [
+          50,
+          320,
+          336,
+          "ankylosing spondylitis, psoriasis, ulcerative colitis, Crohn disease, sclerosing cholangitis",
+          "NOD2, CYLD-AS1",
+          "rs5743293"
+        ],
+        [
+          51,
+          247.2,
+          603,
+          "C-reactive protein measurement",
+          "UNGP1 - HNRNPA1L3",
+          "rs17616063"
+        ],
+        [
+          52,
+          396.1,
+          268,
+          "restless legs syndrome",
+          "CASC16",
+          "rs3112626"
+        ],
+        [
+          53,
+          430.4,
+          1693,
+          "body mass index",
+          "FTO",
+          "rs1421085"
+        ],
+        [
+          54,
+          50.1,
+          166,
+          "aspartate aminotransferase measurement",
+          "LINC02140 - LINC02183",
+          "rs79390766"
+        ],
+        [
+          55,
+          1615.2,
+          156,
+          "amount of liver carboxylesterase 1 in blood",
+          "CES1",
+          "rs76875916"
+        ],
+        [
+          56,
+          5901.3,
+          3425,
+          "high density lipoprotein cholesterol measurement",
+          "HERPUD1 - CETP",
+          "rs183130"
+        ],
+        [
+          57,
+          449.7,
+          581,
+          "C-C motif chemokine 17 amount",
+          "CCL17",
+          "rs9302690"
+        ],
+        [
+          58,
+          371.2,
+          408,
+          "imidazole lactate measurement",
+          "GOT2",
+          "rs11076256"
+        ],
+        [
+          59,
+          11.7,
+          44,
+          "free cholesterol measurement",
+          "RNU4-58P - DUXAP11",
+          "rs181225041"
+        ],
+        [
+          60,
+          300,
+          122,
+          "bone tissue density",
+          "LINC02141 - NPAP1L",
+          "rs118187049"
+        ],
+        [
+          61,
+          32.7,
+          91,
+          "smoking initiation",
+          "CDH8",
+          "rs28895882"
+        ],
+        [
+          62,
+          27.1,
+          107,
+          "free cholesterol measurement",
+          "RNU6-21P - DPPA3P11",
+          "rs147310698"
+        ],
+        [
+          63,
+          32.1,
+          49,
+          "adolescent idiopathic scoliosis",
+          "LINC02165 - PPIAP48",
+          "rs16966555"
+        ],
+        [
+          64,
+          197,
+          88,
+          "blood protein amount",
+          "CDH11",
+          "rs3785315"
+        ],
+        [
+          65,
+          60.2,
+          210,
+          "body height",
+          "CDH11",
+          "rs35184"
+        ],
+        [
+          66,
+          300,
+          174,
+          "bone tissue density",
+          "CES2 - CES3",
+          "rs140293497"
+        ],
+        [
+          67,
+          367.5,
+          951,
+          "dipeptidase 2 measurement",
+          "DPEP2, DUS2",
+          "rs144339907"
+        ],
+        [
+          68,
+          281,
+          468,
+          "amount of phospholipase A2 group XV in blood",
+          "PLA2G15",
+          "rs7672"
+        ],
+        [
+          69,
+          923.7,
+          857,
+          "protein measurement",
+          "NFAT5",
+          "rs12232410"
+        ],
+        [
+          70,
+          324.5,
+          403,
+          "amount of interleukin-34 (human) in cerebrospinal fluid",
+          "IL34",
+          "rs4985556"
+        ],
+        [
+          71,
+          431,
+          537,
+          "tyrosine measurement",
+          "TAT-AS1 - MARVELD3",
+          "rs150851429"
+        ],
+        [
+          72,
+          850.2,
+          1719,
+          "glycoprotein measurement",
+          "HPR",
+          "rs217184"
+        ],
+        [
+          73,
+          304.7,
+          326,
+          "atrial fibrillation",
+          "ZFHX3",
+          "rs2106261"
+        ],
+        [
+          74,
+          211.5,
+          148,
+          "adolescent idiopathic scoliosis",
+          "WDR59",
+          "rs1051432"
+        ],
+        [
+          75,
+          1454.7,
+          550,
+          "CPB1/CTRB1 protein amount ratio in blood",
+          "CTRB2",
+          "rs4737"
+        ],
+        [
+          76,
+          23,
+          148,
+          "smoking initiation",
+          "CNTNAP4",
+          "rs2135620"
+        ],
+        [
+          77,
+          300,
+          229,
+          "bone tissue density",
+          "VN2R10P - ADAMTS18",
+          "rs72800043"
+        ],
+        [
+          78,
+          113.7,
+          234,
+          "body height",
+          "VAT1L - CLEC3A",
+          "rs2735406"
+        ],
+        [
+          79,
+          335.7,
+          540,
+          "amount of Thyroid stimulating hormone",
+          "MAFTRR",
+          "rs11646791"
+        ],
+        [
+          80,
+          300,
+          221,
+          "bone tissue density",
+          "DYNLRB2-AS1",
+          "rs17741477"
+        ],
+        [
+          81,
+          313.5,
+          1557,
+          "glycine measurement",
+          "GCSH",
+          "rs142446613"
+        ],
+        [
+          82,
+          269.2,
+          312,
+          "adiponectin measurement",
+          "CDH13",
+          "rs12051272"
+        ],
+        [
+          83,
+          306.3,
+          483,
+          "amount of heat shock factor-binding protein 1 in blood",
+          "HSBP1, CDH13",
+          "rs692603"
+        ],
+        [
+          84,
+          230.3,
+          388,
+          "pulmonary surfactant-associated protein d measurement",
+          "ATP2C2",
+          "rs9927461"
+        ],
+        [
+          85,
+          475.2,
+          768,
+          "monocyte count",
+          "RPL10AP12 - IRF8",
+          "rs369173"
+        ],
+        [
+          86,
+          407,
+          444,
+          "protein measurement",
+          "MTHFSD",
+          "rs11642368"
+        ],
+        [
+          87,
+          3385.5,
+          701,
+          "amount of carbonic anhydrase 5A, mitochondrial (human) in blood",
+          "CA5A",
+          "rs55870502"
+        ],
+        [
+          88,
+          323,
+          1290,
+          "mean corpuscular hemoglobin concentration",
+          "PIEZO1 - CDT1",
+          "rs551118"
+        ],
+        [
+          89,
+          3530,
+          1390,
+          "dipeptidase 1 measurement",
+          "SPATA33 - CDK10",
+          "rs423135"
+        ],
+        [
+          90,
+          415.1,
+          83,
+          "suntan",
+          "DBNDD1",
+          "rs77733403"
+        ]
+      ],
+      "17": [
+        [
+          0,
+          102,
+          240,
+          "chromosome, telomeric region length",
+          "DOC2B",
+          "rs112312375"
+        ],
+        [
+          1,
+          1453.1,
+          670,
+          "DAG1/SCARF1 protein amount ratio in blood",
+          "SCARF1",
+          "rs2272011"
+        ],
+        [
+          2,
+          177.4,
+          783,
+          "bone tissue density",
+          "SMG6",
+          "rs35401268"
+        ],
+        [
+          3,
+          651,
+          174,
+          "ITGAV/ITGB7 protein amount ratio in blood",
+          "HASPIN, ITGAE",
+          "rs9907144"
+        ],
+        [
+          4,
+          361.2,
+          793,
+          "platelet count",
+          "GP1BA, CHRNE",
+          "rs6065"
+        ],
+        [
+          5,
+          172,
+          275,
+          "amount of vitelline membrane outer layer protein 1 in blood",
+          "ZFP3-DT",
+          "rs35891082"
+        ],
+        [
+          6,
+          159,
+          217,
+          "citrate measurement",
+          "SLC13A5 - RPL23AP73",
+          "rs371719800"
+        ],
+        [
+          7,
+          3494.4,
+          3795,
+          "sex hormone-binding globulin measurement",
+          "MPDU1",
+          "rs545206972"
+        ],
+        [
+          8,
+          163.5,
+          284,
+          "body height",
+          "HES7 - PER1",
+          "rs3027279"
+        ],
+        [
+          9,
+          184,
+          263,
+          "netrin-1 measurement",
+          "NTN1",
+          "rs9897200"
+        ],
+        [
+          10,
+          300,
+          167,
+          "bone tissue density",
+          "GAS7",
+          "rs75391256"
+        ],
+        [
+          11,
+          88.5,
+          90,
+          "refractive error",
+          "SHISA6",
+          "rs2908972"
+        ],
+        [
+          12,
+          53.7,
+          281,
+          "PR interval",
+          "MYOCD",
+          "rs35712872"
+        ],
+        [
+          13,
+          573.7,
+          126,
+          "heparan sulfate glucosamine 3-O-sulfotransferase 3B1 measurement",
+          "COX10-DT",
+          "rs2108592"
+        ],
+        [
+          14,
+          174.2,
+          136,
+          "heparan sulfate glucosamine 3-O-sulfotransferase 3B1 measurement",
+          "HS3ST3B1",
+          "rs12453663"
+        ],
+        [
+          15,
+          57.4,
+          92,
+          "hematological measurement",
+          "ZSWIM7",
+          "rs4792707"
+        ],
+        [
+          16,
+          288,
+          581,
+          "total blood protein measurement",
+          "TNFRSF13B",
+          "rs34562254"
+        ],
+        [
+          17,
+          300,
+          870,
+          "bone tissue density",
+          "DRC3, ATPAF2",
+          "rs80186930"
+        ],
+        [
+          18,
+          4727.7,
+          314,
+          "MGLL/SHMT1 protein amount ratio in blood",
+          "SHMT1",
+          "rs669340"
+        ],
+        [
+          19,
+          1228.7,
+          302,
+          "aldehyde dehydrogenase, dimeric NADP-preferring measurement",
+          "SLC47A2 - ALDH3A1",
+          "rs11204414"
+        ],
+        [
+          20,
+          300,
+          132,
+          "bone tissue density",
+          "CCDC144NL-AS1",
+          "rs139093989"
+        ],
+        [
+          21,
+          255.1,
+          207,
+          "body height",
+          "KCNJ12",
+          "rs4640244"
+        ],
+        [
+          22,
+          40.4,
+          37,
+          "amount of galectin-9 (human) in blood",
+          "FAM27E5 - FLJ36000",
+          "rs117176226"
+        ],
+        [
+          26,
+          28.2,
+          9,
+          "Alzheimer disease, family history of Alzheimer’s disease",
+          "WEE1P2 - PDLIM1P3",
+          "rs1906375469"
+        ],
+        [
+          27,
+          1394.7,
+          196,
+          "amount of galectin-9 (human) in blood",
+          "LGALS9",
+          "rs74321993"
+        ],
+        [
+          28,
+          6995.4,
+          3298,
+          "vitronectin measurement",
+          "VTN, SARM1",
+          "rs704"
+        ],
+        [
+          29,
+          1062.4,
+          576,
+          "platelet volume",
+          "RPL35AP35 - RNU4-34P",
+          "rs1712652"
+        ],
+        [
+          30,
+          3055.7,
+          534,
+          "amount of bleomycin hydrolase in blood",
+          "BLMH",
+          "rs1050565"
+        ],
+        [
+          31,
+          169,
+          369,
+          "body height",
+          "UTP6 - SUZ12",
+          "rs2028067"
+        ],
+        [
+          32,
+          300,
+          167,
+          "bone tissue density",
+          "PSMD11",
+          "rs117167757"
+        ],
+        [
+          33,
+          32.5,
+          124,
+          "body height",
+          "ASIC2",
+          "rs731601"
+        ],
+        [
+          34,
+          5501,
+          290,
+          "monocyte chemotactic protein-2 measurement",
+          "CCL8",
+          "rs1133763"
+        ],
+        [
+          35,
+          5289,
+          740,
+          "C-C motif chemokine 16 measurement",
+          "CCL16",
+          "rs112689088"
+        ],
+        [
+          36,
+          5133.7,
+          524,
+          "amount of C-C motif chemokine 15",
+          "CCL15, CCL15-CCL14",
+          "rs854624"
+        ],
+        [
+          37,
+          367,
+          414,
+          "prostate carcinoma",
+          "HNF1B",
+          "rs11263763"
+        ],
+        [
+          38,
+          300,
+          182,
+          "bone tissue density",
+          "FBXO47 - LINC02079",
+          "rs141167917"
+        ],
+        [
+          39,
+          605,
+          1445,
+          "myeloid leukocyte count",
+          "GSDMA - PSMD3",
+          "rs3907022"
+        ],
+        [
+          40,
+          662.1,
+          649,
+          "neutrophil count",
+          "CSF3",
+          "rs25645"
+        ],
+        [
+          41,
+          124.1,
+          153,
+          "amount of keratin, type I cytoskeletal 19 in blood",
+          "KRT19 - LINC00974",
+          "rs7405611"
+        ],
+        [
+          42,
+          2121.4,
+          650,
+          "AOC3/ITGB1 protein amount ratio in blood",
+          "AOC3",
+          "rs33986943"
+        ],
+        [
+          43,
+          1009.2,
+          1283,
+          "CD300LG/DSG2 protein amount ratio in blood",
+          "CD300LG",
+          "rs72836561"
+        ],
+        [
+          44,
+          462.1,
+          676,
+          "progranulin measurement",
+          "GRN",
+          "rs5848"
+        ],
+        [
+          45,
+          305.3,
+          1621,
+          "body height",
+          "ACBD4",
+          "rs4986172"
+        ],
+        [
+          46,
+          256.7,
+          1533,
+          "hematological measurement",
+          "WNT3",
+          "rs199508"
+        ],
+        [
+          47,
+          195.1,
+          998,
+          "protein measurement",
+          "PNPO",
+          "rs17679445"
+        ],
+        [
+          48,
+          300,
+          791,
+          "body height",
+          "ATP5MC1 - UBE2Z",
+          "rs318095"
+        ],
+        [
+          49,
+          301.7,
+          953,
+          "sex hormone-binding globulin measurement",
+          "ZNF652-AS1",
+          "rs11655704"
+        ],
+        [
+          50,
+          2338,
+          306,
+          "WAP, Kazal, immunoglobulin, Kunitz and NTR domain-containing protein 2 measurement",
+          "MIR8059 - WFIKKN2",
+          "rs10853117"
+        ],
+        [
+          51,
+          300,
+          109,
+          "bone tissue density",
+          "NME1, NME1-NME2",
+          "rs62063053"
+        ],
+        [
+          52,
+          59,
+          154,
+          "carbonic anhydrase-related protein 10 measurement",
+          "CA10",
+          "rs117399000"
+        ],
+        [
+          53,
+          31.3,
+          60,
+          "smoking initiation",
+          "RPS2P48 - KIF2B",
+          "rs12450133"
+        ],
+        [
+          54,
+          66.1,
+          89,
+          "bone tissue density",
+          "ISCA1P3 - ARL2BPP8",
+          "rs111903442"
+        ],
+        [
+          55,
+          59.7,
+          183,
+          "body height",
+          "RNU6-1249P - TMEM100",
+          "rs7225971"
+        ],
+        [
+          56,
+          300,
+          337,
+          "body height",
+          "NOG - C17orf67",
+          "rs1401796"
+        ],
+        [
+          57,
+          100.7,
+          285,
+          "hematological measurement",
+          "MSI2",
+          "rs80093687"
+        ],
+        [
+          58,
+          474.5,
+          526,
+          "amount of myeloperoxidase (human) in blood",
+          "MPO - TSPOAP1",
+          "rs34097845"
+        ],
+        [
+          59,
+          139,
+          541,
+          "monocyte count",
+          "VMP1",
+          "rs7216675"
+        ],
+        [
+          60,
+          516.7,
+          172,
+          "amount of carbonic anhydrase 4 (human) in blood",
+          "CA4",
+          "rs117154637"
+        ],
+        [
+          61,
+          308,
+          814,
+          "serum creatinine amount",
+          "BCAS3, TBX2-AS1",
+          "rs9895661"
+        ],
+        [
+          62,
+          300,
+          239,
+          "bone tissue density",
+          "TLK2",
+          "rs143310582"
+        ],
+        [
+          63,
+          745.7,
+          558,
+          "angiotensin-converting enzyme measurement",
+          "ACE",
+          "rs4353"
+        ],
+        [
+          64,
+          753.7,
+          303,
+          "allergin-1 measurement",
+          "MILR1",
+          "rs138176943"
+        ],
+        [
+          65,
+          214.4,
+          212,
+          "amount of centrosomal protein of 112 kDa in blood",
+          "CEP112",
+          "rs12938334"
+        ],
+        [
+          66,
+          1154.5,
+          1133,
+          "protein measurement",
+          "APOH",
+          "rs1801690"
+        ],
+        [
+          67,
+          141.2,
+          536,
+          "body height",
+          "BPTF",
+          "rs6504555"
+        ],
+        [
+          68,
+          733.7,
+          734,
+          "amount of beta-klotho in blood",
+          "LINC01482 - ABCA8",
+          "rs112001035"
+        ],
+        [
+          69,
+          349,
+          1160,
+          "amount of galanin peptides (human) in blood",
+          "ABCA6",
+          "rs77542162"
+        ],
+        [
+          70,
+          214.4,
+          464,
+          "body height",
+          "KCNJ16",
+          "rs11867479"
+        ],
+        [
+          71,
+          193.4,
+          439,
+          "body height",
+          "ROCR",
+          "rs10083886"
+        ],
+        [
+          72,
+          138.7,
+          265,
+          "amount of Thyroid stimulating hormone",
+          "SOX9-AS1",
+          "rs9910864"
+        ],
+        [
+          73,
+          300,
+          168,
+          "bone tissue density",
+          "SDK2",
+          "rs117687984"
+        ],
+        [
+          74,
+          6545.4,
+          340,
+          "amount of CMRF35-like molecule 1 (human) in blood",
+          "CD300LF, RAB37",
+          "rs9903991"
+        ],
+        [
+          75,
+          767.5,
+          562,
+          "orotidine measurement",
+          "JPT1",
+          "rs78625720"
+        ],
+        [
+          76,
+          300,
+          355,
+          "bone tissue density",
+          "SNHG16, MXRA7",
+          "rs111262383"
+        ],
+        [
+          77,
+          62.2,
+          205,
+          "body height",
+          "SEPTIN9",
+          "rs2002573"
+        ],
+        [
+          78,
+          255.7,
+          1090,
+          "HbA1c measurement",
+          "TMC6",
+          "rs558567978"
+        ],
+        [
+          79,
+          6368,
+          272,
+          "CPM/ENPP7 protein amount ratio in blood",
+          "ENPP7",
+          "rs8074547"
+        ],
+        [
+          80,
+          374.5,
+          467,
+          "protein measurement",
+          "GAA",
+          "rs2304849"
+        ],
+        [
+          81,
+          278.2,
+          696,
+          "strand of hair color",
+          "NPLOC4, TSPAN10",
+          "rs9747347"
+        ],
+        [
+          82,
+          587.4,
+          404,
+          "HbA1c measurement",
+          "FN3K",
+          "rs113373052"
+        ],
+        [
+          83,
+          210.5,
+          128,
+          "hematological measurement",
+          "METRNL - RPL23AP87",
+          "rs9902102"
+        ]
+      ],
+      "18": [
+        [
+          0,
+          2554.7,
+          433,
+          "amount of clusterin-like protein 1 in blood",
+          "RN7SKP146 - CLUL1",
+          "rs12957470"
+        ],
+        [
+          1,
+          29.4,
+          125,
+          "bone tissue density",
+          "LINC00470 - AIDAP3",
+          "rs140280487"
+        ],
+        [
+          2,
+          86.5,
+          169,
+          "body height",
+          "SMCHD1",
+          "rs1561819"
+        ],
+        [
+          3,
+          54.3,
+          153,
+          "body height",
+          "DLGAP1",
+          "rs3862173"
+        ],
+        [
+          4,
+          19.3,
+          76,
+          "glioma pathogenesis-related protein 1 measurement",
+          "ELOCP27 - PPIAP14",
+          "rs544119388"
+        ],
+        [
+          5,
+          300,
+          156,
+          "bone tissue density",
+          "MIR3976HG",
+          "rs574527298"
+        ],
+        [
+          6,
+          59.7,
+          88,
+          "bone tissue density",
+          "L3MBTL4",
+          "rs72875721"
+        ],
+        [
+          7,
+          300,
+          117,
+          "bone tissue density",
+          "PTPRM",
+          "rs1443600"
+        ],
+        [
+          8,
+          66.3,
+          123,
+          "total cholesterol measurement, hematocrit, ventricular rate measurement, body mass index, coronary artery disorder, high density lipoprotein cholesterol measurement, diastolic blood pressure, triglyceride measurement, systolic blood pressure, diabetes mellitus, stroke disorder, atrial fibrillation, glucose measurement, mortality, cancer, heart failure",
+          "THEMIS3P - AKR1B1P6",
+          "rs8082812"
+        ],
+        [
+          9,
+          228.4,
+          180,
+          "bone tissue density",
+          "TWSG1 - RALBP1",
+          "rs75700853"
+        ],
+        [
+          10,
+          32,
+          137,
+          "FEV/FVC ratio",
+          "VAPA - LINC01254",
+          "rs8089099"
+        ],
+        [
+          11,
+          58,
+          76,
+          "body height",
+          "MPPE1 - IMPA2",
+          "rs1787989"
+        ],
+        [
+          12,
+          300,
+          250,
+          "bone tissue density",
+          "LINC01882",
+          "rs72867784"
+        ],
+        [
+          13,
+          156.2,
+          171,
+          "bone tissue density",
+          "FAM210A",
+          "rs4635400"
+        ],
+        [
+          14,
+          300,
+          23,
+          "bone tissue density",
+          "ANKRD20A5P, ANKRD20A5P",
+          "rs190520730"
+        ],
+        [
+          15,
+          16.2,
+          21,
+          "amount of Phosphatidylcholine (14:0_18:2) in blood serum",
+          "LINC01444 - BNIP3P3",
+          "rs186345573"
+        ],
+        [
+          18,
+          13.2,
+          1,
+          "amount of Phosphatidylcholine (14:0_18:2) in blood serum",
+          "RNU6-721P - ROCK1",
+          "rs1203942159"
+        ],
+        [
+          20,
+          10.5,
+          3,
+          "1-myristoyl-2-linoleoyl-GPC (14:0/18:2) measurement",
+          "ROCK1",
+          "rs7237677"
+        ],
+        [
+          21,
+          136.5,
+          88,
+          "urate measurement",
+          "RNU6-120P - GREB1L-DT",
+          "rs533816447"
+        ],
+        [
+          22,
+          232.3,
+          319,
+          "bone tissue density",
+          "RBBP8-AS1",
+          "rs147174842"
+        ],
+        [
+          23,
+          363.7,
+          790,
+          "body height",
+          "CABLES1",
+          "rs7237942"
+        ],
+        [
+          24,
+          20,
+          173,
+          "cortical thickness",
+          "LINC01915 - LINC01894",
+          "rs34448454"
+        ],
+        [
+          25,
+          134.7,
+          176,
+          "body height",
+          "ZNF521",
+          "rs4133168"
+        ],
+        [
+          26,
+          207.7,
+          265,
+          "bone tissue density",
+          "NPM1P2 - TAF4B",
+          "rs79249237"
+        ],
+        [
+          27,
+          112.5,
+          95,
+          "carbohydrate sulfotransferase 9 measurement",
+          "AQP4-AS1, CHST9",
+          "rs56348115"
+        ],
+        [
+          28,
+          122.7,
+          186,
+          "bone tissue density",
+          "CDH2 - ARIH2P1",
+          "rs144411080"
+        ],
+        [
+          29,
+          300,
+          46,
+          "bone tissue density",
+          "LINC02879 - MIR302F",
+          "rs117304021"
+        ],
+        [
+          30,
+          40.2,
+          48,
+          "TNF-related apoptosis-inducing ligand measurement",
+          "MIR302F - RNU6-857P",
+          "rs112452274"
+        ],
+        [
+          31,
+          361.5,
+          163,
+          "amount of desmoglein-3 (human) in blood",
+          "DSG3",
+          "rs10084010"
+        ],
+        [
+          32,
+          6953.5,
+          153,
+          "amount of meprin A subunit beta in blood",
+          "MEP1B, GAREM1",
+          "rs673408"
+        ],
+        [
+          33,
+          42,
+          159,
+          "Alzheimer disease, family history of Alzheimer’s disease",
+          "CCDC178",
+          "rs1220304375"
+        ],
+        [
+          34,
+          29.1,
+          92,
+          "chronotype measurement",
+          "NOL4",
+          "rs4419127"
+        ],
+        [
+          35,
+          186.7,
+          130,
+          "bone tissue density",
+          "INO80C - GALNT1",
+          "rs117066490"
+        ],
+        [
+          36,
+          45.7,
+          140,
+          "hypertrophic cardiomyopathy",
+          "FHOD3",
+          "rs2644262"
+        ],
+        [
+          37,
+          64,
+          297,
+          "educational attainment",
+          "CELF4 - MIR4318",
+          "rs12709690"
+        ],
+        [
+          38,
+          27.5,
+          101,
+          "daytime rest measurement",
+          "RPL12P40 - RN7SKP182",
+          "rs2861805"
+        ],
+        [
+          39,
+          34.7,
+          95,
+          "educational attainment",
+          "MIR924HG, RPL7AP66",
+          "rs12962980"
+        ],
+        [
+          40,
+          97.5,
+          93,
+          "bone tissue density",
+          "RPL17P45 - KC6",
+          "rs80224515"
+        ],
+        [
+          41,
+          300,
+          117,
+          "bone tissue density",
+          "KC6",
+          "rs77906266"
+        ],
+        [
+          42,
+          37.2,
+          130,
+          "brain attribute",
+          "LINC00907",
+          "rs606140"
+        ],
+        [
+          43,
+          51.1,
+          207,
+          "body height",
+          "SYT4 - RNA5SP455",
+          "rs2045669"
+        ],
+        [
+          44,
+          300,
+          374,
+          "bone tissue density",
+          "SETBP1",
+          "rs187572799"
+        ],
+        [
+          45,
+          110,
+          380,
+          "amount of proline-serine-threonine phosphatase-interacting protein 2 in blood",
+          "PSTPIP2",
+          "rs73953950"
+        ],
+        [
+          46,
+          412.4,
+          258,
+          "Red cell distribution width",
+          "ARK2N",
+          "rs9964524"
+        ],
+        [
+          47,
+          300,
+          174,
+          "bone tissue density",
+          "SKOR2 - MIR4527HG",
+          "rs117467722"
+        ],
+        [
+          48,
+          171,
+          415,
+          "body height",
+          "SMAD7 - DYM-AS1",
+          "rs12968652"
+        ],
+        [
+          49,
+          392.7,
+          2551,
+          "phospholipids in medium HDL measurement",
+          "LIPG",
+          "rs77960347"
+        ],
+        [
+          50,
+          300,
+          286,
+          "bone tissue density",
+          "MAPK4 - MRO",
+          "rs72925703"
+        ],
+        [
+          51,
+          300,
+          135,
+          "bone tissue density",
+          "RPS8P3 - DCC",
+          "rs118022613"
+        ],
+        [
+          52,
+          300,
+          151,
+          "bone tissue density",
+          "DCC",
+          "rs117681488"
+        ],
+        [
+          53,
+          300,
+          422,
+          "bone tissue density",
+          "DCC, LINC01917",
+          "rs72918264"
+        ],
+        [
+          54,
+          300,
+          240,
+          "bone tissue density",
+          "MBD2",
+          "rs138312678"
+        ],
+        [
+          55,
+          508,
+          766,
+          "Fuchs endothelial corneal dystrophy",
+          "TCF4 - LINC01415",
+          "rs11659764"
+        ],
+        [
+          56,
+          44,
+          133,
+          "body height",
+          "LINC01539 - TXNL1",
+          "rs10782046"
+        ],
+        [
+          57,
+          300,
+          270,
+          "bone tissue density",
+          "LINC-ROR - BOD1L2",
+          "rs182015269"
+        ],
+        [
+          58,
+          300,
+          295,
+          "bone tissue density",
+          "MIR122HG - ALPK2",
+          "rs11873221"
+        ],
+        [
+          59,
+          57.2,
+          294,
+          "gastrin-releasing peptide measurement",
+          "OACYLP - SEC11C",
+          "rs73446118"
+        ],
+        [
+          60,
+          312.2,
+          928,
+          "body weight",
+          "LINC03111 - RNU4-17P",
+          "rs6567160"
+        ],
+        [
+          61,
+          77.2,
+          127,
+          "tumor necrosis factor receptor superfamily member 11A amount",
+          "RNF152 - PIGN",
+          "rs35634861"
+        ],
+        [
+          62,
+          1835,
+          243,
+          "TNFRSF11A/TNFRSF1A protein amount ratio in blood",
+          "TNFRSF11A",
+          "rs74938001"
+        ],
+        [
+          63,
+          3624,
+          656,
+          "S100A11/SERPINB8 protein amount ratio in blood",
+          "SERPINB8",
+          "rs3826616"
+        ],
+        [
+          64,
+          48.5,
+          139,
+          "amount of serpin B8 in blood",
+          "LINC01924, LINC00305",
+          "rs76579652"
+        ],
+        [
+          65,
+          29.5,
+          105,
+          "body mass index",
+          "CDH7",
+          "rs8092156"
+        ],
+        [
+          66,
+          16.5,
+          45,
+          "blood protein amount",
+          "PRPF19P1 - CDH19",
+          "rs985088"
+        ],
+        [
+          67,
+          9,
+          61,
+          "depressive symptom measurement, social risk factor",
+          "RPL31P9 - DSEL",
+          "rs117969745"
+        ],
+        [
+          68,
+          14,
+          51,
+          "blood protein amount",
+          "MTL3P - TMX3",
+          "rs4891340"
+        ],
+        [
+          69,
+          431.7,
+          206,
+          "platelet volume",
+          "CD226",
+          "rs1865761"
+        ],
+        [
+          70,
+          139.2,
+          143,
+          "platelet volume",
+          "RTTN",
+          "rs201326230"
+        ],
+        [
+          71,
+          18.4,
+          133,
+          "glioma pathogenesis-related protein 1 measurement",
+          "GTSCR1 - LINC01541",
+          "rs373299854"
+        ],
+        [
+          72,
+          18.3,
+          65,
+          "glioma pathogenesis-related protein 1 measurement",
+          "LINC01899 - CBLN2",
+          "rs749493805"
+        ],
+        [
+          73,
+          143.5,
+          128,
+          "gestational age",
+          "LINC02864",
+          "rs946934582"
+        ],
+        [
+          74,
+          466.4,
+          249,
+          "amount of beta-Ala-His dipeptidase (human) in blood",
+          "CNDP1",
+          "rs17817077"
+        ],
+        [
+          75,
+          68.5,
+          173,
+          "cerebellar volume measurement",
+          "TSHZ1 - SMIM21",
+          "rs4891263"
+        ],
+        [
+          76,
+          56.7,
+          177,
+          "hematological measurement",
+          "ZNF516",
+          "rs4375747"
+        ],
+        [
+          77,
+          125.3,
+          149,
+          "body height",
+          "GALR1",
+          "rs8097893"
+        ],
+        [
+          78,
+          300,
+          120,
+          "bone tissue density",
+          "RNU6-655P - Y_RNA",
+          "rs77487795"
+        ],
+        [
+          79,
+          535.7,
+          472,
+          "IKBKG/NFATC1 protein amount ratio in blood",
+          "NFATC1",
+          "rs657693"
+        ],
+        [
+          80,
+          24.2,
+          23,
+          "amount of specifically androgen-regulated gene protein in blood",
+          "RBFADN",
+          "rs57171122"
+        ]
+      ],
+      "19": [
+        [
+          0,
+          1200,
+          659,
+          "amount of myeloblastin (human) in blood",
+          "PRTN3",
+          "rs6510982"
+        ],
+        [
+          1,
+          121,
+          979,
+          "hematological measurement",
+          "ARHGAP45",
+          "rs36084354"
+        ],
+        [
+          2,
+          474.4,
+          544,
+          "amount of thimet oligopeptidase in blood",
+          "THOP1",
+          "rs1736177"
+        ],
+        [
+          3,
+          299.1,
+          524,
+          "body height",
+          "NFIC",
+          "rs12981408"
+        ],
+        [
+          4,
+          1975,
+          994,
+          "blood protein amount",
+          "EBI3",
+          "rs4905"
+        ],
+        [
+          5,
+          1444.4,
+          716,
+          "blood protein amount",
+          "FUT6",
+          "rs78060698"
+        ],
+        [
+          6,
+          3177,
+          470,
+          "CD70 antigen measurement",
+          "CD70",
+          "rs17703895"
+        ],
+        [
+          7,
+          857.7,
+          1043,
+          "resistin measurement",
+          "RPS27AP19 - RETN",
+          "rs3219175"
+        ],
+        [
+          8,
+          3725.3,
+          2077,
+          "amount of C-C motif chemokine 25 (human) in blood",
+          "CCL25",
+          "rs2032887"
+        ],
+        [
+          9,
+          1000.1,
+          120,
+          "protein measurement",
+          "OLFM2 - COL5A3",
+          "rs55732232"
+        ],
+        [
+          10,
+          5506.7,
+          1314,
+          "intercellular adhesion molecule 1 measurement",
+          "LIMASI, ICAM1",
+          "rs5498"
+        ],
+        [
+          11,
+          2304,
+          2849,
+          "low density lipoprotein cholesterol measurement",
+          "SMARCA4 - LDLR",
+          "rs73015024"
+        ],
+        [
+          12,
+          363.5,
+          592,
+          "mean corpuscular hemoglobin concentration",
+          "KLF1 - GCDH",
+          "rs8110787"
+        ],
+        [
+          13,
+          132.5,
+          326,
+          "amount of methylthioribose-1-phosphate isomerase in blood",
+          "YJU2B",
+          "rs147502347"
+        ],
+        [
+          14,
+          1417.2,
+          325,
+          "ADGRE2/ADGRE5 protein amount ratio in blood",
+          "ADGRE5",
+          "rs139113505"
+        ],
+        [
+          15,
+          460.3,
+          374,
+          "protein measurement",
+          "PGLYRP2",
+          "rs34440547"
+        ],
+        [
+          16,
+          375,
+          658,
+          "lymphocyte count",
+          "EPS15L1",
+          "rs7256818"
+        ],
+        [
+          17,
+          300,
+          641,
+          "bone tissue density",
+          "NIBAN3",
+          "rs113569844"
+        ],
+        [
+          18,
+          851,
+          1345,
+          "amount of growth/differentiation factor 15 in blood",
+          "GDF15",
+          "rs1054221"
+        ],
+        [
+          19,
+          584.7,
+          3729,
+          "total cholesterol measurement",
+          "TM6SF2",
+          "rs58542926"
+        ],
+        [
+          20,
+          300,
+          124,
+          "bone tissue density",
+          "ZNF66 - ZNF85",
+          "rs117185677"
+        ],
+        [
+          21,
+          29,
+          108,
+          "type 2 diabetes mellitus",
+          "ZNF43 - ZNF208",
+          "rs142395395"
+        ],
+        [
+          22,
+          136.2,
+          88,
+          "adolescent idiopathic scoliosis",
+          "ZNF99 - ZNF723",
+          "rs8111296"
+        ],
+        [
+          23,
+          589.7,
+          68,
+          "amount of beta-Ala-His dipeptidase (human) in blood",
+          "ZNF675 - ZNF681",
+          "rs8102710"
+        ],
+        [
+          24,
+          212.2,
+          16,
+          "CNDP1/EGFR protein amount ratio in blood",
+          "LINC03085 - ERVK-28",
+          "rs2463046"
+        ],
+        [
+          27,
+          177.3,
+          26,
+          "amount of beta-Ala-His dipeptidase (human) in blood",
+          "LINC03085 - ERVK-28",
+          "rs35320779"
+        ],
+        [
+          28,
+          300,
+          85,
+          "bone tissue density",
+          "LINC02987 - ERVE-5",
+          "rs56373867"
+        ],
+        [
+          29,
+          60,
+          203,
+          "body height",
+          "CCNE1 - PPIAP58",
+          "rs4556910"
+        ],
+        [
+          30,
+          65.5,
+          177,
+          "body height",
+          "ZNF536",
+          "rs8101081"
+        ],
+        [
+          31,
+          102.7,
+          229,
+          "prostate specific antigen amount",
+          "LINC03103 - RNA5SP471",
+          "rs11084596"
+        ],
+        [
+          32,
+          982.3,
+          441,
+          "NSFL1C/PDCD5 protein amount ratio in blood",
+          "ANKRD27",
+          "rs405858"
+        ],
+        [
+          33,
+          323,
+          1456,
+          "basophil measurement",
+          "SLC7A10 - CEBPA",
+          "rs76222971"
+        ],
+        [
+          34,
+          96,
+          132,
+          "hematological measurement",
+          "LSM14A",
+          "rs612469"
+        ],
+        [
+          35,
+          980.7,
+          832,
+          "FXYD5/IRAK1 protein amount ratio in blood",
+          "FXYD5",
+          "rs12110"
+        ],
+        [
+          36,
+          300,
+          146,
+          "bone tissue density",
+          "ZNF565",
+          "rs73038025"
+        ],
+        [
+          37,
+          300,
+          179,
+          "bone tissue density",
+          "ZNF585A",
+          "rs112635444"
+        ],
+        [
+          38,
+          1013.5,
+          460,
+          "Kunitz-type protease inhibitor 2 measurement",
+          "Y_RNA - YIF1B",
+          "rs71354995"
+        ],
+        [
+          39,
+          191,
+          230,
+          "hematological measurement",
+          "LGALS17A",
+          "rs4132248"
+        ],
+        [
+          40,
+          2953.3,
+          830,
+          "amount of melanoma-derived growth regulatory protein (human) in blood",
+          "MIA",
+          "rs2607423"
+        ],
+        [
+          41,
+          862.5,
+          609,
+          "amount of carcinoembryonic antigen-related cell adhesion molecule 5 in blood",
+          "CEACAM5",
+          "rs9621"
+        ],
+        [
+          42,
+          3399.1,
+          240,
+          "amount of pregnancy-specific beta-1-glycoprotein 1 in blood",
+          "PSG1 - PSG6",
+          "rs2005772"
+        ],
+        [
+          43,
+          5701.5,
+          1186,
+          "amount of tumor necrosis factor receptor superfamily member 10C in blood",
+          "PLAUR",
+          "rs4760"
+        ],
+        [
+          44,
+          9629,
+          14785,
+          "low density lipoprotein cholesterol measurement",
+          "APOE",
+          "rs7412"
+        ],
+        [
+          45,
+          248.2,
+          2042,
+          "platelet volume",
+          "EXOC3L2, BLOC1S3, MARK4",
+          "rs11667509"
+        ],
+        [
+          46,
+          819,
+          455,
+          "LCN2/PGLYRP1 protein amount ratio in blood",
+          "PGLYRP1 - IGFL4",
+          "rs12980641"
+        ],
+        [
+          47,
+          543,
+          677,
+          "X-11440 measurement",
+          "SULT2A1",
+          "rs62129966"
+        ],
+        [
+          48,
+          4918.7,
+          2808,
+          "F3/KLK1 protein amount ratio in blood",
+          "FUT2",
+          "rs601338"
+        ],
+        [
+          49,
+          7141.7,
+          859,
+          "dickkopf-like protein 1 measurement",
+          "DKKL1",
+          "rs2303759"
+        ],
+        [
+          50,
+          1904,
+          450,
+          "prostate specific antigen amount",
+          "KLK3",
+          "rs17632542"
+        ],
+        [
+          51,
+          9499.7,
+          1192,
+          "CD33 molecule amount",
+          "CD33",
+          "rs2455069"
+        ],
+        [
+          52,
+          95.4,
+          134,
+          "amount of sialic acid-binding Ig-like lectin 5 in blood serum",
+          "ZNF615",
+          "rs151263298"
+        ],
+        [
+          53,
+          1421.7,
+          889,
+          "neutrophil measurement",
+          "NLRP12",
+          "rs34436714"
+        ],
+        [
+          54,
+          6678.4,
+          2209,
+          "leukocyte immunoglobulin-like receptor subfamily B member 5 measurement",
+          "LILRB5",
+          "rs10405357"
+        ],
+        [
+          55,
+          2483,
+          1009,
+          "transmembrane protein 190 measurement",
+          "IL11 - TMEM190",
+          "rs4806666"
+        ],
+        [
+          56,
+          300,
+          185,
+          "bone tissue density",
+          "ZSCAN5A, EDDM13",
+          "rs117831178"
+        ],
+        [
+          57,
+          71.1,
+          111,
+          "body height",
+          "ZNF460",
+          "rs2041110"
+        ],
+        [
+          58,
+          321.7,
+          230,
+          "protein measurement",
+          "A1BG-AS1, A1BG",
+          "rs893184"
+        ]
+      ],
+      "20": [
+        [
+          0,
+          28.5,
+          197,
+          "high density lipoprotein cholesterol measurement",
+          "CSNK2A1 - TCF15",
+          "rs151235402"
+        ],
+        [
+          1,
+          10333,
+          609,
+          "tyrosine-protein phosphatase non-receptor type substrate 1 measurement",
+          "SIRPA",
+          "rs6136377"
+        ],
+        [
+          2,
+          1223.7,
+          285,
+          "CPXM1/VEGFC protein amount ratio in blood",
+          "CPXM1",
+          "rs34211052"
+        ],
+        [
+          3,
+          1170.5,
+          575,
+          "protein measurement",
+          "ITPA",
+          "rs1127354"
+        ],
+        [
+          4,
+          1253.5,
+          433,
+          "reticulocyte amount",
+          "SMOX",
+          "rs6084653"
+        ],
+        [
+          5,
+          2591.7,
+          243,
+          "CHGB/PTPRN2 protein amount ratio in blood",
+          "CHGB",
+          "rs910122"
+        ],
+        [
+          6,
+          300,
+          670,
+          "body height",
+          "CASC20",
+          "rs6117303"
+        ],
+        [
+          7,
+          97.5,
+          160,
+          "heel bone mineral density",
+          "MIR8062 - RN7SL547P",
+          "rs6117854"
+        ],
+        [
+          8,
+          145.3,
+          270,
+          "hematological measurement",
+          "PLCB1",
+          "rs6039215"
+        ],
+        [
+          9,
+          12.7,
+          78,
+          "facial morphology",
+          "PARAL1, ANKEF1",
+          "rs195800"
+        ],
+        [
+          10,
+          89,
+          529,
+          "bone tissue density",
+          "JAG1",
+          "rs141094380"
+        ],
+        [
+          11,
+          88.1,
+          193,
+          "heel bone mineral density",
+          "LINC02871",
+          "rs6040283"
+        ],
+        [
+          12,
+          278.2,
+          1050,
+          "amount of ceramide",
+          "LINC01723",
+          "rs1321940"
+        ],
+        [
+          13,
+          182.4,
+          633,
+          "isthmin-1 measurement",
+          "TASP1",
+          "rs1998123"
+        ],
+        [
+          14,
+          589.7,
+          129,
+          "leucine-rich repeat transmembrane protein FLRT3 measurement",
+          "MACROD2",
+          "rs6135225"
+        ],
+        [
+          15,
+          54.4,
+          144,
+          "bone tissue density",
+          "MACROD2",
+          "rs397866300"
+        ],
+        [
+          16,
+          52.4,
+          140,
+          "promotilin measurement",
+          "OTOR - U3",
+          "rs2208150"
+        ],
+        [
+          17,
+          152.4,
+          671,
+          "low density lipoprotein cholesterol measurement",
+          "BANF2 - RNU6-192P",
+          "rs2618566"
+        ],
+        [
+          18,
+          123.5,
+          134,
+          "protein measurement",
+          "DTD1",
+          "rs59832377"
+        ],
+        [
+          19,
+          85.7,
+          310,
+          "senile cataract",
+          "SLC24A3",
+          "rs4814857"
+        ],
+        [
+          20,
+          130,
+          112,
+          "body height",
+          "CFAP61 - INSM1",
+          "rs8117259"
+        ],
+        [
+          21,
+          300,
+          264,
+          "bone tissue density",
+          "RPL41P1 - LINC01432",
+          "rs112259897"
+        ],
+        [
+          22,
+          318.3,
+          281,
+          "balding measurement",
+          "RPL41P1 - LINC01432",
+          "rs201561"
+        ],
+        [
+          23,
+          4503.7,
+          408,
+          "cystatin C measurement",
+          "CST3",
+          "rs13041070"
+        ],
+        [
+          24,
+          2986.5,
+          211,
+          "CST7/LGMN protein amount ratio in blood",
+          "LINC02967",
+          "rs227632"
+        ],
+        [
+          25,
+          2427.2,
+          352,
+          "ectonucleoside triphosphate diphosphohydrolase 6 measurement",
+          "ENTPD6",
+          "rs4815394"
+        ],
+        [
+          26,
+          122.3,
+          65,
+          "amount of ectonucleoside triphosphate diphosphohydrolase 6 (human) in cerebrospinal fluid",
+          "MIR663AHG - FRG1CP",
+          "rs201475383"
+        ],
+        [
+          30,
+          82,
+          26,
+          "hematological measurement",
+          "CFTRP3 - LINC01597",
+          "rs192359675"
+        ],
+        [
+          31,
+          1681.4,
+          300,
+          "ectonucleoside triphosphate diphosphohydrolase 6 measurement",
+          "RNA5SP528 - DEFB115",
+          "rs6061054"
+        ],
+        [
+          32,
+          300,
+          606,
+          "bone tissue density",
+          "CCM2L - RNA5SP482",
+          "rs144017103"
+        ],
+        [
+          33,
+          300,
+          443,
+          "strand of hair color",
+          "BPIFA2",
+          "rs117186940"
+        ],
+        [
+          34,
+          619,
+          665,
+          "amount of adenosylhomocysteinase in blood",
+          "AHCY",
+          "rs13043752"
+        ],
+        [
+          35,
+          1328.4,
+          1197,
+          "F9/PROC protein amount ratio in blood",
+          "PROCR",
+          "rs867186"
+        ],
+        [
+          36,
+          300,
+          310,
+          "body height",
+          "EPB41L1",
+          "rs761312"
+        ],
+        [
+          37,
+          238.7,
+          156,
+          "body height",
+          "RPN2",
+          "rs4810455"
+        ],
+        [
+          38,
+          2496,
+          359,
+          "CSF1/LBP protein amount ratio in blood",
+          "LBP",
+          "rs2232613"
+        ],
+        [
+          39,
+          320.7,
+          229,
+          "bone tissue density",
+          "LINC01734 - ATG3P1",
+          "rs117909603"
+        ],
+        [
+          40,
+          202.5,
+          1066,
+          "low density lipoprotein cholesterol measurement",
+          "LINC01370 - MAFB",
+          "rs1883711"
+        ],
+        [
+          41,
+          300,
+          615,
+          "bone tissue density",
+          "RNU6-1018P - NEFHP2",
+          "rs76116321"
+        ],
+        [
+          42,
+          300,
+          83,
+          "bone tissue density",
+          "PTPRT",
+          "rs76058916"
+        ],
+        [
+          43,
+          64,
+          153,
+          "body height",
+          "MYBL2",
+          "rs285206"
+        ],
+        [
+          44,
+          2783,
+          1127,
+          "adenosine deaminase measurement",
+          "ADA",
+          "rs11555566"
+        ],
+        [
+          45,
+          1780.4,
+          1846,
+          "phospholipids in very large HDL measurement",
+          "PLTP - PCIF1",
+          "rs6073958"
+        ],
+        [
+          46,
+          1445.4,
+          747,
+          "CD40/F11R protein amount ratio in blood",
+          "RPL13P2 - CD40",
+          "rs1569723"
+        ],
+        [
+          47,
+          68.2,
+          337,
+          "platelet volume",
+          "ZMYND8",
+          "rs17726337"
+        ],
+        [
+          48,
+          59.2,
+          362,
+          "body height",
+          "PREX1 - ARFGEF2",
+          "rs13037063"
+        ],
+        [
+          49,
+          300,
+          434,
+          "bone tissue density",
+          "B4GALT5",
+          "rs145653502"
+        ],
+        [
+          50,
+          215.5,
+          484,
+          "monocyte count",
+          "PELATON",
+          "rs17196752"
+        ],
+        [
+          51,
+          59.3,
+          239,
+          "body height",
+          "ATP9A",
+          "rs2235863"
+        ],
+        [
+          52,
+          63.7,
+          292,
+          "body height",
+          "LINC01524",
+          "rs1998152"
+        ],
+        [
+          53,
+          82,
+          332,
+          "brain attribute",
+          "RNU7-14P - SUMO1P1",
+          "rs6097618"
+        ],
+        [
+          54,
+          89.1,
+          295,
+          "calcium measurement",
+          "BCAS1 - CYP24A1",
+          "rs6127099"
+        ],
+        [
+          55,
+          300,
+          137,
+          "bone tissue density",
+          "LINC01440 - CBLN4",
+          "rs6024398"
+        ],
+        [
+          56,
+          255.7,
+          212,
+          "bone tissue density",
+          "RNA5SP487 - MC3R",
+          "rs77871368"
+        ],
+        [
+          57,
+          438.7,
+          480,
+          "erythrocyte volume",
+          "RBM38 - HMGB1P1",
+          "rs6014993"
+        ],
+        [
+          58,
+          978,
+          424,
+          "amount of cathepsin Z (human) in blood",
+          "CTSZ",
+          "rs199825459"
+        ],
+        [
+          59,
+          2658.4,
+          605,
+          "platelet component distribution width",
+          "TUBB1",
+          "rs463312"
+        ],
+        [
+          60,
+          16.2,
+          97,
+          "free cholesterol measurement",
+          "MIR646HG",
+          "rs76608478"
+        ],
+        [
+          61,
+          45.5,
+          157,
+          "C-reactive protein measurement",
+          "TAF4",
+          "rs185738008"
+        ],
+        [
+          62,
+          113.7,
+          523,
+          "body height",
+          "CABLES2 - RBBP8NL",
+          "rs7262524"
+        ],
+        [
+          63,
+          507.7,
+          977,
+          "tumor necrosis factor receptor superfamily member 6B amount",
+          "ARFRP1",
+          "rs6062497"
+        ],
+        [
+          64,
+          133.2,
+          344,
+          "protein measurement",
+          "TCEA2",
+          "rs34848242"
+        ]
+      ],
+      "21": [
+        [
+          9,
+          8.5,
+          2,
+          "visfatin measurement",
+          "TEKT4P2",
+          "rs75275574"
+        ],
+        [
+          10,
+          8.7,
+          4,
+          "Alzheimer disease, family history of Alzheimer’s disease",
+          "IGHV1OR21-1 - ANKRD30BP2",
+          "rs28368484"
+        ],
+        [
+          13,
+          26,
+          33,
+          "amount of tumor necrosis factor ligand superfamily member 6 in blood",
+          "CYP4F29P - SNX18P13",
+          "rs34919296"
+        ],
+        [
+          14,
+          37,
+          168,
+          "platelet component distribution width",
+          "ASMER1, NRIP1",
+          "rs11373143"
+        ],
+        [
+          15,
+          153.2,
+          351,
+          "hematological measurement",
+          "LINC02920 - CYCSP42",
+          "rs1297269"
+        ],
+        [
+          16,
+          109.5,
+          100,
+          "body height",
+          "MIR99AHG",
+          "rs2823557"
+        ],
+        [
+          17,
+          84.7,
+          126,
+          "coxsackievirus and adenovirus receptor measurement",
+          "CXADR",
+          "rs571393204"
+        ],
+        [
+          18,
+          59,
+          63,
+          "amount of enteropeptidase (human) in blood",
+          "TMPRSS15",
+          "rs2824805"
+        ],
+        [
+          19,
+          11,
+          42,
+          "free cholesterol measurement",
+          "RNU1-139P - RPL37P4",
+          "rs117165655"
+        ],
+        [
+          20,
+          93.1,
+          69,
+          "neural cell adhesion molecule 2 measurement",
+          "PPIAP1 - NCAM2",
+          "rs2826615"
+        ],
+        [
+          21,
+          498.7,
+          88,
+          "ENG/NCAM2 protein amount ratio in blood",
+          "NCAM2",
+          "rs9981968"
+        ],
+        [
+          22,
+          148,
+          41,
+          "bone tissue density",
+          "MAPK6P2 - MIR6130",
+          "rs146597008"
+        ],
+        [
+          23,
+          43.3,
+          60,
+          "bone tissue density",
+          "MSANTD2P1 - RNU2-55P",
+          "rs118149961"
+        ],
+        [
+          24,
+          17.2,
+          38,
+          "bone tissue density",
+          "LINC01684",
+          "rs75573523"
+        ],
+        [
+          25,
+          58.1,
+          78,
+          "body height",
+          "GABPA - APP",
+          "rs2829940"
+        ],
+        [
+          26,
+          468.4,
+          170,
+          "a disintegrin and metalloproteinase with thrombospondin motifs 5 measurement",
+          "ADAMTS5",
+          "rs2830586"
+        ],
+        [
+          27,
+          135,
+          106,
+          "amount of transforming growth factor beta receptor type 3 (human) in blood",
+          "ADAMTS5 - GPX1P2",
+          "rs1236213"
+        ],
+        [
+          28,
+          37,
+          106,
+          "serum gamma-glutamyl transferase measurement",
+          "LINC03138",
+          "rs3804005"
+        ],
+        [
+          29,
+          300,
+          173,
+          "bone tissue density",
+          "BACH1",
+          "rs116865992"
+        ],
+        [
+          30,
+          24.4,
+          66,
+          "body height",
+          "GRIK1 - CLDN17",
+          "rs2832595"
+        ],
+        [
+          31,
+          19.2,
+          133,
+          "blood protein amount",
+          "SCAF4",
+          "rs113156037"
+        ],
+        [
+          32,
+          38.3,
+          135,
+          "brain attribute",
+          "EPCIP-AS1",
+          "rs4817505"
+        ],
+        [
+          33,
+          2883.5,
+          533,
+          "BTN2A1/IL10RB protein amount ratio in blood",
+          "IFNAR2-IL10RB, IL10RB",
+          "rs765429"
+        ],
+        [
+          34,
+          233.3,
+          564,
+          "body height",
+          "MRPS6, KCNE2",
+          "rs2834463"
+        ],
+        [
+          35,
+          300,
+          347,
+          "bone tissue density",
+          "RUNX1",
+          "rs78546352"
+        ],
+        [
+          36,
+          386.4,
+          332,
+          "protein measurement",
+          "CBR3-AS1",
+          "rs60043102"
+        ],
+        [
+          37,
+          300,
+          209,
+          "bone tissue density",
+          "KCNJ6",
+          "rs117603362"
+        ],
+        [
+          38,
+          300,
+          516,
+          "bone tissue density",
+          "LINC00114 - ETS2",
+          "rs117114911"
+        ],
+        [
+          39,
+          53.3,
+          515,
+          "ankylosing spondylitis, psoriasis, ulcerative colitis, Crohn disease, sclerosing cholangitis",
+          "LINC02940 - RPL23AP12",
+          "rs9977672"
+        ],
+        [
+          40,
+          134.3,
+          122,
+          "down syndrome cell adhesion molecule measurement",
+          "DSCAM",
+          "rs12483457"
+        ],
+        [
+          41,
+          1399.7,
+          400,
+          "amount of protein FAM3B (human) in blood",
+          "FAM3B",
+          "rs1859297"
+        ],
+        [
+          42,
+          513.5,
+          265,
+          "TFF1/TFF2 protein amount ratio in blood",
+          "TFF1 - TMPRSS3",
+          "rs184432"
+        ],
+        [
+          43,
+          3321,
+          296,
+          "cystatin B measurement",
+          "CSTB - TMEM97P1",
+          "rs35285321"
+        ],
+        [
+          44,
+          676.4,
+          427,
+          "amount of ICOS ligand (human) in blood",
+          "ICOSLG",
+          "rs4819388"
+        ],
+        [
+          45,
+          363.7,
+          373,
+          "epididymal secretory protein E1 measurement",
+          "COL18A1, SLC19A1",
+          "rs12483377"
+        ],
+        [
+          46,
+          5384.3,
+          225,
+          "collagen alpha-1(VI) chain measurement",
+          "COL6A1",
+          "rs13053065"
+        ]
+      ],
+      "22": [
+        [
+          11,
+          8.2,
+          1,
+          "Alzheimer disease, family history of Alzheimer’s disease",
+          "5_8S_rRNA - ZNF73P",
+          "rs1174371704"
+        ],
+        [
+          12,
+          8.7,
+          3,
+          "Anxiety",
+          "ZNF73P - FRG1GP",
+          "rs1453989645"
+        ],
+        [
+          15,
+          9,
+          4,
+          "oral microbiome measurement",
+          "BNIP3P2 - YME1L1P1",
+          "rs11167326"
+        ],
+        [
+          16,
+          47,
+          40,
+          "interleukin 17 receptor A measurement",
+          "IGKV2OR22-4 - IGKV2OR22-3",
+          "rs143557436"
+        ],
+        [
+          17,
+          5489.4,
+          486,
+          "interleukin 17 receptor A measurement",
+          "IL17RA",
+          "rs4819959"
+        ],
+        [
+          18,
+          224,
+          207,
+          "amount of proline",
+          "PRODH",
+          "rs3970551"
+        ],
+        [
+          19,
+          3034.4,
+          476,
+          "COMT/HNRNPK protein amount ratio in blood",
+          "COMT",
+          "rs4680"
+        ],
+        [
+          20,
+          738,
+          327,
+          "amount of scavenger receptor class F member 2 (human) in blood",
+          "SCARF2",
+          "rs9610955"
+        ],
+        [
+          21,
+          223.3,
+          654,
+          "hematological measurement",
+          "UBE2L3",
+          "rs181361"
+        ],
+        [
+          22,
+          778.5,
+          208,
+          "SCP2 sterol-binding domain-containing protein 1 measurement",
+          "IGLV10-54",
+          "rs5750741"
+        ],
+        [
+          23,
+          510,
+          503,
+          "protein measurement",
+          "GSTT3P - GSTT4",
+          "rs5760147"
+        ],
+        [
+          24,
+          2352.7,
+          488,
+          "serum gamma-glutamyl transferase measurement",
+          "GGT1",
+          "rs2073398"
+        ],
+        [
+          25,
+          37.7,
+          159,
+          "amount of seizure 6-like protein in blood",
+          "MYO18B",
+          "rs147775976"
+        ],
+        [
+          26,
+          159.4,
+          126,
+          "amount of seizure 6-like protein in blood",
+          "SEZ6L",
+          "rs137203"
+        ],
+        [
+          27,
+          54.7,
+          296,
+          "body height",
+          "LINC02554 - CPMER",
+          "rs134041"
+        ],
+        [
+          28,
+          110,
+          539,
+          "cup-to-disc ratio measurement",
+          "CHEK2",
+          "rs4822983"
+        ],
+        [
+          29,
+          121.3,
+          581,
+          "bone tissue density",
+          "KREMEN1",
+          "rs10646183"
+        ],
+        [
+          30,
+          4614.7,
+          796,
+          "protein measurement",
+          "TCN2",
+          "rs5753236"
+        ],
+        [
+          31,
+          442.5,
+          294,
+          "BTN2A1/PIK3IP1 protein amount ratio in blood",
+          "SFI1",
+          "rs1543416"
+        ],
+        [
+          32,
+          4336,
+          368,
+          "PDGFB/TIMP3 protein amount ratio in blood",
+          "SYN3",
+          "rs4821102"
+        ],
+        [
+          33,
+          53.5,
+          115,
+          "metalloproteinase inhibitor 3 measurement",
+          "SYN3",
+          "rs139195638"
+        ],
+        [
+          34,
+          12.4,
+          53,
+          "adolescent idiopathic scoliosis",
+          "LINC01643 - ACO2P1",
+          "rs11089671"
+        ],
+        [
+          35,
+          93.2,
+          167,
+          "body height",
+          "HMGXB4",
+          "rs4821387"
+        ],
+        [
+          36,
+          4208.3,
+          531,
+          "CASP8/PVALB protein amount ratio in blood",
+          "NCF4-AS1, NCF4",
+          "rs4821544"
+        ],
+        [
+          37,
+          1099.1,
+          1013,
+          "mean corpuscular hemoglobin",
+          "TMPRSS6",
+          "rs855791"
+        ],
+        [
+          38,
+          1847.3,
+          840,
+          "amount of neuronal pentraxin receptor (human) in blood",
+          "NPTXR - CBX6",
+          "rs185853862"
+        ],
+        [
+          39,
+          208.2,
+          549,
+          "bone tissue density",
+          "APOBEC3B-AS1 - APOBEC3C",
+          "rs532192302"
+        ],
+        [
+          40,
+          324,
+          449,
+          "sexual activity behaviour attribute, uterine corpus leiomyoma",
+          "TNRC6B",
+          "rs2018458"
+        ],
+        [
+          41,
+          1082.4,
+          711,
+          "TNFRSF13C/TNFSF13B protein amount ratio in blood",
+          "SHISA8 - TNFRSF13C",
+          "rs73165129"
+        ],
+        [
+          42,
+          300,
+          700,
+          "bone tissue density",
+          "CYB5R3",
+          "rs34660329"
+        ],
+        [
+          43,
+          494.7,
+          1612,
+          "serum alanine aminotransferase amount",
+          "PNPLA3",
+          "rs738409"
+        ],
+        [
+          44,
+          35.2,
+          120,
+          "bone tissue density",
+          "SHISAL1 - SKP1P4",
+          "rs17509172"
+        ],
+        [
+          45,
+          509,
+          401,
+          "Dupuytren Contracture",
+          "WNT7B",
+          "rs28971325"
+        ],
+        [
+          46,
+          292.2,
+          362,
+          "X-22162 measurement",
+          "TTC38",
+          "rs143801555"
+        ],
+        [
+          47,
+          300,
+          73,
+          "bone tissue density",
+          "LINC01644",
+          "rs130866"
+        ],
+        [
+          48,
+          118.2,
+          164,
+          "amount of chemokine-like protein TAFA-5 in blood",
+          "MIR3201 - TAFA5",
+          "rs133692"
+        ],
+        [
+          49,
+          787.7,
+          239,
+          "CRELD2/NUCB2 protein amount ratio in blood",
+          "CRELD2",
+          "rs74510325"
+        ],
+        [
+          50,
+          2636.5,
+          854,
+          "amount of plexin-B2 (human) in blood",
+          "PLXNB2",
+          "rs11547731"
+        ]
+      ],
+      "X": [
+        [
+          0,
+          9.2,
+          4,
+          "severe acute respiratory syndrome, COVID-19",
+          "SHOX, SHOX, SHOX, SHOX",
+          "rs28499466"
+        ],
+        [
+          1,
+          1934.4,
+          14,
+          "granulocyte-macrophage colony-stimulating factor receptor subunit alpha measurement",
+          "CSF2RA, CSF2RA, CSF2RA, CSF2RA",
+          "rs78468042"
+        ],
+        [
+          2,
+          48.2,
+          34,
+          "ascorbic acid 3-sulfate measurement",
+          "ARSD",
+          "rs1637781"
+        ],
+        [
+          3,
+          51.2,
+          27,
+          "lymphocyte count",
+          "RPS27AP20 - RPL24P9",
+          "rs2009624"
+        ],
+        [
+          4,
+          8.4,
+          14,
+          "premenstrual tension",
+          "RPL24P9 - MTND6P12",
+          "rs145939879"
+        ],
+        [
+          5,
+          24.7,
+          14,
+          "anti-neutrophil antibody associated vasculitis",
+          "MTCYBP12 - HADHBP1",
+          "rs6638512"
+        ],
+        [
+          6,
+          28,
+          24,
+          "4-androsten-3beta,17beta-diol disulfate 2 measurement",
+          "PUDP",
+          "rs5935065"
+        ],
+        [
+          7,
+          43.2,
+          13,
+          "androstenediol (3beta,17beta) monosulfate (2) measurement",
+          "PUDP",
+          "rs10458"
+        ],
+        [
+          8,
+          669.5,
+          96,
+          "testosterone measurement",
+          "LINC03114 - NOLC1P1",
+          "rs111386834"
+        ],
+        [
+          9,
+          46.2,
+          46,
+          "retinal layer thickness",
+          "SHROOM2",
+          "rs184371255"
+        ],
+        [
+          10,
+          15,
+          15,
+          "aspartate aminotransferase measurement",
+          "WWC3 - CLCN4",
+          "rs367602857"
+        ],
+        [
+          11,
+          22,
+          41,
+          "prostate carcinoma",
+          "ARHGAP6",
+          "rs17321482"
+        ],
+        [
+          12,
+          24.5,
+          55,
+          "systemic lupus erythematosus",
+          "PRPS2",
+          "rs6641111"
+        ],
+        [
+          13,
+          340.2,
+          35,
+          "protein measurement",
+          "EGFL6",
+          "rs5935624"
+        ],
+        [
+          14,
+          78.5,
+          23,
+          "high density lipoprotein cholesterol measurement",
+          "MOSPD2",
+          "rs139120857"
+        ],
+        [
+          15,
+          2226,
+          44,
+          "vascular endothelial growth factor D measurement",
+          "PIR",
+          "rs192812042"
+        ],
+        [
+          16,
+          58.7,
+          33,
+          "prostate specific antigen amount",
+          "TXLNG, RBBP7",
+          "rs5969751"
+        ],
+        [
+          17,
+          21.4,
+          10,
+          "prostate specific antigen amount",
+          "RAI2",
+          "rs200615037"
+        ],
+        [
+          18,
+          34.3,
+          17,
+          "serum creatinine amount",
+          "CDKL5",
+          "rs5909184"
+        ],
+        [
+          19,
+          14.4,
+          29,
+          "serum albumin amount",
+          "SH3KBP1",
+          "rs201174275"
+        ],
+        [
+          20,
+          19.5,
+          30,
+          "Abnormality of refraction",
+          "RN7SKP183 - RNU6-133P",
+          "rs17313971"
+        ],
+        [
+          21,
+          17.7,
+          29,
+          "schizophrenia",
+          "RNU6-133P - CNKSR2",
+          "rs1378559"
+        ],
+        [
+          22,
+          89.5,
+          25,
+          "protein measurement",
+          "SMS - PHEX",
+          "rs5951683"
+        ],
+        [
+          23,
+          14.4,
+          23,
+          "cardiac arrhythmia",
+          "PTCHD1",
+          "rs73205368"
+        ],
+        [
+          24,
+          73.2,
+          32,
+          "prostate specific antigen amount",
+          "KLHL15 - EIF2S3",
+          "rs6627995"
+        ],
+        [
+          25,
+          14.1,
+          8,
+          "educational attainment",
+          "ARX - PAFAH1B2P1",
+          "rs5986717"
+        ],
+        [
+          26,
+          11,
+          7,
+          "COVID-19",
+          "VENTXP1",
+          "rs4509493"
+        ],
+        [
+          27,
+          8.1,
+          9,
+          "body weight",
+          "Y_RNA - PTP4A1P5",
+          "rs56988081"
+        ],
+        [
+          28,
+          15.5,
+          53,
+          "neuroimaging measurement",
+          "DCAF8L1 - MIR6134",
+          "rs1012186"
+        ],
+        [
+          29,
+          10,
+          14,
+          "schizophrenia",
+          "IL1RAPL1",
+          "rs5943630"
+        ],
+        [
+          30,
+          19.5,
+          20,
+          "prostate carcinoma",
+          "TAB3",
+          "rs5972255"
+        ],
+        [
+          31,
+          40.7,
+          23,
+          "body fat mass",
+          "DMD",
+          "rs1379871"
+        ],
+        [
+          32,
+          13.3,
+          24,
+          "influenza A (H1N1)",
+          "DMD",
+          "rs16990169"
+        ],
+        [
+          33,
+          12.7,
+          17,
+          "COVID-19",
+          "DMD",
+          "rs4829276"
+        ],
+        [
+          34,
+          21.3,
+          12,
+          "educational attainment",
+          "FAM47A - FTH1P14",
+          "rs5927231"
+        ],
+        [
+          35,
+          45,
+          13,
+          "amount of cadherin-2 (human) in blood",
+          "FAM47B - RNU6-1087P",
+          "rs1490434"
+        ],
+        [
+          36,
+          9.7,
+          8,
+          "restless legs syndrome",
+          "CFAP47 - H2AL1Q",
+          "rs6527594"
+        ],
+        [
+          37,
+          8.4,
+          9,
+          "triglyceride measurement",
+          "H2AL3 - SYTL5",
+          "rs3859931"
+        ],
+        [
+          38,
+          44.7,
+          27,
+          "protein measurement",
+          "OTC",
+          "rs1800328"
+        ],
+        [
+          39,
+          311,
+          47,
+          "platelet volume",
+          "MIR1587 - RPS11P7",
+          "rs3002416"
+        ],
+        [
+          40,
+          206.3,
+          25,
+          "reticulocyte count",
+          "RPS2P55 - CLIC4P3",
+          "rs112563712"
+        ],
+        [
+          41,
+          24.2,
+          14,
+          "COVID-19",
+          "USP9X",
+          "rs4827048"
+        ],
+        [
+          42,
+          9.5,
+          4,
+          "pyruvate measurement",
+          "RNU6-1124P - PPP1R2C",
+          "rs137973832"
+        ],
+        [
+          43,
+          53.4,
+          24,
+          "heel bone mineral density",
+          "NDP - RBM39P1",
+          "rs12832436"
+        ],
+        [
+          44,
+          64.7,
+          14,
+          "bone tissue density",
+          "NDP - RBM39P1",
+          "rs5906421"
+        ],
+        [
+          45,
+          23,
+          12,
+          "body height",
+          "MIR222HG",
+          "rs56976399"
+        ],
+        [
+          46,
+          67,
+          21,
+          "homeodomain-interacting protein kinase 3 measurement",
+          "SLC9A7",
+          "rs71868809"
+        ],
+        [
+          47,
+          23.1,
+          15,
+          "amount of metalloproteinase inhibitor 1 (human) in blood",
+          "SYN1",
+          "rs10854945"
+        ],
+        [
+          48,
+          100.2,
+          37,
+          "N6-acetyllysine measurement",
+          "HDAC6",
+          "rs61735967"
+        ],
+        [
+          49,
+          36.4,
+          26,
+          "amount of matrix metalloproteinase-9 (human) in blood",
+          "CCDC120",
+          "rs56087424"
+        ],
+        [
+          50,
+          93,
+          33,
+          "hypospadias",
+          "DGKK",
+          "rs4554617"
+        ],
+        [
+          51,
+          132.2,
+          24,
+          "prostate carcinoma",
+          "LINC01496",
+          "rs11338635"
+        ],
+        [
+          52,
+          17.4,
+          6,
+          "prostate carcinoma",
+          "RNA5SP504 - SSX15P",
+          "rs5943724"
+        ],
+        [
+          53,
+          121.3,
+          30,
+          "tiglylcarnitine (C5:1-DC) measurement",
+          "HSD17B10",
+          "rs201378370"
+        ],
+        [
+          54,
+          49.7,
+          29,
+          "mean corpuscular hemoglobin",
+          "PFKFB1",
+          "rs186567375"
+        ],
+        [
+          55,
+          282.5,
+          42,
+          "balding measurement",
+          "PAGE3 - MIR4536-2",
+          "rs150608359"
+        ],
+        [
+          56,
+          151.7,
+          56,
+          "platelet volume",
+          "SPIN3",
+          "rs35406259"
+        ],
+        [
+          57,
+          47,
+          48,
+          "protein measurement",
+          "SPIN3 - SPIN2P1",
+          "rs4029980"
+        ],
+        [
+          58,
+          282.5,
+          32,
+          "balding measurement",
+          "KRT8P17 - SSBL2P",
+          "rs139087387"
+        ],
+        [
+          62,
+          21.3,
+          28,
+          "protein measurement",
+          "KRT8P17 - SSBL2P",
+          "rs140470540"
+        ],
+        [
+          63,
+          28,
+          11,
+          "chromosome, telomeric region length",
+          "LINC01278",
+          "rs138798639"
+        ],
+        [
+          64,
+          38.7,
+          27,
+          "amount of proheparin-binding EGF-like growth factor (human) in blood",
+          "BLOC1S2P1 - ZC4H2",
+          "rs181581269"
+        ],
+        [
+          65,
+          261.5,
+          57,
+          "balding measurement",
+          "CCNYL5 - RBMXP5",
+          "rs148215228"
+        ],
+        [
+          66,
+          177.3,
+          82,
+          "alopecia",
+          "RNU6-394P - AR",
+          "rs73221556"
+        ],
+        [
+          67,
+          320,
+          110,
+          "balding measurement",
+          "RNU6-394P - AR",
+          "rs2497911"
+        ],
+        [
+          68,
+          177.4,
+          31,
+          "balding measurement",
+          "OPHN1",
+          "rs1475417"
+        ],
+        [
+          69,
+          35,
+          57,
+          "synophrys measurement",
+          "EDA",
+          "rs2804362"
+        ],
+        [
+          70,
+          527.2,
+          62,
+          "disks large homolog 3 measurement",
+          "DLG3 - TEX11",
+          "rs5980712"
+        ],
+        [
+          71,
+          79,
+          26,
+          "reticulocyte amount",
+          "MED12",
+          "rs36072155"
+        ],
+        [
+          72,
+          206,
+          33,
+          "peptidyl-prolyl cis-trans isomerase NIMA-interacting 4 measurement",
+          "PIN4",
+          "rs6525591"
+        ],
+        [
+          73,
+          41,
+          6,
+          "integral membrane protein 2A measurement",
+          "CHIC1 - SEPHS1P4",
+          "rs1088599"
+        ],
+        [
+          74,
+          18.1,
+          16,
+          "alkaline phosphatase measurement",
+          "SLC16A2",
+          "rs6647476"
+        ],
+        [
+          75,
+          26.2,
+          20,
+          "adolescent idiopathic scoliosis",
+          "ZDHHC15",
+          "rs2367177"
+        ],
+        [
+          76,
+          58.7,
+          9,
+          "integral membrane protein 2A measurement",
+          "MIR325HG",
+          "rs2158310"
+        ],
+        [
+          77,
+          42,
+          13,
+          "body height",
+          "RNA5SP509 - SPRYD7P1",
+          "rs5938929"
+        ],
+        [
+          78,
+          21,
+          21,
+          "Graves disease",
+          "P2RY10 - P2RY10BP",
+          "rs201234360"
+        ],
+        [
+          79,
+          235,
+          34,
+          "integral membrane protein 2A measurement",
+          "KIF4CP - ITM2A",
+          "rs1751100"
+        ],
+        [
+          80,
+          14.2,
+          19,
+          "educational attainment",
+          "BRWD3 - RNU6-493P",
+          "rs6616712"
+        ],
+        [
+          81,
+          8.7,
+          14,
+          "Abnormality of refraction",
+          "RNU6-995P - HMGN5",
+          "rs73231003"
+        ],
+        [
+          82,
+          11.4,
+          9,
+          "integral membrane protein 2A measurement",
+          "RNU6-974P - EIF3JP1",
+          "rs66851593"
+        ],
+        [
+          83,
+          25.7,
+          11,
+          "adolescent idiopathic scoliosis",
+          "ATG4AP1 - POU3F4",
+          "rs5922761"
+        ],
+        [
+          84,
+          14.7,
+          21,
+          "educational attainment",
+          "HDX - SETP4",
+          "rs5922073"
+        ],
+        [
+          85,
+          6.1,
+          5,
+          "smooth surface dental caries",
+          "MIR1321 - SFR1P2",
+          "rs5967638"
+        ],
+        [
+          86,
+          25,
+          91,
+          "severe acute respiratory syndrome, COVID-19",
+          "DACH2",
+          "rs12385411"
+        ],
+        [
+          87,
+          6.7,
+          10,
+          "adolescent idiopathic scoliosis",
+          "DACH2 - KLHL4",
+          "rs2369513"
+        ],
+        [
+          88,
+          10.7,
+          18,
+          "ossification of the posterior longitudinal ligament of the spine",
+          "CAPZA1P1 - CPXCR1",
+          "rs149869712"
+        ],
+        [
+          89,
+          19.7,
+          3,
+          "anti-neutrophil antibody associated vasculitis",
+          "CPXCR1 - SRIP2",
+          "rs5941160"
+        ],
+        [
+          90,
+          13,
+          4,
+          "anti-neutrophil antibody associated vasculitis",
+          "UBE2V1P9 - RNU6-555P",
+          "rs2755459"
+        ],
+        [
+          91,
+          7.4,
+          4,
+          "anti-neutrophil antibody associated vasculitis",
+          "PABPC5 - SERBP1P4",
+          "rs6618677"
+        ],
+        [
+          92,
+          15.5,
+          6,
+          "severe acute respiratory syndrome, COVID-19",
+          "PCDH11X",
+          "rs12557885"
+        ],
+        [
+          93,
+          9.2,
+          6,
+          "HETE measurement",
+          "DLGAP5P2 - AP2B1P1",
+          "rs1198715"
+        ],
+        [
+          94,
+          9,
+          5,
+          "educational attainment",
+          "RNU6-332P - Y_RNA",
+          "rs1592166"
+        ],
+        [
+          95,
+          11.3,
+          3,
+          "blood protein amount",
+          "RPS7P13 - KAT7P1",
+          "rs188083590"
+        ],
+        [
+          96,
+          7.7,
+          3,
+          "diverticular disease",
+          "DIAPH2",
+          "rs6615861"
+        ],
+        [
+          97,
+          13,
+          7,
+          "severe acute respiratory syndrome, COVID-19",
+          "DIAPH2",
+          "rs5966653"
+        ],
+        [
+          98,
+          8.3,
+          5,
+          "response to statin, LDL cholesterol change measurement",
+          "LINC03077",
+          "rs5966882"
+        ],
+        [
+          99,
+          6.5,
+          1,
+          "jaw disease",
+          "XRCC6P5 - B3GNT2P1",
+          "rs144899278"
+        ],
+        [
+          100,
+          50.3,
+          55,
+          "synaptotagmin-like protein 4 measurement",
+          "SRPX2",
+          "rs2096256"
+        ],
+        [
+          101,
+          173.7,
+          24,
+          "protein measurement",
+          "GLA, RPL36A-HNRNPH2",
+          "rs2071225"
+        ],
+        [
+          102,
+          11.4,
+          8,
+          "severe acute respiratory syndrome, COVID-19",
+          "LINC00630",
+          "rs62601999"
+        ],
+        [
+          103,
+          12,
+          17,
+          "lymphocyte count",
+          "LL0XNC01-250H12.3, RAB40A",
+          "rs182043430"
+        ],
+        [
+          104,
+          14.7,
+          4,
+          "educational attainment",
+          "ESX1 - IL1RAPL2",
+          "rs6621822"
+        ],
+        [
+          105,
+          31,
+          14,
+          "amount of thyroxine",
+          "NRK",
+          "rs11092545"
+        ],
+        [
+          106,
+          116,
+          75,
+          "thyroxine-binding globulin measurement",
+          "SERPINA7 - CTDSPL2P2",
+          "rs5916964"
+        ],
+        [
+          107,
+          32,
+          89,
+          "alcoholic pancreatitis",
+          "NUP62CL",
+          "rs12688091"
+        ],
+        [
+          108,
+          48.7,
+          7,
+          "amount of cysteine protease ATG4A in blood",
+          "ATG4A",
+          "rs717711"
+        ],
+        [
+          109,
+          52.7,
+          55,
+          "degree of unsaturation measurement",
+          "Y_RNA - RPS5P7",
+          "rs199570990"
+        ],
+        [
+          110,
+          637,
+          139,
+          "sex hormone-binding globulin measurement",
+          "CRIPTO3 - M6PRP1",
+          "rs1418334"
+        ],
+        [
+          111,
+          16.3,
+          11,
+          "sex hormone-binding globulin measurement",
+          "RPL18AP15 - ALG13",
+          "rs73266310"
+        ],
+        [
+          112,
+          18,
+          17,
+          "hematocrit",
+          "RN7SL266P - RNU6-1015P",
+          "rs5974317"
+        ],
+        [
+          113,
+          12.7,
+          8,
+          "blood protein amount",
+          "XACT",
+          "rs140597432"
+        ],
+        [
+          114,
+          7.3,
+          1,
+          "educational attainment",
+          "HTR2C",
+          "rs2497525"
+        ],
+        [
+          115,
+          41,
+          22,
+          "mosaic loss of chromosome X measurement",
+          "ASS1P5 - DANT2",
+          "rs12836051"
+        ],
+        [
+          116,
+          23.5,
+          21,
+          "gestational age",
+          "RN7SL712P - AKR1B1P8",
+          "rs5991030"
+        ],
+        [
+          117,
+          6,
+          5,
+          "neuroticism measurement",
+          "TCERG1P1 - KLHL13",
+          "rs762270946"
+        ],
+        [
+          118,
+          3055.1,
+          35,
+          "blood protein amount",
+          "IL13RA1",
+          "rs2495635"
+        ],
+        [
+          119,
+          39.2,
+          31,
+          "body height",
+          "SLC25A5-AS1",
+          "rs392020"
+        ],
+        [
+          120,
+          143.3,
+          16,
+          "blood protein amount",
+          "LAMP2 - RNU7-37P",
+          "rs138734206"
+        ],
+        [
+          121,
+          13,
+          4,
+          "educational attainment",
+          "MIR3672 - TPT1P13",
+          "rs6608245"
+        ],
+        [
+          122,
+          13.3,
+          16,
+          "adolescent idiopathic scoliosis",
+          "UBE2V1P16 - RPL3P12",
+          "rs2380274"
+        ],
+        [
+          123,
+          17.5,
+          18,
+          "forced expiratory volume",
+          "XIAP",
+          "rs28382749"
+        ],
+        [
+          124,
+          54.3,
+          12,
+          "sh2 domain-containing protein 1a measurement",
+          "TEX13D, STAG2, SH2D1A",
+          "rs5911809"
+        ],
+        [
+          125,
+          90.5,
+          14,
+          "restless legs syndrome",
+          "FBLIM1P1 - DCAF12L2",
+          "rs5932706"
+        ],
+        [
+          126,
+          23.5,
+          20,
+          "serum creatinine amount",
+          "MTND4P24 - DCAF12L1",
+          "rs5931115"
+        ],
+        [
+          127,
+          6.2,
+          2,
+          "survival time, prostate carcinoma",
+          "PNPLA10P - ACTRT1",
+          "rs723557"
+        ],
+        [
+          128,
+          7.7,
+          14,
+          "systolic blood pressure",
+          "RUVBL2P1 - KRT18P44",
+          "rs141216986"
+        ],
+        [
+          129,
+          3825,
+          37,
+          "Xaa-Pro aminopeptidase 2 amount",
+          "APLN - XPNPEP2",
+          "rs4829707"
+        ],
+        [
+          130,
+          31.4,
+          22,
+          "body height",
+          "AIFM1",
+          "rs209999"
+        ],
+        [
+          131,
+          24.2,
+          17,
+          "age at first sexual intercourse measurement",
+          "IGSF1",
+          "rs6637831"
+        ],
+        [
+          132,
+          79.5,
+          40,
+          "uterine corpus leiomyoma",
+          "AGKP2 - RAP2C-AS1",
+          "rs2811702"
+        ],
+        [
+          133,
+          38.4,
+          10,
+          "prostate specific antigen amount",
+          "GPC3",
+          "rs4829762"
+        ],
+        [
+          134,
+          31.3,
+          62,
+          "body height",
+          "LINC00629",
+          "rs2503987"
+        ],
+        [
+          135,
+          5.3,
+          1,
+          "hip circumference",
+          "INTS6L",
+          "rs181213550"
+        ],
+        [
+          136,
+          385.7,
+          54,
+          "amount of CD40 ligand (human) in blood",
+          "LINC00892 - CD40LG",
+          "rs36206512"
+        ],
+        [
+          137,
+          18.7,
+          39,
+          "retinal layer thickness",
+          "LINC02931",
+          "rs113485657"
+        ],
+        [
+          138,
+          19.7,
+          10,
+          "atrial fibrillation",
+          "FGF13",
+          "rs778479352"
+        ],
+        [
+          139,
+          45.7,
+          19,
+          "venous thromboembolism",
+          "F9",
+          "rs6048"
+        ],
+        [
+          140,
+          29,
+          10,
+          "body height",
+          "HAPSTR2 - EEDP1",
+          "rs426349"
+        ],
+        [
+          141,
+          11.2,
+          8,
+          "blood protein amount",
+          "SPANXA2-OT1",
+          "rs56376703"
+        ],
+        [
+          142,
+          16.7,
+          14,
+          "trait in response to bupropion, mood disorder, major depressive disorder",
+          "RNA5SP516 - SPANXN4",
+          "rs190783615"
+        ],
+        [
+          143,
+          17.5,
+          16,
+          "blood protein amount",
+          "SLITRK4",
+          "rs5907446"
+        ],
+        [
+          144,
+          37,
+          7,
+          "SLIT and NTRK-like protein 4 measurement",
+          "RRM2P4 - HNRNPCP10",
+          "rs112858201"
+        ],
+        [
+          145,
+          10.5,
+          9,
+          "gout",
+          "TRMT1P1 - UFM1P1",
+          "rs147750368"
+        ],
+        [
+          146,
+          70.3,
+          13,
+          "amount of SLIT and NTRK-like protein 2 in blood serum",
+          "CXorf51A - MIR513C",
+          "rs2495276"
+        ],
+        [
+          147,
+          56.7,
+          38,
+          "5alpha-androstan-3alpha,17beta-diol monosulfate (2) measurement",
+          "MIR514A3 - SLIRPP1",
+          "rs5905042"
+        ],
+        [
+          148,
+          37.7,
+          28,
+          "basophil count",
+          "AFF2",
+          "rs1978082"
+        ],
+        [
+          149,
+          15.5,
+          8,
+          "adolescent idiopathic scoliosis",
+          "AFF2 - IDS",
+          "rs6641173"
+        ],
+        [
+          150,
+          66.7,
+          32,
+          "amount of CD99 antigen-like protein 2 (human) in blood",
+          "CD99L2, LINC02927",
+          "rs6526193"
+        ],
+        [
+          151,
+          17.1,
+          19,
+          "response to angiotensin-converting enzyme inhibitor, Cough",
+          "VMA21 - PASD1",
+          "rs5924943"
+        ],
+        [
+          152,
+          38.7,
+          10,
+          "chromosome, telomeric region length",
+          "MAGEA3",
+          "rs7056365"
+        ],
+        [
+          153,
+          105.1,
+          229,
+          "type 2 diabetes mellitus",
+          "MRFAP1P1 - DUSP9",
+          "rs5945326"
+        ],
+        [
+          154,
+          321.2,
+          142,
+          "HbA1c measurement",
+          "G6PD",
+          "rs1050828"
+        ],
+        [
+          155,
+          374.7,
+          61,
+          "X-23666 measurement",
+          "VBP1",
+          "rs35296872"
+        ]
+      ],
+      "Y": [
+        [
+          0,
+          5.1,
+          1,
+          "height growth attribute",
+          "SHOX - RPL14P5",
+          "rs7056080"
+        ],
+        [
+          1,
+          96.4,
+          16,
+          "n-acetylserotonin O-methyltransferase-like protein measurement",
+          "ASMTL, ASMTL, ASMTL, ASMTL",
+          "rs35466875"
+        ],
+        [
+          2,
+          28.7,
+          6,
+          "brain connectivity attribute",
+          "XGY2, XG",
+          "rs2857316"
+        ],
+        [
+          6,
+          7.2,
+          1,
+          "autism",
+          "AMELY",
+          "rs9785971"
+        ],
+        [
+          7,
+          7.7,
+          1,
+          "autism",
+          "TBL1Y",
+          "rs1865680"
+        ],
+        [
+          12,
+          7.7,
+          1,
+          "autism",
+          "DDX3Y",
+          "rs2032624"
+        ],
+        [
+          13,
+          8.5,
+          1,
+          "autism",
+          "UTY",
+          "rs2032658"
+        ],
+        [
+          14,
+          6,
+          2,
+          "pursuit maintenance gain measurement",
+          "NLGN4Y",
+          "rs2115848"
+        ],
+        [
+          19,
+          7.7,
+          1,
+          "autism",
+          "KDM5D",
+          "rs2032631"
+        ],
+        [
+          20,
+          8.5,
+          2,
+          "autism",
+          "EIF1AY",
+          "rs9786153"
+        ],
+        [
+          56,
+          24,
+          2,
+          "HbA1c measurement",
+          "SPRY3",
+          "rs188561366"
+        ],
+        [
+          57,
+          11,
+          2,
+          "eosinophil percentage of leukocytes",
+          "IL9R, IL9R, IL9R, IL9R",
+          "rs3093479"
+        ]
+      ]
+    },
+    "categories": {
+      "totals": {
+        "Hematological measurement": 90585,
+        "Cardiovascular measurement": 37147,
+        "Cancer": 26574,
+        "Other measurement": 635919,
+        "Inflammatory measurement": 6659,
+        "Biological process": 24190,
+        "Cardiovascular disease": 13361,
+        "Other trait": 32590,
+        "Not mapped": 40975,
+        "Digestive system disorder": 16007,
+        "Immune system disorder": 16160,
+        "Other disease": 33406,
+        "Neurological disorder": 29174,
+        "Lipid or lipoprotein measurement": 138414,
+        "Body measurement": 56826,
+        "Metabolic disorder": 7652,
+        "NR": 5
+      },
+      "byYear": {
+        "2005": {
+          "Neurological disorder": 2
+        },
+        "2006": {
+          "Neurological disorder": 6,
+          "Cardiovascular measurement": 1,
+          "Digestive system disorder": 1
+        },
+        "2007": {
+          "Digestive system disorder": 46,
+          "Lipid or lipoprotein measurement": 6,
+          "Cardiovascular disease": 8,
+          "Neurological disorder": 29,
+          "Other disease": 3,
+          "Cancer": 33,
+          "Not mapped": 54,
+          "Body measurement": 23,
+          "Immune system disorder": 48,
+          "Hematological measurement": 16,
+          "Other measurement": 115,
+          "Cardiovascular measurement": 25,
+          "Inflammatory measurement": 6,
+          "Other trait": 22,
+          "Biological process": 6
+        },
+        "2008": {
+          "Lipid or lipoprotein measurement": 166,
+          "Other measurement": 278,
+          "Immune system disorder": 104,
+          "Cancer": 52,
+          "Other trait": 26,
+          "Neurological disorder": 74,
+          "Hematological measurement": 8,
+          "Digestive system disorder": 34,
+          "Inflammatory measurement": 23,
+          "Body measurement": 44,
+          "Other disease": 7,
+          "Cardiovascular measurement": 11,
+          "Biological process": 51,
+          "Not mapped": 95,
+          "Cardiovascular disease": 4
+        },
+        "2009": {
+          "Immune system disorder": 186,
+          "Neurological disorder": 147,
+          "Cancer": 99,
+          "Lipid or lipoprotein measurement": 26,
+          "Not mapped": 60,
+          "Other measurement": 410,
+          "Biological process": 103,
+          "Other disease": 65,
+          "Body measurement": 27,
+          "Inflammatory measurement": 11,
+          "Cardiovascular measurement": 116,
+          "Digestive system disorder": 35,
+          "Other trait": 39,
+          "Hematological measurement": 50,
+          "Cardiovascular disease": 16
+        },
+        "2010": {
+          "Other measurement": 812,
+          "Biological process": 246,
+          "Cardiovascular measurement": 42,
+          "Digestive system disorder": 60,
+          "Lipid or lipoprotein measurement": 238,
+          "Immune system disorder": 198,
+          "Other disease": 108,
+          "Not mapped": 285,
+          "Neurological disorder": 204,
+          "Inflammatory measurement": 6,
+          "Hematological measurement": 72,
+          "Cardiovascular disease": 32,
+          "Body measurement": 78,
+          "Cancer": 139,
+          "Other trait": 67,
+          "Metabolic disorder": 15
+        },
+        "2011": {
+          "Other measurement": 518,
+          "Cardiovascular disease": 77,
+          "Not mapped": 241,
+          "Other disease": 153,
+          "Cancer": 151,
+          "Immune system disorder": 344,
+          "Neurological disorder": 281,
+          "Cardiovascular measurement": 151,
+          "Biological process": 179,
+          "Inflammatory measurement": 72,
+          "Digestive system disorder": 70,
+          "Other trait": 68,
+          "Metabolic disorder": 87,
+          "Lipid or lipoprotein measurement": 145,
+          "Hematological measurement": 127,
+          "Body measurement": 22
+        },
+        "2012": {
+          "Not mapped": 311,
+          "Digestive system disorder": 357,
+          "Other measurement": 1669,
+          "Hematological measurement": 96,
+          "Other disease": 238,
+          "Biological process": 687,
+          "Body measurement": 198,
+          "Cardiovascular measurement": 93,
+          "Inflammatory measurement": 75,
+          "Neurological disorder": 271,
+          "Immune system disorder": 318,
+          "Other trait": 212,
+          "Cancer": 219,
+          "Lipid or lipoprotein measurement": 99,
+          "Metabolic disorder": 36,
+          "Cardiovascular disease": 32
+        },
+        "2013": {
+          "Other measurement": 2970,
+          "Neurological disorder": 538,
+          "Cardiovascular disease": 280,
+          "Body measurement": 77,
+          "Biological process": 389,
+          "Lipid or lipoprotein measurement": 1506,
+          "Immune system disorder": 567,
+          "Other trait": 214,
+          "Not mapped": 379,
+          "Other disease": 158,
+          "Digestive system disorder": 227,
+          "Cardiovascular measurement": 369,
+          "Metabolic disorder": 39,
+          "Hematological measurement": 39,
+          "Inflammatory measurement": 8,
+          "Cancer": 314
+        },
+        "2014": {
+          "Other measurement": 2308,
+          "Other disease": 186,
+          "Immune system disorder": 196,
+          "Other trait": 167,
+          "Cancer": 203,
+          "Cardiovascular measurement": 350,
+          "Digestive system disorder": 182,
+          "Biological process": 313,
+          "Hematological measurement": 54,
+          "Cardiovascular disease": 35,
+          "Neurological disorder": 503,
+          "Body measurement": 70,
+          "Not mapped": 132,
+          "Metabolic disorder": 12,
+          "Inflammatory measurement": 7,
+          "Lipid or lipoprotein measurement": 50
+        },
+        "2015": {
+          "Other measurement": 6921,
+          "Body measurement": 1966,
+          "Other trait": 234,
+          "Other disease": 544,
+          "Not mapped": 430,
+          "Immune system disorder": 763,
+          "Neurological disorder": 937,
+          "Biological process": 350,
+          "Cancer": 460,
+          "Cardiovascular disease": 148,
+          "Metabolic disorder": 16,
+          "Cardiovascular measurement": 65,
+          "Lipid or lipoprotein measurement": 461,
+          "Digestive system disorder": 239,
+          "Hematological measurement": 10,
+          "Inflammatory measurement": 6
+        },
+        "2016": {
+          "Hematological measurement": 4536,
+          "Cardiovascular measurement": 1720,
+          "Other measurement": 6651,
+          "Inflammatory measurement": 641,
+          "Biological process": 648,
+          "Cardiovascular disease": 140,
+          "Other trait": 273,
+          "Not mapped": 178,
+          "Digestive system disorder": 186,
+          "Immune system disorder": 551,
+          "Other disease": 418,
+          "Neurological disorder": 553,
+          "Lipid or lipoprotein measurement": 452,
+          "Cancer": 353,
+          "Body measurement": 184,
+          "Metabolic disorder": 82
+        },
+        "2017": {
+          "Cancer": 3704,
+          "Lipid or lipoprotein measurement": 1284,
+          "Digestive system disorder": 549,
+          "Neurological disorder": 842,
+          "Other trait": 1306,
+          "Other disease": 806,
+          "Other measurement": 9414,
+          "Body measurement": 3026,
+          "Hematological measurement": 371,
+          "Immune system disorder": 593,
+          "Cardiovascular measurement": 901,
+          "Not mapped": 1034,
+          "Inflammatory measurement": 14,
+          "Cardiovascular disease": 340,
+          "Biological process": 1338,
+          "Metabolic disorder": 71
+        },
+        "2018": {
+          "Other measurement": 29642,
+          "Biological process": 6297,
+          "Not mapped": 987,
+          "Immune system disorder": 719,
+          "Neurological disorder": 1739,
+          "Body measurement": 4533,
+          "Lipid or lipoprotein measurement": 4056,
+          "Digestive system disorder": 1216,
+          "Cancer": 786,
+          "Cardiovascular disease": 594,
+          "Metabolic disorder": 144,
+          "Other trait": 1309,
+          "Cardiovascular measurement": 3616,
+          "Other disease": 2580,
+          "Hematological measurement": 3698,
+          "Inflammatory measurement": 377
+        },
+        "2019": {
+          "Other measurement": 24864,
+          "Immune system disorder": 519,
+          "Lipid or lipoprotein measurement": 3228,
+          "Cancer": 966,
+          "Biological process": 2345,
+          "Digestive system disorder": 467,
+          "Other disease": 2251,
+          "Cardiovascular measurement": 579,
+          "Other trait": 1402,
+          "Body measurement": 5496,
+          "Neurological disorder": 1921,
+          "Cardiovascular disease": 323,
+          "Not mapped": 476,
+          "Hematological measurement": 163,
+          "Metabolic disorder": 166,
+          "NR": 4,
+          "Inflammatory measurement": 60
+        },
+        "2020": {
+          "Other measurement": 34719,
+          "Inflammatory measurement": 1311,
+          "Body measurement": 105,
+          "Cardiovascular measurement": 7592,
+          "Hematological measurement": 19321,
+          "Lipid or lipoprotein measurement": 4426,
+          "Cardiovascular disease": 383,
+          "Other disease": 1399,
+          "Not mapped": 828,
+          "Biological process": 675,
+          "Other trait": 1276,
+          "Neurological disorder": 891,
+          "Metabolic disorder": 135,
+          "Digestive system disorder": 1809,
+          "Immune system disorder": 683,
+          "Cancer": 1195
+        },
+        "2021": {
+          "Neurological disorder": 2510,
+          "Other disease": 2427,
+          "Other measurement": 64911,
+          "Hematological measurement": 9190,
+          "Metabolic disorder": 402,
+          "Lipid or lipoprotein measurement": 18092,
+          "Not mapped": 838,
+          "Cancer": 1828,
+          "Other trait": 4782,
+          "Digestive system disorder": 931,
+          "Cardiovascular measurement": 2481,
+          "Body measurement": 15391,
+          "Biological process": 1137,
+          "Immune system disorder": 933,
+          "Cardiovascular disease": 1213,
+          "Inflammatory measurement": 840,
+          "NR": 1
+        },
+        "2022": {
+          "Biological process": 6503,
+          "Lipid or lipoprotein measurement": 15212,
+          "Body measurement": 5458,
+          "Other measurement": 83625,
+          "Hematological measurement": 2924,
+          "Digestive system disorder": 1490,
+          "Cardiovascular measurement": 4087,
+          "Other disease": 3873,
+          "Not mapped": 2931,
+          "Metabolic disorder": 221,
+          "Cancer": 1068,
+          "Cardiovascular disease": 1196,
+          "Neurological disorder": 6278,
+          "Other trait": 1870,
+          "Immune system disorder": 814,
+          "Inflammatory measurement": 1196
+        },
+        "2023": {
+          "Other measurement": 86183,
+          "Lipid or lipoprotein measurement": 9890,
+          "Not mapped": 3222,
+          "Cancer": 3322,
+          "Body measurement": 3397,
+          "Digestive system disorder": 1486,
+          "Cardiovascular disease": 1505,
+          "Other trait": 5454,
+          "Biological process": 1064,
+          "Neurological disorder": 3128,
+          "Other disease": 4172,
+          "Hematological measurement": 1937,
+          "Immune system disorder": 950,
+          "Metabolic disorder": 587,
+          "Cardiovascular measurement": 1386,
+          "Inflammatory measurement": 267
+        },
+        "2024": {
+          "Other measurement": 80540,
+          "Other disease": 5653,
+          "Cardiovascular disease": 2674,
+          "Metabolic disorder": 4309,
+          "Other trait": 6321,
+          "Not mapped": 5759,
+          "Hematological measurement": 24077,
+          "Digestive system disorder": 3919,
+          "Cancer": 4336,
+          "Cardiovascular measurement": 10276,
+          "Lipid or lipoprotein measurement": 21427,
+          "Biological process": 820,
+          "Immune system disorder": 2217,
+          "Neurological disorder": 3327,
+          "Inflammatory measurement": 351,
+          "Body measurement": 10058
+        },
+        "2025": {
+          "Other measurement": 163991,
+          "Lipid or lipoprotein measurement": 48686,
+          "Not mapped": 6864,
+          "Neurological disorder": 4006,
+          "Cancer": 1305,
+          "Hematological measurement": 19295,
+          "Other trait": 7264,
+          "Other disease": 5133,
+          "Digestive system disorder": 1436,
+          "Cardiovascular disease": 4144,
+          "Metabolic disorder": 912,
+          "Immune system disorder": 1261,
+          "Body measurement": 6484,
+          "Biological process": 593,
+          "Inflammatory measurement": 1134,
+          "Cardiovascular measurement": 2438
+        },
+        "2026": {
+          "Other measurement": 35378,
+          "Not mapped": 15871,
+          "Cardiovascular measurement": 848,
+          "Inflammatory measurement": 254,
+          "Cancer": 6041,
+          "Other disease": 3232,
+          "Metabolic disorder": 418,
+          "Other trait": 284,
+          "Hematological measurement": 4601,
+          "Biological process": 446,
+          "Lipid or lipoprotein measurement": 8964,
+          "Immune system disorder": 4196,
+          "Digestive system disorder": 1267,
+          "Body measurement": 189,
+          "Neurological disorder": 987,
+          "Cardiovascular disease": 217
+        }
+      }
+    },
+    "topTraits": [
+      {
+        "trait": "body height",
+        "n": 45250,
+        "parent": "Other measurement"
+      },
+      {
+        "trait": "body mass index",
+        "n": 22127,
+        "parent": "Body measurement"
+      },
+      {
+        "trait": "fatty acid amount",
+        "n": 19044,
+        "parent": "Other measurement"
+      },
+      {
+        "trait": "triglyceride measurement",
+        "n": 19029,
+        "parent": "Lipid or lipoprotein measurement"
+      },
+      {
+        "trait": "blood protein amount",
+        "n": 14361,
+        "parent": "Other measurement"
+      },
+      {
+        "trait": "high density lipoprotein cholesterol measurement",
+        "n": 13618,
+        "parent": "Lipid or lipoprotein measurement"
+      },
+      {
+        "trait": "hematological measurement",
+        "n": 10681,
+        "parent": "Other measurement"
+      },
+      {
+        "trait": "platelet count",
+        "n": 10419,
+        "parent": "Hematological measurement"
+      },
+      {
+        "trait": "protein measurement",
+        "n": 9961,
+        "parent": "Other measurement"
+      },
+      {
+        "trait": "low density lipoprotein cholesterol measurement",
+        "n": 9915,
+        "parent": "Lipid or lipoprotein measurement"
+      },
+      {
+        "trait": "systolic blood pressure",
+        "n": 9601,
+        "parent": "Cardiovascular measurement"
+      },
+      {
+        "trait": "bone tissue density",
+        "n": 9171,
+        "parent": "Other measurement"
+      },
+      {
+        "trait": "erythrocyte volume",
+        "n": 8913,
+        "parent": "Other measurement"
+      },
+      {
+        "trait": "type 2 diabetes mellitus",
+        "n": 8876,
+        "parent": "Digestive system disorder"
+      },
+      {
+        "trait": "total cholesterol measurement",
+        "n": 8232,
+        "parent": "Lipid or lipoprotein measurement"
+      },
+      {
+        "trait": "memory performance",
+        "n": 8171,
+        "parent": "Other measurement"
+      },
+      {
+        "trait": "BMI-adjusted waist-hip ratio",
+        "n": 7796,
+        "parent": "Body measurement"
+      },
+      {
+        "trait": "diastolic blood pressure",
+        "n": 7621,
+        "parent": "Cardiovascular measurement"
+      },
+      {
+        "trait": "glomerular filtration rate",
+        "n": 7379,
+        "parent": "Other measurement"
+      },
+      {
+        "trait": "body weight",
+        "n": 7149,
+        "parent": "Body measurement"
+      }
+    ],
+    "topGenes": [
+      {
+        "gene": "FADS2",
+        "n": 13652
+      },
+      {
+        "gene": "ALDH1A2",
+        "n": 7194
+      },
+      {
+        "gene": "Y_RNA",
+        "n": 6041
+      },
+      {
+        "gene": "FADS1",
+        "n": 5840
+      },
+      {
+        "gene": "LPL",
+        "n": 5058
+      },
+      {
+        "gene": "APOE",
+        "n": 4637
+      },
+      {
+        "gene": "ABO",
+        "n": 3711
+      },
+      {
+        "gene": "TMEM258",
+        "n": 3698
+      },
+      {
+        "gene": "ZPR1",
+        "n": 3640
+      },
+      {
+        "gene": "APOC1",
+        "n": 3628
+      },
+      {
+        "gene": "GCKR",
+        "n": 3567
+      },
+      {
+        "gene": "TRIB1AL",
+        "n": 3549
+      },
+      {
+        "gene": "LIPC",
+        "n": 3436
+      },
+      {
+        "gene": "NECTIN2",
+        "n": 2959
+      },
+      {
+        "gene": "HLA-DQA1",
+        "n": 2934
+      },
+      {
+        "gene": "SARM1",
+        "n": 2835
+      },
+      {
+        "gene": "CETP",
+        "n": 2797
+      },
+      {
+        "gene": "PPP1R3B-DT",
+        "n": 2785
+      },
+      {
+        "gene": "RPL30P9",
+        "n": 2749
+      },
+      {
+        "gene": "APOB",
+        "n": 2670
+      }
+    ],
+    "context": {
+      "intron_variant": 612089,
+      "Not given": 211662,
+      "synonymous_variant": 8305,
+      "intergenic_variant": 210772,
+      "missense_variant": 59352,
+      "5_prime_UTR_variant": 9917,
+      "3_prime_UTR_variant": 31329,
+      "regulatory_region_variant": 22969,
+      "non_coding_transcript_exon_variant": 22198,
+      "splice_polypyrimidine_tract_variant": 1894,
+      "splice_region_variant": 2088,
+      "Several variants": 1952,
+      "splice_donor_region_variant": 532,
+      "TF_binding_site_variant": 1863,
+      "stop_gained": 3730,
+      "frameshift_variant": 370,
+      "splice_donor_variant": 454,
+      "inframe_insertion": 84,
+      "Interaction": 3288,
+      "splice_acceptor_variant": 195,
+      "TFBS_ablation": 5,
+      "stop_lost": 33,
+      "inframe_deletion": 47,
+      "protein_altering_variant": 4,
+      "splice_donor_5th_base_variant": 323,
+      "mature_miRNA_variant": 127,
+      "start_lost": 55,
+      "stop_retained_variant": 7
+    },
+    "effects": {
+      "orEdges": [
+        1,
+        1.1,
+        1.25,
+        1.5,
+        2,
+        3,
+        5,
+        10
+      ],
+      "rafEdges": [
+        0,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "counts": [
+        [
+          360,
+          753,
+          1099,
+          1334,
+          1349,
+          1100,
+          989,
+          882,
+          645,
+          224
+        ],
+        [
+          887,
+          1025,
+          927,
+          889,
+          883,
+          652,
+          583,
+          569,
+          520,
+          413
+        ],
+        [
+          726,
+          432,
+          428,
+          367,
+          294,
+          228,
+          228,
+          207,
+          206,
+          200
+        ],
+        [
+          901,
+          314,
+          186,
+          118,
+          95,
+          81,
+          104,
+          88,
+          75,
+          152
+        ],
+        [
+          797,
+          202,
+          131,
+          63,
+          60,
+          32,
+          24,
+          36,
+          43,
+          90
+        ],
+        [
+          622,
+          90,
+          88,
+          53,
+          17,
+          7,
+          19,
+          13,
+          11,
+          37
+        ],
+        [
+          460,
+          24,
+          14,
+          3,
+          4,
+          0,
+          7,
+          7,
+          6,
+          19
+        ],
+        [
+          383,
+          15,
+          2,
+          0,
+          2,
+          2,
+          0,
+          1,
+          5,
+          6
+        ]
+      ],
+      "n": 24908,
+      "median": 1.15
+    },
+    "sizes": {
+      "sizeLabels": [
+        "<1K",
+        "1K–3K",
+        "3K–10K",
+        "10K–30K",
+        "30K–100K",
+        "100K–300K",
+        "300K–1M",
+        "≥1M"
+      ],
+      "assocLabels": [
+        "0",
+        "1",
+        "2–3",
+        "4–10",
+        "11–30",
+        "31–100",
+        "101–300",
+        "301–1,000",
+        ">1,000"
+      ],
+      "counts": [
+        [
+          48822,
+          25375,
+          24680,
+          12480,
+          18450,
+          10014,
+          15704,
+          91
+        ],
+        [
+          7425,
+          6983,
+          8100,
+          3050,
+          2181,
+          1571,
+          741,
+          15
+        ],
+        [
+          2593,
+          2398,
+          4894,
+          3065,
+          2417,
+          441,
+          751,
+          31
+        ],
+        [
+          2389,
+          1334,
+          3353,
+          2626,
+          3382,
+          826,
+          1153,
+          77
+        ],
+        [
+          885,
+          689,
+          1257,
+          678,
+          3244,
+          627,
+          707,
+          70
+        ],
+        [
+          226,
+          142,
+          347,
+          212,
+          2228,
+          829,
+          685,
+          64
+        ],
+        [
+          44,
+          29,
+          65,
+          73,
+          126,
+          363,
+          569,
+          51
+        ],
+        [
+          7,
+          8,
+          20,
+          17,
+          22,
+          103,
+          343,
+          37
+        ],
+        [
+          3,
+          2,
+          2,
+          3,
+          3,
+          12,
+          37,
+          14
+        ]
+      ],
+      "studies": 232255
+    }
+  },
+  "pgs": {
+    "catalog": {
+      "release": "2026-10-23",
+      "scores": 7029,
+      "publications": 850,
+      "traits": 820
+    },
+    "scores": 7029,
+    "methods": 261,
+    "families": {
+      "Genome-wide significant variants": 596,
+      "Pruning and thresholding": 991,
+      "Penalized regression": 1744,
+      "Other": 847,
+      "LDpred": 1219,
+      "PRS-CS": 887,
+      "SBayes": 408,
+      "MegaPRS and LDAK": 337
+    },
+    "byYear": {
+      "2019": {
+        "Genome-wide significant variants": 27,
+        "Pruning and thresholding": 12,
+        "Penalized regression": 3,
+        "Other": 12,
+        "LDpred": 5
+      },
+      "2020": {
+        "Genome-wide significant variants": 165,
+        "Other": 49,
+        "Penalized regression": 92,
+        "PRS-CS": 75,
+        "Pruning and thresholding": 131,
+        "LDpred": 85
+      },
+      "2021": {
+        "Pruning and thresholding": 44,
+        "Genome-wide significant variants": 96,
+        "Penalized regression": 835,
+        "Other": 56,
+        "LDpred": 7,
+        "SBayes": 5,
+        "PRS-CS": 13
+      },
+      "2022": {
+        "Pruning and thresholding": 475,
+        "PRS-CS": 157,
+        "Penalized regression": 317,
+        "LDpred": 252,
+        "Genome-wide significant variants": 95,
+        "Other": 239,
+        "SBayes": 55
+      },
+      "2023": {
+        "LDpred": 198,
+        "Pruning and thresholding": 245,
+        "PRS-CS": 83,
+        "Penalized regression": 158,
+        "Other": 56,
+        "Genome-wide significant variants": 90,
+        "MegaPRS and LDAK": 30,
+        "SBayes": 16
+      },
+      "2024": {
+        "PRS-CS": 107,
+        "LDpred": 278,
+        "Other": 321,
+        "Genome-wide significant variants": 65,
+        "Pruning and thresholding": 16,
+        "SBayes": 5,
+        "Penalized regression": 33,
+        "MegaPRS and LDAK": 18
+      },
+      "2025": {
+        "PRS-CS": 79,
+        "Other": 15,
+        "LDpred": 29,
+        "Genome-wide significant variants": 29,
+        "Pruning and thresholding": 31,
+        "Penalized regression": 6,
+        "SBayes": 11
+      },
+      "2026": {
+        "Penalized regression": 300,
+        "LDpred": 365,
+        "Pruning and thresholding": 37,
+        "PRS-CS": 373,
+        "SBayes": 316,
+        "Other": 99,
+        "Genome-wide significant variants": 29,
+        "MegaPRS and LDAK": 289
+      }
+    },
+    "variants": {
+      "edges": [
+        1,
+        3.16227766017,
+        10,
+        31.6227766017,
+        100,
+        316.227766017,
+        1000,
+        3162.27766017,
+        10000,
+        31622.7766017,
+        100000,
+        316227.766017,
+        1000000,
+        3162277.66017,
+        10000000,
+        31622776.6017,
+        100000000
+      ],
+      "counts": [
+        28,
+        116,
+        402,
+        366,
+        427,
+        437,
+        413,
+        358,
+        521,
+        387,
+        296,
+        1752,
+        1307,
+        202,
+        17,
+        0
+      ],
+      "median": 127770
+    },
+    "traits": [
+      {
+        "trait": "neuroimaging measurement",
+        "n": 335
+      },
+      {
+        "trait": "type 2 diabetes mellitus",
+        "n": 252
+      },
+      {
+        "trait": "brain volume",
+        "n": 222
+      },
+      {
+        "trait": "breast carcinoma",
+        "n": 145
+      },
+      {
+        "trait": "body mass index",
+        "n": 141
+      },
+      {
+        "trait": "low density lipoprotein cholesterol measurement",
+        "n": 123
+      },
+      {
+        "trait": "body height",
+        "n": 106
+      },
+      {
+        "trait": "high density lipoprotein cholesterol measurement",
+        "n": 93
+      },
+      {
+        "trait": "prostate carcinoma",
+        "n": 93
+      },
+      {
+        "trait": "glomerular filtration rate",
+        "n": 91
+      },
+      {
+        "trait": "grey matter volume measurement",
+        "n": 90
+      },
+      {
+        "trait": "coronary artery disorder",
+        "n": 88
+      },
+      {
+        "trait": "systolic blood pressure",
+        "n": 83
+      },
+      {
+        "trait": "atrial fibrillation",
+        "n": 82
+      },
+      {
+        "trait": "blood protein amount",
+        "n": 82
+      },
+      {
+        "trait": "triglyceride measurement",
+        "n": 81
+      },
+      {
+        "trait": "total cholesterol measurement",
+        "n": 75
+      },
+      {
+        "trait": "hypertensive disorder",
+        "n": 72
+      },
+      {
+        "trait": "asthma",
+        "n": 65
+      },
+      {
+        "trait": "diastolic blood pressure",
+        "n": 61
+      }
+    ],
+    "ancestry": {
+      "gwas": {
+        "European": 1129102888,
+        "South Asian": 4024128,
+        "Multiple categories": 260325547,
+        "East Asian": 540074965,
+        "Hispanic or Latin American": 16225504,
+        "African American or Afro-Caribbean": 26421075,
+        "African unspecified": 6654222,
+        "Asian unspecified": 590388,
+        "NR": 3905708,
+        "Other": 8303,
+        "Other admixed ancestry": 45638,
+        "Not reported": 49803436,
+        "Sub-Saharan African": 1038080,
+        "South East Asian": 30333,
+        "Native American": 269423,
+        "Oceanian": 27170,
+        "Central Asian": 9131
+      },
+      "development": {
+        "European": 506162353,
+        "Multiple categories": 24982898,
+        "South Asian": 2071353,
+        "East Asian": 102318989,
+        "African unspecified": 418302,
+        "Not reported": 536976,
+        "Sub-Saharan African": 25628,
+        "African American or Afro-Caribbean": 756838,
+        "Other admixed ancestry": 198,
+        "NR": 327,
+        "Hispanic or Latin American": 319772,
+        "Asian unspecified": 66027,
+        "Native American": 350,
+        "Central Asian": 915
+      },
+      "evaluation": {
+        "European": 229933926,
+        "Multiple categories": 13054078,
+        "African American or Afro-Caribbean": 2268318,
+        "Hispanic or Latin American": 1284504,
+        "African unspecified": 4772974,
+        "East Asian": 31455162,
+        "NR": 492381,
+        "Sub-Saharan African": 31064,
+        "Asian unspecified": 344432,
+        "South Asian": 6360557,
+        "Other admixed ancestry": 16596,
+        "South East Asian": 11405,
+        "Not reported": 2743601,
+        "Oceanian": 10344,
+        "Native American": 17871,
+        "Other": 18112
+      }
+    },
+    "performance": {
+      "metrics": 24048,
+      "auroc": {
+        "n": 5876,
+        "median": 0.657,
+        "edges": [
+          0.4,
+          0.425,
+          0.45,
+          0.475,
+          0.5,
+          0.525,
+          0.55,
+          0.575,
+          0.6,
+          0.625,
+          0.65,
+          0.675,
+          0.7,
+          0.725,
+          0.75,
+          0.775,
+          0.8,
+          0.825,
+          0.85,
+          0.875,
+          0.9,
+          0.925,
+          0.95,
+          0.975,
+          1
+        ],
+        "counts": [
+          1,
+          0,
+          1,
+          24,
+          120,
+          215,
+          307,
+          579,
+          659,
+          795,
+          673,
+          470,
+          514,
+          391,
+          381,
+          238,
+          160,
+          121,
+          92,
+          45,
+          45,
+          22,
+          14,
+          9
+        ],
+        "byCategory": [
+          {
+            "category": "Cancer",
+            "n": 1280,
+            "q1": 0.591,
+            "median": 0.637,
+            "q3": 0.689
+          },
+          {
+            "category": "Digestive system disorder",
+            "n": 1207,
+            "q1": 0.642,
+            "median": 0.687,
+            "q3": 0.746
+          },
+          {
+            "category": "Other disease",
+            "n": 924,
+            "q1": 0.616,
+            "median": 0.671,
+            "q3": 0.748
+          },
+          {
+            "category": "Cardiovascular disease",
+            "n": 675,
+            "q1": 0.602,
+            "median": 0.667,
+            "q3": 0.747
+          },
+          {
+            "category": "Other trait",
+            "n": 429,
+            "q1": 0.597,
+            "median": 0.637,
+            "q3": 0.689
+          },
+          {
+            "category": "Other measurement",
+            "n": 421,
+            "q1": 0.591,
+            "median": 0.633,
+            "q3": 0.692
+          },
+          {
+            "category": "Immune system disorder",
+            "n": 306,
+            "q1": 0.634,
+            "median": 0.703,
+            "q3": 0.787
+          },
+          {
+            "category": "Neurological disorder",
+            "n": 260,
+            "q1": 0.605,
+            "median": 0.649,
+            "q3": 0.703
+          },
+          {
+            "category": "Metabolic disorder",
+            "n": 171,
+            "q1": 0.619,
+            "median": 0.647,
+            "q3": 0.725
+          },
+          {
+            "category": "Body measurement",
+            "n": 88,
+            "q1": 0.591,
+            "median": 0.623,
+            "q3": 0.692
+          },
+          {
+            "category": "Cardiovascular measurement",
+            "n": 43,
+            "q1": 0.665,
+            "median": 0.69,
+            "q3": 0.773
+          },
+          {
+            "category": "Biological process",
+            "n": 25,
+            "q1": 0.594,
+            "median": 0.624,
+            "q3": 0.645
+          },
+          {
+            "category": "Hematological measurement",
+            "n": 24,
+            "q1": 0.678,
+            "median": 0.728,
+            "q3": 0.818
+          },
+          {
+            "category": "Lipid or lipoprotein measurement",
+            "n": 23,
+            "q1": 0.64,
+            "median": 0.67,
+            "q3": 0.818
+          }
+        ]
+      },
+      "cindex": {
+        "n": 761,
+        "median": 0.71
+      },
+      "r2": {
+        "n": 8923,
+        "median": 0.07
+      }
+    }
+  },
+  "panukb": {
+    "phenotypes": 7223,
+    "byPop": {
+      "AFR": {
+        "estimates": 2439,
+        "passing": 92
+      },
+      "AMR": {
+        "estimates": 1070,
+        "passing": 0
+      },
+      "CSA": {
+        "estimates": 2719,
+        "passing": 349
+      },
+      "EAS": {
+        "estimates": 1566,
+        "passing": 62
+      },
+      "EUR": {
+        "estimates": 7160,
+        "passing": 452
+      },
+      "MID": {
+        "estimates": 1343,
+        "passing": 136
+      }
+    },
+    "eur": {
+      "passing": 452,
+      "median": 0.1175,
+      "edges": [
+        0,
+        0.025,
+        0.05,
+        0.075,
+        0.1,
+        0.125,
+        0.15,
+        0.175,
+        0.2,
+        0.225,
+        0.25,
+        0.275,
+        0.3,
+        0.325,
+        0.35,
+        0.375,
+        0.4,
+        0.425,
+        0.45,
+        0.475,
+        0.5,
+        0.525,
+        0.55,
+        0.575,
+        0.6,
+        0.625,
+        0.65,
+        0.675,
+        0.7,
+        0.725,
+        0.75,
+        0.775,
+        0.8
+      ],
+      "counts": [
+        6,
+        60,
+        78,
+        57,
+        36,
+        33,
+        38,
+        27,
+        43,
+        17,
+        17,
+        13,
+        9,
+        7,
+        1,
+        4,
+        3,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "byType": [
+        {
+          "type": "continuous",
+          "n": 197,
+          "q1": 0.0877,
+          "median": 0.2013,
+          "q3": 0.2546
+        },
+        {
+          "type": "biomarkers",
+          "n": 21,
+          "q1": 0.1235,
+          "median": 0.164,
+          "q3": 0.2047
+        },
+        {
+          "type": "phecode",
+          "n": 38,
+          "q1": 0.0726,
+          "median": 0.1075,
+          "q3": 0.1494
+        },
+        {
+          "type": "icd10",
+          "n": 24,
+          "q1": 0.066,
+          "median": 0.1002,
+          "q3": 0.1443
+        },
+        {
+          "type": "prescriptions",
+          "n": 27,
+          "q1": 0.0612,
+          "median": 0.0816,
+          "q3": 0.133
+        },
+        {
+          "type": "categorical",
+          "n": 145,
+          "q1": 0.0496,
+          "median": 0.0765,
+          "q3": 0.1213
+        }
+      ],
+      "top": [
+        {
+          "description": "Standing height",
+          "type": "continuous",
+          "h2": 0.5876,
+          "se": 0.0293
+        },
+        {
+          "description": "Forced expiratory volume in 1-second (FEV1), predicted",
+          "type": "continuous",
+          "h2": 0.4567,
+          "se": 0.0262
+        },
+        {
+          "description": "Sitting height",
+          "type": "continuous",
+          "h2": 0.4486,
+          "se": 0.0222
+        },
+        {
+          "description": "6mm strong meridian (left)",
+          "type": "continuous",
+          "h2": 0.4102,
+          "se": 0.0271
+        },
+        {
+          "description": "6mm strong meridian (right)",
+          "type": "continuous",
+          "h2": 0.4081,
+          "se": 0.0279
+        },
+        {
+          "description": "6mm weak meridian (left)",
+          "type": "continuous",
+          "h2": 0.4036,
+          "se": 0.0253
+        },
+        {
+          "description": "6mm weak meridian (right)",
+          "type": "continuous",
+          "h2": 0.3939,
+          "se": 0.0268
+        },
+        {
+          "description": "3mm strong meridian (right)",
+          "type": "continuous",
+          "h2": 0.3845,
+          "se": 0.0244
+        },
+        {
+          "description": "3mm weak meridian (right)",
+          "type": "continuous",
+          "h2": 0.3796,
+          "se": 0.0252
+        },
+        {
+          "description": "3mm weak meridian (left)",
+          "type": "continuous",
+          "h2": 0.3779,
+          "se": 0.0243
+        },
+        {
+          "description": "3mm strong meridian (left)",
+          "type": "continuous",
+          "h2": 0.3746,
+          "se": 0.0235
+        },
+        {
+          "description": "Whole body fat-free mass",
+          "type": "continuous",
+          "h2": 0.3478,
+          "se": 0.0135
+        },
+        {
+          "description": "Whole body water mass",
+          "type": "continuous",
+          "h2": 0.3422,
+          "se": 0.0133
+        },
+        {
+          "description": "Trunk fat-free mass",
+          "type": "continuous",
+          "h2": 0.3394,
+          "se": 0.0138
+        },
+        {
+          "description": "Trunk predicted mass",
+          "type": "continuous",
+          "h2": 0.3388,
+          "se": 0.0137
+        },
+        {
+          "description": "Basal metabolic rate",
+          "type": "continuous",
+          "h2": 0.3363,
+          "se": 0.0126
+        },
+        {
+          "description": "Ankle spacing width",
+          "type": "continuous",
+          "h2": 0.3345,
+          "se": 0.0146
+        },
+        {
+          "description": "Leg fat-free mass (left)",
+          "type": "continuous",
+          "h2": 0.3255,
+          "se": 0.012
+        },
+        {
+          "description": "Leg predicted mass (right)",
+          "type": "continuous",
+          "h2": 0.3229,
+          "se": 0.0119
+        },
+        {
+          "description": "Leg fat-free mass (right)",
+          "type": "continuous",
+          "h2": 0.3192,
+          "se": 0.0118
+        }
+      ]
     }
   }
 };

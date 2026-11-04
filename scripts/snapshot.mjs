@@ -14,6 +14,9 @@ import {
   cpicPairs, cpicAlleles, cpicPhenotypes, cyp2d6, fdaBiomarkers, clinpgxAnnotations, clinpgxLabels, createdDate,
 } from './pgx.mjs';
 import {
+  traitParents, gwasAssociations, studySizes, pgsScores, pgsAncestry, pgsCategories, pgsPerformance, heritability,
+} from './traits.mjs';
+import {
   gwasAncestry, aadrSummary, aadrAnnoFile, igsrSamples, assemblySummary,
 } from './populations.mjs';
 import {
@@ -31,7 +34,7 @@ import {
   clinvarVcf, vcfClassCounts, earliestFile, geneSummary, organizations, variantTable, pfamDomains, validitySummary, regionSummary, repeatLoci,
 } from './clinical.mjs';
 import {
-  cacheName, downloadTo, anyLines, unzip,
+  cacheName, downloadTo, anyLines, unzip, zipLines,
 } from './streams.mjs';
 import {
   stringNames, stringSummary, physicalSummary, reactomeSummary, oboTerms, goSummary,
@@ -64,7 +67,7 @@ const file = (url) => retry(async () => {
 
 const text = async (url) => {
   const buffer = await readFile(await file(url));
-  return (url.endsWith('.gz') ? gunzipSync(buffer) : buffer).toString('utf8');
+  return (/\.b?gz$/.test(url) ? gunzipSync(buffer) : buffer).toString('utf8');
 };
 
 const json = async (url) => JSON.parse(await text(url));
@@ -447,8 +450,29 @@ const clinpgx = async () => {
   };
 };
 
+const gwas = async () => {
+  const acc = gwasAssociations({ parents: traitParents(await text(FILES.gwasTraitMappings)) });
+  for await (const line of await zipLines(await file(FILES.gwasAssociations), /\.tsv$/)) if (line) acc.add(line);
+  return { ...acc.result(), sizes: studySizes(acc.perStudy, await text(FILES.gwasAncestry)) };
+};
+
+const pgs = async () => {
+  const info = (await json(FILES.pgsInfo)).latest_release ?? {};
+  const scores = await text(FILES.pgsScores);
+  return {
+    catalog: {
+      release: info.date ?? null, scores: info.scores ?? null, publications: info.publications ?? null, traits: info.traits ?? null,
+    },
+    ...pgsScores(scores),
+    ancestry: pgsAncestry(await text(FILES.pgsDevelopment), await text(FILES.pgsEvaluation)),
+    performance: pgsPerformance(await text(FILES.pgsPerformance), scores, pgsCategories(await json(FILES.pgsCategories))),
+  };
+};
+
+const panukb = async () => heritability(await text(FILES.panukbH2), await text(FILES.panukbPhenotypes));
+
 const SECTIONS = {
-  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint, ancestry, ancient, igsr, assemblies, clinvar, clinvarTable, domains, clinvarGrowth, validity, regions, expansions, hpo, orphanet, gtr, fda, trials, intogen, gdc, cpic, fdaPgx, clinpgx,
+  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint, ancestry, ancient, igsr, assemblies, clinvar, clinvarTable, domains, clinvarGrowth, validity, regions, expansions, hpo, orphanet, gtr, fda, trials, intogen, gdc, cpic, fdaPgx, clinpgx, gwas, pgs, panukb,
 };
 
 const now = new Date();
