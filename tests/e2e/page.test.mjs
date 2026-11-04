@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { chromium, devices } from 'playwright';
 import { start } from '../../scripts/serve.mjs';
 import snapshot from '../../src/snapshot.js';
-import { EXAMPLES } from '../../src/facts.js';
+import { EXAMPLES, DIAGNOSTIC_YIELD, CFDNA_SCREENING } from '../../src/facts.js';
 import { exact } from '../../src/lib.js';
 import { findings } from '../../src/findings.js';
 
@@ -556,10 +556,10 @@ test('therapy and testing charts cover approvals, vectors, trials, diagnostic yi
   assert.ok(await count('#therapy-vectors-chart [data-row]') >= 8);
   assert.equal(await count('#therapy-trials-chart path.line'), Object.keys(T.trials).length);
   assert.equal(await count('#therapy-phases-chart [data-row]'), Object.keys(T.trials).length);
-  assert.equal(await count('#yield-chart [data-row]'), 11);
-  assert.equal(await count('#yield-chart line.ci'), 8);
-  assert.equal(await count('#prenatal-chart [data-row]'), 5);
-  assert.equal(await count('#prenatal-chart line.ci'), 5);
+  assert.equal(await count('#yield-chart [data-row]'), DIAGNOSTIC_YIELD.length);
+  assert.equal(await count('#yield-chart line.ci'), DIAGNOSTIC_YIELD.filter((y) => y.lo !== null).length);
+  assert.equal(await count('#prenatal-chart [data-row]'), CFDNA_SCREENING.length);
+  assert.equal(await count('#prenatal-chart line.ci'), CFDNA_SCREENING.length);
   await page.close();
 });
 
