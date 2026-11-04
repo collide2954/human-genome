@@ -255,14 +255,15 @@ const clinvar = async () => {
   };
 };
 
-const clinvarTable = async () => {
-  const table = await summarize(FILES.clinvarTable, variantTable({ genes: LOLLIPOPS.map((l) => l.gene) }));
+const clinvarTable = async () => summarize(FILES.clinvarTable, variantTable({ genes: LOLLIPOPS.map((l) => l.gene) }));
+
+const domains = async () => {
   const byGene = {};
   for (const { gene, accession } of LOLLIPOPS) {
     const pfam = await json(`${FILES.interproProtein}${accession}/`);
     byGene[gene] = { accession, length: pfam.results?.[0]?.proteins?.[0]?.protein_length ?? null, domains: pfamDomains(pfam) };
   }
-  return { ...table, proteins: byGene };
+  return byGene;
 };
 
 const clinvarGrowth = async () => {
@@ -284,7 +285,7 @@ const validity = async () => {
 const regions = async () => regionSummary(await text(FILES.clingenRegions));
 
 const expansions = async () => {
-  const [last] = await json(FILES.strchiveCommits);
+  const [last] = await json(FILES.strchiveCommits).catch(() => []);
   return { updated: last?.commit?.committer?.date?.slice(0, 10) ?? null, ...repeatLoci(await json(FILES.strchive)) };
 };
 
@@ -314,14 +315,16 @@ const allStudies = async (query) => {
   return studies;
 };
 
-const therapies = async () => {
-  const trials = {};
-  for (const m of TRIAL_MODALITIES) trials[m.key] = trialYears(await allStudies(m.query));
-  return { fda: fdaProducts(await text(FILES.fdaCgt)), trials };
+const fda = async () => fdaProducts(await text(FILES.fdaCgt));
+
+const trials = async () => {
+  const out = {};
+  for (const m of TRIAL_MODALITIES) out[m.key] = trialYears(await allStudies(m.query));
+  return out;
 };
 
 const SECTIONS = {
-  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint, clinvar, clinvarTable, clinvarGrowth, validity, regions, expansions, hpo, orphanet, gtr, therapies,
+  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint, clinvar, clinvarTable, domains, clinvarGrowth, validity, regions, expansions, hpo, orphanet, gtr, fda, trials,
 };
 
 const now = new Date();
