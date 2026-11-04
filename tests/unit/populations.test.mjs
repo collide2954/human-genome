@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  gwasAncestry, aadrSummary, majorHaplogroup, igsrSamples, assemblySummary, aadrAnnoFile,
+  gwasAncestry, aadrSummary, majorHaplogroup, igsrSamples, assemblySummary, aadrAnnoFile, dataClass,
 } from '../../scripts/populations.mjs';
 
 const GWAS_HEAD = ['STUDY ACCESSION', 'PUBMEDID', 'FIRST AUTHOR', 'DATE', 'INITIAL SAMPLE DESCRIPTION', 'REPLICATION SAMPLE DESCRIPTION', 'STAGE', 'NUMBER OF INDIVDUALS', 'BROAD ANCESTRAL CATEGORY', 'COUNTRY OF ORIGIN', 'COUNTRY OF RECRUITMENT', 'ADDITONAL ANCESTRY DESCRIPTION'];
@@ -42,6 +42,21 @@ const AADR_HEAD = [
 ];
 const aadr = (...cells) => cells.join('\t');
 
+test('dataClass folds AADR data types into capture, shotgun or both', () => {
+  assert.equal(dataClass('1240k'), 'Capture');
+  assert.equal(dataClass('1240K'), 'Capture');
+  assert.equal(dataClass('Twist1.4M'), 'Capture');
+  assert.equal(dataClass('"1240k,Twist1.4M"'), 'Capture');
+  assert.equal(dataClass('Immune Capture'), 'Capture');
+  assert.equal(dataClass('Shotgun'), 'Shotgun');
+  assert.equal(dataClass('Shotgun.diploid'), 'Shotgun');
+  assert.equal(dataClass('Shotgun pulled down only on 1240k autosomal targets - need to make a whole genome bam'), 'Shotgun');
+  assert.equal(dataClass('"1240k,Shotgun"'), 'Capture and shotgun');
+  assert.equal(dataClass('"Shotgun,WholeGenomeCapture"'), 'Capture and shotgun');
+  assert.equal(dataClass('AA204'), 'Other');
+  assert.equal(dataClass(''), 'Other');
+});
+
 test('majorHaplogroup keeps the top clade of a Y or mtDNA call', () => {
   assert.equal(majorHaplogroup('R1b1a1b', 'y'), 'R');
   assert.equal(majorHaplogroup('n/a (female)', 'y'), null);
@@ -70,7 +85,7 @@ test('aadrSummary counts each ancient individual once by age, first publication,
     2010: 1, 2014: 1, 2015: 1, 2022: 1,
   });
   assert.deepEqual(a.countries.map((c) => c.country), ['Greenland', 'Hungary', 'Russia', 'United Kingdom']);
-  assert.deepEqual(a.dataTypes, { Shotgun: 2, '1240K': 2 });
+  assert.deepEqual(a.dataTypes, { Shotgun: 2, Capture: 2 });
   assert.deepEqual(a.sex, { M: 2, F: 1, U: 1 });
   assert.deepEqual(a.y, [{ group: 'K', n: 1 }, { group: 'Q', n: 1 }]);
   assert.deepEqual(a.mt, [{ group: 'D', n: 1 }, { group: 'R', n: 1 }, { group: 'U', n: 1 }]);
