@@ -551,7 +551,63 @@ const clinpgx = (snap) => {
   return `ClinPGx holds ${exact(a.annotations)} clinical annotations; ${exact(a.levels['1A'] ?? 0)} reach level 1A and ${exact(a.levels[3] ?? 0)} sit at level 3`;
 };
 
+const sentence = (s) => `${s[0].toUpperCase()}${s.slice(1)}`;
+const inline = (s) => (/^[A-Z][a-z]/.test(s) ? `${s[0].toLowerCase()}${s.slice(1)}` : s);
+const shareOf = (counts, key) => counts[key] / total(Object.values(counts));
+
+const manhattan = (snap) => {
+  const g = snap.gwas;
+  return `The GWAS Catalog holds ${exact(g.associations)} associations from ${exact(g.studies)} studies; ${pct(g.significant / g.associations)} reach p < 5×10⁻⁸`;
+};
+
+const gwasgrowth = (snap) => {
+  const years = Object.entries(snap.gwas.byYear);
+  const [top, peak] = years.reduce((a, b) => (b[1].associations > a[1].associations ? b : a));
+  const [base, then] = years.find(([y]) => Number(y) === Number(top) - 10) ?? years[0];
+  return `Studies published in ${top} report ${exact(peak.associations)} catalog associations, ${Math.round(peak.associations / then.associations)} times as many as those published in ${base}`;
+};
+
+const gwastraits = (snap) => {
+  const [trait] = snap.gwas.topTraits;
+  const [gene] = snap.gwas.topGenes;
+  return `${sentence(trait.trait)} has the most catalog associations, ${exact(trait.n)}; ${gene.gene} is the gene mapped to the most, ${exact(gene.n)}`;
+};
+
+const effects = (snap) => {
+  const e = snap.gwas.effects;
+  const above = total(e.counts.slice(4).flat());
+  return `Among ${exact(e.n)} disease associations with odds ratios, the median OR is ${e.median.toFixed(2)}; ${pct(above / e.n)} exceed 2`;
+};
+
+const pgs = (snap) => {
+  const p = snap.pgs;
+  return `The PGS Catalog holds ${exact(p.catalog.scores)} scores for ${exact(p.catalog.traits)} traits; the median score uses ${exact(p.variants.median)} variants`;
+};
+
+const pgsancestry = (snap) => {
+  const { gwas, evaluation } = snap.pgs.ancestry;
+  return `${pct(shareOf(gwas, 'European'))} of individuals in the GWAS behind polygenic scores are listed as European; ${pct(shareOf(evaluation, 'European'))} of those in evaluations`;
+};
+
+const pgsperformance = (snap) => {
+  const { auroc, r2 } = snap.pgs.performance;
+  return `Polygenic scores report a median AUROC of ${auroc.median.toFixed(3)} across ${exact(auroc.n)} evaluations; the median R² is ${r2.median.toFixed(2)}`;
+};
+
+const heritability = (snap) => {
+  const { eur } = snap.panukb;
+  return `Median SNP heritability of ${exact(eur.passing)} UK Biobank traits in European-ancestry people is ${eur.median.toFixed(2)}; ${inline(eur.top[0].description)} reaches ${eur.top[0].h2.toFixed(2)}`;
+};
+
 export const findings = (snap) => ({
+  manhattan: manhattan(snap),
+  gwasgrowth: gwasgrowth(snap),
+  gwastraits: gwastraits(snap),
+  effects: effects(snap),
+  pgs: pgs(snap),
+  pgsancestry: pgsancestry(snap),
+  pgsperformance: pgsperformance(snap),
+  heritability: heritability(snap),
   drivers: drivers(snap),
   tcga: tcga(snap),
   burden: burden(snap),
