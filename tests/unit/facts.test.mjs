@@ -1,8 +1,21 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES,
+  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS,
 } from '../../src/facts.js';
+
+test('chromosome structure sources are cited', () => {
+  for (const key of ['anderson1981', 'andrews1999', 'laricchia2022', 'gnomadMito', 'altemose2022', 'rhie2023', 't2tAnnotation']) {
+    assert.equal(SOURCE_TITLES[key]?.[0], 'Assemblies and sequence', key);
+  }
+});
+
+test('the GRCh38 pseudoautosomal regions match on X and Y', () => {
+  assert.deepEqual(PARS.map((p) => p.name), ['PAR1', 'PAR2']);
+  for (const p of PARS) assert.equal(p.x[1] - p.x[0], p.y[1] - p.y[0], p.name);
+  assert.deepEqual(PARS[0].x, [10001, 2781479]);
+  assert.deepEqual(PARS[1].y, [56887903, 57217415]);
+});
 import { identify } from '../../src/lib.js';
 
 test('every source is an https URL with a title in a known group', () => {
