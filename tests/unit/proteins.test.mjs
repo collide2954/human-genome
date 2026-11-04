@@ -129,7 +129,7 @@ test('hpaSummary sorts each atlas into enriched, group enriched, enhanced, low a
   const h = hpaSummary([
     HPA_HEAD,
     hpa({ gene: 'A', spec: 'Tissue enriched', sc: 'Cell type enhanced', blood: 'Immune cell enriched', brain: 'Region enriched', line: 'Cell line enhanced', cancer: 'Low cancer specificity' }),
-    hpa({ gene: 'B', spec: 'Group enriched', sc: 'Group enriched', blood: 'Not detected', brain: 'Low region specificity', line: 'Not detected', cancer: 'Cancer enhanced' }),
+    hpa({ gene: 'B', spec: 'Group enriched', sc: 'Group enriched', blood: 'Not detected in immune cells', brain: 'Low region specificity', line: 'Not detected', cancer: 'Cancer enhanced' }),
     hpa({ gene: 'C', spec: 'Not detected', sc: 'Low cell type specificity', blood: 'Low immune cell specificity', brain: 'Not detected', cancer: 'NA' }),
   ].join('\n'));
   assert.deepEqual(h.contexts.tissue, {
