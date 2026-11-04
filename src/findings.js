@@ -77,7 +77,35 @@ const motifs = (snap) => {
   return `${exact(sequenceNumbers(snap).g4)} G-quadruplex motifs; the longest run of one letter is ${longest.length} ${longest.base}s on chromosome ${longest.chrom}`;
 };
 
+const transposons = (snap) => {
+  const { acgt } = sequenceNumbers(snap);
+  const { rmsk } = snap.repeats;
+  const l1 = rmsk.families.find((f) => f.family === 'L1');
+  return `RepeatMasker marks ${pct(rmsk.total.bp / acgt)} of GRCh38’s sequenced bases as repeats; L1 elements alone cover ${pct(l1.bp / acgt)}`;
+};
+
+const alu = (snap) => {
+  const { alu: a, l1hs, families } = snap.repeats.rmsk;
+  const total = families.find((f) => f.family === 'Alu').count;
+  return `${exact(total)} Alu copies, ${exact(a.AluY.count)} in the youngest subfamily, AluY; ${exact(l1hs.count)} L1HS copies, ${exact(l1hs.fullLength)} of them at least 6 kb long`;
+};
+
+const segdups = (snap) => {
+  const { superDups } = snap.repeats;
+  const covered = Object.values(superDups.covered).reduce((a, b) => a + b, 0);
+  return `Segmental duplications cover ${exact(covered)} bases, ${pct(covered / sequenceNumbers(snap).acgt)} of GRCh38; ${exact(superDups.kinds.inter)} of ${exact(superDups.pairs)} pairs join different chromosomes`;
+};
+
+const tandem = (snap) => {
+  const { units, motifs: top } = snap.repeats.tandem;
+  return `Tandem Repeats Finder calls ${exact(units.reduce((n, u) => n + u.count, 0))} tandem repeats; the most frequent units are ${top[0].motif}, then ${top[1].motif}`;
+};
+
 export const findings = (snap) => ({
+  transposons: transposons(snap),
+  alu: alu(snap),
+  segdups: segdups(snap),
+  tandem: tandem(snap),
   chromosomes: chromosomes(snap),
   gaps: gaps(snap),
   scaffolds: scaffolds(snap),
