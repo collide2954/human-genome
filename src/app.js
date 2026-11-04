@@ -15,7 +15,7 @@ import {
   findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons, gtexTissues, plasmaLevel, proteomeResidues, proteinLabel, trnaPairs, titv,
 } from './findings.js';
 import {
-  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, dotmap, dotRows, logo, codonTable, heatmap, genomeMap, dumbbell, grid as shareGrid, lollipop as lollipopChart, spectrum, ranges, intervals, lines, observeFigures, countUp, tipLines, measureWidths, forgetWidths,
+  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, dotmap, dotRows, manhattan, logo, codonTable, heatmap, genomeMap, dumbbell, grid as shareGrid, lollipop as lollipopChart, spectrum, ranges, intervals, lines, observeFigures, countUp, tipLines, measureWidths, forgetWidths,
 } from './charts.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -3201,6 +3201,335 @@ const renderClinpgx = () => {
   attachData('#clinpgx-labels-chart', 'clinpgx-label-annotations', ['Agency', ...testing.map(([t]) => t)], agencies.map((a) => [a, ...testing.map(([t]) => lab.sources[a][t] ?? 0)]));
 };
 
+const MLOG_5E8 = -Math.log10(5e-8);
+const SUPERSCRIPT = '⁰¹²³⁴⁵⁶⁷⁸⁹';
+const pValue = (mlog) => {
+  let e = Math.ceil(mlog);
+  let m = 10 ** (e - mlog);
+  if (m >= 9.95) {
+    m = 1;
+    e -= 1;
+  }
+  return `p = ${m.toFixed(1)}×10⁻${String(e).replace(/\d/g, (d) => SUPERSCRIPT[d])}`;
+};
+const capitalized = (s) => `${s[0].toUpperCase()}${s.slice(1)}`;
+
+const renderManhattan = () => {
+  const gw = snapshot.gwas;
+  const catalogBins = Object.entries(gw.manhattan).flatMap(([chrom, list]) => list.map((b) => [chrom, b]));
+  const overCap = catalogBins.filter(([, b]) => b[1] > 300).length;
+  const [chrom, top] = catalogBins.reduce((x, y) => (y[1][1] > x[1][1] ? y : x));
+  $('#manhattan-dek').textContent = `${exact(gw.placed)} of the ${exact(gw.associations)} associations carry a GRCh38 position, and ${exact(catalogBins.length)} megabases hold at least one. ${exact(overCap)} megabases pass −log10 p of 300 and are drawn at the cap; the strongest, ${top[4]} for ${top[3]} on chromosome ${chrom}, reaches ${pValue(top[1])}. The catalog’s latest addition is dated ${longDate(gw.latestAdded)}.`;
+  manhattan({
+    mount: $('#manhattan-chart'),
+    chromosomes: NUCLEAR.map((c) => ({ chrom: c.chrom, length: c.length, bins: gw.manhattan[c.chrom] ?? [] })),
+    cap: 300,
+    threshold: MLOG_5E8,
+    aria: 'Strongest GWAS Catalog association in each megabase of GRCh38, capped at -log10 p of 300',
+    describe: (c, b) => tipLines(pValue(b[1]), `${b[3]}${b[4] ? `, ${b[4]}` : ''}`, `${b[5]}, ${megabase(c, b[0])}`, `${exact(b[2])} associations in this megabase`),
+  });
+  attachData('#manhattan-chart', 'gwas-catalog-manhattan', ['Chromosome', 'Megabase', 'Strongest -log10 p', 'Associations', 'Trait', 'Mapped gene', 'Variant'], catalogBins.map(([c, b]) => [c, b[0], b[1], b[2], b[3], b[4], b[5]]));
+  const contexts = Object.entries(gw.context).sort((x, y) => y[1] - x[1]);
+  dotplot({
+    mount: $('#manhattan-context-chart'),
+    rows: contexts.map(([k, n], i) => ({
+      key: k, label: k, value: n, hi: i === 0,
+    })),
+    labelShare: 0.4,
+    rowH: 20,
+    aria: 'GWAS Catalog associations by the functional context of the lead variant, log scale',
+    describe: (r) => tipLines(`${exact(r.value)} associations`, r.key, pct(r.value / gw.associations)),
+  });
+  attachData('#manhattan-context-chart', 'gwas-catalog-contexts', ['Context', 'Associations'], contexts);
+};
+
+const renderGwasGrowth = () => {
+  const gw = snapshot.gwas;
+  const latestYear = gw.latestAdded.slice(0, 4);
+  const rows = Object.keys(gw.byYear).sort().map((y) => ({ year: y, partial: y === latestYear, ...gw.byYear[y] }));
+  const { sizes } = gw;
+  const none = sumOf(sizes.counts[0]);
+  $('#gwasgrowth-dek').textContent = `The catalog records associations with p below 1×10⁻⁵ from each study it curates. ${exact(sizes.studies)} studies list a discovery sample; ${exact(none)} of them, ${pct(none / sizes.studies)}, have no association in the catalog.`;
+  columns({
+    mount: $('#gwasgrowth-years-chart'),
+    rows,
+    key: (r) => r.year,
+    value: (r) => r.associations,
+    overlay: (r) => r.studies,
+    label: (r) => r.year,
+    aria: 'GWAS Catalog associations and studies by publication year',
+    describe: (r) => tipLines(`${exact(r.associations)} associations`, `from studies published in ${r.year}${r.partial ? ', to date' : ''}`, `${exact(r.studies)} studies with at least one`),
+  });
+  attachData('#gwasgrowth-years-chart', 'gwas-catalog-by-year', ['Year', 'Associations', 'Studies'], rows.map((r) => [r.year, r.associations, r.studies]));
+  const most = Math.max(...sizes.counts.flat());
+  shareGrid({
+    mount: $('#gwasgrowth-sizes-chart'),
+    rows: sizes.assocLabels,
+    cols: sizes.sizeLabels,
+    values: sizes.counts.map((row) => row.map((n) => n / most)),
+    format: (v, i, j) => compact(sizes.counts[i][j]),
+    color: 'var(--s4)',
+    aria: 'GWAS Catalog studies by discovery sample size and number of associations',
+    describe: (i, j) => tipLines(`${exact(sizes.counts[i][j])} studies`, `${sizes.assocLabels[i]} associations`, `discovery sample ${sizes.sizeLabels[j]}`),
+  });
+  attachData('#gwasgrowth-sizes-chart', 'gwas-catalog-study-sizes', ['Associations', ...sizes.sizeLabels], sizes.assocLabels.map((label, i) => [label, ...sizes.counts[i]]));
+};
+
+const TRAIT_COLORS = ['var(--s2)', 'var(--s4)', 'var(--s1)', 'var(--s3)', 'var(--s5)', 'var(--ink-2)', 'var(--w3)', 'var(--data-2)', 'var(--data)'];
+
+const renderGwasTraits = () => {
+  const gw = snapshot.gwas;
+  const { totals, byYear } = gw.categories;
+  const rankedCats = Object.keys(totals).sort((x, y) => totals[y] - totals[x]);
+  const shown = rankedCats.slice(0, 8);
+  const rest = rankedCats.slice(8);
+  const series = [...shown, ...(rest.length ? ['other'] : [])];
+  const years = Object.keys(byYear).sort();
+  const valueOf = (y, key) => (key === 'other' ? sumOf(rest.map((c) => byYear[y][c] ?? 0)) : byYear[y][key] ?? 0);
+  const yearTotal = (y) => sumOf(Object.values(byYear[y]));
+  $('#gwastraits-dek').textContent = `Each association takes the parent category of its first mapped trait, matched by ontology term or by trait name. ${shown[0]} holds ${pct(totals[shown[0]] / gw.associations)} of all associations and ${shown[1]} ${pct(totals[shown[1]] / gw.associations)}; ${pct((totals['Not mapped'] ?? 0) / gw.associations)} could not be placed in a category.`;
+  stackedArea({
+    mount: $('#gwastraits-years-chart'),
+    years: years.map(Number),
+    series: series.map((key, i) => ({
+      key, label: key === 'other' ? 'Other categories' : key, color: TRAIT_COLORS[i], values: years.map((y) => (valueOf(y, key) / yearTotal(y)) * 100),
+    })),
+    max: 100,
+    format: pctOf,
+    yFormat: (v) => `${v}%`,
+    head: (i) => `${years[i]}: ${exact(yearTotal(years[i]))} associations`,
+    aria: 'Share of GWAS Catalog associations by parent trait category and publication year',
+  });
+  attachData('#gwastraits-years-chart', 'gwas-catalog-categories-by-year', ['Year', ...rankedCats], years.map((y) => [y, ...rankedCats.map((c) => byYear[y][c] ?? 0)]));
+  dotplot({
+    mount: $('#gwastraits-traits-chart'),
+    rows: gw.topTraits.map((t, i) => ({
+      key: t.trait, label: t.trait, value: t.n, hi: i === 0,
+    })),
+    scale: 'linear',
+    labelShare: 0.42,
+    rowH: 20,
+    aria: 'Mapped traits with the most GWAS Catalog associations',
+    describe: (r) => {
+      const t = gw.topTraits.find((x) => x.trait === r.key);
+      return tipLines(`${exact(t.n)} associations`, capitalized(t.trait), t.parent);
+    },
+  });
+  attachData('#gwastraits-traits-chart', 'gwas-catalog-top-traits', ['Trait', 'Parent category', 'Associations'], gw.topTraits.map((t) => [t.trait, t.parent, t.n]));
+  dotplot({
+    mount: $('#gwastraits-genes-chart'),
+    rows: gw.topGenes.map((g, i) => ({
+      key: g.gene, label: g.gene, value: g.n, hi: i === 0,
+    })),
+    scale: 'linear',
+    labelShare: 0.2,
+    rowH: 20,
+    aria: 'Mapped genes with the most GWAS Catalog associations',
+    describe: (r) => tipLines(`${exact(r.value)} associations`, r.key),
+  });
+  attachData('#gwastraits-genes-chart', 'gwas-catalog-top-genes', ['Mapped gene', 'Associations'], gw.topGenes.map((g) => [g.gene, g.n]));
+};
+
+const renderEffects = () => {
+  const e = snapshot.gwas.effects;
+  const orLabel = (i) => (i === e.orEdges.length - 1 ? `≥${e.orEdges[i]}` : `${e.orEdges[i]}–${e.orEdges[i + 1]}`);
+  const rafLabels = e.rafEdges.slice(0, -1).map((lo, j) => `${lo.toFixed(1)}–${e.rafEdges[j + 1].toFixed(1)}`);
+  const order = e.orEdges.map((_, i) => i).reverse();
+  const most = Math.max(...e.counts.flat());
+  const large = e.counts.slice(4);
+  const small = e.counts[0];
+  $('#effects-dek').textContent = `Disease traits only, where the catalog’s effect column holds odds ratios above 1. Of the associations with an odds ratio of 2 or more, ${pct(sumOf(large.map((r) => r[0])) / sumOf(large.flat()))} have a risk allele frequency below 0.1; of those below 1.1, ${pct(small[0] / sumOf(small))} do.`;
+  shareGrid({
+    mount: $('#effects-chart'),
+    rows: order.map((i) => `OR ${orLabel(i)}`),
+    cols: rafLabels,
+    values: order.map((i) => e.counts[i].map((n) => n / most)),
+    format: (v, r, c) => compact(e.counts[order[r]][c]),
+    color: 'var(--s5)',
+    aria: 'Disease associations in the GWAS Catalog by odds ratio and risk allele frequency',
+    describe: (r, c) => tipLines(`${exact(e.counts[order[r]][c])} associations`, `odds ratio ${orLabel(order[r])}`, `risk allele frequency ${rafLabels[c]}`),
+  });
+  attachData('#effects-chart', 'gwas-catalog-effect-sizes', ['Odds ratio', ...rafLabels], order.map((i) => [orLabel(i), ...e.counts[i]]));
+};
+
+const FAMILY_ORDER = ['Penalized regression', 'LDpred', 'PRS-CS', 'Pruning and thresholding', 'Genome-wide significant variants', 'SBayes', 'MegaPRS and LDAK', 'Other'];
+
+const renderPgs = () => {
+  const pg = snapshot.pgs;
+  const fams = ordered(pg.families, FAMILY_ORDER);
+  const years = Object.keys(pg.byYear).sort();
+  const toDate = years.map((_, i) => Object.fromEntries(fams.map((f) => [f, sumOf(years.slice(0, i + 1).map((y) => pg.byYear[y][f] ?? 0))])));
+  $('#pgs-dek').textContent = `Release of ${longDate(pg.catalog.release)}: ${exact(pg.catalog.scores)} scores from ${exact(pg.catalog.publications)} publications. Their ${exact(pg.methods)} method names are grouped here into ${exact(fams.length)} families; penalized regression built ${exact(pg.families['Penalized regression'] ?? 0)} scores and genome-wide significant variants alone ${exact(pg.families['Genome-wide significant variants'] ?? 0)}.`;
+  stackedArea({
+    mount: $('#pgs-years-chart'),
+    years: years.map(Number),
+    series: fams.map((f, i) => ({
+      key: f, label: f, color: TRAIT_COLORS[i], values: toDate.map((x) => x[f]),
+    })),
+    head: (i) => `${years[i]}: ${exact(sumOf(Object.values(toDate[i])))} scores by year end, ${exact(sumOf(Object.values(pg.byYear[years[i]])))} released that year`,
+    aria: 'Polygenic scores in the PGS Catalog by release year and method family',
+  });
+  attachData('#pgs-years-chart', 'pgs-catalog-by-year', ['Year', ...fams], years.map((y) => [y, ...fams.map((f) => pg.byYear[y][f] ?? 0)]));
+  const v = pg.variants;
+  histo({
+    mount: $('#pgs-variants-chart'),
+    bins: v.counts.map((_, i) => i),
+    series: [{
+      key: 'scores', label: 'Scores', color: 'var(--data)', values: v.counts,
+    }],
+    tickEvery: 2,
+    tickLabel: (b) => compact(v.edges[b]),
+    height: 200,
+    aria: 'Polygenic scores by number of variants, log scale',
+    describe: (i) => tipLines(`${exact(v.counts[i])} scores`, `${exact(v.edges[i])} to ${exact(v.edges[i + 1])} variants`),
+  });
+  attachData('#pgs-variants-chart', 'pgs-catalog-variants', ['Variants from', 'Variants to', 'Scores'], v.counts.map((n, i) => [Math.round(v.edges[i]), Math.round(v.edges[i + 1]), n]));
+  dotplot({
+    mount: $('#pgs-traits-chart'),
+    rows: pg.traits.map((t, i) => ({
+      key: t.trait, label: t.trait, value: t.n, hi: i === 0,
+    })),
+    scale: 'linear',
+    labelShare: 0.42,
+    rowH: 20,
+    aria: 'Traits with the most polygenic scores',
+    describe: (r) => tipLines(`${exact(r.value)} scores`, capitalized(r.key)),
+  });
+  attachData('#pgs-traits-chart', 'pgs-catalog-traits', ['Trait', 'Scores'], pg.traits.map((t) => [t.trait, t.n]));
+};
+
+const PGS_ANCESTRY_COLORS = {
+  European: 'var(--s2)', 'East Asian': 'var(--s4)', 'African American or Afro-Caribbean': 'var(--s1)', 'Hispanic or Latin American': 'var(--s3)', 'South Asian': 'var(--s5)', 'Multiple categories': 'var(--ink-2)', 'Not reported': 'var(--data-2)',
+};
+
+const renderPgsAncestry = () => {
+  const anc = snapshot.pgs.ancestry;
+  const stages = [['gwas', 'GWAS behind the scores'], ['development', 'Score development'], ['evaluation', 'Score evaluation']];
+  const sums = {};
+  for (const [key] of stages) for (const [c, n] of Object.entries(anc[key])) sums[c] = (sums[c] ?? 0) + n;
+  const cats = Object.keys(sums).sort((x, y) => sums[y] - sums[x]);
+  const shown = cats.slice(0, 7);
+  const segments = [...shown.map((c) => ({ key: c, label: c, color: PGS_ANCESTRY_COLORS[c] ?? 'var(--data)' })), ...(cats.length > 7 ? [{ key: 'other', label: 'Other categories', color: 'var(--w3)' }] : [])];
+  const rows = stages.map(([key, label]) => {
+    const total = sumOf(Object.values(anc[key]));
+    const share = (c) => ((c === 'other' ? sumOf(cats.slice(7).map((x) => anc[key][x] ?? 0)) : anc[key][c] ?? 0) / total) * 100;
+    return {
+      key, label, total, values: Object.fromEntries(segments.map((s) => [s.key, share(s.key)])),
+    };
+  });
+  $('#pgsancestry-dek').textContent = `Individuals are summed over the samples listed for each score, so a cohort used for many scores counts each time: ${compact(rows[0].total)} entries behind the GWAS, ${compact(rows[1].total)} in development and ${compact(rows[2].total)} in evaluation. Comma-joined categories count as Multiple categories.`;
+  hbars({
+    mount: $('#pgsancestry-chart'),
+    rows,
+    segments,
+    max: 100,
+    tickFormat: (t) => `${t}%`,
+    valueText: (r) => compact(r.total),
+    labelShare: 0.26,
+    aria: 'Ancestry of the samples behind polygenic scores, by stage',
+    describe: (r) => tipLines(`${exact(r.total)} individual entries`, r.label, ...segments.filter((s) => r.values[s.key]).map((s) => `${s.label}: ${pctOf(r.values[s.key])}`)),
+  });
+  attachData('#pgsancestry-chart', 'pgs-catalog-ancestry', ['Stage', ...cats], stages.map(([key, label]) => [label, ...cats.map((c) => anc[key][c] ?? 0)]));
+};
+
+const renderPgsPerformance = () => {
+  const perf = snapshot.pgs.performance;
+  const au = perf.auroc;
+  $('#pgsperformance-dek').textContent = `${exact(perf.metrics)} performance metrics, each as its paper reported it: ${exact(au.n)} AUROCs, ${exact(perf.cindex.n)} C-indices with a median of ${perf.cindex.median.toFixed(2)}, and ${exact(perf.r2.n)} R² values with a median of ${perf.r2.median.toFixed(2)}. Covariates differ between papers, so values compare loosely.`;
+  histo({
+    mount: $('#pgsperformance-auroc-chart'),
+    bins: au.counts.map((_, i) => i),
+    series: [{
+      key: 'auroc', label: 'Evaluations', color: 'var(--data)', values: au.counts,
+    }],
+    tickEvery: 4,
+    tickLabel: (b) => au.edges[b].toFixed(1),
+    height: 200,
+    aria: 'Reported AUROC of polygenic scores',
+    describe: (i) => tipLines(`${exact(au.counts[i])} evaluations`, `AUROC ${au.edges[i].toFixed(3)} to ${au.edges[i + 1].toFixed(3)}`),
+  });
+  attachData('#pgsperformance-auroc-chart', 'pgs-catalog-auroc', ['AUROC from', 'AUROC to', 'Evaluations'], au.counts.map((n, i) => [au.edges[i], au.edges[i + 1], n]));
+  intervals({
+    mount: $('#pgsperformance-categories-chart'),
+    rows: au.byCategory.map((c) => ({
+      key: c.category, label: c.category, value: c.median, lo: c.q1, hi: c.q3, kind: 'auc', cat: c,
+    })),
+    domain: [0.5, 0.9],
+    ticks: [0.5, 0.6, 0.7, 0.8, 0.9],
+    kinds: [{ key: 'auc', label: 'Median AUROC, interquartile range', color: 'var(--accent)' }],
+    format: (v) => v.toFixed(2),
+    valueText: (r) => `${r.value.toFixed(3)}, n ${exact(r.cat.n)}`,
+    aria: 'Median reported AUROC of polygenic scores by trait category',
+    describe: (r) => tipLines(`AUROC ${r.value.toFixed(3)}`, r.label, `middle half ${r.lo.toFixed(3)} to ${r.hi.toFixed(3)}`, `${exact(r.cat.n)} evaluations`),
+  });
+  attachData('#pgsperformance-categories-chart', 'pgs-catalog-auroc-by-category', ['Category', 'Evaluations', 'Lower quartile', 'Median', 'Upper quartile'], au.byCategory.map((c) => [c.category, c.n, c.q1, c.median, c.q3]));
+};
+
+const TYPE_LABEL = {
+  continuous: 'Continuous measures', biomarkers: 'Biomarkers', categorical: 'Questionnaire answers', icd10: 'ICD-10 diagnoses', phecode: 'Phecodes', prescriptions: 'Prescriptions',
+};
+const POP_NAMES = {
+  AFR: 'African', AMR: 'Admixed American', CSA: 'Central/South Asian', EAS: 'East Asian', EUR: 'European', MID: 'Middle Eastern',
+};
+
+const renderHeritability = () => {
+  const hp = snapshot.panukb;
+  const { eur } = hp;
+  const pops = Object.keys(hp.byPop).sort((x, y) => hp.byPop[y].passing - hp.byPop[x].passing || x.localeCompare(y));
+  $('#heritability-dek').textContent = `Pan-UKB estimated SNP heritability for ${exact(hp.phenotypes)} phenotypes in six genetic ancestry groups; ${exact(eur.passing)} European-ancestry estimates pass all of its quality flags. Estimates are on the liability scale, which equals the observed scale for continuous traits.`;
+  histo({
+    mount: $('#heritability-hist-chart'),
+    bins: eur.counts.map((_, i) => i),
+    series: [{
+      key: 'h2', label: 'Traits', color: 'var(--data)', values: eur.counts,
+    }],
+    tickEvery: 4,
+    tickLabel: (b) => eur.edges[b].toFixed(1),
+    height: 200,
+    aria: 'SNP heritability of UK Biobank traits in European-ancestry participants',
+    describe: (i) => tipLines(`${exact(eur.counts[i])} traits`, `heritability ${eur.edges[i].toFixed(3)} to ${eur.edges[i + 1].toFixed(3)}`),
+  });
+  attachData('#heritability-hist-chart', 'panukb-heritability', ['Heritability from', 'Heritability to', 'Traits'], eur.counts.map((n, i) => [eur.edges[i], eur.edges[i + 1], n]));
+  intervals({
+    mount: $('#heritability-types-chart'),
+    rows: eur.byType.map((t) => ({
+      key: t.type, label: TYPE_LABEL[t.type] ?? t.type, value: t.median, lo: t.q1, hi: t.q3, kind: 'h2', t,
+    })),
+    domain: [0, 0.4],
+    ticks: [0, 0.1, 0.2, 0.3, 0.4],
+    kinds: [{ key: 'h2', label: 'Median heritability, interquartile range', color: 'var(--accent)' }],
+    format: (v) => v.toFixed(1),
+    valueText: (r) => `${r.value.toFixed(2)}, n ${exact(r.t.n)}`,
+    aria: 'SNP heritability by Pan-UKB trait type',
+    describe: (r) => tipLines(`median ${r.value.toFixed(3)}`, r.label, `middle half ${r.lo.toFixed(3)} to ${r.hi.toFixed(3)}`, `${exact(r.t.n)} traits`),
+  });
+  attachData('#heritability-types-chart', 'panukb-heritability-by-type', ['Trait type', 'Traits', 'Lower quartile', 'Median', 'Upper quartile'], eur.byType.map((t) => [t.type, t.n, t.q1, t.median, t.q3]));
+  dotplot({
+    mount: $('#heritability-top-chart'),
+    rows: eur.top.map((t, i) => ({
+      key: `${i}`, label: t.description, value: t.h2, hi: i === 0, t,
+    })),
+    scale: 'linear',
+    format: (v) => v.toFixed(2),
+    tickFormat: (v) => v.toFixed(1),
+    labelShare: 0.5,
+    labelMax: 420,
+    rowH: 20,
+    aria: 'UK Biobank traits with the highest SNP heritability in European-ancestry participants',
+    describe: (r) => tipLines(`h² ${r.t.h2.toFixed(3)} ± ${r.t.se.toFixed(3)}`, r.t.description, TYPE_LABEL[r.t.type] ?? r.t.type),
+  });
+  attachData('#heritability-top-chart', 'panukb-top-heritability', ['Trait', 'Type', 'Heritability', 'Standard error'], eur.top.map((t) => [t.description, t.type, t.h2, t.se]));
+  hbars({
+    mount: $('#heritability-pops-chart'),
+    rows: pops.map((p) => ({ key: p, label: `${p}, ${POP_NAMES[p] ?? p}`, values: { pass: hp.byPop[p].passing, rest: hp.byPop[p].estimates - hp.byPop[p].passing } })),
+    segments: [{ key: 'pass', label: 'Pass all quality flags', color: 'var(--accent)' }, { key: 'rest', label: 'Other estimates', color: 'var(--data-2)' }],
+    labelShare: 0.3,
+    aria: 'Pan-UKB heritability estimates by ancestry group and quality',
+    describe: (r) => tipLines(`${exact(hp.byPop[r.key].estimates)} estimates`, r.label, `${exact(hp.byPop[r.key].passing)} pass all quality flags`),
+  });
+  attachData('#heritability-pops-chart', 'panukb-estimates-by-group', ['Group', 'Estimates', 'Passing all flags'], pops.map((p) => [p, hp.byPop[p].estimates, hp.byPop[p].passing]));
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -3312,6 +3641,16 @@ const DATA_SOURCES = [
   ['FDA Table of Pharmacogenomic Biomarkers in Drug Labeling', FILES.fdaPgx],
   ['ClinPGx clinical annotations download', FILES.clinpgxAnnotations],
   ['ClinPGx drug label annotations download', FILES.clinpgxLabels],
+  ['GWAS Catalog associations with ontology annotations', FILES.gwasAssociations],
+  ['GWAS Catalog EFO trait mappings', FILES.gwasTraitMappings],
+  ['PGS Catalog score metadata', FILES.pgsScores],
+  ['PGS Catalog performance metrics', FILES.pgsPerformance],
+  ['PGS Catalog score development samples', FILES.pgsDevelopment],
+  ['PGS Catalog evaluation samples', FILES.pgsEvaluation],
+  ['PGS Catalog REST API, release', FILES.pgsInfo],
+  ['PGS Catalog REST API, trait categories', FILES.pgsCategories],
+  ['Pan-UKB heritability manifest', FILES.panukbH2],
+  ['Pan-UKB phenotype manifest', FILES.panukbPhenotypes],
 ];
 
 const renderSources = () => {
@@ -3380,7 +3719,8 @@ const RENDERERS = [
   renderDosage, renderAncestry, renderAncient, renderPanels, renderAssemblies, renderClinvar, renderReview, renderGrowth, renderLollipops,
   renderSpectrum, renderValidity, renderCnvRegions, renderExpansions, renderHpo, renderOrphanet, renderGtr, renderTherapy, renderYield,
   renderPrenatal, renderDrivers, renderTcga, renderBurden, renderSomatic, renderCpic, renderPhenotypes, renderCyp2d6, renderFdaLabels,
-  renderClinpgx,
+  renderClinpgx, renderManhattan, renderGwasGrowth, renderGwasTraits, renderEffects, renderPgs, renderPgsAncestry, renderPgsPerformance,
+  renderHeritability,
 ];
 
 let drawRun = 0;

@@ -54,7 +54,7 @@
   <aside class="readme wrap" id="readme" aria-labelledby="readme-title">
     <h2 class="readme-title" id="readme-title">How to read these numbers</h2>
     <ul>
-      <li><b>Rebuilt weekly.</b> Counts come from the files and APIs of NCBI, UCSC, GENCODE, EBI and its GWAS Catalog, ClinGen, HPO, Orphanet, IGSR, the Allen Ancient DNA Resource, IntOGen, the NCI Genomic Data Commons, CPIC, ClinPGx, FDA, ClinicalTrials.gov and STRchive, pulled every Sunday. A source that fails keeps last week’s numbers and its own date. Tap a mark for its numbers.</li>
+      <li><b>Rebuilt weekly.</b> Counts come from the files and APIs of NCBI, UCSC, GENCODE, EBI and its GWAS Catalog, ClinGen, HPO, Orphanet, IGSR, the Allen Ancient DNA Resource, IntOGen, the NCI Genomic Data Commons, CPIC, ClinPGx, the PGS Catalog, Pan-UKB, FDA, ClinicalTrials.gov and STRchive, pulled every Sunday. A source that fails keeps last week’s numbers and its own date. Tap a mark for its numbers.</li>
       <li><b>Fixed values.</b> A few figures come from cited papers rather than files, such as biobank sizes, diagnostic yields and screening rates; their captions say so, and they change only when the page is edited.</li>
       <li><b>GRCh38 coordinates.</b> Positions are on GRCh38.p14, counted from 1 with both ends included, as genome browsers show them. The UCSC tables count from 0; they are converted.</li>
       <li><b>Two assemblies.</b> GRCh38 is the reference the databases annotate. T2T-CHM13v2.0 is the first gapless assembly, from one cell line, with chromosome Y from a second person.</li>
@@ -1336,8 +1336,126 @@
     </div>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-complex" data-chapter="complex">
     <p class="chapter-no">Part 17</p>
+    <h2 class="chapter-title">Complex traits</h2>
+    <p class="chapter-dek">What genome-wide association studies have found and what is built on them: every association in the GWAS Catalog on one genome-wide plot, the growth of the field, its traits and effect sizes, the polygenic scores in the PGS Catalog, and the heritability of UK Biobank traits.</p>
+  </div>
+
+  <section class="story wrap" id="manhattan" data-lens="variation clinic" data-nav="Catalog map">
+    <header class="head"><p class="label">The catalog across the genome</p><h2 data-finding="manhattan">The catalog across the genome</h2><p class="dek" id="manhattan-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="manhattan-chart"></div>
+      <figcaption>The strongest association in each megabase of GRCh38, as −log10 p; triangles mark megabases above 300, drawn at the cap, and the dashed line is p = 5×10⁻⁸. The catalog lists associations with p below 1×10⁻⁵. Source: GWAS Catalog associations, latest release; Cerezo et al. 2025.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="manhattan-context-chart"></div>
+      <figcaption>Associations by the functional context of the lead variant, in the Sequence Ontology terms the catalog gives, log scale; associations of several variants, and interactions, are grouped. Source: GWAS Catalog.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="gwasgrowth" data-lens="variation clinic" data-nav="GWAS growth">
+    <header class="head"><p class="label">Growth and study size</p><h2 data-finding="gwasgrowth">Growth and study size</h2><p class="dek" id="gwasgrowth-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="gwasgrowth-years-chart"></div>
+      <figcaption>Associations by the publication year of their study, with the studies reporting at least one as the inner bar; the latest year runs to the release. Source: GWAS Catalog.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="gwasgrowth-sizes-chart"></div>
+      <figcaption>Studies by discovery sample size, summed over ancestry groups, and by the associations they contribute; cells count studies and shading is linear. Source: GWAS Catalog associations and ancestry download.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="gwastraits" data-lens="variation clinic" data-nav="GWAS traits">
+    <header class="head"><p class="label">Traits and genes</p><h2 data-finding="gwastraits">Traits and genes</h2><p class="dek" id="gwastraits-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="gwastraits-years-chart"></div>
+      <figcaption>Share of each publication year’s associations by the catalog’s parent trait category; the eight largest categories are shown and the rest grouped. Source: GWAS Catalog associations and EFO trait mappings.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="gwastraits-traits-chart"></div>
+        <figcaption>The 20 mapped traits with the most associations. Source: GWAS Catalog.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="gwastraits-genes-chart"></div>
+        <figcaption>The 20 mapped genes with the most associations, named as the catalog maps them; an intergenic variant counts for both flanking genes, and Y_RNA names many separate loci. Source: GWAS Catalog.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="effects" data-lens="variation clinic" data-nav="Effect sizes">
+    <header class="head"><p class="label">Effect size and allele frequency</p><h2 data-finding="effects">Effect size and allele frequency</h2><p class="dek" id="effects-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="effects-chart"></div>
+      <figcaption>Disease associations by odds ratio and risk allele frequency; cells count associations and shading is linear. The catalog mixes odds ratios and betas in one column, so only disease traits whose confidence interval is not given in units are used. Source: GWAS Catalog; after Manolio et al. 2009.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="pgs" data-lens="clinic variation" data-nav="Polygenic scores">
+    <header class="head"><p class="label">Polygenic scores</p><h2 data-finding="pgs">Polygenic scores</h2><p class="dek" id="pgs-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="pgs-years-chart"></div>
+      <figcaption>Scores in the PGS Catalog by the end of each release year, by method family, stacked; the last year runs to the release. Source: PGS Catalog score metadata; Lambert et al. 2021 and 2024.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="pgs-variants-chart"></div>
+        <figcaption>Scores by number of variants, two bins per tenfold step. Source: PGS Catalog.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="pgs-traits-chart"></div>
+        <figcaption>The 20 mapped traits with the most scores; a score mapped to two traits counts in each. Source: PGS Catalog.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="pgsancestry" data-lens="clinic variation" data-nav="PGS ancestry">
+    <header class="head"><p class="label">Ancestry behind the scores</p><h2 data-finding="pgsancestry">Ancestry behind the scores</h2><p class="dek" id="pgsancestry-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="pgsancestry-chart"></div>
+      <figcaption>Broad ancestry of the individuals in the samples behind the scores, as a share of each stage, with the stage’s individual entries at the end; categories as the PGS Catalog gives them. Source: PGS Catalog development and evaluation samples; Martin et al. 2019.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="pgsperformance" data-lens="clinic" data-nav="PGS performance">
+    <header class="head"><p class="label">Reported performance</p><h2 data-finding="pgsperformance">Reported performance</h2><p class="dek" id="pgsperformance-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="pgsperformance-auroc-chart"></div>
+        <figcaption>Reported AUROC of polygenic scores, in steps of 0.025; values below 0.4 sit in the first bin. Source: PGS Catalog performance metrics.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="pgsperformance-categories-chart"></div>
+        <figcaption>Median reported AUROC by the PGS Catalog’s trait category, with the interquartile range and the number of evaluations. Source: PGS Catalog performance metrics and trait categories.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="heritability" data-lens="variation clinic" data-nav="Heritability">
+    <header class="head"><p class="label">SNP heritability</p><h2 data-finding="heritability">SNP heritability</h2><p class="dek" id="heritability-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="heritability-hist-chart"></div>
+        <figcaption>European-ancestry UK Biobank traits passing all Pan-UKB quality flags, by SNP heritability, in steps of 0.025; for European ancestry Pan-UKB’s final estimates come from stratified LD score regression. Pan-UKB results are released under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, credited to Pan-UKB and UK Biobank. Source: Pan-UKB heritability manifest; Karczewski et al. 2024; Bulik-Sullivan et al. 2015.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="heritability-types-chart"></div>
+        <figcaption>Median heritability by Pan-UKB trait type, with the interquartile range and the number of traits. Source: Pan-UKB.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig">
+      <div class="chart" id="heritability-top-chart"></div>
+      <figcaption>The 20 most heritable of those traits, named as Pan-UKB gives them, with standard errors in the tooltips. Source: Pan-UKB phenotype manifest.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="heritability-pops-chart"></div>
+      <figcaption>Heritability estimates by genetic ancestry group, split by whether they pass all of Pan-UKB’s quality flags. Source: Pan-UKB; Bycroft et al. 2018.</figcaption>
+    </figure>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 18</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>
