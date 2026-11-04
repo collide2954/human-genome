@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { createReadStream, createWriteStream } from 'node:fs';
 import { rename } from 'node:fs/promises';
 import { Readable } from 'node:stream';
@@ -57,7 +58,8 @@ export const fileLines = (path) => lines(createReadStream(path));
 
 export const cacheName = (url) => {
   const u = new URL(url);
-  return `${u.hostname}${u.pathname}${u.search}`.replace(/[^A-Za-z0-9.-]+/g, '_').replace(/_+$/, '');
+  const name = `${u.hostname}${u.pathname}${u.search}`.replace(/[^A-Za-z0-9.-]+/g, '_').replace(/_+$/, '');
+  return name.length <= 160 ? name : `${name.slice(0, 140)}_${createHash('sha256').update(url).digest('hex').slice(0, 16)}`;
 };
 
 export const downloadTo = async (url, file, headers = {}) => {
