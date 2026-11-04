@@ -502,7 +502,7 @@ test('lollipops mirror P/LP and B/LB variants over each protein\'s Pfam domains 
   }
   const top = [...T.lollipops.TP53.up].sort((a, b) => b[2] - a[2] || a[0] - b[0])[0];
   await page.locator(`#lollipop-TP53-chart [data-site="up:${top[0]}"]`).first().hover();
-  assert.match((await tipLinesOf(page)).join(' '), new RegExp(`\\b${top[0]}\\b`));
+  assert.match((await tipLinesOf(page)).join(' '), new RegExp(`(?<!\\d)${top[0]}(?!\\d)`));
   await page.close();
 });
 
