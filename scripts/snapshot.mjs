@@ -5,14 +5,19 @@ import { join } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { retry } from '../src/lib.js';
 import {
-  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery,
+  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles,
 } from '../src/queries.js';
 import {
   buildAssembly, latestFile, toModule, rmskSummary, superDupsSummary, tandemSummary, parseAssemblyReport,
 } from './parsers.mjs';
 import { gencodeSummary } from './genes.mjs';
 import { hgncSummary, geneInfoSummary, maneSummary } from './catalogs.mjs';
-import { cacheName, downloadTo, gzLines, unzip } from './streams.mjs';
+import {
+  cacheName, downloadTo, anyLines, unzip,
+} from './streams.mjs';
+import {
+  stringNames, stringSummary, physicalSummary, reactomeSummary, oboTerms, goSummary,
+} from './networks.mjs';
 import {
   uniprotSummary, hpaSummary, gtexSummary, pharosSummary, tissueSites, pfamNames, alignSites,
 } from './proteins.mjs';
@@ -70,7 +75,7 @@ const sequence = async () => {
 };
 
 const summarize = async (url, accumulator) => {
-  for await (const line of gzLines(await file(url))) if (line) accumulator.add(line);
+  for await (const line of await anyLines(await file(url))) if (line) accumulator.add(line);
   return accumulator.result();
 };
 
@@ -128,8 +133,34 @@ const expression = async () => {
   };
 };
 
+const networks = async () => {
+  const [{ string_version: version }] = await json(FILES.stringVersion);
+  const files = stringFiles(version);
+  const names = stringNames(await text(files.info));
+  return {
+    version,
+    ...await summarize(files.detailed, stringSummary({ names })),
+    physical: await summarize(files.physical, physicalSummary()),
+  };
+};
+
+const pathways = async () => {
+  const accumulator = reactomeSummary({ pathways: await text(FILES.reactomePathways), relations: await text(FILES.reactomeRelations) });
+  return { release: (await text(FILES.reactomeVersion)).trim(), ...await summarize(FILES.reactomeUniprot, accumulator) };
+};
+
+const ontology = async () => {
+  const obo = oboTerms(await text(FILES.goBasic));
+  return {
+    release: obo.version?.replace(/^releases\//, '') ?? null,
+    namespaces: obo.counts,
+    obsolete: obo.obsolete,
+    ...await summarize(FILES.goaHuman, goSummary(obo.terms)),
+  };
+};
+
 const SECTIONS = {
-  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression,
+  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology,
 };
 
 const now = new Date();
