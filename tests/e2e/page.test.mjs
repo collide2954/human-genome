@@ -45,6 +45,8 @@ const CHAPTERS = {
   repeats: ['transposons', 'landscape', 'segdups', 'tandem'],
   genes: ['genecount', 'density', 'genesize', 'structure', 'isoforms', 'names', 'pseudogenes', 'immune'],
   transcripts: ['splicing', 'translation', 'codons'],
+  proteins: ['proteome', 'structures', 'membrane', 'domains', 'modifications', 'targets'],
+  expression: ['specificity', 'gtex', 'plasma'],
   reference: ['decoder', 'sources'],
 };
 
@@ -227,6 +229,74 @@ test('the codon table shows all 64 codons with their amino acids', async () => {
   assert.match(await page.textContent('#tip'), /per thousand[\s\S]*ATG[\s\S]*Methionine/);
   assert.equal(await page.locator('#amino-chart [data-row]').count(), 20);
   await page.close();
+});
+
+test('protein charts draw lengths, evidence, structures, membranes, domains and modifications', async () => {
+  const { page } = await open();
+  const P = snapshot.proteins;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#protein-length-chart [data-bin]'), P.lengths.counts.length);
+  assert.equal(await count('#existence-chart [data-row]'), Object.keys(P.existence).length);
+  assert.equal(await count('#longest-protein-chart [data-row]'), 10);
+  assert.equal(await count('#pdb-count-chart [data-bin]'), 51);
+  assert.equal(await count('#pdb-top-chart [data-row]'), 15);
+  assert.equal(await count('#tm-chart [data-bin]'), 25);
+  assert.equal(await count('#location-chart [data-row]'), 20);
+  assert.equal(await count('#hpa-location-chart [data-row]'), Math.min(20, snapshot.expression.hpa.locations.length));
+  assert.equal(await count('#pfam-chart [data-row]'), 25);
+  await page.hover('#pfam-chart [data-row="PF00096"]');
+  assert.match(await page.textContent('#tip'), /PF00096[\s\S]*Zinc finger, C2H2 type/);
+  assert.equal(await count('#pfam-per-protein-chart [data-bin]'), 16);
+  assert.equal(await count('#disorder-chart [data-bin]'), 10);
+  assert.equal(await count('#ptm-chart [data-row]'), 9);
+  await page.close();
+});
+
+test('the druggable genome splits Pharos development levels by family', async () => {
+  const { page } = await open();
+  const T = snapshot.targets;
+  assert.equal(await page.locator('#tdl-chart .legend li').count(), 4);
+  assert.equal(await page.locator('#family-chart [data-row]').count(), T.families.length);
+  assert.equal(await page.locator('#family-chart .legend li').count(), 4);
+  await page.hover('#family-chart [data-row="Kinase"]');
+  assert.match(await page.textContent('#tip'), /Kinase[\s\S]*Tclin/);
+  assert.equal(await page.locator('#novelty-chart [data-bin]').count(), T.novelty.length);
+  assert.equal(await page.locator('#pubmed-score-chart [data-bin]').count(), T.pubmed.length);
+  await page.close();
+});
+
+test('expression charts compare six HPA atlases, GTEx tissues and plasma levels', async () => {
+  const { page } = await open();
+  const { gtex, hpa } = snapshot.expression;
+  const n = gtex.tissues.length;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#contexts-chart [data-row]'), 6);
+  assert.equal(await count('#contexts-chart .legend li'), 5);
+  assert.equal(await count('#enriched-chart [data-row]'), 20);
+  assert.equal(await count('#celltype-chart [data-row]'), 20);
+  assert.equal(await count('#tissue-genes-chart [data-row]'), n);
+  assert.equal(await count('#tissue-corr-chart [data-cell]'), n * n);
+  assert.equal(await count('#tissue-corr-chart text.lab'), n);
+  await page.hover('#tissue-corr-chart [data-cell="0:1"]');
+  const lines = await tipLinesOf(page);
+  assert.match(lines[0], /^r = 0\.\d{3}$/);
+  assert.ok(lines[1].includes(gtex.sites[0].name) && lines[1].includes(gtex.sites[1].name), lines[1]);
+  assert.equal(await count('#egene-chart [data-point]'), gtex.sites.filter((s) => s.eGenes && s.samples).length);
+  assert.equal(await count('#plasma-chart [data-bin]'), hpa.blood.edges.length - 1);
+  assert.equal(await count('#plasma-chart .legend li'), 2);
+  assert.equal(await count('#plasma-top-chart [data-row]'), 15);
+  assert.equal(await count('#secretome-chart [data-row]'), Object.keys(hpa.secretome).length);
+  await page.close();
+});
+
+test('on a phone the tissue heatmap drops its labels and still fits', async () => {
+  const { page, context } = await openPhone();
+  const n = snapshot.expression.gtex.tissues.length;
+  assert.equal(await page.locator('#tissue-corr-chart [data-cell]').count(), n * n);
+  assert.equal(await page.locator('#tissue-corr-chart text.lab').count(), 0);
+  const box = await page.locator('#tissue-corr-chart svg').boundingBox();
+  assert.ok(box.x >= 0 && box.x + box.width <= page.viewportSize().width + 0.5, JSON.stringify(box));
+  await context.close();
 });
 
 test('every figure offers its numbers as a table and as CSV', async () => {
