@@ -282,7 +282,9 @@ export const goTotals = (snap) => {
 
 const ontology = (snap) => {
   const { total, electronic } = goTotals(snap);
-  return `${exact(snap.ontology.proteins)} human proteins carry ${exact(total)} GO annotations; ${pct(electronic / total)} are electronic inferences (IEA)`;
+  const { proteins, types } = snap.ontology;
+  const others = Object.values(types).reduce((a, b) => a + b, 0) - proteins;
+  return `GO holds ${exact(total)} annotations of ${exact(proteins)} human proteins and ${exact(others)} other gene products; ${pct(electronic / total)} are electronic (IEA)`;
 };
 
 export const findings = (snap) => ({
