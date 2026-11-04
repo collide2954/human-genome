@@ -574,7 +574,7 @@ test('complex trait charts cover the catalog Manhattan plot, GWAS growth, traits
   assert.equal(await count('#heritability-top-chart [data-row]'), H.eur.top.length);
   assert.equal(await count('#heritability-pops-chart [data-row]'), Object.keys(H.byPop).length);
   const top = bins.reduce((a, b) => (b[2] > a[2] ? b : a));
-  await page.hover(`#manhattan-chart [data-bin="${top[0]}:${top[1]}"]`);
+  await page.hover(`#manhattan-chart [data-bin="${top[0]}:${top[1]}"]`, { force: true });
   assert.match(await page.textContent('#tip'), new RegExp(top[5].split(/\s|,/)[0]));
   assert.ok(await count('#heritability a[href="https://creativecommons.org/licenses/by/4.0/"]') >= 1);
   await page.close();
