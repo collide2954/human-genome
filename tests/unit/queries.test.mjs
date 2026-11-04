@@ -33,6 +33,11 @@ test('gene annotation comes from the latest GENCODE release folder', () => {
   assert.equal(FILES.gencodeDir, 'https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/latest_release/');
 });
 
+test('gene catalogs point at HGNC and NCBI Gene', () => {
+  assert.equal(FILES.hgnc, 'https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt');
+  assert.equal(FILES.geneInfo, 'https://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/Mammalia/Homo_sapiens.gene_info.gz');
+});
+
 test('requests identify the project', () => {
   assert.match(USER_AGENT, /human-genome/);
   assert.doesNotMatch(USER_AGENT, /@/);

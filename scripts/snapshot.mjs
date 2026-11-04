@@ -9,6 +9,7 @@ import {
   buildAssembly, latestFile, toModule, rmskSummary, superDupsSummary, tandemSummary, parseAssemblyReport,
 } from './parsers.mjs';
 import { gencodeSummary } from './genes.mjs';
+import { hgncSummary, geneInfoSummary, maneSummary } from './catalogs.mjs';
 import { cacheName, downloadTo, gzLines } from './streams.mjs';
 import { runSections } from './sections.mjs';
 import { readTwoBit } from './twobit.mjs';
@@ -66,8 +67,18 @@ const genes = async () => {
   return summarize(`${FILES.gencodeDir}${gtf.file}`, gencodeSummary({ lengths }));
 };
 
+const catalogs = async () => {
+  const summary = latestFile(await text(FILES.maneDir), /MANE\.GRCh38\.v([\d.]+)\.summary\.txt\.gz/);
+  if (!summary) throw new Error('No MANE summary in the current release folder');
+  return {
+    hgnc: hgncSummary(await text(FILES.hgnc)),
+    geneInfo: geneInfoSummary(await text(FILES.geneInfo)),
+    mane: { release: summary.version, ...maneSummary(await text(`${FILES.maneDir}${summary.file}`)) },
+  };
+};
+
 const SECTIONS = {
-  assembly, sequence, repeats, genes,
+  assembly, sequence, repeats, genes, catalogs,
 };
 
 const now = new Date();
