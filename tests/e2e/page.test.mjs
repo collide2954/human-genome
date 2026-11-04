@@ -41,7 +41,7 @@ const tapAt = async (page, selector, fx = 0.5, fy = 0.5) => {
 const tipLinesOf = (page) => page.$$eval('#tip > *', (els) => els.map((e) => e.textContent));
 
 const CHAPTERS = {
-  assembly: ['chromosomes', 'gaps', 't2t'],
+  assembly: ['chromosomes', 'gaps', 't2t', 'composition'],
   reference: ['decoder', 'sources'],
 };
 
@@ -108,6 +108,34 @@ test('the T2T chart shows the bases each chromosome gains', async () => {
   const y = snapshot.assembly.t2t.chromosomes.find((c) => c.chrom === 'Y').length - snapshot.assembly.grch38.chromosomes.find((c) => c.chrom === 'Y').ungapped;
   await page.hover('#t2t-chart [data-row="Y"]');
   assert.match(await page.textContent('#tip'), new RegExp(`\\+${exact(y)}`));
+  await page.close();
+});
+
+test('the GC landscape draws one strip per chromosome with a cell per megabase', async () => {
+  const { page } = await open();
+  assert.equal(await page.locator('#gc-chart [data-chrom]').count(), 24);
+  const bins = Object.entries(snapshot.sequence.bins).filter(([c]) => c !== 'MT').reduce((n, [, b]) => n + b.filter((v) => v !== null).length, 0);
+  assert.equal(await page.locator('#gc-chart [data-bin]').count(), bins);
+  await page.hover('#gc-chart [data-bin="19:10"]');
+  assert.match(await page.textContent('#tip'), /% GC[\s\S]*chr19:10,000,001-11,000,000/);
+  await page.close();
+});
+
+test('the dinucleotide matrix shows CpG far below expectation', async () => {
+  const { page } = await open();
+  assert.equal(await page.locator('#dinuc-chart [data-cell]').count(), 16);
+  await page.hover('#dinuc-chart [data-cell="CG"]');
+  const lines = await tipLinesOf(page);
+  assert.match(lines[0], /^0\.2\d observed\/expected$/);
+  assert.ok(lines.some((l) => /CpG/.test(l)));
+  await page.close();
+});
+
+test('CpG and G-quadruplex charts list every chromosome', async () => {
+  const { page } = await open();
+  assert.equal(await page.locator('#cpg-chart [data-row]').count(), 25);
+  assert.equal(await page.locator('#g4-chart [data-row]').count(), 24);
+  assert.equal(await page.locator('#g4-chart .legend li').count(), 2);
   await page.close();
 });
 
