@@ -3,12 +3,12 @@ import {
   SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES,
 } from './facts.js';
 import {
-  exact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv,
+  exact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct,
 } from './lib.js';
 import { FILES } from './queries.js';
-import { findings, assemblyNumbers } from './findings.js';
+import { findings, assemblyNumbers, sequenceNumbers } from './findings.js';
 import {
-  ideogram, hbars, dotplot, observeFigures, countUp, tipLines,
+  ideogram, hbars, dotplot, strips, matrix, rampLegend, observeFigures, countUp, tipLines,
 } from './charts.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -164,6 +164,77 @@ const renderT2t = () => {
     }));
 };
 
+const S = snapshot.sequence;
+const SN = sequenceNumbers(snapshot);
+const ACGT = 'ACGT';
+const acgtOf = (c) => c.A + c.C + c.G + c.T;
+const gcPct = (v) => `${(v * 100).toFixed(1)}%`;
+
+const renderComposition = () => {
+  const nuclear = S.chromosomes.filter((c) => c.chrom !== 'MT');
+  const cells = nuclear.flatMap((c) => S.bins[c.chrom].map((v, j) => ({ chrom: c.chrom, j, v }))).filter((b) => b.v !== null);
+  const rich = cells.reduce((a, b) => (b.v > a.v ? b : a));
+  const poor = cells.reduce((a, b) => (b.v < a.v ? b : a));
+  const masked = nuclear.reduce((n, c) => n + c.masked, 0);
+  const binOf = (b) => coords(b.chrom, b.j * 1e6 + 1, Math.min((b.j + 1) * 1e6, S.chromosomes.find((c) => c.chrom === b.chrom).length));
+  $('#composition-dek').textContent = `Of ${exact(SN.acgt)} sequenced bases, ${pct(masked / SN.acgt)} are soft-masked as repeats. The richest megabase, ${binOf(rich)}, is ${gcPct(rich.v)} GC; the poorest, ${binOf(poor)}, is ${gcPct(poor.v)}.`;
+  const lo = Math.min(...cells.map((b) => b.v));
+  const hi = Math.max(...cells.map((b) => b.v));
+  strips({
+    mount: $('#gc-chart'),
+    rows: nuclear.map((c) => ({ key: c.chrom, bins: S.bins[c.chrom], right: gcPct((c.C + c.G) / acgtOf(c)) })),
+    lo,
+    hi,
+    legend: rampLegend(lo, hi, gcPct),
+    aria: 'GC content of each megabase of each chromosome',
+    describe: (b) => tipLines(`${gcPct(b.value)} GC`, binOf({ chrom: b.row.key, j: b.index }), `chromosome ${b.row.key}: ${b.row.right}`),
+  });
+  attachData('#gc-chart', 'gc-per-megabase', ['Chromosome', 'Start', 'End', 'GC'],
+    nuclear.flatMap((c) => S.bins[c.chrom].map((v, j) => [c.chrom, j * 1e6 + 1, Math.min((j + 1) * 1e6, c.length), v])));
+  const freq = ACGT.split('').map((b) => nuclear.reduce((n, c) => n + c[b], 0) / SN.acgt);
+  const pairs = S.dinucs.reduce((a, b) => a + b, 0);
+  const oe = (i, j) => S.dinucs[i * 4 + j] / (freq[i] * freq[j] * pairs);
+  matrix({
+    mount: $('#dinuc-chart'),
+    rows: [...ACGT],
+    cols: [...ACGT],
+    values: [0, 1, 2, 3].map((i) => [0, 1, 2, 3].map((j) => oe(i, j))),
+    format: (v) => v.toFixed(2),
+    aria: 'Dinucleotide observed over expected ratios',
+    describe: (i, j) => tipLines(`${oe(i, j).toFixed(2)} observed/expected`, `${ACGT[i]}p${ACGT[j]}: ${ACGT[i]} followed by ${ACGT[j]}`,
+      `${exact(S.dinucs[i * 4 + j])} in GRCh38`, `${exact(freq[i] * freq[j] * pairs)} expected from base frequencies`),
+  });
+  attachData('#dinuc-chart', 'dinucleotides', ['Dinucleotide', 'Observed', 'Expected', 'Ratio'],
+    [0, 1, 2, 3].flatMap((i) => [0, 1, 2, 3].map((j) => [`${ACGT[i]}${ACGT[j]}`, S.dinucs[i * 4 + j], Math.round(freq[i] * freq[j] * pairs), Number(oe(i, j).toFixed(4))])));
+  const cpgOe = (c) => c.cpg / ((c.C * c.G) / acgtOf(c));
+  hbars({
+    mount: $('#cpg-chart'),
+    rows: S.chromosomes.map((c) => ({ key: c.chrom, label: c.chrom, values: { oe: cpgOe(c) } })),
+    segments: [{ key: 'oe', label: 'CpG observed/expected', color: 'var(--s2)' }],
+    format: (v) => v.toFixed(3),
+    tickFormat: (v) => String(v),
+    aria: 'CpG observed over expected by chromosome',
+    describe: (r) => {
+      const c = S.chromosomes.find((x) => x.chrom === r.key);
+      return tipLines(`${cpgOe(c).toFixed(3)} observed/expected`, r.key === 'MT' ? 'mitochondrial genome' : `chromosome ${r.key}`, `${exact(c.cpg)} CpG`, `${gcPct((c.C + c.G) / acgtOf(c))} GC`);
+    },
+  });
+  attachData('#cpg-chart', 'cpg-by-chromosome', ['Chromosome', 'CpG', 'C', 'G', 'Sequenced bases', 'Observed over expected'],
+    S.chromosomes.map((c) => [c.chrom, c.cpg, c.C, c.G, acgtOf(c), Number(cpgOe(c).toFixed(4))]));
+  hbars({
+    mount: $('#g4-chart'),
+    rows: nuclear.map((c) => ({ key: c.chrom, label: c.chrom, values: { plus: c.g4.plus, minus: c.g4.minus } })),
+    segments: [{ key: 'plus', label: 'G-rich strand', color: 'var(--s1)' }, { key: 'minus', label: 'C-rich strand', color: 'var(--s2)' }],
+    aria: 'G-quadruplex motifs by chromosome and strand',
+    describe: (r) => {
+      const c = nuclear.find((x) => x.chrom === r.key);
+      return tipLines(`${exact(c.g4.plus + c.g4.minus)} motifs`, `chromosome ${r.key}`, `${exact(c.g4.plus)} G-rich, ${exact(c.g4.minus)} C-rich`,
+        `${((c.g4.plus + c.g4.minus) / (acgtOf(c) / 1e6)).toFixed(1)} per sequenced megabase`);
+    },
+  });
+  attachData('#g4-chart', 'g-quadruplex-motifs', ['Chromosome', 'G-rich strand', 'C-rich strand', 'Sequenced bases'], nuclear.map((c) => [c.chrom, c.g4.plus, c.g4.minus, acgtOf(c)]));
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -206,6 +277,8 @@ const DATA_SOURCES = [
   ['UCSC hg38 cytogenetic bands', FILES.cytobands],
   ['UCSC hg38 gaps', FILES.gaps],
   ['UCSC hg38 centromere models', FILES.centromeres],
+  ['UCSC hg38 2bit sequence', FILES.hg38TwoBit],
+  ['NCBI MANE release folder', FILES.maneDir],
 ];
 
 const renderSources = () => {
@@ -269,6 +342,7 @@ const drawCharts = () => {
   renderChromosomes();
   renderGaps();
   renderT2t();
+  renderComposition();
   applySearch();
 };
 
