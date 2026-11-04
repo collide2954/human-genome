@@ -295,8 +295,20 @@ export const dotplot = ({
   const W = widthOf(mount);
   const R = 70;
   const T = 22;
-  const lay = rowLayout(rows, Math.min(labelMax, Math.max(96, W * labelShare)), rowH);
+  const base = rowLayout(rows, Math.min(labelMax, Math.max(96, W * labelShare)), rowH);
+  const room = Math.floor((W - 8) / 6.6);
+  const wraps = base.cls.includes('stacked') && rows.some((r) => String(r.label).length > room);
+  const lay = wraps ? {
+    ...base, rowH: base.rowH + 14, labelY: base.labelY + 7, markY: base.markY + 7,
+  } : base;
   const { L } = lay;
+  const labelOf = (label) => {
+    const text = String(label);
+    if (!wraps || text.length <= room) return text;
+    const cut = text.lastIndexOf(' ', room);
+    const at = cut > 0 ? cut : room;
+    return [el('tspan', { x: 0, dy: -14 }, text.slice(0, at)), el('tspan', { x: 0, dy: 14 }, text.slice(at).trim())];
+  };
   const H = T + rows.length * lay.rowH + 6;
   const values = rows.map((r) => r.value).filter((v) => v > 0);
   const min = Math.min(...values);
@@ -319,7 +331,7 @@ export const dotplot = ({
     transform: `translate(0 ${rowTop(i)})`,
   },
   el('rect', { class: 'row-hit', x: 0, y: -lay.rowH / 2, width: W, height: lay.rowH }),
-  el('text', { class: 'lab', x: 0, y: lay.labelY }, r.label),
+  el('text', { class: 'lab', x: 0, y: lay.labelY }, labelOf(r.label)),
   el('line', { class: 'stem', x1: L, x2: at(r.value), y1: lay.markY, y2: lay.markY, style: `--i:${i}` }),
   el('circle', { class: `dot${r.hi ? ' hi' : ''}`, cx: at(r.value), cy: lay.markY, r: 4.5, style: `--i:${i}` }),
   el('text', { class: 'val', x: at(r.value) + 9, y: lay.markY + 4 }, format(r.value)))));
@@ -515,8 +527,17 @@ export const heatmap = ({
   return mountSvg(mount, svg, legend);
 };
 
+const logAxis = (values, lo, hi) => {
+  const positive = values.filter((v) => v > 0);
+  const least = positive.length ? Math.min(...positive) : 1;
+  const floor = 10 ** Math.floor(Math.log10(least)) / 2;
+  const top = 10 ** Math.ceil(Math.log10(Math.max(...positive, 10)));
+  const scale = scaleLog([floor, top], [lo, hi]);
+  return { ticks: logTicks(floor, top), y: (v) => (v > floor ? scale(v) : lo) };
+};
+
 export const histo = ({
-  mount, bins, series, aria, describe, tickLabel, tickEvery = 10, height = 220, yFormat = compact, centered = false,
+  mount, bins, series, aria, describe, tickLabel, tickEvery = 10, height = 220, yFormat = compact, centered = false, yLog = false,
 }) => {
   const W = widthOf(mount);
   const L = 46;
@@ -525,11 +546,14 @@ export const histo = ({
   const B = 24;
   const H = height + T;
   const values = series.flatMap((s) => s.values);
-  const ticks = niceTicks(Math.max(...values, 1e-9), 4);
-  const y = scaleLinear([0, ticks.at(-1)], [H - B, T]);
+  const lin = niceTicks(Math.max(...values, 1e-9), 4);
+  const { ticks, y } = yLog ? logAxis(values, H - B, T) : { ticks: lin, y: scaleLinear([0, lin.at(-1)], [H - B, T]) };
   const band = (W - L - R) / bins.length;
   const bw = Math.max(0.6, (band - (band > 4 ? 1 : 0)) / series.length);
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
+    yLog ? el('line', {
+      class: 'base', x1: L, x2: W - R, y1: H - B, y2: H - B,
+    }) : null,
     ticks.map((t) => el('g', {},
       el('line', { class: t === 0 ? 'base' : 'grid', x1: L, x2: W - R, y1: y(t), y2: y(t) }),
       el('text', { class: 'tick', x: L - 8, y: y(t) + 4, 'text-anchor': 'end' }, yFormat(t)))),
