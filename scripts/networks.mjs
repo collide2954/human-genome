@@ -256,6 +256,7 @@ export const goSummary = (terms = new Map()) => {
   const perTerm = new Map();
   const assigned = new Map();
   const codes = new Map();
+  const objects = new Map();
   const canon = interner();
   return {
     add(line) {
@@ -269,6 +270,10 @@ export const goSummary = (terms = new Map()) => {
       }
       if (GROUP_OF[f[6]] && byAspect[f[8]]) byAspect[f[8]][GROUP_OF[f[6]]] += 1;
       bump(codes, f[6]);
+      const type = canon(f[11] || 'unknown');
+      if (!objects.has(type)) objects.set(type, new Set());
+      objects.get(type).add(canon(`${f[0]}:${f[1]}`));
+      if (f[0] !== 'UniProtKB' || type !== 'protein') return;
       const acc = canon(f[1]);
       const term = canon(f[4]);
       if (!perProtein.has(acc)) perProtein.set(acc, { symbol: own(f[2]), terms: new Set() });
@@ -287,6 +292,7 @@ export const goSummary = (terms = new Map()) => {
         annotations,
         not,
         proteins: perProtein.size,
+        types: Object.fromEntries([...objects].map(([t, set]) => [t, set.size]).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))),
         terms: perTerm.size,
         byAspect,
         codes: ranked(codes, 'code'),
