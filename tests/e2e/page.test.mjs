@@ -503,8 +503,10 @@ test('cancer charts cover IntOGen drivers, TCGA mutation frequencies, mutation b
   assert.equal(await count('#drivers-types-chart [data-row]'), Math.min(30, I.drivers.byType.length));
   assert.equal(await count('#drivers-genes-chart [data-row]'), I.drivers.top.length);
   assert.equal(await count('#tcga-chart [data-cell]'), G.tcga.genes.length * G.tcga.projects.filter((p) => p.tested > 0).length);
-  assert.equal(await count('#burden-chart [data-row]'), I.cohorts.burden.length);
-  assert.equal(await count('#burden-chart circle.pt'), I.cohorts.cohorts);
+  const typesWith = (platform) => I.cohorts.burden.filter((b) => b.cohorts.some((c) => c.platform === platform)).length;
+  assert.equal(await count('#burden-exome-chart [data-row]'), typesWith('WXS'));
+  assert.equal(await count('#burden-genome-chart [data-row]'), typesWith('WGS'));
+  assert.equal(await count('#burden-exome-chart circle.pt') + await count('#burden-genome-chart circle.pt'), I.cohorts.cohorts);
   assert.equal(await count('#somatic-programs-chart [data-row]'), G.programs.length);
   assert.equal(await count('#somatic-sites-chart [data-row]'), Math.min(20, G.sites.length));
   assert.equal(await count('#somatic-oncogenicity-chart [data-row]'), Object.keys(snapshot.clinvar.oncogenicity).length);
