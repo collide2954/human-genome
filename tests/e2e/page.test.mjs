@@ -31,6 +31,15 @@ const openPhone = async () => {
   return { page, context };
 };
 
+const tapAt = async (page, selector, fx = 0.5, fy = 0.5) => {
+  await page.locator(selector).scrollIntoViewIfNeeded();
+  const box = await page.locator(selector).boundingBox();
+  await page.touchscreen.tap(box.x + box.width * fx, box.y + box.height * fy);
+  await page.waitForTimeout(250);
+};
+
+const tipLinesOf = (page) => page.$$eval('#tip > *', (els) => els.map((e) => e.textContent));
+
 const CHAPTERS = {
   assembly: ['chromosomes', 'gaps', 't2t'],
   reference: ['decoder', 'sources'],
@@ -204,9 +213,9 @@ test('each chart is one tab stop and arrow keys step through its marks', async (
   assert.ok(stops.charts >= 4, `${stops.charts}`);
   await page.focus('#t2t-chart svg');
   await page.keyboard.press('Home');
-  assert.match(await page.textContent('#tip'), /chromosome 1\b/);
+  assert.ok((await tipLinesOf(page)).includes('chromosome 1'));
   await page.keyboard.press('ArrowDown');
-  assert.match(await page.textContent('#tip'), /chromosome 2\b/);
+  assert.ok((await tipLinesOf(page)).includes('chromosome 2'));
   await page.close();
 });
 
@@ -219,18 +228,11 @@ test('the page never scrolls sideways on a phone', async () => {
 
 test('on a phone a tap pins the popup and a tap outside closes it', async () => {
   const { page, context } = await openPhone();
-  const row = page.locator('#t2t-chart [data-row="13"]');
-  await row.scrollIntoViewIfNeeded();
-  const box = await row.boundingBox();
-  await page.touchscreen.tap(box.x + box.width * 0.6, box.y + box.height / 2);
-  await page.waitForTimeout(250);
+  await tapAt(page, '#t2t-chart [data-row="13"]', 0.6, 0.5);
   assert.equal(await page.getAttribute('#tip', 'data-pinned'), 'true');
   const tip = await page.locator('#tip').boundingBox();
   assert.ok(tip.x >= 0 && tip.x + tip.width <= page.viewportSize().width);
-  const dek = page.locator('#t2t .dek');
-  const d = await dek.boundingBox();
-  await page.touchscreen.tap(d.x + 5, d.y + 5);
-  await page.waitForTimeout(250);
+  await tapAt(page, '#t2t .dek', 0.5, 0.5);
   assert.equal(await page.isVisible('#tip'), false);
   await context.close();
 });
