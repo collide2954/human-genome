@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { createReadStream, createWriteStream } from 'node:fs';
-import { rename } from 'node:fs/promises';
+import { open, rename } from 'node:fs/promises';
 import { Readable } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
 import { StringDecoder } from 'node:string_decoder';
@@ -55,6 +55,16 @@ export const unzip = (buffer) => {
 export const gzLines = (path) => lines(createReadStream(path).pipe(createGunzip()));
 
 export const fileLines = (path) => lines(createReadStream(path));
+
+export const anyLines = async (path) => {
+  const handle = await open(path, 'r');
+  try {
+    const { buffer, bytesRead } = await handle.read(Buffer.alloc(2), 0, 2, 0);
+    return bytesRead === 2 && buffer[0] === 0x1f && buffer[1] === 0x8b ? gzLines(path) : fileLines(path);
+  } finally {
+    await handle.close();
+  }
+};
 
 export const cacheName = (url) => {
   const u = new URL(url);
