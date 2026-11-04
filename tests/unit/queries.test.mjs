@@ -119,6 +119,14 @@ test('clinical files point at ClinVar, its archive, ClinGen validity and regions
   assert.equal(FILES.interproProtein, 'https://www.ebi.ac.uk/interpro/api/entry/pfam/protein/uniprot/');
 });
 
+test('repeat loci come from STRchive on GitHub with the date of its last change', () => {
+  assert.equal(FILES.strchive, 'https://raw.githubusercontent.com/dashnowlab/STRchive/main/data/STRchive-loci.json');
+  const c = new URL(FILES.strchiveCommits);
+  assert.equal(`${c.origin}${c.pathname}`, 'https://api.github.com/repos/dashnowlab/STRchive/commits');
+  assert.equal(c.searchParams.get('path'), 'data/STRchive-loci.json');
+  assert.equal(c.searchParams.get('per_page'), '1');
+});
+
 test('lollipop proteins name their UniProt accessions', () => {
   assert.deepEqual(LOLLIPOPS, [
     { gene: 'TP53', accession: 'P04637' },
