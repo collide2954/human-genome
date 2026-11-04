@@ -3,12 +3,15 @@ import {
   SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES,
 } from './facts.js';
 import {
-  exact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct,
+  exact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate,
 } from './lib.js';
+import { pearson, linearFit } from './stats.js';
 import { FILES } from './queries.js';
-import { findings, assemblyNumbers, sequenceNumbers } from './findings.js';
 import {
-  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, observeFigures, countUp, tipLines,
+  findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity,
+} from './findings.js';
+import {
+  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, observeFigures, countUp, tipLines,
 } from './charts.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -350,6 +353,253 @@ const renderTandem = () => {
   attachData('#motif-chart', 'tandem-motifs', ['Unit', 'Repeats', 'Bases'], top.map((m) => [m.motif, m.count, m.bp]));
 };
 
+const G = snapshot.genes;
+const CAT2 = snapshot.catalogs;
+const typeLabel = (t) => (t === 'protein_coding' ? 'protein-coding' : t.replace(/_/g, ' '));
+const lengthOfChrom = (chrom) => S.chromosomes.find((c) => c.chrom === chrom)?.length ?? A.grch38.chromosomes.find((c) => c.chrom === chrom).length;
+const megabase = (chrom, j) => coords(chrom, j * 1e6 + 1, Math.min((j + 1) * 1e6, lengthOfChrom(chrom)));
+const shares = (counts) => {
+  const total = counts.reduce((a, b) => a + b, 0) || 1;
+  return counts.map((c) => (c / total) * 100);
+};
+const binsOf = (edges) => edges.slice(0, -1).map((lo, i) => ({ lo, hi: edges[i + 1] }));
+const shortBases = (v) => (v >= 1e6 ? `${Number((v / 1e6).toPrecision(3))}M` : v >= 1e3 ? `${Number((v / 1e3).toPrecision(3))}k` : String(Math.round(v)));
+
+const renderGenecount = () => {
+  const counts = codingCounts(snapshot);
+  const notes = {
+    GENCODE: `release ${G.release.gencode}, Ensembl ${G.release.ensembl}, ${longDate(G.release.date)}`,
+    'NCBI Gene': 'records of type protein-coding in gene_info',
+    HGNC: 'approved symbols in the protein-coding locus group',
+    'MANE Select': `release ${CAT2.mane.release}, one transcript per gene`,
+  };
+  $('#genecount-dek').textContent = `GENCODE ${G.release.gencode} (Ensembl ${G.release.ensembl}, ${longDate(G.release.date)}) lists ${exact(G.genes.total)} genes and ${exact(G.transcripts.total)} transcripts on the chromosomes and the mitochondrial genome. NCBI Gene also keeps ${exact(CAT2.geneInfo.types['biological-region'] ?? 0)} records for regions that are not genes, and ${exact(CAT2.geneInfo.uncharacterized)} of its records are described as uncharacterized.`;
+  dotplot({
+    mount: $('#source-count-chart'),
+    rows: counts.map((c) => ({ key: c.source, label: c.source, value: c.n, hi: c.source === 'GENCODE' })),
+    scale: 'linear',
+    labelShare: 0.3,
+    aria: 'Protein-coding gene counts by catalog',
+    describe: (r) => tipLines(exact(r.value), `protein-coding genes in ${r.label}`, notes[r.key]),
+  });
+  attachData('#source-count-chart', 'protein-coding-counts', ['Source', 'Protein-coding genes'], counts.map((c) => [c.source, c.n]));
+  const types = Object.entries(G.genes.byType).slice(0, 16);
+  dotplot({
+    mount: $('#biotype-chart'),
+    rows: types.map(([t, n], i) => ({ key: t, label: typeLabel(t), value: n, hi: i === 1 })),
+    aria: 'GENCODE genes by biotype',
+    describe: (r) => tipLines(exact(r.value), `${r.label} genes`, `${exact(G.transcripts.byType[r.key] ?? 0)} transcripts of this type`),
+  });
+  attachData('#biotype-chart', 'gene-biotypes', ['Biotype', 'Genes', 'Transcripts of the same type'], Object.entries(G.genes.byType).map(([t, n]) => [t, n, G.transcripts.byType[t] ?? 0]));
+};
+
+const renderDensity = () => {
+  const { bins } = G.density;
+  const dens = geneDensity(snapshot);
+  const max = Math.max(...NUCLEAR.flatMap((c) => bins[c.chrom] ?? []));
+  strips({
+    mount: $('#density-chart'),
+    rows: NUCLEAR.map((c) => ({ key: c.chrom, bins: bins[c.chrom] ?? [], right: (dens.find((d) => d.chrom === c.chrom)?.perMb ?? 0).toFixed(1) })),
+    lo: 0,
+    hi: max,
+    legend: rampLegend(0, max, (v) => String(Math.round(v))),
+    aria: 'Protein-coding genes per megabase',
+    describe: (b) => tipLines(`${b.value} protein-coding genes`, megabase(b.row.key, b.index), `chromosome ${b.row.key}: ${b.row.right} per sequenced megabase`),
+  });
+  attachData('#density-chart', 'genes-per-megabase', ['Chromosome', 'Start', 'End', 'Protein-coding genes'],
+    NUCLEAR.flatMap((c) => (bins[c.chrom] ?? []).map((n, j) => [c.chrom, j * 1e6 + 1, Math.min((j + 1) * 1e6, lengthOfChrom(c.chrom)), n])));
+  const points = NUCLEAR.flatMap((c) => (bins[c.chrom] ?? []).map((n, j) => ({
+    key: `${c.chrom}:${j}`, chrom: c.chrom, j, gc: S.bins[c.chrom]?.[j], y: n,
+  }))).filter((p) => p.gc !== null && p.gc !== undefined).map((p) => ({ ...p, x: Number((p.gc * 100).toFixed(1)) }));
+  const fit = linearFit(points.map((p) => p.x), points.map((p) => p.y));
+  const r = pearson(points.map((p) => p.x), points.map((p) => p.y));
+  const top = points.reduce((a, b) => (b.y > a.y ? b : a));
+  top.hi = true;
+  $('#density-dek').textContent = `Across ${exact(points.length)} megabases, gene count and GC content correlate with Pearson r = ${r.toFixed(2)}; each extra point of GC goes with ${fit.slope.toFixed(1)} more protein-coding genes per megabase. The densest megabase, ${megabase(top.chrom, top.j)}, holds ${top.y}.`;
+  scatter({
+    mount: $('#density-gc-chart'),
+    points,
+    xFormat: (v) => `${v}%`,
+    yFormat: (v) => String(v),
+    xLabel: 'GC content of the megabase',
+    yLabel: 'Protein-coding genes',
+    trend: fit,
+    aria: 'Genes per megabase against GC content',
+    describe: (p) => tipLines(`${p.y} protein-coding genes`, megabase(p.chrom, p.j), `${p.x.toFixed(1)}% GC`),
+  });
+  attachData('#density-gc-chart', 'genes-and-gc-per-megabase', ['Chromosome', 'Start', 'GC percent', 'Protein-coding genes'], points.map((p) => [p.chrom, p.j * 1e6 + 1, p.x, p.y]));
+};
+
+const renderGenesize = () => {
+  const { pc, lnc, longest } = G.spans;
+  const pcShare = shares(pc.counts);
+  const lncShare = shares(lnc.counts);
+  const bins = binsOf(pc.edges);
+  const overMb = bins.reduce((n, b, i) => n + (b.lo >= 1e6 ? pc.counts[i] : 0), 0);
+  $('#genesize-dek').textContent = `Quartiles: ${exact(pc.summary.q1)}, ${exact(pc.summary.median)} and ${exact(pc.summary.q3)} bp for protein-coding genes; ${exact(lnc.summary.q1)}, ${exact(lnc.summary.median)} and ${exact(lnc.summary.q3)} bp for lncRNA genes. ${exact(overMb)} protein-coding genes span a megabase or more.`;
+  histo({
+    mount: $('#span-chart'),
+    bins,
+    series: [{ key: 'pc', label: 'Protein-coding', color: 'var(--s1)', values: pcShare }, { key: 'lnc', label: 'lncRNA', color: 'var(--s2)', values: lncShare }],
+    yFormat: (v) => `${v}%`,
+    tickLabel: (b) => shortBases(b.lo),
+    aria: 'Gene spans of protein-coding and lncRNA genes',
+    describe: (i) => tipLines(`${bases(bins[i].lo)} to ${bases(bins[i].hi)}`, 'genomic span',
+      `Protein-coding: ${exact(pc.counts[i])} genes, ${pcShare[i].toFixed(1)}%`, `lncRNA: ${exact(lnc.counts[i])} genes, ${lncShare[i].toFixed(1)}%`),
+  });
+  attachData('#span-chart', 'gene-spans', ['Span from', 'Span to', 'Protein-coding genes', 'lncRNA genes'], bins.map((b, i) => [Math.round(b.lo), Math.round(b.hi), pc.counts[i], lnc.counts[i]]));
+  dotplot({
+    mount: $('#longest-chart'),
+    rows: longest.map((g, i) => ({ key: g.name, label: g.name, value: g.span, hi: i === 0 })),
+    scale: 'linear',
+    format: bases,
+    aria: 'The longest protein-coding genes',
+    describe: (r) => {
+      const g = longest.find((x) => x.name === r.key);
+      return tipLines(bases(g.span), g.name, coords(g.chrom, g.start, g.end));
+    },
+  });
+  attachData('#longest-chart', 'longest-genes', ['Gene', 'Chromosome', 'Start', 'End', 'Span'], longest.map((g) => [g.name, g.chrom, g.start, g.end, g.span]));
+};
+
+const renderStructure = () => {
+  const m = G.mane;
+  const ex = m.exons;
+  $('#structure-dek').textContent = `Introns have a median length of ${exact(m.introns.summary.median)} bp and exons ${exact(m.exonLengths.summary.median)} bp. The longest MANE intron, in ${m.introns.longest.name}, runs ${exact(m.introns.longest.length)} bp. Median untranslated regions: ${exact(m.utr5.summary.median)} bp before the coding sequence and ${exact(m.utr3.summary.median)} bp after it.`;
+  const exonBins = ex.counts.map((n, i) => ({ n: i + 1 }));
+  histo({
+    mount: $('#exon-count-chart'),
+    bins: exonBins,
+    series: [{ key: 'tx', label: 'MANE Select transcripts', color: 'var(--data)', values: ex.counts }],
+    tickEvery: 1,
+    tickLabel: (b, i) => (i === 0 || (i + 1) % 10 === 0 ? (i === 99 ? '100+' : String(i + 1)) : null),
+    aria: 'MANE Select transcripts by number of exons',
+    describe: (i) => tipLines(`${exact(ex.counts[i])} transcripts`, i === 99 ? '100 or more exons' : `${i + 1} exon${i ? 's' : ''}`),
+  });
+  attachData('#exon-count-chart', 'exons-per-transcript', ['Exons', 'MANE Select transcripts'], ex.counts.map((n, i) => [i === 99 ? '100+' : i + 1, n]));
+  const grid = binsOf(Array.from({ length: 71 }, (_, i) => Number((10 ** (i / 10)).toPrecision(12))));
+  const exonCounts = grid.map((_, i) => m.exonLengths.counts[i] ?? 0);
+  const intronCounts = grid.map((_, i) => (i >= 10 ? m.introns.counts[i - 10] ?? 0 : 0));
+  const exonShare = shares(exonCounts);
+  const intronShare = shares(intronCounts);
+  histo({
+    mount: $('#intron-chart'),
+    bins: grid,
+    series: [{ key: 'exon', label: 'Exons', color: 'var(--s1)', values: exonShare }, { key: 'intron', label: 'Introns', color: 'var(--s2)', values: intronShare }],
+    yFormat: (v) => `${v}%`,
+    tickLabel: (b) => shortBases(b.lo),
+    aria: 'Lengths of MANE Select exons and introns',
+    describe: (i) => tipLines(`${bases(grid[i].lo)} to ${bases(grid[i].hi)}`, 'length', `Exons: ${exact(exonCounts[i])}, ${exonShare[i].toFixed(1)}%`, `Introns: ${exact(intronCounts[i])}, ${intronShare[i].toFixed(1)}%`),
+  });
+  attachData('#intron-chart', 'exon-and-intron-lengths', ['Length from', 'Length to', 'Exons', 'Introns'], grid.map((b, i) => [Math.round(b.lo), Math.round(b.hi), exonCounts[i], intronCounts[i]]));
+  const t = G.territory;
+  const intergenic = SN.acgt - t.cds - t.utr - t.ncExon - t.intron;
+  const parts = [
+    { label: 'Coding sequence', value: t.cds, color: 'var(--s1)' },
+    { label: 'UTRs and other exons of protein-coding genes', value: t.utr, color: 'var(--s3)' },
+    { label: 'Exons of other genes', value: t.ncExon, color: 'var(--s4)' },
+    { label: 'Introns', value: t.intron, color: 'var(--data)' },
+    { label: 'Between genes', value: intergenic, color: 'var(--data-2)' },
+  ];
+  waffle({ mount: $('#territory-chart'), parts, aria: 'Sequenced bases by annotation', format: bases });
+  attachData('#territory-chart', 'genome-territory', ['Category', 'Bases'], parts.map((p) => [p.label, p.value]));
+};
+
+const renderIsoforms = () => {
+  const iso = G.isoforms;
+  const tx = G.transcripts.byType;
+  $('#isoforms-dek').textContent = `${exact(tx.nonsense_mediated_decay ?? 0)} transcripts are annotated for nonsense-mediated decay and ${exact(tx.retained_intron ?? 0)} retain an intron. Most transcripts per gene: ${iso.top.slice(0, 3).map((g) => `${g.name} ${exact(g.n)}`).join(', ')}.`;
+  histo({
+    mount: $('#isoform-chart'),
+    bins: iso.counts.map((n, i) => ({ n: i + 1 })),
+    series: [{ key: 'genes', label: 'Protein-coding genes', color: 'var(--data)', values: iso.counts }],
+    tickEvery: 1,
+    tickLabel: (b, i) => (i === 0 || (i + 1) % 10 === 0 ? (i === 49 ? '50+' : String(i + 1)) : null),
+    aria: 'Protein-coding genes by number of transcripts',
+    describe: (i) => tipLines(`${exact(iso.counts[i])} genes`, i === 49 ? '50 or more transcripts' : `${i + 1} transcript${i ? 's' : ''}`),
+  });
+  attachData('#isoform-chart', 'transcripts-per-gene', ['Transcripts', 'Protein-coding genes'], iso.counts.map((n, i) => [i === 49 ? '50+' : i + 1, n]));
+  const types = Object.entries(tx).slice(0, 12);
+  dotplot({
+    mount: $('#tx-biotype-chart'),
+    rows: types.map(([type, n]) => ({ key: type, label: typeLabel(type), value: n, hi: type === 'nonsense_mediated_decay' })),
+    aria: 'GENCODE transcripts by biotype',
+    describe: (r) => tipLines(exact(r.value), `${r.label} transcripts`),
+  });
+  attachData('#tx-biotype-chart', 'transcript-biotypes', ['Biotype', 'Transcripts'], Object.entries(tx));
+};
+
+const renderNames = () => {
+  const H = CAT2.hgnc;
+  const first = H.perYear.approved[0];
+  $('#names-dek').textContent = `${exact(H.placeholders.orf)} genes still carry open-reading-frame placeholders such as C1orf112, ${exact(H.placeholders.fam)} are FAM family names and ${exact(H.placeholders.kiaa)} keep a KIAA clone number. The spreadsheet renames include ${H.spreadsheet.examples.slice(0, 3).join(', ')}. ${exact(first[1])} of today’s symbols date from ${first[0]}.`;
+  const yearly = (sel, name, list, what) => {
+    columns({
+      mount: $(sel),
+      rows: list.map(([year, n]) => ({ year, n })),
+      key: (r) => r.year,
+      value: (r) => r.n,
+      attr: 'bin',
+      label: (r) => r.year,
+      height: 200,
+      aria: `HGNC symbols ${what} each year`,
+      describe: (r) => tipLines(`${exact(r.n)} symbols`, `${what} in ${r.year}`),
+    });
+    attachData(sel, name, ['Year', 'Symbols'], list);
+  };
+  yearly('#approvals-chart', 'hgnc-approvals', H.perYear.approved, 'approved or reserved');
+  yearly('#renames-chart', 'hgnc-symbol-changes', H.perYear.symbolChanged, 'last renamed');
+  const groups = H.groups.slice(0, 15);
+  dotplot({
+    mount: $('#groups-chart'),
+    rows: groups.map((g, i) => ({ key: g.name, label: g.name, value: g.n, hi: i === 0 })),
+    scale: 'linear',
+    labelShare: 0.5,
+    aria: 'The largest HGNC gene groups',
+    describe: (r) => tipLines(`${exact(r.value)} genes`, r.label),
+  });
+  attachData('#groups-chart', 'hgnc-gene-groups', ['Group', 'Genes'], H.groups.map((g) => [g.name, g.n]));
+};
+
+const renderPseudogenes = () => {
+  const types = Object.entries(G.genes.byType).filter(([t]) => /pseudogene$/.test(t));
+  const total = types.reduce((n, [, v]) => n + v, 0);
+  const processed = G.genes.byType.processed_pseudogene ?? 0;
+  $('#pseudogenes-dek').textContent = `GENCODE annotates ${exact(total)} pseudogenes; ${pct(processed / total)} are processed copies of mRNA. HGNC names copies after their parent gene, and ribosomal protein genes dominate the list.`;
+  dotplot({
+    mount: $('#pseudotype-chart'),
+    rows: types.map(([t, n], i) => ({ key: t, label: typeLabel(t).replace(/ pseudogene$/, ''), value: n, hi: i === 0 })),
+    aria: 'GENCODE pseudogenes by type',
+    describe: (r) => tipLines(exact(r.value), `${typeLabel(r.key)}s`),
+  });
+  attachData('#pseudotype-chart', 'pseudogene-types', ['Type', 'Pseudogenes'], types);
+  const parents = CAT2.hgnc.pseudoParents;
+  dotplot({
+    mount: $('#parents-chart'),
+    rows: parents.map((p, i) => ({ key: p.parent, label: p.parent, value: p.n, hi: i === 0 })),
+    scale: 'linear',
+    aria: 'Genes with the most named pseudogenes',
+    describe: (r) => tipLines(`${exact(r.value)} pseudogenes`, `named ${r.key}P1, ${r.key}P2 and so on`),
+  });
+  attachData('#parents-chart', 'pseudogene-parents', ['Parent gene', 'Named pseudogenes'], parents.map((p) => [p.parent, p.n]));
+};
+
+const LOCI = ['IGH', 'IGK', 'IGL', 'TRA', 'TRB', 'TRG', 'TRD'];
+
+const renderImmune = () => {
+  const im = G.immune;
+  $('#immune-dek').textContent = `Light chains pair one V and one J: ${im.IGK.V} × ${im.IGK.J} = ${exact(im.IGK.V * im.IGK.J)} kappa and ${im.IGL.V} × ${im.IGL.J} = ${exact(im.IGL.V * im.IGL.J)} lambda combinations. T-cell receptors: ${im.TRA.V} × ${im.TRA.J} = ${exact(im.TRA.V * im.TRA.J)} alpha and ${im.TRB.V} × ${im.TRB.D} × ${im.TRB.J} = ${exact(im.TRB.V * Math.max(1, im.TRB.D) * im.TRB.J)} beta. GENCODE’s counts include open reading frames that IMGT may class apart.`;
+  hbars({
+    mount: $('#immune-chart'),
+    rows: LOCI.map((l) => ({ key: l, label: l, values: im[l] })),
+    segments: [['V', 'var(--s1)'], ['D', 'var(--s2)'], ['J', 'var(--s3)'], ['C', 'var(--s4)'], ['pseudo', 'var(--data-2)']].map(([key, color]) => ({ key, label: key === 'pseudo' ? 'Pseudogenes' : `${key} genes`, color })),
+    labelShare: 0.1,
+    aria: 'Immune receptor gene segments by locus',
+    describe: (r) => tipLines(`${exact(Object.values(r.values).reduce((a, b) => a + b, 0))} genes`, `${r.key} locus`, `V ${r.values.V}, D ${r.values.D}, J ${r.values.J}, C ${r.values.C}, pseudogenes ${r.values.pseudo}`),
+  });
+  attachData('#immune-chart', 'immune-receptor-segments', ['Locus', 'V', 'D', 'J', 'C', 'Pseudogenes'], LOCI.map((l) => [l, im[l].V, im[l].D, im[l].J, im[l].C, im[l].pseudo]));
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -397,6 +647,9 @@ const DATA_SOURCES = [
   ['UCSC hg38 RepeatMasker table', FILES.rmsk],
   ['UCSC hg38 segmental duplications', FILES.superDups],
   ['UCSC hg38 Tandem Repeats Finder table', FILES.simpleRepeat],
+  ['GENCODE latest release folder', FILES.gencodeDir],
+  ['HGNC complete set', FILES.hgnc],
+  ['NCBI Homo sapiens gene_info', FILES.geneInfo],
 ];
 
 const renderSources = () => {
@@ -465,6 +718,14 @@ const drawCharts = () => {
   renderLandscape();
   renderSegdups();
   renderTandem();
+  renderGenecount();
+  renderDensity();
+  renderGenesize();
+  renderStructure();
+  renderIsoforms();
+  renderNames();
+  renderPseudogenes();
+  renderImmune();
   applySearch();
 };
 
