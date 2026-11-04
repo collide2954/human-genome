@@ -190,6 +190,8 @@ export const SOURCE_TITLES = {
   gregg2021: ['Clinical genetics', 'Gregg et al. 2021, Screening for autosomal recessive and X-linked conditions during pregnancy and preconception (ACMG), Genetics in Medicine 23:1793'],
 };
 
+export const GENE_THERAPIES_CHECKED = '2026-11-04';
+
 const therapy = (trade, proper, year, vector, group, condition) => ({
   trade, proper, year, vector, group, condition,
 });
