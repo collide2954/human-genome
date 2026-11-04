@@ -98,6 +98,30 @@
     </figure>
   </section>
 
+  <section class="story wrap" id="composition" data-lens="sequence" data-nav="Composition">
+    <header class="head"><p class="label">Base composition</p><h2 data-finding="composition">Base composition</h2><p class="dek" id="composition-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="gc-chart"></div>
+      <figcaption>GC content of each megabase of GRCh38, darker for richer, with each chromosome’s overall share at the right. Megabases that are mostly N are left blank. Computed from the UCSC hg38 2bit sequence.</figcaption>
+    </figure>
+    <h3 class="subhead" data-finding="cpg">CpG depletion</h3>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="dinuc-chart"></div>
+        <figcaption>Each dinucleotide’s count over the count its two bases’ frequencies predict, first base down the side, second across the top; below 1 in blue, above 1 in red. Chromosomes 1 to 22, X and Y, skipping pairs that touch N. Computed from the hg38 2bit sequence.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="cpg-chart"></div>
+        <figcaption>CpG observed over expected for each chromosome and the mitochondrial genome. Computed from the hg38 2bit sequence.</figcaption>
+      </figure>
+    </div>
+    <h3 class="subhead" data-finding="motifs">Motifs</h3>
+    <figure class="fig">
+      <div class="chart" id="g4-chart"></div>
+      <figcaption>Motifs of four runs of three or more G separated by loops of 1 to 7 bases, the G3+N1–7 definition of Huppert and Balasubramanian (2005), on the strand that reads G-rich and on the C-rich strand opposite. Overlapping matches count once; loops may not cross N. Computed from the hg38 2bit sequence.</figcaption>
+    </figure>
+  </section>
+
   <div class="chapter wrap" id="ch-reference" data-chapter="reference">
     <p class="chapter-no">Part 2</p>
     <h2 class="chapter-title">History and reference</h2>
