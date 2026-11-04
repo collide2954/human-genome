@@ -381,6 +381,37 @@ test('findings state the cancer genomics and pharmacogenomics sections as number
   assert.equal(f.clinpgx, 'ClinPGx holds 5,186 clinical annotations; 311 reach level 1A and 4,482 sit at level 3');
 });
 
+fixture.gwas = {
+  associations: 1205644,
+  studies: 76646,
+  significant: 1027700,
+  byYear: { 2015: { associations: 13550, studies: 800 }, 2024: { associations: 186064, studies: 33457 }, 2025: { associations: 274946, studies: 62351 } },
+  topTraits: [{ trait: 'body height', n: 45250 }],
+  topGenes: [{ gene: 'FADS2', n: 13652 }],
+  effects: {
+    n: 24908, median: 1.15, counts: [[8735], [7348], [3316], [2114], [1478], [957], [544], [416]],
+  },
+};
+fixture.pgs = {
+  catalog: { scores: 7029, traits: 820 },
+  variants: { median: 127770 },
+  ancestry: { gwas: { European: 900, 'East Asian': 100 }, evaluation: { European: 70, 'East Asian': 30 } },
+  performance: { auroc: { n: 5876, median: 0.657 }, r2: { median: 0.07 } },
+};
+fixture.panukb = { eur: { passing: 452, median: 0.1175, top: [{ description: 'Standing height', h2: 0.5876 }] } };
+
+test('findings state the complex trait sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.manhattan, 'The GWAS Catalog holds 1,205,644 associations from 76,646 studies; 85.2% reach p < 5×10⁻⁸');
+  assert.equal(f.gwasgrowth, 'Studies published in 2025 report 274,946 catalog associations, 20 times as many as those published in 2015');
+  assert.equal(f.gwastraits, 'Body height has the most catalog associations, 45,250; FADS2 is the gene mapped to the most, 13,652');
+  assert.equal(f.effects, 'Among 24,908 disease associations with odds ratios, the median OR is 1.15; 13.6% exceed 2');
+  assert.equal(f.pgs, 'The PGS Catalog holds 7,029 scores for 820 traits; the median score uses 127,770 variants');
+  assert.equal(f.pgsancestry, '90% of individuals in the GWAS behind polygenic scores are listed as European; 70% of those in evaluations');
+  assert.equal(f.pgsperformance, 'Polygenic scores report a median AUROC of 0.657 across 5,876 evaluations; the median R² is 0.07');
+  assert.equal(f.heritability, 'Median SNP heritability of 452 UK Biobank traits in European-ancestry people is 0.12; standing height reaches 0.59');
+});
+
 test('findings state the variation and constraint sections as numbers', () => {
   const f = findings(fixture);
   assert.equal(f.dbsnp, 'dbSNP build 157 holds 1,206,053,617 reference SNP records from 4,849,775,973 submitted variants; 1,172,689,405 are live');
