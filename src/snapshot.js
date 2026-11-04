@@ -1,5 +1,5 @@
 export default {
-  "generated": "2026-11-04T17:32:31.312Z",
+  "generated": "2026-11-04T18:41:30.522Z",
   "asOf": {
     "assembly": "2026-11-04T05:28:42.686Z",
     "sequence": "2026-11-04T06:07:32.158Z",
@@ -33,7 +33,12 @@ export default {
     "orphanet": "2026-11-04T15:38:11.730Z",
     "gtr": "2026-11-04T16:18:15.305Z",
     "fda": "2026-11-04T16:19:32.716Z",
-    "trials": "2026-11-04T16:19:32.716Z"
+    "trials": "2026-11-04T16:19:32.716Z",
+    "intogen": "2026-11-04T18:39:57.310Z",
+    "gdc": "2026-11-04T18:41:30.522Z",
+    "cpic": "2026-11-04T18:39:57.310Z",
+    "fdaPgx": "2026-11-04T18:39:57.310Z",
+    "clinpgx": "2026-11-04T18:39:57.310Z"
   },
   "failed": [],
   "assembly": {
@@ -102877,6 +102882,7005 @@ export default {
         "Not applicable": 2
       },
       "recruiting": 36
+    }
+  },
+  "intogen": {
+    "release": "2024-09-20",
+    "drivers": {
+      "rows": 4478,
+      "genes": 633,
+      "cancerTypes": 86,
+      "cohorts": 260,
+      "roles": {
+        "Act": 279,
+        "LoF": 295,
+        "ambiguous": 59
+      },
+      "byType": [
+        {
+          "type": "BRCA",
+          "genes": 118
+        },
+        {
+          "type": "HCC",
+          "genes": 111
+        },
+        {
+          "type": "PRAD",
+          "genes": 95
+        },
+        {
+          "type": "BLCA",
+          "genes": 93
+        },
+        {
+          "type": "DLBCLNOS",
+          "genes": 86
+        },
+        {
+          "type": "MEL",
+          "genes": 83
+        },
+        {
+          "type": "COADREAD",
+          "genes": 82
+        },
+        {
+          "type": "LUAD",
+          "genes": 77
+        },
+        {
+          "type": "LUSC",
+          "genes": 77
+        },
+        {
+          "type": "STAD",
+          "genes": 74
+        },
+        {
+          "type": "ESCA",
+          "genes": 72
+        },
+        {
+          "type": "HNSC",
+          "genes": 72
+        },
+        {
+          "type": "AML",
+          "genes": 71
+        },
+        {
+          "type": "UCEC",
+          "genes": 71
+        },
+        {
+          "type": "PAAD",
+          "genes": 64
+        },
+        {
+          "type": "CHOL",
+          "genes": 63
+        },
+        {
+          "type": "MLYM",
+          "genes": 58
+        },
+        {
+          "type": "NHL",
+          "genes": 55
+        },
+        {
+          "type": "OVT",
+          "genes": 54
+        },
+        {
+          "type": "PCM",
+          "genes": 53
+        },
+        {
+          "type": "CLLSLL",
+          "genes": 52
+        },
+        {
+          "type": "MBL",
+          "genes": 50
+        },
+        {
+          "type": "GBM",
+          "genes": 48
+        },
+        {
+          "type": "CCRCC",
+          "genes": 46
+        },
+        {
+          "type": "NSCLC",
+          "genes": 45
+        },
+        {
+          "type": "COAD",
+          "genes": 42
+        },
+        {
+          "type": "LGGNOS",
+          "genes": 42
+        },
+        {
+          "type": "PAST",
+          "genes": 42
+        },
+        {
+          "type": "WDTC",
+          "genes": 42
+        },
+        {
+          "type": "CESC",
+          "genes": 40
+        },
+        {
+          "type": "PLMESO",
+          "genes": 39
+        },
+        {
+          "type": "NPC",
+          "genes": 37
+        },
+        {
+          "type": "BCC",
+          "genes": 31
+        },
+        {
+          "type": "ALL",
+          "genes": 30
+        },
+        {
+          "type": "PRCC",
+          "genes": 30
+        },
+        {
+          "type": "PROSTATE",
+          "genes": 30
+        },
+        {
+          "type": "SKCM",
+          "genes": 30
+        },
+        {
+          "type": "PANCREAS",
+          "genes": 29
+        },
+        {
+          "type": "NBL",
+          "genes": 28
+        },
+        {
+          "type": "ANGS",
+          "genes": 27
+        },
+        {
+          "type": "SCLC",
+          "genes": 27
+        },
+        {
+          "type": "BL",
+          "genes": 25
+        },
+        {
+          "type": "UCS",
+          "genes": 24
+        },
+        {
+          "type": "RCC",
+          "genes": 23
+        },
+        {
+          "type": "CSCC",
+          "genes": 22
+        },
+        {
+          "type": "ESCC",
+          "genes": 22
+        },
+        {
+          "type": "UTUC",
+          "genes": 21
+        },
+        {
+          "type": "CEAD",
+          "genes": 20
+        },
+        {
+          "type": "STOMACH",
+          "genes": 18
+        },
+        {
+          "type": "HGGNOS",
+          "genes": 17
+        },
+        {
+          "type": "ACC",
+          "genes": 16
+        },
+        {
+          "type": "GB",
+          "genes": 16
+        },
+        {
+          "type": "LMS",
+          "genes": 15
+        },
+        {
+          "type": "READ",
+          "genes": 15
+        },
+        {
+          "type": "SACA",
+          "genes": 15
+        },
+        {
+          "type": "ANSC",
+          "genes": 14
+        },
+        {
+          "type": "OS",
+          "genes": 14
+        },
+        {
+          "type": "BLADDER",
+          "genes": 13
+        },
+        {
+          "type": "SOFT_TISSUE",
+          "genes": 13
+        },
+        {
+          "type": "THYM",
+          "genes": 13
+        },
+        {
+          "type": "VULVA",
+          "genes": 13
+        },
+        {
+          "type": "ACYC",
+          "genes": 12
+        },
+        {
+          "type": "MT",
+          "genes": 12
+        },
+        {
+          "type": "CHRCC",
+          "genes": 11
+        },
+        {
+          "type": "EGC",
+          "genes": 11
+        },
+        {
+          "type": "PGNG",
+          "genes": 11
+        },
+        {
+          "type": "SIC",
+          "genes": 11
+        },
+        {
+          "type": "GBC",
+          "genes": 10
+        },
+        {
+          "type": "MGCT",
+          "genes": 10
+        },
+        {
+          "type": "PANET",
+          "genes": 10
+        },
+        {
+          "type": "SKIN",
+          "genes": 10
+        },
+        {
+          "type": "UM",
+          "genes": 10
+        },
+        {
+          "type": "GIST",
+          "genes": 9
+        },
+        {
+          "type": "NETNOS",
+          "genes": 9
+        },
+        {
+          "type": "LUNG",
+          "genes": 8
+        },
+        {
+          "type": "WT",
+          "genes": 8
+        },
+        {
+          "type": "ES",
+          "genes": 6
+        },
+        {
+          "type": "LIPO",
+          "genes": 6
+        },
+        {
+          "type": "LNM",
+          "genes": 6
+        },
+        {
+          "type": "SARCNOS",
+          "genes": 5
+        },
+        {
+          "type": "MDS",
+          "genes": 3
+        },
+        {
+          "type": "RMS",
+          "genes": 3
+        },
+        {
+          "type": "ATRT",
+          "genes": 1
+        },
+        {
+          "type": "EPM",
+          "genes": 1
+        },
+        {
+          "type": "LIHB",
+          "genes": 1
+        },
+        {
+          "type": "RBL",
+          "genes": 1
+        }
+      ],
+      "top": [
+        {
+          "gene": "TP53",
+          "types": 74,
+          "Act": 17,
+          "LoF": 53,
+          "ambiguous": 4
+        },
+        {
+          "gene": "PIK3CA",
+          "types": 47,
+          "Act": 44,
+          "LoF": 1,
+          "ambiguous": 2
+        },
+        {
+          "gene": "KMT2D",
+          "types": 46,
+          "Act": 9,
+          "LoF": 33,
+          "ambiguous": 4
+        },
+        {
+          "gene": "LRP1B",
+          "types": 40,
+          "Act": 25,
+          "LoF": 11,
+          "ambiguous": 4
+        },
+        {
+          "gene": "KMT2C",
+          "types": 39,
+          "Act": 6,
+          "LoF": 32,
+          "ambiguous": 1
+        },
+        {
+          "gene": "ARID1A",
+          "types": 38,
+          "Act": 1,
+          "LoF": 37,
+          "ambiguous": 0
+        },
+        {
+          "gene": "PTEN",
+          "types": 38,
+          "Act": 5,
+          "LoF": 31,
+          "ambiguous": 2
+        },
+        {
+          "gene": "KRAS",
+          "types": 36,
+          "Act": 36,
+          "LoF": 0,
+          "ambiguous": 0
+        },
+        {
+          "gene": "NF1",
+          "types": 33,
+          "Act": 3,
+          "LoF": 30,
+          "ambiguous": 0
+        },
+        {
+          "gene": "RB1",
+          "types": 33,
+          "Act": 0,
+          "LoF": 32,
+          "ambiguous": 1
+        },
+        {
+          "gene": "CDKN2A",
+          "types": 29,
+          "Act": 5,
+          "LoF": 21,
+          "ambiguous": 3
+        },
+        {
+          "gene": "BRAF",
+          "types": 28,
+          "Act": 26,
+          "LoF": 1,
+          "ambiguous": 1
+        },
+        {
+          "gene": "FAT1",
+          "types": 28,
+          "Act": 14,
+          "LoF": 14,
+          "ambiguous": 0
+        },
+        {
+          "gene": "NOTCH1",
+          "types": 26,
+          "Act": 8,
+          "LoF": 17,
+          "ambiguous": 1
+        },
+        {
+          "gene": "SMARCA4",
+          "types": 26,
+          "Act": 14,
+          "LoF": 8,
+          "ambiguous": 4
+        },
+        {
+          "gene": "CREBBP",
+          "types": 25,
+          "Act": 6,
+          "LoF": 15,
+          "ambiguous": 4
+        },
+        {
+          "gene": "ATM",
+          "types": 24,
+          "Act": 6,
+          "LoF": 16,
+          "ambiguous": 2
+        },
+        {
+          "gene": "FAT4",
+          "types": 24,
+          "Act": 16,
+          "LoF": 6,
+          "ambiguous": 2
+        },
+        {
+          "gene": "SETD2",
+          "types": 23,
+          "Act": 0,
+          "LoF": 22,
+          "ambiguous": 1
+        },
+        {
+          "gene": "APC",
+          "types": 22,
+          "Act": 2,
+          "LoF": 20,
+          "ambiguous": 0
+        },
+        {
+          "gene": "FBXW7",
+          "types": 22,
+          "Act": 4,
+          "LoF": 14,
+          "ambiguous": 4
+        },
+        {
+          "gene": "NRAS",
+          "types": 22,
+          "Act": 21,
+          "LoF": 1,
+          "ambiguous": 0
+        },
+        {
+          "gene": "ARID2",
+          "types": 21,
+          "Act": 1,
+          "LoF": 20,
+          "ambiguous": 0
+        },
+        {
+          "gene": "FAT3",
+          "types": 21,
+          "Act": 16,
+          "LoF": 4,
+          "ambiguous": 1
+        },
+        {
+          "gene": "ARID1B",
+          "types": 20,
+          "Act": 4,
+          "LoF": 14,
+          "ambiguous": 2
+        }
+      ]
+    },
+    "cohorts": {
+      "cohorts": 271,
+      "samples": 33218,
+      "mutations": 257898749,
+      "platforms": {
+        "WXS": 144,
+        "WGS": 127
+      },
+      "kinds": {
+        "Primary": 226,
+        "Relapse": 3,
+        "Metastasis": 42
+      },
+      "ages": {
+        "Adult": 235,
+        "Pediatric": 36
+      },
+      "names": {
+        "ACC": "Adrenocortical Carcinoma",
+        "ACYC": "Adenoid Cystic Carcinoma",
+        "ALL": "Acute Lymphoblastic Leukemia",
+        "AML": "Acute Myeloid Leukemia",
+        "ANGS": "Angiosarcoma",
+        "ANSC": "Anal Squamous Cell Carcinoma",
+        "ATRT": "Atypical Teratoid/Rhabdoid Tumor",
+        "BCC": "Basal Cell Carcinoma",
+        "BL": "Burkitt Lymphoma",
+        "BLADDER": "Bladder/Urinary Tract",
+        "BLCA": "Bladder Urothelial Carcinoma",
+        "BRCA": "Invasive Breast Carcinoma",
+        "CCRCC": "Renal Clear Cell Carcinoma",
+        "CEAD": "Cervical Adenocarcinoma",
+        "CESC": "Cervical Squamous Cell Carcinoma",
+        "CHOL": "Cholangiocarcinoma",
+        "CHRCC": "Chromophobe Renal Cell Carcinoma",
+        "CLLSLL": "Chronic Lymphocytic Leukemia/Small Lymphocytic Lymphoma",
+        "CML": "Chronic Myelogenous Leukemia",
+        "COAD": "Colon Adenocarcinoma",
+        "COADREAD": "Colorectal Adenocarcinoma",
+        "CSCC": "Cutaneous Squamous Cell Carcinoma",
+        "DLBCLNOS": "Diffuse Large B-Cell Lymphoma, NOS",
+        "EGC": "Esophagogastric Adenocarcinoma",
+        "EPM": "Ependymoma",
+        "ES": "Ewing Sarcoma",
+        "ESCA": "Esophageal Adenocarcinoma",
+        "ESCC": "Esophageal Squamous Cell Carcinoma",
+        "GB": "Glioblastoma",
+        "GBC": "Gallbladder Cancer",
+        "GBM": "Glioblastoma Multiforme",
+        "GIST": "Gastrointestinal Stromal Tumor",
+        "HCC": "Hepatocellular Carcinoma",
+        "HGGNOS": "High-Grade Glioma, NOS",
+        "HNSC": "Head and Neck Squamous Cell Carcinoma",
+        "LGGNOS": "Low-Grade Glioma, NOS",
+        "LIHB": "Hepatoblastoma",
+        "LIPO": "Liposarcoma",
+        "LMS": "Leiomyosarcoma",
+        "LNM": "Lymphoid Neoplasm",
+        "LUAD": "Lung Adenocarcinoma",
+        "LUNG": "Lung",
+        "LUSC": "Lung Squamous Cell Carcinoma",
+        "MBL": "Medulloblastoma",
+        "MDS": "Myelodysplastic Syndromes",
+        "MEL": "Melanoma",
+        "MGCT": "Mixed Germ Cell Tumor",
+        "MLYM": "Malignant Lymphoma",
+        "MT": "Malignant Tumor",
+        "NBL": "Neuroblastoma",
+        "NETNOS": "Neuroendocrine Tumor, NOS",
+        "NHL": "Non-Hodgkin Lymphoma",
+        "NPC": "Nasopharyngeal Carcinoma",
+        "NSCLC": "Non-Small Cell Lung Cancer",
+        "OS": "Osteosarcoma",
+        "OVT": "Ovarian Epithelial Tumor",
+        "PAAD": "Pancreatic Adenocarcinoma",
+        "PANCREAS": "Pancreas",
+        "PANET": "Pancreatic Neuroendocrine Tumor",
+        "PAST": "Pilocytic Astrocytoma",
+        "PCM": "Plasma Cell Myeloma",
+        "PGNG": "Paraganglioma",
+        "PLMESO": "Pleural Mesothelioma",
+        "PRAD": "Prostate Adenocarcinoma",
+        "PRCC": "Papillary Renal Cell Carcinoma",
+        "PROSTATE": "Prostate",
+        "RBL": "Retinoblastoma",
+        "RCC": "Renal Cell Carcinoma",
+        "READ": "Rectal Adenocarcinoma",
+        "RMS": "Rhabdomyosarcoma",
+        "SACA": "Salivary Carcinoma",
+        "SARCNOS": "Sarcoma, NOS",
+        "SCLC": "Small Cell Lung Cancer",
+        "SIC": "Small Intestinal Carcinoma",
+        "SKCM": "Cutaneous Melanoma",
+        "SKIN": "Skin",
+        "SOFT_TISSUE": "Soft Tissue",
+        "STAD": "Stomach Adenocarcinoma",
+        "STOMACH": "Esophagus/Stomach",
+        "THYM": "Thymoma",
+        "UCEC": "Endometrial Carcinoma",
+        "UCS": "Uterine Carcinosarcoma/Uterine Malignant Mixed Mullerian Tumor",
+        "UM": "Uveal Melanoma",
+        "UTUC": "Upper Tract Urothelial Carcinoma",
+        "VULVA": "Vulva/Vagina",
+        "WDTC": "Well-Differentiated Thyroid Cancer",
+        "WT": "Wilms' Tumor"
+      },
+      "burden": [
+        {
+          "cancer": "CML",
+          "name": "Chronic Myelogenous Leukemia",
+          "median": 1.5,
+          "cohorts": [
+            {
+              "cohort": "ICGC_WXS_CML_CMDI_UK_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 97,
+              "perSample": 1.5
+            }
+          ]
+        },
+        {
+          "cancer": "PGNG",
+          "name": "Paraganglioma",
+          "median": 15,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_PGNG",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 178,
+              "perSample": 15
+            }
+          ]
+        },
+        {
+          "cancer": "ATRT",
+          "name": "Atypical Teratoid/Rhabdoid Tumor",
+          "median": 19.5,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_ATRT_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 17,
+              "perSample": 19.5
+            }
+          ]
+        },
+        {
+          "cancer": "LIHB",
+          "name": "Hepatoblastoma",
+          "median": 20.5,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_HCB_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 10,
+              "perSample": 20.5
+            }
+          ]
+        },
+        {
+          "cancer": "MBL",
+          "name": "Medulloblastoma",
+          "median": 23.2,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_MBL_GP3_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 58,
+              "perSample": 18.3
+            },
+            {
+              "cohort": "PEDCBIOP_WXS_MBL_GP4_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 97,
+              "perSample": 18.7
+            },
+            {
+              "cohort": "PEDCBIOP_WXS_MBL_BROAD_2012",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 92,
+              "perSample": 19.7
+            },
+            {
+              "cohort": "PEDCBIOP_WXS_MBL_SHH_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 41,
+              "perSample": 22.4
+            },
+            {
+              "cohort": "PEDCBIOP_WXS_MBL_WNT_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 21,
+              "perSample": 24
+            },
+            {
+              "cohort": "STJUDE_WGS_D_MB_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 38,
+              "perSample": 611.8
+            },
+            {
+              "cohort": "PCAWG_WGS_CNS_MEDULLO",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 141,
+              "perSample": 1587.2
+            },
+            {
+              "cohort": "OTHER_WGS_PBCA_DE_MB",
+              "platform": "WGS",
+              "age": "Pediatric",
+              "samples": 148,
+              "perSample": 1606.6
+            }
+          ]
+        },
+        {
+          "cancer": "MGCT",
+          "name": "Mixed Germ Cell Tumor",
+          "median": 23.7,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_MGCT",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 144,
+              "perSample": 23.7
+            }
+          ]
+        },
+        {
+          "cancer": "UM",
+          "name": "Uveal Melanoma",
+          "median": 24.2,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_UM",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 80,
+              "perSample": 24.2
+            }
+          ]
+        },
+        {
+          "cancer": "CLLSLL",
+          "name": "Chronic Lymphocytic Leukemia/Small Lymphocytic Lymphoma",
+          "median": 26.9,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_CLL_BROAD_2013",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 154,
+              "perSample": 19.5
+            },
+            {
+              "cohort": "ICGC_WXS_CLLSLL_CLLE_ES_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 68,
+              "perSample": 22.4
+            },
+            {
+              "cohort": "CBIOP_WXS_CLL_IUOPA_2015",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 506,
+              "perSample": 26.9
+            },
+            {
+              "cohort": "ICGC_WGS_CLLSLL_CLLE_ES_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 51,
+              "perSample": 2494.6
+            },
+            {
+              "cohort": "PCAWG_WGS_LYMPH_CLL",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 90,
+              "perSample": 2560.6
+            }
+          ]
+        },
+        {
+          "cancer": "WT",
+          "name": "Wilms' Tumor",
+          "median": 26.9,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_WT_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 45,
+              "perSample": 8.7
+            },
+            {
+              "cohort": "TARGET_WGS_WT_US",
+              "platform": "WGS",
+              "age": "Pediatric",
+              "samples": 34,
+              "perSample": 45.1
+            }
+          ]
+        },
+        {
+          "cancer": "SACA",
+          "name": "Salivary Carcinoma",
+          "median": 38.7,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_ACYC_SANGER_2013",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 24,
+              "perSample": 12.9
+            },
+            {
+              "cohort": "CBIOP_WXS_ACYC_MDA_2015",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 21,
+              "perSample": 38.7
+            },
+            {
+              "cohort": "HARTWIG_WGS_SACA_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 27,
+              "perSample": 8071.7
+            }
+          ]
+        },
+        {
+          "cancer": "THYM",
+          "name": "Thymoma",
+          "median": 40.3,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_THYM",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 122,
+              "perSample": 40.3
+            }
+          ]
+        },
+        {
+          "cancer": "NBL",
+          "name": "Neuroblastoma",
+          "median": 44.9,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_NBL_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 47,
+              "perSample": 13.5
+            },
+            {
+              "cohort": "OTHER_WXS_NBL_SCIENCE_COLOGNE_2018",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 186,
+              "perSample": 13.5
+            },
+            {
+              "cohort": "PEDCBIOP_WXS_NBL_UCOLOGNE_2015",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 56,
+              "perSample": 16.4
+            },
+            {
+              "cohort": "TARGET_WGS_NBL_US",
+              "platform": "WGS",
+              "age": "Pediatric",
+              "samples": 212,
+              "perSample": 73.5
+            },
+            {
+              "cohort": "STJUDE_WGS_D_NB_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 48,
+              "perSample": 1028.8
+            },
+            {
+              "cohort": "STJUDE_WGS_R_NB_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 13,
+              "perSample": 2356.8
+            }
+          ]
+        },
+        {
+          "cancer": "HGGNOS",
+          "name": "High-Grade Glioma, NOS",
+          "median": 52.7,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_HGG_REL",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 11,
+              "perSample": 29.5
+            },
+            {
+              "cohort": "PEDCBIOP_WXS_HGG_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 106,
+              "perSample": 52.7
+            },
+            {
+              "cohort": "STJUDE_WGS_D_HGG_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 20,
+              "perSample": 1780.9
+            }
+          ]
+        },
+        {
+          "cancer": "PCM",
+          "name": "Plasma Cell Myeloma",
+          "median": 56.8,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_MM_BROAD_UNTREAT",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 91,
+              "perSample": 47.8
+            },
+            {
+              "cohort": "CBIOP_WXS_MM_BROAD_TREAT",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 98,
+              "perSample": 56.8
+            },
+            {
+              "cohort": "OTHER_WGS_MM_NATLEUK2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 933,
+              "perSample": 365.5
+            }
+          ]
+        },
+        {
+          "cancer": "ALL",
+          "name": "Acute Lymphoblastic Leukemia",
+          "median": 69.4,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_TALL_REL",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 10,
+              "perSample": 4.6
+            },
+            {
+              "cohort": "PEDCBIOP_WXS_BALL_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 44,
+              "perSample": 6.3
+            },
+            {
+              "cohort": "PEDCBIOP_WXS_BALL_REL",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 21,
+              "perSample": 69.4
+            },
+            {
+              "cohort": "STJUDE_WGS_D_ALL_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 278,
+              "perSample": 608.9
+            },
+            {
+              "cohort": "STJUDE_WGS_R_ALL_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 10,
+              "perSample": 3150.6
+            }
+          ]
+        },
+        {
+          "cancer": "ACYC",
+          "name": "Adenoid Cystic Carcinoma",
+          "median": 70.2,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_ACY_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 35,
+              "perSample": 70.2
+            }
+          ]
+        },
+        {
+          "cancer": "RBL",
+          "name": "Retinoblastoma",
+          "median": 79.2,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_RB_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 31,
+              "perSample": 4.1
+            },
+            {
+              "cohort": "STJUDE_WGS_D_RB_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 14,
+              "perSample": 154.4
+            }
+          ]
+        },
+        {
+          "cancer": "CCRCC",
+          "name": "Renal Clear Cell Carcinoma",
+          "median": 87.2,
+          "cohorts": [
+            {
+              "cohort": "ICGC_WGS_CCRCC_RECA_EU_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 327,
+              "perSample": 3
+            },
+            {
+              "cohort": "ICGC_WXS_CCRCC_RECA_CN_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 10,
+              "perSample": 23.7
+            },
+            {
+              "cohort": "TCGA_WXS_CCRCC",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 358,
+              "perSample": 87.2
+            },
+            {
+              "cohort": "CPTAC_WXS_CCRCC_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 110,
+              "perSample": 243.8
+            },
+            {
+              "cohort": "PCAWG_WGS_KIDNEY_RCC",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 143,
+              "perSample": 7259.7
+            }
+          ]
+        },
+        {
+          "cancer": "PRCC",
+          "name": "Papillary Renal Cell Carcinoma",
+          "median": 125.2,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_PRCC",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 276,
+              "perSample": 125.2
+            }
+          ]
+        },
+        {
+          "cancer": "ACC",
+          "name": "Adrenocortical Carcinoma",
+          "median": 128.1,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_ACC_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 8,
+              "perSample": 29.9
+            },
+            {
+              "cohort": "TCGA_WXS_ACC",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 91,
+              "perSample": 128.1
+            },
+            {
+              "cohort": "STJUDE_WGS_D_ACC_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 20,
+              "perSample": 878
+            }
+          ]
+        },
+        {
+          "cancer": "NPC",
+          "name": "Nasopharyngeal Carcinoma",
+          "median": 129.5,
+          "cohorts": [
+            {
+              "cohort": "OTHER_WXS_NPC_NATCOM2017",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 103,
+              "perSample": 122.7
+            },
+            {
+              "cohort": "ICGC_WXS_NPC_ORCA_IN_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 106,
+              "perSample": 129.5
+            },
+            {
+              "cohort": "ICGC_WGS_NPC_ORCA_IN_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 12,
+              "perSample": 8859.3
+            }
+          ]
+        },
+        {
+          "cancer": "EPM",
+          "name": "Ependymoma",
+          "median": 134,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_EPD_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 55,
+              "perSample": 9.7
+            },
+            {
+              "cohort": "STJUDE_WGS_D_EPD_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 39,
+              "perSample": 258.3
+            }
+          ]
+        },
+        {
+          "cancer": "ES",
+          "name": "Ewing Sarcoma",
+          "median": 171.6,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_EWS_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 14,
+              "perSample": 11.9
+            },
+            {
+              "cohort": "PEDCBIOP_WGS_ES_IOCURIE_2014",
+              "platform": "WGS",
+              "age": "Pediatric",
+              "samples": 112,
+              "perSample": 18.2
+            },
+            {
+              "cohort": "PEDCBIOP_WXS_EWS_REL",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 10,
+              "perSample": 26.6
+            },
+            {
+              "cohort": "ICGC_WGS_ES_BOCA_FR_PED_2019",
+              "platform": "WGS",
+              "age": "Pediatric",
+              "samples": 77,
+              "perSample": 316.6
+            },
+            {
+              "cohort": "STJUDE_WGS_D_EWS_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 19,
+              "perSample": 398.8
+            },
+            {
+              "cohort": "ICGC_WGS_ES_BOCA_FR_AD_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 21,
+              "perSample": 585.5
+            }
+          ]
+        },
+        {
+          "cancer": "VULVA",
+          "name": "Vulva/Vagina",
+          "median": 202.3,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_VSC_CUK_2018",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 15,
+              "perSample": 202.3
+            }
+          ]
+        },
+        {
+          "cancer": "DLBCLNOS",
+          "name": "Diffuse Large B-Cell Lymphoma, NOS",
+          "median": 205.7,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_DLBCL_DFCI_2018",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 121,
+              "perSample": 106.6
+            },
+            {
+              "cohort": "CBIOP_WXS_DLBC_BROAD_2012",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 58,
+              "perSample": 200.9
+            },
+            {
+              "cohort": "TCGA_WXS_DLBCLNOS",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 37,
+              "perSample": 210.4
+            },
+            {
+              "cohort": "OTHER_WGS_DLBCL_NATCOM_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 153,
+              "perSample": 18480.6
+            }
+          ]
+        },
+        {
+          "cancer": "ESCA",
+          "name": "Esophageal Adenocarcinoma",
+          "median": 212.5,
+          "cohorts": [
+            {
+              "cohort": "ICGC_WGS_ESCA_ESCA_CN_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 17,
+              "perSample": 64.1
+            },
+            {
+              "cohort": "ICGC_WXS_ESCA_ESCA_CN_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 211,
+              "perSample": 144.1
+            },
+            {
+              "cohort": "CBIOP_WXS_ESCA_EGC_TRAP_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 31,
+              "perSample": 205.8
+            },
+            {
+              "cohort": "CBIOP_WXS_ESCA_BROAD",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 146,
+              "perSample": 212.5
+            },
+            {
+              "cohort": "TCGA_WXS_ESCA",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 182,
+              "perSample": 262.5
+            },
+            {
+              "cohort": "PCAWG_WGS_ESO_ADENOCA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 97,
+              "perSample": 29460.7
+            },
+            {
+              "cohort": "ICGC_WGS_ESCA_ESAD_UK_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 309,
+              "perSample": 32677
+            }
+          ]
+        },
+        {
+          "cancer": "GBM",
+          "name": "Glioblastoma Multiforme",
+          "median": 281.9,
+          "cohorts": [
+            {
+              "cohort": "ICGC_WXS_GBM_GBM_CN_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 78,
+              "perSample": 42.7
+            },
+            {
+              "cohort": "TCGA_WXS_GBM",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 391,
+              "perSample": 176.3
+            },
+            {
+              "cohort": "CPTAC_WXS_GBM_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 99,
+              "perSample": 387.4
+            },
+            {
+              "cohort": "PCAWG_WGS_CNS_GBM",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 39,
+              "perSample": 13587.4
+            }
+          ]
+        },
+        {
+          "cancer": "AML",
+          "name": "Acute Myeloid Leukemia",
+          "median": 308.3,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_AML_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 28,
+              "perSample": 8.3
+            },
+            {
+              "cohort": "ICGC_WXS_AML_LAML_CN_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 63,
+              "perSample": 8.7
+            },
+            {
+              "cohort": "TARGET_WXS_AML_2020",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 22,
+              "perSample": 43.7
+            },
+            {
+              "cohort": "TCGA_WXS_AML",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 140,
+              "perSample": 59.4
+            },
+            {
+              "cohort": "OTHER_WXS_AML_PRY_BEAT_2018",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 257,
+              "perSample": 308.3
+            },
+            {
+              "cohort": "ICGC_WXS_AML_LAML_KR_VARSCAN_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 67,
+              "perSample": 690.1
+            },
+            {
+              "cohort": "STJUDE_WGS_D_AML_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 21,
+              "perSample": 1441.2
+            },
+            {
+              "cohort": "PCAWG_WGS_MYELOID_AML",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 13,
+              "perSample": 1562.2
+            },
+            {
+              "cohort": "ICGC_WXS_AML_LAML_KR_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 50,
+              "perSample": 2193.3
+            }
+          ]
+        },
+        {
+          "cancer": "SCLC",
+          "name": "Small Cell Lung Cancer",
+          "median": 354.5,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_SCLC_CLCGP",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 29,
+              "perSample": 300.8
+            },
+            {
+              "cohort": "CBIOP_WXS_SCLC_UCOLOGNE_2015",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 107,
+              "perSample": 354.5
+            },
+            {
+              "cohort": "HARTWIG_WGS_SCLC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 52,
+              "perSample": 46943.8
+            }
+          ]
+        },
+        {
+          "cancer": "BRCA",
+          "name": "Invasive Breast Carcinoma",
+          "median": 363.5,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_BRCA_MBCP_PRY_TREAT_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 6,
+              "perSample": 58.2
+            },
+            {
+              "cohort": "ICGC_WXS_BRCA_BRCA_UK_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 95,
+              "perSample": 66.4
+            },
+            {
+              "cohort": "CBIOP_WXS_BRCA_MBCP_MET_NOTREAT_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 45,
+              "perSample": 87.1
+            },
+            {
+              "cohort": "CBIOP_WXS_BRCA_MBCP_MET_TREAT_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 33,
+              "perSample": 122.2
+            },
+            {
+              "cohort": "CBIOP_WXS_BRCA_MBCP_PRY_NOTREAT_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 37,
+              "perSample": 124.2
+            },
+            {
+              "cohort": "TCGA_WXS_BRCA",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 1009,
+              "perSample": 129.3
+            },
+            {
+              "cohort": "ICGC_WXS_BRCA_BRCA_KR_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 49,
+              "perSample": 356.3
+            },
+            {
+              "cohort": "CPTAC_WXS_BRCA_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 127,
+              "perSample": 370.7
+            },
+            {
+              "cohort": "OTHER_WGS_BRCA_SCANB_TNBC_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 237,
+              "perSample": 6355.9
+            },
+            {
+              "cohort": "ICGC_WGS_BRCA_BRCA_EU_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 483,
+              "perSample": 7258.4
+            },
+            {
+              "cohort": "PCAWG_WGS_BREAST_ADENOCA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 195,
+              "perSample": 7662.5
+            },
+            {
+              "cohort": "PCAWG_WGS_BREAST_LOBULARCA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 13,
+              "perSample": 7716.8
+            },
+            {
+              "cohort": "ICGC_WGS_BRCA_BRCA_FR_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 72,
+              "perSample": 8648.1
+            },
+            {
+              "cohort": "HARTWIG_WGS_BRCA_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 826,
+              "perSample": 15482.7
+            }
+          ]
+        },
+        {
+          "cancer": "BLCA",
+          "name": "Bladder Urothelial Carcinoma",
+          "median": 373.1,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_BLCA_BGI",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 79,
+              "perSample": 110.2
+            },
+            {
+              "cohort": "CBIOP_WXS_BLCA_UTUC_IGBMC_2021",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 30,
+              "perSample": 141.8
+            },
+            {
+              "cohort": "ICGC_WXS_BLCA_BLCA_CN_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 103,
+              "perSample": 158.8
+            },
+            {
+              "cohort": "CBIOP_WXS_BLCA_VALLEN_2018",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 27,
+              "perSample": 368.4
+            },
+            {
+              "cohort": "TCGA_WXS_BLCA",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 411,
+              "perSample": 377.7
+            },
+            {
+              "cohort": "CBIOP_WXS_BLCA_DFARBER_MSKCC_2014",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 50,
+              "perSample": 427.3
+            },
+            {
+              "cohort": "PCAWG_WGS_BLADDER_TCC",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 23,
+              "perSample": 22781.2
+            },
+            {
+              "cohort": "HARTWIG_WGS_BLCA_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 144,
+              "perSample": 34844.2
+            }
+          ]
+        },
+        {
+          "cancer": "LUAD",
+          "name": "Lung Adenocarcinoma",
+          "median": 387.6,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_LUAD_ONCOSG_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 302,
+              "perSample": 244
+            },
+            {
+              "cohort": "CBIOP_WXS_LUAD_VALLEN_2018",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 47,
+              "perSample": 329.8
+            },
+            {
+              "cohort": "CBIOP_WXS_LUAD_BROAD",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 159,
+              "perSample": 343.6
+            },
+            {
+              "cohort": "TCGA_WXS_LUAD",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 560,
+              "perSample": 431.6
+            },
+            {
+              "cohort": "CPTAC_WXS_LUAD_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 110,
+              "perSample": 858.3
+            },
+            {
+              "cohort": "PCAWG_WGS_LUNG_ADENOCA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 37,
+              "perSample": 36745.7
+            }
+          ]
+        },
+        {
+          "cancer": "ANGS",
+          "name": "Angiosarcoma",
+          "median": 394.7,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_ANGS_UNTREAT_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 34,
+              "perSample": 329.3
+            },
+            {
+              "cohort": "CBIOP_WXS_ANGS_TREATED_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 37,
+              "perSample": 460.2
+            }
+          ]
+        },
+        {
+          "cancer": "PRAD",
+          "name": "Prostate Adenocarcinoma",
+          "median": 463.5,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_PRAD_BROAD_2013",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 45,
+              "perSample": 41.3
+            },
+            {
+              "cohort": "CBIOP_WXS_PRAD_BROAD",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 112,
+              "perSample": 51.5
+            },
+            {
+              "cohort": "TCGA_WXS_PRAD",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 494,
+              "perSample": 69.3
+            },
+            {
+              "cohort": "CBIOP_WXS_PRAD_MSKCC_DCFI_2018_PRY",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 223,
+              "perSample": 97.6
+            },
+            {
+              "cohort": "CBIOP_WXS_PRAD_MSKCC_DCFI_2018_MET",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 333,
+              "perSample": 135.6
+            },
+            {
+              "cohort": "CBIOP_WXS_PRAD_SU2C_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 444,
+              "perSample": 145.4
+            },
+            {
+              "cohort": "CBIOP_WGS_PRAD_EURUROL_2017",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 65,
+              "perSample": 781.6
+            },
+            {
+              "cohort": "ICGC_WGS_PRAD_EOPC_DE_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 158,
+              "perSample": 2345.5
+            },
+            {
+              "cohort": "ICGC_WGS_PRAD_PRAD_UK_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 107,
+              "perSample": 3210.9
+            },
+            {
+              "cohort": "PCAWG_WGS_PROST_ADENOCA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 199,
+              "perSample": 3515.3
+            },
+            {
+              "cohort": "ICGC_WGS_PRAD_PRAD_FR_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 25,
+              "perSample": 4967.2
+            },
+            {
+              "cohort": "OTHER_WGS_PRAD_CPGEA_2021",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 208,
+              "perSample": 5613
+            }
+          ]
+        },
+        {
+          "cancer": "HNSC",
+          "name": "Head and Neck Squamous Cell Carcinoma",
+          "median": 491.1,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_HNSC_BROAD",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 70,
+              "perSample": 133.7
+            },
+            {
+              "cohort": "CBIOP_WXS_HNSC_VALLEN_2018",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 12,
+              "perSample": 225
+            },
+            {
+              "cohort": "TCGA_WXS_HNSC",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 502,
+              "perSample": 247.8
+            },
+            {
+              "cohort": "CPTAC_WXS_HNSC_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 110,
+              "perSample": 734.5
+            },
+            {
+              "cohort": "PCAWG_WGS_HEAD_SCC",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 56,
+              "perSample": 16452.6
+            },
+            {
+              "cohort": "HARTWIG_WGS_HNSC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 33,
+              "perSample": 20395.2
+            }
+          ]
+        },
+        {
+          "cancer": "PAST",
+          "name": "Pilocytic Astrocytoma",
+          "median": 519.2,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_PIA_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 93,
+              "perSample": 3.7
+            },
+            {
+              "cohort": "PCAWG_WGS_CNS_PILOASTRO",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 89,
+              "perSample": 519.2
+            },
+            {
+              "cohort": "OTHER_WGS_PBCA_DE_PIA",
+              "platform": "WGS",
+              "age": "Pediatric",
+              "samples": 439,
+              "perSample": 2429.5
+            }
+          ]
+        },
+        {
+          "cancer": "RMS",
+          "name": "Rhabdomyosarcoma",
+          "median": 658.8,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_RHBDS_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 13,
+              "perSample": 9.1
+            },
+            {
+              "cohort": "STJUDE_WGS_D_RHBDS_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 14,
+              "perSample": 1308.6
+            }
+          ]
+        },
+        {
+          "cancer": "OS",
+          "name": "Osteosarcoma",
+          "median": 853.3,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_OS_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 32,
+              "perSample": 16.6
+            },
+            {
+              "cohort": "ICGC_WXS_OS_BOCA_UK_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 65,
+              "perSample": 22.4
+            },
+            {
+              "cohort": "TARGET_WXS_OS_2020",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 97,
+              "perSample": 194.6
+            },
+            {
+              "cohort": "STJUDE_WGS_D_OS_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 29,
+              "perSample": 1512.1
+            },
+            {
+              "cohort": "STJUDE_WGS_M_OS_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 14,
+              "perSample": 2464.4
+            },
+            {
+              "cohort": "PCAWG_WGS_BONE_OSTEOSARC",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 41,
+              "perSample": 4054.8
+            }
+          ]
+        },
+        {
+          "cancer": "HCC",
+          "name": "Hepatocellular Carcinoma",
+          "median": 877.7,
+          "cohorts": [
+            {
+              "cohort": "ICGC_WXS_HCC_LIHM_FR_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 4,
+              "perSample": 21.5
+            },
+            {
+              "cohort": "ICGC_WXS_HCC_LICA_CN_VARSCAN_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 175,
+              "perSample": 112.2
+            },
+            {
+              "cohort": "CBIOP_WXS_HCC_AMC_PRV",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 231,
+              "perSample": 119.4
+            },
+            {
+              "cohort": "TCGA_WXS_HCC",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 360,
+              "perSample": 167.5
+            },
+            {
+              "cohort": "ICGC_WXS_HCC_LINC_JP_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 213,
+              "perSample": 305.9
+            },
+            {
+              "cohort": "ICGC_WXS_HCC_LICA_FR_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 211,
+              "perSample": 628.9
+            },
+            {
+              "cohort": "ICGC_WXS_HCC_LIAD_FR_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 30,
+              "perSample": 1126.5
+            },
+            {
+              "cohort": "ICGC_WXS_HCC_LICA_CN_STRELKA_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 115,
+              "perSample": 7006.6
+            },
+            {
+              "cohort": "PCAWG_WGS_LIVER_HCC",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 314,
+              "perSample": 12847.8
+            },
+            {
+              "cohort": "HARTWIG_WGS_HCC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 52,
+              "perSample": 13085.9
+            },
+            {
+              "cohort": "ICGC_WGS_HCC_LICA_CN_VARSCAN_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 24,
+              "perSample": 16494.8
+            },
+            {
+              "cohort": "ICGC_WGS_HCC_LICA_FR_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 32,
+              "perSample": 34892.6
+            }
+          ]
+        },
+        {
+          "cancer": "LGGNOS",
+          "name": "Low-Grade Glioma, NOS",
+          "median": 960.3,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_LGGNOS",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 510,
+              "perSample": 77.1
+            },
+            {
+              "cohort": "STJUDE_WGS_D_LGG_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 38,
+              "perSample": 960.3
+            },
+            {
+              "cohort": "PCAWG_WGS_CNS_OLIGO",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 18,
+              "perSample": 2913.2
+            }
+          ]
+        },
+        {
+          "cancer": "CHRCC",
+          "name": "Chromophobe Renal Cell Carcinoma",
+          "median": 1007.6,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_CHRCC",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 65,
+              "perSample": 50.3
+            },
+            {
+              "cohort": "PCAWG_WGS_KIDNEY_CHRCC",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 43,
+              "perSample": 1964.9
+            }
+          ]
+        },
+        {
+          "cancer": "MDS",
+          "name": "Myelodysplastic Syndromes",
+          "median": 1088,
+          "cohorts": [
+            {
+              "cohort": "PCAWG_WGS_MYELOID_MPN",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 23,
+              "perSample": 1088
+            }
+          ]
+        },
+        {
+          "cancer": "WDTC",
+          "name": "Well-Differentiated Thyroid Cancer",
+          "median": 1344.4,
+          "cohorts": [
+            {
+              "cohort": "ICGC_WXS_WDTC_THCA_SA_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 243,
+              "perSample": 22.1
+            },
+            {
+              "cohort": "TCGA_WXS_WDTC",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 488,
+              "perSample": 24.5
+            },
+            {
+              "cohort": "ICGC_WXS_WDTC_THCA_CN_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 50,
+              "perSample": 1344.4
+            },
+            {
+              "cohort": "PCAWG_WGS_THY_ADENOCA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 48,
+              "perSample": 1445.6
+            },
+            {
+              "cohort": "HARTWIG_WGS_WDTC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 24,
+              "perSample": 8521
+            }
+          ]
+        },
+        {
+          "cancer": "LUSC",
+          "name": "Lung Squamous Cell Carcinoma",
+          "median": 1509.6,
+          "cohorts": [
+            {
+              "cohort": "ICGC_WGS_LUSC_LUSC_CN_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 10,
+              "perSample": 42.3
+            },
+            {
+              "cohort": "TCGA_WXS_LUSC",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 472,
+              "perSample": 425
+            },
+            {
+              "cohort": "CPTAC_WXS_LUSC_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 108,
+              "perSample": 909.4
+            },
+            {
+              "cohort": "ICGC_WXS_LUSC_LUSC_KR_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 36,
+              "perSample": 2109.7
+            },
+            {
+              "cohort": "PCAWG_WGS_LUNG_SCC",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 47,
+              "perSample": 46600
+            },
+            {
+              "cohort": "ICGC_WGS_LUSC_LUSC_KR_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 30,
+              "perSample": 57242.7
+            }
+          ]
+        },
+        {
+          "cancer": "COADREAD",
+          "name": "Colorectal Adenocarcinoma",
+          "median": 1625.1,
+          "cohorts": [
+            {
+              "cohort": "ICGC_WXS_COADREAD_COCA_CN_CASPOINT_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 50,
+              "perSample": 137.6
+            },
+            {
+              "cohort": "ICGC_WXS_COADREAD_COCA_CN_TORRENT_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 29,
+              "perSample": 395
+            },
+            {
+              "cohort": "TCGA_WXS_COADREAD",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 536,
+              "perSample": 626.7
+            },
+            {
+              "cohort": "ICGC_WXS_COADREAD_COCA_CN_VARSCAN_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 99,
+              "perSample": 1625.1
+            },
+            {
+              "cohort": "ICGC_WGS_COADREAD_COCA_CN_VARSCAN_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 20,
+              "perSample": 10316.4
+            },
+            {
+              "cohort": "HARTWIG_WGS_COADREAD_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 528,
+              "perSample": 44256.9
+            },
+            {
+              "cohort": "PCAWG_WGS_COLORECT_ADENOCA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 52,
+              "perSample": 177501.5
+            }
+          ]
+        },
+        {
+          "cancer": "BCC",
+          "name": "Basal Cell Carcinoma",
+          "median": 1686.8,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_BCC_UNIGE_2016_TREAT",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 11,
+              "perSample": 1278.3
+            },
+            {
+              "cohort": "CBIOP_WXS_BCC_UNIGE_2016_UNTREAT",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 76,
+              "perSample": 2095.4
+            }
+          ]
+        },
+        {
+          "cancer": "CSCC",
+          "name": "Cutaneous Squamous Cell Carcinoma",
+          "median": 1702.9,
+          "cohorts": [
+            {
+              "cohort": "OTHER_WXS_SCC_NATCOM2018",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 38,
+              "perSample": 1644.4
+            },
+            {
+              "cohort": "CBIOP_WXS_CSCC_UCSF_2018",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 83,
+              "perSample": 1761.4
+            }
+          ]
+        },
+        {
+          "cancer": "PLMESO",
+          "name": "Pleural Mesothelioma",
+          "median": 1811.4,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_PLMESO",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 82,
+              "perSample": 48.5
+            },
+            {
+              "cohort": "OTHER_WGS_PLMESO_MESOMICS_2016",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 98,
+              "perSample": 143.6
+            },
+            {
+              "cohort": "OTHER_WGS_PLMESO_MESOMICS_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 115,
+              "perSample": 3479.2
+            },
+            {
+              "cohort": "HARTWIG_WGS_PLMESO_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 42,
+              "perSample": 5219.8
+            }
+          ]
+        },
+        {
+          "cancer": "PAAD",
+          "name": "Pancreatic Adenocarcinoma",
+          "median": 1884.7,
+          "cohorts": [
+            {
+              "cohort": "ICGC_WXS_PAAD_PACA_AU_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 134,
+              "perSample": 60.1
+            },
+            {
+              "cohort": "TCGA_WXS_PAAD",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 176,
+              "perSample": 178.4
+            },
+            {
+              "cohort": "CPTAC_WXS_PAAD_2021",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 140,
+              "perSample": 227.6
+            },
+            {
+              "cohort": "ICGC_WGS_PAAD_PACA_AU_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 131,
+              "perSample": 1884.7
+            },
+            {
+              "cohort": "ICGC_WXS_PAAD_PACA_CA_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 48,
+              "perSample": 2110.7
+            },
+            {
+              "cohort": "ICGC_WGS_PAAD_PACA_CA_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 61,
+              "perSample": 7011.9
+            },
+            {
+              "cohort": "PCAWG_WGS_PANC_ADENOCA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 232,
+              "perSample": 7212
+            }
+          ]
+        },
+        {
+          "cancer": "PANET",
+          "name": "Pancreatic Neuroendocrine Tumor",
+          "median": 3285.7,
+          "cohorts": [
+            {
+              "cohort": "PCAWG_WGS_PANC_ENDOCRINE",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 81,
+              "perSample": 3285.7
+            }
+          ]
+        },
+        {
+          "cancer": "BL",
+          "name": "Burkitt Lymphoma",
+          "median": 3455.3,
+          "cohorts": [
+            {
+              "cohort": "PEDCBIOP_WXS_BLY_PRY",
+              "platform": "WXS",
+              "age": "Pediatric",
+              "samples": 15,
+              "perSample": 50.8
+            },
+            {
+              "cohort": "CGCI_WGS_BL_2020",
+              "platform": "WGS",
+              "age": "Pediatric",
+              "samples": 72,
+              "perSample": 6859.9
+            }
+          ]
+        },
+        {
+          "cancer": "UCS",
+          "name": "Uterine Carcinosarcoma/Uterine Malignant Mixed Mullerian Tumor",
+          "median": 3894.2,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_UCS",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 57,
+              "perSample": 182.6
+            },
+            {
+              "cohort": "ICGC_WGS_UCS_UTCA_FR_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 7,
+              "perSample": 7605.7
+            }
+          ]
+        },
+        {
+          "cancer": "GIST",
+          "name": "Gastrointestinal Stromal Tumor",
+          "median": 3958.3,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_GIST_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 64,
+              "perSample": 3958.3
+            }
+          ]
+        },
+        {
+          "cancer": "LIPO",
+          "name": "Liposarcoma",
+          "median": 4652.6,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_LIPO_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 27,
+              "perSample": 4652.6
+            }
+          ]
+        },
+        {
+          "cancer": "SOFT_TISSUE",
+          "name": "Soft Tissue",
+          "median": 5314.6,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_SOFT_TISSUE",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 234,
+              "perSample": 134.5
+            },
+            {
+              "cohort": "HARTWIG_WGS_SOFT_TISSUE_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 58,
+              "perSample": 10494.6
+            }
+          ]
+        },
+        {
+          "cancer": "STAD",
+          "name": "Stomach Adenocarcinoma",
+          "median": 5859.2,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_EGC_TMUCIH_2015",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 78,
+              "perSample": 177.8
+            },
+            {
+              "cohort": "TCGA_WXS_STAD",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 436,
+              "perSample": 556.4
+            },
+            {
+              "cohort": "CBIOP_WGS_STAD_ONCOSG_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 147,
+              "perSample": 5859.2
+            },
+            {
+              "cohort": "ICGC_WXS_STAD_GACA_CN_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 84,
+              "perSample": 12212.5
+            },
+            {
+              "cohort": "PCAWG_WGS_STOMACH_ADENOCA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 68,
+              "perSample": 27383.4
+            }
+          ]
+        },
+        {
+          "cancer": "CESC",
+          "name": "Cervical Squamous Cell Carcinoma",
+          "median": 6726.8,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_CESC",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 288,
+              "perSample": 359.5
+            },
+            {
+              "cohort": "PCAWG_WGS_CERVIX_SCC",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 18,
+              "perSample": 6726.8
+            },
+            {
+              "cohort": "CGCI_WGS_CESC_2020",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 120,
+              "perSample": 72284.8
+            }
+          ]
+        },
+        {
+          "cancer": "SARCNOS",
+          "name": "Sarcoma, NOS",
+          "median": 7271.9,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_SARCNOS_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 50,
+              "perSample": 7271.9
+            }
+          ]
+        },
+        {
+          "cancer": "MLYM",
+          "name": "Malignant Lymphoma",
+          "median": 7296.3,
+          "cohorts": [
+            {
+              "cohort": "ICGC_WGS_MLYM_MALY_DE_PED_2019",
+              "platform": "WGS",
+              "age": "Pediatric",
+              "samples": 21,
+              "perSample": 2617.1
+            },
+            {
+              "cohort": "ICGC_WGS_MLYM_MALY_DE_AD_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 116,
+              "perSample": 11975.4
+            }
+          ]
+        },
+        {
+          "cancer": "OVT",
+          "name": "Ovarian Epithelial Tumor",
+          "median": 7673.8,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_OVT",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 409,
+              "perSample": 130.1
+            },
+            {
+              "cohort": "CPTAC_WXS_OVT_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 68,
+              "perSample": 848.9
+            },
+            {
+              "cohort": "ICGC_WGS_OVT_OV_AU_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 18,
+              "perSample": 7673.8
+            },
+            {
+              "cohort": "PCAWG_WGS_OVARY_ADENOCA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 110,
+              "perSample": 9648.6
+            },
+            {
+              "cohort": "HARTWIG_WGS_OVT_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 174,
+              "perSample": 12941.4
+            }
+          ]
+        },
+        {
+          "cancer": "LMS",
+          "name": "Leiomyosarcoma",
+          "median": 7896.5,
+          "cohorts": [
+            {
+              "cohort": "PCAWG_WGS_BONE_LEIOMYO",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 34,
+              "perSample": 5684.9
+            },
+            {
+              "cohort": "HARTWIG_WGS_LMS_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 43,
+              "perSample": 7896.5
+            },
+            {
+              "cohort": "ICGC_WGS_LMS_LMS_FR_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 67,
+              "perSample": 57030.9
+            }
+          ]
+        },
+        {
+          "cancer": "CHOL",
+          "name": "Cholangiocarcinoma",
+          "median": 8757,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_CHOL",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 36,
+              "perSample": 125
+            },
+            {
+              "cohort": "ICGC_WXS_CHOL_BTCA_JP_2019",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 239,
+              "perSample": 288
+            },
+            {
+              "cohort": "HARTWIG_WGS_CHOL_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 80,
+              "perSample": 17226.1
+            },
+            {
+              "cohort": "PCAWG_WGS_BILIARY_ADENOCA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 34,
+              "perSample": 17628.7
+            }
+          ]
+        },
+        {
+          "cancer": "LUNG",
+          "name": "Lung",
+          "median": 8951,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_LUNG_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 38,
+              "perSample": 8951
+            }
+          ]
+        },
+        {
+          "cancer": "RCC",
+          "name": "Renal Cell Carcinoma",
+          "median": 9410.3,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_RCC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 133,
+              "perSample": 9410.3
+            }
+          ]
+        },
+        {
+          "cancer": "LNM",
+          "name": "Lymphoid Neoplasm",
+          "median": 10968.7,
+          "cohorts": [
+            {
+              "cohort": "ICGC_WGS_LNM_NKTL_SG_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 23,
+              "perSample": 10968.7
+            }
+          ]
+        },
+        {
+          "cancer": "NHL",
+          "name": "Non-Hodgkin Lymphoma",
+          "median": 12770.7,
+          "cohorts": [
+            {
+              "cohort": "PCAWG_WGS_LYMPH_BNHL",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 105,
+              "perSample": 12770.7
+            }
+          ]
+        },
+        {
+          "cancer": "UCEC",
+          "name": "Endometrial Carcinoma",
+          "median": 13430.8,
+          "cohorts": [
+            {
+              "cohort": "TCGA_WXS_UCEC",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 515,
+              "perSample": 1816.8
+            },
+            {
+              "cohort": "CPTAC_WXS_UCEC_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 101,
+              "perSample": 2177.7
+            },
+            {
+              "cohort": "PCAWG_WGS_UTERUS_ADENOCA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 44,
+              "perSample": 24683.8
+            },
+            {
+              "cohort": "HARTWIG_WGS_UCEC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 32,
+              "perSample": 36617.9
+            }
+          ]
+        },
+        {
+          "cancer": "PANCREAS",
+          "name": "Pancreas",
+          "median": 14430.4,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_PANCREAS_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 189,
+              "perSample": 14430.4
+            }
+          ]
+        },
+        {
+          "cancer": "MEL",
+          "name": "Melanoma",
+          "median": 14439.3,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_CM_VALLEN_2018",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 151,
+              "perSample": 880.5
+            },
+            {
+              "cohort": "TCGA_WXS_MEL",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 466,
+              "perSample": 1227.2
+            },
+            {
+              "cohort": "CBIOP_WXS_SKCM_BROAD",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 88,
+              "perSample": 1788.1
+            },
+            {
+              "cohort": "STJUDE_WGS_D_CM_2018",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 7,
+              "perSample": 14439.3
+            },
+            {
+              "cohort": "ICGC_WGS_MEL_SKCA_BR_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 35,
+              "perSample": 35939.8
+            },
+            {
+              "cohort": "PCAWG_WGS_SKIN_MELANOMA",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 107,
+              "perSample": 116361.1
+            },
+            {
+              "cohort": "ICGC_WGS_MEL_MELA_AU_2019",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 75,
+              "perSample": 125695.1
+            }
+          ]
+        },
+        {
+          "cancer": "PROSTATE",
+          "name": "Prostate",
+          "median": 15527.8,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_PROSTATE_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 416,
+              "perSample": 15527.8
+            }
+          ]
+        },
+        {
+          "cancer": "GBC",
+          "name": "Gallbladder Cancer",
+          "median": 16318.1,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_GBC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 22,
+              "perSample": 16318.1
+            }
+          ]
+        },
+        {
+          "cancer": "CEAD",
+          "name": "Cervical Adenocarcinoma",
+          "median": 17444.6,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_CEAD_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 45,
+              "perSample": 17444.6
+            }
+          ]
+        },
+        {
+          "cancer": "NETNOS",
+          "name": "Neuroendocrine Tumor, NOS",
+          "median": 18084.6,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_NETNOS_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 23,
+              "perSample": 18084.6
+            }
+          ]
+        },
+        {
+          "cancer": "UTUC",
+          "name": "Upper Tract Urothelial Carcinoma",
+          "median": 20391.5,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_UTUC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 28,
+              "perSample": 20391.5
+            }
+          ]
+        },
+        {
+          "cancer": "ANSC",
+          "name": "Anal Squamous Cell Carcinoma",
+          "median": 20864.5,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_ANSC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 21,
+              "perSample": 20864.5
+            }
+          ]
+        },
+        {
+          "cancer": "NSCLC",
+          "name": "Non-Small Cell Lung Cancer",
+          "median": 23487.4,
+          "cohorts": [
+            {
+              "cohort": "CBIOP_WXS_NSCLC_MSKCC_2018",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 75,
+              "perSample": 813.5
+            },
+            {
+              "cohort": "HARTWIG_WGS_NSCLC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 510,
+              "perSample": 46161.2
+            }
+          ]
+        },
+        {
+          "cancer": "EGC",
+          "name": "Esophagogastric Adenocarcinoma",
+          "median": 27311.4,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_EGC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 21,
+              "perSample": 27311.4
+            }
+          ]
+        },
+        {
+          "cancer": "MT",
+          "name": "Malignant Tumor",
+          "median": 29987.6,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_MT_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 24,
+              "perSample": 29987.6
+            }
+          ]
+        },
+        {
+          "cancer": "READ",
+          "name": "Rectal Adenocarcinoma",
+          "median": 30450.9,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_READ_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 54,
+              "perSample": 30450.9
+            }
+          ]
+        },
+        {
+          "cancer": "ESCC",
+          "name": "Esophageal Squamous Cell Carcinoma",
+          "median": 34510.5,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_ESCC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 140,
+              "perSample": 34510.5
+            }
+          ]
+        },
+        {
+          "cancer": "BLADDER",
+          "name": "Bladder/Urinary Tract",
+          "median": 38222.2,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_BLADDER_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 25,
+              "perSample": 38222.2
+            }
+          ]
+        },
+        {
+          "cancer": "COAD",
+          "name": "Colon Adenocarcinoma",
+          "median": 40159.6,
+          "cohorts": [
+            {
+              "cohort": "CPTAC_WXS_COAD_2020",
+              "platform": "WXS",
+              "age": "Adult",
+              "samples": 103,
+              "perSample": 2273.7
+            },
+            {
+              "cohort": "HARTWIG_WGS_COAD_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 125,
+              "perSample": 78045.6
+            }
+          ]
+        },
+        {
+          "cancer": "GB",
+          "name": "Glioblastoma",
+          "median": 46784.2,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_GB_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 88,
+              "perSample": 46784.2
+            }
+          ]
+        },
+        {
+          "cancer": "SIC",
+          "name": "Small Intestinal Carcinoma",
+          "median": 51627.6,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_SIC_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 57,
+              "perSample": 51627.6
+            }
+          ]
+        },
+        {
+          "cancer": "STOMACH",
+          "name": "Esophagus/Stomach",
+          "median": 61797.8,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_STOMACH_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 45,
+              "perSample": 61797.8
+            }
+          ]
+        },
+        {
+          "cancer": "SKCM",
+          "name": "Cutaneous Melanoma",
+          "median": 94814.6,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_SKCM_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 299,
+              "perSample": 94814.6
+            }
+          ]
+        },
+        {
+          "cancer": "SKIN",
+          "name": "Skin",
+          "median": 107513,
+          "cohorts": [
+            {
+              "cohort": "HARTWIG_WGS_SKIN_2023",
+              "platform": "WGS",
+              "age": "Adult",
+              "samples": 26,
+              "perSample": 107513
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "gdc": {
+    "release": "46.0",
+    "date": "2026-08-10",
+    "projects": 93,
+    "cases": 50571,
+    "programs": [
+      {
+        "program": "FM",
+        "cases": 18004,
+        "projects": 1
+      },
+      {
+        "program": "TCGA",
+        "cases": 11428,
+        "projects": 33
+      },
+      {
+        "program": "TARGET",
+        "cases": 6543,
+        "projects": 9
+      },
+      {
+        "program": "CCDI",
+        "cases": 3076,
+        "projects": 1
+      },
+      {
+        "program": "CPTAC",
+        "cases": 2208,
+        "projects": 2
+      },
+      {
+        "program": "MP2PRT",
+        "cases": 1562,
+        "projects": 2
+      },
+      {
+        "program": "ALCHEMIST",
+        "cases": 1176,
+        "projects": 1
+      },
+      {
+        "program": "MMRF",
+        "cases": 995,
+        "projects": 1
+      },
+      {
+        "program": "BEATAML1.0",
+        "cases": 882,
+        "projects": 2
+      },
+      {
+        "program": "HCMI",
+        "cases": 805,
+        "projects": 1
+      },
+      {
+        "program": "CGCI",
+        "cases": 645,
+        "projects": 4
+      },
+      {
+        "program": "MATCH",
+        "cases": 516,
+        "projects": 17
+      },
+      {
+        "program": "NCICCR",
+        "cases": 489,
+        "projects": 1
+      },
+      {
+        "program": "REBC",
+        "cases": 449,
+        "projects": 1
+      },
+      {
+        "program": "TRIO",
+        "cases": 339,
+        "projects": 1
+      },
+      {
+        "program": "CMI",
+        "cases": 299,
+        "projects": 3
+      },
+      {
+        "program": "CCG",
+        "cases": 272,
+        "projects": 1
+      },
+      {
+        "program": "APOLLO",
+        "cases": 225,
+        "projects": 3
+      },
+      {
+        "program": "OHSU",
+        "cases": 176,
+        "projects": 1
+      },
+      {
+        "program": "WCDT",
+        "cases": 101,
+        "projects": 1
+      },
+      {
+        "program": "EXCEPTIONAL_RESPONDERS",
+        "cases": 84,
+        "projects": 1
+      },
+      {
+        "program": "ORGANOID",
+        "cases": 70,
+        "projects": 1
+      },
+      {
+        "program": "PECGS",
+        "cases": 67,
+        "projects": 1
+      },
+      {
+        "program": "RC",
+        "cases": 58,
+        "projects": 1
+      },
+      {
+        "program": "CDDP_EAGLE",
+        "cases": 50,
+        "projects": 1
+      },
+      {
+        "program": "CTSP",
+        "cases": 45,
+        "projects": 1
+      },
+      {
+        "program": "VAREPOP",
+        "cases": 7,
+        "projects": 1
+      }
+    ],
+    "sites": [
+      {
+        "key": "hematopoietic and reticuloendothelial systems",
+        "n": 8595
+      },
+      {
+        "key": "bronchus and lung",
+        "n": 5475
+      },
+      {
+        "key": "breast",
+        "n": 4254
+      },
+      {
+        "key": "brain",
+        "n": 3384
+      },
+      {
+        "key": "colon",
+        "n": 2672
+      },
+      {
+        "key": "kidney",
+        "n": 2436
+      },
+      {
+        "key": "unknown",
+        "n": 2289
+      },
+      {
+        "key": "ovary",
+        "n": 1753
+      },
+      {
+        "key": "not reported",
+        "n": 1490
+      },
+      {
+        "key": "pancreas",
+        "n": 1301
+      },
+      {
+        "key": "thyroid gland",
+        "n": 1196
+      },
+      {
+        "key": "stomach",
+        "n": 1071
+      },
+      {
+        "key": "spinal cord, cranial nerves, and other parts of central nervous system",
+        "n": 1064
+      },
+      {
+        "key": "prostate gland",
+        "n": 905
+      },
+      {
+        "key": "liver and intrahepatic bile ducts",
+        "n": 863
+      },
+      {
+        "key": "lymph nodes",
+        "n": 800
+      },
+      {
+        "key": "bladder",
+        "n": 787
+      },
+      {
+        "key": "adrenal gland",
+        "n": 774
+      },
+      {
+        "key": "other and ill-defined sites",
+        "n": 750
+      },
+      {
+        "key": "esophagus",
+        "n": 748
+      },
+      {
+        "key": "skin",
+        "n": 733
+      },
+      {
+        "key": "uterus, nos",
+        "n": 683
+      },
+      {
+        "key": "cervix uteri",
+        "n": 674
+      },
+      {
+        "key": "corpus uteri",
+        "n": 645
+      },
+      {
+        "key": "rectum",
+        "n": 472
+      },
+      {
+        "key": "heart, mediastinum, and pleura",
+        "n": 399
+      },
+      {
+        "key": "connective, subcutaneous and other soft tissues",
+        "n": 385
+      },
+      {
+        "key": "retroperitoneum and peritoneum",
+        "n": 375
+      },
+      {
+        "key": "_missing",
+        "n": 349
+      },
+      {
+        "key": "testis",
+        "n": 339
+      },
+      {
+        "key": "bones, joints and articular cartilage of limbs",
+        "n": 296
+      },
+      {
+        "key": "other and unspecified major salivary glands",
+        "n": 221
+      },
+      {
+        "key": "eye and adnexa",
+        "n": 185
+      },
+      {
+        "key": "other and ill-defined digestive organs",
+        "n": 184
+      },
+      {
+        "key": "thymus",
+        "n": 183
+      },
+      {
+        "key": "larynx",
+        "n": 173
+      },
+      {
+        "key": "other and unspecified parts of tongue",
+        "n": 157
+      },
+      {
+        "key": "gallbladder",
+        "n": 147
+      },
+      {
+        "key": "peripheral nerves and autonomic nervous system",
+        "n": 147
+      },
+      {
+        "key": "bones, joints and articular cartilage of other and unspecified sites",
+        "n": 124
+      },
+      {
+        "key": "other and unspecified female genital organs",
+        "n": 110
+      },
+      {
+        "key": "rectosigmoid junction",
+        "n": 102
+      },
+      {
+        "key": "other and unspecified parts of biliary tract",
+        "n": 98
+      },
+      {
+        "key": "nasopharynx",
+        "n": 85
+      },
+      {
+        "key": "anus and anal canal",
+        "n": 82
+      },
+      {
+        "key": "other and ill-defined sites in lip, oral cavity and pharynx",
+        "n": 81
+      },
+      {
+        "key": "small intestine",
+        "n": 79
+      },
+      {
+        "key": "floor of mouth",
+        "n": 75
+      },
+      {
+        "key": "other and unspecified parts of mouth",
+        "n": 62
+      },
+      {
+        "key": "tonsil",
+        "n": 45
+      },
+      {
+        "key": "other endocrine glands and related structures",
+        "n": 31
+      },
+      {
+        "key": "base of tongue",
+        "n": 30
+      },
+      {
+        "key": "oropharynx",
+        "n": 23
+      },
+      {
+        "key": "other and ill-defined sites within respiratory system and intrathoracic organs",
+        "n": 21
+      },
+      {
+        "key": "vagina",
+        "n": 19
+      },
+      {
+        "key": "other and unspecified urinary organs",
+        "n": 17
+      },
+      {
+        "key": "lip",
+        "n": 15
+      },
+      {
+        "key": "ureter",
+        "n": 15
+      },
+      {
+        "key": "gum",
+        "n": 14
+      },
+      {
+        "key": "vulva",
+        "n": 13
+      },
+      {
+        "key": "penis",
+        "n": 12
+      },
+      {
+        "key": "parotid gland",
+        "n": 11
+      },
+      {
+        "key": "renal pelvis",
+        "n": 9
+      },
+      {
+        "key": "hypopharynx",
+        "n": 8
+      },
+      {
+        "key": "meninges",
+        "n": 8
+      },
+      {
+        "key": "trachea",
+        "n": 8
+      },
+      {
+        "key": "nasal cavity and middle ear",
+        "n": 7
+      },
+      {
+        "key": "palate",
+        "n": 6
+      },
+      {
+        "key": "other and unspecified male genital organs",
+        "n": 5
+      },
+      {
+        "key": "accessory sinuses",
+        "n": 2
+      }
+    ],
+    "tcga": {
+      "genes": [
+        "TP53",
+        "PIK3CA",
+        "KMT2D",
+        "LRP1B",
+        "KMT2C",
+        "ARID1A",
+        "PTEN",
+        "KRAS",
+        "NF1",
+        "RB1",
+        "CDKN2A",
+        "BRAF",
+        "FAT1",
+        "NOTCH1",
+        "SMARCA4",
+        "CREBBP",
+        "ATM",
+        "FAT4",
+        "SETD2",
+        "APC"
+      ],
+      "projects": [
+        {
+          "project": "TCGA-ACC",
+          "name": "Adrenocortical Carcinoma",
+          "cases": 92,
+          "tested": 92
+        },
+        {
+          "project": "TCGA-BLCA",
+          "name": "Bladder Urothelial Carcinoma",
+          "cases": 412,
+          "tested": 412
+        },
+        {
+          "project": "TCGA-BRCA",
+          "name": "Breast Invasive Carcinoma",
+          "cases": 1098,
+          "tested": 1072
+        },
+        {
+          "project": "TCGA-CESC",
+          "name": "Cervical Squamous Cell Carcinoma and Endocervical Adenocarcinoma",
+          "cases": 307,
+          "tested": 305
+        },
+        {
+          "project": "TCGA-CHOL",
+          "name": "Cholangiocarcinoma",
+          "cases": 51,
+          "tested": 51
+        },
+        {
+          "project": "TCGA-COAD",
+          "name": "Colon Adenocarcinoma",
+          "cases": 461,
+          "tested": 443
+        },
+        {
+          "project": "TCGA-DLBC",
+          "name": "Lymphoid Neoplasm Diffuse Large B-cell Lymphoma",
+          "cases": 58,
+          "tested": 48
+        },
+        {
+          "project": "TCGA-ESCA",
+          "name": "Esophageal Carcinoma",
+          "cases": 185,
+          "tested": 184
+        },
+        {
+          "project": "TCGA-GBM",
+          "name": "Glioblastoma Multiforme",
+          "cases": 617,
+          "tested": 401
+        },
+        {
+          "project": "TCGA-HNSC",
+          "name": "Head and Neck Squamous Cell Carcinoma",
+          "cases": 528,
+          "tested": 527
+        },
+        {
+          "project": "TCGA-KICH",
+          "name": "Kidney Chromophobe",
+          "cases": 113,
+          "tested": 66
+        },
+        {
+          "project": "TCGA-KIRC",
+          "name": "Kidney Renal Clear Cell Carcinoma",
+          "cases": 537,
+          "tested": 389
+        },
+        {
+          "project": "TCGA-KIRP",
+          "name": "Kidney Renal Papillary Cell Carcinoma",
+          "cases": 291,
+          "tested": 290
+        },
+        {
+          "project": "TCGA-LAML",
+          "name": "Acute Myeloid Leukemia",
+          "cases": 200,
+          "tested": 150
+        },
+        {
+          "project": "TCGA-LGG",
+          "name": "Brain Lower Grade Glioma",
+          "cases": 516,
+          "tested": 516
+        },
+        {
+          "project": "TCGA-LIHC",
+          "name": "Liver Hepatocellular Carcinoma",
+          "cases": 377,
+          "tested": 376
+        },
+        {
+          "project": "TCGA-LUAD",
+          "name": "Lung Adenocarcinoma",
+          "cases": 585,
+          "tested": 582
+        },
+        {
+          "project": "TCGA-LUSC",
+          "name": "Lung Squamous Cell Carcinoma",
+          "cases": 504,
+          "tested": 502
+        },
+        {
+          "project": "TCGA-MESO",
+          "name": "Mesothelioma",
+          "cases": 87,
+          "tested": 83
+        },
+        {
+          "project": "TCGA-OV",
+          "name": "Ovarian Serous Cystadenocarcinoma",
+          "cases": 608,
+          "tested": 457
+        },
+        {
+          "project": "TCGA-PAAD",
+          "name": "Pancreatic Adenocarcinoma",
+          "cases": 185,
+          "tested": 185
+        },
+        {
+          "project": "TCGA-PCPG",
+          "name": "Pheochromocytoma and Paraganglioma",
+          "cases": 179,
+          "tested": 179
+        },
+        {
+          "project": "TCGA-PRAD",
+          "name": "Prostate Adenocarcinoma",
+          "cases": 500,
+          "tested": 498
+        },
+        {
+          "project": "TCGA-READ",
+          "name": "Rectum Adenocarcinoma",
+          "cases": 172,
+          "tested": 168
+        },
+        {
+          "project": "TCGA-SARC",
+          "name": "Sarcoma",
+          "cases": 261,
+          "tested": 255
+        },
+        {
+          "project": "TCGA-SKCM",
+          "name": "Skin Cutaneous Melanoma",
+          "cases": 470,
+          "tested": 470
+        },
+        {
+          "project": "TCGA-STAD",
+          "name": "Stomach Adenocarcinoma",
+          "cases": 443,
+          "tested": 443
+        },
+        {
+          "project": "TCGA-TGCT",
+          "name": "Testicular Germ Cell Tumors",
+          "cases": 263,
+          "tested": 150
+        },
+        {
+          "project": "TCGA-THCA",
+          "name": "Thyroid Carcinoma",
+          "cases": 507,
+          "tested": 502
+        },
+        {
+          "project": "TCGA-THYM",
+          "name": "Thymoma",
+          "cases": 124,
+          "tested": 123
+        },
+        {
+          "project": "TCGA-UCEC",
+          "name": "Uterine Corpus Endometrial Carcinoma",
+          "cases": 560,
+          "tested": 554
+        },
+        {
+          "project": "TCGA-UCS",
+          "name": "Uterine Carcinosarcoma",
+          "cases": 57,
+          "tested": 57
+        },
+        {
+          "project": "TCGA-UVM",
+          "name": "Uveal Melanoma",
+          "cases": 80,
+          "tested": 80
+        }
+      ],
+      "mutated": {
+        "TP53": {
+          "TCGA-GBM": 115,
+          "TCGA-CHOL": 5,
+          "TCGA-LUSC": 406,
+          "TCGA-LUAD": 281,
+          "TCGA-OV": 367,
+          "TCGA-LGG": 240,
+          "TCGA-UCEC": 193,
+          "TCGA-PAAD": 99,
+          "TCGA-BLCA": 201,
+          "TCGA-SKCM": 68,
+          "TCGA-BRCA": 331,
+          "TCGA-STAD": 199,
+          "TCGA-COAD": 237,
+          "TCGA-PRAD": 54,
+          "TCGA-ACC": 15,
+          "TCGA-READ": 111,
+          "TCGA-HNSC": 357,
+          "TCGA-UCS": 49,
+          "TCGA-SARC": 88,
+          "TCGA-LIHC": 108,
+          "TCGA-ESCA": 155,
+          "TCGA-KICH": 20,
+          "TCGA-LAML": 8,
+          "TCGA-DLBC": 5,
+          "TCGA-CESC": 21,
+          "TCGA-KIRC": 11,
+          "TCGA-THCA": 3,
+          "TCGA-MESO": 11,
+          "TCGA-THYM": 4,
+          "TCGA-KIRP": 6,
+          "TCGA-TGCT": 1
+        },
+        "PIK3CA": {
+          "TCGA-BRCA": 331,
+          "TCGA-ESCA": 16,
+          "TCGA-STAD": 68,
+          "TCGA-UCEC": 253,
+          "TCGA-LGG": 41,
+          "TCGA-BLCA": 86,
+          "TCGA-GBM": 36,
+          "TCGA-LUAD": 27,
+          "TCGA-HNSC": 86,
+          "TCGA-READ": 21,
+          "TCGA-SARC": 7,
+          "TCGA-COAD": 125,
+          "TCGA-SKCM": 14,
+          "TCGA-THCA": 3,
+          "TCGA-PRAD": 12,
+          "TCGA-CESC": 81,
+          "TCGA-UCS": 20,
+          "TCGA-PAAD": 4,
+          "TCGA-LIHC": 13,
+          "TCGA-KIRC": 5,
+          "TCGA-LUSC": 58,
+          "TCGA-OV": 10,
+          "TCGA-CHOL": 4,
+          "TCGA-TGCT": 3,
+          "TCGA-ACC": 1,
+          "TCGA-KIRP": 3,
+          "TCGA-PCPG": 1,
+          "TCGA-MESO": 1,
+          "TCGA-DLBC": 1
+        },
+        "KMT2D": {
+          "TCGA-SKCM": 86,
+          "TCGA-COAD": 69,
+          "TCGA-UCEC": 152,
+          "TCGA-LUAD": 48,
+          "TCGA-LUSC": 106,
+          "TCGA-UCS": 6,
+          "TCGA-BLCA": 114,
+          "TCGA-HNSC": 71,
+          "TCGA-ESCA": 24,
+          "TCGA-DLBC": 13,
+          "TCGA-STAD": 70,
+          "TCGA-LIHC": 22,
+          "TCGA-PRAD": 29,
+          "TCGA-CESC": 47,
+          "TCGA-KIRC": 12,
+          "TCGA-PAAD": 6,
+          "TCGA-CHOL": 2,
+          "TCGA-LGG": 11,
+          "TCGA-UVM": 1,
+          "TCGA-OV": 10,
+          "TCGA-BRCA": 36,
+          "TCGA-READ": 8,
+          "TCGA-KIRP": 17,
+          "TCGA-LAML": 3,
+          "TCGA-THCA": 3,
+          "TCGA-PCPG": 1,
+          "TCGA-GBM": 7,
+          "TCGA-KICH": 2,
+          "TCGA-ACC": 6,
+          "TCGA-TGCT": 2,
+          "TCGA-SARC": 7
+        },
+        "LRP1B": {
+          "TCGA-BLCA": 54,
+          "TCGA-SKCM": 205,
+          "TCGA-LUSC": 180,
+          "TCGA-STAD": 127,
+          "TCGA-HNSC": 93,
+          "TCGA-BRCA": 40,
+          "TCGA-LUAD": 206,
+          "TCGA-COAD": 89,
+          "TCGA-UCEC": 104,
+          "TCGA-READ": 26,
+          "TCGA-OV": 22,
+          "TCGA-LGG": 10,
+          "TCGA-UCS": 4,
+          "TCGA-CESC": 37,
+          "TCGA-GBM": 11,
+          "TCGA-PAAD": 9,
+          "TCGA-SARC": 15,
+          "TCGA-TGCT": 3,
+          "TCGA-LIHC": 37,
+          "TCGA-ESCA": 41,
+          "TCGA-LAML": 3,
+          "TCGA-PRAD": 24,
+          "TCGA-KIRP": 8,
+          "TCGA-UVM": 2,
+          "TCGA-CHOL": 5,
+          "TCGA-THCA": 1,
+          "TCGA-KIRC": 14,
+          "TCGA-DLBC": 10,
+          "TCGA-ACC": 3,
+          "TCGA-PCPG": 1,
+          "TCGA-THYM": 1,
+          "TCGA-MESO": 1
+        },
+        "KMT2C": {
+          "TCGA-STAD": 66,
+          "TCGA-UCEC": 103,
+          "TCGA-PRAD": 23,
+          "TCGA-CESC": 55,
+          "TCGA-SKCM": 64,
+          "TCGA-CHOL": 4,
+          "TCGA-BRCA": 88,
+          "TCGA-COAD": 55,
+          "TCGA-TGCT": 2,
+          "TCGA-BLCA": 76,
+          "TCGA-LUAD": 56,
+          "TCGA-LUSC": 61,
+          "TCGA-LIHC": 14,
+          "TCGA-KIRP": 19,
+          "TCGA-LGG": 8,
+          "TCGA-GBM": 12,
+          "TCGA-KIRC": 18,
+          "TCGA-HNSC": 36,
+          "TCGA-SARC": 6,
+          "TCGA-PAAD": 6,
+          "TCGA-READ": 7,
+          "TCGA-ESCA": 15,
+          "TCGA-OV": 20,
+          "TCGA-ACC": 3,
+          "TCGA-UCS": 4,
+          "TCGA-DLBC": 2,
+          "TCGA-THCA": 4,
+          "TCGA-MESO": 1,
+          "TCGA-KICH": 1,
+          "TCGA-THYM": 1
+        },
+        "ARID1A": {
+          "TCGA-UCEC": 237,
+          "TCGA-OV": 5,
+          "TCGA-STAD": 117,
+          "TCGA-LUAD": 35,
+          "TCGA-BRCA": 39,
+          "TCGA-LUSC": 33,
+          "TCGA-COAD": 62,
+          "TCGA-ESCA": 17,
+          "TCGA-HNSC": 22,
+          "TCGA-BLCA": 104,
+          "TCGA-LIHC": 30,
+          "TCGA-SKCM": 34,
+          "TCGA-LGG": 17,
+          "TCGA-PAAD": 8,
+          "TCGA-KIRP": 13,
+          "TCGA-UCS": 7,
+          "TCGA-PRAD": 6,
+          "TCGA-SARC": 3,
+          "TCGA-KIRC": 13,
+          "TCGA-CESC": 19,
+          "TCGA-READ": 11,
+          "TCGA-DLBC": 5,
+          "TCGA-MESO": 1,
+          "TCGA-CHOL": 9,
+          "TCGA-GBM": 5,
+          "TCGA-ACC": 1,
+          "TCGA-LAML": 2,
+          "TCGA-TGCT": 1
+        },
+        "PTEN": {
+          "TCGA-UCEC": 334,
+          "TCGA-KIRC": 13,
+          "TCGA-UCS": 11,
+          "TCGA-STAD": 35,
+          "TCGA-GBM": 117,
+          "TCGA-KICH": 6,
+          "TCGA-CESC": 21,
+          "TCGA-LUSC": 55,
+          "TCGA-LGG": 25,
+          "TCGA-MESO": 1,
+          "TCGA-BRCA": 52,
+          "TCGA-THCA": 2,
+          "TCGA-LUAD": 10,
+          "TCGA-COAD": 30,
+          "TCGA-PRAD": 16,
+          "TCGA-READ": 8,
+          "TCGA-SARC": 7,
+          "TCGA-KIRP": 7,
+          "TCGA-DLBC": 2,
+          "TCGA-ESCA": 5,
+          "TCGA-SKCM": 44,
+          "TCGA-OV": 5,
+          "TCGA-LIHC": 10,
+          "TCGA-BLCA": 16,
+          "TCGA-HNSC": 13,
+          "TCGA-CHOL": 1
+        },
+        "KRAS": {
+          "TCGA-PAAD": 106,
+          "TCGA-COAD": 184,
+          "TCGA-LUAD": 148,
+          "TCGA-STAD": 39,
+          "TCGA-READ": 61,
+          "TCGA-UCEC": 99,
+          "TCGA-CHOL": 5,
+          "TCGA-SKCM": 11,
+          "TCGA-ESCA": 2,
+          "TCGA-LAML": 6,
+          "TCGA-KIRP": 5,
+          "TCGA-LIHC": 6,
+          "TCGA-LUSC": 9,
+          "TCGA-BRCA": 7,
+          "TCGA-CESC": 15,
+          "TCGA-BLCA": 17,
+          "TCGA-TGCT": 13,
+          "TCGA-THCA": 4,
+          "TCGA-PRAD": 2,
+          "TCGA-SARC": 1,
+          "TCGA-GBM": 2,
+          "TCGA-KIRC": 2,
+          "TCGA-DLBC": 3,
+          "TCGA-OV": 5,
+          "TCGA-UCS": 7,
+          "TCGA-HNSC": 1,
+          "TCGA-LGG": 2,
+          "TCGA-THYM": 1,
+          "TCGA-MESO": 1
+        },
+        "NF1": {
+          "TCGA-SKCM": 74,
+          "TCGA-CESC": 17,
+          "TCGA-GBM": 40,
+          "TCGA-LUSC": 57,
+          "TCGA-UCEC": 79,
+          "TCGA-STAD": 38,
+          "TCGA-LGG": 29,
+          "TCGA-LUAD": 61,
+          "TCGA-BRCA": 42,
+          "TCGA-BLCA": 33,
+          "TCGA-OV": 31,
+          "TCGA-PCPG": 17,
+          "TCGA-SARC": 10,
+          "TCGA-HNSC": 14,
+          "TCGA-LAML": 3,
+          "TCGA-COAD": 32,
+          "TCGA-KICH": 1,
+          "TCGA-TGCT": 3,
+          "TCGA-KIRP": 5,
+          "TCGA-KIRC": 7,
+          "TCGA-PAAD": 4,
+          "TCGA-READ": 9,
+          "TCGA-ESCA": 6,
+          "TCGA-THYM": 2,
+          "TCGA-ACC": 7,
+          "TCGA-LIHC": 13,
+          "TCGA-PRAD": 2,
+          "TCGA-THCA": 1,
+          "TCGA-UCS": 3,
+          "TCGA-CHOL": 2,
+          "TCGA-DLBC": 3
+        },
+        "RB1": {
+          "TCGA-SARC": 25,
+          "TCGA-BLCA": 72,
+          "TCGA-SKCM": 18,
+          "TCGA-STAD": 15,
+          "TCGA-LUSC": 34,
+          "TCGA-UCEC": 68,
+          "TCGA-OV": 17,
+          "TCGA-BRCA": 26,
+          "TCGA-HNSC": 16,
+          "TCGA-LUAD": 32,
+          "TCGA-COAD": 14,
+          "TCGA-DLBC": 1,
+          "TCGA-KIRC": 2,
+          "TCGA-READ": 5,
+          "TCGA-LIHC": 19,
+          "TCGA-CESC": 17,
+          "TCGA-ESCA": 5,
+          "TCGA-GBM": 35,
+          "TCGA-LGG": 6,
+          "TCGA-UCS": 5,
+          "TCGA-PRAD": 4,
+          "TCGA-KICH": 2,
+          "TCGA-ACC": 2,
+          "TCGA-THCA": 1,
+          "TCGA-PAAD": 1
+        },
+        "CDKN2A": {
+          "TCGA-PAAD": 30,
+          "TCGA-LUSC": 70,
+          "TCGA-SKCM": 57,
+          "TCGA-HNSC": 103,
+          "TCGA-LUAD": 31,
+          "TCGA-CESC": 7,
+          "TCGA-UCEC": 15,
+          "TCGA-ESCA": 12,
+          "TCGA-BLCA": 25,
+          "TCGA-GBM": 5,
+          "TCGA-STAD": 25,
+          "TCGA-LGG": 3,
+          "TCGA-LIHC": 10,
+          "TCGA-CHOL": 2,
+          "TCGA-THYM": 1,
+          "TCGA-COAD": 4,
+          "TCGA-KIRP": 1,
+          "TCGA-ACC": 1,
+          "TCGA-PRAD": 1,
+          "TCGA-OV": 2,
+          "TCGA-READ": 1,
+          "TCGA-UCS": 1,
+          "TCGA-SARC": 1,
+          "TCGA-THCA": 1
+        },
+        "BRAF": {
+          "TCGA-COAD": 62,
+          "TCGA-THCA": 287,
+          "TCGA-STAD": 27,
+          "TCGA-SKCM": 236,
+          "TCGA-LUAD": 39,
+          "TCGA-OV": 3,
+          "TCGA-UCEC": 33,
+          "TCGA-HNSC": 10,
+          "TCGA-PAAD": 2,
+          "TCGA-KIRP": 5,
+          "TCGA-GBM": 8,
+          "TCGA-LUSC": 14,
+          "TCGA-READ": 6,
+          "TCGA-CHOL": 2,
+          "TCGA-LGG": 3,
+          "TCGA-BLCA": 13,
+          "TCGA-THYM": 1,
+          "TCGA-BRCA": 7,
+          "TCGA-UCS": 1,
+          "TCGA-DLBC": 3,
+          "TCGA-CESC": 4,
+          "TCGA-MESO": 1,
+          "TCGA-ACC": 1,
+          "TCGA-PCPG": 1,
+          "TCGA-PRAD": 7,
+          "TCGA-ESCA": 2,
+          "TCGA-SARC": 1
+        },
+        "FAT1": {
+          "TCGA-UCEC": 114,
+          "TCGA-LUAD": 57,
+          "TCGA-KIRC": 11,
+          "TCGA-BRCA": 35,
+          "TCGA-HNSC": 116,
+          "TCGA-UVM": 1,
+          "TCGA-STAD": 48,
+          "TCGA-OV": 18,
+          "TCGA-DLBC": 5,
+          "TCGA-SKCM": 62,
+          "TCGA-COAD": 52,
+          "TCGA-CESC": 27,
+          "TCGA-TGCT": 1,
+          "TCGA-KIRP": 16,
+          "TCGA-LUSC": 67,
+          "TCGA-LGG": 10,
+          "TCGA-READ": 12,
+          "TCGA-ACC": 3,
+          "TCGA-BLCA": 46,
+          "TCGA-ESCA": 8,
+          "TCGA-LAML": 2,
+          "TCGA-PAAD": 4,
+          "TCGA-CHOL": 1,
+          "TCGA-GBM": 6,
+          "TCGA-LIHC": 14,
+          "TCGA-UCS": 2,
+          "TCGA-PRAD": 5,
+          "TCGA-SARC": 8,
+          "TCGA-KICH": 2,
+          "TCGA-PCPG": 2,
+          "TCGA-MESO": 1
+        },
+        "NOTCH1": {
+          "TCGA-SKCM": 27,
+          "TCGA-STAD": 36,
+          "TCGA-HNSC": 94,
+          "TCGA-KICH": 1,
+          "TCGA-COAD": 36,
+          "TCGA-KIRC": 4,
+          "TCGA-LGG": 38,
+          "TCGA-UCEC": 59,
+          "TCGA-PAAD": 3,
+          "TCGA-LUSC": 37,
+          "TCGA-ESCA": 18,
+          "TCGA-OV": 2,
+          "TCGA-CESC": 21,
+          "TCGA-LUAD": 24,
+          "TCGA-BLCA": 17,
+          "TCGA-BRCA": 11,
+          "TCGA-LIHC": 6,
+          "TCGA-SARC": 3,
+          "TCGA-UCS": 3,
+          "TCGA-READ": 2,
+          "TCGA-PRAD": 1,
+          "TCGA-KIRP": 3,
+          "TCGA-DLBC": 1,
+          "TCGA-TGCT": 1,
+          "TCGA-CHOL": 1,
+          "TCGA-ACC": 1
+        },
+        "SMARCA4": {
+          "TCGA-LUSC": 19,
+          "TCGA-KIRC": 12,
+          "TCGA-UCEC": 68,
+          "TCGA-HNSC": 22,
+          "TCGA-LUAD": 46,
+          "TCGA-SKCM": 40,
+          "TCGA-BRCA": 17,
+          "TCGA-BLCA": 25,
+          "TCGA-LGG": 24,
+          "TCGA-COAD": 32,
+          "TCGA-STAD": 32,
+          "TCGA-OV": 6,
+          "TCGA-LIHC": 10,
+          "TCGA-GBM": 4,
+          "TCGA-CESC": 15,
+          "TCGA-PRAD": 2,
+          "TCGA-KIRP": 9,
+          "TCGA-THYM": 2,
+          "TCGA-READ": 6,
+          "TCGA-PAAD": 2,
+          "TCGA-ESCA": 13,
+          "TCGA-THCA": 1,
+          "TCGA-SARC": 2,
+          "TCGA-UCS": 2,
+          "TCGA-ACC": 3,
+          "TCGA-DLBC": 2,
+          "TCGA-UVM": 1,
+          "TCGA-MESO": 1
+        },
+        "CREBBP": {
+          "TCGA-UCEC": 77,
+          "TCGA-COAD": 45,
+          "TCGA-CESC": 26,
+          "TCGA-SARC": 2,
+          "TCGA-STAD": 46,
+          "TCGA-LUSC": 37,
+          "TCGA-BLCA": 51,
+          "TCGA-READ": 9,
+          "TCGA-PRAD": 5,
+          "TCGA-KIRP": 10,
+          "TCGA-LUAD": 28,
+          "TCGA-SKCM": 45,
+          "TCGA-HNSC": 33,
+          "TCGA-UCS": 3,
+          "TCGA-BRCA": 23,
+          "TCGA-TGCT": 2,
+          "TCGA-DLBC": 6,
+          "TCGA-PAAD": 3,
+          "TCGA-OV": 12,
+          "TCGA-LIHC": 7,
+          "TCGA-ESCA": 8,
+          "TCGA-LGG": 4,
+          "TCGA-KIRC": 3,
+          "TCGA-GBM": 7,
+          "TCGA-THCA": 1,
+          "TCGA-MESO": 2
+        },
+        "ATM": {
+          "TCGA-GBM": 6,
+          "TCGA-BRCA": 27,
+          "TCGA-BLCA": 55,
+          "TCGA-CESC": 13,
+          "TCGA-UCEC": 101,
+          "TCGA-LUSC": 32,
+          "TCGA-ACC": 6,
+          "TCGA-STAD": 47,
+          "TCGA-LUAD": 43,
+          "TCGA-LGG": 3,
+          "TCGA-KIRC": 17,
+          "TCGA-SKCM": 35,
+          "TCGA-KIRP": 4,
+          "TCGA-HNSC": 15,
+          "TCGA-THCA": 5,
+          "TCGA-LIHC": 13,
+          "TCGA-COAD": 56,
+          "TCGA-PRAD": 20,
+          "TCGA-READ": 15,
+          "TCGA-SARC": 8,
+          "TCGA-CHOL": 1,
+          "TCGA-PAAD": 7,
+          "TCGA-OV": 9,
+          "TCGA-UCS": 2,
+          "TCGA-MESO": 1,
+          "TCGA-ESCA": 7,
+          "TCGA-KICH": 2,
+          "TCGA-LAML": 1,
+          "TCGA-TGCT": 1,
+          "TCGA-DLBC": 1
+        },
+        "FAT4": {
+          "TCGA-READ": 28,
+          "TCGA-LUAD": 104,
+          "TCGA-STAD": 110,
+          "TCGA-UCEC": 115,
+          "TCGA-SKCM": 179,
+          "TCGA-ESCA": 15,
+          "TCGA-COAD": 113,
+          "TCGA-BLCA": 69,
+          "TCGA-LUSC": 80,
+          "TCGA-LGG": 11,
+          "TCGA-HNSC": 53,
+          "TCGA-PAAD": 4,
+          "TCGA-TGCT": 2,
+          "TCGA-LAML": 2,
+          "TCGA-GBM": 12,
+          "TCGA-CESC": 25,
+          "TCGA-KIRP": 7,
+          "TCGA-SARC": 4,
+          "TCGA-UCS": 1,
+          "TCGA-MESO": 6,
+          "TCGA-PRAD": 12,
+          "TCGA-LIHC": 18,
+          "TCGA-OV": 18,
+          "TCGA-BRCA": 26,
+          "TCGA-KIRC": 9,
+          "TCGA-DLBC": 10,
+          "TCGA-THYM": 2,
+          "TCGA-ACC": 5,
+          "TCGA-UVM": 1,
+          "TCGA-KICH": 2,
+          "TCGA-PCPG": 1,
+          "TCGA-THCA": 1,
+          "TCGA-CHOL": 1
+        },
+        "SETD2": {
+          "TCGA-BLCA": 24,
+          "TCGA-KIRC": 46,
+          "TCGA-UCEC": 68,
+          "TCGA-KICH": 1,
+          "TCGA-BRCA": 20,
+          "TCGA-READ": 7,
+          "TCGA-KIRP": 15,
+          "TCGA-LUSC": 17,
+          "TCGA-STAD": 24,
+          "TCGA-COAD": 28,
+          "TCGA-SKCM": 25,
+          "TCGA-LUAD": 37,
+          "TCGA-SARC": 1,
+          "TCGA-OV": 7,
+          "TCGA-CHOL": 1,
+          "TCGA-THCA": 2,
+          "TCGA-GBM": 8,
+          "TCGA-CESC": 15,
+          "TCGA-LIHC": 14,
+          "TCGA-LGG": 9,
+          "TCGA-LAML": 3,
+          "TCGA-PRAD": 7,
+          "TCGA-PAAD": 2,
+          "TCGA-HNSC": 10,
+          "TCGA-MESO": 8,
+          "TCGA-ESCA": 2,
+          "TCGA-PCPG": 2,
+          "TCGA-UCS": 1,
+          "TCGA-THYM": 1,
+          "TCGA-UVM": 1
+        },
+        "APC": {
+          "TCGA-READ": 123,
+          "TCGA-COAD": 307,
+          "TCGA-HNSC": 22,
+          "TCGA-BLCA": 25,
+          "TCGA-KIRC": 6,
+          "TCGA-SARC": 6,
+          "TCGA-UCEC": 76,
+          "TCGA-LUAD": 35,
+          "TCGA-SKCM": 47,
+          "TCGA-UCS": 1,
+          "TCGA-STAD": 54,
+          "TCGA-LUSC": 26,
+          "TCGA-CESC": 12,
+          "TCGA-ACC": 3,
+          "TCGA-GBM": 4,
+          "TCGA-PAAD": 4,
+          "TCGA-OV": 11,
+          "TCGA-LGG": 3,
+          "TCGA-BRCA": 18,
+          "TCGA-LIHC": 16,
+          "TCGA-PRAD": 11,
+          "TCGA-ESCA": 11,
+          "TCGA-KIRP": 4,
+          "TCGA-THCA": 2,
+          "TCGA-UVM": 2,
+          "TCGA-DLBC": 1,
+          "TCGA-TGCT": 1,
+          "TCGA-PCPG": 1,
+          "TCGA-CHOL": 1,
+          "TCGA-LAML": 1
+        }
+      }
+    }
+  },
+  "cpic": {
+    "pairs": {
+      "pairs": 574,
+      "removed": 61,
+      "genes": 121,
+      "drugs": 301,
+      "levels": {
+        "A": 96,
+        "B": 32,
+        "B/C": 56,
+        "C": 272,
+        "D": 102,
+        "Retired": 4,
+        "A/B": 7,
+        "C/D": 5
+      },
+      "byGene": [
+        {
+          "gene": "CYP2C9",
+          "total": 25,
+          "levels": {
+            "A": 12,
+            "B": 1,
+            "C": 8,
+            "B/C": 4
+          }
+        },
+        {
+          "gene": "CYP2D6",
+          "total": 79,
+          "levels": {
+            "A": 11,
+            "B": 11,
+            "B/C": 27,
+            "C": 26,
+            "A/B": 4
+          }
+        },
+        {
+          "gene": "MT-RNR1",
+          "total": 11,
+          "levels": {
+            "A": 11
+          }
+        },
+        {
+          "gene": "CYP2C19",
+          "total": 27,
+          "levels": {
+            "A": 9,
+            "B": 6,
+            "C": 9,
+            "B/C": 3
+          }
+        },
+        {
+          "gene": "G6PD",
+          "total": 49,
+          "levels": {
+            "B/C": 1,
+            "C": 40,
+            "A": 8
+          }
+        },
+        {
+          "gene": "SLCO1B1",
+          "total": 9,
+          "levels": {
+            "A": 7,
+            "B/C": 1,
+            "C": 1
+          }
+        },
+        {
+          "gene": "CACNA1S",
+          "total": 7,
+          "levels": {
+            "A": 7
+          }
+        },
+        {
+          "gene": "RYR1",
+          "total": 7,
+          "levels": {
+            "A": 7
+          }
+        },
+        {
+          "gene": "HLA-B",
+          "total": 13,
+          "levels": {
+            "A": 6,
+            "B/C": 1,
+            "C": 6
+          }
+        },
+        {
+          "gene": "NUDT15",
+          "total": 3,
+          "levels": {
+            "A": 3
+          }
+        },
+        {
+          "gene": "TPMT",
+          "total": 3,
+          "levels": {
+            "A": 3
+          }
+        },
+        {
+          "gene": "UGT1A1",
+          "total": 7,
+          "levels": {
+            "A": 2,
+            "B/C": 4,
+            "B": 1
+          }
+        },
+        {
+          "gene": "DPYD",
+          "total": 3,
+          "levels": {
+            "A": 2,
+            "C": 1
+          }
+        },
+        {
+          "gene": "CYP3A5",
+          "total": 11,
+          "levels": {
+            "C": 9,
+            "A": 1,
+            "C/D": 1
+          }
+        },
+        {
+          "gene": "NAT2",
+          "total": 7,
+          "levels": {
+            "A": 1,
+            "B/C": 5,
+            "C": 1
+          }
+        },
+        {
+          "gene": "CYP2B6",
+          "total": 5,
+          "levels": {
+            "A": 1,
+            "B/C": 2,
+            "B": 1,
+            "C": 1
+          }
+        },
+        {
+          "gene": "CYP4F2",
+          "total": 3,
+          "levels": {
+            "A": 1,
+            "B": 2
+          }
+        },
+        {
+          "gene": "HLA-A",
+          "total": 3,
+          "levels": {
+            "A": 1,
+            "B/C": 1,
+            "C": 1
+          }
+        },
+        {
+          "gene": "CFTR",
+          "total": 2,
+          "levels": {
+            "A": 1,
+            "C": 1
+          }
+        },
+        {
+          "gene": "ABCG2",
+          "total": 1,
+          "levels": {
+            "A": 1
+          }
+        },
+        {
+          "gene": "VKORC1",
+          "total": 1,
+          "levels": {
+            "A": 1
+          }
+        },
+        {
+          "gene": "COMT",
+          "total": 17,
+          "levels": {
+            "C": 16,
+            "C/D": 1
+          }
+        },
+        {
+          "gene": "OPRM1",
+          "total": 15,
+          "levels": {
+            "C": 15
+          }
+        },
+        {
+          "gene": "ADRB1",
+          "total": 14,
+          "levels": {
+            "B/C": 1,
+            "C": 13
+          }
+        },
+        {
+          "gene": "ADRA2C",
+          "total": 13,
+          "levels": {
+            "C": 13
+          }
+        },
+        {
+          "gene": "GRK4",
+          "total": 13,
+          "levels": {
+            "C": 13
+          }
+        },
+        {
+          "gene": "GRK5",
+          "total": 13,
+          "levels": {
+            "C": 13
+          }
+        },
+        {
+          "gene": "HTR2A",
+          "total": 13,
+          "levels": {
+            "C": 13
+          }
+        },
+        {
+          "gene": "SLC6A4",
+          "total": 13,
+          "levels": {
+            "C": 13
+          }
+        },
+        {
+          "gene": "MC4R",
+          "total": 9,
+          "levels": {
+            "C": 9
+          }
+        },
+        {
+          "gene": "ADRB2",
+          "total": 8,
+          "levels": {
+            "D": 2,
+            "C": 6
+          }
+        },
+        {
+          "gene": "CYP3A4",
+          "total": 8,
+          "levels": {
+            "C": 8
+          }
+        },
+        {
+          "gene": "HMGCR",
+          "total": 7,
+          "levels": {
+            "C": 5,
+            "D": 2
+          }
+        },
+        {
+          "gene": "ABCB1",
+          "total": 6,
+          "levels": {
+            "C": 5,
+            "C/D": 1
+          }
+        },
+        {
+          "gene": "GRIK4",
+          "total": 6,
+          "levels": {
+            "C": 6
+          }
+        },
+        {
+          "gene": "LPA",
+          "total": 6,
+          "levels": {
+            "D": 6
+          }
+        },
+        {
+          "gene": "CETP",
+          "total": 5,
+          "levels": {
+            "D": 5
+          }
+        },
+        {
+          "gene": "FKBP5",
+          "total": 5,
+          "levels": {
+            "D": 5
+          }
+        },
+        {
+          "gene": "NQO1",
+          "total": 5,
+          "levels": {
+            "D": 5
+          }
+        },
+        {
+          "gene": "CBR3",
+          "total": 4,
+          "levels": {
+            "D": 4
+          }
+        },
+        {
+          "gene": "CRHR1",
+          "total": 4,
+          "levels": {
+            "D": 4
+          }
+        },
+        {
+          "gene": "GSTP1",
+          "total": 4,
+          "levels": {
+            "D": 4
+          }
+        },
+        {
+          "gene": "HAS3",
+          "total": 4,
+          "levels": {
+            "D": 4
+          }
+        },
+        {
+          "gene": "ANKK1",
+          "total": 3,
+          "levels": {
+            "D": 3
+          }
+        },
+        {
+          "gene": "CYP2C8",
+          "total": 3,
+          "levels": {
+            "C": 3
+          }
+        },
+        {
+          "gene": "FDPS",
+          "total": 3,
+          "levels": {
+            "D": 3
+          }
+        },
+        {
+          "gene": "HTR2C",
+          "total": 3,
+          "levels": {
+            "C": 3
+          }
+        },
+        {
+          "gene": "MTHFR",
+          "total": 3,
+          "levels": {
+            "B/C": 1,
+            "C": 2
+          }
+        },
+        {
+          "gene": "TNF",
+          "total": 3,
+          "levels": {
+            "C": 3
+          }
+        },
+        {
+          "gene": "ADD1",
+          "total": 2,
+          "levels": {
+            "D": 2
+          }
+        },
+        {
+          "gene": "BCHE",
+          "total": 2,
+          "levels": {
+            "B/C": 2
+          }
+        },
+        {
+          "gene": "COQ2",
+          "total": 2,
+          "levels": {
+            "D": 2
+          }
+        },
+        {
+          "gene": "F5",
+          "total": 2,
+          "levels": {
+            "C": 2
+          }
+        },
+        {
+          "gene": "GSTM1",
+          "total": 2,
+          "levels": {
+            "D": 2
+          }
+        },
+        {
+          "gene": "HLA-C",
+          "total": 2,
+          "levels": {
+            "C": 2
+          }
+        },
+        {
+          "gene": "HLA-DRB1",
+          "total": 2,
+          "levels": {
+            "B/C": 1,
+            "C": 1
+          }
+        },
+        {
+          "gene": "IFNL3",
+          "total": 2,
+          "levels": {
+            "Retired": 2
+          }
+        },
+        {
+          "gene": "IFNL4",
+          "total": 2,
+          "levels": {
+            "Retired": 2
+          }
+        },
+        {
+          "gene": "KIF6",
+          "total": 2,
+          "levels": {
+            "D": 2
+          }
+        },
+        {
+          "gene": "NAGS",
+          "total": 2,
+          "levels": {
+            "B": 2
+          }
+        },
+        {
+          "gene": "POLG",
+          "total": 2,
+          "levels": {
+            "A/B": 2
+          }
+        },
+        {
+          "gene": "SCN1A",
+          "total": 2,
+          "levels": {
+            "B": 2
+          }
+        },
+        {
+          "gene": "SLC28A3",
+          "total": 2,
+          "levels": {
+            "B/C": 2
+          }
+        },
+        {
+          "gene": "TYMS",
+          "total": 2,
+          "levels": {
+            "D": 2
+          }
+        },
+        {
+          "gene": "VDR",
+          "total": 2,
+          "levels": {
+            "D": 2
+          }
+        },
+        {
+          "gene": "ABCC4",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "ABL2",
+          "total": 1,
+          "levels": {
+            "B": 1
+          }
+        },
+        {
+          "gene": "ACE",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "ACYP2",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "ADORA2A",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "APOE",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "ASL",
+          "total": 1,
+          "levels": {
+            "B": 1
+          }
+        },
+        {
+          "gene": "ASS1",
+          "total": 1,
+          "levels": {
+            "B": 1
+          }
+        },
+        {
+          "gene": "ATIC",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "C11orf65",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "C8orf34",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "CALU",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "CCHCR1",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "CES1",
+          "total": 1,
+          "levels": {
+            "C": 1
+          }
+        },
+        {
+          "gene": "CHRNA3",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "COL22A1",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "CPS1",
+          "total": 1,
+          "levels": {
+            "B": 1
+          }
+        },
+        {
+          "gene": "CRHR2",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "CYB5R1",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "CYB5R2",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "CYB5R3",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "CYB5R4",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "DRD2",
+          "total": 1,
+          "levels": {
+            "C": 1
+          }
+        },
+        {
+          "gene": "DYNC2H1",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "EGF",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "EPHX1",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "ERCC1",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "FCGR3A",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "GBA",
+          "total": 1,
+          "levels": {
+            "A/B": 1
+          }
+        },
+        {
+          "gene": "GGCX",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "GNB3",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "GP1BA",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "HLA-DPB1",
+          "total": 1,
+          "levels": {
+            "C": 1
+          }
+        },
+        {
+          "gene": "HLA-DQA1",
+          "total": 1,
+          "levels": {
+            "C": 1
+          }
+        },
+        {
+          "gene": "HPRT1",
+          "total": 1,
+          "levels": {
+            "B": 1
+          }
+        },
+        {
+          "gene": "HTR1A",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "ITPA",
+          "total": 1,
+          "levels": {
+            "C/D": 1
+          }
+        },
+        {
+          "gene": "LDLR",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "LTC4S",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "MTRR",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "NEDD4L",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "NT5C2",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "OTC",
+          "total": 1,
+          "levels": {
+            "B": 1
+          }
+        },
+        {
+          "gene": "PRKCA",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "PROC",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "PROS1",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "PTGFR",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "PTGS1",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "SEMA3C",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "SERPINC1",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "SOD2",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "UGT1A4",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "UGT2B15",
+          "total": 1,
+          "levels": {
+            "C/D": 1
+          }
+        },
+        {
+          "gene": "UMPS",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "XPC",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        },
+        {
+          "gene": "YEATS4",
+          "total": 1,
+          "levels": {
+            "D": 1
+          }
+        }
+      ],
+      "clinpgx": {
+        "A": {
+          "3": 5,
+          "4": 1,
+          "1A": 80,
+          "none": 10
+        },
+        "B": {
+          "3": 3,
+          "1B": 1,
+          "1A": 17,
+          "none": 9,
+          "2B": 1,
+          "2A": 1
+        },
+        "B/C": {
+          "3": 14,
+          "4": 1,
+          "2A": 4,
+          "none": 29,
+          "2B": 3,
+          "1B": 1,
+          "1A": 4
+        },
+        "C": {
+          "3": 95,
+          "4": 14,
+          "none": 147,
+          "2B": 7,
+          "2A": 7,
+          "1B": 1,
+          "1A": 1
+        },
+        "D": {
+          "3": 65,
+          "4": 2,
+          "none": 30,
+          "2B": 3,
+          "2A": 2
+        },
+        "Retired": {
+          "1B": 4
+        },
+        "A/B": {
+          "3": 1,
+          "none": 6
+        },
+        "C/D": {
+          "3": 5
+        }
+      },
+      "testing": {
+        "none": 400,
+        "Testing Required": 15,
+        "Actionable PGx": 84,
+        "Informative PGx": 56,
+        "Testing Recommended": 9,
+        "No Clinical PGx": 10
+      }
+    },
+    "alleles": {
+      "alleles": 1378,
+      "genes": [
+        {
+          "gene": "RYR1",
+          "total": 347,
+          "functions": {
+            "Uncertain function": 216,
+            "Gene-specific class": 96,
+            "Normal function": 35
+          },
+          "classes": [
+            "Malignant Hyperthermia associated"
+          ]
+        },
+        {
+          "gene": "CYP2D6",
+          "total": 208,
+          "functions": {
+            "No function": 48,
+            "Decreased function": 25,
+            "Uncertain function": 53,
+            "Unknown function": 33,
+            "Not assigned": 25,
+            "Normal function": 16,
+            "Increased function": 8
+          },
+          "classes": []
+        },
+        {
+          "gene": "G6PD",
+          "total": 187,
+          "functions": {
+            "Gene-specific class": 181,
+            "Uncertain function": 6
+          },
+          "classes": [
+            "II/Deficient",
+            "III/Deficient",
+            "I/Deficient with CNSHA",
+            "IV/Normal"
+          ]
+        },
+        {
+          "gene": "CFTR",
+          "total": 104,
+          "functions": {
+            "Gene-specific class": 104
+          },
+          "classes": [
+            "ivacaftor responsive",
+            "ivacaftor non-responsive"
+          ]
+        },
+        {
+          "gene": "CYP2C9",
+          "total": 94,
+          "functions": {
+            "No function": 13,
+            "Decreased function": 21,
+            "Uncertain function": 34,
+            "Not assigned": 19,
+            "Unknown function": 5,
+            "Normal function": 2
+          },
+          "classes": []
+        },
+        {
+          "gene": "DPYD",
+          "total": 84,
+          "functions": {
+            "Decreased function": 7,
+            "Normal function": 56,
+            "No function": 21
+          },
+          "classes": []
+        },
+        {
+          "gene": "NAT2",
+          "total": 59,
+          "functions": {
+            "Decreased function": 40,
+            "Uncertain function": 10,
+            "Unknown function": 7,
+            "Increased function": 2
+          },
+          "classes": []
+        },
+        {
+          "gene": "CYP2B6",
+          "total": 49,
+          "functions": {
+            "No function": 7,
+            "Decreased function": 15,
+            "Normal function": 6,
+            "Not assigned": 1,
+            "Uncertain function": 19,
+            "Increased function": 1
+          },
+          "classes": []
+        },
+        {
+          "gene": "CYP2C19",
+          "total": 49,
+          "functions": {
+            "No function": 12,
+            "Not assigned": 13,
+            "Normal function": 7,
+            "Uncertain function": 10,
+            "Decreased function": 6,
+            "Increased function": 1
+          },
+          "classes": []
+        },
+        {
+          "gene": "TPMT",
+          "total": 49,
+          "functions": {
+            "No function": 38,
+            "Uncertain function": 7,
+            "Decreased function": 1,
+            "Normal function": 1,
+            "Unknown function": 2
+          },
+          "classes": []
+        },
+        {
+          "gene": "SLCO1B1",
+          "total": 47,
+          "functions": {
+            "Uncertain function": 21,
+            "No function": 11,
+            "Normal function": 2,
+            "Not assigned": 9,
+            "Unknown function": 2,
+            "Increased function": 2
+          },
+          "classes": []
+        },
+        {
+          "gene": "MT-RNR1",
+          "total": 25,
+          "functions": {
+            "Gene-specific class": 25
+          },
+          "classes": [
+            "uncertain risk of aminoglycoside-induced hearing loss",
+            "increased risk of aminoglycoside-induced hearing loss",
+            "Normal risk of aminoglycoside-induced hearing loss",
+            "normal risk of aminoglycoside-induced hearing loss"
+          ]
+        },
+        {
+          "gene": "CYP4F2",
+          "total": 23,
+          "functions": {
+            "Not assigned": 23
+          },
+          "classes": []
+        },
+        {
+          "gene": "NUDT15",
+          "total": 23,
+          "functions": {
+            "Decreased function": 2,
+            "No function": 12,
+            "Uncertain function": 8,
+            "Normal function": 1
+          },
+          "classes": []
+        },
+        {
+          "gene": "UGT1A1",
+          "total": 9,
+          "functions": {
+            "Decreased function": 6,
+            "Normal function": 1,
+            "Increased function": 1,
+            "Unknown function": 1
+          },
+          "classes": []
+        },
+        {
+          "gene": "CYP3A5",
+          "total": 8,
+          "functions": {
+            "Unknown function": 2,
+            "Normal function": 1,
+            "No function": 3,
+            "Not assigned": 2
+          },
+          "classes": []
+        },
+        {
+          "gene": "CACNA1S",
+          "total": 3,
+          "functions": {
+            "Normal function": 1,
+            "Gene-specific class": 2
+          },
+          "classes": [
+            "Malignant Hyperthermia associated"
+          ]
+        },
+        {
+          "gene": "HLA-B",
+          "total": 3,
+          "functions": {
+            "Not assigned": 3
+          },
+          "classes": []
+        },
+        {
+          "gene": "ABCG2",
+          "total": 2,
+          "functions": {
+            "Normal function": 1,
+            "Decreased function": 1
+          },
+          "classes": []
+        },
+        {
+          "gene": "IFNL3",
+          "total": 2,
+          "functions": {
+            "Not assigned": 2
+          },
+          "classes": []
+        },
+        {
+          "gene": "VKORC1",
+          "total": 2,
+          "functions": {
+            "Not assigned": 2
+          },
+          "classes": []
+        },
+        {
+          "gene": "HLA-A",
+          "total": 1,
+          "functions": {
+            "Not assigned": 1
+          },
+          "classes": []
+        }
+      ]
+    },
+    "phenotypes": {
+      "groups": [
+        "African American/Afro-Caribbean",
+        "American",
+        "Central/South Asian",
+        "East Asian",
+        "European",
+        "Latino",
+        "Near Eastern",
+        "Oceanian",
+        "Sub-Saharan African"
+      ],
+      "genes": [
+        {
+          "gene": "ABCG2",
+          "results": 3,
+          "highRisk": [
+            "Decreased Function",
+            "Poor Function"
+          ],
+          "shares": {
+            "Latino": 0.398444,
+            "American": 0.36,
+            "European": 0.196467,
+            "Oceanian": 0.367537,
+            "East Asian": 0.519889,
+            "Near Eastern": 0.126336,
+            "Central/South Asian": 0.177713,
+            "Sub-Saharan African": 0.011658,
+            "African American/Afro-Caribbean": 0.068517
+          }
+        },
+        {
+          "gene": "CYP2B6",
+          "results": 6,
+          "highRisk": [
+            "Poor Metabolizer",
+            "Intermediate Metabolizer"
+          ],
+          "shares": {
+            "Latino": 0.516177,
+            "European": 0.453806,
+            "Oceanian": 0.8704,
+            "East Asian": 0.369918,
+            "Near Eastern": 0.586551,
+            "Central/South Asian": 0.424797,
+            "Sub-Saharan African": 0.604818,
+            "African American/Afro-Caribbean": 0.623222
+          }
+        },
+        {
+          "gene": "CYP2C19",
+          "results": 8,
+          "highRisk": [
+            "Intermediate Metabolizer",
+            "Poor Metabolizer",
+            "Likely Intermediate Metabolizer",
+            "Likely Poor Metabolizer",
+            "Rapid Metabolizer",
+            "Ultrarapid Metabolizer"
+          ],
+          "shares": {
+            "Latino": 0.475023,
+            "American": 0.372445,
+            "European": 0.603884,
+            "Oceanian": 0.964993,
+            "East Asian": 0.61604,
+            "Near Eastern": 0.548079,
+            "Central/South Asian": 0.70447,
+            "Sub-Saharan African": 0.630223,
+            "African American/Afro-Caribbean": 0.669705
+          }
+        },
+        {
+          "gene": "CYP2C9",
+          "results": 6,
+          "highRisk": [
+            "Intermediate Metabolizer",
+            "Poor Metabolizer"
+          ],
+          "shares": {
+            "Latino": 0.255578,
+            "American": 0.168502,
+            "European": 0.370947,
+            "Oceanian": 0.08776,
+            "East Asian": 0.157538,
+            "Near Eastern": 0.388747,
+            "Central/South Asian": 0.400036,
+            "Sub-Saharan African": 0.268855,
+            "African American/Afro-Caribbean": 0.241337
+          }
+        },
+        {
+          "gene": "CYP2D6",
+          "results": 22,
+          "highRisk": [
+            "Ultrarapid Metabolizer",
+            "Intermediate Metabolizer",
+            "Poor Metabolizer"
+          ],
+          "shares": {
+            "Latino": 0.362743,
+            "American": 0.306391,
+            "European": 0.470865,
+            "Oceanian": 0.27702,
+            "East Asian": 0.40139,
+            "Near Eastern": 0.397181,
+            "Central/South Asian": 0.319052,
+            "Sub-Saharan African": 0.446356,
+            "African American/Afro-Caribbean": 0.423218
+          }
+        },
+        {
+          "gene": "CYP3A5",
+          "results": 5,
+          "highRisk": [
+            "Normal Metabolizer",
+            "Possible Intermediate Metabolizer",
+            "Intermediate Metabolizer"
+          ],
+          "shares": {
+            "Latino": 0.315727,
+            "European": 0.142716,
+            "East Asian": 0.442816,
+            "Near Eastern": 0.229014,
+            "Central/South Asian": 0.546694,
+            "Sub-Saharan African": 0.728985,
+            "African American/Afro-Caribbean": 0.700632
+          }
+        },
+        {
+          "gene": "NAT2",
+          "results": 4,
+          "highRisk": [
+            "Poor Metabolizer",
+            "Intermediate Metabolizer",
+            "Rapid Metabolizer"
+          ],
+          "shares": {
+            "Latino": 0.99213,
+            "European": 0.99945,
+            "East Asian": 0.99604,
+            "Central/South Asian": 0.99625,
+            "Sub-Saharan African": 0.94641
+          }
+        },
+        {
+          "gene": "NUDT15",
+          "results": 5,
+          "highRisk": [
+            "Indeterminate",
+            "Intermediate Metabolizer",
+            "Possible Intermediate Metabolizer",
+            "Poor Metabolizer"
+          ],
+          "shares": {
+            "Latino": 0.123191,
+            "European": 0.013677,
+            "East Asian": 0.20834,
+            "Central/South Asian": 0.134221
+          }
+        },
+        {
+          "gene": "SLCO1B1",
+          "results": 6,
+          "highRisk": [
+            "Decreased Function",
+            "Poor Function",
+            "Possible Decreased Function"
+          ],
+          "shares": {
+            "American": 0.4224,
+            "European": 0.31239,
+            "Oceanian": 0,
+            "East Asian": 0.235313,
+            "Near Eastern": 0.36,
+            "Central/South Asian": 0.13462,
+            "Sub-Saharan African": 0.055088,
+            "African American/Afro-Caribbean": 0.0199
+          }
+        },
+        {
+          "gene": "TPMT",
+          "results": 5,
+          "highRisk": [
+            "Possible Intermediate Metabolizer",
+            "Intermediate Metabolizer",
+            "Poor Metabolizer",
+            "Indeterminate"
+          ],
+          "shares": {
+            "Latino": 0.107644,
+            "European": 0.09077,
+            "East Asian": 0.040335,
+            "Near Eastern": 0.067596,
+            "Central/South Asian": 0.036729,
+            "Sub-Saharan African": 0.106622,
+            "African American/Afro-Caribbean": 0.13534
+          }
+        }
+      ]
+    },
+    "cyp2d6": {
+      "alleles": 208,
+      "functions": {
+        "No function": 48,
+        "Decreased function": 25,
+        "Uncertain function": 53,
+        "Unknown function": 33,
+        "Not assigned": 25,
+        "Normal function": 16,
+        "Increased function": 8
+      },
+      "top": [
+        {
+          "name": "*1",
+          "function": "Normal function",
+          "activity": "1.0",
+          "freqs": {
+            "Latino": 0.36455274,
+            "American": 0.5164585,
+            "European": 0.28500712,
+            "Oceanian": 0.6170194,
+            "East Asian": 0.25353962,
+            "Near Eastern": 0.24876314,
+            "Central/South Asian": 0.29324096,
+            "Sub-Saharan African": 0.15676576,
+            "African American/Afro-Caribbean": 0.21115738
+          }
+        },
+        {
+          "name": "*10",
+          "function": "Decreased function",
+          "activity": "0.25",
+          "freqs": {
+            "Latino": 0.026291614,
+            "American": 0.014500251,
+            "European": 0.01571283,
+            "Oceanian": 0.05713253,
+            "East Asian": 0.4284454,
+            "Near Eastern": 0.06769364,
+            "Central/South Asian": 0.07559443,
+            "Sub-Saharan African": 0.048626088,
+            "African American/Afro-Caribbean": 0.038160447
+          }
+        },
+        {
+          "name": "*2",
+          "function": "Normal function",
+          "activity": "1.0",
+          "freqs": {
+            "Latino": 0.22684056,
+            "American": 0.217449,
+            "European": 0.18536054,
+            "Oceanian": 0.0611197,
+            "East Asian": 0.1191732,
+            "Near Eastern": 0.19004925,
+            "Central/South Asian": 0.27445427,
+            "Sub-Saharan African": 0.1738963,
+            "African American/Afro-Caribbean": 0.15468602
+          }
+        },
+        {
+          "name": "*17",
+          "function": "Decreased function",
+          "activity": "0.5",
+          "freqs": {
+            "Latino": 0.023261126,
+            "American": 0.0052698795,
+            "European": 0.0039216722,
+            "Oceanian": 0.0010413943,
+            "East Asian": 0.00009343609,
+            "Near Eastern": 0.030970177,
+            "Central/South Asian": 0.0004806022,
+            "Sub-Saharan African": 0.19355686,
+            "African American/Afro-Caribbean": 0.16882424
+          }
+        },
+        {
+          "name": "*4",
+          "function": "No function",
+          "activity": "0.0",
+          "freqs": {
+            "Latino": 0.12051356,
+            "American": 0.10194215,
+            "European": 0.1848476,
+            "Oceanian": 0.017797798,
+            "East Asian": 0.005269325,
+            "Near Eastern": 0.11405941,
+            "Central/South Asian": 0.089567736,
+            "Sub-Saharan African": 0.028676093,
+            "African American/Afro-Caribbean": 0.048111428
+          }
+        },
+        {
+          "name": "*41",
+          "function": "Decreased function",
+          "activity": "0.25",
+          "freqs": {
+            "Latino": 0.051015634,
+            "American": 0.027095573,
+            "European": 0.09237511,
+            "Oceanian": 0.032435685,
+            "East Asian": 0.023172446,
+            "Near Eastern": 0.15358411,
+            "Central/South Asian": 0.11927969,
+            "Sub-Saharan African": 0.044932652,
+            "African American/Afro-Caribbean": 0.037086975
+          }
+        },
+        {
+          "name": "*1x2",
+          "function": "Increased function",
+          "activity": "2.0",
+          "freqs": {
+            "Latino": 0.015091962,
+            "American": 0.025994705,
+            "European": 0.008242789,
+            "Oceanian": 0.118886255,
+            "East Asian": 0.0033543645,
+            "Near Eastern": 0.031482305,
+            "Central/South Asian": 0.005793713,
+            "Sub-Saharan African": 0.0057788896,
+            "African American/Afro-Caribbean": 0.007974796
+          }
+        },
+        {
+          "name": "*29",
+          "function": "Decreased function",
+          "activity": "0.5",
+          "freqs": {
+            "Latino": 0.0152478125,
+            "American": 0.0020174354,
+            "European": 0.0010464214,
+            "Oceanian": 0,
+            "East Asian": 0.000097904944,
+            "Near Eastern": 0.0077560195,
+            "Central/South Asian": 0.0016065163,
+            "Sub-Saharan African": 0.10825595,
+            "African American/Afro-Caribbean": 0.08743822
+          }
+        },
+        {
+          "name": "*5",
+          "function": "No function",
+          "activity": "0.0",
+          "freqs": {
+            "Latino": 0.02915789,
+            "American": 0.01643337,
+            "European": 0.029482473,
+            "Oceanian": 0.03483003,
+            "East Asian": 0.0482394,
+            "Near Eastern": 0.018235605,
+            "Central/South Asian": 0.041759778,
+            "Sub-Saharan African": 0.06219285,
+            "African American/Afro-Caribbean": 0.054194603
+          }
+        },
+        {
+          "name": "*35",
+          "function": "Normal function",
+          "activity": "1.0",
+          "freqs": {
+            "Latino": 0.026583293,
+            "American": 0.011335291,
+            "European": 0.05468046,
+            "Oceanian": 0.003691906,
+            "East Asian": 0.0005036332,
+            "Near Eastern": 0.022185262,
+            "Central/South Asian": 0.008267974,
+            "Sub-Saharan African": 0,
+            "African American/Afro-Caribbean": 0.008867127
+          }
+        },
+        {
+          "name": "*45",
+          "function": "Normal function",
+          "activity": "1.0",
+          "freqs": {
+            "Latino": null,
+            "American": 0.003,
+            "European": 0,
+            "Oceanian": null,
+            "East Asian": 0,
+            "Near Eastern": 0,
+            "Central/South Asian": 0,
+            "Sub-Saharan African": 0.038135953,
+            "African American/Afro-Caribbean": 0.05011446
+          }
+        },
+        {
+          "name": "*71",
+          "function": "Uncertain function",
+          "activity": "n/a",
+          "freqs": {
+            "Latino": null,
+            "American": 0,
+            "European": 0,
+            "Oceanian": 0.042666666,
+            "East Asian": 0.0020697587,
+            "Near Eastern": 0,
+            "Central/South Asian": 0,
+            "Sub-Saharan African": 0,
+            "African American/Afro-Caribbean": 0
+          }
+        },
+        {
+          "name": "*2x2",
+          "function": "Increased function",
+          "activity": "2.0",
+          "freqs": {
+            "Latino": 0.011836204,
+            "American": 0.0060559562,
+            "European": 0.008509548,
+            "Oceanian": 0,
+            "East Asian": 0.0045895264,
+            "Near Eastern": 0.03314872,
+            "Central/South Asian": 0.0069125737,
+            "Sub-Saharan African": 0.018582173,
+            "African American/Afro-Caribbean": 0.01866399
+          }
+        },
+        {
+          "name": "*65",
+          "function": "Uncertain function",
+          "activity": "n/a",
+          "freqs": {
+            "Latino": null,
+            "American": null,
+            "European": null,
+            "Oceanian": null,
+            "East Asian": 0.029529046,
+            "Near Eastern": 0,
+            "Central/South Asian": null,
+            "Sub-Saharan African": 0,
+            "African American/Afro-Caribbean": null
+          }
+        },
+        {
+          "name": "*9",
+          "function": "Decreased function",
+          "activity": "0.25",
+          "freqs": {
+            "Latino": 0.015500509,
+            "American": 0.007059503,
+            "European": 0.02754178,
+            "Oceanian": 0,
+            "East Asian": 0.0017375742,
+            "Near Eastern": 0.0038028897,
+            "Central/South Asian": 0.0018789063,
+            "Sub-Saharan African": 0,
+            "African American/Afro-Caribbean": 0.0043313783
+          }
+        },
+        {
+          "name": "*39",
+          "function": "Normal function",
+          "activity": "1.0",
+          "freqs": {
+            "Latino": 0.008,
+            "American": 0.001,
+            "European": 0.014010031,
+            "Oceanian": 0.0063141957,
+            "East Asian": 0.0056442493,
+            "Near Eastern": 0.026844444,
+            "Central/South Asian": 0.0033921853,
+            "Sub-Saharan African": 0.00080620806,
+            "African American/Afro-Caribbean": 0.020066908
+          }
+        }
+      ],
+      "phenotypes": {
+        "Latino": {
+          "Ultrarapid Metabolizer": 0.040671,
+          "Normal Metabolizer": 0.595697,
+          "Intermediate Metabolizer": 0.290892,
+          "Poor Metabolizer": 0.03118,
+          "Indeterminate": 0.041559
+        },
+        "American": {
+          "Ultrarapid Metabolizer": 0.052283,
+          "Normal Metabolizer": 0.669062,
+          "Intermediate Metabolizer": 0.233947,
+          "Poor Metabolizer": 0.020161,
+          "Indeterminate": 0.02455
+        },
+        "European": {
+          "Ultrarapid Metabolizer": 0.023311,
+          "Normal Metabolizer": 0.491883,
+          "Intermediate Metabolizer": 0.382529,
+          "Poor Metabolizer": 0.065025,
+          "Indeterminate": 0.037252
+        },
+        "Oceanian": {
+          "Ultrarapid Metabolizer": 0.178432,
+          "Normal Metabolizer": 0.635642,
+          "Intermediate Metabolizer": 0.095464,
+          "Poor Metabolizer": 0.003124,
+          "Indeterminate": 0.087338
+        },
+        "East Asian": {
+          "Ultrarapid Metabolizer": 0.008522,
+          "Normal Metabolizer": 0.531828,
+          "Intermediate Metabolizer": 0.384744,
+          "Poor Metabolizer": 0.008124,
+          "Indeterminate": 0.066783
+        },
+        "Near Eastern": {
+          "Ultrarapid Metabolizer": 0.074393,
+          "Normal Metabolizer": 0.565375,
+          "Intermediate Metabolizer": 0.300831,
+          "Poor Metabolizer": 0.021957,
+          "Indeterminate": 0.037443
+        },
+        "Central/South Asian": {
+          "Ultrarapid Metabolizer": 0.015001,
+          "Normal Metabolizer": 0.581012,
+          "Intermediate Metabolizer": 0.280543,
+          "Poor Metabolizer": 0.023508,
+          "Indeterminate": 0.099937
+        },
+        "Sub-Saharan African": {
+          "Ultrarapid Metabolizer": 0.044922,
+          "Normal Metabolizer": 0.463548,
+          "Intermediate Metabolizer": 0.381036,
+          "Poor Metabolizer": 0.020398,
+          "Indeterminate": 0.090096
+        },
+        "African American/Afro-Caribbean": {
+          "Ultrarapid Metabolizer": 0.040828,
+          "Normal Metabolizer": 0.537913,
+          "Intermediate Metabolizer": 0.358916,
+          "Poor Metabolizer": 0.023474,
+          "Indeterminate": 0.038869
+        }
+      },
+      "scores": {
+        "bins": [
+          "0",
+          "0.25",
+          "0.5",
+          "0.75",
+          "1",
+          "1.25",
+          "1.5",
+          "1.75",
+          "2",
+          "2.25",
+          "2.5",
+          "2.75",
+          "≥3",
+          "n/a"
+        ],
+        "groups": {
+          "Latino": [
+            0.03118,
+            0.032776,
+            0.02283,
+            0.007472,
+            0.227814,
+            0.118885,
+            0.051569,
+            0,
+            0.420071,
+            0.005172,
+            0.002243,
+            0,
+            0.038428,
+            0.041559
+          ],
+          "American": [
+            0.020161,
+            0.013817,
+            0.004721,
+            0.000806,
+            0.214603,
+            0.073515,
+            0.012522,
+            0,
+            0.579886,
+            0.003139,
+            0.000535,
+            0,
+            0.051748,
+            0.02455
+          ],
+          "European": [
+            0.065025,
+            0.070701,
+            0.023932,
+            0.002563,
+            0.285333,
+            0.155074,
+            0.01034,
+            0,
+            0.321665,
+            0.004804,
+            0.00032,
+            0,
+            0.022991,
+            0.037252
+          ],
+          "Oceanian": [
+            0.003124,
+            0.010012,
+            0.008139,
+            0.000187,
+            0.077126,
+            0.123594,
+            0.001437,
+            0,
+            0.489314,
+            0.021297,
+            0.000248,
+            0,
+            0.178184,
+            0.087338
+          ],
+          "East Asian": [
+            0.008124,
+            0.082208,
+            0.211931,
+            0.020005,
+            0.0706,
+            0.354783,
+            0.017063,
+            0,
+            0.152736,
+            0.007246,
+            0.000348,
+            0,
+            0.008174,
+            0.066783
+          ],
+          "Near Eastern": [
+            0.021957,
+            0.066705,
+            0.064106,
+            0.020422,
+            0.149598,
+            0.224109,
+            0.045171,
+            0,
+            0.267001,
+            0.029094,
+            0.005864,
+            0,
+            0.068529,
+            0.037443
+          ],
+          "Central/South Asian": [
+            0.023508,
+            0.060947,
+            0.040294,
+            0.001025,
+            0.178277,
+            0.231092,
+            0.002999,
+            0,
+            0.34187,
+            0.005051,
+            0.000066,
+            0,
+            0.014935,
+            0.099937
+          ],
+          "Sub-Saharan African": [
+            0.020398,
+            0.027221,
+            0.095413,
+            0.057604,
+            0.200798,
+            0.07303,
+            0.231617,
+            0,
+            0.154067,
+            0.004834,
+            0.01533,
+            0,
+            0.029592,
+            0.090096
+          ],
+          "African American/Afro-Caribbean": [
+            0.023474,
+            0.024385,
+            0.0854,
+            0.041067,
+            0.208064,
+            0.073487,
+            0.238278,
+            0,
+            0.221719,
+            0.004429,
+            0.014359,
+            0,
+            0.026469,
+            0.038869
+          ]
+        }
+      },
+      "mix": {
+        "American": {
+          "No function": 0.141988,
+          "Decreased function": 0.056943,
+          "Uncertain function": 0.002932,
+          "Normal function": 0.755465,
+          "Unknown function": 0.009419,
+          "Increased function": 0.033254
+        },
+        "European": {
+          "No function": 0.255,
+          "Decreased function": 0.147874,
+          "Uncertain function": 0.011802,
+          "Normal function": 0.55931,
+          "Unknown function": 0.007,
+          "Increased function": 0.019015
+        },
+        "Oceanian": {
+          "No function": 0.055892,
+          "Normal function": 0.689945,
+          "Uncertain function": 0.044667,
+          "Decreased function": 0.09061,
+          "Increased function": 0.118886
+        },
+        "East Asian": {
+          "No function": 0.090132,
+          "Decreased function": 0.477976,
+          "Uncertain function": 0.032774,
+          "Normal function": 0.388979,
+          "Unknown function": 0.001194,
+          "Increased function": 0.008944
+        },
+        "Near Eastern": {
+          "No function": 0.148179,
+          "Decreased function": 0.270448,
+          "Uncertain function": 0.003,
+          "Normal function": 0.497841,
+          "Unknown function": 0.0159,
+          "Increased function": 0.064631
+        },
+        "Central/South Asian": {
+          "No function": 0.153324,
+          "Decreased function": 0.201333,
+          "Uncertain function": 0.028,
+          "Normal function": 0.581355,
+          "Unknown function": 0.023283,
+          "Increased function": 0.012707
+        },
+        "Sub-Saharan African": {
+          "No function": 0.142822,
+          "Decreased function": 0.397532,
+          "Unknown function": 0.017484,
+          "Uncertain function": 0.028627,
+          "Normal function": 0.383174,
+          "Increased function": 0.030361
+        },
+        "African American/Afro-Caribbean": {
+          "No function": 0.153214,
+          "Decreased function": 0.337606,
+          "Uncertain function": 0.009397,
+          "Normal function": 0.461727,
+          "Unknown function": 0.01023,
+          "Increased function": 0.027824
+        },
+        "Latino": {
+          "No function": 0.176578,
+          "Normal function": 0.640493,
+          "Decreased function": 0.133066,
+          "Increased function": 0.028864,
+          "Unknown function": 0.021
+        }
+      }
+    }
+  },
+  "fdaPgx": {
+    "rows": 692,
+    "drugs": 440,
+    "biomarkers": 177,
+    "updated": "2026-08-12",
+    "areas": [
+      {
+        "area": "Oncology",
+        "rows": 334
+      },
+      {
+        "area": "Neurology",
+        "rows": 57
+      },
+      {
+        "area": "Infectious Diseases",
+        "rows": 44
+      },
+      {
+        "area": "Psychiatry",
+        "rows": 43
+      },
+      {
+        "area": "Gastroenterology",
+        "rows": 33
+      },
+      {
+        "area": "Hematology",
+        "rows": 31
+      },
+      {
+        "area": "Anesthesiology",
+        "rows": 27
+      },
+      {
+        "area": "Endocrinology",
+        "rows": 23
+      },
+      {
+        "area": "Cardiology",
+        "rows": 21
+      },
+      {
+        "area": "Inborn Errors of Metabolism",
+        "rows": 18
+      },
+      {
+        "area": "Gynecology",
+        "rows": 15
+      },
+      {
+        "area": "Pulmonary",
+        "rows": 13
+      },
+      {
+        "area": "Rheumatology",
+        "rows": 12
+      },
+      {
+        "area": "Dermatology",
+        "rows": 6
+      },
+      {
+        "area": "Urology",
+        "rows": 6
+      },
+      {
+        "area": "Toxicology",
+        "rows": 4
+      },
+      {
+        "area": "Transplantation",
+        "rows": 2
+      },
+      {
+        "area": "Dental",
+        "rows": 1
+      },
+      {
+        "area": "Dermatology and Gastroenterology",
+        "rows": 1
+      },
+      {
+        "area": "Nephrology",
+        "rows": 1
+      }
+    ],
+    "folded": 1,
+    "top": [
+      {
+        "biomarker": "CYP2D6",
+        "rows": 76
+      },
+      {
+        "biomarker": "G6PD",
+        "rows": 42
+      },
+      {
+        "biomarker": "ERBB2 (HER2)",
+        "rows": 34
+      },
+      {
+        "biomarker": "CYP2C19",
+        "rows": 26
+      },
+      {
+        "biomarker": "EGFR",
+        "rows": 24
+      },
+      {
+        "biomarker": "CYP2C9",
+        "rows": 21
+      },
+      {
+        "biomarker": "ALK",
+        "rows": 18
+      },
+      {
+        "biomarker": "ESR, PGR (Hormone Receptor)",
+        "rows": 16
+      },
+      {
+        "biomarker": "ESR (Hormone Receptor)",
+        "rows": 15
+      },
+      {
+        "biomarker": "CD274 (PD-L1)",
+        "rows": 13
+      },
+      {
+        "biomarker": "BRAF",
+        "rows": 12
+      },
+      {
+        "biomarker": "Chromosome 17p",
+        "rows": 12
+      },
+      {
+        "biomarker": "IFNL3 (IL28B)",
+        "rows": 12
+      },
+      {
+        "biomarker": "RAS",
+        "rows": 12
+      },
+      {
+        "biomarker": "UGT1A1",
+        "rows": 12
+      },
+      {
+        "biomarker": "BCR-ABL1 (Philadelphia chromosome)",
+        "rows": 11
+      },
+      {
+        "biomarker": "Nonspecific (Congenital Methemoglobinemia)",
+        "rows": 11
+      },
+      {
+        "biomarker": "HLA-B",
+        "rows": 9
+      },
+      {
+        "biomarker": "Microsatellite Instability, Mismatch Repair",
+        "rows": 7
+      },
+      {
+        "biomarker": "ACHR",
+        "rows": 6
+      }
+    ],
+    "sections": [
+      {
+        "section": "Clinical Studies",
+        "rows": 396
+      },
+      {
+        "section": "Indications and Usage",
+        "rows": 252
+      },
+      {
+        "section": "Clinical Pharmacology",
+        "rows": 250
+      },
+      {
+        "section": "Adverse Reactions",
+        "rows": 217
+      },
+      {
+        "section": "Dosage and Administration",
+        "rows": 188
+      },
+      {
+        "section": "Use in Specific Populations",
+        "rows": 134
+      },
+      {
+        "section": "Warnings and Precautions",
+        "rows": 120
+      },
+      {
+        "section": "Precautions",
+        "rows": 37
+      },
+      {
+        "section": "Warnings",
+        "rows": 35
+      },
+      {
+        "section": "Drug Interactions",
+        "rows": 29
+      },
+      {
+        "section": "Contraindications",
+        "rows": 27
+      },
+      {
+        "section": "Patient Counseling Information",
+        "rows": 20
+      },
+      {
+        "section": "Boxed Warning",
+        "rows": 17
+      },
+      {
+        "section": "Overdosage",
+        "rows": 5
+      },
+      {
+        "section": "Adverse Interactions",
+        "rows": 1
+      },
+      {
+        "section": "Dosage and Administrations",
+        "rows": 1
+      },
+      {
+        "section": "Warning and Precautions",
+        "rows": 1
+      }
+    ]
+  },
+  "clinpgx": {
+    "annotations": {
+      "created": "2025-07-05",
+      "annotations": 5186,
+      "levels": {
+        "3": 4482,
+        "4": 308,
+        "2B": 25,
+        "1A": 311,
+        "1B": 17,
+        "2A": 43
+      },
+      "categories": {
+        "Efficacy": {
+          "3": 1873,
+          "4": 140,
+          "2B": 9,
+          "2A": 9,
+          "1A": 65,
+          "1B": 2
+        },
+        "Metabolism/PK": {
+          "3": 561,
+          "4": 34,
+          "1A": 71,
+          "2A": 11,
+          "2B": 1,
+          "1B": 5
+        },
+        "Toxicity": {
+          "3": 1669,
+          "4": 110,
+          "2A": 13,
+          "1A": 144,
+          "2B": 14,
+          "1B": 5
+        },
+        "Dosage": {
+          "3": 231,
+          "4": 22,
+          "1A": 17,
+          "1B": 5,
+          "2A": 10,
+          "2B": 1
+        },
+        "Other": {
+          "3": 240,
+          "4": 14,
+          "1A": 15
+        },
+        "PD": {
+          "3": 5
+        }
+      },
+      "genes": [
+        {
+          "gene": "ABCB1",
+          "total": 249,
+          "levels": {
+            "3": 217,
+            "4": 32
+          }
+        },
+        {
+          "gene": "OPRM1",
+          "total": 133,
+          "levels": {
+            "3": 118,
+            "4": 15
+          }
+        },
+        {
+          "gene": "CYP2D6",
+          "total": 119,
+          "levels": {
+            "3": 67,
+            "4": 6,
+            "1A": 41,
+            "2A": 4,
+            "1B": 1
+          }
+        },
+        {
+          "gene": "SLCO1B1",
+          "total": 97,
+          "levels": {
+            "3": 61,
+            "4": 9,
+            "1A": 26,
+            "2A": 1
+          }
+        },
+        {
+          "gene": "HLA-B",
+          "total": 89,
+          "levels": {
+            "3": 74,
+            "4": 3,
+            "1A": 7,
+            "2A": 5
+          }
+        },
+        {
+          "gene": "DPYD",
+          "total": 82,
+          "levels": {
+            "3": 38,
+            "4": 1,
+            "1A": 43
+          }
+        },
+        {
+          "gene": "CFTR",
+          "total": 78,
+          "levels": {
+            "3": 28,
+            "4": 1,
+            "1A": 49
+          }
+        },
+        {
+          "gene": "CYP2C19",
+          "total": 77,
+          "levels": {
+            "3": 51,
+            "4": 5,
+            "1A": 20,
+            "2A": 1
+          }
+        },
+        {
+          "gene": "CYP2C9",
+          "total": 74,
+          "levels": {
+            "3": 50,
+            "4": 5,
+            "1A": 15,
+            "1B": 2,
+            "2A": 2
+          }
+        },
+        {
+          "gene": "CYP3A4",
+          "total": 69,
+          "levels": {
+            "3": 56,
+            "4": 7,
+            "2A": 5,
+            "1A": 1
+          }
+        },
+        {
+          "gene": "CYP3A5",
+          "total": 69,
+          "levels": {
+            "3": 51,
+            "4": 12,
+            "2A": 2,
+            "1B": 2,
+            "1A": 2
+          }
+        },
+        {
+          "gene": "COMT",
+          "total": 68,
+          "levels": {
+            "3": 62,
+            "4": 6
+          }
+        },
+        {
+          "gene": "CYP2B6",
+          "total": 68,
+          "levels": {
+            "3": 53,
+            "4": 5,
+            "1A": 6,
+            "2A": 4
+          }
+        },
+        {
+          "gene": "DRD2",
+          "total": 62,
+          "levels": {
+            "3": 59,
+            "4": 3
+          }
+        },
+        {
+          "gene": "ABCG2",
+          "total": 53,
+          "levels": {
+            "3": 43,
+            "4": 5,
+            "2A": 1,
+            "1A": 4
+          }
+        },
+        {
+          "gene": "ABCC2",
+          "total": 51,
+          "levels": {
+            "3": 43,
+            "4": 8
+          }
+        },
+        {
+          "gene": "HTR2A",
+          "total": 50,
+          "levels": {
+            "3": 26,
+            "4": 24
+          }
+        },
+        {
+          "gene": "RYR1",
+          "total": 48,
+          "levels": {
+            "3": 9,
+            "1A": 39
+          }
+        },
+        {
+          "gene": "CYP2A6",
+          "total": 45,
+          "levels": {
+            "3": 42,
+            "4": 2,
+            "1B": 1
+          }
+        },
+        {
+          "gene": "UGT1A1",
+          "total": 38,
+          "levels": {
+            "3": 28,
+            "4": 2,
+            "1A": 4,
+            "1B": 3,
+            "2A": 1
+          }
+        }
+      ],
+      "pediatric": 629
+    },
+    "labels": {
+      "created": "2026-10-05",
+      "labels": 1435,
+      "sources": {
+        "EMA": {
+          "Actionable PGx": 27,
+          "No level given": 158,
+          "Testing Required": 105,
+          "No Clinical PGx": 18,
+          "Informative PGx": 21,
+          "Testing Recommended": 3
+        },
+        "HCSC": {
+          "No Clinical PGx": 29,
+          "Testing Required": 94,
+          "No level given": 152,
+          "Actionable PGx": 62,
+          "Testing Recommended": 9,
+          "Informative PGx": 42
+        },
+        "Swissmedic": {
+          "Testing Required": 9,
+          "Actionable PGx": 89,
+          "Testing Recommended": 5,
+          "Informative PGx": 24,
+          "No level given": 1
+        },
+        "FDA": {
+          "Informative PGx": 70,
+          "No level given": 159,
+          "Actionable PGx": 105,
+          "Testing Required": 153,
+          "Testing Recommended": 8,
+          "No Clinical PGx": 40
+        },
+        "PMDA": {
+          "Actionable PGx": 29,
+          "Informative PGx": 5,
+          "Testing Required": 14,
+          "Testing Recommended": 1,
+          "No level given": 3
+        }
+      },
+      "genes": 239,
+      "top": [
+        {
+          "gene": "CYP2D6",
+          "labels": 203
+        },
+        {
+          "gene": "G6PD",
+          "labels": 105
+        },
+        {
+          "gene": "CYP2C19",
+          "labels": 83
+        },
+        {
+          "gene": "ERBB2",
+          "labels": 82
+        },
+        {
+          "gene": "CYP2C9",
+          "labels": 57
+        },
+        {
+          "gene": "EGFR",
+          "labels": 56
+        },
+        {
+          "gene": "ESR1",
+          "labels": 55
+        },
+        {
+          "gene": "ESR2",
+          "labels": 51
+        },
+        {
+          "gene": "ALK",
+          "labels": 40
+        },
+        {
+          "gene": "KRAS",
+          "labels": 37
+        },
+        {
+          "gene": "UGT1A1",
+          "labels": 36
+        },
+        {
+          "gene": "HLA-B",
+          "labels": 32
+        },
+        {
+          "gene": "CD274",
+          "labels": 30
+        },
+        {
+          "gene": "BRAF",
+          "labels": 29
+        },
+        {
+          "gene": "ABL1",
+          "labels": 27
+        }
+      ],
+      "cancer": 388,
+      "onFdaList": 497
     }
   }
 };

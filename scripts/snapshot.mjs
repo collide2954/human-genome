@@ -5,8 +5,14 @@ import { join } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { retry } from '../src/lib.js';
 import {
-  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS, TRIAL_MODALITIES, trialPage, assemblyPage,
+  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS, TRIAL_MODALITIES, trialPage, assemblyPage, intogenFile, gdcSsmPage,
 } from '../src/queries.js';
+import {
+  latestIntogen, intogenDrivers, intogenCohorts, gdcRelease, gdcPrograms, facetCounts, casesByProject,
+} from './cancer.mjs';
+import {
+  cpicPairs, cpicAlleles, cpicPhenotypes, cyp2d6, fdaBiomarkers, clinpgxAnnotations, clinpgxLabels, createdDate,
+} from './pgx.mjs';
 import {
   gwasAncestry, aadrSummary, aadrAnnoFile, igsrSamples, assemblySummary,
 } from './populations.mjs';
@@ -366,8 +372,83 @@ const assemblies = async () => {
   return assemblySummary(reports);
 };
 
+const zipFiles = async (url) => unzip(await readFile(await file(url)));
+
+const zipEntry = (files, pattern) => {
+  const name = Object.keys(files).find((n) => pattern.test(n));
+  if (!name) throw new Error(`No file matching ${pattern} in the download`);
+  return files[name].toString('utf8');
+};
+
+const intogenCompendium = async () => {
+  const latest = latestIntogen(await text(FILES.intogenDownload));
+  if (!latest) throw new Error('No IntOGen drivers and cohorts files on the download page');
+  return { latest, drivers: intogenDrivers(zipEntry(await zipFiles(intogenFile(latest.drivers)), /Compendium_Cancer_Genes\.tsv$/)) };
+};
+
+const intogen = async () => {
+  const { latest, drivers } = await intogenCompendium();
+  return { release: latest.release, drivers, cohorts: intogenCohorts(zipEntry(await zipFiles(intogenFile(latest.cohorts)), /cohorts\.tsv$/)) };
+};
+
+const TCGA_GENES = 20;
+
+const mutatedCases = async (gene) => {
+  const hits = [];
+  let total = Infinity;
+  for (let from = 0; from < total; from += 5000) {
+    const page = await json(gdcSsmPage(gene, from));
+    total = page.data.pagination.total;
+    if (!page.data.hits.length) break;
+    hits.push(...page.data.hits);
+  }
+  return casesByProject(hits);
+};
+
+const gdc = async () => {
+  const programs = gdcPrograms(await json(FILES.gdcProjects));
+  const tested = Object.fromEntries(facetCounts(await json(FILES.gdcTested), 'project.project_id').map((b) => [b.key, b.n]));
+  const drivers = (await intogenCompendium()).drivers.top.slice(0, TCGA_GENES).map((g) => g.gene);
+  const mutated = {};
+  for (const gene of drivers) mutated[gene] = await mutatedCases(gene);
+  return {
+    ...gdcRelease(await json(FILES.gdcStatus)),
+    projects: programs.projects,
+    cases: programs.cases,
+    programs: programs.programs,
+    sites: facetCounts(await json(FILES.gdcSites), 'primary_site'),
+    tcga: { genes: drivers, projects: programs.tcga.map((p) => ({ ...p, tested: tested[p.project] ?? 0 })), mutated },
+  };
+};
+
+const cpic = async () => {
+  const alleles = await json(FILES.cpicAlleles);
+  const results = await json(FILES.cpicResults);
+  return {
+    pairs: cpicPairs(await json(FILES.cpicPairs)),
+    alleles: cpicAlleles(alleles),
+    phenotypes: cpicPhenotypes(results),
+    cyp2d6: cyp2d6(alleles.filter((a) => a.genesymbol === 'CYP2D6'), results.filter((r) => r.genesymbol === 'CYP2D6')),
+  };
+};
+
+const fdaPgx = async () => {
+  const table = fdaBiomarkers(await text(FILES.fdaPgx));
+  if (!table?.rows) throw new Error('No rows in the FDA table of pharmacogenomic biomarkers');
+  return table;
+};
+
+const clinpgx = async () => {
+  const annotations = await zipFiles(FILES.clinpgxAnnotations);
+  const labels = await zipFiles(FILES.clinpgxLabels);
+  return {
+    annotations: { created: createdDate(Object.keys(annotations)), ...clinpgxAnnotations(zipEntry(annotations, /^clinical_annotations\.tsv$/)) },
+    labels: { created: createdDate(Object.keys(labels)), ...clinpgxLabels(zipEntry(labels, /^drugLabels\.tsv$/)) },
+  };
+};
+
 const SECTIONS = {
-  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint, ancestry, ancient, igsr, assemblies, clinvar, clinvarTable, domains, clinvarGrowth, validity, regions, expansions, hpo, orphanet, gtr, fda, trials,
+  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint, ancestry, ancient, igsr, assemblies, clinvar, clinvarTable, domains, clinvarGrowth, validity, regions, expansions, hpo, orphanet, gtr, fda, trials, intogen, gdc, cpic, fdaPgx, clinpgx,
 };
 
 const now = new Date();
