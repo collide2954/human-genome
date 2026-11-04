@@ -23,6 +23,11 @@ const byYear = (rows, i) => [...tallyBy(rows, (r) => (r[i] ? Number(r[i].slice(0
 const PLACEHOLDERS = { orf: /^C(\d+|X|Y)orf\d+$/, fam: /^FAM\d+/, kiaa: /^KIAA\d+/ };
 const SPREADSHEET = /^(SEPT|MARCH|DEC)\d+$/;
 
+export const codingSymbols = (text) => {
+  const { col, rows } = table(text);
+  return new Set(rows.filter((r) => r[col.status] === 'Approved' && r[col.locus_group] === 'protein-coding gene').map((r) => r[col.symbol]));
+};
+
 export const hgncSummary = (text) => {
   const { col, rows: all } = table(text);
   const rows = all.filter((r) => r[col.status] === 'Approved');
