@@ -140,7 +140,7 @@ export const FILES = {
   gdcProjects: `${GDC}projects?${new URLSearchParams({ size: '1000', fields: 'project_id,name,program.name,summary.case_count', format: 'json' })}`,
   gdcSites: `${GDC}cases?${new URLSearchParams({ facets: 'primary_site', size: '0', format: 'json' })}`,
   gdcTested: `${GDC}cases?${new URLSearchParams({
-    filters: allOf(anyOf('cases.project.program.name', ['TCGA']), anyOf('cases.summary.data_categories.data_category', ['Simple Nucleotide Variation'])),
+    filters: allOf(anyOf('cases.project.program.name', ['TCGA']), anyOf('cases.summary.experimental_strategies.experimental_strategy', ['WXS'])),
     facets: 'project.project_id',
     size: '0',
     format: 'json',
