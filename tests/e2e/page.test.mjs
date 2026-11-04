@@ -53,6 +53,7 @@ const CHAPTERS = {
   variation: ['dbsnp', 'sv'],
   constraint: ['constraint', 'dosage'],
   clinical: ['clinvar', 'review', 'growth', 'lollipops', 'spectrum', 'validity', 'cnvregions', 'expansions'],
+  rare: ['hpo', 'orphanet', 'gtr', 'therapy', 'yield', 'prenatal'],
   reference: ['decoder', 'sources'],
 };
 
@@ -523,6 +524,42 @@ test('ClinGen and STRchive charts split validity by inheritance, map dosage regi
   assert.equal(await count('#expansions-chart [data-row]'), ranged.length);
   assert.equal(await count('#expansions-chart rect.range'), ranged.reduce((n, l) => n + [l.benign, l.intermediate, l.pathogenic].filter(Boolean).length, 0));
   assert.ok(await count('#expansions-years-chart path.area') >= 4);
+  await page.close();
+});
+
+test('rare disease charts cover HPO systems and terms, Orphanet prevalence, onset and inheritance, and GTR tests', async () => {
+  const { page } = await open();
+  const H = snapshot.hpo;
+  const O = snapshot.orphanet;
+  const G = snapshot.gtr;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#hpo-systems-chart [data-row]'), H.systems.length);
+  assert.equal(await count('#hpo-terms-chart [data-row]'), H.topTerms.length);
+  assert.equal(await count('#hpo-perdisease-chart [data-bin]'), H.perDisease.counts.length);
+  assert.equal(await count('#hpo-genes-chart [data-row]'), H.genes.top.length);
+  assert.equal(await count('#orpha-prevalence-chart [data-row]'), Object.keys(O.prevalence.classes).length);
+  assert.equal(await count('#orpha-onset-chart [data-row]'), Object.keys(O.ages.onset).length);
+  assert.equal(await count('#orpha-inheritance-chart [data-row]'), Object.keys(O.ages.inheritance).length);
+  assert.equal(await count('#orpha-genes-chart [data-row]'), Object.keys(O.genes.associations).length);
+  assert.equal(await count('#gtr-methods-chart [data-row]'), Math.min(15, G.methods.length));
+  assert.equal(await count('#gtr-genecount-chart [data-row]'), G.genesPerTest.bins.length);
+  assert.equal(await count('#gtr-countries-chart [data-row]'), G.countries.length);
+  assert.equal(await count('#gtr-genes-chart [data-row]'), G.topGenes.length);
+  await page.close();
+});
+
+test('therapy and testing charts cover approvals, vectors, trials, diagnostic yield and cfDNA screening with intervals', async () => {
+  const { page } = await open();
+  const T = snapshot.therapies;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#therapy-approvals-chart path.area'), 5);
+  assert.ok(await count('#therapy-vectors-chart [data-row]') >= 8);
+  assert.equal(await count('#therapy-trials-chart path.line'), Object.keys(T.trials).length);
+  assert.equal(await count('#therapy-phases-chart [data-row]'), Object.keys(T.trials).length);
+  assert.equal(await count('#yield-chart [data-row]'), 11);
+  assert.equal(await count('#yield-chart line.ci'), 8);
+  assert.equal(await count('#prenatal-chart [data-row]'), 5);
+  assert.equal(await count('#prenatal-chart line.ci'), 5);
   await page.close();
 });
 
