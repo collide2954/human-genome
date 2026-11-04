@@ -1,8 +1,40 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  uniprotSummary, locationsOf, hpaSummary, gtexSummary, pharosSummary,
+  uniprotSummary, locationsOf, hpaSummary, gtexSummary, pharosSummary, tissueSites, pfamNames,
 } from '../../scripts/proteins.mjs';
+
+test('tissueSites keeps the name, organ, sample counts by sex and eGene counts of each GTEx tissue', () => {
+  const rows = [
+    {
+      tissueSiteDetailId: 'Liver', tissueSiteDetail: 'Liver', tissueSite: 'Liver', eGeneCount: 9000, sGeneCount: 2000, rnaSeqSampleSummary: { totalCount: 262, female: { count: 80 }, male: { count: 182 } },
+    },
+    {
+      tissueSiteDetailId: 'Liver_Hepatocyte', tissueSiteDetail: 'Liver - Hepatocyte', tissueSite: 'Liver', eGeneCount: null, rnaSeqSampleSummary: { totalCount: 30, female: { count: 10 }, male: { count: 20 } },
+    },
+  ];
+  assert.deepEqual(tissueSites(rows), [
+    {
+      id: 'Liver', name: 'Liver', organ: 'Liver', samples: 262, female: 80, male: 182, eGenes: 9000, sGenes: 2000,
+    },
+    {
+      id: 'Liver_Hepatocyte', name: 'Liver - Hepatocyte', organ: 'Liver', samples: 30, female: 10, male: 20, eGenes: null, sGenes: null,
+    },
+  ]);
+});
+
+test('pfamNames attaches InterPro names to the top domains', () => {
+  const top = [{ id: 'PF00069', n: 3 }, { id: 'PF99999', n: 1 }];
+  const named = pfamNames(top, { PF00069: { metadata: { accession: 'PF00069', name: { name: 'Protein kinase domain', short: 'Pkinase' } } } });
+  assert.deepEqual(named, [
+    {
+      id: 'PF00069', n: 3, name: 'Protein kinase domain', short: 'Pkinase',
+    },
+    {
+      id: 'PF99999', n: 1, name: null, short: null,
+    },
+  ]);
+});
 
 const HEAD = ['Entry', 'Gene Names (primary)', 'Length', 'Protein existence', 'PDB', 'Transmembrane', 'Signal peptide', 'Subcellular location [CC]', 'Pfam', 'Region', 'Modified residue', 'Glycosylation', 'Cross-link'].join('\t');
 const entry = (o) => [o.acc, o.gene ?? '', o.length, o.pe ?? 'Evidence at protein level', o.pdb ?? '', o.tm ?? '', o.signal ?? '', o.loc ?? '', o.pfam ?? '', o.region ?? '', o.mod ?? '', o.glyco ?? '', o.cross ?? ''].join('\t');
