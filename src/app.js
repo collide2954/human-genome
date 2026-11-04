@@ -3,7 +3,7 @@ import {
   SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS, GENE_THERAPIES, GENE_THERAPIES_CHECKED, DIAGNOSTIC_YIELD, CFDNA_SCREENING, CARRIER_TIER3,
 } from './facts.js';
 import {
-  exact, compact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, AA3, codonOf, perLitre, CHANNELS, SUBSTITUTIONS,
+  exact, cell, compact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, AA3, codonOf, perLitre, CHANNELS, SUBSTITUTIONS,
 } from './lib.js';
 import { pearson, linearFit, linearEdges } from './stats.js';
 import { FILES, TRIAL_MODALITIES } from './queries.js';
@@ -54,7 +54,7 @@ const attachData = (mountSel, name, heads, rows) => {
     if (!details.open || scroll.firstChild) return;
     scroll.append(h('table', { class: 'data' },
       h('thead', {}, h('tr', {}, heads.map((c) => h('th', { scope: 'col' }, c)))),
-      h('tbody', {}, rows.map((r) => h('tr', { 'data-search': r.join(' '), hidden: !matches(r.join(' '), state.query) }, r.map((v) => h('td', { class: typeof v === 'number' ? 'n' : null }, v === null ? '—' : typeof v === 'number' ? exact(v) : v)))))));
+      h('tbody', {}, rows.map((r) => h('tr', { 'data-search': r.join(' '), hidden: !matches(r.join(' '), state.query) }, r.map((v) => h('td', { class: typeof v === 'number' ? 'n' : null }, v === null ? '—' : typeof v === 'number' ? cell(v) : v)))))));
   });
   const csv = h('a', { class: 'csv figdata', download: `${name}.csv`, href: '#' }, 'CSV');
   let written = false;
