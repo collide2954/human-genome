@@ -49,6 +49,7 @@ const CHAPTERS = {
   expression: ['specificity', 'gtex', 'plasma'],
   networks: ['interactions', 'pathways', 'ontology'],
   regulation: ['ccres', 'cpgislands', 'trna', 'encode'],
+  structure: ['mito', 'censat', 'sexchrom'],
   reference: ['decoder', 'sources'],
 };
 
@@ -402,6 +403,35 @@ test('ENCODE charts count experiments by assay, phase, sample type and target', 
   assert.equal(await count('#encode-phase-chart [data-row]'), E.phases.length);
   assert.equal(await count('#encode-sample-chart [data-row]'), E.biosamples.length);
   assert.equal(await count('#encode-target-chart [data-row]'), E.targets.length);
+  await page.close();
+});
+
+test('the mitochondrial genome map draws every gene on its strand and the variation along it', async () => {
+  const { page } = await open();
+  const M = snapshot.structure.mito;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#mito-map-chart [data-feature]'), M.genes.length + M.dloop.length);
+  assert.equal(await count('#mito-map-chart .legend li'), 4);
+  await page.hover('#mito-map-chart [data-feature="ND6"]');
+  assert.match(await page.textContent('#tip'), /ND6[\s\S]*14,149[\s\S]*minus/);
+  assert.equal(await count('#mito-variant-chart [data-bin]'), M.variants.bins.length);
+  assert.equal(await count('#mito-top-chart [data-row]'), M.variants.top.length);
+  assert.equal(await count('#mito-het-chart [data-bin]'), M.variants.heteroplasmy.counts.length);
+  await page.close();
+});
+
+test('satellite, telomere and sex chromosome charts cover every chromosome and both PARs', async () => {
+  const { page } = await open();
+  const T = snapshot.structure;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#censat-chart [data-row]'), 24);
+  assert.ok(await count('#censat-chart .legend li') >= 6);
+  assert.ok(await count('#censat-class-chart [data-row]') >= 6);
+  assert.equal(await count('#telomere-chart [data-row]'), T.telomeres.length);
+  assert.equal(await count('#xy-genes-chart [data-row]'), 3);
+  assert.equal(await count('#par-chart [data-mark]'), 4);
+  assert.equal(await count('#par-chart [data-chrom]'), 2);
+  assert.ok(await count('#y-satellite-chart .legend li') >= 3);
   await page.close();
 });
 
