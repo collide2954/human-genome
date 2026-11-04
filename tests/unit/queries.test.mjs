@@ -1,14 +1,29 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery,
+  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles,
 } from '../../src/queries.js';
+
+test('network, pathway and ontology files point at STRING, Reactome and the GO release', () => {
+  assert.equal(FILES.stringVersion, 'https://string-db.org/api/json/version');
+  assert.deepEqual(stringFiles('12.5'), {
+    detailed: 'https://stringdb-downloads.org/download/protein.links.detailed.v12.5/9606.protein.links.detailed.v12.5.txt.gz',
+    physical: 'https://stringdb-downloads.org/download/protein.physical.links.v12.5/9606.protein.physical.links.v12.5.txt.gz',
+    info: 'https://stringdb-downloads.org/download/protein.info.v12.5/9606.protein.info.v12.5.txt.gz',
+  });
+  assert.equal(FILES.reactomeVersion, 'https://reactome.org/ContentService/data/database/version');
+  for (const key of ['reactomePathways', 'reactomeRelations', 'reactomeUniprot']) assert.match(FILES[key], /^https:\/\/reactome\.org\/download\/current\/\w+\.txt$/, key);
+  assert.match(FILES.reactomeUniprot, /UniProt2Reactome_All_Levels\.txt$/);
+  assert.equal(FILES.goaHuman, 'https://current.geneontology.org/annotations/goa_human.gaf.gz');
+  assert.equal(FILES.goBasic, 'https://current.geneontology.org/ontology/go-basic.obo');
+});
 
 test('every data file is an https URL on a known host', () => {
   const hosts = new Set([
     'ftp.ncbi.nlm.nih.gov', 'hgdownload.soe.ucsc.edu', 'ftp.ebi.ac.uk', 'storage.googleapis.com', 'search.clinicalgenome.org',
     'ftp.clinicalgenome.org', 'github.com', 'www.proteinatlas.org', 'downloads.wenglab.org', 'rest.uniprot.org', 'api.cpicpgx.org',
     'eutils.ncbi.nlm.nih.gov', 'api.ncbi.nlm.nih.gov', 'rest.ensembl.org', 'www.ebi.ac.uk', 'gtexportal.org', 'pharos-api.ncats.io',
+    'string-db.org', 'reactome.org', 'current.geneontology.org',
   ]);
   for (const [key, url] of Object.entries(FILES)) {
     const u = new URL(url);

@@ -5,7 +5,7 @@ import { mkdtemp, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import {
-  lines, bufferLines, unzip, gzLines, fileLines, cacheName,
+  lines, bufferLines, unzip, gzLines, fileLines, cacheName, anyLines,
 } from '../../scripts/streams.mjs';
 import { retry } from '../../src/lib.js';
 
@@ -82,6 +82,20 @@ test('gzLines and fileLines stream a file from disk', async () => {
     await writeFile(join(dir, 'b.txt'), 'four\r\nfive\n');
     assert.deepEqual(await collect(gzLines(join(dir, 'a.gz'))), ['one', 'two', 'three']);
     assert.deepEqual(await collect(fileLines(join(dir, 'b.txt'))), ['four', 'five']);
+  } finally {
+    await rm(dir, { recursive: true });
+  }
+});
+
+test('anyLines reads gzipped and plain files alike, whatever their names say', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'hg-'));
+  try {
+    await writeFile(join(dir, 'stream'), gzipSync('one\ntwo'));
+    await writeFile(join(dir, 'plain.txt'), 'three\nfour\n');
+    await writeFile(join(dir, 'empty'), '');
+    assert.deepEqual(await collect(await anyLines(join(dir, 'stream'))), ['one', 'two']);
+    assert.deepEqual(await collect(await anyLines(join(dir, 'plain.txt'))), ['three', 'four']);
+    assert.deepEqual(await collect(await anyLines(join(dir, 'empty'))), []);
   } finally {
     await rm(dir, { recursive: true });
   }
