@@ -92,6 +92,27 @@ export const SOURCES = {
   srivastava2019: 'https://doi.org/10.1038/s41436-019-0554-6',
   gil2017: 'https://doi.org/10.1002/uog.17484',
   gregg2021: 'https://doi.org/10.1038/s41436-021-01203-z',
+  gwasCatalog: 'https://www.ebi.ac.uk/gwas/',
+  cerezo2025: 'https://doi.org/10.1093/nar/gkae1070',
+  popejoy2016: 'https://doi.org/10.1038/538161a',
+  aadr: 'https://doi.org/10.7910/DVN/FFIDCW',
+  mallick2024: 'https://doi.org/10.1038/s41597-024-03031-7',
+  igsr: 'https://www.internationalgenome.org/',
+  fairley2020: 'https://doi.org/10.1093/nar/gkz836',
+  thousandGenomes2015: 'https://doi.org/10.1038/nature15393',
+  byrskaBishop2022: 'https://doi.org/10.1016/j.cell.2022.08.004',
+  ncbiDatasets: 'https://www.ncbi.nlm.nih.gov/datasets/',
+  oleary2024: 'https://doi.org/10.1038/s41597-024-03571-y',
+  liao2023: 'https://doi.org/10.1038/s41586-023-05896-x',
+  gnomadV4: 'https://gnomad.broadinstitute.org/news/2023-11-gnomad-v4-0/',
+  bycroft2018: 'https://doi.org/10.1038/s41586-018-0579-z',
+  allOfUs2024: 'https://doi.org/10.1038/s41586-023-06957-x',
+  kurki2023: 'https://doi.org/10.1038/s41586-022-05473-8',
+  nagai2017: 'https://doi.org/10.1016/j.je.2016.12.005',
+  chen2011: 'https://doi.org/10.1093/ije/dyr120',
+  verma2024: 'https://doi.org/10.1126/science.adj1182',
+  ziyatdinov2023: 'https://doi.org/10.1038/s41586-023-06595-3',
+  feng2022: 'https://doi.org/10.1016/j.xgen.2022.100197',
 };
 
 export const PARS = [
@@ -188,6 +209,46 @@ export const SOURCE_TITLES = {
   srivastava2019: ['Clinical genetics', 'Srivastava et al. 2019, Exome sequencing is a first-tier clinical diagnostic test for individuals with neurodevelopmental disorders, Genetics in Medicine 21:2413'],
   gil2017: ['Clinical genetics', 'Gil et al. 2017, Analysis of cell-free DNA in maternal blood in screening for aneuploidies: updated meta-analysis, Ultrasound in Obstetrics & Gynecology 50:302'],
   gregg2021: ['Clinical genetics', 'Gregg et al. 2021, Screening for autosomal recessive and X-linked conditions during pregnancy and preconception (ACMG), Genetics in Medicine 23:1793'],
+  gwasCatalog: ['Variation and populations', 'NHGRI-EBI GWAS Catalog, ancestry download'],
+  cerezo2025: ['Variation and populations', 'Cerezo et al. 2025, The NHGRI-EBI GWAS Catalog: standards for reusability, sustainability and diversity, Nucleic Acids Research 53:D998'],
+  popejoy2016: ['Variation and populations', 'Popejoy and Fullerton 2016, Genomics is failing on diversity, Nature 538:161'],
+  aadr: ['Variation and populations', 'Allen Ancient DNA Resource (AADR), annotation file on Harvard Dataverse'],
+  mallick2024: ['Variation and populations', 'Mallick et al. 2024, The Allen Ancient DNA Resource (AADR): a curated compendium of ancient human genomes, Scientific Data 11:182'],
+  igsr: ['Variation and populations', 'International Genome Sample Resource (IGSR), sample API'],
+  fairley2020: ['Variation and populations', 'Fairley et al. 2020, The International Genome Sample Resource (IGSR) collection of open human genomic variation resources, Nucleic Acids Research 48:D941'],
+  thousandGenomes2015: ['Variation and populations', '1000 Genomes Project Consortium 2015, A global reference for human genetic variation, Nature 526:68'],
+  byrskaBishop2022: ['Variation and populations', 'Byrska-Bishop et al. 2022, High-coverage whole-genome sequencing of the expanded 1000 Genomes Project cohort including 602 trios, Cell 185:3426'],
+  ncbiDatasets: ['Variation and populations', 'NCBI Datasets, genome reports for Homo sapiens'],
+  oleary2024: ['Variation and populations', 'O’Leary et al. 2024, Exploring and retrieving sequence and metadata for species across the tree of life with NCBI Datasets, Scientific Data 11:732'],
+  liao2023: ['Variation and populations', 'Liao et al. 2023, A draft human pangenome reference, Nature 617:312'],
+  gnomadV4: ['Variation and populations', 'gnomAD v4.0 release post, November 2023'],
+  bycroft2018: ['Variation and populations', 'Bycroft et al. 2018, The UK Biobank resource with deep phenotyping and genomic data, Nature 562:203'],
+  allOfUs2024: ['Variation and populations', 'All of Us Research Program Genomics Investigators 2024, Genomic data in the All of Us Research Program, Nature 627:340'],
+  kurki2023: ['Variation and populations', 'Kurki et al. 2023, FinnGen provides genetic insights from a well-phenotyped isolated population, Nature 613:508'],
+  nagai2017: ['Variation and populations', 'Nagai et al. 2017, Overview of the BioBank Japan Project: study design and profile, Journal of Epidemiology 27:S2'],
+  chen2011: ['Variation and populations', 'Chen et al. 2011, China Kadoorie Biobank of 0.5 million people, International Journal of Epidemiology 40:1652'],
+  verma2024: ['Variation and populations', 'Verma et al. 2024, Diversity and scale: genetic architecture of 2068 traits in the VA Million Veteran Program, Science 385:eadj1182'],
+  ziyatdinov2023: ['Variation and populations', 'Ziyatdinov et al. 2023, Genotyping, sequencing and analysis of 140,000 adults from Mexico City, Nature 622:784'],
+  feng2022: ['Variation and populations', 'Feng et al. 2022, Taiwan Biobank: a rich biomedical research database of the Taiwanese population, Cell Genomics 2:100197'],
+};
+
+const biobank = (name, people, qualifier, measure, source) => ({
+  name, people, qualifier, measure, source,
+});
+
+export const BIOBANKS = [
+  biobank('Million Veteran Program', 635969, null, 'participants in its GWAS', 'verma2024'),
+  biobank('China Kadoorie Biobank', 512891, null, 'adults recruited', 'chen2011'),
+  biobank('UK Biobank', 500000, 'about', 'participants', 'bycroft2018'),
+  biobank('All of Us', 245388, null, 'genome sequences', 'allOfUs2024'),
+  biobank('FinnGen', 224737, null, 'participants analysed', 'kurki2023'),
+  biobank('BioBank Japan', 200000, null, 'participants registered', 'nagai2017'),
+  biobank('Mexico City Prospective Study', 150000, 'more than', 'adults recruited', 'ziyatdinov2023'),
+  biobank('Taiwan Biobank', 150000, 'more than', 'participants', 'feng2022'),
+];
+
+export const GNOMAD_V4 = {
+  people: 807162, exomes: 730947, genomes: 76215, ukBiobank: 416555, nonEuropean: 138000,
 };
 
 export const GENE_THERAPIES_CHECKED = '2026-11-04';
