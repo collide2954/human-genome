@@ -25,7 +25,7 @@ const LINES = [
     acc: 'Q8WZ42', gene: 'TTN', length: 34350, pe: 'Evidence at protein level', pdb: '1BPV;', pfam: 'PF07679;PF07679;PF00041;', loc: 'SUBCELLULAR LOCATION: Cytoplasm, myofibril, sarcomere {ECO:1}. Nucleus {ECO:2}.',
   }),
   entry({
-    acc: 'P01308', gene: 'INS', length: 110, pe: 'Evidence at transcript level', signal: 'SIGNAL 1..24', loc: 'SUBCELLULAR LOCATION: Secreted {ECO:1}.',
+    acc: 'P01308', gene: 'INS', length: 110, pe: 'Evidence at transcript level', signal: 'SIGNAL 1..24', loc: 'SUBCELLULAR LOCATION: Secreted {ECO:1}.', pfam: 'PF00001;',
   }),
 ];
 
@@ -58,9 +58,9 @@ test('uniprotSummary counts membrane spans, signal peptides, locations and domai
   assert.equal(u.transmem.proteins, 1);
   assert.equal(u.signal, 1);
   assert.deepEqual(u.locations.slice(0, 2), [{ name: 'Cytoplasm', n: 2 }, { name: 'Nucleus', n: 2 }]);
-  assert.deepEqual(u.pfam.top[0], { id: 'PF07679', n: 1 });
-  assert.equal(u.pfam.withAny, 3);
-  assert.deepEqual(u.pfam.perProtein.slice(0, 4), [1, 1, 2, 0]);
+  assert.deepEqual(u.pfam.top[0], { id: 'PF00001', n: 2 });
+  assert.equal(u.pfam.withAny, 4);
+  assert.deepEqual(u.pfam.perProtein.slice(0, 4), [0, 2, 2, 0]);
 });
 
 test('uniprotSummary measures disorder once per residue and counts modifications by kind', () => {
