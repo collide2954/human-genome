@@ -82,6 +82,8 @@ export const FILES = {
   clingenValidity: 'https://search.clinicalgenome.org/kb/gene-validity/download',
   clingenRegions: 'https://ftp.clinicalgenome.org/ClinGen_region_curation_list_GRCh38.tsv',
   interproProtein: 'https://www.ebi.ac.uk/interpro/api/entry/pfam/protein/uniprot/',
+  strchive: 'https://raw.githubusercontent.com/dashnowlab/STRchive/main/data/STRchive-loci.json',
+  strchiveCommits: `https://api.github.com/repos/dashnowlab/STRchive/commits?${new URLSearchParams({ path: 'data/STRchive-loci.json', per_page: '1' })}`,
   ccre: 'https://downloads.wenglab.org/Registry-V4/GRCh38-cCREs.bed',
   cpgIslands: `${UCSC}/database/cpgIslandExt.txt.gz`,
   trnas: 'https://gtrnadb.ucsc.edu/genomes/eukaryota/Hsapi38/hg38-mature-tRNAs.fa',
