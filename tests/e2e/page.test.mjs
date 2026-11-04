@@ -44,6 +44,7 @@ const CHAPTERS = {
   assembly: ['chromosomes', 'gaps', 't2t', 'composition'],
   repeats: ['transposons', 'landscape', 'segdups', 'tandem'],
   genes: ['genecount', 'density', 'genesize', 'structure', 'isoforms', 'names', 'pseudogenes', 'immune'],
+  transcripts: ['splicing', 'translation', 'codons'],
   reference: ['decoder', 'sources'],
 };
 
@@ -204,6 +205,27 @@ test('naming, pseudogene and immune locus charts list their rows', async () => {
   assert.equal(await page.locator('#parents-chart [data-row]').count(), 15);
   assert.equal(await page.locator('#immune-chart [data-row]').count(), 7);
   assert.equal(await page.locator('#immune-chart .legend li').count(), 5);
+  await page.close();
+});
+
+test('sequence logos draw one stack of four letters per position', async () => {
+  const { page } = await open();
+  for (const [id, n] of [['donor-chart', 9], ['acceptor-chart', 23], ['kozak-chart', 10]]) {
+    assert.equal(await page.locator(`#${id} [data-pos]`).count(), n, id);
+    assert.equal(await page.locator(`#${id} text.glyph`).count(), n * 4, id);
+  }
+  await page.hover('#donor-chart [data-pos="3"]');
+  assert.match(await page.textContent('#tip'), /bits[\s\S]*\+1[\s\S]*G/);
+  assert.equal(await page.locator('#intron-class-chart [data-row]').count(), 4);
+  await page.close();
+});
+
+test('the codon table shows all 64 codons with their amino acids', async () => {
+  const { page } = await open();
+  assert.equal(await page.locator('#codon-chart [data-codon]').count(), 64);
+  await page.hover('#codon-chart [data-codon="ATG"]');
+  assert.match(await page.textContent('#tip'), /per thousand[\s\S]*ATG[\s\S]*Methionine/);
+  assert.equal(await page.locator('#amino-chart [data-row]').count(), 20);
   await page.close();
 });
 

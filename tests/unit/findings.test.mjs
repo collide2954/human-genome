@@ -86,6 +86,26 @@ fixture.catalogs = {
   mane: { select: 19363 },
 };
 
+const codonFixture = Array.from({ length: 64 }, (_, i) => ([48, 50, 56].includes(i) ? 0 : 10));
+codonFixture[34] = 400;
+codonFixture[25] = 2;
+fixture.sequence.mane = {
+  classes: {
+    'GT-AG': 90, 'GC-AG': 8, 'AT-AC': 1, other: 1,
+  },
+  kozak: Array.from({ length: 10 }, (_, i) => (i === 3 ? [6, 1, 2, 1] : [1, 1, 1, 1])),
+  stops: { TAA: 3, TAG: 2, TGA: 5 },
+  coding: 10,
+  codons: codonFixture,
+};
+
+test('findings state the splicing, translation and codon sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.splicing, '90% of MANE Select introns start GT and end AG; 8 start GC and 1 runs from AT to AC');
+  assert.equal(f.translation, 'A purine sits three bases before the start codon in 80% of MANE coding sequences; 50% end in TGA');
+  assert.equal(f.codons, 'GAG is the most used codon, 403.2 per thousand; CGC the least used sense codon, 2.0');
+});
+
 test('findings state the gene sections as numbers', () => {
   const f = findings(fixture);
   assert.equal(f.genecount, 'Protein-coding gene counts run from 40 (GENCODE) to 20,600 (NCBI Gene)');
