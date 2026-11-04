@@ -313,6 +313,19 @@ test('findings state the rare disease and testing sections as numbers', () => {
   assert.equal(f.prenatal, 'Cell-free DNA screening detects 99.7% of trisomy 21 pregnancies with a false-positive rate of 0.04%');
 });
 
+fixture.ancestry = { stages: { initial: { European: 870, 'African American or Afro-Caribbean': 30, 'East Asian': 100 } } };
+fixture.ancient = { version: 'v66.p1', individuals: 17629, oldest: { id: 'Denisova25', age: 185000, place: 'Russia' } };
+fixture.igsr = { panel: { samples: 3202, populations: Array.from({ length: 26 }, (_, i) => ({ code: `P${i}` })) } };
+fixture.assemblies = { total: 2594, byYear: { 2025: { Chromosome: 10 }, 2026: { Chromosome: 600, Scaffold: 55 } }, best: { n50: 173035924 } };
+
+test('findings state the population and ancient genome sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.ancestry, '87% of GWAS discovery participants in the GWAS Catalog are listed as European; 3% as African American or Afro-Caribbean');
+  assert.equal(f.ancient, 'The AADR v66.p1 holds 17,629 ancient individuals; the oldest, Denisova25 from Russia, dates to 185,000 years before present');
+  assert.equal(f.panels, 'The 1000 Genomes 30x set holds 3,202 genomes from 26 populations; gnomAD v4 pools 807,162 people');
+  assert.equal(f.assemblies, 'NCBI lists 2,594 human genome assemblies, 655 released in 2026; the longest contig N50 is 173 Mb');
+});
+
 test('findings state the variation and constraint sections as numbers', () => {
   const f = findings(fixture);
   assert.equal(f.dbsnp, 'dbSNP build 157 holds 1,206,053,617 reference SNP records from 4,849,775,973 submitted variants; 1,172,689,405 are live');
