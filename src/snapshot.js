@@ -1,10 +1,11 @@
 export default {
-  "generated": "2026-11-04T06:42:50.865Z",
+  "generated": "2026-11-04T06:47:41.912Z",
   "asOf": {
     "assembly": "2026-11-04T05:28:42.686Z",
     "sequence": "2026-11-04T06:07:32.158Z",
     "repeats": "2026-11-04T06:20:03.779Z",
-    "genes": "2026-11-04T06:42:50.865Z"
+    "genes": "2026-11-04T06:42:50.865Z",
+    "catalogs": "2026-11-04T06:47:41.912Z"
   },
   "failed": [],
   "assembly": {
@@ -17210,6 +17211,901 @@ export default {
         "C": 1,
         "pseudo": 0
       }
+    }
+  },
+  "catalogs": {
+    "hgnc": {
+      "approved": 45289,
+      "locusGroups": {
+        "protein-coding gene": 19299,
+        "non-coding RNA": 10316,
+        "pseudogene": 14671,
+        "other": 1003
+      },
+      "locusTypes": {
+        "gene with protein product": 19299,
+        "pseudogene": 14430,
+        "RNA, long non-coding": 6978,
+        "RNA, micro": 1912,
+        "RNA, transfer": 591,
+        "RNA, small nucleolar": 568,
+        "immunoglobulin gene": 230,
+        "T cell receptor gene": 205,
+        "immunoglobulin pseudogene": 203,
+        "readthrough": 152,
+        "RNA, cluster": 119,
+        "fragile site": 116,
+        "endogenous retrovirus": 110,
+        "complex locus constituent": 69,
+        "unknown": 67,
+        "RNA, ribosomal": 60,
+        "RNA, small nuclear": 51,
+        "region": 46,
+        "T cell receptor pseudogene": 38,
+        "RNA, misc": 29,
+        "virus integration site": 8,
+        "RNA, Y": 4,
+        "RNA, vault": 4
+      },
+      "perYear": {
+        "approved": [
+          [
+            1986,
+            307
+          ],
+          [
+            1987,
+            8
+          ],
+          [
+            1988,
+            156
+          ],
+          [
+            1989,
+            374
+          ],
+          [
+            1990,
+            349
+          ],
+          [
+            1991,
+            500
+          ],
+          [
+            1992,
+            474
+          ],
+          [
+            1993,
+            555
+          ],
+          [
+            1994,
+            605
+          ],
+          [
+            1995,
+            563
+          ],
+          [
+            1996,
+            402
+          ],
+          [
+            1997,
+            773
+          ],
+          [
+            1998,
+            1157
+          ],
+          [
+            1999,
+            1622
+          ],
+          [
+            2000,
+            1714
+          ],
+          [
+            2001,
+            2566
+          ],
+          [
+            2002,
+            1237
+          ],
+          [
+            2003,
+            2133
+          ],
+          [
+            2004,
+            2797
+          ],
+          [
+            2005,
+            2246
+          ],
+          [
+            2006,
+            1677
+          ],
+          [
+            2007,
+            926
+          ],
+          [
+            2008,
+            1652
+          ],
+          [
+            2009,
+            2598
+          ],
+          [
+            2010,
+            1544
+          ],
+          [
+            2011,
+            2543
+          ],
+          [
+            2012,
+            1347
+          ],
+          [
+            2013,
+            3839
+          ],
+          [
+            2014,
+            1538
+          ],
+          [
+            2015,
+            744
+          ],
+          [
+            2016,
+            712
+          ],
+          [
+            2017,
+            816
+          ],
+          [
+            2018,
+            359
+          ],
+          [
+            2019,
+            726
+          ],
+          [
+            2020,
+            653
+          ],
+          [
+            2021,
+            653
+          ],
+          [
+            2022,
+            549
+          ],
+          [
+            2023,
+            312
+          ],
+          [
+            2024,
+            112
+          ],
+          [
+            2025,
+            914
+          ],
+          [
+            2026,
+            413
+          ]
+        ],
+        "symbolChanged": [
+          [
+            2001,
+            78
+          ],
+          [
+            2002,
+            201
+          ],
+          [
+            2003,
+            179
+          ],
+          [
+            2004,
+            405
+          ],
+          [
+            2005,
+            559
+          ],
+          [
+            2006,
+            594
+          ],
+          [
+            2007,
+            460
+          ],
+          [
+            2008,
+            1101
+          ],
+          [
+            2009,
+            372
+          ],
+          [
+            2010,
+            857
+          ],
+          [
+            2011,
+            621
+          ],
+          [
+            2012,
+            1057
+          ],
+          [
+            2013,
+            412
+          ],
+          [
+            2014,
+            833
+          ],
+          [
+            2015,
+            234
+          ],
+          [
+            2016,
+            349
+          ],
+          [
+            2017,
+            331
+          ],
+          [
+            2018,
+            239
+          ],
+          [
+            2019,
+            430
+          ],
+          [
+            2020,
+            141
+          ],
+          [
+            2021,
+            248
+          ],
+          [
+            2022,
+            142
+          ],
+          [
+            2023,
+            147
+          ],
+          [
+            2024,
+            36
+          ],
+          [
+            2025,
+            93
+          ],
+          [
+            2026,
+            116
+          ]
+        ],
+        "nameChanged": [
+          [
+            2001,
+            65
+          ],
+          [
+            2002,
+            75
+          ],
+          [
+            2003,
+            96
+          ],
+          [
+            2004,
+            234
+          ],
+          [
+            2005,
+            329
+          ],
+          [
+            2006,
+            494
+          ],
+          [
+            2007,
+            444
+          ],
+          [
+            2008,
+            456
+          ],
+          [
+            2009,
+            182
+          ],
+          [
+            2010,
+            513
+          ],
+          [
+            2011,
+            802
+          ],
+          [
+            2012,
+            1554
+          ],
+          [
+            2013,
+            700
+          ],
+          [
+            2014,
+            423
+          ],
+          [
+            2015,
+            4726
+          ],
+          [
+            2016,
+            5415
+          ],
+          [
+            2017,
+            1166
+          ],
+          [
+            2018,
+            1776
+          ],
+          [
+            2019,
+            2547
+          ],
+          [
+            2020,
+            470
+          ],
+          [
+            2021,
+            446
+          ],
+          [
+            2022,
+            331
+          ],
+          [
+            2023,
+            346
+          ],
+          [
+            2024,
+            205
+          ],
+          [
+            2025,
+            404
+          ],
+          [
+            2026,
+            2636
+          ]
+        ]
+      },
+      "placeholders": {
+        "orf": 206,
+        "fam": 363,
+        "kiaa": 37
+      },
+      "groups": [
+        {
+          "name": "Antisense RNAs",
+          "n": 2915
+        },
+        {
+          "name": "Long independently transcribed non-coding RNAs",
+          "n": 2392
+        },
+        {
+          "name": "MicroRNAs",
+          "n": 1465
+        },
+        {
+          "name": "MicroRNA protein coding host genes",
+          "n": 850
+        },
+        {
+          "name": "Zinc fingers C2H2-type",
+          "n": 784
+        },
+        {
+          "name": "Divergent transcripts",
+          "n": 741
+        },
+        {
+          "name": "Long non-coding RNAs with non-systematic symbols",
+          "n": 539
+        },
+        {
+          "name": "Cytoplasmic transfer RNAs",
+          "n": 428
+        },
+        {
+          "name": "CD molecules",
+          "n": 394
+        },
+        {
+          "name": "KRAB domain containing",
+          "n": 373
+        },
+        {
+          "name": "Small nucleolar RNAs, C/D box",
+          "n": 356
+        },
+        {
+          "name": "Unitary pseudogenes",
+          "n": 326
+        },
+        {
+          "name": "Ring finger proteins",
+          "n": 311
+        },
+        {
+          "name": "WD repeat domain containing",
+          "n": 271
+        },
+        {
+          "name": "RING finger E3 ubiquitin protein ligases",
+          "n": 268
+        },
+        {
+          "name": "Armadillo like helical domain containing",
+          "n": 244
+        },
+        {
+          "name": "SH3 domain containing",
+          "n": 223
+        },
+        {
+          "name": "RNA binding motif containing",
+          "n": 213
+        },
+        {
+          "name": "Ankyrin repeat domain containing",
+          "n": 212
+        },
+        {
+          "name": "EF-hand domain containing",
+          "n": 198
+        },
+        {
+          "name": "Pleckstrin homology domain containing",
+          "n": 191
+        },
+        {
+          "name": "Immunoglobulin heavy locus at 14q32.33",
+          "n": 188
+        },
+        {
+          "name": "Small nucleolar RNAs, H/ACA box",
+          "n": 182
+        },
+        {
+          "name": "Protein phosphatase 1 regulatory subunits",
+          "n": 181
+        },
+        {
+          "name": "BTB domain containing",
+          "n": 179
+        },
+        {
+          "name": "V-set domain containing",
+          "n": 175
+        },
+        {
+          "name": "Proteins encoded by multiple genes",
+          "n": 170
+        },
+        {
+          "name": "I-set domain containing",
+          "n": 161
+        },
+        {
+          "name": "PDZ domain containing",
+          "n": 152
+        },
+        {
+          "name": "Small nucleolar RNA protein coding host genes",
+          "n": 144
+        }
+      ],
+      "renamed": [
+        {
+          "symbol": "OR4H6P",
+          "prev": [
+            "OR4H9P",
+            "OR4H10P",
+            "OR4H5P",
+            "OR4H11P",
+            "OR4H5",
+            "OR4H7",
+            "OR4H7P",
+            "OR4H2P",
+            "OR4H3P",
+            "OR4H11",
+            "OR4H2",
+            "OR4H3",
+            "OR4H1P",
+            "OR4H4P",
+            "OR4H10",
+            "OR4H4",
+            "OR4H8P",
+            "OR4H8"
+          ]
+        },
+        {
+          "symbol": "ARX",
+          "prev": [
+            "MRXS1",
+            "PRTS",
+            "MRX76",
+            "MRX54",
+            "MRX43",
+            "MRX36",
+            "MRX29",
+            "MRX32",
+            "MRX33",
+            "MRX38",
+            "MRX87"
+          ]
+        },
+        {
+          "symbol": "OR5B1P",
+          "prev": [
+            "OR5B9P",
+            "OR5B9",
+            "OR5B5P",
+            "OR5B14P",
+            "OR5B7P",
+            "OR5B7",
+            "OR5B8",
+            "OR5B8P",
+            "OR5B5",
+            "OR5B6",
+            "OR5B6P"
+          ]
+        },
+        {
+          "symbol": "OR5D2P",
+          "prev": [
+            "OR5D6P",
+            "OR5D10P",
+            "OR5D1P",
+            "OR5D5P",
+            "OR5D12P",
+            "OR5D8P",
+            "OR5D7P",
+            "OR5D9P",
+            "OR5D12",
+            "OR5D11P",
+            "OR5D11"
+          ]
+        },
+        {
+          "symbol": "FOXG1",
+          "prev": [
+            "FKHL2",
+            "FOXG1B",
+            "FKHL4",
+            "FKH2",
+            "FKHL1",
+            "FOXG1C",
+            "FKHL3",
+            "FOXG1A"
+          ]
+        },
+        {
+          "symbol": "FRMPD2B",
+          "prev": [
+            "PDZK5A",
+            "PDZD5A",
+            "FRMPD2L1",
+            "FRMPD2P2",
+            "PDZK5B",
+            "PDZD5B",
+            "FRMPD2L2",
+            "FRMPD2P1"
+          ]
+        },
+        {
+          "symbol": "OR1F1",
+          "prev": [
+            "OR1F4",
+            "OR1F6",
+            "OR1F7",
+            "OR1F8",
+            "OR1F9",
+            "OR1F5",
+            "OR1F10",
+            "OR1F13P"
+          ]
+        },
+        {
+          "symbol": "CD59",
+          "prev": [
+            "MIC11",
+            "MIN1",
+            "MSK21",
+            "MIN2",
+            "MIN3",
+            "MIRL",
+            "MACIF",
+            "HRF20"
+          ]
+        },
+        {
+          "symbol": "CTSLP2",
+          "prev": [
+            "CTSLL2",
+            "CTSL1P2",
+            "CTSLP5",
+            "CTSLL5",
+            "CTSL1P5",
+            "CTSLP7",
+            "CTSLL7",
+            "CTSL1P7"
+          ]
+        },
+        {
+          "symbol": "POLR1HASP",
+          "prev": [
+            "C6orf12",
+            "NCRNA00171",
+            "ZNRD1AS",
+            "ZNRD1-AS",
+            "ZNRD1-AS1",
+            "HCG8",
+            "ZNRD1ASP"
+          ]
+        },
+        {
+          "symbol": "EYS",
+          "prev": [
+            "C6orf180",
+            "EGFL11",
+            "RP25",
+            "EGFL10",
+            "C6orf178",
+            "C6orf179"
+          ]
+        },
+        {
+          "symbol": "L1CAM",
+          "prev": [
+            "HSAS1",
+            "SPG1",
+            "HSAS",
+            "MASA",
+            "MIC5",
+            "S10"
+          ]
+        }
+      ],
+      "aliases": [
+        {
+          "symbol": "EPCAM",
+          "n": 22
+        },
+        {
+          "symbol": "SPAG9",
+          "n": 17
+        },
+        {
+          "symbol": "CXCL8",
+          "n": 17
+        },
+        {
+          "symbol": "ILF3",
+          "n": 15
+        },
+        {
+          "symbol": "PPBP",
+          "n": 14
+        },
+        {
+          "symbol": "THRB",
+          "n": 14
+        },
+        {
+          "symbol": "CDKN2A",
+          "n": 14
+        },
+        {
+          "symbol": "ADARB1",
+          "n": 13
+        },
+        {
+          "symbol": "ARHGEF7",
+          "n": 13
+        },
+        {
+          "symbol": "OR4H6P",
+          "n": 13
+        }
+      ],
+      "pseudoParents": [
+        {
+          "parent": "RN7SK",
+          "n": 293
+        },
+        {
+          "parent": "RPL21",
+          "n": 137
+        },
+        {
+          "parent": "RPL23A",
+          "n": 95
+        },
+        {
+          "parent": "PPIA",
+          "n": 91
+        },
+        {
+          "parent": "RPL7A",
+          "n": 80
+        },
+        {
+          "parent": "HNRNPA1",
+          "n": 76
+        },
+        {
+          "parent": "RPSA",
+          "n": 75
+        },
+        {
+          "parent": "KRT18",
+          "n": 68
+        },
+        {
+          "parent": "GAPDH",
+          "n": 65
+        },
+        {
+          "parent": "RPL31",
+          "n": 64
+        },
+        {
+          "parent": "RPL7",
+          "n": 61
+        },
+        {
+          "parent": "RPS26",
+          "n": 59
+        },
+        {
+          "parent": "RPS2",
+          "n": 55
+        },
+        {
+          "parent": "RPS3A",
+          "n": 54
+        },
+        {
+          "parent": "KRT8",
+          "n": 52
+        }
+      ],
+      "spreadsheet": {
+        "count": 26,
+        "examples": [
+          "MARCH1 → MARCHF1",
+          "MARCH2 → MARCHF2",
+          "MARCH3 → MARCHF3",
+          "MARCH4 → MARCHF4",
+          "MARCH5 → MARCHF5",
+          "MARCH6 → MARCHF6"
+        ]
+      }
+    },
+    "geneInfo": {
+      "total": 194035,
+      "types": {
+        "biological-region": 128261,
+        "ncRNA": 22757,
+        "protein-coding": 20600,
+        "pseudo": 17512,
+        "snoRNA": 1200,
+        "unknown": 1197,
+        "other": 846,
+        "rRNA": 785,
+        "tRNA": 698,
+        "snRNA": 175,
+        "scRNA": 4
+      },
+      "synonyms": [
+        {
+          "symbol": "OR4H6P",
+          "n": 31
+        },
+        {
+          "symbol": "ILF3",
+          "n": 23
+        },
+        {
+          "symbol": "OR5D2P",
+          "n": 23
+        },
+        {
+          "symbol": "FOXG1",
+          "n": 21
+        },
+        {
+          "symbol": "H2BC5",
+          "n": 21
+        },
+        {
+          "symbol": "KRAS",
+          "n": 20
+        },
+        {
+          "symbol": "MUC1",
+          "n": 20
+        },
+        {
+          "symbol": "TPM3",
+          "n": 19
+        },
+        {
+          "symbol": "TP63",
+          "n": 19
+        },
+        {
+          "symbol": "OR7E26P",
+          "n": 19
+        }
+      ],
+      "uncharacterized": 14448
+    },
+    "mane": {
+      "release": "1.5",
+      "select": 19363,
+      "plusClinical": 74,
+      "genes": 19363
     }
   }
 };
