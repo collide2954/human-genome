@@ -23,6 +23,15 @@ const REACTOME = 'https://reactome.org/download/current/';
 const T2T_ANNOTATION = 'https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/annotation/';
 const DBVAR_NR = 'https://ftp.ncbi.nlm.nih.gov/pub/dbVar/sandbox/sv_datasets/nonredundant/';
 
+const CLINVAR = 'https://ftp.ncbi.nlm.nih.gov/pub/clinvar/';
+
+export const LOLLIPOPS = [
+  { gene: 'TP53', accession: 'P04637' },
+  { gene: 'BRCA1', accession: 'P38398' },
+  { gene: 'CFTR', accession: 'P13569' },
+  { gene: 'MYH7', accession: 'P12883' },
+];
+
 export const pharosLevelQuery = (level) => `{ targets(filter: { facets: [{ facet: "Target Development Level", values: ["${level}"] }] }) { count facets(include: ["IDG Family"]) { facet values { name value } } } }`;
 
 export const FILES = {
@@ -65,6 +74,14 @@ export const FILES = {
   gnomadConstraint: 'https://storage.googleapis.com/gcp-public-data--gnomad/release/4.1/constraint/gnomad.v4.1.constraint_metrics.tsv',
   clingenGenes: 'https://ftp.clinicalgenome.org/ClinGen_gene_curation_list_GRCh38.tsv',
   impcViability: 'https://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/latest/results/viability.csv.gz',
+  clinvarVcf: `${CLINVAR}vcf_GRCh38/clinvar.vcf.gz`,
+  clinvarArchive: `${CLINVAR}vcf_GRCh38/archive_2.0/`,
+  clinvarTable: `${CLINVAR}tab_delimited/variant_summary.txt.gz`,
+  clinvarGenes: `${CLINVAR}tab_delimited/gene_specific_summary.txt`,
+  clinvarOrgs: `${CLINVAR}tab_delimited/organization_summary.txt`,
+  clingenValidity: 'https://search.clinicalgenome.org/kb/gene-validity/download',
+  clingenRegions: 'https://ftp.clinicalgenome.org/ClinGen_region_curation_list_GRCh38.tsv',
+  interproProtein: 'https://www.ebi.ac.uk/interpro/api/entry/pfam/protein/uniprot/',
   ccre: 'https://downloads.wenglab.org/Registry-V4/GRCh38-cCREs.bed',
   cpgIslands: `${UCSC}/database/cpgIslandExt.txt.gz`,
   trnas: 'https://gtrnadb.ucsc.edu/genomes/eukaryota/Hsapi38/hg38-mature-tRNAs.fa',
