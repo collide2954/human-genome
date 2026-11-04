@@ -207,6 +207,26 @@ test('findings state the expression sections as numbers', () => {
   assert.equal(f.plasma, 'Plasma levels in HPA run from 40 g/L for ALB to 1.2 ng/L for IL6, across 4,520 proteins');
 });
 
+fixture.regulation = {
+  ccre: {
+    count: 1000,
+    classes: {
+      dELS: { count: 600, bp: 120 }, pELS: { count: 200, bp: 50 }, PLS: { count: 100, bp: 20 }, 'CA-CTCF': { count: 100, bp: 10 },
+    },
+  },
+  cpg: { count: 30, bp: 20, promoters: { tss: 200, inIsland: 120 } },
+};
+fixture.trnas = { genes: 432, anticodons: { 'Ala-AGC': 26, 'Glu-CTC': 8, 'Met-CAT': 11 } };
+fixture.encode = { total: 20450, assays: [{ name: 'TF ChIP-seq', n: 3502 }] };
+
+test('findings state the regulation sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.ccres, 'ENCODE’s registry lists 1,000 candidate cis-regulatory elements covering 10% of GRCh38; 600 are distal enhancer-like');
+  assert.equal(f.cpgislands, '30 CpG islands cover 1% of GRCh38; 60% of MANE Select transcripts start inside one');
+  assert.equal(f.trna, 'GtRNAdb lists 432 high-confidence tRNA genes; 58 of the 61 sense codons have none with an exactly pairing anticodon');
+  assert.equal(f.encode, 'ENCODE has released 20,450 human experiments; TF ChIP-seq is the most common assay, with 3,502');
+});
+
 test('trnaPairs sets each sense codon against the tRNA genes whose anticodon pairs with it', () => {
   const pairs = trnaPairs(codonFixture, {
     'Ala-AGC': 26, 'Glu-CTC': 8, 'Met-CAT': 11, 'iMet-CAT': 9, 'SeC-TCA': 1,
