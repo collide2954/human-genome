@@ -4,13 +4,18 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { retry } from '../src/lib.js';
-import { FILES, USER_AGENT } from '../src/queries.js';
+import {
+  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery,
+} from '../src/queries.js';
 import {
   buildAssembly, latestFile, toModule, rmskSummary, superDupsSummary, tandemSummary, parseAssemblyReport,
 } from './parsers.mjs';
 import { gencodeSummary } from './genes.mjs';
 import { hgncSummary, geneInfoSummary, maneSummary } from './catalogs.mjs';
-import { cacheName, downloadTo, gzLines } from './streams.mjs';
+import { cacheName, downloadTo, gzLines, unzip } from './streams.mjs';
+import {
+  uniprotSummary, hpaSummary, gtexSummary, pharosSummary, tissueSites, pfamNames,
+} from './proteins.mjs';
 import { runSections } from './sections.mjs';
 import { readTwoBit } from './twobit.mjs';
 import { parseManeGtf, sequenceSection } from './sequence.mjs';
@@ -29,6 +34,22 @@ const text = async (url) => {
   const buffer = await readFile(await file(url));
   return (url.endsWith('.gz') ? gunzipSync(buffer) : buffer).toString('utf8');
 };
+
+const json = async (url) => JSON.parse(await text(url));
+
+const headersOf = (url) => retry(async () => {
+  const res = await fetch(url, { method: 'HEAD', headers: HEADERS });
+  if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
+  return res.headers;
+}, { tries: 5, wait: 3000 });
+
+const graphql = (url, query) => retry(async () => {
+  const res = await fetch(url, { method: 'POST', headers: { ...HEADERS, 'content-type': 'application/json' }, body: JSON.stringify({ query }) });
+  if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
+  const out = await res.json();
+  if (out.errors?.length) throw new Error(out.errors[0].message);
+  return out;
+}, { tries: 5, wait: 3000 });
 
 const assembly = async () => buildAssembly({
   report38: await text(FILES.grch38Report),
@@ -77,8 +98,38 @@ const catalogs = async () => {
   };
 };
 
+const proteins = async () => {
+  const head = await headersOf(new URL('/uniprotkb/search?query=accession:P04637&fields=accession&format=tsv', FILES.uniprot).href);
+  const uniprot = await summarize(FILES.uniprot, uniprotSummary());
+  const entries = {};
+  for (const { id } of uniprot.pfam.top) entries[id] = await json(`${FILES.interproPfam}${id}/`);
+  return {
+    release: head.get('x-uniprot-release'),
+    ...uniprot,
+    pfam: { ...uniprot.pfam, top: pfamNames(uniprot.pfam.top, entries) },
+  };
+};
+
+const targets = async () => {
+  const byLevel = {};
+  for (const level of ['Tclin', 'Tchem', 'Tbio', 'Tdark']) byLevel[level] = await graphql(FILES.pharos, pharosLevelQuery(level));
+  return pharosSummary(await graphql(FILES.pharos, PHAROS_QUERY), byLevel);
+};
+
+const expression = async () => {
+  const zip = unzip(await readFile(await file(FILES.hpa)));
+  const tsv = Object.keys(zip).find((name) => name.endsWith('.tsv'));
+  if (!tsv) throw new Error('No TSV inside the HPA download');
+  const modified = (await headersOf(FILES.hpa)).get('last-modified');
+  const gtex = gtexSummary((await text(FILES.gtexMedian)).split('\n'));
+  return {
+    hpa: { file: modified ? new Date(modified).toISOString().slice(0, 10) : null, ...hpaSummary(zip[tsv].toString('utf8')) },
+    gtex: { release: 'v10', ...gtex, sites: tissueSites((await json(FILES.gtexTissues)).data) },
+  };
+};
+
 const SECTIONS = {
-  assembly, sequence, repeats, genes, catalogs,
+  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression,
 };
 
 const now = new Date();
