@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS, GENE_THERAPIES, GENE_THERAPIES_CHECKED, DIAGNOSTIC_YIELD, CFDNA_SCREENING, CARRIER_TIER3,
+  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS, GENE_THERAPIES, GENE_THERAPIES_CHECKED, DIAGNOSTIC_YIELD, CFDNA_SCREENING, CARRIER_TIER3, BIOBANKS, GNOMAD_V4,
 } from '../../src/facts.js';
 
 test('chromosome structure sources are cited', () => {
@@ -66,6 +66,29 @@ test('diagnostic yields, cfDNA screening and carrier screening come from cited m
     condition: 'Trisomy 21', detection: 99.7, lo: 99.1, hi: 99.9, fpr: 0.04, fprLo: 0.02, fprHi: 0.07, cases: 1963, unaffected: 223932,
   });
   assert.deepEqual(CARRIER_TIER3, { genes: 97, definitive: 39, frequency: '1 in 200' });
+});
+
+test('population and ancient genome sources are cited', () => {
+  for (const key of ['gwasCatalog', 'cerezo2025', 'popejoy2016', 'aadr', 'mallick2024', 'igsr', 'fairley2020', 'thousandGenomes2015', 'byrskaBishop2022', 'ncbiDatasets', 'oleary2024', 'liao2023', 'gnomadV4', 'bycroft2018', 'allOfUs2024', 'kurki2023', 'nagai2017', 'chen2011', 'verma2024', 'ziyatdinov2023', 'feng2022']) {
+    assert.equal(SOURCE_TITLES[key]?.[0], 'Variation and populations', key);
+  }
+});
+
+test('biobank sizes and gnomAD v4 totals are fixed values from their papers and release post', () => {
+  assert.equal(BIOBANKS.length, 8);
+  for (const b of BIOBANKS) {
+    assert.ok(SOURCES[b.source], b.name);
+    assert.ok(b.people > 100000 && b.measure, b.name);
+  }
+  assert.deepEqual(BIOBANKS[0], {
+    name: 'Million Veteran Program', people: 635969, qualifier: null, measure: 'participants in its GWAS', source: 'verma2024',
+  });
+  assert.deepEqual(BIOBANKS.find((b) => b.name === 'UK Biobank'), {
+    name: 'UK Biobank', people: 500000, qualifier: 'about', measure: 'participants', source: 'bycroft2018',
+  });
+  assert.deepEqual(GNOMAD_V4, {
+    people: 807162, exomes: 730947, genomes: 76215, ukBiobank: 416555, nonEuropean: 138000,
+  });
 });
 
 test('every source is an https URL with a title in a known group', () => {
