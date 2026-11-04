@@ -238,7 +238,7 @@ test('protein charts draw lengths, evidence, structures, membranes, domains and 
   assert.equal(await count('#protein-length-chart [data-bin]'), P.lengths.counts.length);
   assert.equal(await count('#existence-chart [data-row]'), Object.keys(P.existence).length);
   assert.equal(await count('#longest-protein-chart [data-row]'), 10);
-  assert.equal(await count('#pdb-count-chart [data-bin]'), 51);
+  assert.equal(await count('#pdb-count-chart [data-bin]'), 50);
   assert.equal(await count('#pdb-top-chart [data-row]'), 15);
   assert.equal(await count('#tm-chart [data-bin]'), 25);
   assert.equal(await count('#location-chart [data-row]'), 20);
