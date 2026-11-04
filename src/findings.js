@@ -2,7 +2,9 @@ import {
   exact, pct, codonOf, perLitre, GENETIC_CODE, AA3, bases, longDate,
 } from './lib.js';
 import { reverseComplement } from './stats.js';
-import { GENE_THERAPIES, DIAGNOSTIC_YIELD, CFDNA_SCREENING } from './facts.js';
+import {
+  GENE_THERAPIES, DIAGNOSTIC_YIELD, CFDNA_SCREENING, GNOMAD_V4,
+} from './facts.js';
 
 const nuclear = (list) => list.filter((c) => c.chrom !== 'MT');
 const sum = (list, key) => list.reduce((n, x) => n + (x[key] ?? 0), 0);
@@ -449,7 +451,33 @@ const prenatal = () => {
   return `Cell-free DNA screening detects ${t21.detection}% of trisomy 21 pregnancies with a false-positive rate of ${t21.fpr}%`;
 };
 
+const ancestry = (snap) => {
+  const initial = snap.ancestry.stages.initial;
+  const all = total(Object.values(initial));
+  return `${pct(initial.European / all)} of GWAS discovery participants in the GWAS Catalog are listed as European; ${pct((initial['African American or Afro-Caribbean'] ?? 0) / all)} as African American or Afro-Caribbean`;
+};
+
+const ancient = (snap) => {
+  const a = snap.ancient;
+  return `The AADR ${a.version} holds ${exact(a.individuals)} ancient individuals; the oldest, ${a.oldest.id} from ${a.oldest.place}, dates to ${exact(a.oldest.age)} years before present`;
+};
+
+const panels = (snap) => {
+  const { panel } = snap.igsr;
+  return `The 1000 Genomes 30x set holds ${exact(panel.samples)} genomes from ${exact(panel.populations.length)} populations; gnomAD v4 pools ${exact(GNOMAD_V4.people)} people`;
+};
+
+const assemblies = (snap) => {
+  const a = snap.assemblies;
+  const year = Object.keys(a.byYear).sort().at(-1);
+  return `NCBI lists ${exact(a.total)} human genome assemblies, ${exact(total(Object.values(a.byYear[year])))} released in ${year}; the longest contig N50 is ${bases(a.best.n50)}`;
+};
+
 export const findings = (snap) => ({
+  ancestry: ancestry(snap),
+  ancient: ancient(snap),
+  panels: panels(snap),
+  assemblies: assemblies(snap),
   hpo: hpo(snap),
   orphanet: orphanet(snap),
   gtr: gtr(snap),
