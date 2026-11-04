@@ -192,15 +192,21 @@ const codons = (snap) => {
   return `${top.codon} is the most used codon, ${perK(top.n)} per thousand; ${rare.codon} the least used sense codon, ${perK(rare.n)}`;
 };
 
+export const proteinLabel = (p) => {
+  const genes = String(p.gene ?? '').split(/;\s*/).filter(Boolean);
+  if (!genes.length) return p.acc;
+  return genes.length === 1 ? genes[0] : `${genes[0]} and ${genes.length - 1} more`;
+};
+
 const proteome = (snap) => {
   const P = snap.proteins;
   const [top] = P.longest;
-  return `UniProt ${P.release} lists ${exact(P.count)} reviewed human proteins; the median is ${exact(P.lengths.summary.median)} residues long and ${top.gene}, the longest, ${exact(top.length)}`;
+  return `UniProt ${P.release} lists ${exact(P.count)} reviewed human proteins; the median is ${exact(P.lengths.summary.median)} residues long and ${proteinLabel(top)}, the longest, ${exact(top.length)}`;
 };
 
 const structures = (snap) => {
   const { count, pdb } = snap.proteins;
-  return `${exact(pdb.withAny)} reviewed human proteins, ${pct(pdb.withAny / count)}, have at least one PDB structure; ${pdb.top[0].gene} appears in ${exact(pdb.top[0].n)}`;
+  return `${exact(pdb.withAny)} reviewed human proteins, ${pct(pdb.withAny / count)}, have at least one PDB structure; ${proteinLabel(pdb.top[0])} appears in ${exact(pdb.top[0].n)}`;
 };
 
 const membrane = (snap) => {
