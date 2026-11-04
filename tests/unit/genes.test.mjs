@@ -36,9 +36,11 @@ const LINES = [
   ...[['IGHV1-2', 'IG_V_gene', 100, 400], ['IGHD1-1', 'IG_D_gene', 500, 520], ['IGHJ1', 'IG_J_gene', 600, 650], ['IGHM', 'IG_C_gene', 700, 900], ['IGHV1-12', 'IG_V_pseudogene', 1000, 1290]]
     .flatMap(([name, type, s, e]) => [
       row('14', 'gene', s, e, '-', { gene_id: name, gene_type: type, gene_name: name }),
+      row('14', 'transcript', s, e, '-', { gene_id: name, transcript_id: `${name}-T`, gene_type: type, gene_name: name, transcript_type: type }),
       row('14', 'exon', s, e, '-', { gene_id: name, transcript_id: `${name}-T`, gene_type: type, gene_name: name, transcript_type: type }),
     ]),
   row('7', 'gene', 100, 300, '+', { gene_id: 'TRBV1', gene_type: 'TR_V_gene', gene_name: 'TRBV1' }),
+  row('7', 'transcript', 100, 300, '+', { gene_id: 'TRBV1', transcript_id: 'TRBV1-T', gene_type: 'TR_V_gene', gene_name: 'TRBV1', transcript_type: 'TR_V_gene' }),
   row('7', 'exon', 100, 300, '+', { gene_id: 'TRBV1', transcript_id: 'TRBV1-T', gene_type: 'TR_V_gene', gene_name: 'TRBV1', transcript_type: 'TR_V_gene' }),
 ];
 
@@ -88,6 +90,13 @@ test('gencodeSummary splits annotated bases into CDS, UTR, other exons and intro
   assert.deepEqual(run().territory, {
     cds: 650, utr: 950, ncExon: 1566, intron: 2700,
   });
+});
+
+test('gencodeSummary refuses a GTF whose chromosomes are not grouped', () => {
+  const acc = gencodeSummary();
+  acc.add(gene('1', 1, 10, '+', 'A', 'GENEA', 'protein_coding'));
+  acc.add(gene('2', 1, 10, '+', 'C', 'GENEC', 'protein_coding'));
+  assert.throws(() => acc.add(gene('1', 20, 30, '+', 'D', 'GENED', 'protein_coding')), /chr1 are not grouped/);
 });
 
 test('gencodeSummary counts immune receptor gene segments by locus', () => {

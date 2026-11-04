@@ -10,6 +10,7 @@ const SEGMENTS = {
   IG_V_gene: 'V', IG_D_gene: 'D', IG_J_gene: 'J', IG_C_gene: 'C', TR_V_gene: 'V', TR_D_gene: 'D', TR_J_gene: 'J', TR_C_gene: 'C',
 };
 
+const own = (s) => (typeof s === 'string' ? Buffer.from(s, 'utf8').toString('utf8') : s);
 const count = (map, key) => map.set(key, (map.get(key) ?? 0) + 1);
 const push = (store, chrom, iv) => (store[chrom] ??= []).push(iv);
 const lengthOf = ([s, e]) => e - s + 1;
@@ -25,12 +26,35 @@ const dist = (values, edges) => ({ edges, counts: histogram(values, edges), summ
 export const gencodeSummary = ({ binSize = 1e6, lengths = {} } = {}) => {
   const release = {};
   const genes = new Map();
-  const txType = new Map();
-  const txGene = new Map();
+  const transcriptTypes = new Map();
+  const perGene = new Map();
+  let transcriptCount = 0;
   const mane = new Map();
   const cdsIv = {};
   const pcExonIv = {};
   const otherExonIv = {};
+  const geneIv = {};
+  const territory = {
+    cds: 0, utr: 0, ncExon: 0, intron: 0,
+  };
+  const done = new Set();
+  let current = null;
+  const flush = (chrom) => {
+    const cds = halfOpen(cdsIv[chrom] ?? []);
+    const pcExons = halfOpen(pcExonIv[chrom] ?? []);
+    const other = halfOpen(otherExonIv[chrom] ?? []);
+    const spans = halfOpen(geneIv[chrom] ?? []);
+    const c1 = coverage(cds);
+    const c2 = coverage([...cds, ...pcExons]);
+    const c3 = coverage([...cds, ...pcExons, ...other]);
+    const c4 = coverage([...cds, ...pcExons, ...other, ...spans]);
+    territory.cds += c1;
+    territory.utr += c2 - c1;
+    territory.ncExon += c3 - c2;
+    territory.intron += c4 - c3;
+    for (const store of [cdsIv, pcExonIv, otherExonIv, geneIv]) delete store[chrom];
+    done.add(chrom);
+  };
   return {
     add(line) {
       if (line.startsWith('##')) {
@@ -43,23 +67,30 @@ export const gencodeSummary = ({ binSize = 1e6, lengths = {} } = {}) => {
       if (!line || line.startsWith('#')) return;
       const r = gtfRecord(line);
       if (!STANDARD.has(r.chrom)) return;
+      if (r.chrom !== current) {
+        if (done.has(r.chrom)) throw new Error(`GTF lines for chr${r.chrom} are not grouped`);
+        if (current) flush(current);
+        current = own(r.chrom);
+      }
       const a = r.attrs;
       if (r.feature === 'gene') {
-        genes.set(a.gene_id, {
-          name: a.gene_name, type: a.gene_type, chrom: r.chrom, start: r.start, end: r.end, strand: r.strand,
+        genes.set(own(a.gene_id), {
+          name: own(a.gene_name), type: own(a.gene_type), chrom: current, start: r.start, end: r.end, strand: own(r.strand),
         });
+        push(geneIv, current, [r.start, r.end]);
         return;
+      }
+      if (r.feature === 'transcript') {
+        transcriptCount += 1;
+        count(transcriptTypes, own(a.transcript_type));
+        count(perGene, own(a.gene_id));
       }
       const t = a.transcript_id;
       if (!t) return;
-      if (!txType.has(t)) {
-        txType.set(t, a.transcript_type);
-        txGene.set(t, a.gene_id);
-      }
       const isMane = (a.tag ?? []).includes('MANE_Select');
       if (isMane && !mane.has(t)) {
-        mane.set(t, {
-          gene: a.gene_id, name: a.gene_name, chrom: r.chrom, strand: r.strand, exons: [], cds: [], utr: [],
+        mane.set(own(t), {
+          gene: own(a.gene_id), name: own(a.gene_name), chrom: current, strand: own(r.strand), exons: [], cds: [], utr: [],
         });
       }
       const iv = [r.start, r.end];
@@ -72,26 +103,22 @@ export const gencodeSummary = ({ binSize = 1e6, lengths = {} } = {}) => {
       } else if (r.feature === 'UTR' && isMane) mane.get(t).utr.push(iv);
     },
     result() {
+      if (current) {
+        flush(current);
+        current = null;
+      }
       const byType = new Map();
       const byChrom = {};
       const density = {};
-      const geneIv = {};
       for (const g of genes.values()) {
         count(byType, g.type);
         byChrom[g.chrom] ??= {};
         byChrom[g.chrom][g.type] = (byChrom[g.chrom][g.type] ?? 0) + 1;
-        push(geneIv, g.chrom, [g.start, g.end]);
         if (g.type === 'protein_coding') {
           density[g.chrom] ??= new Array(Math.ceil((lengths[g.chrom] ?? g.end) / binSize)).fill(0);
           const bin = Math.floor((g.start - 1) / binSize);
           if (bin < density[g.chrom].length) density[g.chrom][bin] += 1;
         }
-      }
-      const transcriptTypes = new Map();
-      const perGene = new Map();
-      for (const [t, type] of txType) {
-        count(transcriptTypes, type);
-        count(perGene, txGene.get(t));
       }
       const pc = [...genes.entries()].filter(([, g]) => g.type === 'protein_coding');
       const spanOf = (g) => g.end - g.start + 1;
@@ -126,23 +153,6 @@ export const gencodeSummary = ({ binSize = 1e6, lengths = {} } = {}) => {
         structure.utr5.push(m.strand === '-' ? after : before);
         structure.utr3.push(m.strand === '-' ? before : after);
       }
-      const territory = {
-        cds: 0, utr: 0, ncExon: 0, intron: 0,
-      };
-      for (const chrom of new Set([...Object.keys(geneIv), ...Object.keys(cdsIv)])) {
-        const cds = halfOpen(cdsIv[chrom] ?? []);
-        const pcExons = halfOpen(pcExonIv[chrom] ?? []);
-        const other = halfOpen(otherExonIv[chrom] ?? []);
-        const spans = halfOpen(geneIv[chrom] ?? []);
-        const c1 = coverage(cds);
-        const c2 = coverage([...cds, ...pcExons]);
-        const c3 = coverage([...cds, ...pcExons, ...other]);
-        const c4 = coverage([...cds, ...pcExons, ...other, ...spans]);
-        territory.cds += c1;
-        territory.utr += c2 - c1;
-        territory.ncExon += c3 - c2;
-        territory.intron += c4 - c3;
-      }
       const immune = Object.fromEntries(LOCI.map((l) => [l, {
         V: 0, D: 0, J: 0, C: 0, pseudo: 0,
       }]));
@@ -156,7 +166,7 @@ export const gencodeSummary = ({ binSize = 1e6, lengths = {} } = {}) => {
       return {
         release,
         genes: { total: genes.size, byType: Object.fromEntries([...byType].sort((x, y) => y[1] - x[1])), byChrom },
-        transcripts: { total: txType.size, byType: Object.fromEntries([...transcriptTypes].sort((x, y) => y[1] - x[1])) },
+        transcripts: { total: transcriptCount, byType: Object.fromEntries([...transcriptTypes].sort((x, y) => y[1] - x[1])) },
         density: { binSize, bins: density },
         spans: {
           pc: dist(ranked.map((g) => g.span), logEdges(1, 7, 10)),
