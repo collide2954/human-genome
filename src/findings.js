@@ -1,4 +1,4 @@
-import { exact, pct } from './lib.js';
+import { exact, pct, codonOf } from './lib.js';
 
 const nuclear = (list) => list.filter((c) => c.chrom !== 'MT');
 const sum = (list, key) => list.reduce((n, x) => n + (x[key] ?? 0), 0);
@@ -165,7 +165,35 @@ const immune = (snap) => {
   return `${V} IGHV, ${D} IGHD and ${J} IGHJ segments make ${exact(V * D * J)} heavy-chain V-D-J combinations before junctional diversity`;
 };
 
+const splicing = (snap) => {
+  const c = snap.sequence.mane.classes;
+  const total = Object.values(c).reduce((a, b) => a + b, 0);
+  return `${pct(c['GT-AG'] / total)} of MANE Select introns start GT and end AG; ${exact(c['GC-AG'])} start GC and ${exact(c['AT-AC'])} ${c['AT-AC'] === 1 ? 'runs' : 'run'} from AT to AC`;
+};
+
+const translation = (snap) => {
+  const { kozak, stops, coding } = snap.sequence.mane;
+  const [a, c, g, t] = kozak[3];
+  return `A purine sits three bases before the start codon in ${pct((a + g) / (a + c + g + t))} of MANE coding sequences; ${pct(stops.TGA / coding)} end in TGA`;
+};
+
+const STOP_CODONS = new Set([48, 50, 56]);
+
+export const senseCodons = (counts) => counts.map((n, i) => ({ codon: codonOf(i), n })).filter((_, i) => !STOP_CODONS.has(i));
+
+const codons = (snap) => {
+  const sense = senseCodons(snap.sequence.mane.codons);
+  const total = sense.reduce((s, c) => s + c.n, 0);
+  const top = sense.reduce((a, b) => (b.n > a.n ? b : a));
+  const rare = sense.reduce((a, b) => (b.n < a.n ? b : a));
+  const perK = (n) => ((n / total) * 1000).toFixed(1);
+  return `${top.codon} is the most used codon, ${perK(top.n)} per thousand; ${rare.codon} the least used sense codon, ${perK(rare.n)}`;
+};
+
 export const findings = (snap) => ({
+  splicing: splicing(snap),
+  translation: translation(snap),
+  codons: codons(snap),
   genecount: genecount(snap),
   density: density(snap),
   genesize: genesize(snap),
