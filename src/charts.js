@@ -567,6 +567,7 @@ export const logo = ({
   const T = 12;
   const B = 22;
   const cw = Math.min(46, (W - L - 4) / positions.length);
+  const every = Math.ceil(26 / cw);
   const right = L + cw * positions.length;
   const y = scaleLinear([0, 2], [height - B, T]);
   const svg = el('svg', { viewBox: `0 0 ${right + 4} ${height}`, role: 'img', 'aria-label': aria, style: `max-width:${right + 4}px` },
@@ -586,7 +587,7 @@ export const logo = ({
             class: 'glyph', x: 0, y: 0, textLength: cw - 3, lengthAdjust: 'spacingAndGlyphs', transform: `translate(${L + i * cw + 1.5} ${top + h}) scale(1 ${Math.max(h, 0.01) / 72})`, style: `fill:${LOGO_COLORS[l.base]}`,
           }, l.base);
         }),
-        el('text', { class: 'tick', x: L + i * cw + cw / 2, y: height - 6, 'text-anchor': 'middle' }, labels[i]));
+        i % every === 0 ? el('text', { class: 'tick', x: L + i * cw + cw / 2, y: height - 6, 'text-anchor': 'middle' }, labels[i]) : null);
     }));
   hover(svg, (k) => describe(Number(k)));
   return mountSvg(mount, svg);
