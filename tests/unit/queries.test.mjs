@@ -25,7 +25,7 @@ test('every data file is an https URL on a known host', () => {
     'eutils.ncbi.nlm.nih.gov', 'api.ncbi.nlm.nih.gov', 'rest.ensembl.org', 'www.ebi.ac.uk', 'gtexportal.org', 'pharos-api.ncats.io',
     'string-db.org', 'reactome.org', 'current.geneontology.org', 'gtrnadb.ucsc.edu', 'www.encodeproject.org', 's3-us-west-2.amazonaws.com',
     'raw.githubusercontent.com', 'api.github.com', 'www.orphadata.com', 'www.fda.gov', 'clinicaltrials.gov', 'dataverse.harvard.edu', 'www.internationalgenome.org',
-    'www.intogen.org', 'api.gdc.cancer.gov', 'api.clinpgx.org',
+    'www.intogen.org', 'api.gdc.cancer.gov', 'api.clinpgx.org', 'www.pgscatalog.org', 'pan-ukb-us-east-1.s3.amazonaws.com',
   ]);
   for (const [key, url] of Object.entries(FILES)) {
     const u = new URL(url);
@@ -214,6 +214,22 @@ test('pharmacogenomic files point at the CPIC API, the FDA biomarker table and C
   assert.equal(FILES.fdaPgx, 'https://www.fda.gov/drugs/science-and-research-drugs/table-pharmacogenomic-biomarkers-drug-labeling');
   assert.equal(FILES.clinpgxAnnotations, 'https://api.clinpgx.org/v1/download/file/data/clinicalAnnotations.zip');
   assert.equal(FILES.clinpgxLabels, 'https://api.clinpgx.org/v1/download/file/data/drugLabels.zip');
+});
+
+test('complex trait files point at the GWAS Catalog release, the PGS Catalog and Pan-UKB', () => {
+  const gwas = 'https://ftp.ebi.ac.uk/pub/databases/gwas/releases/latest/';
+  assert.equal(FILES.gwasAssociations, `${gwas}gwas-catalog-associations_ontology-annotated-full.zip`);
+  assert.equal(FILES.gwasTraitMappings, `${gwas}gwas-efo-trait-mappings.tsv`);
+  const pgs = 'https://ftp.ebi.ac.uk/pub/databases/spot/pgs/metadata/pgs_all_metadata_';
+  assert.equal(FILES.pgsScores, `${pgs}scores.csv`);
+  assert.equal(FILES.pgsPerformance, `${pgs}performance_metrics.csv`);
+  assert.equal(FILES.pgsDevelopment, `${pgs}score_development_samples.csv`);
+  assert.equal(FILES.pgsEvaluation, `${pgs}evaluation_sample_sets.csv`);
+  assert.equal(FILES.pgsInfo, 'https://www.pgscatalog.org/rest/info/');
+  assert.equal(FILES.pgsCategories, 'https://www.pgscatalog.org/rest/trait_category/all');
+  const panukb = 'https://pan-ukb-us-east-1.s3.amazonaws.com/sumstats_release/';
+  assert.equal(FILES.panukbH2, `${panukb}h2_manifest.tsv.bgz`);
+  assert.equal(FILES.panukbPhenotypes, `${panukb}phenotype_manifest.tsv.bgz`);
 });
 
 test('lollipop proteins name their UniProt accessions', () => {
