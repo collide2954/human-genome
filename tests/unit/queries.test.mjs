@@ -99,6 +99,14 @@ test('structure files point at the rCRS feature table, gnomAD mtDNA and the T2T 
   assert.equal(FILES.telomeres, 'https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/annotation/chm13v2.0_telomere.bed');
 });
 
+test('variation and constraint files point at dbSNP, dbVar, gnomAD v4.1, ClinGen and IMPC', () => {
+  assert.equal(FILES.dbsnpNotes, 'https://ftp.ncbi.nlm.nih.gov/snp/latest_release/release_notes.txt');
+  for (const t of ['deletions', 'duplications', 'insertions']) assert.equal(FILES[`nr_${t}`], `https://ftp.ncbi.nlm.nih.gov/pub/dbVar/sandbox/sv_datasets/nonredundant/${t}/GRCh38.nr_${t}.tsv.gz`, t);
+  assert.equal(FILES.gnomadConstraint, 'https://storage.googleapis.com/gcp-public-data--gnomad/release/4.1/constraint/gnomad.v4.1.constraint_metrics.tsv');
+  assert.equal(FILES.clingenGenes, 'https://ftp.clinicalgenome.org/ClinGen_gene_curation_list_GRCh38.tsv');
+  assert.equal(FILES.impcViability, 'https://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/latest/results/viability.csv.gz');
+});
+
 test('requests identify the project', () => {
   assert.match(USER_AGENT, /human-genome/);
   assert.doesNotMatch(USER_AGENT, /@/);

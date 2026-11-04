@@ -10,6 +10,12 @@ test('chromosome structure sources are cited', () => {
   }
 });
 
+test('variation and constraint sources are cited', () => {
+  for (const key of ['dbsnp', 'sherry2001', 'dbvar', 'gnomad', 'karczewski2020']) assert.equal(SOURCE_TITLES[key]?.[0], 'Variation and populations', key);
+  for (const key of ['clingen', 'rehm2015', 'riggs2020']) assert.equal(SOURCE_TITLES[key]?.[0], 'Clinical genetics', key);
+  for (const key of ['impc', 'dickinson2016']) assert.equal(SOURCE_TITLES[key]?.[0], 'Genes and proteins', key);
+});
+
 test('the GRCh38 pseudoautosomal regions match on X and Y', () => {
   assert.deepEqual(PARS.map((p) => p.name), ['PAR1', 'PAR2']);
   for (const p of PARS) assert.equal(p.x[1] - p.x[0], p.y[1] - p.y[0], p.name);
