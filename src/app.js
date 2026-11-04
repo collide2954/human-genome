@@ -8,12 +8,14 @@ import {
 import {
   pearson, linearFit, linearEdges, summary,
 } from './stats.js';
-import { FILES, TRIAL_MODALITIES, assemblyPage } from './queries.js';
+import {
+  FILES, TRIAL_MODALITIES, assemblyPage, gdcSsmPage,
+} from './queries.js';
 import {
   findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons, gtexTissues, plasmaLevel, proteomeResidues, proteinLabel, trnaPairs, titv,
 } from './findings.js';
 import {
-  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, dotmap, logo, codonTable, heatmap, genomeMap, dumbbell, grid as shareGrid, lollipop as lollipopChart, spectrum, ranges, intervals, lines, observeFigures, countUp, tipLines, measureWidths, forgetWidths,
+  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, dotmap, dotRows, logo, codonTable, heatmap, genomeMap, dumbbell, grid as shareGrid, lollipop as lollipopChart, spectrum, ranges, intervals, lines, observeFigures, countUp, tipLines, measureWidths, forgetWidths,
 } from './charts.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -2828,6 +2830,377 @@ const renderPrenatal = () => {
   attachData('#prenatal-chart', 'cfdna-screening', ['Condition', 'Detection rate', 'Low', 'High', 'False-positive rate', 'FPR low', 'FPR high', 'Affected', 'Unaffected'], CFDNA_SCREENING.map((s) => [s.condition, s.detection, s.lo, s.hi, s.fpr, s.fprLo, s.fprHi, s.cases, s.unaffected]));
 };
 
+const DRIVER_ROLES = [['Act', 'Activating', 'var(--s1)'], ['LoF', 'Loss of function', 'var(--s2)'], ['ambiguous', 'No majority role', 'var(--data-2)']];
+const AGE_GROUPS = [{ key: 'Adult', label: 'Adult cohorts', color: 'var(--s2)' }, { key: 'Pediatric', label: 'Pediatric cohorts', color: 'var(--s1)' }];
+const perSampleText = (v) => (v < 10 ? v.toFixed(1) : exact(v));
+
+const renderDrivers = () => {
+  const { drivers: drv, cohorts: coh, release } = snapshot.intogen;
+  const nameOf = (code) => coh.names[code] ?? code;
+  const byCancer = Object.fromEntries(coh.burden.map((b) => [b.cancer, { cohorts: b.cohorts.length, samples: sumOf(b.cohorts.map((c) => c.samples)) }]));
+  const lead = drv.byType[0];
+  $('#drivers-dek').textContent = `IntOGen’s release of ${longDate(release)} covers ${exact(coh.cohorts)} cohorts and ${exact(coh.samples)} tumour samples. Of its ${exact(drv.genes)} driver genes, ${exact(drv.roles.Act ?? 0)} act mostly through activating mutations, ${exact(drv.roles.LoF ?? 0)} through loss of function, and ${exact(drv.roles.ambiguous ?? 0)} have no majority role. ${nameOf(lead.type)} has the most drivers, ${exact(lead.genes)}.`;
+  hbars({
+    mount: $('#drivers-types-chart'),
+    rows: drv.byType.slice(0, 30).map((t) => ({ key: t.type, label: nameOf(t.type), values: { d: t.genes } })),
+    segments: [{ key: 'd', label: 'Driver genes', color: 'var(--data)' }],
+    labelShare: 0.4,
+    labelMax: 380,
+    rowH: 18,
+    aria: 'Cancer types with the most IntOGen driver genes',
+    describe: (r) => tipLines(`${exact(r.values.d)} driver genes`, r.label, `${exact(byCancer[r.key]?.cohorts ?? 0)} cohorts, ${exact(byCancer[r.key]?.samples ?? 0)} samples`),
+  });
+  attachData('#drivers-types-chart', 'intogen-drivers-by-cancer', ['Code', 'Cancer type', 'Driver genes', 'Cohorts', 'Samples'], drv.byType.map((t) => [t.type, nameOf(t.type), t.genes, byCancer[t.type]?.cohorts ?? 0, byCancer[t.type]?.samples ?? 0]));
+  hbars({
+    mount: $('#drivers-genes-chart'),
+    rows: drv.top.map((g) => ({
+      key: g.gene, label: g.gene, values: { Act: g.Act, LoF: g.LoF, ambiguous: g.ambiguous }, gene: g,
+    })),
+    segments: DRIVER_ROLES.map(([key, label, color]) => ({ key, label, color })),
+    labelShare: 0.12,
+    rowH: 18,
+    aria: 'Genes that IntOGen calls drivers in the most cancer types, by role',
+    describe: (r) => tipLines(`${exact(r.gene.types)} cancer types`, r.gene.gene, ...DRIVER_ROLES.map(([key, label]) => `${label}: ${exact(r.gene[key])}`)),
+  });
+  attachData('#drivers-genes-chart', 'intogen-top-drivers', ['Gene', 'Cancer types', ...DRIVER_ROLES.map(([, label]) => label)], drv.top.map((g) => [g.gene, g.types, g.Act, g.LoF, g.ambiguous]));
+};
+
+const renderTcga = () => {
+  const gd = snapshot.gdc;
+  const projects = gd.tcga.projects.filter((p) => p.tested > 0);
+  const { genes } = gd.tcga;
+  const casesOf = (gene, p) => gd.tcga.mutated[gene]?.[p.project] ?? 0;
+  const values = genes.map((gene) => projects.map((p) => casesOf(gene, p) / p.tested));
+  const tested = sumOf(projects.map((p) => p.tested));
+  const across = (gene) => sumOf(projects.map((p) => casesOf(gene, p))) / tested;
+  $('#tcga-dek').textContent = `GDC Data Release ${gd.release} of ${longDate(gd.date)}: ${exact(tested)} cases in ${exact(projects.length)} TCGA projects have exome data. Across them, ${genes[0]} carries a somatic mutation in ${pct(across(genes[0]))} of cases and ${genes[1]} in ${pct(across(genes[1]))}. The rows are the ${exact(genes.length)} genes IntOGen calls drivers in the most cancer types.`;
+  shareGrid({
+    mount: $('#tcga-chart'),
+    rows: genes,
+    cols: projects.map((p) => p.project.replace(/^TCGA-/, '')),
+    values,
+    aria: 'Share of TCGA cases with a somatic mutation in each driver gene, by project',
+    describe: (i, j) => tipLines(`${genes[i]}: ${pct(values[i][j])}`, `of ${projects[j].name} cases, ${projects[j].project}`, `${exact(casesOf(genes[i], projects[j]))} of ${exact(projects[j].tested)} cases with exome data`),
+  });
+  attachData('#tcga-chart', 'tcga-driver-mutations', ['Gene', 'Project', 'Cases with a mutation', 'Cases with exome data'], genes.flatMap((gene) => projects.map((p) => [gene, p.project, casesOf(gene, p), p.tested])));
+};
+
+const renderBurden = () => {
+  const coh = snapshot.intogen.cohorts;
+  const rowsFor = (platform) => coh.burden.map((b) => {
+    const list = b.cohorts.filter((c) => c.platform === platform);
+    return list.length ? {
+      key: b.cancer, label: b.name, median: summary(list.map((c) => c.perSample)).median, points: list.map((c) => ({ value: Math.max(c.perSample, 0.1), kind: c.age, cohort: c })),
+    } : null;
+  }).filter(Boolean).sort((x, y) => y.median - x.median || x.label.localeCompare(y.label));
+  const exomes = rowsFor('WXS');
+  const genomes = rowsFor('WGS');
+  $('#burden-dek').textContent = `Each dot is one cohort’s mutations divided by its samples, and the bar marks the median cohort; rows run from the highest median down. Exome cohorts count coding mutations and genome cohorts count mutations anywhere in the genome, so the two are ranked apart: ${exact(exomes.length)} cancer types have exome cohorts and ${exact(genomes.length)} have genome cohorts. ${exact(coh.ages.Pediatric ?? 0)} of the ${exact(coh.cohorts)} cohorts are pediatric and ${exact(coh.kinds.Metastasis ?? 0)} are metastases.`;
+  for (const [id, rows, platform, word] of [['exome', exomes, 'WXS', 'exome'], ['genome', genomes, 'WGS', 'genome']]) {
+    dotRows({
+      mount: $(`#burden-${id}-chart`),
+      rows,
+      kinds: AGE_GROUPS,
+      labelShare: 0.38,
+      labelMax: 420,
+      rowH: 14,
+      aria: `Mutations per sample in each IntOGen ${word} cohort, by cancer type, log scale`,
+      describe: (row, p) => tipLines(`${perSampleText(p.cohort.perSample)} mutations per sample`, p.cohort.cohort, `${row.label}; ${word}, ${exact(p.cohort.samples)} samples, ${p.cohort.age.toLowerCase()}`),
+    });
+    attachData(`#burden-${id}-chart`, `intogen-${word}-burden`, ['Cohort', 'Cancer type', 'Age group', 'Samples', 'Mutations per sample'], coh.burden.flatMap((b) => b.cohorts.filter((c) => c.platform === platform).map((c) => [c.cohort, b.name, c.age, c.samples, c.perSample])));
+  }
+};
+
+const ONCOGENICITY = ['Oncogenic', 'Oncogenic/Likely oncogenic', 'Likely oncogenic', 'Uncertain significance', 'Likely benign', 'Benign', 'Conflicting classifications of oncogenicity'];
+
+const renderSomatic = () => {
+  const gd = snapshot.gdc;
+  const onco = CV.oncogenicity;
+  const impact = CV.clinicalImpact;
+  const largest = gd.programs[0];
+  $('#somatic-dek').textContent = `GDC Data Release ${gd.release}: ${exact(gd.cases)} cases in ${exact(gd.projects)} projects from ${exact(gd.programs.length)} programs; ${largest.program} is the largest, with ${exact(largest.cases)}. In ClinVar, ${exact(CV.origin.somatic ?? 0)} variants have only a somatic origin. Its oncogenicity classes follow the ClinGen, CGC and VICC standard, and its somatic clinical impact uses the AMP/ASCO/CAP tiers; ${exact(impact['Tier I - Strong'] ?? 0)} variants reach Tier I.`;
+  dotplot({
+    mount: $('#somatic-programs-chart'),
+    rows: gd.programs.map((p, i) => ({
+      key: p.program, label: p.program, value: p.cases, hi: i === 0,
+    })),
+    labelShare: 0.3,
+    rowH: 20,
+    aria: 'Cases at the NCI Genomic Data Commons by program, log scale',
+    describe: (r) => {
+      const p = gd.programs.find((x) => x.program === r.key);
+      return tipLines(`${exact(p.cases)} cases`, `${p.program}, ${exact(p.projects)} project${p.projects === 1 ? '' : 's'}`, pct(p.cases / gd.cases));
+    },
+  });
+  attachData('#somatic-programs-chart', 'gdc-programs', ['Program', 'Projects', 'Cases'], gd.programs.map((p) => [p.program, p.projects, p.cases]));
+  dotplot({
+    mount: $('#somatic-sites-chart'),
+    rows: gd.sites.slice(0, 20).map((s, i) => ({
+      key: s.key, label: s.key, value: s.n, hi: i === 0,
+    })),
+    labelShare: 0.42,
+    labelMax: 300,
+    rowH: 20,
+    aria: 'Cases at the NCI Genomic Data Commons by primary site, log scale',
+    describe: (r) => tipLines(`${exact(r.value)} cases`, r.key, pct(r.value / gd.cases)),
+  });
+  attachData('#somatic-sites-chart', 'gdc-primary-sites', ['Primary site', 'Cases'], gd.sites.map((s) => [s.key, s.n]));
+  const oncoKeys = [...ONCOGENICITY.filter((k) => onco[k]), ...Object.keys(onco).filter((k) => !ONCOGENICITY.includes(k))];
+  dotplot({
+    mount: $('#somatic-oncogenicity-chart'),
+    rows: oncoKeys.map((k) => ({ key: k, label: k, value: onco[k] })),
+    labelShare: 0.45,
+    labelMax: 300,
+    rowH: 20,
+    aria: 'ClinVar somatic variants by oncogenicity classification, log scale',
+    describe: (r) => tipLines(`${exact(r.value)} variants`, r.key, pct(r.value / sumOf(Object.values(onco)))),
+  });
+  attachData('#somatic-oncogenicity-chart', 'clinvar-oncogenicity', ['Oncogenicity', 'Variants'], oncoKeys.map((k) => [k, onco[k]]));
+  const tiers = Object.keys(impact).sort();
+  dotplot({
+    mount: $('#somatic-impact-chart'),
+    rows: tiers.map((k) => ({ key: k, label: k, value: impact[k] })),
+    labelShare: 0.45,
+    labelMax: 300,
+    rowH: 20,
+    aria: 'ClinVar somatic variants by clinical impact tier, log scale',
+    describe: (r) => tipLines(`${exact(r.value)} variants`, r.key, pct(r.value / sumOf(Object.values(impact)))),
+  });
+  attachData('#somatic-impact-chart', 'clinvar-somatic-impact', ['Clinical impact', 'Variants'], tiers.map((k) => [k, impact[k]]));
+};
+
+const CPIC_LEVEL_COLORS = {
+  A: 'var(--s1)', 'A/B': 'var(--s5)', B: 'var(--s3)', 'B/C': 'var(--s4)', C: 'var(--s2)', 'C/D': 'var(--data)', D: 'var(--data-2)', Retired: 'var(--ink-2)',
+};
+const CPIC_ORDER = Object.keys(CPIC_LEVEL_COLORS);
+const CLINPGX_ORDER = ['1A', '1B', '2A', '2B', '3', '4'];
+const CLINPGX_COLORS = {
+  '1A': 'var(--s1)', '1B': 'var(--s5)', '2A': 'var(--s3)', '2B': 'var(--s4)', 3: 'var(--s2)', 4: 'var(--data-2)',
+};
+const FUNCTION_COLORS = [['Normal function', 'var(--s4)'], ['Increased function', 'var(--s2)'], ['Decreased function', 'var(--s3)'], ['No function', 'var(--s1)'], ['Uncertain function', 'var(--data)'], ['Unknown function', 'var(--data-2)'], ['Gene-specific class', 'var(--s5)'], ['Not assigned', 'var(--ink-2)']];
+const METABOLIZERS = [['Poor Metabolizer', 'var(--s1)'], ['Intermediate Metabolizer', 'var(--s3)'], ['Normal Metabolizer', 'var(--s4)'], ['Ultrarapid Metabolizer', 'var(--s2)'], ['Indeterminate', 'var(--data-2)']];
+const TESTING_LEVELS = [['Testing Required', 'var(--s1)'], ['Testing Recommended', 'var(--s5)'], ['Actionable PGx', 'var(--s3)'], ['Informative PGx', 'var(--s2)'], ['No Clinical PGx', 'var(--data)'], ['No level given', 'var(--data-2)']];
+
+const renderCpic = () => {
+  const { pairs, alleles } = snapshot.cpic;
+  const levels = ordered(pairs.levels, CPIC_ORDER);
+  $('#cpic-dek').textContent = `CPIC lists ${exact(pairs.pairs)} gene–drug pairs for ${exact(pairs.genes)} genes and ${exact(pairs.drugs)} drugs, not counting ${exact(pairs.removed)} removed pairs. At level A genotype should change prescribing and at level B it could; at levels C and D no prescribing action is recommended. FDA label annotations call testing required for ${exact(pairs.testing['Testing Required'] ?? 0)} of the pairs and recommended for ${exact(pairs.testing['Testing Recommended'] ?? 0)}. CPIC curates ${exact(alleles.alleles)} alleles in ${exact(alleles.genes.length)} genes.`;
+  hbars({
+    mount: $('#cpic-genes-chart'),
+    rows: pairs.byGene.slice(0, 30).map((g) => ({
+      key: g.gene, label: g.gene, values: g.levels, gene: g,
+    })),
+    segments: levels.map((l) => ({ key: l, label: `Level ${l}`, color: CPIC_LEVEL_COLORS[l] ?? 'var(--data)' })),
+    labelShare: 0.12,
+    rowH: 18,
+    aria: 'CPIC gene–drug pairs per gene by CPIC level',
+    describe: (r) => tipLines(`${exact(r.gene.total)} pairs`, r.gene.gene, ...levels.filter((l) => r.gene.levels[l]).map((l) => `Level ${l}: ${exact(r.gene.levels[l])}`)),
+  });
+  attachData('#cpic-genes-chart', 'cpic-pairs-by-gene', ['Gene', ...levels.map((l) => `Level ${l}`), 'Total'], pairs.byGene.map((g) => [g.gene, ...levels.map((l) => g.levels[l] ?? 0), g.total]));
+  const cols = [...CLINPGX_ORDER, 'none'];
+  const rowTotals = levels.map((l) => sumOf(Object.values(pairs.clinpgx[l] ?? {})));
+  const counts = levels.map((l) => cols.map((c) => pairs.clinpgx[l]?.[c] ?? 0));
+  shareGrid({
+    mount: $('#cpic-levels-chart'),
+    rows: levels.map((l) => `Level ${l}`),
+    cols: [...CLINPGX_ORDER, 'None'],
+    values: counts.map((row, i) => row.map((n) => (rowTotals[i] ? n / rowTotals[i] : 0))),
+    totals: rowTotals,
+    aria: 'CPIC levels against ClinPGx levels of evidence, as a share of each CPIC level',
+    describe: (i, j) => tipLines(pct(rowTotals[i] ? counts[i][j] / rowTotals[i] : 0), `of level ${levels[i]} pairs have ${cols[j] === 'none' ? 'no ClinPGx level' : `ClinPGx level ${cols[j]}`}`, `${exact(counts[i][j])} of ${exact(rowTotals[i])}`),
+  });
+  attachData('#cpic-levels-chart', 'cpic-and-clinpgx-levels', ['CPIC level', ...cols.map((c) => (c === 'none' ? 'No ClinPGx level' : `ClinPGx ${c}`)), 'Pairs'], levels.map((l, i) => [l, ...counts[i], rowTotals[i]]));
+  const fnKeys = FUNCTION_COLORS.filter(([f]) => alleles.genes.some((g) => g.functions[f]));
+  hbars({
+    mount: $('#cpic-alleles-chart'),
+    rows: alleles.genes.map((g) => ({
+      key: g.gene, label: g.gene, values: g.functions, gene: g,
+    })),
+    segments: fnKeys.map(([key, color]) => ({ key, label: key, color })),
+    labelShare: 0.12,
+    rowH: 18,
+    aria: 'Alleles CPIC curates per gene, by clinical function',
+    describe: (r) => tipLines(`${exact(r.gene.total)} alleles`, r.gene.gene, ...fnKeys.filter(([f]) => r.gene.functions[f]).map(([f]) => `${f}: ${exact(r.gene.functions[f])}`), r.gene.classes.length ? `Gene-specific classes: ${r.gene.classes.join('; ')}` : null),
+  });
+  attachData('#cpic-alleles-chart', 'cpic-alleles-by-function', ['Gene', ...fnKeys.map(([f]) => f), 'Gene-specific classes', 'Total'], alleles.genes.map((g) => [g.gene, ...fnKeys.map(([f]) => g.functions[f] ?? 0), g.classes.join('; '), g.total]));
+};
+
+const renderPhenotypes = () => {
+  const { groups, genes } = snapshot.cpic.phenotypes;
+  const values = groups.map((g) => genes.map((x) => x.shares[g] ?? null));
+  const allHigh = genes.filter((x) => Object.values(x.shares).every((v) => v > 0.9));
+  const flagged = allHigh.map((x) => `${x.gene} is above 90% in every group listed; CPIC flags ${exact(x.highRisk.length)} of its ${exact(x.results)} phenotypes.`).join(' ');
+  $('#phenotypes-dek').textContent = `CPIC flags each predicted phenotype for electronic health records; each cell adds the frequencies of the phenotypes flagged as abnormal, priority or high risk. The ${exact(groups.length)} biogeographic groups are CPIC’s. ${flagged}${flagged ? ' ' : ''}Dashed cells have no frequency in CPIC’s tables.`;
+  shareGrid({
+    mount: $('#phenotypes-chart'),
+    rows: groups,
+    cols: genes.map((x) => x.gene),
+    values,
+    color: 'var(--accent)',
+    aria: 'Share of each CPIC biogeographic group predicted to have a high-risk phenotype, by gene',
+    describe: (i, j) => {
+      const x = genes[j];
+      const v = values[i][j];
+      return v === null ? tipLines(x.gene, `No ${groups[i]} frequency in CPIC’s tables`) : tipLines(`${x.gene}: ${pct(v)}`, `of ${groups[i]} people predicted high risk`, `Counted: ${x.highRisk.join(', ')}`);
+    },
+  });
+  attachData('#phenotypes-chart', 'cpic-high-risk-phenotypes', ['Group', ...genes.map((x) => x.gene)], groups.map((g, i) => [g, ...values[i].map((v) => v ?? '')]));
+};
+
+const renderCyp2d6 = () => {
+  const { groups } = snapshot.cpic.phenotypes;
+  const cy = snapshot.cpic.cyp2d6;
+  const functionColor = Object.fromEntries(FUNCTION_COLORS);
+  const known = (freqs) => Object.entries(freqs).filter(([, f]) => f !== null);
+  const peaks = cy.top.filter((a) => a.function !== 'Normal function' && known(a.freqs).length).map((a) => {
+    const [group, v] = known(a.freqs).reduce((x, y) => (y[1] > x[1] ? y : x));
+    return { name: a.name, group, v };
+  }).sort((x, y) => y.v - x.v).slice(0, 3);
+  $('#cyp2d6-dek').textContent = `Each of the ${exact(cy.alleles)} CYP2D6 alleles in CPIC’s tables has a function and an activity value; a person’s activity score adds the values of both alleles and sets the predicted phenotype: 0 poor, 0.25 to 1 intermediate, 1.25 to 2.25 normal, above 2.25 ultrarapid. ${exact(cy.functions['No function'] ?? 0)} alleles have no function. ${peaks.map((p) => `${p.name} reaches ${pct(p.v)} in the ${p.group} group`).join('; ')}.`;
+  const alleleValues = groups.map((g) => cy.top.map((a) => a.freqs[g] ?? null));
+  shareGrid({
+    mount: $('#cyp2d6-alleles-chart'),
+    rows: groups,
+    cols: cy.top.map((a) => a.name),
+    values: alleleValues,
+    max: Math.max(...alleleValues.flat().filter((v) => v !== null)),
+    colKeys: cy.top.map((a) => functionColor[a.function] ?? 'var(--data)'),
+    legend: FUNCTION_COLORS.filter(([f]) => cy.top.some((a) => a.function === f)).map(([label, color]) => ({ label, color })),
+    aria: 'Frequency of the commonest CYP2D6 alleles in each CPIC biogeographic group',
+    describe: (i, j) => {
+      const a = cy.top[j];
+      const v = alleleValues[i][j];
+      return tipLines(`${a.name} in ${groups[i]}: ${v === null ? 'no frequency' : pct(v)}`, `${a.function}, activity value ${a.activity ?? 'n/a'}`);
+    },
+  });
+  attachData('#cyp2d6-alleles-chart', 'cyp2d6-allele-frequencies', ['Allele', 'Function', 'Activity value', ...groups], cy.top.map((a) => [a.name, a.function, a.activity ?? '', ...groups.map((g) => a.freqs[g] ?? '')]));
+  hbars({
+    mount: $('#cyp2d6-phenotypes-chart'),
+    rows: groups.map((g) => ({ key: g, label: g, values: Object.fromEntries(METABOLIZERS.map(([m]) => [m, (cy.phenotypes[g]?.[m] ?? 0) * 100])) })),
+    segments: METABOLIZERS.map(([key, color]) => ({ key, label: key, color })),
+    max: 100,
+    tickFormat: (t) => `${t}%`,
+    valueText: (r) => `PM ${pctOf(r.values['Poor Metabolizer'])}`,
+    labelShare: 0.3,
+    labelMax: 220,
+    aria: 'Predicted CYP2D6 phenotypes in each CPIC biogeographic group',
+    describe: (r) => tipLines(r.key, 'predicted CYP2D6 phenotypes', ...METABOLIZERS.map(([m]) => `${m}: ${pctOf(r.values[m])}`)),
+  });
+  attachData('#cyp2d6-phenotypes-chart', 'cyp2d6-phenotypes', ['Group', ...METABOLIZERS.map(([m]) => m)], groups.map((g) => [g, ...METABOLIZERS.map(([m]) => cy.phenotypes[g]?.[m] ?? 0)]));
+  const scoreValues = groups.map((g) => cy.scores.groups[g] ?? cy.scores.bins.map(() => null));
+  shareGrid({
+    mount: $('#cyp2d6-scores-chart'),
+    rows: groups,
+    cols: cy.scores.bins,
+    values: scoreValues,
+    max: Math.max(...scoreValues.flat().filter((v) => v !== null)),
+    color: 'var(--s5)',
+    aria: 'Share of each CPIC biogeographic group at each CYP2D6 activity score',
+    describe: (i, j) => tipLines(scoreValues[i][j] === null ? 'No frequency' : pct(scoreValues[i][j]), `of ${groups[i]} people have activity score ${cy.scores.bins[j]}`),
+  });
+  attachData('#cyp2d6-scores-chart', 'cyp2d6-activity-scores', ['Group', ...cy.scores.bins], groups.map((g, i) => [g, ...scoreValues[i].map((v) => v ?? '')]));
+  const mixKeys = FUNCTION_COLORS.filter(([f]) => groups.some((g) => cy.mix[g]?.[f]));
+  hbars({
+    mount: $('#cyp2d6-function-chart'),
+    rows: groups.map((g) => ({ key: g, label: g, values: Object.fromEntries(mixKeys.map(([f]) => [f, (cy.mix[g]?.[f] ?? 0) * 100])) })),
+    segments: mixKeys.map(([key, color]) => ({ key, label: key, color })),
+    max: 100,
+    tickFormat: (t) => `${t}%`,
+    valueText: (r) => `none ${pctOf(r.values['No function'] ?? 0)}`,
+    labelShare: 0.3,
+    labelMax: 220,
+    aria: 'CYP2D6 allele frequency by clinical function in each CPIC biogeographic group',
+    describe: (r) => tipLines(r.key, 'CYP2D6 alleles by function', ...mixKeys.map(([f]) => `${f}: ${pctOf(r.values[f])}`)),
+  });
+  attachData('#cyp2d6-function-chart', 'cyp2d6-function-mix', ['Group', ...mixKeys.map(([f]) => f)], groups.map((g) => [g, ...mixKeys.map(([f]) => cy.mix[g]?.[f] ?? 0)]));
+};
+
+const renderFdaLabels = () => {
+  const fda = snapshot.fdaPgx;
+  const boxed = fda.sections.find((s) => s.section === 'Boxed Warning')?.rows ?? 0;
+  const typo = fda.folded ? ` ${fda.folded === 1 ? 'One row' : `${exact(fda.folded)} rows`} spelled Onoclogy ${fda.folded === 1 ? 'is' : 'are'} counted as Oncology.` : '';
+  $('#fdalabels-dek').textContent = `FDA’s table, current as of ${longDate(fda.updated)}, gives each drug a row per biomarker, ${exact(fda.rows)} rows in all. ${fda.top[0].biomarker} appears in the most rows, ${exact(fda.top[0].rows)}. ${exact(boxed)} rows put the biomarker in a boxed warning.${typo}`;
+  dotplot({
+    mount: $('#fdalabels-areas-chart'),
+    rows: fda.areas.map((a, i) => ({
+      key: a.area, label: a.area, value: a.rows, hi: i === 0,
+    })),
+    labelShare: 0.4,
+    rowH: 20,
+    aria: 'Rows of FDA’s pharmacogenomic biomarker table by therapeutic area, log scale',
+    describe: (r) => tipLines(`${exact(r.value)} rows`, r.key, pct(r.value / fda.rows)),
+  });
+  attachData('#fdalabels-areas-chart', 'fda-pgx-areas', ['Therapeutic area', 'Rows'], fda.areas.map((a) => [a.area, a.rows]));
+  dotplot({
+    mount: $('#fdalabels-biomarkers-chart'),
+    rows: fda.top.map((b, i) => ({
+      key: b.biomarker, label: b.biomarker, value: b.rows, hi: i === 0,
+    })),
+    scale: 'linear',
+    labelShare: 0.4,
+    labelMax: 320,
+    rowH: 20,
+    aria: 'Biomarkers in the most rows of FDA’s pharmacogenomic biomarker table',
+    describe: (r) => tipLines(`${exact(r.value)} rows`, r.key, pct(r.value / fda.rows)),
+  });
+  attachData('#fdalabels-biomarkers-chart', 'fda-pgx-biomarkers', ['Biomarker', 'Rows'], fda.top.map((b) => [b.biomarker, b.rows]));
+  dotplot({
+    mount: $('#fdalabels-sections-chart'),
+    rows: fda.sections.map((s, i) => ({
+      key: s.section, label: s.section, value: s.rows, hi: i === 0,
+    })),
+    scale: 'linear',
+    labelShare: 0.4,
+    rowH: 20,
+    aria: 'Label sections that carry pharmacogenomic information in FDA’s table',
+    describe: (r) => tipLines(`${exact(r.value)} rows`, r.key, pct(r.value / fda.rows)),
+  });
+  attachData('#fdalabels-sections-chart', 'fda-pgx-label-sections', ['Label section', 'Rows'], fda.sections.map((s) => [s.section, s.rows]));
+};
+
+const renderClinpgx = () => {
+  const ann = snapshot.clinpgx.annotations;
+  const lab = snapshot.clinpgx.labels;
+  const levels = ordered(ann.levels, CLINPGX_ORDER);
+  const cats = Object.keys(ann.categories).sort((a, b) => sumOf(Object.values(ann.categories[b])) - sumOf(Object.values(ann.categories[a])));
+  const agencies = Object.keys(lab.sources).sort((a, b) => sumOf(Object.values(lab.sources[b])) - sumOf(Object.values(lab.sources[a])));
+  $('#clinpgx-dek').textContent = `Clinical annotations file of ${longDate(ann.created)}; drug label annotations of ${longDate(lab.created)}. A level 1A annotation is a variant–drug pair in a guideline or in clinical use; level 4 rests on case reports, non-significant studies or lab assays. ${exact(ann.pediatric)} annotations concern children. ${exact(lab.labels)} label annotations come from ${exact(agencies.length)} agencies; ${exact(lab.onFdaList)} are on FDA’s biomarker list and ${exact(lab.cancer)} concern tumour genomes.`;
+  const levelTotals = levels.map((l) => ann.levels[l]);
+  const counts = levels.map((l) => cats.map((c) => ann.categories[c][l] ?? 0));
+  shareGrid({
+    mount: $('#clinpgx-levels-chart'),
+    rows: levels.map((l) => `Level ${l}`),
+    cols: cats,
+    values: counts.map((row, i) => row.map((n) => n / levelTotals[i])),
+    totals: levelTotals,
+    aria: 'ClinPGx clinical annotations by level of evidence and phenotype category, as a share of each level',
+    describe: (i, j) => tipLines(pct(counts[i][j] / levelTotals[i]), `of level ${levels[i]} annotations are in ${cats[j]}`, `${exact(counts[i][j])} of ${exact(levelTotals[i])}`),
+  });
+  attachData('#clinpgx-levels-chart', 'clinpgx-annotations-by-level', ['Level', ...cats, 'Annotations'], levels.map((l, i) => [l, ...counts[i], levelTotals[i]]));
+  hbars({
+    mount: $('#clinpgx-genes-chart'),
+    rows: ann.genes.map((g) => ({
+      key: g.gene, label: g.gene, values: g.levels, gene: g,
+    })),
+    segments: levels.map((l) => ({ key: l, label: `Level ${l}`, color: CLINPGX_COLORS[l] ?? 'var(--data)' })),
+    labelShare: 0.12,
+    rowH: 18,
+    aria: 'Genes with the most ClinPGx clinical annotations, by level of evidence',
+    describe: (r) => tipLines(`${exact(r.gene.total)} annotations`, r.gene.gene, ...levels.filter((l) => r.gene.levels[l]).map((l) => `Level ${l}: ${exact(r.gene.levels[l])}`)),
+  });
+  attachData('#clinpgx-genes-chart', 'clinpgx-annotations-by-gene', ['Gene', ...levels.map((l) => `Level ${l}`), 'Total'], ann.genes.map((g) => [g.gene, ...levels.map((l) => g.levels[l] ?? 0), g.total]));
+  const testing = TESTING_LEVELS.filter(([t]) => agencies.some((a) => lab.sources[a][t]));
+  hbars({
+    mount: $('#clinpgx-labels-chart'),
+    rows: agencies.map((a) => ({ key: a, label: a, values: lab.sources[a] })),
+    segments: testing.map(([key, color]) => ({ key, label: key, color })),
+    labelShare: 0.14,
+    aria: 'ClinPGx drug label annotations by agency and pharmacogenomic testing level',
+    describe: (r) => tipLines(`${exact(sumOf(Object.values(r.values)))} label annotations`, r.key, ...testing.filter(([t]) => r.values[t]).map(([t]) => `${t}: ${exact(r.values[t])}`)),
+  });
+  attachData('#clinpgx-labels-chart', 'clinpgx-label-annotations', ['Agency', ...testing.map(([t]) => t)], agencies.map((a) => [a, ...testing.map(([t]) => lab.sources[a][t] ?? 0)]));
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -2927,6 +3300,18 @@ const DATA_SOURCES = [
   ['GTR test versions', FILES.gtrTests],
   ['FDA approved cellular and gene therapy products', FILES.fdaCgt],
   ['ClinicalTrials.gov API, studies', FILES.trials],
+  ['IntOGen downloads, driver compendium and cohorts', FILES.intogenDownload],
+  ['GDC API, data release status', FILES.gdcStatus],
+  ['GDC API, projects', FILES.gdcProjects],
+  ['GDC API, cases by primary site', FILES.gdcSites],
+  ['GDC API, TCGA cases with exome data', FILES.gdcTested],
+  ['GDC API, simple somatic mutation occurrences, one gene at a time', gdcSsmPage('TP53')],
+  ['CPIC API, gene-drug pairs', FILES.cpicPairs],
+  ['CPIC API, alleles with functions and frequencies', FILES.cpicAlleles],
+  ['CPIC API, phenotype results with frequencies', FILES.cpicResults],
+  ['FDA Table of Pharmacogenomic Biomarkers in Drug Labeling', FILES.fdaPgx],
+  ['ClinPGx clinical annotations download', FILES.clinpgxAnnotations],
+  ['ClinPGx drug label annotations download', FILES.clinpgxLabels],
 ];
 
 const renderSources = () => {
@@ -2994,7 +3379,8 @@ const RENDERERS = [
   renderCpgIslands, renderTrna, renderEncode, renderMito, renderCensat, renderSexchrom, renderDbsnp, renderSv, renderConstraint,
   renderDosage, renderAncestry, renderAncient, renderPanels, renderAssemblies, renderClinvar, renderReview, renderGrowth, renderLollipops,
   renderSpectrum, renderValidity, renderCnvRegions, renderExpansions, renderHpo, renderOrphanet, renderGtr, renderTherapy, renderYield,
-  renderPrenatal,
+  renderPrenatal, renderDrivers, renderTcga, renderBurden, renderSomatic, renderCpic, renderPhenotypes, renderCyp2d6, renderFdaLabels,
+  renderClinpgx,
 ];
 
 let drawRun = 0;

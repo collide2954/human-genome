@@ -27,6 +27,7 @@ The `Publish site` workflow deploys to `https://collide2954.github.io/human-geno
 - `scripts/genes.mjs`, `catalogs.mjs`, `sequence.mjs`, `proteins.mjs`, `networks.mjs`, `regulation.mjs`, `structure.mjs` and `variation.mjs`: readers for GENCODE, HGNC, MANE, the hg38 2bit file, UniProt, HPA, GTEx, STRING, Reactome, GO, ENCODE, dbSNP, dbVar and gnomAD.
 - `scripts/populations.mjs`: the GWAS Catalog's ancestry download, the Allen Ancient DNA Resource annotation file from Harvard Dataverse, IGSR's sample API and NCBI Datasets' human assembly reports.
 - `scripts/clinical.mjs`: ClinVar's VCF, archive and tab-delimited files, ClinGen's validity and dosage region curations, InterPro domains and STRchive's repeat loci. `scripts/rare.mjs`: HPO, Orphanet, the Genetic Testing Registry, FDA's list of cell and gene therapies and ClinicalTrials.gov.
+- `scripts/cancer.mjs`: IntOGen's driver compendium and cohort table and the NCI Genomic Data Commons API. `scripts/pgx.mjs`: the CPIC API, FDA's table of pharmacogenomic biomarkers and ClinPGx downloads. `scripts/tables.mjs` reads tab-separated files for both.
 - `src/findings.js`: the section headlines, computed from the data so they stay true after each update.
 - `src/facts.js`: sources, decoder examples and the few fixed values taken from cited papers: biobank sizes, gnomAD v4 totals, gene therapy approvals checked against FDA package inserts, diagnostic yields and prenatal screening rates.
 - `src/charts.js`: the SVG chart engine and animations. `src/stats.js`: quantiles, binning, Lorenz curves and interval merging.
@@ -38,5 +39,7 @@ The `Publish site` workflow deploys to `https://collide2954.github.io/human-geno
 Positions are GRCh38.p14 coordinates counted from 1 with both ends included; UCSC tables count from 0 and are converted. Chromosome totals cover 1 to 22, X and Y unless the mitochondrial genome is named. "Sequenced bases" means bases that are not N. T2T-CHM13v2.0 is the CHM13 cell line with chromosome Y from HG002, so chromosome-by-chromosome differences mix assembly gains with differences between people.
 
 GWAS participants are summed over studies, so a cohort used in many studies counts in each; ancestry labels are the GWAS Catalog's broad ancestral categories, and every population label is given as its source gives it. Ancient dates are mean dates in years before 1950 CE.
+
+CPIC content is CC0. Counts derived from ClinPGx (formerly PharmGKB) clinical and label annotations are shared under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), like the data they come from. OncoKB, COSMIC and PharmVar are left out: OncoKB's terms forbid sharing its content outside publications, COSMIC needs a login and PharmVar's API needs an account key.
 
 ClinVar counts use the aggregate germline classification of each record in the GRCh38 VCF, grouped as P, P/LP, LP, VUS, LB, B/LB, B, conflicting and other; records without a germline classification are counted apart. Captions that say "fixed values" come from the cited paper and change only when the page is edited.

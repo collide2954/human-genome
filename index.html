@@ -54,7 +54,7 @@
   <aside class="readme wrap" id="readme" aria-labelledby="readme-title">
     <h2 class="readme-title" id="readme-title">How to read these numbers</h2>
     <ul>
-      <li><b>Rebuilt weekly.</b> Counts come from the files and APIs of NCBI, UCSC, GENCODE, EBI and its GWAS Catalog, ClinGen, HPO, Orphanet, IGSR, the Allen Ancient DNA Resource, FDA, ClinicalTrials.gov and STRchive, pulled every Sunday. A source that fails keeps last week’s numbers and its own date. Tap a mark for its numbers.</li>
+      <li><b>Rebuilt weekly.</b> Counts come from the files and APIs of NCBI, UCSC, GENCODE, EBI and its GWAS Catalog, ClinGen, HPO, Orphanet, IGSR, the Allen Ancient DNA Resource, IntOGen, the NCI Genomic Data Commons, CPIC, ClinPGx, FDA, ClinicalTrials.gov and STRchive, pulled every Sunday. A source that fails keeps last week’s numbers and its own date. Tap a mark for its numbers.</li>
       <li><b>Fixed values.</b> A few figures come from cited papers rather than files, such as biobank sizes, diagnostic yields and screening rates; their captions say so, and they change only when the page is edited.</li>
       <li><b>GRCh38 coordinates.</b> Positions are on GRCh38.p14, counted from 1 with both ends included, as genome browsers show them. The UCSC tables count from 0; they are converted.</li>
       <li><b>Two assemblies.</b> GRCh38 is the reference the databases annotate. T2T-CHM13v2.0 is the first gapless assembly, from one cell line, with chromosome Y from a second person.</li>
@@ -1184,8 +1184,160 @@
     </figure>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-cancer" data-chapter="cancer">
     <p class="chapter-no">Part 15</p>
+    <h2 class="chapter-title">Cancer genomics</h2>
+    <p class="chapter-dek">Which genes drive cancers and how often they are mutated: IntOGen’s compendium of driver genes and the mutation burden of its cohorts, mutation frequencies across TCGA from the NCI Genomic Data Commons, the cases the GDC holds, and ClinVar’s somatic classifications.</p>
+  </div>
+
+  <section class="story wrap" id="drivers" data-lens="clinic variation" data-nav="Drivers">
+    <header class="head"><p class="label">Cancer driver genes</p><h2 data-finding="drivers">Cancer driver genes</h2><p class="dek" id="drivers-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="drivers-types-chart"></div>
+      <figcaption>The 30 cancer types with the most driver genes; the table lists every type with its cohorts and samples. A gene counts once per cancer type, however many cohorts flag it. Source: IntOGen driver compendium.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="drivers-genes-chart"></div>
+      <figcaption>The 25 genes called drivers in the most cancer types, split by the role IntOGen infers in each type: activating, loss of function, or no majority role across that type’s cohorts. Source: IntOGen; Martínez-Jiménez et al. 2020.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="tcga" data-lens="clinic variation" data-nav="TCGA mutations">
+    <header class="head"><p class="label">Driver mutations across TCGA</p><h2 data-finding="tcga">Driver mutations across TCGA</h2><p class="dek" id="tcga-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="tcga-chart"></div>
+      <figcaption>Percent of cases in each TCGA project with at least one simple somatic mutation in the gene, of any consequence, as the GDC calls them; the denominator is the project’s cases with exome data. Columns are TCGA study codes. Source: NCI GDC API, simple somatic mutation occurrences and cases; Weinstein et al. 2013.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="burden" data-lens="clinic variation" data-nav="Mutation burden">
+    <header class="head"><p class="label">Mutation burden</p><h2 data-finding="burden">Mutation burden</h2><p class="dek" id="burden-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="burden-exome-chart"></div>
+      <figcaption>Exome cohorts: mutations per sample in each cohort, by cancer type, log scale; the bar marks the median cohort. Source: IntOGen cohort table; after Lawrence et al. 2013.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="burden-genome-chart"></div>
+      <figcaption>Genome cohorts, drawn the same way; these count mutations anywhere in the genome, not only in exons. Source: IntOGen cohort table; after Alexandrov et al. 2013.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="somatic" data-lens="clinic" data-nav="GDC and somatic">
+    <header class="head"><p class="label">Cancer cases and somatic classifications</p><h2 data-finding="somatic">Cancer cases and somatic classifications</h2><p class="dek" id="somatic-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="somatic-programs-chart"></div>
+        <figcaption>Cases at the NCI Genomic Data Commons by program, log scale; FM is Foundation Medicine and TCGA The Cancer Genome Atlas. Source: GDC API, projects; Heath et al. 2021.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="somatic-sites-chart"></div>
+        <figcaption>The 20 primary sites with the most GDC cases, named as the GDC lists them, log scale. Source: GDC API, cases.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="somatic-oncogenicity-chart"></div>
+        <figcaption>ClinVar variants by aggregate somatic oncogenicity classification, log scale. Source: ClinVar GRCh38 VCF; Horak et al. 2022.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="somatic-impact-chart"></div>
+        <figcaption>ClinVar variants by aggregate somatic clinical impact, in AMP/ASCO/CAP tiers, log scale. Source: ClinVar GRCh38 VCF; Li et al. 2017.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="chapter wrap" id="ch-pgx" data-chapter="pgx">
+    <p class="chapter-no">Part 16</p>
+    <h2 class="chapter-title">Pharmacogenomics</h2>
+    <p class="chapter-dek">How genotype guides prescribing: CPIC’s gene–drug pairs and allele functions, predicted high-risk phenotypes in CPIC’s biogeographic groups, CYP2D6 in depth, the biomarkers in FDA drug labels, and ClinPGx’s clinical and label annotations.</p>
+  </div>
+
+  <section class="story wrap" id="cpic" data-lens="clinic" data-nav="CPIC">
+    <header class="head"><p class="label">Gene–drug pairs</p><h2 data-finding="cpic">Gene–drug pairs</h2><p class="dek" id="cpic-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="cpic-genes-chart"></div>
+      <figcaption>Current CPIC gene–drug pairs for the 30 genes with the most level A pairs, then the most pairs, stacked by CPIC level; the table lists every gene. Source: CPIC® API, pair table; Relling and Klein 2011; Caudle et al. 2014.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="cpic-levels-chart"></div>
+        <figcaption>Each CPIC level split by the ClinPGx level of evidence attached to its pairs, as a percent of the row; n is the row’s pairs. Source: CPIC® API, pair table.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="cpic-alleles-chart"></div>
+        <figcaption>Alleles CPIC curates per gene by clinical function. G6PD, RYR1, CACNA1S, CFTR and MT-RNR1 use classes of their own, grouped here as gene-specific. Source: CPIC® API, allele table.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="phenotypes" data-lens="clinic variation" data-nav="Phenotypes by group">
+    <header class="head"><p class="label">High-risk phenotypes by group</p><h2 data-finding="phenotypes">High-risk phenotypes by group</h2><p class="dek" id="phenotypes-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="phenotypes-chart"></div>
+      <figcaption>Percent of each CPIC biogeographic group whose predicted phenotype for the gene is flagged abnormal, priority or high risk, from diplotype frequencies in CPIC’s tables. Groups follow Huddart et al. 2019. Source: CPIC® API, gene result table.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="cyp2d6" data-lens="clinic" data-nav="CYP2D6">
+    <header class="head"><p class="label">CYP2D6</p><h2 data-finding="cyp2d6">CYP2D6</h2><p class="dek" id="cyp2d6-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="cyp2d6-alleles-chart"></div>
+      <figcaption>Frequency, in percent, of the commonest CYP2D6 alleles in each group; the mark above each column gives the allele’s function, and alleles written xN are gene duplications. Dashed cells have no frequency. Source: CPIC® API, allele table; Gaedigk et al. 2017.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="cyp2d6-phenotypes-chart"></div>
+        <figcaption>Predicted CYP2D6 phenotypes in each group, with the poor metabolizer (PM) share at the end. Source: CPIC® API, gene result table; Caudle et al. 2020.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="cyp2d6-function-chart"></div>
+        <figcaption>Summed frequency of CYP2D6 alleles in each group by clinical function, with the no-function share at the end. Source: CPIC® API, allele table.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig">
+      <div class="chart" id="cyp2d6-scores-chart"></div>
+      <figcaption>Percent of each group at each diplotype activity score; scores of 3 and above are pooled, and n/a holds indeterminate genotypes. Source: CPIC® API, gene result table; Caudle et al. 2020.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="fdalabels" data-lens="clinic" data-nav="FDA labels">
+    <header class="head"><p class="label">Biomarkers in FDA drug labels</p><h2 data-finding="fdalabels">Biomarkers in FDA drug labels</h2><p class="dek" id="fdalabels-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="fdalabels-areas-chart"></div>
+        <figcaption>Rows of FDA’s table by therapeutic area, log scale. Source: FDA, Table of Pharmacogenomic Biomarkers in Drug Labeling.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="fdalabels-sections-chart"></div>
+        <figcaption>Label sections that carry the biomarker, named as FDA writes them, one-off spellings included; a row with several sections counts in each. Source: FDA.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig">
+      <div class="chart" id="fdalabels-biomarkers-chart"></div>
+      <figcaption>The 20 biomarkers in the most rows, named as FDA writes them. Source: FDA.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="clinpgx" data-lens="clinic" data-nav="ClinPGx">
+    <header class="head"><p class="label">Clinical and label annotations</p><h2 data-finding="clinpgx">Clinical and label annotations</h2><p class="dek" id="clinpgx-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="clinpgx-levels-chart"></div>
+      <figcaption>ClinPGx clinical annotations by level of evidence, split by phenotype category as a percent of each level; an annotation in two categories counts in each, and n is the level’s annotations. Derived from ClinPGx (PharmGKB) data under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>; these counts are shared under the same license. Source: ClinPGx; Whirl-Carrillo et al. 2021.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="clinpgx-genes-chart"></div>
+        <figcaption>The 20 genes with the most clinical annotations, by level of evidence. Derived from ClinPGx data, CC BY-SA 4.0.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="clinpgx-labels-chart"></div>
+        <figcaption>Drug label annotations by agency and pharmacogenomic testing level: FDA for the US, EMA Europe, HCSC Canada, Swissmedic Switzerland, PMDA Japan. Derived from ClinPGx data, CC BY-SA 4.0.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 17</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>
