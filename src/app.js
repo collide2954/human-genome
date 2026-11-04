@@ -3,15 +3,15 @@ import {
   SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES,
 } from './facts.js';
 import {
-  exact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate,
+  exact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, codonOf,
 } from './lib.js';
 import { pearson, linearFit } from './stats.js';
 import { FILES } from './queries.js';
 import {
-  findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity,
+  findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons,
 } from './findings.js';
 import {
-  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, observeFigures, countUp, tipLines,
+  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, observeFigures, countUp, tipLines,
 } from './charts.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -600,6 +600,93 @@ const renderImmune = () => {
   attachData('#immune-chart', 'immune-receptor-segments', ['Locus', 'V', 'D', 'J', 'C', 'Pseudogenes'], LOCI.map((l) => [l, im[l].V, im[l].D, im[l].J, im[l].C, im[l].pseudo]));
 };
 
+const MN = S.mane;
+const signedPos = (v) => (v < 0 ? `−${-v}` : `+${v}`);
+
+const drawLogo = (sel, name, counts, labels, split, aria) => {
+  const positions = information(counts);
+  logo({
+    mount: $(sel),
+    positions,
+    labels,
+    split,
+    aria,
+    describe: (i) => tipLines(`${positions[i].bits.toFixed(2)} bits`, `position ${labels[i]}`,
+      ...[...positions[i].letters].reverse().map((l) => `${l.base} ${(l.p * 100).toFixed(1)}%`), `${exact(positions[i].n)} sequences`),
+  });
+  attachData(sel, name, ['Position', 'A', 'C', 'G', 'T', 'Bits'], counts.map((row, i) => [labels[i], ...row, Number(positions[i].bits.toFixed(4))]));
+};
+
+const renderSplicing = () => {
+  const c = MN.classes;
+  const donor = information(MN.donor);
+  $('#splicing-dek').textContent = `${exact(MN.introns)} introns from ${exact(MN.transcripts)} MANE Select transcripts. The intron’s first G and T are fixed in ${pct(MN.donor[3][2] / donor[3].n)} and ${pct(MN.donor[4][3] / donor[4].n)} of them; the acceptor’s A and G in ${pct(MN.acceptor[18][0] / information(MN.acceptor)[18].n)} and ${pct(MN.acceptor[19][2] / information(MN.acceptor)[19].n)}. ${exact(c.other)} introns use other pairs.`;
+  drawLogo('#donor-chart', 'splice-donor', MN.donor, [-3, -2, -1, 1, 2, 3, 4, 5, 6].map(signedPos), 3, '5 prime splice site logo');
+  drawLogo('#acceptor-chart', 'splice-acceptor', MN.acceptor, [...Array.from({ length: 20 }, (_, i) => i - 20), 1, 2, 3].map(signedPos), 20, '3 prime splice site logo');
+  const classes = Object.entries(c);
+  dotplot({
+    mount: $('#intron-class-chart'),
+    rows: classes.map(([k, n], i) => ({ key: k, label: k === 'other' ? 'Other' : k, value: n, hi: i === 0 })),
+    aria: 'Introns by terminal dinucleotides',
+    describe: (r) => tipLines(`${exact(r.value)} introns`, r.label, pct(r.value / MN.introns)),
+  });
+  attachData('#intron-class-chart', 'intron-classes', ['Ends', 'Introns'], classes);
+};
+
+const renderTranslation = () => {
+  const k = information(MN.kozak);
+  const [a, , g] = MN.kozak[3];
+  $('#translation-dek').textContent = `At −3, A in ${pct(a / k[3].n)} and G in ${pct(g / k[3].n)}; at +4, G in ${pct(MN.kozak[9][2] / k[9].n)}. ${exact(MN.nonAtg)} MANE coding sequences start with a codon other than ATG, and ${exact(MN.broken)} could not be read as a whole number of codons ending in a stop.`;
+  drawLogo('#kozak-chart', 'kozak-context', MN.kozak, [-6, -5, -4, -3, -2, -1, 1, 2, 3, 4].map(signedPos), 6, 'Start codon context logo');
+  const parts = [['TGA', 'var(--s1)'], ['TAA', 'var(--s2)'], ['TAG', 'var(--s3)']].map(([codon, color]) => ({ label: codon, value: MN.stops[codon], color }));
+  waffle({ mount: $('#stop-chart'), parts, aria: 'Stop codons of MANE coding sequences' });
+  attachData('#stop-chart', 'stop-codons', ['Stop codon', 'Coding sequences'], parts.map((p) => [p.label, p.value]));
+};
+
+const AA3 = {
+  A: 'Ala', R: 'Arg', N: 'Asn', D: 'Asp', C: 'Cys', Q: 'Gln', E: 'Glu', G: 'Gly', H: 'His', I: 'Ile', L: 'Leu', K: 'Lys', M: 'Met', F: 'Phe', P: 'Pro', S: 'Ser', T: 'Thr', W: 'Trp', Y: 'Tyr', V: 'Val', '*': 'Stop',
+};
+
+const renderCodons = () => {
+  const sense = senseCodons(MN.codons);
+  const total = sense.reduce((s, c) => s + c.n, 0);
+  const byCodon = Object.fromEntries(MN.codons.map((n, i) => [codonOf(i), n]));
+  const aaTotals = {};
+  for (const c of sense) aaTotals[GENETIC_CODE[c.codon]] = (aaTotals[GENETIC_CODE[c.codon]] ?? 0) + c.n;
+  const cells = Object.fromEntries(Object.entries(GENETIC_CODE).map(([codon, aa]) => [codon, {
+    aa, aa3: AA3[aa], perK: aa === '*' ? 0 : (byCodon[codon] / total) * 1000, share: aa === '*' ? null : byCodon[codon] / aaTotals[aa],
+  }]));
+  const max = Math.max(...Object.values(cells).map((c) => c.perK));
+  const leu = Object.entries(GENETIC_CODE).filter(([, aa]) => aa === 'L').map(([codon]) => [codon, cells[codon].share]).sort((x, y) => y[1] - x[1]);
+  const arg = Object.entries(GENETIC_CODE).filter(([, aa]) => aa === 'R').map(([codon]) => [codon, cells[codon].share]).sort((x, y) => y[1] - x[1]);
+  $('#codons-dek').textContent = `${exact(total)} sense codons from ${exact(MN.coding)} coding sequences. ${leu[0][0]} carries ${pct(leu[0][1])} of leucines and ${leu.at(-1)[0]} ${pct(leu.at(-1)[1])}; among arginine codons, ${arg[0][0]} ${pct(arg[0][1])} and ${arg.at(-1)[0]} ${pct(arg.at(-1)[1])}. CG-containing codons are the rarest, as the genome’s CpG depletion predicts.`;
+  codonTable({
+    mount: $('#codon-chart'),
+    cells,
+    max,
+    aria: 'Codon usage per thousand codons',
+    describe: (codon) => {
+      const c = cells[codon];
+      return c.aa === '*'
+        ? tipLines(`${exact(MN.stops[codon])} coding sequences`, `${codon}, a stop codon`)
+        : tipLines(`${c.perK.toFixed(2)} per thousand`, `${codon}, ${AMINO_ACIDS[c.aa]}`, `${pct(c.share)} of ${AA3[c.aa]} codons`, `${exact(byCodon[codon])} codons`);
+    },
+  });
+  attachData('#codon-chart', 'codon-usage', ['Codon', 'Amino acid', 'Count', 'Per thousand', 'Share of amino acid'],
+    Object.entries(cells).map(([codon, c]) => [codon, AA3[c.aa], c.aa === '*' ? MN.stops[codon] : byCodon[codon], c.aa === '*' ? null : Number(c.perK.toFixed(3)), c.share === null ? null : Number(c.share.toFixed(4))]));
+  const aas = Object.entries(aaTotals).sort((x, y) => y[1] - x[1]);
+  dotplot({
+    mount: $('#amino-chart'),
+    rows: aas.map(([aa, n], i) => ({ key: aa, label: `${AMINO_ACIDS[aa]} (${AA3[aa]})`, value: (n / total) * 100, hi: i === 0 })),
+    scale: 'linear',
+    format: (v) => `${v.toFixed(1)}%`,
+    labelShare: 0.36,
+    aria: 'Amino acid composition of MANE coding sequences',
+    describe: (r) => tipLines(`${r.value.toFixed(2)}%`, r.label, `${exact(aaTotals[r.key])} residues`),
+  });
+  attachData('#amino-chart', 'amino-acids', ['Amino acid', 'Residues', 'Percent'], aas.map(([aa, n]) => [AMINO_ACIDS[aa], n, Number(((n / total) * 100).toFixed(3))]));
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -726,6 +813,9 @@ const drawCharts = () => {
   renderNames();
   renderPseudogenes();
   renderImmune();
+  renderSplicing();
+  renderTranslation();
+  renderCodons();
   applySearch();
 };
 
