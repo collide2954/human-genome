@@ -58,6 +58,9 @@ const INTOGEN = 'https://www.intogen.org/download';
 const GDC = 'https://api.gdc.cancer.gov/';
 const CPIC = 'https://api.cpicpgx.org/v1/';
 const CLINPGX = 'https://api.clinpgx.org/v1/download/file/data/';
+const GWAS_RELEASE = 'https://ftp.ebi.ac.uk/pub/databases/gwas/releases/latest/';
+const PGS_METADATA = 'https://ftp.ebi.ac.uk/pub/databases/spot/pgs/metadata/pgs_all_metadata_';
+const PANUKB = 'https://pan-ukb-us-east-1.s3.amazonaws.com/sumstats_release/';
 const anyOf = (field, values) => ({ op: 'in', content: { field, value: values } });
 const allOf = (...filters) => JSON.stringify({ op: 'and', content: filters });
 
@@ -151,6 +154,16 @@ export const FILES = {
   fdaPgx: 'https://www.fda.gov/drugs/science-and-research-drugs/table-pharmacogenomic-biomarkers-drug-labeling',
   clinpgxAnnotations: `${CLINPGX}clinicalAnnotations.zip`,
   clinpgxLabels: `${CLINPGX}drugLabels.zip`,
+  gwasAssociations: `${GWAS_RELEASE}gwas-catalog-associations_ontology-annotated-full.zip`,
+  gwasTraitMappings: `${GWAS_RELEASE}gwas-efo-trait-mappings.tsv`,
+  pgsScores: `${PGS_METADATA}scores.csv`,
+  pgsPerformance: `${PGS_METADATA}performance_metrics.csv`,
+  pgsDevelopment: `${PGS_METADATA}score_development_samples.csv`,
+  pgsEvaluation: `${PGS_METADATA}evaluation_sample_sets.csv`,
+  pgsInfo: 'https://www.pgscatalog.org/rest/info/',
+  pgsCategories: 'https://www.pgscatalog.org/rest/trait_category/all',
+  panukbH2: `${PANUKB}h2_manifest.tsv.bgz`,
+  panukbPhenotypes: `${PANUKB}phenotype_manifest.tsv.bgz`,
   strchiveCommits: `https://api.github.com/repos/dashnowlab/STRchive/commits?${new URLSearchParams({ path: 'data/STRchive-loci.json', per_page: '1' })}`,
   ccre: 'https://downloads.wenglab.org/Registry-V4/GRCh38-cCREs.bed',
   cpgIslands: `${UCSC}/database/cpgIslandExt.txt.gz`,
