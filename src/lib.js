@@ -73,6 +73,13 @@ export const bases = (v) => {
   return `${scaled} ${unit}`;
 };
 
+const MASS_UNITS = [[1e12, 'g/L'], [1e9, 'mg/L'], [1e6, 'µg/L'], [1e3, 'ng/L'], [1, 'pg/L']];
+
+export const perLitre = (pg) => {
+  const [size, unit] = MASS_UNITS.find(([s]) => pg >= s * 0.9995) ?? MASS_UNITS.at(-1);
+  return `${Number((pg / size).toPrecision(3))} ${unit}`;
+};
+
 const SUPERSCRIPT = { '-': '⁻', 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹' };
 
 export const sci = (p) => {
