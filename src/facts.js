@@ -13,6 +13,9 @@ export const SOURCES = {
   ucscBigZips: 'https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/',
   mane: 'https://www.ncbi.nlm.nih.gov/refseq/MANE/',
   huppert2005: 'https://doi.org/10.1093/nar/gki609',
+  repeatMasker: 'https://www.repeatmasker.org/',
+  bailey2002: 'https://doi.org/10.1126/science.1072047',
+  benson1999: 'https://doi.org/10.1093/nar/27.2.573',
 };
 
 export const SOURCE_TITLES = {
@@ -25,6 +28,9 @@ export const SOURCE_TITLES = {
   ucscBigZips: ['Assemblies and sequence', 'UCSC hg38 sequence downloads, including hg38.2bit'],
   mane: ['Genes and proteins', 'MANE: Matched Annotation from NCBI and EMBL-EBI'],
   huppert2005: ['Assemblies and sequence', 'Huppert and Balasubramanian 2005, Prevalence of quadruplexes in the human genome, Nucleic Acids Research 33:2908'],
+  repeatMasker: ['Assemblies and sequence', 'RepeatMasker, the repeat annotation behind the rmsk table'],
+  bailey2002: ['Assemblies and sequence', 'Bailey et al. 2002, Recent segmental duplications in the human genome, Science 297:1003'],
+  benson1999: ['Assemblies and sequence', 'Benson 1999, Tandem Repeats Finder, Nucleic Acids Research 27:573'],
 };
 
 export const EXAMPLES = [
