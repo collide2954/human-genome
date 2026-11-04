@@ -1,3 +1,5 @@
+import { CHROMS } from './parsers.mjs';
+
 const CODE = { A: 0, C: 1, G: 2, T: 3 };
 const LETTER = 'ACGTN';
 
@@ -232,4 +234,64 @@ export const g4Motifs = (codes) => {
     }
   }
   return { plus: gCount, minus: cCount };
+};
+
+export const sequenceSection = (file, transcripts, { binSize = 1e6, chroms = [...CHROMS, 'MT'] } = {}) => {
+  const chromosomes = [];
+  const bins = {};
+  const dinucs = new Array(16).fill(0);
+  const longest = {};
+  const donors = [];
+  const acceptors = [];
+  const kozaks = [];
+  const cds = [];
+  const classes = {
+    'GT-AG': 0, 'GC-AG': 0, 'AT-AC': 0, other: 0,
+  };
+  let selected = 0;
+  const byChrom = new Map();
+  for (const tx of transcripts) {
+    if (tx.tag !== 'MANE_Select') continue;
+    if (!byChrom.has(tx.chrom)) byChrom.set(tx.chrom, []);
+    byChrom.get(tx.chrom).push(tx);
+  }
+  for (const chrom of chroms) {
+    const seq = file.sequence(chrom === 'MT' ? 'chrM' : `chr${chrom}`);
+    if (!seq) continue;
+    const codes = seq.codes();
+    const comp = composition(codes, binSize);
+    chromosomes.push({
+      chrom, length: seq.size, A: comp.A, C: comp.C, G: comp.G, T: comp.T, N: comp.N, cpg: comp.cpg, masked: seq.masked, g4: g4Motifs(codes),
+    });
+    bins[chrom] = comp.bins.map((v) => (v === null ? null : Number(v.toFixed(3))));
+    if (chrom !== 'MT') {
+      comp.dinucs.forEach((n, i) => { dinucs[i] += n; });
+      const runs = homopolymers(codes);
+      for (const base of 'ACGT') {
+        if (!longest[base] || runs[base].length > longest[base].length) longest[base] = { length: runs[base].length, chrom, start: runs[base].start + 1 };
+      }
+    }
+    for (const tx of byChrom.get(chrom) ?? []) {
+      selected += 1;
+      const sites = spliceSites(codes, tx);
+      sites.donors.forEach((d, i) => {
+        donors.push(d);
+        acceptors.push(sites.acceptors[i]);
+        classes[intronClass(d, sites.acceptors[i])] += 1;
+      });
+      const k = kozakWindow(codes, tx);
+      if (k) kozaks.push(k);
+      const orf = cdsSequence(codes, tx);
+      if (orf) cds.push(orf);
+    }
+  }
+  return {
+    chromosomes,
+    bins,
+    dinucs,
+    homopolymers: longest,
+    mane: {
+      transcripts: selected, introns: donors.length, classes, donor: pwm(donors, 9), acceptor: pwm(acceptors, 23), kozak: pwm(kozaks, 10), ...codonCounts(cds),
+    },
+  };
 };

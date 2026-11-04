@@ -10,6 +10,20 @@ const header = (text, key) => text.match(new RegExp(`^# ${key}:\\s*(.+?)\\s*$`, 
 
 export const toModule = (value) => `export default ${JSON.stringify(value, null, 2)};\n`;
 
+const newer = (a, b) => {
+  const x = a.split('.').map(Number);
+  const y = b.split('.').map(Number);
+  for (let i = 0; i < Math.max(x.length, y.length); i += 1) {
+    if ((x[i] ?? 0) !== (y[i] ?? 0)) return (x[i] ?? 0) > (y[i] ?? 0);
+  }
+  return false;
+};
+
+export const latestFile = (listing, re) => {
+  const hits = [...listing.matchAll(new RegExp(re.source, 'g'))].map((m) => ({ file: m[0], version: m[1] }));
+  return hits.length ? hits.reduce((best, h) => (newer(h.version, best.version) ? h : best)) : null;
+};
+
 export const parseAssemblyReport = (text) => ({
   name: header(text, 'Assembly name'),
   date: header(text, 'Date'),

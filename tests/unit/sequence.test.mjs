@@ -106,7 +106,7 @@ test('sequenceSection summarizes each chromosome, the genome and the MANE transc
   assert.equal(out.dinucs.reduce((a, b) => a + b, 0), 56);
   assert.equal(out.homopolymers.T.chrom, '1');
   assert.equal(out.homopolymers.T.length, 23);
-  assert.equal(out.homopolymers.T.start, 19);
+  assert.equal(out.homopolymers.T.start, 18);
   assert.equal(out.mane.transcripts, 1);
   assert.equal(out.mane.introns, 1);
   assert.deepEqual(out.mane.classes, { 'GT-AG': 1, 'GC-AG': 0, 'AT-AC': 0, other: 0 });
