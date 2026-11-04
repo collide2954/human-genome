@@ -101,7 +101,80 @@ const tandem = (snap) => {
   return `Tandem Repeats Finder calls ${exact(units.reduce((n, u) => n + u.count, 0))} tandem repeats; the most frequent units are ${top[0].motif}, then ${top[1].motif}`;
 };
 
+export const codingCounts = (snap) => [
+  { source: 'GENCODE', n: snap.genes.genes.byType.protein_coding },
+  { source: 'NCBI Gene', n: snap.catalogs.geneInfo.types['protein-coding'] },
+  { source: 'HGNC', n: snap.catalogs.hgnc.locusGroups['protein-coding gene'] },
+  { source: 'MANE Select', n: snap.catalogs.mane.select },
+];
+
+const genecount = (snap) => {
+  const list = codingCounts(snap);
+  const lo = list.reduce((a, b) => (b.n < a.n ? b : a));
+  const hi = list.reduce((a, b) => (b.n > a.n ? b : a));
+  return `Protein-coding gene counts run from ${exact(lo.n)} (${lo.source}) to ${exact(hi.n)} (${hi.source})`;
+};
+
+const perMb = (v) => (v >= 100 ? exact(v) : v.toFixed(1));
+
+export const geneDensity = (snap) => nuclear(snap.sequence.chromosomes)
+  .filter((c) => snap.genes.genes.byChrom[c.chrom])
+  .map((c) => ({ chrom: c.chrom, genes: snap.genes.genes.byChrom[c.chrom].protein_coding ?? 0, perMb: ((snap.genes.genes.byChrom[c.chrom].protein_coding ?? 0) / (c.A + c.C + c.G + c.T)) * 1e6 }));
+
+const density = (snap) => {
+  const list = geneDensity(snap);
+  const dense = list.reduce((a, b) => (b.perMb > a.perMb ? b : a));
+  const sparse = list.reduce((a, b) => (b.perMb < a.perMb ? b : a));
+  return `Chromosome ${dense.chrom} carries ${perMb(dense.perMb)} protein-coding genes per sequenced megabase; chromosome ${sparse.chrom}, ${perMb(sparse.perMb)}`;
+};
+
+const genesize = (snap) => {
+  const { spans } = snap.genes;
+  return `The median protein-coding gene spans ${exact(spans.pc.summary.median)} bp; ${spans.longest[0].name}, the longest, ${exact(spans.longest[0].span)}`;
+};
+
+const exons = (snap) => {
+  const { mane } = snap.genes;
+  return `A MANE Select transcript has a median of ${mane.exons.summary.median} exons; ${mane.exons.top[0].name} has ${mane.exons.top[0].exons}; ${exact(mane.singleExon)} have one`;
+};
+
+const territory = (snap) => {
+  const t = snap.genes.territory;
+  const { acgt } = sequenceNumbers(snap);
+  return `Coding sequence covers ${pct(t.cds / acgt)} of GRCh38, exons of all genes ${pct((t.cds + t.utr + t.ncExon) / acgt)} and introns ${pct(t.intron / acgt)}`;
+};
+
+const isoforms = (snap) => {
+  const iso = snap.genes.isoforms;
+  return `Protein-coding genes have a median of ${iso.summary.median} GENCODE transcripts; ${iso.top[0].name} has ${exact(iso.top[0].n)}`;
+};
+
+const names = (snap) => {
+  const { hgnc } = snap.catalogs;
+  return `HGNC has approved ${exact(hgnc.approved)} gene symbols; ${hgnc.spreadsheet.count} were changed so spreadsheets would stop reading them as dates`;
+};
+
+const pseudogenes = (snap) => {
+  const { hgnc } = snap.catalogs;
+  const [a, b] = hgnc.pseudoParents;
+  return `${exact(hgnc.locusGroups.pseudogene)} named pseudogenes; ${a.parent} has ${exact(a.n)} copies, ${b.parent} ${exact(b.n)}`;
+};
+
+const immune = (snap) => {
+  const { V, D, J } = snap.genes.immune.IGH;
+  return `${V} IGHV, ${D} IGHD and ${J} IGHJ segments make ${exact(V * D * J)} heavy-chain V-D-J combinations before junctional diversity`;
+};
+
 export const findings = (snap) => ({
+  genecount: genecount(snap),
+  density: density(snap),
+  genesize: genesize(snap),
+  exons: exons(snap),
+  territory: territory(snap),
+  isoforms: isoforms(snap),
+  names: names(snap),
+  pseudogenes: pseudogenes(snap),
+  immune: immune(snap),
   transposons: transposons(snap),
   alu: alu(snap),
   segdups: segdups(snap),
