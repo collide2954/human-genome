@@ -40,7 +40,7 @@ test('svSummary counts non-redundant SVs by type, size, chromosome, study and cl
     sv('Un_KI270742v1', 1, 100, 'deletion', 'x'),
   ].forEach((l) => acc.add(l));
   const s = acc.result();
-  assert.deepEqual(s.types, { deletion: 2, duplication: 1, insertion: 1 });
+  assert.deepEqual(s.classes, { deletion: 2, duplication: 1, insertion: 1 });
   assert.deepEqual(s.byChrom, { 1: { deletion: 2 }, X: { duplication: 1 }, 2: { insertion: 1 } });
   assert.equal(s.sizes.deletion.counts[4], 1);
   assert.equal(s.sizes.deletion.counts[8], 1);
@@ -54,6 +54,46 @@ test('svSummary counts non-redundant SVs by type, size, chromosome, study and cl
 
 const CONSTRAINT_HEAD = ['gene', 'gene_id', 'transcript', 'canonical', 'mane_select', 'lof.exp', 'lof.pLI', 'lof.oe_ci.upper', 'mis.z_score', 'constraint_flags'].join('\t');
 const row = (gene, mane, exp, pli, loeuf, misZ, flags = '[]') => [gene, 'ENSG1', 'ENST1', 'true', mane, exp, pli, loeuf, misZ, flags].join('\t');
+
+test('svSummary folds dbVar compound types into deletion, duplication, CNV and insertion classes and counts mobile elements', () => {
+  const acc = svSummary();
+  [
+    sv('1', 1, 300, 'copy_number_loss;deletion', 's'),
+    sv('1', 1, 300, 'alu_deletion', 's'),
+    sv('1', 1, 3000, 'copy_number_gain;copy_number_variation', 's'),
+    sv('1', 1, 3000, 'copy_number_variation', 's'),
+    sv('1', 1, 2, 'alu_insertion;insertion', 's'),
+    sv('1', 1, 2, 'line1_insertion', 's'),
+    sv('1', 1, 2, 'sva_insertion;mobile_element_insertion', 's'),
+  ].forEach((l) => acc.add(l));
+  const s = acc.result();
+  assert.deepEqual(s.classes, {
+    deletion: 2, duplication: 1, cnv: 1, insertion: 3,
+  });
+  assert.deepEqual(s.mobile, {
+    Alu: { insertion: 1, deletion: 1 }, L1: { insertion: 1, deletion: 0 }, SVA: { insertion: 1, deletion: 0 }, HERV: { insertion: 0, deletion: 0 },
+  });
+  assert.deepEqual(Object.keys(s.sizes).sort(), ['cnv', 'deletion', 'duplication']);
+  assert.equal(s.sizes.deletion.counts.reduce((a, b) => a + b, 0), 2);
+  assert.deepEqual(s.byChrom, {
+    1: {
+      deletion: 2, duplication: 1, cnv: 1, insertion: 3,
+    },
+  });
+});
+
+test('constraintSummary counts a MANE transcript listed under Ensembl and RefSeq IDs once', () => {
+  const acc = constraintSummary();
+  [
+    CONSTRAINT_HEAD,
+    row('XPO6', 'true', '119', '1.00', '0.04', '5'),
+    row('XPO6', 'true', '119', '1.00', '0.04', '5'),
+    row('TTN', 'true', '400', '0.00', '0.85', '5.1'),
+  ].forEach((l) => acc.add(l));
+  const c = acc.result();
+  assert.equal(c.genes, 2);
+  assert.deepEqual(c.top.map((t) => t.gene), ['XPO6', 'TTN']);
+});
 
 test('constraintSummary reads one MANE Select transcript per gene', () => {
   const acc = constraintSummary();
