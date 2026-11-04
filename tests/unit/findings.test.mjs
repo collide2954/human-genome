@@ -60,6 +60,45 @@ fixture.repeats = {
   },
 };
 
+fixture.genes = {
+  release: { gencode: '50', ensembl: '116', date: '2026-04-08' },
+  genes: {
+    total: 100, byType: { protein_coding: 40, lncRNA: 30, processed_pseudogene: 20, miRNA: 10 }, byChrom: { 1: { protein_coding: 30 }, 19: { protein_coding: 10 } },
+  },
+  transcripts: { total: 500, byType: { protein_coding: 200, nonsense_mediated_decay: 50 } },
+  spans: { pc: { summary: { median: 29403 } }, longest: [{ name: 'RBFOX1', span: 2473539 }] },
+  isoforms: { summary: { median: 15 }, top: [{ name: 'ZBTB20', n: 361 }] },
+  mane: { transcripts: 38, singleExon: 3, exons: { summary: { median: 8 }, top: [{ name: 'TTN', exons: 363 }] } },
+  territory: {
+    cds: 20, utr: 40, ncExon: 60, intron: 1000,
+  },
+  immune: {
+    IGH: {
+      V: 61, D: 37, J: 6, C: 9, pseudo: 95,
+    },
+  },
+};
+fixture.catalogs = {
+  hgnc: {
+    approved: 45289, locusGroups: { 'protein-coding gene': 19299, pseudogene: 14671 }, spreadsheet: { count: 26 }, pseudoParents: [{ parent: 'RN7SK', n: 293 }, { parent: 'RPL21', n: 137 }],
+  },
+  geneInfo: { types: { 'protein-coding': 20600 } },
+  mane: { select: 19363 },
+};
+
+test('findings state the gene sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.genecount, 'Protein-coding gene counts run from 40 (GENCODE) to 20,600 (NCBI Gene)');
+  assert.equal(f.density, 'Chromosome 1 carries 30,000 protein-coding genes per sequenced megabase; chromosome 19, 10,000');
+  assert.equal(f.genesize, 'The median protein-coding gene spans 29,403 bp; RBFOX1, the longest, 2,473,539');
+  assert.equal(f.exons, 'A MANE Select transcript has a median of 8 exons; TTN has 363; 3 have one');
+  assert.equal(f.territory, 'Coding sequence covers 1% of GRCh38, exons of all genes 6% and introns 50%');
+  assert.equal(f.isoforms, 'Protein-coding genes have a median of 15 GENCODE transcripts; ZBTB20 has 361');
+  assert.equal(f.names, 'HGNC has approved 45,289 gene symbols; 26 were changed so spreadsheets would stop reading them as dates');
+  assert.equal(f.pseudogenes, '14,671 named pseudogenes; RN7SK has 293 copies, RPL21 137');
+  assert.equal(f.immune, '61 IGHV, 37 IGHD and 6 IGHJ segments make 13,542 heavy-chain V-D-J combinations before junctional diversity');
+});
+
 test('findings state the repeat sections as numbers', () => {
   const f = findings(fixture);
   assert.equal(f.transposons, 'RepeatMasker marks 50% of GRCh38’s sequenced bases as repeats; L1 elements alone cover 20%');

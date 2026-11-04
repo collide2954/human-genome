@@ -43,6 +43,7 @@ const tipLinesOf = (page) => page.$$eval('#tip > *', (els) => els.map((e) => e.t
 const CHAPTERS = {
   assembly: ['chromosomes', 'gaps', 't2t', 'composition'],
   repeats: ['transposons', 'landscape', 'segdups', 'tandem'],
+  genes: ['genecount', 'density', 'genesize', 'structure', 'isoforms', 'names', 'pseudogenes', 'immune'],
   reference: ['decoder', 'sources'],
 };
 
@@ -164,6 +165,45 @@ test('segmental duplication and tandem repeat charts cover every bin, chromosome
   assert.equal(await page.locator('#motif-chart [data-row]').count(), 15);
   await page.hover('#motif-chart [data-row="AC"]');
   assert.match(await page.textContent('#tip'), /\(AC\)n/);
+  await page.close();
+});
+
+test('gene count charts compare sources and biotypes', async () => {
+  const { page } = await open();
+  assert.equal(await page.locator('#source-count-chart [data-row]').count(), 4);
+  assert.ok(await page.locator('#biotype-chart [data-row]').count() >= 12);
+  await page.hover('#biotype-chart [data-row="protein_coding"]');
+  assert.match(await page.textContent('#tip'), /protein-coding[\s\S]*genes/i);
+  await page.close();
+});
+
+test('gene density pairs megabase strips with a GC scatter', async () => {
+  const { page } = await open();
+  assert.equal(await page.locator('#density-chart [data-chrom]').count(), 24);
+  const points = await page.locator('#density-gc-chart [data-point]').count();
+  assert.ok(points > 2500, `${points}`);
+  await page.hover('#density-gc-chart [data-point="19:10"]');
+  assert.match(await page.textContent('#tip'), /protein-coding genes[\s\S]*GC/);
+  await page.close();
+});
+
+test('gene size, structure and isoform histograms draw their bins', async () => {
+  const { page } = await open();
+  for (const id of ['span-chart', 'intron-chart', 'exon-count-chart', 'isoform-chart']) {
+    assert.ok(await page.locator(`#${id} [data-bin]`).count() >= 10, id);
+  }
+  assert.equal(await page.locator('#longest-chart [data-row]').count(), 15);
+  assert.equal(await page.locator('#territory-chart .legend li').count(), 5);
+  await page.close();
+});
+
+test('naming, pseudogene and immune locus charts list their rows', async () => {
+  const { page } = await open();
+  assert.ok(await page.locator('#approvals-chart [data-bin]').count() >= 30);
+  assert.equal(await page.locator('#groups-chart [data-row]').count(), 15);
+  assert.equal(await page.locator('#parents-chart [data-row]').count(), 15);
+  assert.equal(await page.locator('#immune-chart [data-row]').count(), 7);
+  assert.equal(await page.locator('#immune-chart .legend li').count(), 5);
   await page.close();
 });
 
