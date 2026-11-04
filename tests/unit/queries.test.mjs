@@ -21,7 +21,7 @@ test('assembly files point at GRCh38.p14 and T2T-CHM13v2.0', () => {
   assert.match(FILES.grch38Stats, /GCF_000001405\.40_GRCh38\.p14_assembly_stats\.txt$/);
   assert.match(FILES.t2tReport, /GCF_009914755\.1_T2T-CHM13v2\.0_assembly_report\.txt$/);
   assert.match(FILES.t2tStats, /GCF_009914755\.1_T2T-CHM13v2\.0_assembly_stats\.txt$/);
-  for (const key of ['cytobands', 'gaps', 'centromeres']) assert.match(FILES[key], /^https:\/\/hgdownload\.soe\.ucsc\.edu\/goldenPath\/hg38\/database\/\w+\.txt\.gz$/, key);
+  for (const key of ['cytobands', 'gaps', 'centromeres', 'rmsk', 'superDups', 'simpleRepeat']) assert.match(FILES[key], /^https:\/\/hgdownload\.soe\.ucsc\.edu\/goldenPath\/hg38\/database\/\w+\.txt\.gz$/, key);
 });
 
 test('sequence files point at the hg38 2bit and the current MANE release folder', () => {

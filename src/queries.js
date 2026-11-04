@@ -13,6 +13,9 @@ export const FILES = {
   cytobands: `${UCSC}/database/cytoBandIdeo.txt.gz`,
   gaps: `${UCSC}/database/gap.txt.gz`,
   centromeres: `${UCSC}/database/centromeres.txt.gz`,
+  rmsk: `${UCSC}/database/rmsk.txt.gz`,
+  superDups: `${UCSC}/database/genomicSuperDups.txt.gz`,
+  simpleRepeat: `${UCSC}/database/simpleRepeat.txt.gz`,
   hg38TwoBit: `${UCSC}/bigZips/hg38.2bit`,
   maneDir: 'https://ftp.ncbi.nlm.nih.gov/refseq/MANE/MANE_human/current/',
 };

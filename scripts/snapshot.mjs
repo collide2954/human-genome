@@ -5,8 +5,10 @@ import { join } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { retry } from '../src/lib.js';
 import { FILES, USER_AGENT } from '../src/queries.js';
-import { buildAssembly, latestFile, toModule } from './parsers.mjs';
-import { cacheName, downloadTo } from './streams.mjs';
+import {
+  buildAssembly, latestFile, toModule, rmskSummary, superDupsSummary, tandemSummary,
+} from './parsers.mjs';
+import { cacheName, downloadTo, gzLines } from './streams.mjs';
 import { runSections } from './sections.mjs';
 import { readTwoBit } from './twobit.mjs';
 import { parseManeGtf, sequenceSection } from './sequence.mjs';
@@ -44,7 +46,18 @@ const sequence = async () => {
   return { maneRelease: gtf.version, ...sequenceSection(twoBit, transcripts) };
 };
 
-const SECTIONS = { assembly, sequence };
+const summarize = async (url, accumulator) => {
+  for await (const line of gzLines(await file(url))) if (line) accumulator.add(line);
+  return accumulator.result();
+};
+
+const repeats = async () => ({
+  rmsk: await summarize(FILES.rmsk, rmskSummary()),
+  superDups: await summarize(FILES.superDups, superDupsSummary()),
+  tandem: await summarize(FILES.simpleRepeat, tandemSummary()),
+});
+
+const SECTIONS = { assembly, sequence, repeats };
 
 const now = new Date();
 const only = process.argv.slice(2).filter((a) => SECTIONS[a]);
