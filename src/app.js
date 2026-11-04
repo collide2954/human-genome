@@ -659,7 +659,10 @@ const renderCodons = () => {
   const max = Math.max(...Object.values(cells).map((c) => c.perK));
   const leu = Object.entries(GENETIC_CODE).filter(([, aa]) => aa === 'L').map(([codon]) => [codon, cells[codon].share]).sort((x, y) => y[1] - x[1]);
   const arg = Object.entries(GENETIC_CODE).filter(([, aa]) => aa === 'R').map(([codon]) => [codon, cells[codon].share]).sort((x, y) => y[1] - x[1]);
-  $('#codons-dek').textContent = `${exact(total)} sense codons from ${exact(MN.coding)} coding sequences. ${leu[0][0]} carries ${pct(leu[0][1])} of leucines and ${leu.at(-1)[0]} ${pct(leu.at(-1)[1])}; among arginine codons, ${arg[0][0]} ${pct(arg[0][1])} and ${arg.at(-1)[0]} ${pct(arg.at(-1)[1])}. CG-containing codons are the rarest, as the genome’s CpG depletion predicts.`;
+  const rarest = [...sense].sort((x, y) => x.n - y.n);
+  const cgRun = rarest.findIndex((c) => !c.codon.includes('CG'));
+  const cgNote = cgRun >= 2 ? ` The ${cgRun} least used codons, ${rarest.slice(0, cgRun).map((c) => c.codon).join(', ')}, all contain CG.` : '';
+  $('#codons-dek').textContent = `${exact(total)} sense codons from ${exact(MN.coding)} coding sequences. ${leu[0][0]} carries ${pct(leu[0][1])} of leucines and ${leu.at(-1)[0]} ${pct(leu.at(-1)[1])}; among arginine codons, ${arg[0][0]} ${pct(arg[0][1])} and ${arg.at(-1)[0]} ${pct(arg.at(-1)[1])}.${cgNote}`;
   codonTable({
     mount: $('#codon-chart'),
     cells,
