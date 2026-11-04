@@ -57,6 +57,7 @@ const CHAPTERS = {
   rare: ['hpo', 'orphanet', 'gtr', 'therapy', 'yield', 'prenatal'],
   cancer: ['drivers', 'tcga', 'burden', 'somatic'],
   pgx: ['cpic', 'phenotypes', 'cyp2d6', 'fdalabels', 'clinpgx'],
+  complex: ['manhattan', 'gwasgrowth', 'gwastraits', 'effects', 'pgs', 'pgsancestry', 'pgsperformance', 'heritability'],
   reference: ['decoder', 'sources'],
 };
 
@@ -541,6 +542,41 @@ test('pharmacogenomics charts cover CPIC levels and alleles, phenotypes by group
   assert.match(await page.textContent('#tip'), new RegExp(`${C.cyp2d6.top[0].name.replace('*', '\\*')}[\\s\\S]*function`));
   assert.match(await page.textContent('#clinpgx'), /CC BY-SA 4\.0/);
   assert.ok(await count('#clinpgx a[href="https://creativecommons.org/licenses/by-sa/4.0/"]') >= 1);
+  await page.close();
+});
+
+test('complex trait charts cover the catalog Manhattan plot, GWAS growth, traits and effects, polygenic scores and heritability', async () => {
+  const { page } = await open();
+  const G = snapshot.gwas;
+  const P = snapshot.pgs;
+  const H = snapshot.panukb;
+  const count = (sel) => page.locator(sel).count();
+  const bins = Object.entries(G.manhattan).flatMap(([chrom, list]) => list.map((b) => [chrom, ...b]));
+  assert.equal(await count('#manhattan-chart [data-bin]'), bins.length);
+  assert.equal(await count('#manhattan-chart .mh.cap'), bins.filter((b) => b[2] > 300).length);
+  assert.equal(await count('#manhattan-chart line.threshold'), 1);
+  assert.equal(await count('#manhattan-context-chart [data-row]'), Object.keys(G.context).length);
+  assert.equal(await count('#gwasgrowth-years-chart [data-year]'), Object.keys(G.byYear).length);
+  assert.equal(await count('#gwasgrowth-sizes-chart [data-cell]'), G.sizes.assocLabels.length * G.sizes.sizeLabels.length);
+  const categories = Object.keys(G.categories.totals).length;
+  assert.equal(await count('#gwastraits-years-chart path.area'), categories > 8 ? 9 : categories);
+  assert.equal(await count('#gwastraits-traits-chart [data-row]'), G.topTraits.length);
+  assert.equal(await count('#gwastraits-genes-chart [data-row]'), G.topGenes.length);
+  assert.equal(await count('#effects-chart [data-cell]'), G.effects.orEdges.length * (G.effects.rafEdges.length - 1));
+  assert.equal(await count('#pgs-years-chart path.area'), Object.keys(P.families).length);
+  assert.equal(await count('#pgs-variants-chart [data-bin]'), P.variants.counts.length);
+  assert.equal(await count('#pgs-traits-chart [data-row]'), P.traits.length);
+  assert.equal(await count('#pgsancestry-chart [data-row]'), 3);
+  assert.equal(await count('#pgsperformance-auroc-chart [data-bin]'), P.performance.auroc.counts.length);
+  assert.equal(await count('#pgsperformance-categories-chart [data-row]'), P.performance.auroc.byCategory.length);
+  assert.equal(await count('#heritability-hist-chart [data-bin]'), H.eur.counts.length);
+  assert.equal(await count('#heritability-types-chart [data-row]'), H.eur.byType.length);
+  assert.equal(await count('#heritability-top-chart [data-row]'), H.eur.top.length);
+  assert.equal(await count('#heritability-pops-chart [data-row]'), Object.keys(H.byPop).length);
+  const top = bins.reduce((a, b) => (b[2] > a[2] ? b : a));
+  await page.hover(`#manhattan-chart [data-bin="${top[0]}:${top[1]}"]`);
+  assert.match(await page.textContent('#tip'), new RegExp(top[5].split(/\s|,/)[0]));
+  assert.ok(await count('#heritability a[href="https://creativecommons.org/licenses/by/4.0/"]') >= 1);
   await page.close();
 });
 
