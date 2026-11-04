@@ -169,6 +169,7 @@ fixture.ontology = {
   annotations: 1005,
   not: 5,
   proteins: 19800,
+  types: { protein: 19800, miRNA: 3000, protein_complex: 2000 },
   byAspect: {
     P: {
       experimental: 300, phylogenetic: 100, computational: 50, author: 38, electronic: 112,
@@ -186,7 +187,7 @@ test('findings state the network, pathway and ontology sections as numbers', () 
   const f = findings(fixture);
   assert.equal(f.interactions, 'STRING 12.5 links 16,000 human proteins by 250,000 interactions scored 0.7 or more; UBC has the most partners, 2,500');
   assert.equal(f.pathways, 'Reactome 98 places 11,000 human proteins in 2,700 pathways; Signal Transduction, the largest of 3 top-level pathways, holds 2,700');
-  assert.equal(f.ontology, '19,800 human proteins carry 1,000 GO annotations; 31.2% are electronic inferences (IEA)');
+  assert.equal(f.ontology, 'GO holds 1,000 annotations of 19,800 human proteins and 5,000 other gene products; 31.2% are electronic (IEA)');
 });
 
 test('findings state the protein sections as numbers', () => {
