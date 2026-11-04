@@ -24,6 +24,11 @@ test('assembly files point at GRCh38.p14 and T2T-CHM13v2.0', () => {
   for (const key of ['cytobands', 'gaps', 'centromeres']) assert.match(FILES[key], /^https:\/\/hgdownload\.soe\.ucsc\.edu\/goldenPath\/hg38\/database\/\w+\.txt\.gz$/, key);
 });
 
+test('sequence files point at the hg38 2bit and the current MANE release folder', () => {
+  assert.equal(FILES.hg38TwoBit, 'https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.2bit');
+  assert.equal(FILES.maneDir, 'https://ftp.ncbi.nlm.nih.gov/refseq/MANE/MANE_human/current/');
+});
+
 test('requests identify the project', () => {
   assert.match(USER_AGENT, /human-genome/);
   assert.doesNotMatch(USER_AGENT, /@/);

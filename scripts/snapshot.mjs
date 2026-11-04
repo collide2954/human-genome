@@ -5,9 +5,11 @@ import { join } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { retry } from '../src/lib.js';
 import { FILES, USER_AGENT } from '../src/queries.js';
-import { buildAssembly, toModule } from './parsers.mjs';
+import { buildAssembly, latestFile, toModule } from './parsers.mjs';
 import { cacheName, downloadTo } from './streams.mjs';
 import { runSections } from './sections.mjs';
+import { readTwoBit } from './twobit.mjs';
+import { parseManeGtf, sequenceSection } from './sequence.mjs';
 
 const OUT = new URL('../src/snapshot.js', import.meta.url);
 const HEADERS = { 'user-agent': USER_AGENT };
@@ -34,7 +36,15 @@ const assembly = async () => buildAssembly({
   cen: await text(FILES.centromeres),
 });
 
-const SECTIONS = { assembly };
+const sequence = async () => {
+  const gtf = latestFile(await text(FILES.maneDir), /MANE\.GRCh38\.v([\d.]+)\.ensembl_genomic\.gtf\.gz/);
+  if (!gtf) throw new Error('No MANE GTF in the current release folder');
+  const transcripts = parseManeGtf((await text(`${FILES.maneDir}${gtf.file}`)).split('\n'));
+  const twoBit = readTwoBit(await readFile(await file(FILES.hg38TwoBit)));
+  return { maneRelease: gtf.version, ...sequenceSection(twoBit, transcripts) };
+};
+
+const SECTIONS = { assembly, sequence };
 
 const now = new Date();
 const only = process.argv.slice(2).filter((a) => SECTIONS[a]);
