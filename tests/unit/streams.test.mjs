@@ -92,6 +92,17 @@ test('cacheName turns a URL into a safe file name', () => {
   assert.equal(cacheName('https://rest.uniprot.org/uniprotkb/stream?query=a:b&format=tsv'), 'rest.uniprot.org_uniprotkb_stream_query_a_b_format_tsv');
 });
 
+test('cacheName shortens long URLs and keeps them apart', () => {
+  const long = (field) => `https://rest.uniprot.org/uniprotkb/stream?fields=${Array.from({ length: 40 }, (_, i) => `${field}_${i}`).join(',')}`;
+  const a = cacheName(long('ft_region'));
+  const b = cacheName(long('ft_domain'));
+  assert.ok(a.length <= 160, `${a.length}`);
+  assert.ok(b.length <= 160, `${b.length}`);
+  assert.notEqual(a, b);
+  assert.match(a, /^rest\.uniprot\.org_uniprotkb_stream_fields_ft_region/);
+  assert.equal(cacheName(long('ft_region')), a);
+});
+
 test('retry returns the first success and rethrows after the last try', async () => {
   let calls = 0;
   const ok = await retry(async () => {
