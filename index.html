@@ -505,8 +505,102 @@
     </figure>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-networks" data-chapter="networks">
     <p class="chapter-no">Part 7</p>
+    <h2 class="chapter-title">Interactions and pathways</h2>
+    <p class="chapter-dek">How the proteins connect: the STRING association network, Reactome’s pathway hierarchy, and the Gene Ontology annotations that say what each protein does, where and on what evidence.</p>
+  </div>
+
+  <section class="story wrap" id="interactions" data-lens="genes" data-nav="Interactions">
+    <header class="head"><p class="label">Protein interactions</p><h2 data-finding="interactions">Protein interactions</h2><p class="dek" id="interactions-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="degree-chart"></div>
+        <figcaption>Proteins by their number of partners at a combined score of 0.7 or more, five bins per tenfold step; both axes are log scales. Source: STRING, human network.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="hub-chart"></div>
+        <figcaption>The 20 proteins with the most partners at a combined score of 0.7 or more, named as STRING names them. Source: STRING.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="channel-chart"></div>
+        <figcaption>Links scored 0.7 or more by the evidence channels that support them; a link usually has several. Channel scores include evidence transferred from other organisms by orthology. Source: STRING detailed scores.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="score-chart"></div>
+        <figcaption>All human links by combined score, in steps of 0.05 from STRING’s 0.15 floor, log scale. STRING calls 0.4 medium, 0.7 high and 0.9 highest confidence. Source: STRING.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="pathways" data-lens="genes" data-nav="Pathways">
+    <header class="head"><p class="label">Pathways</p><h2 data-finding="pathways">Pathways</h2><p class="dek" id="pathways-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="toplevel-chart"></div>
+        <figcaption>Proteins in each top-level Reactome pathway, counting everything below it. Source: Reactome UniProt mapping, all levels.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="pathway-overlap-chart"></div>
+        <figcaption>How much the top-level pathways share: the Jaccard index of their protein sets, proteins in both over proteins in either. Rows and columns share one order from average-linkage clustering. Source: as left.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="breadth-chart"></div>
+        <figcaption>Proteins by the number of top-level pathways they turn up in, log scale. Source: Reactome.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="pathway-size-chart"></div>
+        <figcaption>Human pathways at every level by the number of proteins in them, five bins per tenfold step. Source: Reactome.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig narrow">
+      <div class="chart" id="largest-pathway-chart"></div>
+      <figcaption>The 15 largest pathways below the top level. Source: Reactome.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="ontology" data-lens="genes" data-nav="Gene Ontology">
+    <header class="head"><p class="label">Gene Ontology</p><h2 data-finding="ontology">Gene Ontology</h2><p class="dek" id="ontology-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="go-evidence-chart"></div>
+      <figcaption>GO annotations of human gene products by aspect and evidence. Experimental: EXP, IDA, IPI, IMP, IGI, IEP and the high-throughput codes. Phylogenetic: IBA and related. Computational: ISS, ISO, ISA, ISM, IGC, RCA. Author or curator: TAS, NAS, IC, ND. Electronic: IEA. NOT annotations are left out. Source: GO annotations, goa_human.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="go-per-protein-chart"></div>
+        <figcaption>UniProt proteins by the number of distinct GO terms annotated to them, five bins per tenfold step. Source: GO annotations.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="go-protein-chart"></div>
+        <figcaption>The 15 proteins with the most distinct GO terms. Source: GO annotations.</figcaption>
+      </figure>
+    </div>
+    <div class="trio">
+      <figure class="fig">
+        <div class="chart" id="go-bp-chart"></div>
+        <figcaption>Biological process terms annotated to the most proteins. Source: GO annotations and ontology.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="go-mf-chart"></div>
+        <figcaption>Molecular function terms annotated to the most proteins. Source: as left.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="go-cc-chart"></div>
+        <figcaption>Cellular component terms annotated to the most proteins. Source: as left.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig narrow">
+      <div class="chart" id="go-groups-chart"></div>
+      <figcaption>Annotations by the group that made them, log scale. IntAct contributes protein binding from interaction experiments. Source: GO annotations.</figcaption>
+    </figure>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 8</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>

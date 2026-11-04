@@ -1040,6 +1040,214 @@ const renderPlasma = () => {
   attachData('#secretome-chart', 'hpa-secretome', ['Secretome location', 'Genes'], sec);
 };
 
+const NET = snapshot.networks;
+const RX = snapshot.pathways;
+const GO = snapshot.ontology;
+const trimmed = (counts) => counts.slice(0, counts.findLastIndex((n) => n > 0) + 1);
+const wholeRange = (b, unit) => {
+  const lo = Math.ceil(b.lo);
+  const hi = Math.ceil(b.hi) - 1;
+  return lo >= hi ? `${exact(lo)} ${unit}` : `${exact(lo)} to ${exact(hi)} ${unit}`;
+};
+
+const CHANNEL_NAMES = {
+  textmining: 'Text mining', coexpression: 'Co-expression', experimental: 'Experiments', database: 'Curated databases', neighborhood: 'Gene neighbourhood', cooccurence: 'Co-occurrence', fusion: 'Gene fusion',
+};
+
+const renderInteractions = () => {
+  const { degree, edges, physical } = NET;
+  const counts = trimmed(degree.counts);
+  const bins = binsOf(degree.edges).slice(0, counts.length);
+  $('#interactions-dek').textContent = `${exact(edges.all)} human protein pairs carry a STRING score; ${exact(edges.medium)} reach 0.4 and ${exact(edges.highest)} reach 0.9. At 0.7 the median protein has ${exact(degree.summary.median)} partners and ${exact(degree.counts[0])} have one. The physical subnetwork, limited to evidence that proteins bind, holds ${exact(physical.edges.high)} links at 0.7 among ${exact(physical.proteins.high)} proteins.`;
+  histo({
+    mount: $('#degree-chart'),
+    bins,
+    series: [{ key: 'proteins', label: 'Proteins', color: 'var(--data)', values: counts }],
+    yLog: true,
+    tickEvery: 5,
+    tickLabel: (b) => shortBases(b.lo),
+    aria: 'Proteins by number of high-confidence partners, log scales',
+    describe: (i) => tipLines(`${exact(counts[i])} proteins`, wholeRange(bins[i], 'partners')),
+  });
+  attachData('#degree-chart', 'string-degree', ['Partners from', 'Partners to', 'Proteins'], bins.map((b, i) => [Math.ceil(b.lo), Math.ceil(b.hi) - 1, counts[i]]));
+  dotplot({
+    mount: $('#hub-chart'),
+    rows: NET.hubs.map((p, i) => ({ key: p.id, label: p.name, value: p.degree, hi: i === 0 })),
+    scale: 'linear',
+    aria: 'Proteins with the most high-confidence partners',
+    href: (r) => `https://string-db.org/network/${r.key}`,
+    linkText: () => 'Open in STRING',
+    describe: (r) => tipLines(`${exact(r.value)} partners`, r.label, `STRING ${r.key}`),
+  });
+  attachData('#hub-chart', 'string-hubs', ['Protein', 'STRING ID', 'Partners at 0.7'], NET.hubs.map((p) => [p.name, p.id, p.degree]));
+  const channels = Object.keys(CHANNEL_NAMES).sort((a, b) => NET.channels[b] - NET.channels[a]);
+  hbars({
+    mount: $('#channel-chart'),
+    rows: channels.map((c) => ({ key: c, label: CHANNEL_NAMES[c], values: { only: NET.only[c], shared: NET.channels[c] - NET.only[c] } })),
+    segments: [{ key: 'only', label: 'This channel only', color: 'var(--s1)' }, { key: 'shared', label: 'With other channels', color: 'var(--data-2)' }],
+    labelShare: 0.3,
+    aria: 'High-confidence links by evidence channel',
+    describe: (r) => tipLines(`${exact(NET.channels[r.key])} links`, r.label, `${exact(NET.only[r.key])} rest on this channel alone`, pct(NET.channels[r.key] / edges.high)),
+  });
+  attachData('#channel-chart', 'string-channels', ['Channel', 'Links at 0.7 with this channel', 'Links on this channel alone'], channels.map((c) => [CHANNEL_NAMES[c], NET.channels[c], NET.only[c]]));
+  const scoreBins = binsOf(NET.scores.edges);
+  const CUTS = [150, 400, 700, 900];
+  histo({
+    mount: $('#score-chart'),
+    bins: scoreBins,
+    series: [{ key: 'links', label: 'Links', color: 'var(--data)', values: NET.scores.counts }],
+    yLog: true,
+    tickEvery: 1,
+    tickLabel: (b) => (CUTS.includes(b.lo) ? String(b.lo / 1000) : null),
+    aria: 'Human links by combined score, log scale',
+    describe: (i) => tipLines(`${exact(NET.scores.counts[i])} links`, `score ${(scoreBins[i].lo / 1000).toFixed(2)} to ${(scoreBins[i].hi / 1000).toFixed(2)}`),
+  });
+  attachData('#score-chart', 'string-scores', ['Score from', 'Score to', 'Links'], scoreBins.map((b, i) => [b.lo / 1000, b.hi / 1000, NET.scores.counts[i]]));
+};
+
+const reactomeLink = (id) => `https://reactome.org/PathwayBrowser/#/${id}`;
+
+const renderPathways = () => {
+  const tops = RX.topLevel;
+  const ev = RX.evidence;
+  $('#pathways-dek').textContent = `The hierarchy runs ${RX.depth.length} levels deep, from ${exact(RX.depth[0])} top-level pathways down. ${exact(RX.breadth[1])} proteins sit under a single top-level pathway and ${exact(sumOf(RX.breadth.slice(5)))} under five or more. ${pct((ev.TAS ?? 0) / sumOf(Object.values(ev)))} of the human mappings are curated (TAS); the rest are inferred from other species (IEA).`;
+  dotplot({
+    mount: $('#toplevel-chart'),
+    rows: tops.map((t, i) => ({ key: t.id, label: t.name, value: t.proteins, hi: i === 0 })),
+    scale: 'linear',
+    rowH: 20,
+    labelShare: 0.46,
+    aria: 'Proteins in each top-level Reactome pathway',
+    href: (r) => reactomeLink(r.key),
+    linkText: () => 'Open in Reactome',
+    describe: (r) => {
+      const t = tops.find((x) => x.id === r.key);
+      return tipLines(`${exact(t.proteins)} proteins`, t.name, `${exact(t.pathways)} pathways, itself included`);
+    },
+  });
+  attachData('#toplevel-chart', 'reactome-top-level', ['Pathway', 'Reactome ID', 'Proteins', 'Pathways below and including'], tops.map((t) => [t.name, t.id, t.proteins, t.pathways]));
+  const { matrix: jac, order } = RX.overlap;
+  const off = jac.flatMap((row, i) => row.filter((_, j) => j !== i));
+  const hi = Math.max(...off);
+  heatmap({
+    mount: $('#pathway-overlap-chart'),
+    labels: tops.map((t) => t.name),
+    values: jac,
+    order,
+    lo: 0,
+    hi,
+    color: 'var(--s4)',
+    legend: rampLegend(0, hi, (v) => (v >= hi ? `≥${v.toFixed(2)}` : v.toFixed(2)), 'var(--s4)'),
+    aria: 'Shared proteins between top-level Reactome pathways',
+    describe: (i, j) => tipLines(`Jaccard index ${jac[i][j].toFixed(3)}`, `${tops[i].name} and ${tops[j].name}`, `${exact(tops[i].proteins)} and ${exact(tops[j].proteins)} proteins`),
+  });
+  attachData('#pathway-overlap-chart', 'reactome-overlap', ['Pathway', ...order.map((i) => tops[i].id)], order.map((i) => [tops[i].name, ...order.map((j) => jac[i][j])]));
+  const breadth = RX.breadth.slice(1, RX.breadth.findLastIndex((v) => v > 0) + 1);
+  histo({
+    mount: $('#breadth-chart'),
+    bins: breadth.map((n, i) => ({ n: i + 1 })),
+    series: [{ key: 'proteins', label: 'Proteins', color: 'var(--data)', values: breadth }],
+    yLog: true,
+    centered: true,
+    tickEvery: 1,
+    tickLabel: (b, i) => (i === 0 || (i + 1) % 5 === 0 ? String(i + 1) : null),
+    aria: 'Proteins by number of top-level pathways, log scale',
+    describe: (i) => tipLines(`${exact(breadth[i])} proteins`, `in ${i + 1} top-level pathway${i ? 's' : ''}`),
+  });
+  attachData('#breadth-chart', 'reactome-breadth', ['Top-level pathways', 'Proteins'], breadth.map((n, i) => [i + 1, n]));
+  const sizes = trimmed(RX.sizes.counts);
+  const sizeBins = binsOf(RX.sizes.edges).slice(0, sizes.length);
+  histo({
+    mount: $('#pathway-size-chart'),
+    bins: sizeBins,
+    series: [{ key: 'pathways', label: 'Pathways', color: 'var(--data)', values: sizes }],
+    tickEvery: 5,
+    tickLabel: (b) => shortBases(b.lo),
+    aria: 'Reactome pathways by number of proteins',
+    describe: (i) => tipLines(`${exact(sizes[i])} pathways`, wholeRange(sizeBins[i], 'proteins')),
+  });
+  attachData('#pathway-size-chart', 'reactome-sizes', ['Proteins from', 'Proteins to', 'Pathways'], sizeBins.map((b, i) => [Math.ceil(b.lo), Math.ceil(b.hi) - 1, sizes[i]]));
+  dotplot({
+    mount: $('#largest-pathway-chart'),
+    rows: RX.largest.map((p, i) => ({ key: p.id, label: p.name, value: p.proteins, hi: i === 0 })),
+    scale: 'linear',
+    labelShare: 0.5,
+    labelMax: 340,
+    aria: 'The largest Reactome pathways below the top level',
+    href: (r) => reactomeLink(r.key),
+    linkText: () => 'Open in Reactome',
+    describe: (r) => tipLines(`${exact(r.value)} proteins`, r.label, r.key),
+  });
+  attachData('#largest-pathway-chart', 'reactome-largest', ['Pathway', 'Reactome ID', 'Proteins'], RX.largest.map((p) => [p.name, p.id, p.proteins]));
+};
+
+const ASPECT_NAMES = [['P', 'Biological process'], ['F', 'Molecular function'], ['C', 'Cellular component']];
+const GO_GROUPS = [['experimental', 'Experimental', 'var(--s1)'], ['phylogenetic', 'Phylogenetic', 'var(--s2)'], ['computational', 'Computational', 'var(--s3)'], ['author', 'Author or curator', 'var(--s4)'], ['electronic', 'Electronic', 'var(--data-2)']];
+const quickGo = (id) => `https://www.ebi.ac.uk/QuickGO/term/${id}`;
+
+const renderOntology = () => {
+  const ns = GO.namespaces;
+  const others = Object.entries(GO.types).filter(([t]) => t !== 'protein');
+  const rnas = sumOf(others.filter(([t]) => /RNA/.test(t)).map(([, n]) => n));
+  $('#ontology-dek').textContent = `The ontology (release ${GO.release}) holds ${exact(ns.biological_process)} biological process, ${exact(ns.molecular_function)} molecular function and ${exact(ns.cellular_component)} cellular component terms, plus ${exact(GO.obsolete)} obsolete ones. Besides proteins, the human file annotates ${exact(rnas)} RNAs and ${exact(GO.types.protein_complex ?? 0)} protein complexes. ${exact(GO.not)} annotations say a product does NOT have a function. The most used evidence code is ${GO.codes[0].code}, ${exact(GO.codes[0].n)} times.`;
+  hbars({
+    mount: $('#go-evidence-chart'),
+    rows: ASPECT_NAMES.map(([key, label]) => ({ key, label, values: GO.byAspect[key] })),
+    segments: GO_GROUPS.map(([key, label, color]) => ({ key, label, color })),
+    labelShare: 0.2,
+    aria: 'GO annotations by aspect and evidence',
+    describe: (r) => {
+      const total = sumOf(Object.values(r.values));
+      return tipLines(`${exact(total)} annotations`, r.label, ...GO_GROUPS.map(([k, label]) => `${label}: ${exact(r.values[k])}, ${pct(r.values[k] / total)}`));
+    },
+  });
+  attachData('#go-evidence-chart', 'go-evidence', ['Aspect', ...GO_GROUPS.map(([, label]) => label)], ASPECT_NAMES.map(([key, label]) => [label, ...GO_GROUPS.map(([k]) => GO.byAspect[key][k])]));
+  const counts = trimmed(GO.perProtein.counts);
+  const bins = binsOf(GO.perProtein.edges).slice(0, counts.length);
+  histo({
+    mount: $('#go-per-protein-chart'),
+    bins,
+    series: [{ key: 'proteins', label: 'Proteins', color: 'var(--data)', values: counts }],
+    tickEvery: 5,
+    tickLabel: (b) => shortBases(b.lo),
+    aria: 'Proteins by number of distinct GO terms',
+    describe: (i) => tipLines(`${exact(counts[i])} proteins`, wholeRange(bins[i], 'GO terms')),
+  });
+  attachData('#go-per-protein-chart', 'go-terms-per-protein', ['Terms from', 'Terms to', 'Proteins'], bins.map((b, i) => [Math.ceil(b.lo), Math.ceil(b.hi) - 1, counts[i]]));
+  dotplot({
+    mount: $('#go-protein-chart'),
+    rows: GO.topProteins.map((p, i) => ({ key: p.acc, label: p.symbol, value: p.terms, hi: i === 0 })),
+    scale: 'linear',
+    aria: 'Proteins with the most GO terms',
+    href: (r) => `https://www.ebi.ac.uk/QuickGO/annotations?geneProductId=${r.key}`,
+    linkText: () => 'Open in QuickGO',
+    describe: (r) => tipLines(`${exact(r.value)} GO terms`, `${r.label}, UniProt ${r.key}`),
+  });
+  attachData('#go-protein-chart', 'go-top-proteins', ['Gene', 'UniProt', 'Distinct GO terms'], GO.topProteins.map((p) => [p.symbol, p.acc, p.terms]));
+  for (const [sel, aspect, what] of [['#go-bp-chart', 'P', 'biological process'], ['#go-mf-chart', 'F', 'molecular function'], ['#go-cc-chart', 'C', 'cellular component']]) {
+    const list = GO.topTerms[aspect];
+    dotplot({
+      mount: $(sel),
+      rows: list.map((t, i) => ({ key: t.id, label: t.name ?? t.id, value: t.n, hi: i === 0 })),
+      scale: 'linear',
+      rowH: 22,
+      aria: `The most annotated ${what} terms`,
+      href: (r) => quickGo(r.key),
+      linkText: () => 'Open in QuickGO',
+      describe: (r) => tipLines(`${exact(r.value)} proteins`, r.label, r.key),
+    });
+    attachData(sel, `go-top-${what.replace(/ /g, '-')}`, ['GO term', 'Name', 'Proteins'], list.map((t) => [t.id, t.name, t.n]));
+  }
+  dotplot({
+    mount: $('#go-groups-chart'),
+    rows: GO.assignedBy.map((g, i) => ({ key: g.group, label: g.group, value: g.n, hi: i === 0 })),
+    labelShare: 0.36,
+    aria: 'GO annotations by contributing group',
+    describe: (r) => tipLines(`${exact(r.value)} annotations`, r.label, pct(r.value / GO.annotations)),
+  });
+  attachData('#go-groups-chart', 'go-contributors', ['Group', 'Annotations'], GO.assignedBy.map((g) => [g.group, g.n]));
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -1096,6 +1304,13 @@ const DATA_SOURCES = [
   ['Human Protein Atlas proteinatlas.tsv', FILES.hpa],
   ['GTEx v10 gene median TPM', FILES.gtexMedian],
   ['GTEx Portal tissue summary API', FILES.gtexTissues],
+  ['STRING version API, for the current human network files', FILES.stringVersion],
+  ['Reactome database version', FILES.reactomeVersion],
+  ['Reactome human pathways', FILES.reactomePathways],
+  ['Reactome pathway hierarchy', FILES.reactomeRelations],
+  ['Reactome UniProt mapping, all levels', FILES.reactomeUniprot],
+  ['GO annotations, goa_human', FILES.goaHuman],
+  ['Gene Ontology, go-basic', FILES.goBasic],
 ];
 
 const renderSources = () => {
@@ -1184,6 +1399,9 @@ const drawCharts = () => {
   renderSpecificity();
   renderGtex();
   renderPlasma();
+  renderInteractions();
+  renderPathways();
+  renderOntology();
   applySearch();
 };
 
