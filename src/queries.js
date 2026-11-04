@@ -54,6 +54,23 @@ export const trialPage = (query, token = null) => `${TRIALS}?${new URLSearchPara
   'query.intr': query, 'filter.advanced': 'AREA[StudyType]INTERVENTIONAL', pageSize: '1000', fields: 'NCTId,StartDate,Phase,OverallStatus', ...(token ? { pageToken: token } : {}),
 })}`;
 
+const INTOGEN = 'https://www.intogen.org/download';
+const GDC = 'https://api.gdc.cancer.gov/';
+const CPIC = 'https://api.cpicpgx.org/v1/';
+const CLINPGX = 'https://api.clinpgx.org/v1/download/file/data/';
+const anyOf = (field, values) => ({ op: 'in', content: { field, value: values } });
+const allOf = (...filters) => JSON.stringify({ op: 'and', content: filters });
+
+export const intogenFile = (name) => `${INTOGEN}?${new URLSearchParams({ file: name })}`;
+
+export const gdcSsmPage = (gene, from = 0) => `${GDC}ssm_occurrences?${new URLSearchParams({
+  filters: allOf(anyOf('ssm.consequence.transcript.gene.symbol', [gene]), anyOf('case.project.program.name', ['TCGA'])),
+  fields: 'case.case_id,case.project.project_id',
+  size: '5000',
+  from: String(from),
+  format: 'json',
+})}`;
+
 export const pharosLevelQuery = (level) => `{ targets(filter: { facets: [{ facet: "Target Development Level", values: ["${level}"] }] }) { count facets(include: ["IDG Family"]) { facet values { name value } } } }`;
 
 export const FILES = {
@@ -118,6 +135,22 @@ export const FILES = {
   aadrDataset: `https://dataverse.harvard.edu/api/datasets/:persistentId/?${new URLSearchParams({ persistentId: 'doi:10.7910/DVN/FFIDCW' })}`,
   dataverseFile: 'https://dataverse.harvard.edu/api/access/datafile/',
   igsrSamples: 'https://www.internationalgenome.org/api/beta/sample/_search',
+  intogenDownload: INTOGEN,
+  gdcStatus: `${GDC}status`,
+  gdcProjects: `${GDC}projects?${new URLSearchParams({ size: '1000', fields: 'project_id,name,program.name,summary.case_count', format: 'json' })}`,
+  gdcSites: `${GDC}cases?${new URLSearchParams({ facets: 'primary_site', size: '0', format: 'json' })}`,
+  gdcTested: `${GDC}cases?${new URLSearchParams({
+    filters: allOf(anyOf('cases.project.program.name', ['TCGA']), anyOf('cases.summary.data_categories.data_category', ['Simple Nucleotide Variation'])),
+    facets: 'project.project_id',
+    size: '0',
+    format: 'json',
+  })}`,
+  cpicPairs: `${CPIC}pair?select=genesymbol,drugid,cpiclevel,clinpgxlevel,pgxtesting,removed`,
+  cpicAlleles: `${CPIC}allele?select=genesymbol,name,clinicalfunctionalstatus,activityvalue,frequency`,
+  cpicResults: `${CPIC}gene_result?select=genesymbol,result,activityscore,ehrpriority,frequency`,
+  fdaPgx: 'https://www.fda.gov/drugs/science-and-research-drugs/table-pharmacogenomic-biomarkers-drug-labeling',
+  clinpgxAnnotations: `${CLINPGX}clinicalAnnotations.zip`,
+  clinpgxLabels: `${CLINPGX}drugLabels.zip`,
   strchiveCommits: `https://api.github.com/repos/dashnowlab/STRchive/commits?${new URLSearchParams({ path: 'data/STRchive-loci.json', per_page: '1' })}`,
   ccre: 'https://downloads.wenglab.org/Registry-V4/GRCh38-cCREs.bed',
   cpgIslands: `${UCSC}/database/cpgIslandExt.txt.gz`,
