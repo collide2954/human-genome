@@ -1,8 +1,16 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  quantile, summary, logEdges, linearEdges, histogram, lorenz, gini, mergeIntervals, coverage, canonicalMotif, topBy, binIndex,
+  quantile, summary, logEdges, linearEdges, histogram, lorenz, gini, mergeIntervals, coverage, canonicalMotif, topBy, binIndex, pearson, linearFit,
 } from '../../src/stats.js';
+
+test('pearson and linearFit describe a straight-line relation', () => {
+  assert.equal(pearson([1, 2, 3, 4], [2, 4, 6, 8]), 1);
+  assert.equal(pearson([1, 2, 3, 4], [8, 6, 4, 2]), -1);
+  assert.ok(Math.abs(pearson([1, 2, 3, 4, 5], [2, 1, 4, 3, 5]) - 0.8) < 1e-12);
+  assert.deepEqual(linearFit([0, 1, 2], [1, 3, 5]), { slope: 2, intercept: 1 });
+  assert.ok(Number.isNaN(pearson([1, 1, 1], [1, 2, 3])));
+});
 
 const close = (a, b, eps = 1e-9) => Math.abs(a - b) <= eps;
 
