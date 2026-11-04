@@ -1,8 +1,24 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  quantile, summary, logEdges, linearEdges, histogram, lorenz, gini, mergeIntervals, coverage, canonicalMotif, topBy, binIndex, pearson, linearFit,
+  quantile, summary, logEdges, linearEdges, histogram, lorenz, gini, mergeIntervals, coverage, canonicalMotif, topBy, binIndex, pearson, linearFit, clusterOrder,
 } from '../../src/stats.js';
+
+test('clusterOrder puts the most similar items next to each other', () => {
+  const m = [
+    [1, 0.1, 0.9, 0.2],
+    [0.1, 1, 0.2, 0.8],
+    [0.9, 0.2, 1, 0.1],
+    [0.2, 0.8, 0.1, 1],
+  ];
+  const order = clusterOrder(m);
+  assert.deepEqual([...order].sort(), [0, 1, 2, 3]);
+  const at = (i) => order.indexOf(i);
+  assert.equal(Math.abs(at(0) - at(2)), 1);
+  assert.equal(Math.abs(at(1) - at(3)), 1);
+  assert.deepEqual(clusterOrder([[1]]), [0]);
+  assert.deepEqual(clusterOrder(m), order);
+});
 
 test('pearson and linearFit describe a straight-line relation', () => {
   assert.equal(pearson([1, 2, 3, 4], [2, 4, 6, 8]), 1);

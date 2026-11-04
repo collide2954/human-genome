@@ -73,8 +73,54 @@ test('uniprotSummary measures disorder once per residue and counts modifications
   });
 });
 
-const HPA_HEAD = ['Gene', 'Ensembl', 'Protein class', 'Evidence', 'RNA tissue specificity', 'RNA tissue specific nTPM', 'RNA single cell type specificity', 'RNA single cell type specific nCPM', 'Secretome location', 'Subcellular main location'].map((h) => `"${h}"`).join('\t');
-const hpa = (o) => [o.gene, 'ENSG1', o.cls ?? '', o.ev ?? 'Evidence at protein level', o.spec, o.ntpm ?? '', o.sc ?? '', o.ncpm ?? '', o.secretome ?? '', o.loc ?? ''].map((v) => `"${v}"`).join('\t');
+const HPA_HEAD = ['Gene', 'Ensembl', 'Protein class', 'Evidence', 'RNA tissue specificity', 'RNA tissue specific nTPM', 'RNA single cell type specificity', 'RNA single cell type specific nCPM', 'RNA blood cell specificity', 'RNA brain regional specificity', 'RNA cell line specificity', 'RNA cancer specificity', 'Secretome location', 'Subcellular main location', 'Blood concentration - Conc. blood IM [pg/L]', 'Blood concentration - Conc. blood MS [pg/L]'].map((h) => (h.includes(' ') ? `"${h}"` : h)).join('\t');
+const hpa = (o) => [o.gene, 'ENSG1', o.cls ?? '', o.ev ?? 'Evidence at protein level', o.spec, o.ntpm ?? '', o.sc ?? '', o.ncpm ?? '', o.blood ?? '', o.brain ?? '', o.line ?? '', o.cancer ?? '', o.secretome ?? '', o.loc ?? '', o.im ?? 'NA', o.ms ?? 'NA'].map((v) => (String(v).includes(' ') ? `"${v}"` : v)).join('\t');
+
+test('hpaSummary sorts each atlas into enriched, group enriched, enhanced, low and not detected', () => {
+  const h = hpaSummary([
+    HPA_HEAD,
+    hpa({ gene: 'A', spec: 'Tissue enriched', sc: 'Cell type enhanced', blood: 'Immune cell enriched', brain: 'Region enriched', line: 'Cell line enhanced', cancer: 'Low cancer specificity' }),
+    hpa({ gene: 'B', spec: 'Group enriched', sc: 'Group enriched', blood: 'Not detected', brain: 'Low region specificity', line: 'Not detected', cancer: 'Cancer enhanced' }),
+    hpa({ gene: 'C', spec: 'Not detected', sc: 'Low cell type specificity', blood: 'Low immune cell specificity', brain: 'Not detected', cancer: 'NA' }),
+  ].join('\n'));
+  assert.deepEqual(h.contexts.tissue, {
+    enriched: 1, group: 1, enhanced: 0, low: 0, none: 1,
+  });
+  assert.deepEqual(h.contexts.singleCell, {
+    enriched: 0, group: 1, enhanced: 1, low: 1, none: 0,
+  });
+  assert.deepEqual(h.contexts.blood, {
+    enriched: 1, group: 0, enhanced: 0, low: 1, none: 1,
+  });
+  assert.deepEqual(h.contexts.brain, {
+    enriched: 1, group: 0, enhanced: 0, low: 1, none: 1,
+  });
+  assert.deepEqual(h.contexts.cellLine, {
+    enriched: 0, group: 0, enhanced: 1, low: 0, none: 1,
+  });
+  assert.deepEqual(h.contexts.cancer, {
+    enriched: 0, group: 0, enhanced: 1, low: 1, none: 0,
+  });
+  assert.equal(h.genes, 3);
+});
+
+test('hpaSummary bins plasma concentrations by decade for immunoassay and mass spectrometry', () => {
+  const h = hpaSummary([
+    HPA_HEAD,
+    hpa({ gene: 'ALB', spec: 'Tissue enriched', im: '40000000000000' }),
+    hpa({ gene: 'IL6', spec: 'Low tissue specificity', im: '100000' }),
+    hpa({ gene: 'APOA1', spec: 'Tissue enriched', ms: '2.5e10' }),
+  ].join('\n'));
+  assert.equal(h.blood.edges[0], 1);
+  assert.equal(h.blood.edges.at(-1), 1e15);
+  assert.equal(h.blood.im.count, 2);
+  assert.equal(h.blood.im.counts[13], 1);
+  assert.equal(h.blood.im.counts[5], 1);
+  assert.equal(h.blood.ms.count, 1);
+  assert.equal(h.blood.ms.counts[10], 1);
+  assert.deepEqual(h.blood.top[0], { gene: 'ALB', im: 4e13, ms: null });
+  assert.deepEqual(h.blood.top.map((t) => t.gene), ['ALB', 'APOA1', 'IL6']);
+});
 
 test('hpaSummary counts specificity categories, enriched tissues and cell types, and locations', () => {
   const h = hpaSummary([
@@ -109,6 +155,23 @@ test('gtexSummary counts expressed and tissue-specific genes per tissue', () => 
   assert.equal(g.correlation[0][0], 1);
 });
 
+test('gtexSummary correlates tissues over genes reaching 1 TPM somewhere and orders similar tissues together', () => {
+  const head = ['#1.2', '6\t4', 'Name\tDescription\tLiver\tTestis\tBrain_Cortex\tBrain_Cerebellum'];
+  const rows = [
+    'ENSG1.1\tALB\t5000\t0.5\t0.1\t0.2',
+    'ENSG2.1\tPRM1\t0\t900\t0\t0',
+    'ENSG3.1\tACTB\t500\t400\t300\t350',
+    'ENSG4.1\tGFAP\t1\t2\t800\t600',
+  ];
+  const a = gtexSummary([...head, ...rows]);
+  const b = gtexSummary([...head, ...rows, 'ENSG5.1\tOFF\t0\t0\t0\t0', 'ENSG6.1\tLOW\t0.2\t0.1\t0\t0.3']);
+  assert.deepEqual(b.correlation, a.correlation);
+  assert.equal(b.genes, 6);
+  assert.equal(b.correlated, 4);
+  const at = (t) => a.order.indexOf(a.tissues.indexOf(t));
+  assert.equal(Math.abs(at('Brain_Cortex') - at('Brain_Cerebellum')), 1);
+});
+
 test('pharosSummary reads target development levels and novelty', () => {
   const p = pharosSummary({
     data: {
@@ -126,4 +189,20 @@ test('pharosSummary reads target development levels and novelty', () => {
   });
   assert.equal(p.count, 10);
   assert.deepEqual(p.novelty, [[-2, 4], [0, 6]]);
+});
+
+test('pharosSummary splits each development level by IDG family, largest family first', () => {
+  const family = (values) => ({ data: { targets: { count: values.reduce((n, v) => n + v.value, 0), facets: [{ facet: 'IDG Family', values }] } } });
+  const p = pharosSummary({ data: { targets: { count: 4, facets: [] } } }, {
+    Tclin: family([{ name: 'GPCR', value: 1 }]),
+    Tdark: family([{ name: 'Other', value: 1 }, { name: 'GPCR', value: 2 }]),
+  });
+  assert.deepEqual(p.families, [
+    {
+      family: 'GPCR', Tclin: 1, Tchem: 0, Tbio: 0, Tdark: 2,
+    },
+    {
+      family: 'Other', Tclin: 0, Tchem: 0, Tbio: 0, Tdark: 1,
+    },
+  ]);
 });
