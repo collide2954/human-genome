@@ -10,7 +10,6 @@ export const SOURCES = {
   ucscHg38: 'https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/',
   ucscGap: 'https://genome.ucsc.edu/cgi-bin/hgTables?db=hg38&hgta_group=map&hgta_track=gap&hgta_doSchema=describe+table+schema',
   nurk2022: 'https://doi.org/10.1126/science.abj6987',
-  iscn: 'https://doi.org/10.1159/isbn.978-3-318-07384-8',
 };
 
 export const SOURCE_TITLES = {
@@ -20,7 +19,6 @@ export const SOURCE_TITLES = {
   ucscHg38: ['Assemblies and sequence', 'UCSC Genome Browser hg38 annotation tables'],
   ucscGap: ['Assemblies and sequence', 'UCSC hg38 gap table schema'],
   nurk2022: ['Assemblies and sequence', 'Nurk et al. 2022, The complete sequence of a human genome, Science 376:44'],
-  iscn: ['Assemblies and sequence', 'ISCN 2024: An International System for Human Cytogenomic Nomenclature'],
 };
 
 export const EXAMPLES = [
