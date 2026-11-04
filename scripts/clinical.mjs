@@ -434,6 +434,43 @@ export const validitySummary = (text) => {
   };
 };
 
+const span = (lo, hi) => (Number.isFinite(lo) && Number.isFinite(hi) ? [lo, hi] : null);
+
+const locationOf = (text) => {
+  const t = String(text ?? '');
+  if (/^5' (UTR|promoter)/i.test(t)) return "5' UTR";
+  if (/^3' UTR/i.test(t)) return "3' UTR";
+  if (/^Coding/i.test(t)) return 'coding exon';
+  if (/^Intron/i.test(t)) return 'intron';
+  if (/lncRNA|^Non-coding/i.test(t)) return 'non-coding';
+  if (/^Exon/i.test(t)) return 'exon';
+  return 'unknown';
+};
+
+export const repeatLoci = (json) => {
+  const loci = (Array.isArray(json) ? json : []).map((l) => ({
+    id: l.id,
+    gene: l.gene,
+    disease: l.disease_id,
+    name: l.disease,
+    evidence: l.evidence?.[0] ?? null,
+    inheritance: (l.inheritance ?? []).join('/'),
+    motif: l.pathogenic_motif_reference_orientation?.[0] ?? l.reference_motif_reference_orientation?.[0] ?? null,
+    motifLength: l.motif_len ?? null,
+    location: locationOf(l.location_in_gene),
+    mechanism: l.mechanism ?? null,
+    year: Number(/\b((?:19|20)\d{2})\b/.exec(l.year ?? '')?.[1]) || null,
+    benign: span(l.benign_min, l.benign_max),
+    intermediate: span(l.intermediate_min, l.intermediate_max),
+    pathogenic: span(l.pathogenic_min, l.pathogenic_max),
+    onset: span(l.typ_age_onset_min, l.typ_age_onset_max),
+    genereviews: l.genereviews?.[0] ?? null,
+  }));
+  const evidence = {};
+  for (const l of loci) if (l.evidence) bump(evidence, l.evidence);
+  return { loci, evidence };
+};
+
 const CHROM_ORDER = [...Array.from({ length: 22 }, (_, i) => String(i + 1)), 'X', 'Y'];
 const score = (v) => (/^\d+$/.test(v ?? '') ? Number(v) : null);
 
