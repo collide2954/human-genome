@@ -13,11 +13,11 @@ const twoBitOf = (seqs) => {
   const records = names.map((name) => {
     const dna = seqs[name];
     const upper = dna.toUpperCase();
-    const runs = (test) => {
+    const runs = (hit) => {
       const out = [];
       for (let i = 0; i < dna.length; i += 1) {
-        if (test(i) && (i === 0 || !test(i - 1))) out.push([i, 0]);
-        if (test(i)) out.at(-1)[1] += 1;
+        if (hit(i) && (i === 0 || !hit(i - 1))) out.push([i, 0]);
+        if (hit(i)) out.at(-1)[1] += 1;
       }
       return out;
     };
