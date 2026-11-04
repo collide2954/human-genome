@@ -263,7 +263,32 @@ const plasma = (snap) => {
   return `Plasma levels in HPA run from ${perLitre(plasmaLevel(top))} for ${top.gene} to ${perLitre(plasmaLevel(blood.lowest, Math.min))} for ${blood.lowest.gene}, across ${exact(blood.proteins)} proteins`;
 };
 
+const interactions = (snap) => {
+  const { version, edges, proteins, hubs } = snap.networks;
+  return `STRING ${version} links ${exact(proteins.high)} human proteins by ${exact(edges.high)} interactions scored 0.7 or more; ${hubs[0].name} has the most partners, ${exact(hubs[0].degree)}`;
+};
+
+const pathways = (snap) => {
+  const R = snap.pathways;
+  const [top] = R.topLevel;
+  return `Reactome ${R.release} places ${exact(R.proteins)} human proteins in ${exact(R.pathways)} pathways; ${top.name}, the largest of ${R.topLevel.length} top-level pathways, holds ${exact(top.proteins)}`;
+};
+
+export const goTotals = (snap) => {
+  const groups = Object.values(snap.ontology.byAspect);
+  const total = groups.reduce((n, g) => n + Object.values(g).reduce((a, b) => a + b, 0), 0);
+  return { total, electronic: groups.reduce((n, g) => n + g.electronic, 0) };
+};
+
+const ontology = (snap) => {
+  const { total, electronic } = goTotals(snap);
+  return `${exact(snap.ontology.proteins)} human proteins carry ${exact(total)} GO annotations; ${pct(electronic / total)} are electronic inferences (IEA)`;
+};
+
 export const findings = (snap) => ({
+  interactions: interactions(snap),
+  pathways: pathways(snap),
+  ontology: ontology(snap),
   proteome: proteome(snap),
   structures: structures(snap),
   membrane: membrane(snap),
