@@ -586,6 +586,14 @@ test('figure tables and CSV files are built only when asked for', async () => {
   await page.close();
 });
 
+test('figure tables keep the decimals of their numbers', async () => {
+  const { page } = await open();
+  const fig = page.locator('#loeuf-chart').locator('xpath=ancestor::figure');
+  await fig.locator('details.data summary').click();
+  assert.deepEqual((await fig.locator('details.data tbody tr').first().locator('td').allTextContents()).slice(0, 2), ['0', '0.05']);
+  await page.close();
+});
+
 test('switching the theme keeps the drawn charts', async () => {
   const { page } = await open();
   await page.evaluate(() => { document.querySelector('#ideogram-chart svg').dataset.mark = 'kept'; });
