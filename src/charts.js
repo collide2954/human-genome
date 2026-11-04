@@ -401,8 +401,41 @@ export const hbars = ({
   return segments.length > 1 ? mountSvg(mount, svg, legendOf(segments)) : mountSvg(mount, svg);
 };
 
+export const genomeMap = ({
+  mount, length, span = length, lanes, kinds, aria, describe,
+}) => {
+  const W = widthOf(mount);
+  const L = 46;
+  const R = 10;
+  const T = 4;
+  const laneH = 28;
+  const B = 22;
+  const H = T + lanes.length * laneH + B;
+  const x = scaleLinear([0, span], [L, W - R]);
+  const ticks = niceTicks(length, 6).filter((t) => t <= length);
+  const flat = [];
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
+    ticks.map((t) => el('g', {},
+      el('line', { class: 'grid', x1: x(t), x2: x(t), y1: T, y2: H - B + 4 }),
+      el('text', { class: 'tick', x: x(t), y: H - 6, 'text-anchor': 'middle' }, exact(t)))),
+    lanes.map((lane, i) => el('g', { transform: `translate(0 ${T + i * laneH})` },
+      el('text', { class: 'lab', x: L - 12, y: laneH / 2 + 4, 'text-anchor': 'end' }, lane.label),
+      el('line', { class: 'base', x1: L, x2: x(length), y1: laneH / 2, y2: laneH / 2 }),
+      lane.features.map((f) => {
+        const k = flat.push(f) - 1;
+        return el('rect', {
+          class: 'feat', 'data-feature': f.key, 'data-k': k, 'data-rank': k, x: x(f.start - 1), y: 4, width: Math.max(1.2, x(f.end) - x(f.start - 1)), height: laneH - 8, style: `fill:${kinds.find((kd) => kd.key === f.kind).color}`,
+        });
+      }),
+      lane.features.filter((f) => f.label && x(f.end) - x(f.start - 1) >= String(f.label).length * 6.4 + 6).map((f) => el('text', {
+        class: 'feat-lab', x: (x(f.start - 1) + x(f.end)) / 2, y: laneH / 2 + 4, 'text-anchor': 'middle',
+      }, f.label)))));
+  hover(svg, (k) => describe(flat[Number(k)]));
+  return mountSvg(mount, svg, legendOf(kinds));
+};
+
 export const ideogram = ({
-  mount, chromosomes, bands, aria, describe,
+  mount, chromosomes, bands, aria, describe, marks = [],
 }) => {
   const W = widthOf(mount);
   const L = 26;
@@ -435,7 +468,10 @@ export const ideogram = ({
           style: `--i:${i}`,
         });
       }),
-      el('rect', { class: 'body', x: L, y: 0, width: x(c.length) - L, height: bh, rx: 3 }))));
+      el('rect', { class: 'body', x: L, y: 0, width: x(c.length) - L, height: bh, rx: 3 }),
+      marks.filter((m) => m.chrom === c.chrom).map((m) => el('rect', {
+        class: 'mark', 'data-mark': `${m.label}:${c.chrom}`, x: x(m.start), y: -2, width: Math.max(2, x(m.end) - x(m.start)), height: bh + 4, rx: 2,
+      })))));
   hover(svg, (k) => describe(flat[Number(k)]));
   return mountSvg(mount, svg);
 };
@@ -818,7 +854,7 @@ export const lines = ({
 };
 
 export const dumbbell = ({
-  mount, rows, years, describe, aria, format = compact, tickFormat = compact,
+  mount, rows, years, describe, aria, format = compact, tickFormat = compact, valueText = (r) => format(r.b),
 }) => {
   const W = widthOf(mount);
   const R = 60;
@@ -844,7 +880,7 @@ export const dumbbell = ({
         el('line', { class: 'stem', x1: x(r.a), x2: x(r.b), y1: y, y2: y, style: `--i:${i}` }),
         el('circle', { class: 'dot then', cx: x(r.a), cy: y, r: 4, style: `--i:${i}` }),
         el('circle', { class: 'dot hi', cx: x(r.b), cy: y, r: 4.5, style: `--i:${i}` }),
-        el('text', { class: 'val', x: Math.max(x(r.a), x(r.b)) + 9, y: y + 4 }, format(r.b)));
+        el('text', { class: 'val', x: Math.max(x(r.a), x(r.b)) + 9, y: y + 4 }, valueText(r)));
     })));
   hover(svg, (k) => describe(rows[Number(k)]));
   const legend = html('ul', { class: 'legend' },

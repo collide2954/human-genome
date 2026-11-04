@@ -565,6 +565,20 @@ h2,
   font-size: 9.5px;
 }
 
+.chart .feat-lab {
+  fill: #fff;
+  font-size: 10.5px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.chart .mark {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  pointer-events: none;
+}
+
 .chart .stacked .lab {
   paint-order: stroke;
   stroke: var(--paper);
