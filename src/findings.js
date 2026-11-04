@@ -1,5 +1,5 @@
 import {
-  exact, pct, codonOf, perLitre, GENETIC_CODE, AA3,
+  exact, pct, codonOf, perLitre, GENETIC_CODE, AA3, bases,
 } from './lib.js';
 import { reverseComplement } from './stats.js';
 
@@ -321,7 +321,30 @@ const encode = (snap) => {
   return `ENCODE has released ${exact(total)} human experiments; ${assays[0].name} is the most common assay, with ${exact(assays[0].n)}`;
 };
 
+const mito = (snap) => {
+  const { genes, variants } = snap.structure.mito;
+  const kinds = (k) => genes.filter((g) => g.kind === k).length;
+  const length = snap.sequence.chromosomes.find((c) => c.chrom === 'MT').length;
+  return `The mitochondrial genome’s ${exact(length)} bp hold ${genes.length} genes, ${kinds('protein')} for proteins, ${kinds('tRNA')} tRNAs and ${kinds('rRNA')} rRNAs; gnomAD finds variants at ${exact(variants.positions)} positions`;
+};
+
+const censat = (snap) => {
+  const { total, classes, arrays } = snap.structure.censat;
+  const top = arrays.hor.reduce((a, b) => (b.bp > a.bp ? b : a));
+  return `T2T-CHM13 maps ${bases(total)} of satellite arrays; active α-satellite HORs make up ${bases(classes.hor)}, the most on chromosome ${top.chrom} (${bases(top.bp)})`;
+};
+
+const sexchrom = (snap) => {
+  const by = snap.genes.genes.byChrom;
+  const y = snap.assembly.t2t.chromosomes.find((c) => c.chrom === 'Y').length;
+  const sat = Object.values(snap.structure.censat.byChrom.Y ?? {}).reduce((a, b) => a + b, 0);
+  return `Chromosome X carries ${exact(by.X.protein_coding)} protein-coding genes and Y ${exact(by.Y.protein_coding)}; in T2T-CHM13 satellite arrays make up ${pct(sat / y)} of Y`;
+};
+
 export const findings = (snap) => ({
+  mito: mito(snap),
+  censat: censat(snap),
+  sexchrom: sexchrom(snap),
   ccres: ccres(snap),
   cpgislands: cpgislands(snap),
   trna: trna(snap),
