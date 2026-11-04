@@ -1,5 +1,5 @@
 import {
-  logEdges, histogram, summary, coverage, linearEdges,
+  logEdges, histogram, summary, coverage, linearEdges, clusterOrder,
 } from '../src/stats.js';
 
 const own = (s) => (typeof s === 'string' ? Buffer.from(s, 'utf8').toString('utf8') : s);
@@ -119,6 +119,30 @@ export const uniprotSummary = () => {
 const unquote = (s) => s.replace(/^"|"$/g, '');
 const listOf = (s) => (s ? s.split(/,\s*/).map((x) => x.trim()).filter(Boolean) : []);
 
+const CONTEXTS = {
+  tissue: 'RNA tissue specificity',
+  singleCell: 'RNA single cell type specificity',
+  blood: 'RNA blood cell specificity',
+  brain: 'RNA brain regional specificity',
+  cellLine: 'RNA cell line specificity',
+  cancer: 'RNA cancer specificity',
+};
+
+const kindOf = (label) => {
+  if (/^group enriched$/i.test(label)) return 'group';
+  if (/enriched$/i.test(label)) return 'enriched';
+  if (/enhanced$/i.test(label)) return 'enhanced';
+  if (/^low .*specificity$/i.test(label)) return 'low';
+  if (/^not detected$/i.test(label)) return 'none';
+  return null;
+};
+
+const CONCENTRATION_EDGES = logEdges(0, 15, 1);
+const concentration = (v) => {
+  const n = Number(v);
+  return v && Number.isFinite(n) && n > 0 ? n : null;
+};
+
 export const hpaSummary = (text) => {
   const lines = text.split('\n').filter((l) => l.length);
   const head = lines[0].split('\t').map(unquote);
@@ -129,8 +153,19 @@ export const hpaSummary = (text) => {
   const secretome = new Map();
   const locations = new Map();
   const classes = new Map();
+  const contexts = Object.fromEntries(Object.keys(CONTEXTS).map((k) => [k, {
+    enriched: 0, group: 0, enhanced: 0, low: 0, none: 0,
+  }]));
+  const plasma = [];
   for (const line of lines.slice(1)) {
     const c = line.replace(/\r$/, '').split('\t').map(unquote);
+    for (const [key, name] of Object.entries(CONTEXTS)) {
+      const kind = kindOf(c[col[name]] ?? '');
+      if (kind) contexts[key][kind] += 1;
+    }
+    const im = concentration(c[col['Blood concentration - Conc. blood IM [pg/L]']]);
+    const ms = concentration(c[col['Blood concentration - Conc. blood MS [pg/L]']]);
+    if (im || ms) plasma.push({ gene: c[col.Gene], im, ms });
     const spec = c[col['RNA tissue specificity']];
     if (spec) bump(specificity, spec);
     if (spec === 'Tissue enriched') for (const t of (c[col['RNA tissue specific nTPM']] ?? '').split(';')) if (t.includes(':')) bump(enriched, t.split(':')[0].trim());
@@ -141,7 +176,16 @@ export const hpaSummary = (text) => {
     listOf(c[col['Subcellular main location']]).forEach((l) => bump(locations, l));
     listOf(c[col['Protein class']]).forEach((l) => bump(classes, l));
   }
+  const levels = (key) => plasma.map((p) => p[key]).filter(Boolean);
   return {
+    genes: lines.length - 1,
+    contexts,
+    blood: {
+      edges: CONCENTRATION_EDGES,
+      im: { count: levels('im').length, counts: histogram(levels('im'), CONCENTRATION_EDGES) },
+      ms: { count: levels('ms').length, counts: histogram(levels('ms'), CONCENTRATION_EDGES) },
+      top: plasma.sort((a, b) => Math.max(b.im ?? 0, b.ms ?? 0) - Math.max(a.im ?? 0, a.ms ?? 0)).slice(0, 15),
+    },
     specificity: Object.fromEntries(specificity),
     enriched: ranked(enriched, 'tissue'),
     cellTypes: ranked(cells, 'cell').slice(0, 25),
@@ -153,6 +197,7 @@ export const hpaSummary = (text) => {
 
 export const gtexSummary = (lines) => {
   let tissues = null;
+  let genes = 0;
   let n = 0;
   let sums;
   let products;
@@ -171,8 +216,7 @@ export const gtexSummary = (lines) => {
       continue;
     }
     const tpm = c.slice(2).map(Number);
-    const logs = tpm.map((v) => Math.log10(v + 1));
-    n += 1;
+    genes += 1;
     let top = -1;
     let second = -1;
     let at = -1;
@@ -183,31 +227,45 @@ export const gtexSummary = (lines) => {
         top = tpm[i];
         at = i;
       } else if (tpm[i] > second) second = tpm[i];
+    }
+    if (top < 1) continue;
+    if (top >= 5 * Math.max(second, 0)) specific[at] += 1;
+    n += 1;
+    const logs = tpm.map((v) => Math.log10(v + 1));
+    for (let i = 0; i < tpm.length; i += 1) {
       sums[i] += logs[i];
       for (let j = i; j < tpm.length; j += 1) products[i * tpm.length + j] += logs[i] * logs[j];
     }
-    if (top >= 1 && top >= 5 * Math.max(second, 0)) specific[at] += 1;
   }
   const k = tissues.length;
   const mean = Array.from(sums, (s) => s / n);
   const cov = (i, j) => products[Math.min(i, j) * k + Math.max(i, j)] - n * mean[i] * mean[j];
   const correlation = tissues.map((_, i) => tissues.map((__, j) => Number((cov(i, j) / Math.sqrt(cov(i, i) * cov(j, j))).toFixed(3))));
   return {
-    tissues, genes: n, expressed, specific, correlation,
+    tissues, genes, correlated: n, expressed, specific, correlation, order: clusterOrder(correlation),
   };
 };
 
-export const pharosSummary = (json) => {
-  const { count, facets } = json.data.targets;
-  const facet = (name) => facets.find((f) => f.facet === name)?.values ?? [];
-  const levels = Object.fromEntries(facet('Target Development Level').map((v) => [v.name, v.value]));
-  const pairs = (name) => facet(name).map((v) => [Number(v.name), v.value]).sort((a, b) => a[0] - b[0]);
+const LEVELS = ['Tclin', 'Tchem', 'Tbio', 'Tdark'];
+const facetOf = (json, name) => json?.data.targets.facets.find((f) => f.facet === name)?.values ?? [];
+
+export const pharosSummary = (json, byLevel = {}) => {
+  const { count } = json.data.targets;
+  const levels = Object.fromEntries(facetOf(json, 'Target Development Level').map((v) => [v.name, v.value]));
+  const pairs = (name) => facetOf(json, name).map((v) => [Number(v.name), v.value]).sort((a, b) => a[0] - b[0]);
+  const families = new Map();
+  for (const level of LEVELS) {
+    for (const v of facetOf(byLevel[level], 'IDG Family')) {
+      if (!families.has(v.name)) families.set(v.name, { family: v.name, ...Object.fromEntries(LEVELS.map((l) => [l, 0])) });
+      families.get(v.name)[level] = v.value;
+    }
+  }
+  const total = (f) => LEVELS.reduce((s, l) => s + f[l], 0);
   return {
     count,
-    levels: {
-      Tclin: levels.Tclin ?? 0, Tchem: levels.Tchem ?? 0, Tbio: levels.Tbio ?? 0, Tdark: levels.Tdark ?? 0,
-    },
+    levels: Object.fromEntries(LEVELS.map((l) => [l, levels[l] ?? 0])),
     novelty: pairs('Log Novelty'),
     pubmed: pairs('Log PubMed Score'),
+    families: [...families.values()].sort((a, b) => total(b) - total(a) || a.family.localeCompare(b.family)),
   };
 };

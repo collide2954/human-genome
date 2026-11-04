@@ -119,3 +119,32 @@ export const linearFit = (xs, ys) => {
   const slope = m.sxy / m.sxx;
   return { slope: tidy(slope), intercept: tidy(m.my - slope * m.mx) };
 };
+
+export const clusterOrder = (matrix) => {
+  const similarity = (a, b) => {
+    let s = 0;
+    for (const i of a) for (const j of b) s += matrix[i][j];
+    return s / (a.length * b.length);
+  };
+  const join = (a, b) => {
+    const ra = [...a].reverse();
+    const rb = [...b].reverse();
+    const options = [[a, b], [a, rb], [ra, b], [ra, rb]];
+    const [x, y] = options.reduce((best, o) => (matrix[o[0].at(-1)][o[1][0]] > matrix[best[0].at(-1)][best[1][0]] ? o : best));
+    return [...x, ...y];
+  };
+  let clusters = matrix.map((_, i) => [i]);
+  while (clusters.length > 1) {
+    let best = { i: 0, j: 1, s: -Infinity };
+    for (let i = 0; i < clusters.length; i += 1) {
+      for (let j = i + 1; j < clusters.length; j += 1) {
+        const s = similarity(clusters[i], clusters[j]);
+        if (s > best.s) best = { i, j, s };
+      }
+    }
+    const merged = join(clusters[best.i], clusters[best.j]);
+    clusters = clusters.filter((_, k) => k !== best.i && k !== best.j);
+    clusters.splice(best.i, 0, merged);
+  }
+  return clusters[0] ?? [];
+};

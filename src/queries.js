@@ -4,6 +4,14 @@ const NCBI_GENOMES = 'https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF';
 const GRCH38 = `${NCBI_GENOMES}/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14`;
 const T2T = `${NCBI_GENOMES}/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/GCF_009914755.1_T2T-CHM13v2.0`;
 const UCSC = 'https://hgdownload.soe.ucsc.edu/goldenPath/hg38';
+const UNIPROT_FIELDS = ['accession', 'gene_primary', 'length', 'protein_existence', 'xref_pdb', 'ft_transmem', 'ft_signal', 'cc_subcellular_location', 'xref_pfam', 'ft_region', 'ft_mod_res', 'ft_carbohyd', 'ft_crosslnk'];
+const UNIPROT_QUERY = new URLSearchParams({
+  query: 'organism_id:9606 AND reviewed:true', fields: UNIPROT_FIELDS.join(','), format: 'tsv', compressed: 'true',
+});
+
+export const PHAROS_QUERY = '{ targets { count facets { facet values { name value } } } }';
+
+export const pharosLevelQuery = (level) => `{ targets(filter: { facets: [{ facet: "Target Development Level", values: ["${level}"] }] }) { count facets(include: ["IDG Family"]) { facet values { name value } } } }`;
 
 export const FILES = {
   grch38Report: `${GRCH38}_assembly_report.txt`,
@@ -21,4 +29,10 @@ export const FILES = {
   gencodeDir: 'https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/latest_release/',
   hgnc: 'https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt',
   geneInfo: 'https://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/Mammalia/Homo_sapiens.gene_info.gz',
+  uniprot: `https://rest.uniprot.org/uniprotkb/stream?${UNIPROT_QUERY}`,
+  interproPfam: 'https://www.ebi.ac.uk/interpro/api/entry/pfam/',
+  hpa: 'https://www.proteinatlas.org/download/proteinatlas.tsv.zip',
+  gtexMedian: 'https://storage.googleapis.com/adult-gtex/bulk-gex/v10/rna-seq/GTEx_Analysis_v10_RNASeQCv2.4.2_gene_median_tpm.gct.gz',
+  gtexTissues: 'https://gtexportal.org/api/v2/dataset/tissueSiteDetail',
+  pharos: 'https://pharos-api.ncats.io/graphql',
 };
