@@ -2,8 +2,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readTwoBit } from '../../scripts/twobit.mjs';
 import {
-  encode, decodeText, composition, homopolymers, g4Motifs,
+  encode, decodeText, composition, homopolymers, g4Motifs, sequenceSection,
 } from '../../scripts/sequence.mjs';
+import { latestFile } from '../../scripts/parsers.mjs';
 
 const PACK = { T: 0, C: 1, A: 2, G: 3, N: 0 };
 
@@ -88,6 +89,38 @@ test('homopolymers finds the longest run of each base outside N', () => {
   assert.deepEqual(h.T, { length: 5, start: 8 });
   assert.deepEqual(h.G, { length: 3, start: 5 });
   assert.deepEqual(h.C, { length: 1, start: 4 });
+});
+
+test('sequenceSection summarizes each chromosome, the genome and the MANE transcripts', () => {
+  const chr1 = `GCCACCATGGCCGTAAGT${'T'.repeat(22)}AGGATTGAACGTACGTA`;
+  const file = readTwoBit(twoBitOf({ chr1, chrM: 'GATCACAGGT', chr1_alt: 'AAAA' }));
+  const tx = {
+    id: 'T1', gene: 'G1', chrom: '1', strand: '+', tag: 'MANE_Select', exons: [[1, 12], [43, 57]], cds: [[7, 12], [43, 45]], start: [[7, 9]], stop: [[46, 48]],
+  };
+  const out = sequenceSection(file, [tx], { binSize: 20, chroms: ['1', 'MT'] });
+  assert.deepEqual(out.chromosomes.map((c) => c.chrom), ['1', 'MT']);
+  const c1 = out.chromosomes[0];
+  assert.equal(c1.length, 57);
+  assert.equal(c1.A + c1.C + c1.G + c1.T + c1.N, 57);
+  assert.equal(out.bins['1'].length, 3);
+  assert.equal(out.dinucs.reduce((a, b) => a + b, 0), 56);
+  assert.equal(out.homopolymers.T.chrom, '1');
+  assert.equal(out.homopolymers.T.length, 23);
+  assert.equal(out.homopolymers.T.start, 19);
+  assert.equal(out.mane.transcripts, 1);
+  assert.equal(out.mane.introns, 1);
+  assert.deepEqual(out.mane.classes, { 'GT-AG': 1, 'GC-AG': 0, 'AT-AC': 0, other: 0 });
+  assert.deepEqual(out.mane.donor[3], [0, 0, 1, 0]);
+  assert.equal(out.mane.kozak.length, 10);
+  assert.deepEqual(out.mane.stops, { TAA: 0, TAG: 0, TGA: 1 });
+  assert.equal(out.mane.coding, 1);
+});
+
+test('latestFile picks the newest versioned file name from a directory listing', () => {
+  const listing = '<a href="gencode.v49.annotation.gtf.gz">x</a> <a href="gencode.v50.annotation.gtf.gz">y</a> <a href="gencode.v50.basic.annotation.gtf.gz">z</a>';
+  assert.deepEqual(latestFile(listing, /gencode\.v(\d+)\.annotation\.gtf\.gz/), { file: 'gencode.v50.annotation.gtf.gz', version: '50' });
+  assert.deepEqual(latestFile('<a href="MANE.GRCh38.v1.5.summary.txt.gz">', /MANE\.GRCh38\.v([\d.]+)\.summary\.txt\.gz/), { file: 'MANE.GRCh38.v1.5.summary.txt.gz', version: '1.5' });
+  assert.equal(latestFile('nothing here', /x(\d+)/), null);
 });
 
 test('g4Motifs counts G3+N1-7 quadruplex motifs on each strand without overlap', () => {
