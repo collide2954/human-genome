@@ -291,8 +291,58 @@
     </figure>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-transcripts" data-chapter="transcripts">
     <p class="chapter-no">Part 4</p>
+    <h2 class="chapter-title">Transcripts</h2>
+    <p class="chapter-dek">What the sequence says at splice sites, start and stop codons, and which codons the coding sequences use, read from every MANE Select transcript.</p>
+  </div>
+
+  <section class="story wrap" id="splicing" data-lens="genes" data-nav="Splice sites">
+    <header class="head"><p class="label">Splice sites</p><h2 data-finding="splicing">Splice sites</h2><p class="dek" id="splicing-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="donor-chart"></div>
+        <figcaption>Sequence logo of the 5′ splice site: the last three exonic bases and the first six intronic bases of every MANE Select intron, letter height in bits of information. The dashed line is the exon-intron boundary. Read from the hg38 2bit sequence at MANE GTF coordinates.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="acceptor-chart"></div>
+        <figcaption>Sequence logo of the 3′ splice site: the last 20 intronic bases, with the polypyrimidine tract, and the first three exonic bases. Read from the hg38 2bit sequence at MANE GTF coordinates.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig narrow">
+      <div class="chart" id="intron-class-chart"></div>
+      <figcaption>MANE Select introns by their first two and last two bases, log scale. Source: hg38 2bit sequence at MANE GTF coordinates.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="translation" data-lens="genes" data-nav="Start and stop">
+    <header class="head"><p class="label">Start and stop</p><h2 data-finding="translation">Start and stop</h2><p class="dek" id="translation-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="kozak-chart"></div>
+        <figcaption>Sequence logo around the start codon of MANE Select coding sequences, six bases before the A of ATG to one base after the G, read along the spliced transcript. Source: hg38 2bit sequence at MANE GTF coordinates.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="stop-chart"></div>
+        <figcaption>Stop codons that end MANE Select coding sequences. Each square is 1%. Source: hg38 2bit sequence at MANE GTF coordinates.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="codons" data-lens="genes" data-nav="Codons">
+    <header class="head"><p class="label">Codon usage</p><h2 data-finding="codons">Codon usage</h2><p class="dek" id="codons-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="codon-chart"></div>
+      <figcaption>Codons per thousand across all MANE Select coding sequences, set out as the standard genetic code: first base down the side, second across the top, third within each block. Darker blue is more used; stop codons in red. Source: hg38 2bit sequence at MANE GTF coordinates.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="amino-chart"></div>
+      <figcaption>Amino acids encoded by MANE Select coding sequences, percent of all residues. Source: as above.</figcaption>
+    </figure>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 5</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>
