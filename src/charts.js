@@ -786,6 +786,50 @@ export const ranges = ({
   return mountSvg(mount, svg, legendOf(kinds));
 };
 
+export const intervals = ({
+  mount, rows, domain, ticks, kinds = [], aria, describe, format = (v) => `${v}%`, valueText, rowH = 24, labelShare = 0.34, labelMax = 280,
+}) => {
+  const W = widthOf(mount);
+  const R = 92;
+  const T = 22;
+  const lay = rowLayout(rows, Math.min(labelMax, Math.max(96, W * labelShare)), rowH);
+  const { L } = lay;
+  const H = T + rows.length * lay.rowH + 6;
+  const x = scaleLinear(domain, [L, W - R]);
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
+    ticks.map((t) => el('g', {},
+      el('line', {
+        class: 'grid', x1: x(t), x2: x(t), y1: T - 6, y2: H,
+      }),
+      el('text', {
+        class: 'tick', x: x(t), y: 10, 'text-anchor': 'middle',
+      }, format(t)))),
+    el('g', { class: lay.cls }, rows.map((r, i) => {
+      const mid = T + i * lay.rowH + lay.rowH / 2;
+      const y = mid + lay.markY;
+      const color = kinds.find((k) => k.key === r.kind)?.color ?? 'var(--ink)';
+      const ranged = r.lo !== null && r.hi !== null;
+      const end = Math.max(...[r.value, r.hi].filter((v) => v !== null).map(x));
+      return el('g', { 'data-row': r.key, 'data-k': i, 'data-rank': i },
+        el('rect', {
+          class: 'row-hit', x: 0, y: mid - lay.rowH / 2, width: W, height: lay.rowH,
+        }),
+        el('text', { class: 'lab', x: 0, y: mid + lay.labelY }, r.label),
+        ranged ? el('line', {
+          class: `ci${r.value === null ? ' span' : ''}`, x1: x(r.lo), x2: x(r.hi), y1: y, y2: y, style: `stroke:${color}`,
+        }) : null,
+        ranged && r.value !== null ? [r.lo, r.hi].map((v) => el('line', {
+          class: 'ci-cap', x1: x(v), x2: x(v), y1: y - 4, y2: y + 4, style: `stroke:${color}`,
+        })) : null,
+        r.value !== null ? el('circle', {
+          class: 'dot', cx: x(r.value), cy: y, r: 4.5, style: `fill:${color}`,
+        }) : null,
+        el('text', { class: 'val', x: end + 8, y: y + 4 }, valueText(r)));
+    })));
+  hover(svg, (k) => describe(rows[Number(k)]));
+  return kinds.length > 1 ? mountSvg(mount, svg, legendOf(kinds)) : mountSvg(mount, svg);
+};
+
 const logAxis = (values, lo, hi) => {
   const positive = values.filter((v) => v > 0);
   const least = positive.length ? Math.min(...positive) : 1;
