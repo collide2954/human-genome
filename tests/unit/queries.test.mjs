@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS,
+  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS, TRIAL_MODALITIES, trialPage,
 } from '../../src/queries.js';
 
 test('network, pathway and ontology files point at STRING, Reactome and the GO release', () => {
@@ -24,7 +24,7 @@ test('every data file is an https URL on a known host', () => {
     'ftp.clinicalgenome.org', 'github.com', 'www.proteinatlas.org', 'downloads.wenglab.org', 'rest.uniprot.org', 'api.cpicpgx.org',
     'eutils.ncbi.nlm.nih.gov', 'api.ncbi.nlm.nih.gov', 'rest.ensembl.org', 'www.ebi.ac.uk', 'gtexportal.org', 'pharos-api.ncats.io',
     'string-db.org', 'reactome.org', 'current.geneontology.org', 'gtrnadb.ucsc.edu', 'www.encodeproject.org', 's3-us-west-2.amazonaws.com',
-    'raw.githubusercontent.com', 'api.github.com',
+    'raw.githubusercontent.com', 'api.github.com', 'www.orphadata.com', 'www.fda.gov', 'clinicaltrials.gov',
   ]);
   for (const [key, url] of Object.entries(FILES)) {
     const u = new URL(url);
@@ -126,6 +126,32 @@ test('repeat loci come from STRchive on GitHub with the date of its last change'
   assert.equal(`${c.origin}${c.pathname}`, 'https://api.github.com/repos/dashnowlab/STRchive/commits');
   assert.equal(c.searchParams.get('path'), 'data/STRchive-loci.json');
   assert.equal(c.searchParams.get('per_page'), '1');
+});
+
+test('rare disease files point at HPO releases, Orphadata, GTR and FDA', () => {
+  const hpo = 'https://github.com/obophenotype/human-phenotype-ontology/releases/latest/download/';
+  assert.equal(FILES.hpoAnnotations, `${hpo}phenotype.hpoa`);
+  assert.equal(FILES.hpoOntology, `${hpo}hp.obo`);
+  assert.equal(FILES.hpoGenes, `${hpo}genes_to_disease.txt`);
+  assert.equal(FILES.orphaGenes, 'https://www.orphadata.com/data/xml/en_product6.xml');
+  assert.equal(FILES.orphaPrevalence, 'https://www.orphadata.com/data/xml/en_product9_prev.xml');
+  assert.equal(FILES.orphaAges, 'https://www.orphadata.com/data/xml/en_product9_ages.xml');
+  assert.equal(FILES.gtrTests, 'https://ftp.ncbi.nlm.nih.gov/pub/GTR/data/test_version.gz');
+  assert.equal(FILES.fdaCgt, 'https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/approved-cellular-and-gene-therapy-products');
+  assert.equal(FILES.trials, 'https://clinicaltrials.gov/api/v2/studies');
+});
+
+test('trial modalities name their ClinicalTrials.gov intervention searches and pages ask for interventional studies', () => {
+  assert.deepEqual(TRIAL_MODALITIES.map((m) => m.key), ['aav', 'lentiviral', 'retroviral', 'cart', 'editing', 'antisense', 'sirna']);
+  for (const m of TRIAL_MODALITIES) assert.ok(m.label && m.query, m.key);
+  const first = new URL(trialPage('adeno-associated OR AAV'));
+  assert.equal(`${first.origin}${first.pathname}`, FILES.trials);
+  assert.equal(first.searchParams.get('query.intr'), 'adeno-associated OR AAV');
+  assert.equal(first.searchParams.get('filter.advanced'), 'AREA[StudyType]INTERVENTIONAL');
+  assert.equal(first.searchParams.get('pageSize'), '1000');
+  assert.equal(first.searchParams.get('fields'), 'NCTId,StartDate,Phase,OverallStatus');
+  assert.equal(first.searchParams.has('pageToken'), false);
+  assert.equal(new URL(trialPage('x', 'abc')).searchParams.get('pageToken'), 'abc');
 });
 
 test('lollipop proteins name their UniProt accessions', () => {
