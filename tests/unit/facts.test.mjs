@@ -24,6 +24,13 @@ test('protein, target and expression sources are cited in their groups', () => {
   for (const key of [...proteins, ...expression]) assert.ok(SOURCES[key], key);
 });
 
+test('network, pathway and ontology sources are cited', () => {
+  for (const key of ['string', 'szklarczyk2023', 'reactome', 'milacic2024', 'geneOntology', 'go2023', 'ashburner2000']) {
+    assert.equal(SOURCE_TITLES[key]?.[0], 'Genes and proteins', key);
+    assert.ok(SOURCES[key], key);
+  }
+});
+
 test('every decoder example is recognised, unique and described', () => {
   assert.ok(EXAMPLES.length >= 18);
   assert.equal(new Set(EXAMPLES.map((e) => e.id)).size, EXAMPLES.length);
