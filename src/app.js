@@ -2720,7 +2720,14 @@ const drawCharts = () => {
   const step = () => {
     if (run !== drawRun) return;
     const until = performance.now() + 32;
-    while (queue.length && performance.now() < until) queue.shift()();
+    while (queue.length && performance.now() < until) {
+      const render = queue.shift();
+      try {
+        render();
+      } catch (error) {
+        reportError(error);
+      }
+    }
     if (queue.length) {
       setTimeout(step, 0);
       return;
