@@ -1,5 +1,5 @@
 export default {
-  "generated": "2026-11-04T08:55:16.367Z",
+  "generated": "2026-11-04T09:16:26.075Z",
   "asOf": {
     "assembly": "2026-11-04T05:28:42.686Z",
     "sequence": "2026-11-04T06:07:32.158Z",
@@ -14,7 +14,8 @@ export default {
     "ontology": "2026-11-04T08:26:41.861Z",
     "regulation": "2026-11-04T08:55:16.367Z",
     "trnas": "2026-11-04T08:53:16.210Z",
-    "encode": "2026-11-04T08:53:16.210Z"
+    "encode": "2026-11-04T08:53:16.210Z",
+    "structure": "2026-11-04T09:16:26.075Z"
   },
   "failed": [],
   "assembly": {
@@ -28645,6 +28646,1603 @@ export default {
       {
         "name": "tag",
         "n": 9
+      }
+    ]
+  },
+  "structure": {
+    "mito": {
+      "genes": [
+        {
+          "name": "TRNF",
+          "start": 577,
+          "end": 647,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Phe"
+        },
+        {
+          "name": "RNR1",
+          "start": 648,
+          "end": 1601,
+          "strand": "+",
+          "kind": "rRNA",
+          "product": "s-rRNA"
+        },
+        {
+          "name": "TRNV",
+          "start": 1602,
+          "end": 1670,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Val"
+        },
+        {
+          "name": "RNR2",
+          "start": 1671,
+          "end": 3229,
+          "strand": "+",
+          "kind": "rRNA",
+          "product": "l-rRNA"
+        },
+        {
+          "name": "TRNL1",
+          "start": 3230,
+          "end": 3304,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Leu"
+        },
+        {
+          "name": "ND1",
+          "start": 3307,
+          "end": 4262,
+          "strand": "+",
+          "kind": "protein",
+          "product": "NADH dehydrogenase subunit 1"
+        },
+        {
+          "name": "TRNI",
+          "start": 4263,
+          "end": 4331,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Ile"
+        },
+        {
+          "name": "TRNQ",
+          "start": 4329,
+          "end": 4400,
+          "strand": "-",
+          "kind": "tRNA",
+          "product": "tRNA-Gln"
+        },
+        {
+          "name": "TRNM",
+          "start": 4402,
+          "end": 4469,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Met"
+        },
+        {
+          "name": "ND2",
+          "start": 4470,
+          "end": 5511,
+          "strand": "+",
+          "kind": "protein",
+          "product": "NADH dehydrogenase subunit 2"
+        },
+        {
+          "name": "TRNW",
+          "start": 5512,
+          "end": 5579,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Trp"
+        },
+        {
+          "name": "TRNA",
+          "start": 5587,
+          "end": 5655,
+          "strand": "-",
+          "kind": "tRNA",
+          "product": "tRNA-Ala"
+        },
+        {
+          "name": "TRNN",
+          "start": 5657,
+          "end": 5729,
+          "strand": "-",
+          "kind": "tRNA",
+          "product": "tRNA-Asn"
+        },
+        {
+          "name": "TRNC",
+          "start": 5761,
+          "end": 5826,
+          "strand": "-",
+          "kind": "tRNA",
+          "product": "tRNA-Cys"
+        },
+        {
+          "name": "TRNY",
+          "start": 5826,
+          "end": 5891,
+          "strand": "-",
+          "kind": "tRNA",
+          "product": "tRNA-Tyr"
+        },
+        {
+          "name": "COX1",
+          "start": 5904,
+          "end": 7445,
+          "strand": "+",
+          "kind": "protein",
+          "product": "cytochrome c oxidase subunit I"
+        },
+        {
+          "name": "TRNS1",
+          "start": 7446,
+          "end": 7514,
+          "strand": "-",
+          "kind": "tRNA",
+          "product": "tRNA-Ser"
+        },
+        {
+          "name": "TRND",
+          "start": 7518,
+          "end": 7585,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Asp"
+        },
+        {
+          "name": "COX2",
+          "start": 7586,
+          "end": 8269,
+          "strand": "+",
+          "kind": "protein",
+          "product": "cytochrome c oxidase subunit II"
+        },
+        {
+          "name": "TRNK",
+          "start": 8295,
+          "end": 8364,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Lys"
+        },
+        {
+          "name": "ATP8",
+          "start": 8366,
+          "end": 8572,
+          "strand": "+",
+          "kind": "protein",
+          "product": "ATP synthase F0 subunit 8"
+        },
+        {
+          "name": "ATP6",
+          "start": 8527,
+          "end": 9207,
+          "strand": "+",
+          "kind": "protein",
+          "product": "ATP synthase F0 subunit 6"
+        },
+        {
+          "name": "COX3",
+          "start": 9207,
+          "end": 9990,
+          "strand": "+",
+          "kind": "protein",
+          "product": "cytochrome c oxidase subunit III"
+        },
+        {
+          "name": "TRNG",
+          "start": 9991,
+          "end": 10058,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Gly"
+        },
+        {
+          "name": "ND3",
+          "start": 10059,
+          "end": 10404,
+          "strand": "+",
+          "kind": "protein",
+          "product": "NADH dehydrogenase subunit 3"
+        },
+        {
+          "name": "TRNR",
+          "start": 10405,
+          "end": 10469,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Arg"
+        },
+        {
+          "name": "ND4L",
+          "start": 10470,
+          "end": 10766,
+          "strand": "+",
+          "kind": "protein",
+          "product": "NADH dehydrogenase subunit 4L"
+        },
+        {
+          "name": "ND4",
+          "start": 10760,
+          "end": 12137,
+          "strand": "+",
+          "kind": "protein",
+          "product": "NADH dehydrogenase subunit 4"
+        },
+        {
+          "name": "TRNH",
+          "start": 12138,
+          "end": 12206,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-His"
+        },
+        {
+          "name": "TRNS2",
+          "start": 12207,
+          "end": 12265,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Ser"
+        },
+        {
+          "name": "TRNL2",
+          "start": 12266,
+          "end": 12336,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Leu"
+        },
+        {
+          "name": "ND5",
+          "start": 12337,
+          "end": 14148,
+          "strand": "+",
+          "kind": "protein",
+          "product": "NADH dehydrogenase subunit 5"
+        },
+        {
+          "name": "ND6",
+          "start": 14149,
+          "end": 14673,
+          "strand": "-",
+          "kind": "protein",
+          "product": "NADH dehydrogenase subunit 6"
+        },
+        {
+          "name": "TRNE",
+          "start": 14674,
+          "end": 14742,
+          "strand": "-",
+          "kind": "tRNA",
+          "product": "tRNA-Glu"
+        },
+        {
+          "name": "CYTB",
+          "start": 14747,
+          "end": 15887,
+          "strand": "+",
+          "kind": "protein",
+          "product": "cytochrome b"
+        },
+        {
+          "name": "TRNT",
+          "start": 15888,
+          "end": 15953,
+          "strand": "+",
+          "kind": "tRNA",
+          "product": "tRNA-Thr"
+        },
+        {
+          "name": "TRNP",
+          "start": 15956,
+          "end": 16023,
+          "strand": "-",
+          "kind": "tRNA",
+          "product": "tRNA-Pro"
+        }
+      ],
+      "dloop": [
+        [
+          16024,
+          16569
+        ],
+        [
+          1,
+          576
+        ]
+      ],
+      "variants": {
+        "variants": 10850,
+        "positions": 8793,
+        "homoplasmic": 9209,
+        "heteroplasmicOnly": 1641,
+        "samples": 56434,
+        "bins": [
+          {
+            "hom": 103,
+            "het": 7
+          },
+          {
+            "hom": 99,
+            "het": 2
+          },
+          {
+            "hom": 117,
+            "het": 16
+          },
+          {
+            "hom": 84,
+            "het": 9
+          },
+          {
+            "hom": 103,
+            "het": 11
+          },
+          {
+            "hom": 117,
+            "het": 13
+          },
+          {
+            "hom": 30,
+            "het": 14
+          },
+          {
+            "hom": 62,
+            "het": 10
+          },
+          {
+            "hom": 32,
+            "het": 15
+          },
+          {
+            "hom": 49,
+            "het": 17
+          },
+          {
+            "hom": 24,
+            "het": 12
+          },
+          {
+            "hom": 22,
+            "het": 15
+          },
+          {
+            "hom": 20,
+            "het": 21
+          },
+          {
+            "hom": 28,
+            "het": 23
+          },
+          {
+            "hom": 23,
+            "het": 14
+          },
+          {
+            "hom": 22,
+            "het": 14
+          },
+          {
+            "hom": 46,
+            "het": 18
+          },
+          {
+            "hom": 42,
+            "het": 14
+          },
+          {
+            "hom": 51,
+            "het": 13
+          },
+          {
+            "hom": 32,
+            "het": 12
+          },
+          {
+            "hom": 32,
+            "het": 17
+          },
+          {
+            "hom": 33,
+            "het": 13
+          },
+          {
+            "hom": 58,
+            "het": 12
+          },
+          {
+            "hom": 54,
+            "het": 13
+          },
+          {
+            "hom": 27,
+            "het": 18
+          },
+          {
+            "hom": 10,
+            "het": 19
+          },
+          {
+            "hom": 20,
+            "het": 17
+          },
+          {
+            "hom": 52,
+            "het": 15
+          },
+          {
+            "hom": 40,
+            "het": 14
+          },
+          {
+            "hom": 20,
+            "het": 20
+          },
+          {
+            "hom": 8,
+            "het": 20
+          },
+          {
+            "hom": 33,
+            "het": 11
+          },
+          {
+            "hom": 28,
+            "het": 12
+          },
+          {
+            "hom": 72,
+            "het": 9
+          },
+          {
+            "hom": 55,
+            "het": 7
+          },
+          {
+            "hom": 72,
+            "het": 7
+          },
+          {
+            "hom": 52,
+            "het": 6
+          },
+          {
+            "hom": 57,
+            "het": 8
+          },
+          {
+            "hom": 51,
+            "het": 4
+          },
+          {
+            "hom": 48,
+            "het": 7
+          },
+          {
+            "hom": 61,
+            "het": 9
+          },
+          {
+            "hom": 56,
+            "het": 7
+          },
+          {
+            "hom": 43,
+            "het": 9
+          },
+          {
+            "hom": 46,
+            "het": 7
+          },
+          {
+            "hom": 20,
+            "het": 8
+          },
+          {
+            "hom": 42,
+            "het": 4
+          },
+          {
+            "hom": 52,
+            "het": 9
+          },
+          {
+            "hom": 64,
+            "het": 6
+          },
+          {
+            "hom": 49,
+            "het": 9
+          },
+          {
+            "hom": 59,
+            "het": 7
+          },
+          {
+            "hom": 57,
+            "het": 11
+          },
+          {
+            "hom": 62,
+            "het": 6
+          },
+          {
+            "hom": 62,
+            "het": 7
+          },
+          {
+            "hom": 46,
+            "het": 11
+          },
+          {
+            "hom": 64,
+            "het": 7
+          },
+          {
+            "hom": 48,
+            "het": 7
+          },
+          {
+            "hom": 32,
+            "het": 8
+          },
+          {
+            "hom": 39,
+            "het": 6
+          },
+          {
+            "hom": 45,
+            "het": 23
+          },
+          {
+            "hom": 46,
+            "het": 15
+          },
+          {
+            "hom": 52,
+            "het": 9
+          },
+          {
+            "hom": 44,
+            "het": 14
+          },
+          {
+            "hom": 67,
+            "het": 10
+          },
+          {
+            "hom": 51,
+            "het": 8
+          },
+          {
+            "hom": 61,
+            "het": 5
+          },
+          {
+            "hom": 45,
+            "het": 6
+          },
+          {
+            "hom": 38,
+            "het": 11
+          },
+          {
+            "hom": 44,
+            "het": 9
+          },
+          {
+            "hom": 42,
+            "het": 11
+          },
+          {
+            "hom": 51,
+            "het": 13
+          },
+          {
+            "hom": 45,
+            "het": 8
+          },
+          {
+            "hom": 52,
+            "het": 10
+          },
+          {
+            "hom": 53,
+            "het": 14
+          },
+          {
+            "hom": 64,
+            "het": 10
+          },
+          {
+            "hom": 42,
+            "het": 15
+          },
+          {
+            "hom": 41,
+            "het": 10
+          },
+          {
+            "hom": 60,
+            "het": 12
+          },
+          {
+            "hom": 64,
+            "het": 16
+          },
+          {
+            "hom": 53,
+            "het": 13
+          },
+          {
+            "hom": 63,
+            "het": 7
+          },
+          {
+            "hom": 49,
+            "het": 7
+          },
+          {
+            "hom": 46,
+            "het": 7
+          },
+          {
+            "hom": 81,
+            "het": 18
+          },
+          {
+            "hom": 53,
+            "het": 12
+          },
+          {
+            "hom": 97,
+            "het": 4
+          },
+          {
+            "hom": 85,
+            "het": 6
+          },
+          {
+            "hom": 94,
+            "het": 8
+          },
+          {
+            "hom": 80,
+            "het": 13
+          },
+          {
+            "hom": 83,
+            "het": 12
+          },
+          {
+            "hom": 90,
+            "het": 9
+          },
+          {
+            "hom": 87,
+            "het": 5
+          },
+          {
+            "hom": 93,
+            "het": 14
+          },
+          {
+            "hom": 55,
+            "het": 10
+          },
+          {
+            "hom": 64,
+            "het": 16
+          },
+          {
+            "hom": 60,
+            "het": 9
+          },
+          {
+            "hom": 54,
+            "het": 14
+          },
+          {
+            "hom": 63,
+            "het": 8
+          },
+          {
+            "hom": 51,
+            "het": 9
+          },
+          {
+            "hom": 61,
+            "het": 15
+          },
+          {
+            "hom": 49,
+            "het": 13
+          },
+          {
+            "hom": 42,
+            "het": 7
+          },
+          {
+            "hom": 48,
+            "het": 9
+          },
+          {
+            "hom": 43,
+            "het": 3
+          },
+          {
+            "hom": 62,
+            "het": 9
+          },
+          {
+            "hom": 31,
+            "het": 10
+          },
+          {
+            "hom": 39,
+            "het": 6
+          },
+          {
+            "hom": 48,
+            "het": 6
+          },
+          {
+            "hom": 48,
+            "het": 4
+          },
+          {
+            "hom": 45,
+            "het": 5
+          },
+          {
+            "hom": 47,
+            "het": 4
+          },
+          {
+            "hom": 55,
+            "het": 5
+          },
+          {
+            "hom": 46,
+            "het": 8
+          },
+          {
+            "hom": 55,
+            "het": 5
+          },
+          {
+            "hom": 48,
+            "het": 7
+          },
+          {
+            "hom": 44,
+            "het": 4
+          },
+          {
+            "hom": 45,
+            "het": 5
+          },
+          {
+            "hom": 43,
+            "het": 4
+          },
+          {
+            "hom": 34,
+            "het": 16
+          },
+          {
+            "hom": 51,
+            "het": 6
+          },
+          {
+            "hom": 60,
+            "het": 5
+          },
+          {
+            "hom": 60,
+            "het": 5
+          },
+          {
+            "hom": 57,
+            "het": 12
+          },
+          {
+            "hom": 40,
+            "het": 14
+          },
+          {
+            "hom": 59,
+            "het": 9
+          },
+          {
+            "hom": 50,
+            "het": 7
+          },
+          {
+            "hom": 48,
+            "het": 8
+          },
+          {
+            "hom": 54,
+            "het": 9
+          },
+          {
+            "hom": 47,
+            "het": 9
+          },
+          {
+            "hom": 46,
+            "het": 13
+          },
+          {
+            "hom": 55,
+            "het": 10
+          },
+          {
+            "hom": 47,
+            "het": 5
+          },
+          {
+            "hom": 58,
+            "het": 6
+          },
+          {
+            "hom": 37,
+            "het": 7
+          },
+          {
+            "hom": 46,
+            "het": 11
+          },
+          {
+            "hom": 54,
+            "het": 6
+          },
+          {
+            "hom": 52,
+            "het": 7
+          },
+          {
+            "hom": 64,
+            "het": 5
+          },
+          {
+            "hom": 71,
+            "het": 5
+          },
+          {
+            "hom": 64,
+            "het": 8
+          },
+          {
+            "hom": 73,
+            "het": 6
+          },
+          {
+            "hom": 57,
+            "het": 5
+          },
+          {
+            "hom": 69,
+            "het": 7
+          },
+          {
+            "hom": 57,
+            "het": 9
+          },
+          {
+            "hom": 60,
+            "het": 4
+          },
+          {
+            "hom": 50,
+            "het": 13
+          },
+          {
+            "hom": 63,
+            "het": 10
+          },
+          {
+            "hom": 39,
+            "het": 5
+          },
+          {
+            "hom": 48,
+            "het": 10
+          },
+          {
+            "hom": 62,
+            "het": 5
+          },
+          {
+            "hom": 58,
+            "het": 13
+          },
+          {
+            "hom": 66,
+            "het": 16
+          },
+          {
+            "hom": 61,
+            "het": 10
+          },
+          {
+            "hom": 70,
+            "het": 9
+          },
+          {
+            "hom": 69,
+            "het": 8
+          },
+          {
+            "hom": 84,
+            "het": 13
+          },
+          {
+            "hom": 57,
+            "het": 10
+          },
+          {
+            "hom": 74,
+            "het": 7
+          },
+          {
+            "hom": 74,
+            "het": 7
+          },
+          {
+            "hom": 81,
+            "het": 2
+          },
+          {
+            "hom": 78,
+            "het": 13
+          },
+          {
+            "hom": 52,
+            "het": 8
+          },
+          {
+            "hom": 154,
+            "het": 36
+          },
+          {
+            "hom": 182,
+            "het": 7
+          },
+          {
+            "hom": 90,
+            "het": 5
+          },
+          {
+            "hom": 56,
+            "het": 3
+          },
+          {
+            "hom": 34,
+            "het": 1
+          }
+        ],
+        "top": [
+          {
+            "pos": 8860,
+            "ref": "A",
+            "alt": "G",
+            "afHom": 0.99381405,
+            "afHet": 0.00015952355
+          },
+          {
+            "pos": 15326,
+            "ref": "A",
+            "alt": "G",
+            "afHom": 0.99342173,
+            "afHet": 0.0002127735
+          },
+          {
+            "pos": 263,
+            "ref": "A",
+            "alt": "G",
+            "afHom": 0.99069476,
+            "afHet": 0.00019496633
+          },
+          {
+            "pos": 4769,
+            "ref": "A",
+            "alt": "G",
+            "afHom": 0.9838684,
+            "afHet": 0.00003549309
+          },
+          {
+            "pos": 750,
+            "ref": "A",
+            "alt": "G",
+            "afHom": 0.98340845,
+            "afHet": 0.000106469815
+          },
+          {
+            "pos": 1438,
+            "ref": "A",
+            "alt": "G",
+            "afHom": 0.9560956,
+            "afHet": 0.00007115792
+          },
+          {
+            "pos": 7028,
+            "ref": "C",
+            "alt": "T",
+            "afHom": 0.7493964,
+            "afHet": 0.000036037334
+          },
+          {
+            "pos": 2706,
+            "ref": "A",
+            "alt": "G",
+            "afHom": 0.73949057,
+            "afHet": 0.000089252244
+          },
+          {
+            "pos": 73,
+            "ref": "A",
+            "alt": "G",
+            "afHom": 0.7157432,
+            "afHet": 0.00010683
+          },
+          {
+            "pos": 11719,
+            "ref": "G",
+            "alt": "A",
+            "afHom": 0.71103585,
+            "afHet": 0.00005348547
+          },
+          {
+            "pos": 14766,
+            "ref": "C",
+            "alt": "T",
+            "afHom": 0.70678955,
+            "afHet": 0.000053489286
+          },
+          {
+            "pos": 16519,
+            "ref": "T",
+            "alt": "C",
+            "afHom": 0.65725136,
+            "afHet": 0.0015302924
+          },
+          {
+            "pos": 12705,
+            "ref": "C",
+            "alt": "T",
+            "afHom": 0.48879227,
+            "afHet": 0.000043694836
+          },
+          {
+            "pos": 10398,
+            "ref": "A",
+            "alt": "G",
+            "afHom": 0.41847962,
+            "afHet": 0.00014242477
+          },
+          {
+            "pos": 16223,
+            "ref": "C",
+            "alt": "T",
+            "afHom": 0.39409444,
+            "afHet": 0.0005152258
+          }
+        ],
+        "heteroplasmy": {
+          "edges": [
+            0,
+            0.05,
+            0.1,
+            0.15,
+            0.2,
+            0.25,
+            0.3,
+            0.35,
+            0.4,
+            0.45,
+            0.5,
+            0.55,
+            0.6,
+            0.65,
+            0.7,
+            0.75,
+            0.8,
+            0.85,
+            0.9,
+            0.95,
+            1
+          ],
+          "counts": [
+            0,
+            0,
+            491,
+            278,
+            208,
+            134,
+            99,
+            77,
+            68,
+            38,
+            32,
+            26,
+            51,
+            23,
+            22,
+            21,
+            28,
+            17,
+            28,
+            9209
+          ]
+        }
+      }
+    },
+    "censat": {
+      "classes": {
+        "censat": 8912512,
+        "hor": 70325827,
+        "dhor": 1854559,
+        "hsat2": 28705695,
+        "hsat3": 69334314,
+        "gsat": 650590,
+        "bsat": 8609737,
+        "mon": 13489190,
+        "hsat1A": 13390882,
+        "hsat1B": 15319979,
+        "rDNA": 9928083
+      },
+      "transition": 211349033,
+      "total": 240521368,
+      "byChrom": {
+        "1": {
+          "censat": 62270,
+          "hor": 5079832,
+          "dhor": 122978,
+          "hsat2": 13922101,
+          "hsat3": 443797,
+          "gsat": 3207,
+          "bsat": 496203
+        },
+        "2": {
+          "censat": 393740,
+          "hsat3": 63060,
+          "hsat2": 777770,
+          "dhor": 36934,
+          "hor": 2394265,
+          "mon": 42932
+        },
+        "3": {
+          "mon": 306412,
+          "dhor": 268496,
+          "hor": 2118670,
+          "hsat1A": 2736837,
+          "bsat": 26005,
+          "hsat3": 151757,
+          "censat": 119967,
+          "gsat": 3253
+        },
+        "4": {
+          "mon": 10694,
+          "hsat3": 174894,
+          "censat": 79675,
+          "gsat": 7788,
+          "bsat": 694,
+          "hsat1A": 1849547,
+          "hor": 3806329
+        },
+        "5": {
+          "mon": 889270,
+          "hor": 3525486,
+          "dhor": 64006,
+          "bsat": 29481,
+          "hsat3": 400789
+        },
+        "6": {
+          "mon": 201496,
+          "censat": 75015,
+          "hor": 2771684,
+          "dhor": 416642
+        },
+        "7": {
+          "censat": 247342,
+          "bsat": 141524,
+          "hsat3": 443407,
+          "hsat2": 321464,
+          "mon": 1216810,
+          "dhor": 33613,
+          "hor": 3504143
+        },
+        "8": {
+          "hsat1A": 9934,
+          "censat": 14166,
+          "gsat": 280088,
+          "mon": 642033,
+          "dhor": 53037,
+          "hor": 2083397,
+          "bsat": 72557
+        },
+        "9": {
+          "censat": 351496,
+          "gsat": 27503,
+          "mon": 257568,
+          "bsat": 264525,
+          "dhor": 97034,
+          "hsat2": 38731,
+          "hor": 2630820,
+          "hsat3": 27963524
+        },
+        "10": {
+          "hsat3": 734310,
+          "hsat2": 469641,
+          "censat": 24823,
+          "mon": 662948,
+          "dhor": 37455,
+          "hor": 2292444,
+          "bsat": 21617,
+          "hsat1B": 239
+        },
+        "11": {
+          "mon": 1303805,
+          "censat": 7115,
+          "dhor": 22446,
+          "hor": 3445568
+        },
+        "12": {
+          "censat": 24352,
+          "gsat": 143651,
+          "mon": 728003,
+          "dhor": 205719,
+          "hor": 2608998
+        },
+        "13": {
+          "censat": 423845,
+          "hsat3": 1055866,
+          "hsat1A": 6533270,
+          "bsat": 252738,
+          "gsat": 20841,
+          "rDNA": 3577493,
+          "hsat1B": 97167,
+          "mon": 675382,
+          "hor": 2015693,
+          "dhor": 7288
+        },
+        "14": {
+          "censat": 1018597,
+          "hsat3": 1883835,
+          "bsat": 1191027,
+          "hsat1A": 117765,
+          "gsat": 30307,
+          "rDNA": 718274,
+          "hsat1B": 93127,
+          "mon": 1173414,
+          "hor": 2768035,
+          "dhor": 56483
+        },
+        "15": {
+          "censat": 462714,
+          "gsat": 16045,
+          "hsat3": 8750324,
+          "bsat": 994927,
+          "hsat1A": 308910,
+          "rDNA": 2201043,
+          "hsat1B": 444131,
+          "mon": 931276,
+          "hor": 1851358,
+          "dhor": 14334
+        },
+        "16": {
+          "censat": 166687,
+          "bsat": 56969,
+          "mon": 583520,
+          "hsat1B": 414,
+          "hsat3": 17190,
+          "hsat2": 12965081,
+          "dhor": 72363,
+          "hor": 2014824
+        },
+        "17": {
+          "censat": 141687,
+          "hsat3": 725201,
+          "hsat2": 83710,
+          "mon": 211970,
+          "hor": 4137947,
+          "dhor": 4728
+        },
+        "18": {
+          "censat": 20678,
+          "gsat": 461,
+          "mon": 64769,
+          "dhor": 38184,
+          "hor": 5479654
+        },
+        "19": {
+          "censat": 161627,
+          "bsat": 428875,
+          "mon": 759171,
+          "hor": 4977092,
+          "dhor": 117681
+        },
+        "20": {
+          "censat": 120771,
+          "mon": 701953,
+          "dhor": 66398,
+          "hor": 3468641,
+          "bsat": 32874,
+          "hsat3": 975539
+        },
+        "21": {
+          "censat": 554913,
+          "gsat": 29334,
+          "hsat3": 1602801,
+          "bsat": 1033402,
+          "hsat1A": 911880,
+          "rDNA": 2504417,
+          "hsat1B": 66373,
+          "mon": 649902,
+          "hor": 432213,
+          "dhor": 5089
+        },
+        "22": {
+          "censat": 973690,
+          "gsat": 28143,
+          "hsat3": 2262620,
+          "bsat": 2644855,
+          "hsat1A": 922739,
+          "rDNA": 926856,
+          "hsat1B": 412390,
+          "hor": 3493967,
+          "mon": 694348,
+          "hsat2": 127197,
+          "dhor": 110763
+        },
+        "X": {
+          "mon": 609629,
+          "censat": 123030,
+          "gsat": 39455,
+          "dhor": 2888,
+          "hor": 3107432
+        },
+        "Y": {
+          "censat": 3344312,
+          "bsat": 921464,
+          "mon": 171885,
+          "hor": 317335,
+          "hsat3": 21685400,
+          "gsat": 20514,
+          "hsat1B": 14206138
+        }
+      },
+      "arrays": {
+        "hor": [
+          {
+            "chrom": "1",
+            "bp": 5079832
+          },
+          {
+            "chrom": "2",
+            "bp": 2394265
+          },
+          {
+            "chrom": "3",
+            "bp": 2118670
+          },
+          {
+            "chrom": "4",
+            "bp": 3806329
+          },
+          {
+            "chrom": "5",
+            "bp": 3525486
+          },
+          {
+            "chrom": "6",
+            "bp": 2771684
+          },
+          {
+            "chrom": "7",
+            "bp": 3504143
+          },
+          {
+            "chrom": "8",
+            "bp": 2083397
+          },
+          {
+            "chrom": "9",
+            "bp": 2630820
+          },
+          {
+            "chrom": "10",
+            "bp": 2292444
+          },
+          {
+            "chrom": "11",
+            "bp": 3445568
+          },
+          {
+            "chrom": "12",
+            "bp": 2608998
+          },
+          {
+            "chrom": "13",
+            "bp": 2015693
+          },
+          {
+            "chrom": "14",
+            "bp": 2768035
+          },
+          {
+            "chrom": "15",
+            "bp": 1851358
+          },
+          {
+            "chrom": "16",
+            "bp": 2014824
+          },
+          {
+            "chrom": "17",
+            "bp": 4137947
+          },
+          {
+            "chrom": "18",
+            "bp": 5479654
+          },
+          {
+            "chrom": "19",
+            "bp": 4977092
+          },
+          {
+            "chrom": "20",
+            "bp": 3468641
+          },
+          {
+            "chrom": "21",
+            "bp": 432213
+          },
+          {
+            "chrom": "22",
+            "bp": 3493967
+          },
+          {
+            "chrom": "X",
+            "bp": 3107432
+          },
+          {
+            "chrom": "Y",
+            "bp": 317335
+          }
+        ]
+      }
+    },
+    "telomeres": [
+      {
+        "chrom": "1",
+        "p": 3000,
+        "q": 3328
+      },
+      {
+        "chrom": "2",
+        "p": 3600,
+        "q": 2952
+      },
+      {
+        "chrom": "3",
+        "p": 2800,
+        "q": 4748
+      },
+      {
+        "chrom": "4",
+        "p": 3400,
+        "q": 2345
+      },
+      {
+        "chrom": "5",
+        "p": 2400,
+        "q": 1639
+      },
+      {
+        "chrom": "6",
+        "p": 3000,
+        "q": 3028
+      },
+      {
+        "chrom": "7",
+        "p": 3600,
+        "q": 2228
+      },
+      {
+        "chrom": "8",
+        "p": 2400,
+        "q": 2131
+      },
+      {
+        "chrom": "9",
+        "p": 3800,
+        "q": 2847
+      },
+      {
+        "chrom": "10",
+        "p": 2800,
+        "q": 3334
+      },
+      {
+        "chrom": "11",
+        "p": 2200,
+        "q": 2769
+      },
+      {
+        "chrom": "12",
+        "p": 3200,
+        "q": 2548
+      },
+      {
+        "chrom": "13",
+        "p": 3000,
+        "q": 3686
+      },
+      {
+        "chrom": "14",
+        "p": 2400,
+        "q": 1892
+      },
+      {
+        "chrom": "15",
+        "p": 3600,
+        "q": 2995
+      },
+      {
+        "chrom": "16",
+        "p": 2600,
+        "q": 2974
+      },
+      {
+        "chrom": "17",
+        "p": 2200,
+        "q": 3097
+      },
+      {
+        "chrom": "18",
+        "p": 2400,
+        "q": 3538
+      },
+      {
+        "chrom": "19",
+        "p": 2400,
+        "q": 3164
+      },
+      {
+        "chrom": "20",
+        "p": 2800,
+        "q": 3255
+      },
+      {
+        "chrom": "21",
+        "p": 3000,
+        "q": 4682
+      },
+      {
+        "chrom": "22",
+        "p": 4600,
+        "q": 3126
+      },
+      {
+        "chrom": "X",
+        "p": 2000,
+        "q": 2766
+      },
+      {
+        "chrom": "Y",
+        "p": 5800,
+        "q": 6229
       }
     ]
   }
