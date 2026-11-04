@@ -11,6 +11,16 @@ const UNIPROT_QUERY = new URLSearchParams({
 
 export const PHAROS_QUERY = '{ targets { count facets { facet values { name value } } } }';
 
+const STRING_DIR = 'https://stringdb-downloads.org/download/';
+
+export const stringFiles = (v) => ({
+  detailed: `${STRING_DIR}protein.links.detailed.v${v}/9606.protein.links.detailed.v${v}.txt.gz`,
+  physical: `${STRING_DIR}protein.physical.links.v${v}/9606.protein.physical.links.v${v}.txt.gz`,
+  info: `${STRING_DIR}protein.info.v${v}/9606.protein.info.v${v}.txt.gz`,
+});
+
+const REACTOME = 'https://reactome.org/download/current/';
+
 export const pharosLevelQuery = (level) => `{ targets(filter: { facets: [{ facet: "Target Development Level", values: ["${level}"] }] }) { count facets(include: ["IDG Family"]) { facet values { name value } } } }`;
 
 export const FILES = {
@@ -35,4 +45,11 @@ export const FILES = {
   gtexMedian: 'https://storage.googleapis.com/adult-gtex/bulk-gex/v10/rna-seq/GTEx_Analysis_v10_RNASeQCv2.4.2_gene_median_tpm.gct.gz',
   gtexTissues: 'https://gtexportal.org/api/v2/dataset/tissueSiteDetail',
   pharos: 'https://pharos-api.ncats.io/graphql',
+  stringVersion: 'https://string-db.org/api/json/version',
+  reactomeVersion: 'https://reactome.org/ContentService/data/database/version',
+  reactomePathways: `${REACTOME}ReactomePathways.txt`,
+  reactomeRelations: `${REACTOME}ReactomePathwaysRelation.txt`,
+  reactomeUniprot: `${REACTOME}UniProt2Reactome_All_Levels.txt`,
+  goaHuman: 'https://current.geneontology.org/annotations/goa_human.gaf.gz',
+  goBasic: 'https://current.geneontology.org/ontology/go-basic.obo',
 };
