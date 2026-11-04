@@ -1,8 +1,13 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  exact, compact, pct, usd, decimal, wordy, ordinal, bases, sci, mlog, coords, density, signed,
+  exact, compact, pct, usd, decimal, wordy, ordinal, bases, sci, mlog, coords, density, signed, toCsv,
 } from '../../src/lib.js';
+
+test('toCsv quotes fields that hold commas, quotes or line breaks', () => {
+  assert.equal(toCsv(['chrom', 'bases'], [['1', 248956422], ['X', null]]), 'chrom,bases\r\n1,248956422\r\nX,\r\n');
+  assert.equal(toCsv(['note'], [['a, b'], ['say "hi"'], ['two\nlines']]), 'note\r\n"a, b"\r\n"say ""hi"""\r\n"two\nlines"\r\n');
+});
 
 test('exact groups thousands with commas', () => {
   assert.equal(exact(3117275501), '3,117,275,501');
