@@ -133,7 +133,7 @@ const kindOf = (label) => {
   if (/enriched$/i.test(label)) return 'enriched';
   if (/enhanced$/i.test(label)) return 'enhanced';
   if (/^low .*specificity$/i.test(label)) return 'low';
-  if (/^not detected$/i.test(label)) return 'none';
+  if (/^not detected\b/i.test(label)) return 'none';
   return null;
 };
 
