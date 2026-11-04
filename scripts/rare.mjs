@@ -112,8 +112,8 @@ export const geneDiseases = (text) => {
   for (const line of lines.slice(1)) {
     const c = line.split('\t');
     bump(types, c[col.association_type]);
-    if (c[col.association_type] !== 'MENDELIAN') continue;
     const gene = c[col.gene_symbol];
+    if (c[col.association_type] !== 'MENDELIAN' || !gene || gene === '-') continue;
     if (!perGene.has(gene)) perGene.set(own(gene), new Set());
     perGene.get(gene).add(c[col.disease_id]);
     diseases.add(c[col.disease_id]);
