@@ -23,7 +23,7 @@ test('every data file is an https URL on a known host', () => {
     'ftp.ncbi.nlm.nih.gov', 'hgdownload.soe.ucsc.edu', 'ftp.ebi.ac.uk', 'storage.googleapis.com', 'search.clinicalgenome.org',
     'ftp.clinicalgenome.org', 'github.com', 'www.proteinatlas.org', 'downloads.wenglab.org', 'rest.uniprot.org', 'api.cpicpgx.org',
     'eutils.ncbi.nlm.nih.gov', 'api.ncbi.nlm.nih.gov', 'rest.ensembl.org', 'www.ebi.ac.uk', 'gtexportal.org', 'pharos-api.ncats.io',
-    'string-db.org', 'reactome.org', 'current.geneontology.org',
+    'string-db.org', 'reactome.org', 'current.geneontology.org', 'gtrnadb.ucsc.edu', 'www.encodeproject.org',
   ]);
   for (const [key, url] of Object.entries(FILES)) {
     const u = new URL(url);
@@ -74,6 +74,19 @@ test('expression and target files point at HPA, GTEx v10 and Pharos', () => {
   const level = pharosLevelQuery('Tclin');
   assert.match(level, /facet: "Target Development Level", values: \["Tclin"\]/);
   assert.match(level, /facets\(include: \["IDG Family"\]\)/);
+});
+
+test('regulation files point at the ENCODE cCRE registry, UCSC CpG islands, GtRNAdb and the ENCODE portal', () => {
+  assert.equal(FILES.ccre, 'https://downloads.wenglab.org/Registry-V4/GRCh38-cCREs.bed');
+  assert.equal(FILES.cpgIslands, 'https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/cpgIslandExt.txt.gz');
+  assert.equal(FILES.trnas, 'https://gtrnadb.ucsc.edu/genomes/eukaryota/Hsapi38/hg38-mature-tRNAs.fa');
+  const e = new URL(FILES.encode);
+  assert.equal(`${e.origin}${e.pathname}`, 'https://www.encodeproject.org/search/');
+  assert.equal(e.searchParams.get('type'), 'Experiment');
+  assert.equal(e.searchParams.get('status'), 'released');
+  assert.equal(e.searchParams.get('replicates.library.biosample.donor.organism.scientific_name'), 'Homo sapiens');
+  assert.equal(e.searchParams.get('limit'), '0');
+  assert.equal(e.searchParams.get('format'), 'json');
 });
 
 test('requests identify the project', () => {

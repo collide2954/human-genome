@@ -31,6 +31,11 @@ test('network, pathway and ontology sources are cited', () => {
   }
 });
 
+test('regulation and RNA gene sources are cited', () => {
+  for (const key of ['encode', 'encode2020', 'encode2012', 'gardinerGarden1987']) assert.equal(SOURCE_TITLES[key]?.[0], 'Expression and regulation', key);
+  for (const key of ['gtrnadb', 'chan2016']) assert.equal(SOURCE_TITLES[key]?.[0], 'Genes and proteins', key);
+});
+
 test('every decoder example is recognised, unique and described', () => {
   assert.ok(EXAMPLES.length >= 18);
   assert.equal(new Set(EXAMPLES.map((e) => e.id)).size, EXAMPLES.length);
