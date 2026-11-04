@@ -1,8 +1,25 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  uniprotSummary, locationsOf, hpaSummary, gtexSummary, pharosSummary, tissueSites, pfamNames,
+  uniprotSummary, locationsOf, hpaSummary, gtexSummary, pharosSummary, tissueSites, pfamNames, alignSites,
 } from '../../scripts/proteins.mjs';
+
+test('alignSites names every GTEx column, trusting an API label only when it spells the column name', () => {
+  const site = (id, name, organ, samples) => ({
+    id, name, organ, samples, female: 1, male: 1, eGenes: 5, sGenes: 2,
+  });
+  const out = alignSites(['Liver', 'Brain_Anterior_cingulate_cortex_BA24', 'Liver_Hepatocyte', 'Small_Intestine_Terminal_Ileum_Mixed_Cell', 'Adipose_Visceral_Omentum'], [
+    site('Liver', 'Liver', 'Liver', 262),
+    site('Brain_Anterior_cingulate_cortex_BA24', 'Brain - Anterior qcingulate cortex (BA24)', 'Brain', 200),
+    site('Small_Intestine_Terminal_Ileum', 'Small Intestine - Terminal Ileum', 'Small Intestine', 190),
+    site('Adipose_Visceral_Omentum', 'Adipose - Visceral (Omentum)', 'Adipose Tissue', 587),
+  ]);
+  assert.deepEqual(out.map((s) => s.name), ['Liver', 'Brain Anterior cingulate cortex BA24', 'Liver Hepatocyte', 'Small Intestine Terminal Ileum Mixed Cell', 'Adipose - Visceral (Omentum)']);
+  assert.deepEqual(out.map((s) => s.organ), ['Liver', 'Brain', 'Liver', 'Small Intestine', 'Adipose Tissue']);
+  assert.deepEqual(out.map((s) => s.samples), [262, 200, null, null, 587]);
+  assert.deepEqual(out.map((s) => s.id), ['Liver', 'Brain_Anterior_cingulate_cortex_BA24', 'Liver_Hepatocyte', 'Small_Intestine_Terminal_Ileum_Mixed_Cell', 'Adipose_Visceral_Omentum']);
+  assert.equal(out[2].eGenes, null);
+});
 
 test('tissueSites keeps the name, organ, sample counts by sex and eGene counts of each GTEx tissue', () => {
   const rows = [
@@ -152,6 +169,8 @@ test('hpaSummary bins plasma concentrations by decade for immunoassay and mass s
   assert.equal(h.blood.ms.counts[10], 1);
   assert.deepEqual(h.blood.top[0], { gene: 'ALB', im: 4e13, ms: null });
   assert.deepEqual(h.blood.top.map((t) => t.gene), ['ALB', 'APOA1', 'IL6']);
+  assert.equal(h.blood.proteins, 3);
+  assert.deepEqual(h.blood.lowest, { gene: 'IL6', im: 100000, ms: null });
 });
 
 test('hpaSummary counts specificity categories, enriched tissues and cell types, and locations', () => {
