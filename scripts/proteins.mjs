@@ -246,6 +246,23 @@ export const gtexSummary = (lines) => {
   };
 };
 
+export const tissueSites = (rows) => rows.map((r) => ({
+  id: r.tissueSiteDetailId,
+  name: r.tissueSiteDetail,
+  organ: r.tissueSite,
+  samples: r.rnaSeqSampleSummary?.totalCount ?? null,
+  female: r.rnaSeqSampleSummary?.female?.count ?? null,
+  male: r.rnaSeqSampleSummary?.male?.count ?? null,
+  eGenes: r.eGeneCount ?? null,
+  sGenes: r.sGeneCount ?? null,
+}));
+
+export const pfamNames = (top, entries) => top.map((p) => ({
+  ...p,
+  name: entries[p.id]?.metadata?.name?.name ?? null,
+  short: entries[p.id]?.metadata?.name?.short ?? null,
+}));
+
 const LEVELS = ['Tclin', 'Tchem', 'Tbio', 'Tdark'];
 const facetOf = (json, name) => json?.data.targets.facets.find((f) => f.facet === name)?.values ?? [];
 
