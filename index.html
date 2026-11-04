@@ -755,8 +755,86 @@
     </div>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-variation" data-chapter="variation">
     <p class="chapter-no">Part 10</p>
+    <h2 class="chapter-title">Variation</h2>
+    <p class="chapter-dek">How people differ from the reference: the small variants catalogued in dbSNP and the deletions, duplications and insertions in dbVar’s non-redundant structural variant sets.</p>
+  </div>
+
+  <section class="story wrap" id="dbsnp" data-lens="variation" data-nav="dbSNP">
+    <header class="head"><p class="label">Small variants</p><h2 data-finding="dbsnp">Small variants</h2><p class="dek" id="dbsnp-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="dbsnp-density-chart"></div>
+        <figcaption>Reference SNP records per sequenced kilobase of each chromosome. Records placed on alternate loci, patches and unplaced sequence are left out. Source: dbSNP release notes; sequenced bases from the hg38 2bit file.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="dbsnp-status-chart"></div>
+        <figcaption>Reference SNP records by status, log scale. Merged records were folded into another record; withdrawn ones lost all their supporting submissions. Source: dbSNP release notes.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="sv" data-lens="variation clinic" data-nav="Structural variants">
+    <header class="head"><p class="label">Structural variants</p><h2 data-finding="sv">Structural variants</h2><p class="dek" id="sv-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="sv-size-chart"></div>
+      <figcaption>Non-redundant deletions, duplications and copy number variants by length, two bins per tenfold step, log scale. Insertions are left out because the sets give only their position. Source: dbVar non-redundant SV sets, GRCh38.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="sv-chrom-chart"></div>
+      <figcaption>Non-redundant SVs per sequenced megabase of each chromosome, by class. Source: dbVar; sequenced bases from the hg38 2bit file.</figcaption>
+    </figure>
+    <div class="trio">
+      <figure class="fig">
+        <div class="chart" id="sv-mobile-chart"></div>
+        <figcaption>SVs typed as mobile element insertions or deletions, by family. Source: dbVar.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="sv-study-chart"></div>
+        <figcaption>Studies contributing the most non-redundant SVs, log scale. Source: dbVar.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="sv-clinical-chart"></div>
+        <figcaption>SVs with a ClinVar clinical assertion, grouped, log scale; most have none. Source: dbVar.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="chapter wrap" id="ch-constraint" data-chapter="constraint">
+    <p class="chapter-no">Part 11</p>
+    <h2 class="chapter-title">Constraint</h2>
+    <p class="chapter-dek">Which genes tolerate losing a copy: loss-of-function and missense constraint from gnomAD, and ClinGen’s curation of genes whose dosage causes disease.</p>
+  </div>
+
+  <section class="story wrap" id="constraint" data-lens="variation clinic" data-nav="Constraint">
+    <header class="head"><p class="label">Loss-of-function constraint</p><h2 data-finding="constraint">Loss-of-function constraint</h2><p class="dek" id="constraint-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="loeuf-chart"></div>
+      <figcaption>Genes by LOEUF, the upper bound of the 90% confidence interval on observed over expected loss-of-function variants, in steps of 0.05, as a share of each group: genes ClinGen finds haploinsufficient and all others. Lower is more constrained. One MANE Select transcript per gene. Source: gnomAD v4.1 constraint; ClinGen dosage curation.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="misz-chart"></div>
+        <figcaption>Genes by missense Z score, in steps of 0.5; higher means fewer missense variants than expected. The first and last bins hold the tails. Source: gnomAD v4.1.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="constrained-chart"></div>
+        <figcaption>The 20 genes with the lowest LOEUF among those expected to carry at least ten loss-of-function variants. Source: gnomAD v4.1.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="dosage" data-lens="clinic" data-nav="Dosage">
+    <header class="head"><p class="label">Dosage sensitivity</p><h2 data-finding="dosage">Dosage sensitivity</h2><p class="dek" id="dosage-dek"></p></header>
+    <figure class="fig narrow">
+      <div class="chart" id="dosage-chart"></div>
+      <figcaption>Curated genes by ClinGen haploinsufficiency and triplosensitivity score: 3 sufficient evidence, 2 some, 1 little, 0 none, 30 a recessive gene, 40 dosage sensitivity unlikely. Source: ClinGen gene curation list.</figcaption>
+    </figure>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 12</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>

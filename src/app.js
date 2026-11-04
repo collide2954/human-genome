@@ -1654,6 +1654,180 @@ const renderSexchrom = () => {
   attachData('#y-satellite-chart', 'y-satellites', ['Family', 'Bases'], parts.map((p) => [p.label, p.value]));
 };
 
+const VR = snapshot.variation;
+const CN = snapshot.constraint;
+const SV_CLASSES = [['deletion', 'Deletions', 'var(--s1)'], ['duplication', 'Duplications', 'var(--s2)'], ['cnv', 'Copy number variants', 'var(--s3)'], ['insertion', 'Insertions', 'var(--s4)']];
+
+const renderDbsnp = () => {
+  const d = VR.dbsnp;
+  const rows = NUCLEAR.filter((c) => d.byChrom[c.chrom] && sequencedMb(c.chrom)).map((c) => ({ chrom: c.chrom, n: d.byChrom[c.chrom], perKb: d.byChrom[c.chrom] / (sequencedMb(c.chrom) * 1000) }));
+  const mt = sequencedMb('MT');
+  $('#dbsnp-dek').textContent = `Chromosome Y has ${(rows.find((r) => r.chrom === 'Y')?.perKb ?? 0).toFixed(1)} records per sequenced kilobase and the mitochondrial genome ${mt ? (d.byChrom.MT / (mt * 1000)).toFixed(0) : '—'}. ${exact(d.other.PAR ?? 0)} records sit in the pseudoautosomal regions and ${exact(d.other['Not On'] ?? 0)} on no assembled sequence.`;
+  const top = rows.reduce((a, b) => (b.perKb > a.perKb ? b : a));
+  dotplot({
+    mount: $('#dbsnp-density-chart'),
+    rows: rows.map((r) => ({
+      key: r.chrom, label: r.chrom, value: r.perKb, hi: r === top,
+    })),
+    scale: 'linear',
+    rowH: 18,
+    labelShare: 0.05,
+    format: (v) => v.toFixed(1),
+    aria: 'dbSNP records per sequenced kilobase by chromosome',
+    describe: (r) => {
+      const x = rows.find((y) => y.chrom === r.key);
+      return tipLines(`${x.perKb.toFixed(1)} per kb`, `chromosome ${x.chrom}`, `${exact(x.n)} reference SNP records`);
+    },
+  });
+  attachData('#dbsnp-density-chart', 'dbsnp-by-chromosome', ['Chromosome', 'RS records', 'Per sequenced kb'], rows.map((r) => [r.chrom, r.n, Number(r.perKb.toFixed(3))]));
+  const status = Object.entries(d.status);
+  dotplot({
+    mount: $('#dbsnp-status-chart'),
+    rows: status.map(([k, n], i) => ({ key: k, label: k, value: n, hi: i === 0 })),
+    labelShare: 0.4,
+    aria: 'dbSNP records by status',
+    describe: (r) => tipLines(exact(r.value), r.label, pct(r.value / d.total)),
+  });
+  attachData('#dbsnp-status-chart', 'dbsnp-status', ['Status', 'Records'], status);
+};
+
+const CLINICAL = [['pathogenic', 'Pathogenic or likely'], ['benign', 'Benign or likely'], ['uncertain', 'Uncertain'], ['conflicting', 'Conflicting'], ['other', 'Other assertions']];
+
+const renderSv = () => {
+  const s = VR.sv;
+  const total = sumOf(Object.values(s.classes));
+  const sized = SV_CLASSES.filter(([k]) => s.sizes[k]);
+  const edges = s.sizes[sized[0][0]].edges;
+  const bins = binsOf(edges);
+  const gaps = SV_CLASSES.map(([k, label]) => [label, NUCLEAR.filter((c) => s.byChrom[c.chrom] && !s.byChrom[c.chrom][k]).map((c) => c.chrom)]).filter(([, list]) => list.length);
+  const listed = (list) => (list.length > 1 ? `${list.slice(0, -1).join(', ')} and ${list.at(-1)}` : list[0]);
+  const gapNote = gaps.map(([label, list]) => ` The published ${label.toLowerCase()} set has no records on chromosome${list.length > 1 ? 's' : ''} ${listed(list)}.`).join('');
+  $('#sv-dek').textContent = `Median lengths: ${sized.map(([k, label]) => `${label.toLowerCase()} ${bases(s.sizes[k].summary.median)}`).join(', ')}. ${exact(s.mobile.Alu.insertion)} SVs are typed as Alu insertions and ${exact(s.mobile.L1.insertion)} as L1 insertions. ${exact(s.clinical.pathogenic)} carry a pathogenic or likely pathogenic assertion, ${pct(s.clinical.pathogenic / total)} of the ${exact(total)}.${gapNote}`;
+  histo({
+    mount: $('#sv-size-chart'),
+    bins,
+    series: sized.map(([k, label, color]) => ({ key: k, label, color, values: s.sizes[k].counts })),
+    yLog: true,
+    tickEvery: 2,
+    tickLabel: (b) => shortBases(b.lo),
+    aria: 'Structural variants by length and class, log scale',
+    describe: (i) => tipLines(`${bases(bins[i].lo)} to ${bases(bins[i].hi)}`, 'length', ...sized.map(([k, label]) => `${label}: ${exact(s.sizes[k].counts[i])}`)),
+  });
+  attachData('#sv-size-chart', 'sv-lengths', ['Length from', 'Length to', ...sized.map(([, label]) => label)], bins.map((b, i) => [Math.round(b.lo), Math.round(b.hi), ...sized.map(([k]) => s.sizes[k].counts[i])]));
+  const rows = NUCLEAR.filter((c) => s.byChrom[c.chrom] && sequencedMb(c.chrom)).map((c) => ({
+    key: c.chrom, label: c.chrom, values: Object.fromEntries(SV_CLASSES.map(([k]) => [k, (s.byChrom[c.chrom][k] ?? 0) / sequencedMb(c.chrom)])),
+  }));
+  hbars({
+    mount: $('#sv-chrom-chart'),
+    rows,
+    segments: SV_CLASSES.map(([key, label, color]) => ({ key, label, color })),
+    labelShare: 0.05,
+    rowH: 18,
+    aria: 'Structural variants per sequenced megabase by chromosome and class',
+    describe: (r) => tipLines(`${exact(sumOf(Object.values(r.values)))} SVs per Mb`, `chromosome ${r.key}`, ...SV_CLASSES.map(([k, label]) => `${label}: ${r.values[k].toFixed(0)}`)),
+  });
+  attachData('#sv-chrom-chart', 'sv-by-chromosome', ['Chromosome', ...SV_CLASSES.map(([k]) => k)], rows.map((r) => [r.key, ...SV_CLASSES.map(([k]) => s.byChrom[r.key][k] ?? 0)]));
+  const mobile = Object.entries(s.mobile);
+  hbars({
+    mount: $('#sv-mobile-chart'),
+    rows: mobile.map(([name, v]) => ({ key: name, label: name, values: v })),
+    segments: [{ key: 'insertion', label: 'Insertions', color: 'var(--s4)' }, { key: 'deletion', label: 'Deletions', color: 'var(--s1)' }],
+    labelShare: 0.14,
+    aria: 'Mobile element SVs by family',
+    describe: (r) => tipLines(`${exact(r.values.insertion + r.values.deletion)} SVs`, r.label, `${exact(r.values.insertion)} insertions`, `${exact(r.values.deletion)} deletions`),
+  });
+  attachData('#sv-mobile-chart', 'sv-mobile-elements', ['Family', 'Insertions', 'Deletions'], mobile.map(([name, v]) => [name, v.insertion, v.deletion]));
+  dotplot({
+    mount: $('#sv-study-chart'),
+    rows: s.studies.map((x, i) => ({ key: x.study, label: x.study, value: x.n, hi: i === 0 })),
+    rowH: 20,
+    labelShare: 0.4,
+    aria: 'Studies contributing the most structural variants',
+    describe: (r) => tipLines(`${exact(r.value)} SVs`, r.label, pct(r.value / total)),
+  });
+  attachData('#sv-study-chart', 'sv-studies', ['Study', 'SVs'], s.studies.map((x) => [x.study, x.n]));
+  dotplot({
+    mount: $('#sv-clinical-chart'),
+    rows: CLINICAL.map(([k, label], i) => ({ key: k, label, value: s.clinical[k], hi: i === 0 })),
+    rowH: 20,
+    labelShare: 0.46,
+    aria: 'Structural variants by clinical assertion',
+    describe: (r) => tipLines(`${exact(r.value)} SVs`, r.label),
+  });
+  attachData('#sv-clinical-chart', 'sv-clinical', ['Assertion', 'SVs'], [...CLINICAL.map(([k, label]) => [label, s.clinical[k]]), ['None', s.clinical.none]]);
+};
+
+const renderConstraint = () => {
+  const g = CN.gnomad;
+  const { sufficient, other } = CN.byDosage;
+  const bins = binsOf(g.loeuf.edges);
+  const share = (counts, n) => counts.map((c) => (c / n) * 100);
+  const hiShare = share(sufficient.counts, sufficient.n);
+  const otherShare = share(other.counts, other.n);
+  $('#constraint-dek').textContent = `${exact(g.genes)} genes have a MANE Select LOEUF; the quartiles are ${g.loeuf.summary.q1.toFixed(2)}, ${g.loeuf.summary.median.toFixed(2)} and ${g.loeuf.summary.q3.toFixed(2)}. ${exact(g.pli09)} have a pLI of 0.9 or more. The ${exact(sufficient.n)} genes ClinGen finds haploinsufficient have a median LOEUF of ${sufficient.median.toFixed(2)}, against ${other.median.toFixed(2)} for the rest.`;
+  histo({
+    mount: $('#loeuf-chart'),
+    bins,
+    series: [
+      { key: 'hi', label: `Haploinsufficient (${exact(sufficient.n)} genes)`, color: 'var(--s1)', values: hiShare },
+      { key: 'other', label: `All other genes (${exact(other.n)})`, color: 'var(--data)', values: otherShare },
+    ],
+    yFormat: (v) => `${v}%`,
+    tickEvery: 4,
+    tickLabel: (b) => b.lo.toFixed(1),
+    aria: 'LOEUF of haploinsufficient genes and all other genes',
+    describe: (i) => tipLines(`LOEUF ${bins[i].lo.toFixed(2)} to ${bins[i].hi.toFixed(2)}`, 'share of each group', `Haploinsufficient: ${hiShare[i].toFixed(1)}%, ${exact(sufficient.counts[i])} genes`, `Others: ${otherShare[i].toFixed(1)}%, ${exact(other.counts[i])} genes`),
+  });
+  attachData('#loeuf-chart', 'loeuf', ['LOEUF from', 'LOEUF to', 'Haploinsufficient genes', 'Other genes', 'All genes'], bins.map((b, i) => [b.lo, b.hi, sufficient.counts[i], other.counts[i], g.loeuf.counts[i]]));
+  const zBins = binsOf(g.misZ.edges);
+  histo({
+    mount: $('#misz-chart'),
+    bins: zBins,
+    series: [{ key: 'genes', label: 'Genes', color: 'var(--data)', values: g.misZ.counts }],
+    tickEvery: 4,
+    tickLabel: (b) => signed(b.lo, String),
+    aria: 'Genes by missense Z score',
+    describe: (i) => tipLines(`${exact(g.misZ.counts[i])} genes`, `missense Z ${zBins[i].lo} to ${zBins[i].hi}`),
+  });
+  attachData('#misz-chart', 'missense-z', ['Z from', 'Z to', 'Genes'], zBins.map((b, i) => [b.lo, b.hi, g.misZ.counts[i]]));
+  dotplot({
+    mount: $('#constrained-chart'),
+    rows: g.top.map((t, i) => ({ key: t.gene, label: t.gene, value: t.loeuf, hi: i === 0 })),
+    scale: 'linear',
+    rowH: 20,
+    format: (v) => v.toFixed(3),
+    tickFormat: (t) => String(t),
+    aria: 'The most loss-of-function constrained genes',
+    href: (r) => `https://gnomad.broadinstitute.org/gene/${r.key}?dataset=gnomad_r4`,
+    linkText: () => 'Open in gnomAD',
+    describe: (r) => {
+      const t = g.top.find((x) => x.gene === r.key);
+      return tipLines(`LOEUF ${t.loeuf.toFixed(3)}`, t.gene, `pLI ${t.pli.toFixed(2)}`, `${t.expected.toFixed(1)} loss-of-function variants expected`);
+    },
+  });
+  attachData('#constrained-chart', 'most-constrained-genes', ['Gene', 'LOEUF', 'pLI', 'Expected LoF'], g.top.map((t) => [t.gene, t.loeuf, t.pli, t.expected]));
+};
+
+const DOSAGE_SCORES = [['3', 'Sufficient (3)', 'var(--s1)'], ['2', 'Some (2)', 'var(--s5)'], ['1', 'Little (1)', 'var(--s3)'], ['0', 'None (0)', 'var(--data-2)'], ['30', 'Recessive (30)', 'var(--s2)'], ['40', 'Unlikely (40)', 'var(--s4)']];
+
+const renderDosage = () => {
+  const { hi, ts, date } = CN.dosage;
+  const total = (x) => sumOf(Object.values(x));
+  const m = /(\d{1,2}) (\w{3})\w*,\s*(\d{4})/.exec(date ?? '');
+  const month = m ? ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].indexOf(m[2]) + 1 : 0;
+  const listed = month ? ` of ${day(`${m[3]}-${String(month).padStart(2, '0')}-${m[1].padStart(2, '0')}T00:00:00Z`)}` : '';
+  $('#dosage-dek').textContent = `${exact(total(hi))} genes have a haploinsufficiency score and ${exact(total(ts))} a triplosensitivity score in the list${listed}. ${exact(hi['30'] ?? 0)} are scored 30, genes tied to a recessive disease, and ${exact(hi['40'] ?? 0)} are scored 40, dosage sensitivity unlikely.`;
+  hbars({
+    mount: $('#dosage-chart'),
+    rows: [{ key: 'hi', label: 'Haploinsufficiency', values: hi }, { key: 'ts', label: 'Triplosensitivity', values: ts }],
+    segments: DOSAGE_SCORES.map(([key, label, color]) => ({ key, label, color })),
+    labelShare: 0.3,
+    aria: 'ClinGen dosage scores',
+    describe: (r) => tipLines(`${exact(total(r.values))} genes`, r.label, ...DOSAGE_SCORES.filter(([k]) => r.values[k]).map(([k, label]) => `${label}: ${exact(r.values[k])}`)),
+  });
+  attachData('#dosage-chart', 'clingen-dosage', ['Curation', ...DOSAGE_SCORES.map(([, label]) => label)], [['Haploinsufficiency', ...DOSAGE_SCORES.map(([k]) => hi[k] ?? 0)], ['Triplosensitivity', ...DOSAGE_SCORES.map(([k]) => ts[k] ?? 0)]]);
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -1725,6 +1899,12 @@ const DATA_SOURCES = [
   ['gnomAD v3.1 mitochondrial variants', FILES.gnomadMito],
   ['T2T-CHM13 CenSat satellite annotation', FILES.censat],
   ['T2T-CHM13 telomere annotation', FILES.telomeres],
+  ['dbSNP latest release notes', FILES.dbsnpNotes],
+  ['dbVar non-redundant deletions, GRCh38', FILES.nr_deletions],
+  ['dbVar non-redundant duplications, GRCh38', FILES.nr_duplications],
+  ['dbVar non-redundant insertions, GRCh38', FILES.nr_insertions],
+  ['gnomAD v4.1 constraint metrics', FILES.gnomadConstraint],
+  ['ClinGen gene curation list, GRCh38', FILES.clingenGenes],
 ];
 
 const renderSources = () => {
@@ -1823,6 +2003,10 @@ const drawCharts = () => {
   renderMito();
   renderCensat();
   renderSexchrom();
+  renderDbsnp();
+  renderSv();
+  renderConstraint();
+  renderDosage();
   applySearch();
 };
 
