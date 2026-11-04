@@ -3,9 +3,11 @@ export const toNumber = (v) => {
   return typeof v === 'number' ? v : Number(String(v).replace(/,/g, ''));
 };
 
+const WHOLE = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
+
 export const exact = (v) => {
   const n = toNumber(v);
-  return Number.isFinite(n) ? Math.round(n).toLocaleString('en-US') : '—';
+  return Number.isFinite(n) ? WHOLE.format(Math.round(n)) : '—';
 };
 
 const UNITS = [
