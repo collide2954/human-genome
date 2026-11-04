@@ -1,8 +1,19 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  exact, compact, pct, usd, decimal, wordy, ordinal, bases, sci, mlog, coords, density, signed, toCsv,
+  exact, compact, pct, usd, decimal, wordy, ordinal, bases, sci, mlog, coords, density, signed, toCsv, perLitre,
 } from '../../src/lib.js';
+
+test('perLitre writes a mass concentration in the unit that keeps it between 1 and 1,000', () => {
+  assert.equal(perLitre(4e13), '40 g/L');
+  assert.equal(perLitre(2.5e10), '25 mg/L');
+  assert.equal(perLitre(1.5e6), '1.5 µg/L');
+  assert.equal(perLitre(123456), '123 ng/L');
+  assert.equal(perLitre(5), '5 pg/L');
+  assert.equal(perLitre(1), '1 pg/L');
+  assert.equal(perLitre(1e12), '1 g/L');
+  assert.equal(perLitre(0.4), '0.4 pg/L');
+});
 
 test('toCsv quotes fields that hold commas, quotes or line breaks', () => {
   assert.equal(toCsv(['chrom', 'bases'], [['1', 248956422], ['X', null]]), 'chrom,bases\r\n1,248956422\r\nX,\r\n');
