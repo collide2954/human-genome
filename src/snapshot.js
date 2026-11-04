@@ -1,5 +1,5 @@
 export default {
-  "generated": "2026-11-04T16:19:32.716Z",
+  "generated": "2026-11-04T17:32:31.312Z",
   "asOf": {
     "assembly": "2026-11-04T05:28:42.686Z",
     "sequence": "2026-11-04T06:07:32.158Z",
@@ -18,6 +18,10 @@ export default {
     "structure": "2026-11-04T09:16:26.075Z",
     "variation": "2026-11-04T09:49:36.112Z",
     "constraint": "2026-11-04T09:49:36.112Z",
+    "ancestry": "2026-11-04T17:30:17.382Z",
+    "ancient": "2026-11-04T17:32:31.312Z",
+    "igsr": "2026-11-04T17:32:31.312Z",
+    "assemblies": "2026-11-04T17:30:17.382Z",
     "clinvar": "2026-11-04T12:50:41.045Z",
     "clinvarTable": "2026-11-04T16:19:32.716Z",
     "domains": "2026-11-04T16:19:32.716Z",
@@ -31104,6 +31108,21574 @@ export default {
           1
         ]
       }
+    }
+  },
+  "ancestry": {
+    "rows": 300747,
+    "studies": 232261,
+    "participants": 14992799458,
+    "byYear": {
+      "2005": {
+        "European": 890,
+        "Asian unspecified": 1,
+        "Other": 141
+      },
+      "2006": {
+        "African American or Afro-Caribbean": 920,
+        "European": 3861,
+        "South East Asian": 226,
+        "NR": 694
+      },
+      "2007": {
+        "European": 256888,
+        "Native American": 1102,
+        "NR": 34029,
+        "East Asian": 288,
+        "Hispanic or Latin American": 561,
+        "South Asian": 737
+      },
+      "2008": {
+        "European": 998437,
+        "South Asian": 3690,
+        "NR": 3798,
+        "East Asian": 6345,
+        "Multiple categories": 4761,
+        "African American or Afro-Caribbean": 3069,
+        "Other": 4637,
+        "Hispanic or Latin American": 40,
+        "Asian unspecified": 16,
+        "Oceanian": 2346
+      },
+      "2009": {
+        "NR": 47415,
+        "European": 1518150,
+        "Other": 12159,
+        "East Asian": 51348,
+        "African unspecified": 901,
+        "Oceanian": 4168,
+        "African American or Afro-Caribbean": 8291,
+        "Multiple categories": 24023,
+        "Sub-Saharan African": 2040,
+        "Hispanic or Latin American": 2421,
+        "South Asian": 17881,
+        "Asian unspecified": 9
+      },
+      "2010": {
+        "European": 2746215,
+        "NR": 35094,
+        "South Asian": 13118,
+        "East Asian": 256711,
+        "Multiple categories": 96684,
+        "Hispanic or Latin American": 2204,
+        "African American or Afro-Caribbean": 18865,
+        "Other": 5093,
+        "Sub-Saharan African": 8350,
+        "African unspecified": 518,
+        "Asian unspecified": 1058,
+        "Native American": 322,
+        "South East Asian": 1780
+      },
+      "2011": {
+        "European": 2858351,
+        "East Asian": 282561,
+        "African American or Afro-Caribbean": 145704,
+        "Multiple categories": 25260,
+        "NR": 44332,
+        "African unspecified": 2863,
+        "South Asian": 83190,
+        "South East Asian": 17506,
+        "Hispanic or Latin American": 10039,
+        "Sub-Saharan African": 758,
+        "Asian unspecified": 5952,
+        "Other": 3348,
+        "Native American": 1124,
+        "Oceanian": 576
+      },
+      "2012": {
+        "East Asian": 428909,
+        "European": 3033105,
+        "African American or Afro-Caribbean": 278414,
+        "Other": 1705,
+        "NR": 102565,
+        "Multiple categories": 186270,
+        "Sub-Saharan African": 5986,
+        "South Asian": 15771,
+        "South East Asian": 11099,
+        "Hispanic or Latin American": 44242,
+        "Asian unspecified": 1786,
+        "Native American": 1,
+        "Oceanian": 85
+      },
+      "2013": {
+        "European": 4444923,
+        "South Asian": 21525,
+        "Multiple categories": 77278,
+        "Sub-Saharan African": 3308,
+        "African American or Afro-Caribbean": 226421,
+        "Hispanic or Latin American": 45958,
+        "East Asian": 292161,
+        "NR": 540777,
+        "Other": 7527,
+        "South East Asian": 15535,
+        "Asian unspecified": 1815,
+        "Other admixed ancestry": 1466,
+        "Native American": 845,
+        "African unspecified": 1153
+      },
+      "2014": {
+        "European": 7003361,
+        "African American or Afro-Caribbean": 120799,
+        "Hispanic or Latin American": 51503,
+        "NR": 119685,
+        "Other": 14391,
+        "East Asian": 493571,
+        "Sub-Saharan African": 1850,
+        "Multiple categories": 45414,
+        "African unspecified": 47162,
+        "South Asian": 66338,
+        "Oceanian": 622,
+        "Native American": 8,
+        "South East Asian": 16895,
+        "Asian unspecified": 868
+      },
+      "2015": {
+        "European": 11785946,
+        "Hispanic or Latin American": 107368,
+        "Multiple categories": 85835,
+        "African American or Afro-Caribbean": 136832,
+        "East Asian": 505318,
+        "Asian unspecified": 4509,
+        "South Asian": 241095,
+        "NR": 428882,
+        "Other": 10170,
+        "South East Asian": 6916,
+        "Native American": 1771,
+        "African unspecified": 17875,
+        "Aboriginal Australian": 752,
+        "Oceanian": 672,
+        "Sub-Saharan African": 4430
+      },
+      "2016": {
+        "Hispanic or Latin American": 472520,
+        "African American or Afro-Caribbean": 497579,
+        "European": 30185149,
+        "NR": 2294188,
+        "South Asian": 172863,
+        "East Asian": 629377,
+        "Multiple categories": 56274,
+        "African unspecified": 37714,
+        "Sub-Saharan African": 3903,
+        "South East Asian": 2338,
+        "Other": 1979,
+        "Other admixed ancestry": 395,
+        "Asian unspecified": 5288,
+        "Oceanian": 3694,
+        "Native American": 2428
+      },
+      "2017": {
+        "European": 33102067,
+        "East Asian": 1246894,
+        "African American or Afro-Caribbean": 603747,
+        "Multiple categories": 703927,
+        "Hispanic or Latin American": 704154,
+        "Native American": 4494,
+        "NR": 2756372,
+        "Asian unspecified": 14097,
+        "African unspecified": 223172,
+        "Sub-Saharan African": 26142,
+        "South Asian": 427015,
+        "Other": 149,
+        "South East Asian": 4530,
+        "Oceanian": 2229
+      },
+      "2018": {
+        "European": 686200117,
+        "African American or Afro-Caribbean": 689511,
+        "NR": 3647519,
+        "Hispanic or Latin American": 674722,
+        "Multiple categories": 4248210,
+        "South East Asian": 7744,
+        "East Asian": 7075025,
+        "African unspecified": 793626,
+        "South Asian": 86022,
+        "Sub-Saharan African": 28460,
+        "Asian unspecified": 201808,
+        "Other": 7777,
+        "Native American": 19459,
+        "Other admixed ancestry": 29237,
+        "Oceanian": 18
+      },
+      "2019": {
+        "European": 131755729,
+        "NR": 4715008,
+        "East Asian": 4848140,
+        "Multiple categories": 10595157,
+        "Other admixed ancestry": 3367,
+        "African American or Afro-Caribbean": 1708079,
+        "South Asian": 139407,
+        "Hispanic or Latin American": 1588375,
+        "Other": 5716,
+        "Asian unspecified": 240210,
+        "African unspecified": 558053,
+        "Sub-Saharan African": 429504,
+        "Aboriginal Australian": 249,
+        "South East Asian": 4100,
+        "Native American": 18300,
+        "Oceanian": 57205
+      },
+      "2020": {
+        "European": 242899467,
+        "South Asian": 790500,
+        "NR": 5809605,
+        "East Asian": 23307847,
+        "Multiple categories": 15310601,
+        "Hispanic or Latin American": 1485952,
+        "African American or Afro-Caribbean": 1713791,
+        "Asian unspecified": 116813,
+        "Native American": 16142,
+        "Other admixed ancestry": 33642,
+        "Sub-Saharan African": 42203,
+        "African unspecified": 214926,
+        "South East Asian": 25031,
+        "Oceanian": 19557,
+        "Central Asian": 35084,
+        "Other": 87707
+      },
+      "2021": {
+        "European": 3804853564,
+        "Multiple categories": 16026369,
+        "East Asian": 78714452,
+        "Sub-Saharan African": 363100,
+        "South Asian": 3740603,
+        "Asian unspecified": 136202,
+        "Hispanic or Latin American": 3343693,
+        "Other": 14603,
+        "NR": 78507897,
+        "Aboriginal Australian": 391,
+        "African unspecified": 1420165,
+        "African American or Afro-Caribbean": 1904271,
+        "Native American": 4479,
+        "South East Asian": 16398,
+        "Other admixed ancestry": 61976,
+        "Oceanian": 9022
+      },
+      "2022": {
+        "Multiple categories": 77818790,
+        "East Asian": 39365717,
+        "European": 675166862,
+        "Hispanic or Latin American": 3903290,
+        "South Asian": 1728405,
+        "African unspecified": 4335199,
+        "Asian unspecified": 241865,
+        "Oceanian": 14059,
+        "NR": 13300175,
+        "African American or Afro-Caribbean": 12962313,
+        "Sub-Saharan African": 233431,
+        "Other admixed ancestry": 34493,
+        "Native American": 1732,
+        "South East Asian": 1231,
+        "Other": 550
+      },
+      "2023": {
+        "European": 639630726,
+        "Hispanic or Latin American": 2794556,
+        "Sub-Saharan African": 102700,
+        "NR": 12365449,
+        "East Asian": 41300548,
+        "Native American": 7849,
+        "African unspecified": 2627607,
+        "Other": 6504,
+        "Multiple categories": 19160575,
+        "South Asian": 1980648,
+        "African American or Afro-Caribbean": 2470828,
+        "Asian unspecified": 313235,
+        "Oceanian": 610,
+        "Other admixed ancestry": 17633,
+        "Central Asian": 16091
+      },
+      "2024": {
+        "East Asian": 74418245,
+        "Hispanic or Latin American": 149243467,
+        "African unspecified": 994316,
+        "European": 2235490279,
+        "South Asian": 5245233,
+        "South East Asian": 806549,
+        "Sub-Saharan African": 27929,
+        "Multiple categories": 11090855,
+        "African American or Afro-Caribbean": 353678468,
+        "Other": 71539,
+        "NR": 1820362,
+        "Asian unspecified": 34533,
+        "Other admixed ancestry": 162451,
+        "Native American": 15758
+      },
+      "2025": {
+        "European": 2252559733,
+        "African American or Afro-Caribbean": 5178051,
+        "Sub-Saharan African": 333486,
+        "Asian unspecified": 441305,
+        "NR": 3091450,
+        "East Asian": 264711446,
+        "South Asian": 6267613,
+        "Multiple categories": 67363343,
+        "African unspecified": 18769909,
+        "Hispanic or Latin American": 6658407,
+        "Other": 941562,
+        "Oceanian": 1274,
+        "Other admixed ancestry": 637303,
+        "Native American": 20521
+      },
+      "2026": {
+        "Multiple categories": 57374793,
+        "Hispanic or Latin American": 3794572,
+        "European": 1876075359,
+        "Sub-Saharan African": 1548703,
+        "Asian unspecified": 3070,
+        "African unspecified": 4726699,
+        "East Asian": 227169160,
+        "South Asian": 34229653,
+        "African American or Afro-Caribbean": 3641391,
+        "NR": 2992014,
+        "Oceanian": 17342,
+        "Native American": 63,
+        "South East Asian": 7041,
+        "Other admixed ancestry": 2856,
+        "Other": 10382
+      }
+    },
+    "studiesByYear": {
+      "2005": 2,
+      "2006": 8,
+      "2007": 122,
+      "2008": 176,
+      "2009": 268,
+      "2010": 387,
+      "2011": 443,
+      "2012": 465,
+      "2013": 561,
+      "2014": 1023,
+      "2015": 800,
+      "2016": 1102,
+      "2017": 2450,
+      "2018": 6272,
+      "2019": 2568,
+      "2020": 3589,
+      "2021": 29272,
+      "2022": 33228,
+      "2023": 21239,
+      "2024": 33457,
+      "2025": 62351,
+      "2026": 32478
+    },
+    "stages": {
+      "initial": {
+        "Hispanic or Latin American": 174928044,
+        "African American or Afro-Caribbean": 385987344,
+        "European": 12642569179,
+        "NR": 132657310,
+        "South Asian": 55271307,
+        "East Asian": 765104063,
+        "Multiple categories": 280294419,
+        "African unspecified": 34771858,
+        "Asian unspecified": 1764440,
+        "Sub-Saharan African": 3166283,
+        "South East Asian": 944919,
+        "Native American": 116398,
+        "Other": 1207639,
+        "Other admixed ancestry": 984819,
+        "Oceanian": 133479,
+        "Aboriginal Australian": 1392,
+        "Central Asian": 51175
+      },
+      "replication": {
+        "Multiple categories": 26833376,
+        "European": 386251295,
+        "Hispanic or Latin American": 10378742,
+        "African American or Afro-Caribbean": 11165097,
+        "East Asian": 28259293,
+        "NR": 31583944,
+        "Asian unspecified": 4028919,
+        "African unspecified": 3019152,
+        "South Asian": 10756480,
+        "Native American": 22997,
+        "Sub-Saharan African": 92938,
+        "Other": 101309,
+        "South East Asian": 50891,
+        "Oceanian": 17037,
+        "Central Asian": 8450,
+        "Aboriginal Australian": 497,
+        "Other admixed ancestry": 274973
+      }
+    },
+    "countries": [
+      {
+        "country": "U.K.",
+        "participants": 10710354983
+      },
+      {
+        "country": "U.S.",
+        "participants": 3104456802
+      },
+      {
+        "country": "Finland",
+        "participants": 762527491
+      },
+      {
+        "country": "Estonia",
+        "participants": 756590034
+      },
+      {
+        "country": "Japan",
+        "participants": 461874101
+      },
+      {
+        "country": "Germany",
+        "participants": 422630320
+      },
+      {
+        "country": "Netherlands",
+        "participants": 414569424
+      },
+      {
+        "country": "Iceland",
+        "participants": 393037176
+      },
+      {
+        "country": "Sweden",
+        "participants": 336070376
+      },
+      {
+        "country": "Denmark",
+        "participants": 334943566
+      },
+      {
+        "country": "Taiwan",
+        "participants": 277110236
+      },
+      {
+        "country": "Australia",
+        "participants": 261325081
+      },
+      {
+        "country": "Norway",
+        "participants": 256468687
+      },
+      {
+        "country": "Italy",
+        "participants": 200937028
+      },
+      {
+        "country": "Spain",
+        "participants": 188800743
+      },
+      {
+        "country": "Canada",
+        "participants": 182938393
+      },
+      {
+        "country": "China",
+        "participants": 170272997
+      },
+      {
+        "country": "France",
+        "participants": 162837056
+      },
+      {
+        "country": "Switzerland",
+        "participants": 121215559
+      },
+      {
+        "country": "Greece",
+        "participants": 109107791
+      }
+    ]
+  },
+  "ancient": {
+    "version": "v66.p1",
+    "released": "2026-06-08",
+    "individuals": 17629,
+    "present": 3804,
+    "ages": {
+      "edges": [
+        100,
+        177.827941004,
+        316.227766017,
+        562.34132519,
+        1000,
+        1778.27941004,
+        3162.27766017,
+        5623.4132519,
+        10000,
+        17782.7941004,
+        31622.7766017,
+        56234.132519,
+        100000,
+        177827.941004,
+        316227.766017,
+        562341.32519,
+        1000000
+      ],
+      "counts": [
+        131,
+        221,
+        548,
+        2032,
+        4072,
+        3333,
+        4500,
+        2544,
+        161,
+        38,
+        43,
+        4,
+        1,
+        1,
+        0,
+        0
+      ],
+      "median": 2425
+    },
+    "oldest": {
+      "id": "Denisova25",
+      "age": 185000,
+      "place": "Russia"
+    },
+    "published": {
+      "2010": 4,
+      "2012": 1,
+      "2013": 3,
+      "2014": 39,
+      "2015": 277,
+      "2016": 129,
+      "2017": 241,
+      "2018": 1401,
+      "2019": 1451,
+      "2020": 1642,
+      "2021": 2224,
+      "2022": 2244,
+      "2023": 1622,
+      "2024": 2161,
+      "2025": 3836,
+      "2026": 60
+    },
+    "countries": [
+      {
+        "country": "Russia",
+        "n": 1478
+      },
+      {
+        "country": "Hungary",
+        "n": 1385
+      },
+      {
+        "country": "United Kingdom",
+        "n": 1237
+      },
+      {
+        "country": "China",
+        "n": 918
+      },
+      {
+        "country": "Austria",
+        "n": 816
+      },
+      {
+        "country": "Italy",
+        "n": 747
+      },
+      {
+        "country": "Germany",
+        "n": 707
+      },
+      {
+        "country": "Denmark",
+        "n": 654
+      },
+      {
+        "country": "Spain",
+        "n": 645
+      },
+      {
+        "country": "France",
+        "n": 571
+      },
+      {
+        "country": "Poland",
+        "n": 502
+      },
+      {
+        "country": "Turkey",
+        "n": 500
+      },
+      {
+        "country": "Czechia",
+        "n": 464
+      },
+      {
+        "country": "Belgium",
+        "n": 458
+      },
+      {
+        "country": "Sweden",
+        "n": 408
+      },
+      {
+        "country": "Ukraine",
+        "n": 334
+      },
+      {
+        "country": "Croatia",
+        "n": 281
+      },
+      {
+        "country": "Argentina",
+        "n": 277
+      },
+      {
+        "country": "Mongolia",
+        "n": 276
+      },
+      {
+        "country": "Kazakhstan",
+        "n": 253
+      }
+    ],
+    "dataTypes": {
+      "Capture": 11457,
+      "Shotgun": 5931,
+      "Capture and shotgun": 240,
+      "Other": 1
+    },
+    "sex": {
+      "M": 9224,
+      "U": 1243,
+      "F": 7162
+    },
+    "y": [
+      {
+        "group": "R",
+        "n": 2884
+      },
+      {
+        "group": "I",
+        "n": 1511
+      },
+      {
+        "group": "Q",
+        "n": 896
+      },
+      {
+        "group": "J",
+        "n": 785
+      },
+      {
+        "group": "G",
+        "n": 666
+      },
+      {
+        "group": "C",
+        "n": 471
+      },
+      {
+        "group": "E",
+        "n": 426
+      },
+      {
+        "group": "N",
+        "n": 302
+      },
+      {
+        "group": "O",
+        "n": 294
+      },
+      {
+        "group": "F",
+        "n": 153
+      },
+      {
+        "group": "T",
+        "n": 125
+      },
+      {
+        "group": "H",
+        "n": 124
+      },
+      {
+        "group": "B",
+        "n": 70
+      },
+      {
+        "group": "P",
+        "n": 68
+      },
+      {
+        "group": "L",
+        "n": 57
+      }
+    ],
+    "mt": [
+      {
+        "group": "H",
+        "n": 3061
+      },
+      {
+        "group": "U",
+        "n": 2579
+      },
+      {
+        "group": "T",
+        "n": 1216
+      },
+      {
+        "group": "K",
+        "n": 1157
+      },
+      {
+        "group": "J",
+        "n": 955
+      },
+      {
+        "group": "C",
+        "n": 640
+      },
+      {
+        "group": "D",
+        "n": 539
+      },
+      {
+        "group": "A",
+        "n": 435
+      },
+      {
+        "group": "HV",
+        "n": 339
+      },
+      {
+        "group": "N",
+        "n": 307
+      },
+      {
+        "group": "B",
+        "n": 275
+      },
+      {
+        "group": "R",
+        "n": 252
+      },
+      {
+        "group": "W",
+        "n": 241
+      },
+      {
+        "group": "I",
+        "n": 239
+      },
+      {
+        "group": "X",
+        "n": 231
+      }
+    ],
+    "assessment": {
+      "Pass": 14729,
+      "CRITICAL": 342,
+      "Questionable": 921,
+      "MERGE_PASS": 77,
+      "MERGE_CRITICAL": 2,
+      "MERGE_QUESTIONABLE": 5,
+      "PROVISIONAL_PASS": 1519,
+      "PROVISIONAL_CRITICAL": 21,
+      "PROVISIONAL_QUESTIONABLE": 13
+    },
+    "snps": {
+      "edges": [
+        1000,
+        1778.27941004,
+        3162.27766017,
+        5623.4132519,
+        10000,
+        17782.7941004,
+        31622.7766017,
+        56234.132519,
+        100000,
+        177827.941004,
+        316227.766017,
+        562341.32519,
+        1000000,
+        1778279.41004,
+        3162277.66017,
+        5623413.2519,
+        10000000
+      ],
+      "counts": [
+        26,
+        81,
+        198,
+        276,
+        401,
+        568,
+        812,
+        997,
+        1404,
+        1704,
+        2702,
+        7329,
+        1131,
+        0,
+        0,
+        0
+      ],
+      "median": 533822
+    },
+    "grid": [
+      {
+        "lat": -56,
+        "lon": -70,
+        "n": 5,
+        "age": 100
+      },
+      {
+        "lat": -56,
+        "lon": -68,
+        "n": 4,
+        "age": 170
+      },
+      {
+        "lat": -56,
+        "lon": -66,
+        "n": 6,
+        "age": 410
+      },
+      {
+        "lat": -54,
+        "lon": -74,
+        "n": 1,
+        "age": 7293
+      },
+      {
+        "lat": -54,
+        "lon": -72,
+        "n": 10,
+        "age": 100
+      },
+      {
+        "lat": -54,
+        "lon": -70,
+        "n": 3,
+        "age": 380
+      },
+      {
+        "lat": -54,
+        "lon": -68,
+        "n": 4,
+        "age": 610
+      },
+      {
+        "lat": -52,
+        "lon": -76,
+        "n": 2,
+        "age": 3170.5
+      },
+      {
+        "lat": -40,
+        "lon": -62,
+        "n": 9,
+        "age": 7425
+      },
+      {
+        "lat": -40,
+        "lon": -60,
+        "n": 11,
+        "age": 2638
+      },
+      {
+        "lat": -38,
+        "lon": -64,
+        "n": 4,
+        "age": 6656
+      },
+      {
+        "lat": -38,
+        "lon": -60,
+        "n": 1,
+        "age": 3342
+      },
+      {
+        "lat": -38,
+        "lon": -58,
+        "n": 2,
+        "age": 793.5
+      },
+      {
+        "lat": -36,
+        "lon": -62,
+        "n": 1,
+        "age": 10032
+      },
+      {
+        "lat": -36,
+        "lon": -60,
+        "n": 11,
+        "age": 925
+      },
+      {
+        "lat": -36,
+        "lon": -56,
+        "n": 2,
+        "age": 957.5
+      },
+      {
+        "lat": -36,
+        "lon": 22,
+        "n": 4,
+        "age": 4676
+      },
+      {
+        "lat": -36,
+        "lon": 24,
+        "n": 1,
+        "age": 2205
+      },
+      {
+        "lat": -36,
+        "lon": 144,
+        "n": 1,
+        "age": 1500
+      },
+      {
+        "lat": -34,
+        "lon": -72,
+        "n": 3,
+        "age": 595
+      },
+      {
+        "lat": -34,
+        "lon": -68,
+        "n": 1,
+        "age": 1862
+      },
+      {
+        "lat": -34,
+        "lon": -66,
+        "n": 14,
+        "age": 818
+      },
+      {
+        "lat": -34,
+        "lon": -64,
+        "n": 3,
+        "age": 577
+      },
+      {
+        "lat": -34,
+        "lon": -62,
+        "n": 8,
+        "age": 600.5
+      },
+      {
+        "lat": -34,
+        "lon": -60,
+        "n": 1,
+        "age": 642
+      },
+      {
+        "lat": -34,
+        "lon": 16,
+        "n": 1,
+        "age": 1183
+      },
+      {
+        "lat": -34,
+        "lon": 18,
+        "n": 1,
+        "age": 2245
+      },
+      {
+        "lat": -34,
+        "lon": 22,
+        "n": 12,
+        "age": 5716.5
+      },
+      {
+        "lat": -34,
+        "lon": 142,
+        "n": 1,
+        "age": 850
+      },
+      {
+        "lat": -32,
+        "lon": -72,
+        "n": 2,
+        "age": 8490
+      },
+      {
+        "lat": -32,
+        "lon": -66,
+        "n": 37,
+        "age": 825
+      },
+      {
+        "lat": -32,
+        "lon": -64,
+        "n": 38,
+        "age": 847
+      },
+      {
+        "lat": -32,
+        "lon": -62,
+        "n": 2,
+        "age": 950
+      },
+      {
+        "lat": -32,
+        "lon": 18,
+        "n": 1,
+        "age": 1910
+      },
+      {
+        "lat": -32,
+        "lon": 24,
+        "n": 1,
+        "age": 1445
+      },
+      {
+        "lat": -32,
+        "lon": 30,
+        "n": 1,
+        "age": 2039
+      },
+      {
+        "lat": -30,
+        "lon": -66,
+        "n": 1,
+        "age": 1425
+      },
+      {
+        "lat": -30,
+        "lon": -64,
+        "n": 27,
+        "age": 400
+      },
+      {
+        "lat": -30,
+        "lon": -60,
+        "n": 3,
+        "age": 975
+      },
+      {
+        "lat": -30,
+        "lon": -52,
+        "n": 1,
+        "age": 81
+      },
+      {
+        "lat": -30,
+        "lon": -50,
+        "n": 20,
+        "age": 2309.5
+      },
+      {
+        "lat": -30,
+        "lon": 28,
+        "n": 2,
+        "age": 423
+      },
+      {
+        "lat": -30,
+        "lon": 30,
+        "n": 2,
+        "age": 1962.5
+      },
+      {
+        "lat": -28,
+        "lon": -68,
+        "n": 24,
+        "age": 1301
+      },
+      {
+        "lat": -28,
+        "lon": -66,
+        "n": 17,
+        "age": 601
+      },
+      {
+        "lat": -28,
+        "lon": -64,
+        "n": 14,
+        "age": 400
+      },
+      {
+        "lat": -28,
+        "lon": -60,
+        "n": 4,
+        "age": 1300
+      },
+      {
+        "lat": -28,
+        "lon": -50,
+        "n": 5,
+        "age": 2670
+      },
+      {
+        "lat": -28,
+        "lon": 28,
+        "n": 1,
+        "age": 435
+      },
+      {
+        "lat": -28,
+        "lon": 32,
+        "n": 1,
+        "age": 390
+      },
+      {
+        "lat": -26,
+        "lon": -66,
+        "n": 2,
+        "age": 619
+      },
+      {
+        "lat": -26,
+        "lon": -48,
+        "n": 3,
+        "age": 6560
+      },
+      {
+        "lat": -26,
+        "lon": 24,
+        "n": 1,
+        "age": 1000
+      },
+      {
+        "lat": -24,
+        "lon": -68,
+        "n": 7,
+        "age": 725
+      },
+      {
+        "lat": -24,
+        "lon": -66,
+        "n": 1,
+        "age": 600
+      },
+      {
+        "lat": -24,
+        "lon": -62,
+        "n": 2,
+        "age": 1931
+      },
+      {
+        "lat": -22,
+        "lon": -176,
+        "n": 4,
+        "age": 2625
+      },
+      {
+        "lat": -22,
+        "lon": -72,
+        "n": 3,
+        "age": 1000
+      },
+      {
+        "lat": -22,
+        "lon": -70,
+        "n": 1,
+        "age": 645
+      },
+      {
+        "lat": -22,
+        "lon": -60,
+        "n": 1,
+        "age": 1635
+      },
+      {
+        "lat": -22,
+        "lon": -48,
+        "n": 1,
+        "age": 9087
+      },
+      {
+        "lat": -22,
+        "lon": -42,
+        "n": 6,
+        "age": 1841
+      },
+      {
+        "lat": -20,
+        "lon": -72,
+        "n": 1,
+        "age": 6242
+      },
+      {
+        "lat": -20,
+        "lon": -46,
+        "n": 7,
+        "age": 9600
+      },
+      {
+        "lat": -20,
+        "lon": -44,
+        "n": 5,
+        "age": 10107
+      },
+      {
+        "lat": -20,
+        "lon": -42,
+        "n": 2,
+        "age": 300
+      },
+      {
+        "lat": -20,
+        "lon": 20,
+        "n": 2,
+        "age": 1100
+      },
+      {
+        "lat": -20,
+        "lon": 146,
+        "n": 3,
+        "age": 850
+      },
+      {
+        "lat": -20,
+        "lon": 168,
+        "n": 2,
+        "age": 1346
+      },
+      {
+        "lat": -20,
+        "lon": 170,
+        "n": 4,
+        "age": 1206.5
+      },
+      {
+        "lat": -18,
+        "lon": -152,
+        "n": 3,
+        "age": 228
+      },
+      {
+        "lat": -18,
+        "lon": -70,
+        "n": 29,
+        "age": 1025
+      },
+      {
+        "lat": -18,
+        "lon": -68,
+        "n": 1,
+        "age": 985
+      },
+      {
+        "lat": -18,
+        "lon": -44,
+        "n": 1,
+        "age": 10374
+      },
+      {
+        "lat": -18,
+        "lon": 24,
+        "n": 1,
+        "age": 1050
+      },
+      {
+        "lat": -18,
+        "lon": 166,
+        "n": 6,
+        "age": 2382.5
+      },
+      {
+        "lat": -18,
+        "lon": 168,
+        "n": 25,
+        "age": 480
+      },
+      {
+        "lat": -16,
+        "lon": -76,
+        "n": 13,
+        "age": 815
+      },
+      {
+        "lat": -16,
+        "lon": -74,
+        "n": 8,
+        "age": 860.5
+      },
+      {
+        "lat": -16,
+        "lon": -6,
+        "n": 20,
+        "age": 60
+      },
+      {
+        "lat": -16,
+        "lon": 32,
+        "n": 3,
+        "age": 5150
+      },
+      {
+        "lat": -16,
+        "lon": 144,
+        "n": 1,
+        "age": 350
+      },
+      {
+        "lat": -14,
+        "lon": -78,
+        "n": 19,
+        "age": 685
+      },
+      {
+        "lat": -14,
+        "lon": -76,
+        "n": 7,
+        "age": 945
+      },
+      {
+        "lat": -14,
+        "lon": -74,
+        "n": 3,
+        "age": 605
+      },
+      {
+        "lat": -14,
+        "lon": -46,
+        "n": 1,
+        "age": 593
+      },
+      {
+        "lat": -14,
+        "lon": 140,
+        "n": 3,
+        "age": 850
+      },
+      {
+        "lat": -12,
+        "lon": -78,
+        "n": 5,
+        "age": 8450
+      },
+      {
+        "lat": -12,
+        "lon": 32,
+        "n": 8,
+        "age": 7028.5
+      },
+      {
+        "lat": -10,
+        "lon": -80,
+        "n": 1,
+        "age": 4105
+      },
+      {
+        "lat": -10,
+        "lon": -78,
+        "n": 5,
+        "age": 700
+      },
+      {
+        "lat": -10,
+        "lon": -44,
+        "n": 1,
+        "age": 3516
+      },
+      {
+        "lat": -10,
+        "lon": 38,
+        "n": 9,
+        "age": 500
+      },
+      {
+        "lat": -10,
+        "lon": 118,
+        "n": 1,
+        "age": 669
+      },
+      {
+        "lat": -10,
+        "lon": 120,
+        "n": 2,
+        "age": 716
+      },
+      {
+        "lat": -10,
+        "lon": 124,
+        "n": 1,
+        "age": 509
+      },
+      {
+        "lat": -10,
+        "lon": 146,
+        "n": 34,
+        "age": 415
+      },
+      {
+        "lat": -10,
+        "lon": 160,
+        "n": 1,
+        "age": 467
+      },
+      {
+        "lat": -8,
+        "lon": -80,
+        "n": 10,
+        "age": 1095
+      },
+      {
+        "lat": -8,
+        "lon": -78,
+        "n": 1,
+        "age": 498
+      },
+      {
+        "lat": -8,
+        "lon": -60,
+        "n": 1,
+        "age": 496
+      },
+      {
+        "lat": -8,
+        "lon": -38,
+        "n": 1,
+        "age": 4625
+      },
+      {
+        "lat": -8,
+        "lon": 34,
+        "n": 1,
+        "age": 18500
+      },
+      {
+        "lat": -8,
+        "lon": 38,
+        "n": 1,
+        "age": 1331
+      },
+      {
+        "lat": -6,
+        "lon": 14,
+        "n": 4,
+        "age": 200
+      },
+      {
+        "lat": -6,
+        "lon": 34,
+        "n": 2,
+        "age": 5046.5
+      },
+      {
+        "lat": -6,
+        "lon": 38,
+        "n": 2,
+        "age": 973.5
+      },
+      {
+        "lat": -6,
+        "lon": 118,
+        "n": 1,
+        "age": 7250
+      },
+      {
+        "lat": -6,
+        "lon": 144,
+        "n": 2,
+        "age": 597.5
+      },
+      {
+        "lat": -6,
+        "lon": 152,
+        "n": 5,
+        "age": 1830
+      },
+      {
+        "lat": -4,
+        "lon": 34,
+        "n": 11,
+        "age": 2150
+      },
+      {
+        "lat": -4,
+        "lon": 38,
+        "n": 63,
+        "age": 461
+      },
+      {
+        "lat": -4,
+        "lon": 40,
+        "n": 9,
+        "age": 425
+      },
+      {
+        "lat": -4,
+        "lon": 120,
+        "n": 3,
+        "age": 386
+      },
+      {
+        "lat": -2,
+        "lon": 34,
+        "n": 13,
+        "age": 1969
+      },
+      {
+        "lat": -2,
+        "lon": 36,
+        "n": 17,
+        "age": 2270
+      },
+      {
+        "lat": 0,
+        "lon": 30,
+        "n": 1,
+        "age": 450
+      },
+      {
+        "lat": 0,
+        "lon": 34,
+        "n": 5,
+        "age": 3462
+      },
+      {
+        "lat": 0,
+        "lon": 36,
+        "n": 4,
+        "age": 1895
+      },
+      {
+        "lat": 0,
+        "lon": 126,
+        "n": 1,
+        "age": 1824
+      },
+      {
+        "lat": 2,
+        "lon": 28,
+        "n": 1,
+        "age": 766
+      },
+      {
+        "lat": 2,
+        "lon": 36,
+        "n": 1,
+        "age": 4200
+      },
+      {
+        "lat": 2,
+        "lon": 128,
+        "n": 9,
+        "age": 2150
+      },
+      {
+        "lat": 4,
+        "lon": -76,
+        "n": 12,
+        "age": 2000
+      },
+      {
+        "lat": 4,
+        "lon": -74,
+        "n": 7,
+        "age": 5500
+      },
+      {
+        "lat": 4,
+        "lon": 10,
+        "n": 4,
+        "age": 5453
+      },
+      {
+        "lat": 4,
+        "lon": 96,
+        "n": 2,
+        "age": 1994
+      },
+      {
+        "lat": 4,
+        "lon": 100,
+        "n": 2,
+        "age": 3381
+      },
+      {
+        "lat": 4,
+        "lon": 116,
+        "n": 2,
+        "age": 405
+      },
+      {
+        "lat": 6,
+        "lon": -74,
+        "n": 2,
+        "age": 690.5
+      },
+      {
+        "lat": 6,
+        "lon": 38,
+        "n": 1,
+        "age": 4470
+      },
+      {
+        "lat": 6,
+        "lon": 134,
+        "n": 17,
+        "age": 1520
+      },
+      {
+        "lat": 6,
+        "lon": 158,
+        "n": 11,
+        "age": 488
+      },
+      {
+        "lat": 8,
+        "lon": -80,
+        "n": 16,
+        "age": 606.5
+      },
+      {
+        "lat": 10,
+        "lon": -70,
+        "n": 8,
+        "age": 2242.5
+      },
+      {
+        "lat": 10,
+        "lon": 104,
+        "n": 1,
+        "age": 1790
+      },
+      {
+        "lat": 12,
+        "lon": -70,
+        "n": 5,
+        "age": 650
+      },
+      {
+        "lat": 12,
+        "lon": 52,
+        "n": 8,
+        "age": 862.5
+      },
+      {
+        "lat": 12,
+        "lon": 54,
+        "n": 30,
+        "age": 975
+      },
+      {
+        "lat": 12,
+        "lon": 92,
+        "n": 1,
+        "age": 90
+      },
+      {
+        "lat": 12,
+        "lon": 144,
+        "n": 108,
+        "age": 587.5
+      },
+      {
+        "lat": 14,
+        "lon": -62,
+        "n": 12,
+        "age": 680
+      },
+      {
+        "lat": 14,
+        "lon": 144,
+        "n": 46,
+        "age": 400
+      },
+      {
+        "lat": 16,
+        "lon": -90,
+        "n": 28,
+        "age": 4879.5
+      },
+      {
+        "lat": 16,
+        "lon": -72,
+        "n": 4,
+        "age": 2193.5
+      },
+      {
+        "lat": 16,
+        "lon": -68,
+        "n": 1,
+        "age": 612
+      },
+      {
+        "lat": 16,
+        "lon": -62,
+        "n": 4,
+        "age": 799
+      },
+      {
+        "lat": 16,
+        "lon": 102,
+        "n": 5,
+        "age": 3050
+      },
+      {
+        "lat": 18,
+        "lon": -102,
+        "n": 2,
+        "age": 1225
+      },
+      {
+        "lat": 18,
+        "lon": -100,
+        "n": 3,
+        "age": 415
+      },
+      {
+        "lat": 18,
+        "lon": -72,
+        "n": 9,
+        "age": 624
+      },
+      {
+        "lat": 18,
+        "lon": -70,
+        "n": 120,
+        "age": 849
+      },
+      {
+        "lat": 18,
+        "lon": -68,
+        "n": 15,
+        "age": 900
+      },
+      {
+        "lat": 18,
+        "lon": -66,
+        "n": 8,
+        "age": 1079
+      },
+      {
+        "lat": 18,
+        "lon": -64,
+        "n": 3,
+        "age": 300
+      },
+      {
+        "lat": 18,
+        "lon": 28,
+        "n": 1,
+        "age": 4026
+      },
+      {
+        "lat": 18,
+        "lon": 98,
+        "n": 36,
+        "age": 1625
+      },
+      {
+        "lat": 18,
+        "lon": 104,
+        "n": 7,
+        "age": 2237
+      },
+      {
+        "lat": 18,
+        "lon": 120,
+        "n": 1,
+        "age": 1783
+      },
+      {
+        "lat": 20,
+        "lon": -102,
+        "n": 4,
+        "age": 1287.5
+      },
+      {
+        "lat": 20,
+        "lon": -100,
+        "n": 4,
+        "age": 975
+      },
+      {
+        "lat": 20,
+        "lon": -92,
+        "n": 10,
+        "age": 350
+      },
+      {
+        "lat": 20,
+        "lon": -90,
+        "n": 53,
+        "age": 1075
+      },
+      {
+        "lat": 20,
+        "lon": -78,
+        "n": 8,
+        "age": 1888.5
+      },
+      {
+        "lat": 20,
+        "lon": 30,
+        "n": 66,
+        "age": 1100
+      },
+      {
+        "lat": 20,
+        "lon": 76,
+        "n": 5,
+        "age": 488
+      },
+      {
+        "lat": 20,
+        "lon": 102,
+        "n": 3,
+        "age": 2987
+      },
+      {
+        "lat": 20,
+        "lon": 104,
+        "n": 11,
+        "age": 3850
+      },
+      {
+        "lat": 20,
+        "lon": 106,
+        "n": 2,
+        "age": 2084.5
+      },
+      {
+        "lat": 22,
+        "lon": -84,
+        "n": 8,
+        "age": 1405.5
+      },
+      {
+        "lat": 22,
+        "lon": -82,
+        "n": 37,
+        "age": 1329
+      },
+      {
+        "lat": 22,
+        "lon": -76,
+        "n": 8,
+        "age": 750
+      },
+      {
+        "lat": 22,
+        "lon": 102,
+        "n": 2,
+        "age": 9136.5
+      },
+      {
+        "lat": 22,
+        "lon": 106,
+        "n": 9,
+        "age": 1400
+      },
+      {
+        "lat": 22,
+        "lon": 118,
+        "n": 2,
+        "age": 4575
+      },
+      {
+        "lat": 22,
+        "lon": 120,
+        "n": 2,
+        "age": 2334.5
+      },
+      {
+        "lat": 24,
+        "lon": -112,
+        "n": 7,
+        "age": 500
+      },
+      {
+        "lat": 24,
+        "lon": -106,
+        "n": 10,
+        "age": 1175
+      },
+      {
+        "lat": 24,
+        "lon": -102,
+        "n": 3,
+        "age": 942
+      },
+      {
+        "lat": 24,
+        "lon": -78,
+        "n": 23,
+        "age": 750
+      },
+      {
+        "lat": 24,
+        "lon": 100,
+        "n": 33,
+        "age": 3300
+      },
+      {
+        "lat": 24,
+        "lon": 102,
+        "n": 78,
+        "age": 2048
+      },
+      {
+        "lat": 24,
+        "lon": 104,
+        "n": 6,
+        "age": 3300
+      },
+      {
+        "lat": 24,
+        "lon": 106,
+        "n": 20,
+        "age": 922.5
+      },
+      {
+        "lat": 24,
+        "lon": 116,
+        "n": 3,
+        "age": 8392
+      },
+      {
+        "lat": 24,
+        "lon": 120,
+        "n": 46,
+        "age": 1550
+      },
+      {
+        "lat": 24,
+        "lon": 124,
+        "n": 9,
+        "age": 2401
+      },
+      {
+        "lat": 26,
+        "lon": -108,
+        "n": 1,
+        "age": 850
+      },
+      {
+        "lat": 26,
+        "lon": -78,
+        "n": 3,
+        "age": 1003
+      },
+      {
+        "lat": 26,
+        "lon": -16,
+        "n": 2,
+        "age": 1003
+      },
+      {
+        "lat": 26,
+        "lon": 50,
+        "n": 4,
+        "age": 1464.5
+      },
+      {
+        "lat": 26,
+        "lon": 98,
+        "n": 18,
+        "age": 2510
+      },
+      {
+        "lat": 26,
+        "lon": 100,
+        "n": 26,
+        "age": 2300
+      },
+      {
+        "lat": 26,
+        "lon": 106,
+        "n": 6,
+        "age": 450
+      },
+      {
+        "lat": 26,
+        "lon": 118,
+        "n": 11,
+        "age": 4459
+      },
+      {
+        "lat": 26,
+        "lon": 120,
+        "n": 4,
+        "age": 7885
+      },
+      {
+        "lat": 28,
+        "lon": -116,
+        "n": 1,
+        "age": 2700
+      },
+      {
+        "lat": 28,
+        "lon": -110,
+        "n": 14,
+        "age": 1000
+      },
+      {
+        "lat": 28,
+        "lon": -18,
+        "n": 3,
+        "age": 1137
+      },
+      {
+        "lat": 28,
+        "lon": 30,
+        "n": 3,
+        "age": 2602
+      },
+      {
+        "lat": 28,
+        "lon": 56,
+        "n": 9,
+        "age": 5100
+      },
+      {
+        "lat": 28,
+        "lon": 76,
+        "n": 1,
+        "age": 4300
+      },
+      {
+        "lat": 28,
+        "lon": 82,
+        "n": 24,
+        "age": 2650
+      },
+      {
+        "lat": 28,
+        "lon": 84,
+        "n": 23,
+        "age": 1500
+      },
+      {
+        "lat": 28,
+        "lon": 88,
+        "n": 23,
+        "age": 900
+      },
+      {
+        "lat": 28,
+        "lon": 90,
+        "n": 9,
+        "age": 1355
+      },
+      {
+        "lat": 28,
+        "lon": 94,
+        "n": 2,
+        "age": 484
+      },
+      {
+        "lat": 30,
+        "lon": -112,
+        "n": 13,
+        "age": 625
+      },
+      {
+        "lat": 30,
+        "lon": -108,
+        "n": 1,
+        "age": 604
+      },
+      {
+        "lat": 30,
+        "lon": 34,
+        "n": 33,
+        "age": 8700
+      },
+      {
+        "lat": 30,
+        "lon": 60,
+        "n": 22,
+        "age": 4724.5
+      },
+      {
+        "lat": 30,
+        "lon": 78,
+        "n": 46,
+        "age": 1084.5
+      },
+      {
+        "lat": 30,
+        "lon": 80,
+        "n": 13,
+        "age": 2550
+      },
+      {
+        "lat": 30,
+        "lon": 82,
+        "n": 1,
+        "age": 1847
+      },
+      {
+        "lat": 30,
+        "lon": 90,
+        "n": 3,
+        "age": 1324
+      },
+      {
+        "lat": 30,
+        "lon": 92,
+        "n": 3,
+        "age": 1662
+      },
+      {
+        "lat": 30,
+        "lon": 94,
+        "n": 3,
+        "age": 1969
+      },
+      {
+        "lat": 30,
+        "lon": 96,
+        "n": 4,
+        "age": 2780.5
+      },
+      {
+        "lat": 30,
+        "lon": 104,
+        "n": 5,
+        "age": 4215
+      },
+      {
+        "lat": 32,
+        "lon": -120,
+        "n": 48,
+        "age": 2198.5
+      },
+      {
+        "lat": 32,
+        "lon": -118,
+        "n": 1,
+        "age": 2700
+      },
+      {
+        "lat": 32,
+        "lon": -114,
+        "n": 1,
+        "age": 850
+      },
+      {
+        "lat": 32,
+        "lon": -8,
+        "n": 3,
+        "age": 6355
+      },
+      {
+        "lat": 32,
+        "lon": -6,
+        "n": 4,
+        "age": 6967
+      },
+      {
+        "lat": 32,
+        "lon": 4,
+        "n": 3,
+        "age": 5650
+      },
+      {
+        "lat": 32,
+        "lon": 34,
+        "n": 160,
+        "age": 3402.5
+      },
+      {
+        "lat": 32,
+        "lon": 46,
+        "n": 4,
+        "age": 9248
+      },
+      {
+        "lat": 32,
+        "lon": 78,
+        "n": 7,
+        "age": 1750
+      },
+      {
+        "lat": 32,
+        "lon": 80,
+        "n": 27,
+        "age": 2150
+      },
+      {
+        "lat": 32,
+        "lon": 90,
+        "n": 1,
+        "age": 2455
+      },
+      {
+        "lat": 32,
+        "lon": 94,
+        "n": 5,
+        "age": 2875
+      },
+      {
+        "lat": 32,
+        "lon": 112,
+        "n": 65,
+        "age": 6950
+      },
+      {
+        "lat": 32,
+        "lon": 114,
+        "n": 8,
+        "age": 3954.5
+      },
+      {
+        "lat": 32,
+        "lon": 130,
+        "n": 1,
+        "age": 2100
+      },
+      {
+        "lat": 32,
+        "lon": 132,
+        "n": 2,
+        "age": 6294
+      },
+      {
+        "lat": 34,
+        "lon": -122,
+        "n": 21,
+        "age": 3225
+      },
+      {
+        "lat": 34,
+        "lon": -120,
+        "n": 49,
+        "age": 1550
+      },
+      {
+        "lat": 34,
+        "lon": -6,
+        "n": 4,
+        "age": 7219.5
+      },
+      {
+        "lat": 34,
+        "lon": -4,
+        "n": 8,
+        "age": 14477.5
+      },
+      {
+        "lat": 34,
+        "lon": 6,
+        "n": 1,
+        "age": 2752
+      },
+      {
+        "lat": 34,
+        "lon": 8,
+        "n": 5,
+        "age": 6789
+      },
+      {
+        "lat": 34,
+        "lon": 24,
+        "n": 78,
+        "age": 3952
+      },
+      {
+        "lat": 34,
+        "lon": 26,
+        "n": 2,
+        "age": 4009
+      },
+      {
+        "lat": 34,
+        "lon": 32,
+        "n": 3,
+        "age": 9600
+      },
+      {
+        "lat": 34,
+        "lon": 34,
+        "n": 4,
+        "age": 1567.5
+      },
+      {
+        "lat": 34,
+        "lon": 36,
+        "n": 16,
+        "age": 3850
+      },
+      {
+        "lat": 34,
+        "lon": 40,
+        "n": 2,
+        "age": 968.5
+      },
+      {
+        "lat": 34,
+        "lon": 44,
+        "n": 4,
+        "age": 9450
+      },
+      {
+        "lat": 34,
+        "lon": 46,
+        "n": 7,
+        "age": 6677
+      },
+      {
+        "lat": 34,
+        "lon": 48,
+        "n": 14,
+        "age": 9919.5
+      },
+      {
+        "lat": 34,
+        "lon": 52,
+        "n": 2,
+        "age": 11375
+      },
+      {
+        "lat": 34,
+        "lon": 56,
+        "n": 1,
+        "age": 6635
+      },
+      {
+        "lat": 34,
+        "lon": 70,
+        "n": 1,
+        "age": 382
+      },
+      {
+        "lat": 34,
+        "lon": 72,
+        "n": 128,
+        "age": 2850
+      },
+      {
+        "lat": 34,
+        "lon": 76,
+        "n": 2,
+        "age": 152
+      },
+      {
+        "lat": 34,
+        "lon": 94,
+        "n": 1,
+        "age": 533
+      },
+      {
+        "lat": 34,
+        "lon": 100,
+        "n": 19,
+        "age": 4600
+      },
+      {
+        "lat": 34,
+        "lon": 110,
+        "n": 1,
+        "age": 6927
+      },
+      {
+        "lat": 34,
+        "lon": 112,
+        "n": 35,
+        "age": 3841
+      },
+      {
+        "lat": 34,
+        "lon": 116,
+        "n": 10,
+        "age": 4354
+      },
+      {
+        "lat": 34,
+        "lon": 126,
+        "n": 2,
+        "age": 6600
+      },
+      {
+        "lat": 34,
+        "lon": 128,
+        "n": 13,
+        "age": 1550
+      },
+      {
+        "lat": 34,
+        "lon": 132,
+        "n": 1,
+        "age": 5526
+      },
+      {
+        "lat": 34,
+        "lon": 136,
+        "n": 1,
+        "age": 2782
+      },
+      {
+        "lat": 34,
+        "lon": 138,
+        "n": 2,
+        "age": 4151
+      },
+      {
+        "lat": 34,
+        "lon": 140,
+        "n": 5,
+        "age": 3234
+      },
+      {
+        "lat": 36,
+        "lon": -124,
+        "n": 2,
+        "age": 10975
+      },
+      {
+        "lat": 36,
+        "lon": -122,
+        "n": 11,
+        "age": 400
+      },
+      {
+        "lat": 36,
+        "lon": -108,
+        "n": 5,
+        "age": 937
+      },
+      {
+        "lat": 36,
+        "lon": -10,
+        "n": 10,
+        "age": 750
+      },
+      {
+        "lat": 36,
+        "lon": -8,
+        "n": 24,
+        "age": 4750
+      },
+      {
+        "lat": 36,
+        "lon": -6,
+        "n": 53,
+        "age": 3600
+      },
+      {
+        "lat": 36,
+        "lon": -4,
+        "n": 34,
+        "age": 975
+      },
+      {
+        "lat": 36,
+        "lon": -2,
+        "n": 93,
+        "age": 3814
+      },
+      {
+        "lat": 36,
+        "lon": 4,
+        "n": 4,
+        "age": 1877.5
+      },
+      {
+        "lat": 36,
+        "lon": 8,
+        "n": 2,
+        "age": 8001.5
+      },
+      {
+        "lat": 36,
+        "lon": 10,
+        "n": 50,
+        "age": 2377
+      },
+      {
+        "lat": 36,
+        "lon": 12,
+        "n": 150,
+        "age": 2500
+      },
+      {
+        "lat": 36,
+        "lon": 14,
+        "n": 12,
+        "age": 4306
+      },
+      {
+        "lat": 36,
+        "lon": 20,
+        "n": 12,
+        "age": 3225
+      },
+      {
+        "lat": 36,
+        "lon": 22,
+        "n": 37,
+        "age": 3369
+      },
+      {
+        "lat": 36,
+        "lon": 24,
+        "n": 6,
+        "age": 3125
+      },
+      {
+        "lat": 36,
+        "lon": 26,
+        "n": 8,
+        "age": 2171.5
+      },
+      {
+        "lat": 36,
+        "lon": 28,
+        "n": 46,
+        "age": 1100
+      },
+      {
+        "lat": 36,
+        "lon": 30,
+        "n": 3,
+        "age": 4479
+      },
+      {
+        "lat": 36,
+        "lon": 32,
+        "n": 120,
+        "age": 8500
+      },
+      {
+        "lat": 36,
+        "lon": 36,
+        "n": 73,
+        "age": 3629
+      },
+      {
+        "lat": 36,
+        "lon": 38,
+        "n": 12,
+        "age": 4100
+      },
+      {
+        "lat": 36,
+        "lon": 40,
+        "n": 36,
+        "age": 2546.5
+      },
+      {
+        "lat": 36,
+        "lon": 42,
+        "n": 4,
+        "age": 10700
+      },
+      {
+        "lat": 36,
+        "lon": 44,
+        "n": 46,
+        "age": 3139.5
+      },
+      {
+        "lat": 36,
+        "lon": 50,
+        "n": 7,
+        "age": 2100
+      },
+      {
+        "lat": 36,
+        "lon": 52,
+        "n": 5,
+        "age": 4600
+      },
+      {
+        "lat": 36,
+        "lon": 54,
+        "n": 12,
+        "age": 4711
+      },
+      {
+        "lat": 36,
+        "lon": 58,
+        "n": 6,
+        "age": 5311.5
+      },
+      {
+        "lat": 36,
+        "lon": 60,
+        "n": 28,
+        "age": 5050
+      },
+      {
+        "lat": 36,
+        "lon": 66,
+        "n": 38,
+        "age": 3663.5
+      },
+      {
+        "lat": 36,
+        "lon": 68,
+        "n": 6,
+        "age": 2018
+      },
+      {
+        "lat": 36,
+        "lon": 70,
+        "n": 1,
+        "age": 4466
+      },
+      {
+        "lat": 36,
+        "lon": 72,
+        "n": 3,
+        "age": 1450
+      },
+      {
+        "lat": 36,
+        "lon": 74,
+        "n": 13,
+        "age": 2500
+      },
+      {
+        "lat": 36,
+        "lon": 78,
+        "n": 8,
+        "age": 1650
+      },
+      {
+        "lat": 36,
+        "lon": 80,
+        "n": 10,
+        "age": 1800
+      },
+      {
+        "lat": 36,
+        "lon": 98,
+        "n": 10,
+        "age": 1226
+      },
+      {
+        "lat": 36,
+        "lon": 100,
+        "n": 10,
+        "age": 3900
+      },
+      {
+        "lat": 36,
+        "lon": 102,
+        "n": 1,
+        "age": 4296
+      },
+      {
+        "lat": 36,
+        "lon": 108,
+        "n": 11,
+        "age": 5050
+      },
+      {
+        "lat": 36,
+        "lon": 116,
+        "n": 45,
+        "age": 3421
+      },
+      {
+        "lat": 36,
+        "lon": 118,
+        "n": 20,
+        "age": 2500
+      },
+      {
+        "lat": 36,
+        "lon": 120,
+        "n": 29,
+        "age": 5300
+      },
+      {
+        "lat": 36,
+        "lon": 126,
+        "n": 1,
+        "age": 2591
+      },
+      {
+        "lat": 36,
+        "lon": 136,
+        "n": 7,
+        "age": 5818
+      },
+      {
+        "lat": 36,
+        "lon": 140,
+        "n": 2,
+        "age": 3228.5
+      },
+      {
+        "lat": 38,
+        "lon": -122,
+        "n": 7,
+        "age": 600
+      },
+      {
+        "lat": 38,
+        "lon": -120,
+        "n": 4,
+        "age": 1791
+      },
+      {
+        "lat": 38,
+        "lon": -78,
+        "n": 26,
+        "age": 131.5
+      },
+      {
+        "lat": 38,
+        "lon": -10,
+        "n": 76,
+        "age": 4029
+      },
+      {
+        "lat": 38,
+        "lon": -8,
+        "n": 27,
+        "age": 800
+      },
+      {
+        "lat": 38,
+        "lon": -4,
+        "n": 5,
+        "age": 3860
+      },
+      {
+        "lat": 38,
+        "lon": -2,
+        "n": 77,
+        "age": 4750
+      },
+      {
+        "lat": 38,
+        "lon": 0,
+        "n": 14,
+        "age": 2275.5
+      },
+      {
+        "lat": 38,
+        "lon": 2,
+        "n": 7,
+        "age": 3050
+      },
+      {
+        "lat": 38,
+        "lon": 4,
+        "n": 1,
+        "age": 1555
+      },
+      {
+        "lat": 38,
+        "lon": 8,
+        "n": 73,
+        "age": 3023
+      },
+      {
+        "lat": 38,
+        "lon": 12,
+        "n": 24,
+        "age": 7621
+      },
+      {
+        "lat": 38,
+        "lon": 20,
+        "n": 11,
+        "age": 3478
+      },
+      {
+        "lat": 38,
+        "lon": 22,
+        "n": 17,
+        "age": 3200
+      },
+      {
+        "lat": 38,
+        "lon": 24,
+        "n": 5,
+        "age": 4421
+      },
+      {
+        "lat": 38,
+        "lon": 26,
+        "n": 7,
+        "age": 4925
+      },
+      {
+        "lat": 38,
+        "lon": 30,
+        "n": 7,
+        "age": 2126
+      },
+      {
+        "lat": 38,
+        "lon": 32,
+        "n": 9,
+        "age": 3575
+      },
+      {
+        "lat": 38,
+        "lon": 34,
+        "n": 17,
+        "age": 9046
+      },
+      {
+        "lat": 38,
+        "lon": 38,
+        "n": 44,
+        "age": 6535
+      },
+      {
+        "lat": 38,
+        "lon": 42,
+        "n": 7,
+        "age": 2750
+      },
+      {
+        "lat": 38,
+        "lon": 44,
+        "n": 8,
+        "age": 5961
+      },
+      {
+        "lat": 38,
+        "lon": 46,
+        "n": 11,
+        "age": 2575
+      },
+      {
+        "lat": 38,
+        "lon": 48,
+        "n": 2,
+        "age": 6519
+      },
+      {
+        "lat": 38,
+        "lon": 56,
+        "n": 9,
+        "age": 4550
+      },
+      {
+        "lat": 38,
+        "lon": 60,
+        "n": 2,
+        "age": 3976
+      },
+      {
+        "lat": 38,
+        "lon": 62,
+        "n": 47,
+        "age": 4011
+      },
+      {
+        "lat": 38,
+        "lon": 66,
+        "n": 24,
+        "age": 2000
+      },
+      {
+        "lat": 38,
+        "lon": 68,
+        "n": 7,
+        "age": 3423
+      },
+      {
+        "lat": 38,
+        "lon": 80,
+        "n": 2,
+        "age": 3826
+      },
+      {
+        "lat": 38,
+        "lon": 84,
+        "n": 16,
+        "age": 2175
+      },
+      {
+        "lat": 38,
+        "lon": 110,
+        "n": 3,
+        "age": 4050
+      },
+      {
+        "lat": 38,
+        "lon": 114,
+        "n": 1,
+        "age": 39565
+      },
+      {
+        "lat": 40,
+        "lon": -76,
+        "n": 1,
+        "age": 334
+      },
+      {
+        "lat": 40,
+        "lon": -10,
+        "n": 13,
+        "age": 200
+      },
+      {
+        "lat": 40,
+        "lon": -8,
+        "n": 12,
+        "age": 1100
+      },
+      {
+        "lat": 40,
+        "lon": -6,
+        "n": 5,
+        "age": 3301
+      },
+      {
+        "lat": 40,
+        "lon": -4,
+        "n": 42,
+        "age": 4200
+      },
+      {
+        "lat": 40,
+        "lon": -2,
+        "n": 3,
+        "age": 2150
+      },
+      {
+        "lat": 40,
+        "lon": 0,
+        "n": 36,
+        "age": 3550
+      },
+      {
+        "lat": 40,
+        "lon": 2,
+        "n": 31,
+        "age": 2809
+      },
+      {
+        "lat": 40,
+        "lon": 8,
+        "n": 65,
+        "age": 4150
+      },
+      {
+        "lat": 40,
+        "lon": 12,
+        "n": 133,
+        "age": 1750
+      },
+      {
+        "lat": 40,
+        "lon": 14,
+        "n": 42,
+        "age": 1250
+      },
+      {
+        "lat": 40,
+        "lon": 16,
+        "n": 10,
+        "age": 3132.5
+      },
+      {
+        "lat": 40,
+        "lon": 18,
+        "n": 4,
+        "age": 1085.5
+      },
+      {
+        "lat": 40,
+        "lon": 20,
+        "n": 23,
+        "age": 2550
+      },
+      {
+        "lat": 40,
+        "lon": 22,
+        "n": 11,
+        "age": 2607
+      },
+      {
+        "lat": 40,
+        "lon": 24,
+        "n": 3,
+        "age": 2850
+      },
+      {
+        "lat": 40,
+        "lon": 26,
+        "n": 21,
+        "age": 2750
+      },
+      {
+        "lat": 40,
+        "lon": 28,
+        "n": 60,
+        "age": 7926.5
+      },
+      {
+        "lat": 40,
+        "lon": 34,
+        "n": 39,
+        "age": 5392
+      },
+      {
+        "lat": 40,
+        "lon": 36,
+        "n": 7,
+        "age": 2071
+      },
+      {
+        "lat": 40,
+        "lon": 42,
+        "n": 44,
+        "age": 3109
+      },
+      {
+        "lat": 40,
+        "lon": 44,
+        "n": 167,
+        "age": 3100
+      },
+      {
+        "lat": 40,
+        "lon": 46,
+        "n": 6,
+        "age": 3153
+      },
+      {
+        "lat": 40,
+        "lon": 48,
+        "n": 1,
+        "age": 1678
+      },
+      {
+        "lat": 40,
+        "lon": 64,
+        "n": 3,
+        "age": 3614
+      },
+      {
+        "lat": 40,
+        "lon": 68,
+        "n": 9,
+        "age": 1650
+      },
+      {
+        "lat": 40,
+        "lon": 70,
+        "n": 11,
+        "age": 1700
+      },
+      {
+        "lat": 40,
+        "lon": 74,
+        "n": 28,
+        "age": 1722.5
+      },
+      {
+        "lat": 40,
+        "lon": 84,
+        "n": 1,
+        "age": 2351
+      },
+      {
+        "lat": 40,
+        "lon": 86,
+        "n": 3,
+        "age": 1800
+      },
+      {
+        "lat": 40,
+        "lon": 88,
+        "n": 11,
+        "age": 3900
+      },
+      {
+        "lat": 40,
+        "lon": 114,
+        "n": 46,
+        "age": 4559
+      },
+      {
+        "lat": 40,
+        "lon": 120,
+        "n": 3,
+        "age": 5250
+      },
+      {
+        "lat": 42,
+        "lon": -84,
+        "n": 9,
+        "age": 625
+      },
+      {
+        "lat": 42,
+        "lon": -8,
+        "n": 1,
+        "age": 9109
+      },
+      {
+        "lat": 42,
+        "lon": -6,
+        "n": 23,
+        "age": 4300
+      },
+      {
+        "lat": 42,
+        "lon": -4,
+        "n": 114,
+        "age": 4358.5
+      },
+      {
+        "lat": 42,
+        "lon": -2,
+        "n": 4,
+        "age": 7101
+      },
+      {
+        "lat": 42,
+        "lon": 0,
+        "n": 11,
+        "age": 7107
+      },
+      {
+        "lat": 42,
+        "lon": 2,
+        "n": 114,
+        "age": 2984
+      },
+      {
+        "lat": 42,
+        "lon": 4,
+        "n": 19,
+        "age": 2300
+      },
+      {
+        "lat": 42,
+        "lon": 6,
+        "n": 8,
+        "age": 7021
+      },
+      {
+        "lat": 42,
+        "lon": 10,
+        "n": 97,
+        "age": 2325
+      },
+      {
+        "lat": 42,
+        "lon": 12,
+        "n": 101,
+        "age": 2599
+      },
+      {
+        "lat": 42,
+        "lon": 14,
+        "n": 5,
+        "age": 2900
+      },
+      {
+        "lat": 42,
+        "lon": 16,
+        "n": 75,
+        "age": 1650
+      },
+      {
+        "lat": 42,
+        "lon": 18,
+        "n": 27,
+        "age": 3175
+      },
+      {
+        "lat": 42,
+        "lon": 20,
+        "n": 23,
+        "age": 2450
+      },
+      {
+        "lat": 42,
+        "lon": 22,
+        "n": 19,
+        "age": 1550
+      },
+      {
+        "lat": 42,
+        "lon": 24,
+        "n": 77,
+        "age": 6345
+      },
+      {
+        "lat": 42,
+        "lon": 26,
+        "n": 69,
+        "age": 6439
+      },
+      {
+        "lat": 42,
+        "lon": 28,
+        "n": 1,
+        "age": 5200
+      },
+      {
+        "lat": 42,
+        "lon": 42,
+        "n": 53,
+        "age": 4701
+      },
+      {
+        "lat": 42,
+        "lon": 44,
+        "n": 11,
+        "age": 1552
+      },
+      {
+        "lat": 42,
+        "lon": 46,
+        "n": 8,
+        "age": 3945
+      },
+      {
+        "lat": 42,
+        "lon": 48,
+        "n": 2,
+        "age": 4850
+      },
+      {
+        "lat": 42,
+        "lon": 56,
+        "n": 1,
+        "age": 1091
+      },
+      {
+        "lat": 42,
+        "lon": 68,
+        "n": 18,
+        "age": 1178.5
+      },
+      {
+        "lat": 42,
+        "lon": 72,
+        "n": 7,
+        "age": 3487
+      },
+      {
+        "lat": 42,
+        "lon": 74,
+        "n": 10,
+        "age": 654.5
+      },
+      {
+        "lat": 42,
+        "lon": 76,
+        "n": 25,
+        "age": 1739
+      },
+      {
+        "lat": 42,
+        "lon": 78,
+        "n": 5,
+        "age": 2373
+      },
+      {
+        "lat": 42,
+        "lon": 80,
+        "n": 30,
+        "age": 2250
+      },
+      {
+        "lat": 42,
+        "lon": 82,
+        "n": 72,
+        "age": 2221.5
+      },
+      {
+        "lat": 42,
+        "lon": 88,
+        "n": 3,
+        "age": 2025
+      },
+      {
+        "lat": 42,
+        "lon": 92,
+        "n": 11,
+        "age": 2250
+      },
+      {
+        "lat": 42,
+        "lon": 100,
+        "n": 2,
+        "age": 700
+      },
+      {
+        "lat": 42,
+        "lon": 102,
+        "n": 1,
+        "age": 700
+      },
+      {
+        "lat": 42,
+        "lon": 104,
+        "n": 4,
+        "age": 1373
+      },
+      {
+        "lat": 42,
+        "lon": 114,
+        "n": 1,
+        "age": 8200
+      },
+      {
+        "lat": 42,
+        "lon": 118,
+        "n": 3,
+        "age": 3750
+      },
+      {
+        "lat": 42,
+        "lon": 124,
+        "n": 3,
+        "age": 2650
+      },
+      {
+        "lat": 42,
+        "lon": 130,
+        "n": 19,
+        "age": 6711
+      },
+      {
+        "lat": 42,
+        "lon": 132,
+        "n": 1,
+        "age": 6785
+      },
+      {
+        "lat": 44,
+        "lon": -112,
+        "n": 1,
+        "age": 12712
+      },
+      {
+        "lat": 44,
+        "lon": 0,
+        "n": 6,
+        "age": 16264
+      },
+      {
+        "lat": 44,
+        "lon": 4,
+        "n": 7,
+        "age": 11675
+      },
+      {
+        "lat": 44,
+        "lon": 6,
+        "n": 43,
+        "age": 1350
+      },
+      {
+        "lat": 44,
+        "lon": 8,
+        "n": 1,
+        "age": 12756
+      },
+      {
+        "lat": 44,
+        "lon": 10,
+        "n": 14,
+        "age": 4003
+      },
+      {
+        "lat": 44,
+        "lon": 12,
+        "n": 12,
+        "age": 1365.5
+      },
+      {
+        "lat": 44,
+        "lon": 14,
+        "n": 86,
+        "age": 2658
+      },
+      {
+        "lat": 44,
+        "lon": 16,
+        "n": 55,
+        "age": 6050
+      },
+      {
+        "lat": 44,
+        "lon": 18,
+        "n": 88,
+        "age": 4759
+      },
+      {
+        "lat": 44,
+        "lon": 20,
+        "n": 120,
+        "age": 1783
+      },
+      {
+        "lat": 44,
+        "lon": 22,
+        "n": 73,
+        "age": 8740
+      },
+      {
+        "lat": 44,
+        "lon": 24,
+        "n": 8,
+        "age": 5895
+      },
+      {
+        "lat": 44,
+        "lon": 26,
+        "n": 80,
+        "age": 6385.5
+      },
+      {
+        "lat": 44,
+        "lon": 28,
+        "n": 36,
+        "age": 4650
+      },
+      {
+        "lat": 44,
+        "lon": 32,
+        "n": 12,
+        "age": 2120
+      },
+      {
+        "lat": 44,
+        "lon": 34,
+        "n": 2,
+        "age": 36524
+      },
+      {
+        "lat": 44,
+        "lon": 36,
+        "n": 5,
+        "age": 1020
+      },
+      {
+        "lat": 44,
+        "lon": 38,
+        "n": 18,
+        "age": 4672.5
+      },
+      {
+        "lat": 44,
+        "lon": 40,
+        "n": 35,
+        "age": 4753
+      },
+      {
+        "lat": 44,
+        "lon": 42,
+        "n": 45,
+        "age": 5201
+      },
+      {
+        "lat": 44,
+        "lon": 44,
+        "n": 17,
+        "age": 4681
+      },
+      {
+        "lat": 44,
+        "lon": 50,
+        "n": 5,
+        "age": 2350
+      },
+      {
+        "lat": 44,
+        "lon": 78,
+        "n": 12,
+        "age": 2905
+      },
+      {
+        "lat": 44,
+        "lon": 80,
+        "n": 1,
+        "age": 1050
+      },
+      {
+        "lat": 44,
+        "lon": 90,
+        "n": 5,
+        "age": 2927
+      },
+      {
+        "lat": 44,
+        "lon": 100,
+        "n": 2,
+        "age": 3272.5
+      },
+      {
+        "lat": 44,
+        "lon": 102,
+        "n": 3,
+        "age": 1950
+      },
+      {
+        "lat": 44,
+        "lon": 104,
+        "n": 2,
+        "age": 700
+      },
+      {
+        "lat": 44,
+        "lon": 112,
+        "n": 6,
+        "age": 1300
+      },
+      {
+        "lat": 44,
+        "lon": 114,
+        "n": 2,
+        "age": 1350
+      },
+      {
+        "lat": 44,
+        "lon": 120,
+        "n": 1,
+        "age": 5594
+      },
+      {
+        "lat": 44,
+        "lon": 124,
+        "n": 22,
+        "age": 9115.5
+      },
+      {
+        "lat": 44,
+        "lon": 126,
+        "n": 3,
+        "age": 9232
+      },
+      {
+        "lat": 44,
+        "lon": 134,
+        "n": 7,
+        "age": 7551
+      },
+      {
+        "lat": 44,
+        "lon": 140,
+        "n": 2,
+        "age": 2021.5
+      },
+      {
+        "lat": 46,
+        "lon": -120,
+        "n": 1,
+        "age": 8752
+      },
+      {
+        "lat": 46,
+        "lon": -68,
+        "n": 1,
+        "age": 676
+      },
+      {
+        "lat": 46,
+        "lon": -4,
+        "n": 20,
+        "age": 5700
+      },
+      {
+        "lat": 46,
+        "lon": -2,
+        "n": 10,
+        "age": 6131
+      },
+      {
+        "lat": 46,
+        "lon": 0,
+        "n": 6,
+        "age": 1387.5
+      },
+      {
+        "lat": 46,
+        "lon": 2,
+        "n": 119,
+        "age": 6550
+      },
+      {
+        "lat": 46,
+        "lon": 4,
+        "n": 70,
+        "age": 2554
+      },
+      {
+        "lat": 46,
+        "lon": 6,
+        "n": 67,
+        "age": 4865
+      },
+      {
+        "lat": 46,
+        "lon": 8,
+        "n": 40,
+        "age": 4072.5
+      },
+      {
+        "lat": 46,
+        "lon": 10,
+        "n": 1,
+        "age": 5195
+      },
+      {
+        "lat": 46,
+        "lon": 12,
+        "n": 11,
+        "age": 2648
+      },
+      {
+        "lat": 46,
+        "lon": 14,
+        "n": 13,
+        "age": 1659
+      },
+      {
+        "lat": 46,
+        "lon": 16,
+        "n": 283,
+        "age": 1225
+      },
+      {
+        "lat": 46,
+        "lon": 18,
+        "n": 352,
+        "age": 1300
+      },
+      {
+        "lat": 46,
+        "lon": 20,
+        "n": 852,
+        "age": 1325
+      },
+      {
+        "lat": 46,
+        "lon": 22,
+        "n": 81,
+        "age": 5900
+      },
+      {
+        "lat": 46,
+        "lon": 24,
+        "n": 1,
+        "age": 1500
+      },
+      {
+        "lat": 46,
+        "lon": 26,
+        "n": 7,
+        "age": 4250
+      },
+      {
+        "lat": 46,
+        "lon": 28,
+        "n": 41,
+        "age": 4449
+      },
+      {
+        "lat": 46,
+        "lon": 30,
+        "n": 36,
+        "age": 4910.5
+      },
+      {
+        "lat": 46,
+        "lon": 32,
+        "n": 3,
+        "age": 2467
+      },
+      {
+        "lat": 46,
+        "lon": 34,
+        "n": 45,
+        "age": 7070
+      },
+      {
+        "lat": 46,
+        "lon": 36,
+        "n": 1,
+        "age": 7328
+      },
+      {
+        "lat": 46,
+        "lon": 38,
+        "n": 16,
+        "age": 3300
+      },
+      {
+        "lat": 46,
+        "lon": 40,
+        "n": 30,
+        "age": 4833.5
+      },
+      {
+        "lat": 46,
+        "lon": 42,
+        "n": 14,
+        "age": 4700
+      },
+      {
+        "lat": 46,
+        "lon": 44,
+        "n": 30,
+        "age": 4684
+      },
+      {
+        "lat": 46,
+        "lon": 52,
+        "n": 1,
+        "age": 2476
+      },
+      {
+        "lat": 46,
+        "lon": 72,
+        "n": 1,
+        "age": 3684
+      },
+      {
+        "lat": 46,
+        "lon": 74,
+        "n": 1,
+        "age": 2587
+      },
+      {
+        "lat": 46,
+        "lon": 78,
+        "n": 4,
+        "age": 3503
+      },
+      {
+        "lat": 46,
+        "lon": 80,
+        "n": 5,
+        "age": 3522
+      },
+      {
+        "lat": 46,
+        "lon": 82,
+        "n": 1,
+        "age": 2517
+      },
+      {
+        "lat": 46,
+        "lon": 84,
+        "n": 11,
+        "age": 2575
+      },
+      {
+        "lat": 46,
+        "lon": 86,
+        "n": 5,
+        "age": 2225
+      },
+      {
+        "lat": 46,
+        "lon": 90,
+        "n": 26,
+        "age": 3880
+      },
+      {
+        "lat": 46,
+        "lon": 92,
+        "n": 4,
+        "age": 2460.5
+      },
+      {
+        "lat": 46,
+        "lon": 100,
+        "n": 8,
+        "age": 3104.5
+      },
+      {
+        "lat": 46,
+        "lon": 102,
+        "n": 30,
+        "age": 1240.5
+      },
+      {
+        "lat": 46,
+        "lon": 104,
+        "n": 12,
+        "age": 971
+      },
+      {
+        "lat": 46,
+        "lon": 106,
+        "n": 5,
+        "age": 2503
+      },
+      {
+        "lat": 46,
+        "lon": 108,
+        "n": 18,
+        "age": 1360.5
+      },
+      {
+        "lat": 46,
+        "lon": 110,
+        "n": 17,
+        "age": 2834
+      },
+      {
+        "lat": 46,
+        "lon": 112,
+        "n": 11,
+        "age": 700
+      },
+      {
+        "lat": 46,
+        "lon": 118,
+        "n": 9,
+        "age": 5250
+      },
+      {
+        "lat": 48,
+        "lon": -4,
+        "n": 13,
+        "age": 4929
+      },
+      {
+        "lat": 48,
+        "lon": -2,
+        "n": 17,
+        "age": 6301
+      },
+      {
+        "lat": 48,
+        "lon": 0,
+        "n": 1,
+        "age": 3800
+      },
+      {
+        "lat": 48,
+        "lon": 2,
+        "n": 83,
+        "age": 2456
+      },
+      {
+        "lat": 48,
+        "lon": 4,
+        "n": 40,
+        "age": 2200
+      },
+      {
+        "lat": 48,
+        "lon": 6,
+        "n": 68,
+        "age": 2662.5
+      },
+      {
+        "lat": 48,
+        "lon": 8,
+        "n": 82,
+        "age": 7050
+      },
+      {
+        "lat": 48,
+        "lon": 10,
+        "n": 152,
+        "age": 3849
+      },
+      {
+        "lat": 48,
+        "lon": 12,
+        "n": 73,
+        "age": 4186
+      },
+      {
+        "lat": 48,
+        "lon": 14,
+        "n": 28,
+        "age": 3789.5
+      },
+      {
+        "lat": 48,
+        "lon": 16,
+        "n": 687,
+        "age": 1225
+      },
+      {
+        "lat": 48,
+        "lon": 18,
+        "n": 67,
+        "age": 7100
+      },
+      {
+        "lat": 48,
+        "lon": 20,
+        "n": 44,
+        "age": 1025
+      },
+      {
+        "lat": 48,
+        "lon": 22,
+        "n": 8,
+        "age": 4321
+      },
+      {
+        "lat": 48,
+        "lon": 24,
+        "n": 39,
+        "age": 5600
+      },
+      {
+        "lat": 48,
+        "lon": 26,
+        "n": 10,
+        "age": 4777
+      },
+      {
+        "lat": 48,
+        "lon": 30,
+        "n": 15,
+        "age": 2587
+      },
+      {
+        "lat": 48,
+        "lon": 32,
+        "n": 44,
+        "age": 6891
+      },
+      {
+        "lat": 48,
+        "lon": 34,
+        "n": 70,
+        "age": 7209
+      },
+      {
+        "lat": 48,
+        "lon": 36,
+        "n": 18,
+        "age": 3815.5
+      },
+      {
+        "lat": 48,
+        "lon": 38,
+        "n": 1,
+        "age": 2929
+      },
+      {
+        "lat": 48,
+        "lon": 44,
+        "n": 9,
+        "age": 4596
+      },
+      {
+        "lat": 48,
+        "lon": 50,
+        "n": 1,
+        "age": 3562
+      },
+      {
+        "lat": 48,
+        "lon": 54,
+        "n": 2,
+        "age": 2288
+      },
+      {
+        "lat": 48,
+        "lon": 56,
+        "n": 1,
+        "age": 2350
+      },
+      {
+        "lat": 48,
+        "lon": 58,
+        "n": 13,
+        "age": 4900
+      },
+      {
+        "lat": 48,
+        "lon": 72,
+        "n": 4,
+        "age": 2585.5
+      },
+      {
+        "lat": 48,
+        "lon": 74,
+        "n": 22,
+        "age": 2571.5
+      },
+      {
+        "lat": 48,
+        "lon": 76,
+        "n": 16,
+        "age": 3631
+      },
+      {
+        "lat": 48,
+        "lon": 78,
+        "n": 1,
+        "age": 2550
+      },
+      {
+        "lat": 48,
+        "lon": 82,
+        "n": 1,
+        "age": 4042
+      },
+      {
+        "lat": 48,
+        "lon": 84,
+        "n": 4,
+        "age": 1875
+      },
+      {
+        "lat": 48,
+        "lon": 86,
+        "n": 40,
+        "age": 1808
+      },
+      {
+        "lat": 48,
+        "lon": 88,
+        "n": 8,
+        "age": 3683
+      },
+      {
+        "lat": 48,
+        "lon": 92,
+        "n": 25,
+        "age": 2226
+      },
+      {
+        "lat": 48,
+        "lon": 94,
+        "n": 1,
+        "age": 3295
+      },
+      {
+        "lat": 48,
+        "lon": 96,
+        "n": 3,
+        "age": 3300
+      },
+      {
+        "lat": 48,
+        "lon": 98,
+        "n": 23,
+        "age": 3081
+      },
+      {
+        "lat": 48,
+        "lon": 100,
+        "n": 21,
+        "age": 2051
+      },
+      {
+        "lat": 48,
+        "lon": 102,
+        "n": 13,
+        "age": 3632
+      },
+      {
+        "lat": 48,
+        "lon": 104,
+        "n": 16,
+        "age": 1387.5
+      },
+      {
+        "lat": 48,
+        "lon": 106,
+        "n": 3,
+        "age": 700
+      },
+      {
+        "lat": 48,
+        "lon": 108,
+        "n": 3,
+        "age": 7837
+      },
+      {
+        "lat": 48,
+        "lon": 110,
+        "n": 3,
+        "age": 2858
+      },
+      {
+        "lat": 48,
+        "lon": 112,
+        "n": 1,
+        "age": 34873
+      },
+      {
+        "lat": 48,
+        "lon": 114,
+        "n": 9,
+        "age": 700
+      },
+      {
+        "lat": 48,
+        "lon": 126,
+        "n": 1,
+        "age": 1299
+      },
+      {
+        "lat": 50,
+        "lon": -122,
+        "n": 1,
+        "age": 5626
+      },
+      {
+        "lat": 50,
+        "lon": -58,
+        "n": 2,
+        "age": 1550
+      },
+      {
+        "lat": 50,
+        "lon": -6,
+        "n": 29,
+        "age": 2329
+      },
+      {
+        "lat": 50,
+        "lon": -4,
+        "n": 169,
+        "age": 2037
+      },
+      {
+        "lat": 50,
+        "lon": -2,
+        "n": 214,
+        "age": 2446.5
+      },
+      {
+        "lat": 50,
+        "lon": 0,
+        "n": 81,
+        "age": 2246
+      },
+      {
+        "lat": 50,
+        "lon": 2,
+        "n": 40,
+        "age": 1250
+      },
+      {
+        "lat": 50,
+        "lon": 4,
+        "n": 438,
+        "age": 800
+      },
+      {
+        "lat": 50,
+        "lon": 6,
+        "n": 24,
+        "age": 1350
+      },
+      {
+        "lat": 50,
+        "lon": 8,
+        "n": 41,
+        "age": 5152
+      },
+      {
+        "lat": 50,
+        "lon": 10,
+        "n": 207,
+        "age": 4225
+      },
+      {
+        "lat": 50,
+        "lon": 12,
+        "n": 55,
+        "age": 3035
+      },
+      {
+        "lat": 50,
+        "lon": 14,
+        "n": 378,
+        "age": 4046.5
+      },
+      {
+        "lat": 50,
+        "lon": 16,
+        "n": 44,
+        "age": 1000
+      },
+      {
+        "lat": 50,
+        "lon": 18,
+        "n": 8,
+        "age": 4199.5
+      },
+      {
+        "lat": 50,
+        "lon": 20,
+        "n": 106,
+        "age": 3467.5
+      },
+      {
+        "lat": 50,
+        "lon": 22,
+        "n": 32,
+        "age": 1758.5
+      },
+      {
+        "lat": 50,
+        "lon": 24,
+        "n": 9,
+        "age": 3728
+      },
+      {
+        "lat": 50,
+        "lon": 26,
+        "n": 2,
+        "age": 3537
+      },
+      {
+        "lat": 50,
+        "lon": 30,
+        "n": 6,
+        "age": 900
+      },
+      {
+        "lat": 50,
+        "lon": 34,
+        "n": 13,
+        "age": 2495
+      },
+      {
+        "lat": 50,
+        "lon": 36,
+        "n": 13,
+        "age": 1150
+      },
+      {
+        "lat": 50,
+        "lon": 38,
+        "n": 14,
+        "age": 7450
+      },
+      {
+        "lat": 50,
+        "lon": 44,
+        "n": 6,
+        "age": 6209
+      },
+      {
+        "lat": 50,
+        "lon": 46,
+        "n": 4,
+        "age": 7073
+      },
+      {
+        "lat": 50,
+        "lon": 48,
+        "n": 3,
+        "age": 4328
+      },
+      {
+        "lat": 50,
+        "lon": 50,
+        "n": 1,
+        "age": 2400
+      },
+      {
+        "lat": 50,
+        "lon": 52,
+        "n": 6,
+        "age": 2250
+      },
+      {
+        "lat": 50,
+        "lon": 54,
+        "n": 5,
+        "age": 3216
+      },
+      {
+        "lat": 50,
+        "lon": 56,
+        "n": 15,
+        "age": 2300
+      },
+      {
+        "lat": 50,
+        "lon": 58,
+        "n": 2,
+        "age": 3643
+      },
+      {
+        "lat": 50,
+        "lon": 64,
+        "n": 1,
+        "age": 1948
+      },
+      {
+        "lat": 50,
+        "lon": 68,
+        "n": 1,
+        "age": 2300
+      },
+      {
+        "lat": 50,
+        "lon": 70,
+        "n": 5,
+        "age": 225
+      },
+      {
+        "lat": 50,
+        "lon": 72,
+        "n": 1,
+        "age": 2578
+      },
+      {
+        "lat": 50,
+        "lon": 74,
+        "n": 23,
+        "age": 3497
+      },
+      {
+        "lat": 50,
+        "lon": 78,
+        "n": 1,
+        "age": 2297
+      },
+      {
+        "lat": 50,
+        "lon": 80,
+        "n": 10,
+        "age": 3025
+      },
+      {
+        "lat": 50,
+        "lon": 82,
+        "n": 6,
+        "age": 4750
+      },
+      {
+        "lat": 50,
+        "lon": 84,
+        "n": 23,
+        "age": 4950
+      },
+      {
+        "lat": 50,
+        "lon": 86,
+        "n": 5,
+        "age": 4879
+      },
+      {
+        "lat": 50,
+        "lon": 88,
+        "n": 2,
+        "age": 3230
+      },
+      {
+        "lat": 50,
+        "lon": 94,
+        "n": 12,
+        "age": 2221
+      },
+      {
+        "lat": 50,
+        "lon": 98,
+        "n": 1,
+        "age": 2368
+      },
+      {
+        "lat": 50,
+        "lon": 100,
+        "n": 3,
+        "age": 2700
+      },
+      {
+        "lat": 50,
+        "lon": 102,
+        "n": 17,
+        "age": 7240
+      },
+      {
+        "lat": 50,
+        "lon": 106,
+        "n": 9,
+        "age": 2012
+      },
+      {
+        "lat": 50,
+        "lon": 114,
+        "n": 2,
+        "age": 6088
+      },
+      {
+        "lat": 50,
+        "lon": 118,
+        "n": 2,
+        "age": 5685.5
+      },
+      {
+        "lat": 52,
+        "lon": -170,
+        "n": 10,
+        "age": 420
+      },
+      {
+        "lat": 52,
+        "lon": -168,
+        "n": 1,
+        "age": 575
+      },
+      {
+        "lat": 52,
+        "lon": -12,
+        "n": 1,
+        "age": 1100
+      },
+      {
+        "lat": 52,
+        "lon": -10,
+        "n": 31,
+        "age": 5460
+      },
+      {
+        "lat": 52,
+        "lon": -8,
+        "n": 7,
+        "age": 5024
+      },
+      {
+        "lat": 52,
+        "lon": -6,
+        "n": 2,
+        "age": 2860.5
+      },
+      {
+        "lat": 52,
+        "lon": -4,
+        "n": 10,
+        "age": 3420
+      },
+      {
+        "lat": 52,
+        "lon": -2,
+        "n": 109,
+        "age": 2175
+      },
+      {
+        "lat": 52,
+        "lon": 0,
+        "n": 364,
+        "age": 700
+      },
+      {
+        "lat": 52,
+        "lon": 2,
+        "n": 6,
+        "age": 9723.5
+      },
+      {
+        "lat": 52,
+        "lon": 4,
+        "n": 89,
+        "age": 1839
+      },
+      {
+        "lat": 52,
+        "lon": 6,
+        "n": 39,
+        "age": 1050
+      },
+      {
+        "lat": 52,
+        "lon": 8,
+        "n": 41,
+        "age": 1200
+      },
+      {
+        "lat": 52,
+        "lon": 10,
+        "n": 5,
+        "age": 5208
+      },
+      {
+        "lat": 52,
+        "lon": 12,
+        "n": 26,
+        "age": 3200
+      },
+      {
+        "lat": 52,
+        "lon": 14,
+        "n": 49,
+        "age": 850
+      },
+      {
+        "lat": 52,
+        "lon": 16,
+        "n": 134,
+        "age": 850
+      },
+      {
+        "lat": 52,
+        "lon": 18,
+        "n": 51,
+        "age": 3450
+      },
+      {
+        "lat": 52,
+        "lon": 20,
+        "n": 18,
+        "age": 850
+      },
+      {
+        "lat": 52,
+        "lon": 22,
+        "n": 1,
+        "age": 8597
+      },
+      {
+        "lat": 52,
+        "lon": 36,
+        "n": 4,
+        "age": 2550
+      },
+      {
+        "lat": 52,
+        "lon": 38,
+        "n": 4,
+        "age": 6031.5
+      },
+      {
+        "lat": 52,
+        "lon": 40,
+        "n": 9,
+        "age": 5835
+      },
+      {
+        "lat": 52,
+        "lon": 48,
+        "n": 87,
+        "age": 6951
+      },
+      {
+        "lat": 52,
+        "lon": 50,
+        "n": 63,
+        "age": 4848
+      },
+      {
+        "lat": 52,
+        "lon": 52,
+        "n": 10,
+        "age": 4710
+      },
+      {
+        "lat": 52,
+        "lon": 54,
+        "n": 4,
+        "age": 3063.5
+      },
+      {
+        "lat": 52,
+        "lon": 56,
+        "n": 10,
+        "age": 3205.5
+      },
+      {
+        "lat": 52,
+        "lon": 58,
+        "n": 16,
+        "age": 3853
+      },
+      {
+        "lat": 52,
+        "lon": 60,
+        "n": 81,
+        "age": 3825
+      },
+      {
+        "lat": 52,
+        "lon": 62,
+        "n": 4,
+        "age": 2582
+      },
+      {
+        "lat": 52,
+        "lon": 64,
+        "n": 2,
+        "age": 3579
+      },
+      {
+        "lat": 52,
+        "lon": 66,
+        "n": 3,
+        "age": 5337
+      },
+      {
+        "lat": 52,
+        "lon": 70,
+        "n": 1,
+        "age": 2000
+      },
+      {
+        "lat": 52,
+        "lon": 76,
+        "n": 11,
+        "age": 2304
+      },
+      {
+        "lat": 52,
+        "lon": 80,
+        "n": 2,
+        "age": 6797.5
+      },
+      {
+        "lat": 52,
+        "lon": 82,
+        "n": 33,
+        "age": 5925
+      },
+      {
+        "lat": 52,
+        "lon": 84,
+        "n": 29,
+        "age": 6245
+      },
+      {
+        "lat": 52,
+        "lon": 86,
+        "n": 2,
+        "age": 5816.5
+      },
+      {
+        "lat": 52,
+        "lon": 90,
+        "n": 34,
+        "age": 4198
+      },
+      {
+        "lat": 52,
+        "lon": 92,
+        "n": 2,
+        "age": 2750
+      },
+      {
+        "lat": 52,
+        "lon": 102,
+        "n": 29,
+        "age": 4819
+      },
+      {
+        "lat": 52,
+        "lon": 104,
+        "n": 20,
+        "age": 4517
+      },
+      {
+        "lat": 52,
+        "lon": 106,
+        "n": 22,
+        "age": 5992
+      },
+      {
+        "lat": 52,
+        "lon": 112,
+        "n": 1,
+        "age": 6550
+      },
+      {
+        "lat": 52,
+        "lon": 116,
+        "n": 2,
+        "age": 7356.5
+      },
+      {
+        "lat": 54,
+        "lon": -132,
+        "n": 1,
+        "age": 6502
+      },
+      {
+        "lat": 54,
+        "lon": -10,
+        "n": 57,
+        "age": 950
+      },
+      {
+        "lat": 54,
+        "lon": -8,
+        "n": 4,
+        "age": 3858
+      },
+      {
+        "lat": 54,
+        "lon": -6,
+        "n": 5,
+        "age": 5131
+      },
+      {
+        "lat": 54,
+        "lon": -4,
+        "n": 40,
+        "age": 3015.5
+      },
+      {
+        "lat": 54,
+        "lon": -2,
+        "n": 101,
+        "age": 1450
+      },
+      {
+        "lat": 54,
+        "lon": 8,
+        "n": 34,
+        "age": 934.5
+      },
+      {
+        "lat": 54,
+        "lon": 10,
+        "n": 310,
+        "age": 1541
+      },
+      {
+        "lat": 54,
+        "lon": 12,
+        "n": 189,
+        "age": 1764
+      },
+      {
+        "lat": 54,
+        "lon": 14,
+        "n": 9,
+        "age": 1764
+      },
+      {
+        "lat": 54,
+        "lon": 16,
+        "n": 10,
+        "age": 1750
+      },
+      {
+        "lat": 54,
+        "lon": 18,
+        "n": 35,
+        "age": 1750
+      },
+      {
+        "lat": 54,
+        "lon": 22,
+        "n": 25,
+        "age": 3036
+      },
+      {
+        "lat": 54,
+        "lon": 24,
+        "n": 5,
+        "age": 1581
+      },
+      {
+        "lat": 54,
+        "lon": 26,
+        "n": 3,
+        "age": 6350
+      },
+      {
+        "lat": 54,
+        "lon": 30,
+        "n": 11,
+        "age": 950
+      },
+      {
+        "lat": 54,
+        "lon": 34,
+        "n": 3,
+        "age": 4511
+      },
+      {
+        "lat": 54,
+        "lon": 36,
+        "n": 1,
+        "age": 4624
+      },
+      {
+        "lat": 54,
+        "lon": 42,
+        "n": 1,
+        "age": 4955
+      },
+      {
+        "lat": 54,
+        "lon": 46,
+        "n": 1,
+        "age": 7232
+      },
+      {
+        "lat": 54,
+        "lon": 48,
+        "n": 11,
+        "age": 950
+      },
+      {
+        "lat": 54,
+        "lon": 50,
+        "n": 28,
+        "age": 6378
+      },
+      {
+        "lat": 54,
+        "lon": 52,
+        "n": 22,
+        "age": 760.5
+      },
+      {
+        "lat": 54,
+        "lon": 54,
+        "n": 33,
+        "age": 2051
+      },
+      {
+        "lat": 54,
+        "lon": 56,
+        "n": 4,
+        "age": 6028.5
+      },
+      {
+        "lat": 54,
+        "lon": 58,
+        "n": 5,
+        "age": 1000
+      },
+      {
+        "lat": 54,
+        "lon": 60,
+        "n": 10,
+        "age": 1050
+      },
+      {
+        "lat": 54,
+        "lon": 64,
+        "n": 4,
+        "age": 3526
+      },
+      {
+        "lat": 54,
+        "lon": 72,
+        "n": 38,
+        "age": 3852.5
+      },
+      {
+        "lat": 54,
+        "lon": 74,
+        "n": 19,
+        "age": 4849
+      },
+      {
+        "lat": 54,
+        "lon": 76,
+        "n": 12,
+        "age": 6022.5
+      },
+      {
+        "lat": 54,
+        "lon": 80,
+        "n": 1,
+        "age": 4794
+      },
+      {
+        "lat": 54,
+        "lon": 84,
+        "n": 5,
+        "age": 7424
+      },
+      {
+        "lat": 54,
+        "lon": 88,
+        "n": 11,
+        "age": 3600
+      },
+      {
+        "lat": 54,
+        "lon": 90,
+        "n": 32,
+        "age": 4505
+      },
+      {
+        "lat": 54,
+        "lon": 92,
+        "n": 2,
+        "age": 6011
+      },
+      {
+        "lat": 54,
+        "lon": 102,
+        "n": 2,
+        "age": 5993
+      },
+      {
+        "lat": 54,
+        "lon": 104,
+        "n": 9,
+        "age": 4604
+      },
+      {
+        "lat": 54,
+        "lon": 106,
+        "n": 1,
+        "age": 6905
+      },
+      {
+        "lat": 54,
+        "lon": 114,
+        "n": 1,
+        "age": 8419
+      },
+      {
+        "lat": 54,
+        "lon": 158,
+        "n": 3,
+        "age": 1458
+      },
+      {
+        "lat": 56,
+        "lon": -134,
+        "n": 1,
+        "age": 10366
+      },
+      {
+        "lat": 56,
+        "lon": -8,
+        "n": 6,
+        "age": 3156
+      },
+      {
+        "lat": 56,
+        "lon": -6,
+        "n": 23,
+        "age": 5425
+      },
+      {
+        "lat": 56,
+        "lon": -4,
+        "n": 17,
+        "age": 2843
+      },
+      {
+        "lat": 56,
+        "lon": 8,
+        "n": 96,
+        "age": 1694.5
+      },
+      {
+        "lat": 56,
+        "lon": 10,
+        "n": 66,
+        "age": 1592
+      },
+      {
+        "lat": 56,
+        "lon": 12,
+        "n": 7,
+        "age": 1000
+      },
+      {
+        "lat": 56,
+        "lon": 14,
+        "n": 4,
+        "age": 4137
+      },
+      {
+        "lat": 56,
+        "lon": 16,
+        "n": 56,
+        "age": 1060.5
+      },
+      {
+        "lat": 56,
+        "lon": 18,
+        "n": 87,
+        "age": 975
+      },
+      {
+        "lat": 56,
+        "lon": 24,
+        "n": 34,
+        "age": 6441
+      },
+      {
+        "lat": 56,
+        "lon": 26,
+        "n": 3,
+        "age": 5407
+      },
+      {
+        "lat": 56,
+        "lon": 28,
+        "n": 2,
+        "age": 950
+      },
+      {
+        "lat": 56,
+        "lon": 36,
+        "n": 3,
+        "age": 4414
+      },
+      {
+        "lat": 56,
+        "lon": 38,
+        "n": 31,
+        "age": 4500
+      },
+      {
+        "lat": 56,
+        "lon": 40,
+        "n": 63,
+        "age": 5192
+      },
+      {
+        "lat": 56,
+        "lon": 42,
+        "n": 3,
+        "age": 839
+      },
+      {
+        "lat": 56,
+        "lon": 50,
+        "n": 2,
+        "age": 1150
+      },
+      {
+        "lat": 56,
+        "lon": 52,
+        "n": 7,
+        "age": 1538
+      },
+      {
+        "lat": 56,
+        "lon": 54,
+        "n": 5,
+        "age": 1548
+      },
+      {
+        "lat": 56,
+        "lon": 58,
+        "n": 2,
+        "age": 6000.5
+      },
+      {
+        "lat": 56,
+        "lon": 62,
+        "n": 4,
+        "age": 2275
+      },
+      {
+        "lat": 56,
+        "lon": 64,
+        "n": 3,
+        "age": 6049
+      },
+      {
+        "lat": 56,
+        "lon": 66,
+        "n": 2,
+        "age": 1700
+      },
+      {
+        "lat": 56,
+        "lon": 68,
+        "n": 3,
+        "age": 8110
+      },
+      {
+        "lat": 56,
+        "lon": 70,
+        "n": 5,
+        "age": 850
+      },
+      {
+        "lat": 56,
+        "lon": 72,
+        "n": 5,
+        "age": 950
+      },
+      {
+        "lat": 56,
+        "lon": 74,
+        "n": 15,
+        "age": 4885
+      },
+      {
+        "lat": 56,
+        "lon": 76,
+        "n": 4,
+        "age": 6588
+      },
+      {
+        "lat": 56,
+        "lon": 92,
+        "n": 12,
+        "age": 5133
+      },
+      {
+        "lat": 56,
+        "lon": 94,
+        "n": 2,
+        "age": 4797.5
+      },
+      {
+        "lat": 56,
+        "lon": 102,
+        "n": 1,
+        "age": 613
+      },
+      {
+        "lat": 58,
+        "lon": -8,
+        "n": 1,
+        "age": 3311
+      },
+      {
+        "lat": 58,
+        "lon": -4,
+        "n": 69,
+        "age": 3500
+      },
+      {
+        "lat": 58,
+        "lon": 4,
+        "n": 6,
+        "age": 1267.5
+      },
+      {
+        "lat": 58,
+        "lon": 6,
+        "n": 3,
+        "age": 9364
+      },
+      {
+        "lat": 58,
+        "lon": 8,
+        "n": 4,
+        "age": 1275
+      },
+      {
+        "lat": 58,
+        "lon": 10,
+        "n": 7,
+        "age": 4345
+      },
+      {
+        "lat": 58,
+        "lon": 12,
+        "n": 155,
+        "age": 4933
+      },
+      {
+        "lat": 58,
+        "lon": 14,
+        "n": 10,
+        "age": 7598.5
+      },
+      {
+        "lat": 58,
+        "lon": 16,
+        "n": 34,
+        "age": 900
+      },
+      {
+        "lat": 58,
+        "lon": 18,
+        "n": 3,
+        "age": 975
+      },
+      {
+        "lat": 58,
+        "lon": 22,
+        "n": 39,
+        "age": 1200
+      },
+      {
+        "lat": 58,
+        "lon": 24,
+        "n": 23,
+        "age": 2819
+      },
+      {
+        "lat": 58,
+        "lon": 26,
+        "n": 17,
+        "age": 2906
+      },
+      {
+        "lat": 58,
+        "lon": 28,
+        "n": 8,
+        "age": 1825
+      },
+      {
+        "lat": 58,
+        "lon": 36,
+        "n": 2,
+        "age": 850
+      },
+      {
+        "lat": 58,
+        "lon": 38,
+        "n": 12,
+        "age": 10340
+      },
+      {
+        "lat": 58,
+        "lon": 56,
+        "n": 1,
+        "age": 1000
+      },
+      {
+        "lat": 58,
+        "lon": 94,
+        "n": 1,
+        "age": 5450
+      },
+      {
+        "lat": 58,
+        "lon": 102,
+        "n": 9,
+        "age": 4804
+      },
+      {
+        "lat": 58,
+        "lon": 116,
+        "n": 1,
+        "age": 16736
+      },
+      {
+        "lat": 58,
+        "lon": 124,
+        "n": 1,
+        "age": 10156
+      },
+      {
+        "lat": 58,
+        "lon": 150,
+        "n": 2,
+        "age": 3059
+      },
+      {
+        "lat": 60,
+        "lon": -152,
+        "n": 1,
+        "age": 100
+      },
+      {
+        "lat": 60,
+        "lon": -46,
+        "n": 16,
+        "age": 900
+      },
+      {
+        "lat": 60,
+        "lon": -8,
+        "n": 17,
+        "age": 350
+      },
+      {
+        "lat": 60,
+        "lon": -2,
+        "n": 1,
+        "age": 1642
+      },
+      {
+        "lat": 60,
+        "lon": 8,
+        "n": 1,
+        "age": 950
+      },
+      {
+        "lat": 60,
+        "lon": 10,
+        "n": 11,
+        "age": 1050
+      },
+      {
+        "lat": 60,
+        "lon": 16,
+        "n": 3,
+        "age": 4306
+      },
+      {
+        "lat": 60,
+        "lon": 18,
+        "n": 1,
+        "age": 925
+      },
+      {
+        "lat": 60,
+        "lon": 32,
+        "n": 17,
+        "age": 900
+      },
+      {
+        "lat": 60,
+        "lon": 34,
+        "n": 18,
+        "age": 8125
+      },
+      {
+        "lat": 60,
+        "lon": 38,
+        "n": 12,
+        "age": 8325.5
+      },
+      {
+        "lat": 60,
+        "lon": 72,
+        "n": 2,
+        "age": 1150
+      },
+      {
+        "lat": 60,
+        "lon": 128,
+        "n": 1,
+        "age": 4950
+      },
+      {
+        "lat": 60,
+        "lon": 130,
+        "n": 2,
+        "age": 4992
+      },
+      {
+        "lat": 62,
+        "lon": -156,
+        "n": 3,
+        "age": 725
+      },
+      {
+        "lat": 62,
+        "lon": -22,
+        "n": 1,
+        "age": 1025
+      },
+      {
+        "lat": 62,
+        "lon": 4,
+        "n": 6,
+        "age": 1380
+      },
+      {
+        "lat": 62,
+        "lon": 8,
+        "n": 6,
+        "age": 1337.5
+      },
+      {
+        "lat": 62,
+        "lon": 10,
+        "n": 31,
+        "age": 3360
+      },
+      {
+        "lat": 62,
+        "lon": 14,
+        "n": 9,
+        "age": 800
+      },
+      {
+        "lat": 62,
+        "lon": 16,
+        "n": 3,
+        "age": 1475
+      },
+      {
+        "lat": 62,
+        "lon": 22,
+        "n": 10,
+        "age": 1400
+      },
+      {
+        "lat": 62,
+        "lon": 130,
+        "n": 3,
+        "age": 6319
+      },
+      {
+        "lat": 62,
+        "lon": 132,
+        "n": 2,
+        "age": 4352.5
+      },
+      {
+        "lat": 64,
+        "lon": -164,
+        "n": 1,
+        "age": 9005
+      },
+      {
+        "lat": 64,
+        "lon": -146,
+        "n": 2,
+        "age": 11425
+      },
+      {
+        "lat": 64,
+        "lon": -86,
+        "n": 1,
+        "age": 600
+      },
+      {
+        "lat": 64,
+        "lon": -52,
+        "n": 7,
+        "age": 845
+      },
+      {
+        "lat": 64,
+        "lon": -26,
+        "n": 4,
+        "age": 1000
+      },
+      {
+        "lat": 64,
+        "lon": -24,
+        "n": 2,
+        "age": 1000
+      },
+      {
+        "lat": 64,
+        "lon": -22,
+        "n": 3,
+        "age": 950
+      },
+      {
+        "lat": 64,
+        "lon": -20,
+        "n": 9,
+        "age": 1025
+      },
+      {
+        "lat": 64,
+        "lon": -18,
+        "n": 18,
+        "age": 850
+      },
+      {
+        "lat": 64,
+        "lon": -16,
+        "n": 6,
+        "age": 1012.5
+      },
+      {
+        "lat": 64,
+        "lon": -14,
+        "n": 1,
+        "age": 1025
+      },
+      {
+        "lat": 64,
+        "lon": 8,
+        "n": 2,
+        "age": 4764
+      },
+      {
+        "lat": 64,
+        "lon": 10,
+        "n": 10,
+        "age": 1193.5
+      },
+      {
+        "lat": 64,
+        "lon": 12,
+        "n": 4,
+        "age": 1156
+      },
+      {
+        "lat": 64,
+        "lon": 172,
+        "n": 3,
+        "age": 4875
+      },
+      {
+        "lat": 66,
+        "lon": -172,
+        "n": 16,
+        "age": 1120
+      },
+      {
+        "lat": 66,
+        "lon": -170,
+        "n": 5,
+        "age": 905
+      },
+      {
+        "lat": 66,
+        "lon": 12,
+        "n": 8,
+        "age": 1218
+      },
+      {
+        "lat": 66,
+        "lon": 14,
+        "n": 9,
+        "age": 1200
+      },
+      {
+        "lat": 66,
+        "lon": 36,
+        "n": 2,
+        "age": 150
+      },
+      {
+        "lat": 66,
+        "lon": 152,
+        "n": 3,
+        "age": 3750
+      },
+      {
+        "lat": 66,
+        "lon": 156,
+        "n": 1,
+        "age": 3225
+      },
+      {
+        "lat": 68,
+        "lon": -108,
+        "n": 1,
+        "age": 1755
+      },
+      {
+        "lat": 68,
+        "lon": -54,
+        "n": 1,
+        "age": 3885
+      },
+      {
+        "lat": 68,
+        "lon": 14,
+        "n": 3,
+        "age": 1473
+      },
+      {
+        "lat": 68,
+        "lon": 16,
+        "n": 3,
+        "age": 1172
+      },
+      {
+        "lat": 68,
+        "lon": 18,
+        "n": 4,
+        "age": 1152.5
+      },
+      {
+        "lat": 68,
+        "lon": 32,
+        "n": 11,
+        "age": 3725
+      },
+      {
+        "lat": 68,
+        "lon": 158,
+        "n": 1,
+        "age": 9775
+      },
+      {
+        "lat": 70,
+        "lon": 18,
+        "n": 2,
+        "age": 2059
+      },
+      {
+        "lat": 70,
+        "lon": 134,
+        "n": 3,
+        "age": 31850
+      },
+      {
+        "lat": 74,
+        "lon": -84,
+        "n": 1,
+        "age": 800
+      }
+    ]
+  },
+  "igsr": {
+    "total": 4989,
+    "collections": [
+      {
+        "title": "1000 Genomes 30x on GRCh38",
+        "n": 3202
+      },
+      {
+        "title": "1000 Genomes phase 3 release",
+        "n": 3115
+      },
+      {
+        "title": "1000 Genomes on GRCh38",
+        "n": 2709
+      },
+      {
+        "title": "1000 Genomes phase 1 release",
+        "n": 1182
+      },
+      {
+        "title": "1KG_ONT_VIENNA",
+        "n": 1019
+      },
+      {
+        "title": "Human Genome Diversity Project",
+        "n": 828
+      },
+      {
+        "title": "MAGE RNA-seq",
+        "n": 731
+      },
+      {
+        "title": "Gambian Genome Variation Project (GRCh38)",
+        "n": 518
+      },
+      {
+        "title": "Geuvadis",
+        "n": 465
+      },
+      {
+        "title": "Gambian Genome Variation Project (GRCh37)",
+        "n": 400
+      },
+      {
+        "title": "Human Pangenome Reference Consortium, Phase 2",
+        "n": 287
+      },
+      {
+        "title": "Simons Genome Diversity Project",
+        "n": 276
+      },
+      {
+        "title": "90 Han Chinese high coverage genomes",
+        "n": 90
+      },
+      {
+        "title": "Human Genome Structural Variation Consortium, Phase 3",
+        "n": 67
+      },
+      {
+        "title": "Long-read direct RNA sequencing (ONT) of 60 EUR",
+        "n": 60
+      },
+      {
+        "title": "Human Genome Structural Variation Consortium, Phase 2",
+        "n": 44
+      },
+      {
+        "title": "The Human Genome Structural Variation Consortium",
+        "n": 9
+      },
+      {
+        "title": "Illumina Platinum pedigree",
+        "n": 6
+      }
+    ],
+    "panel": {
+      "samples": 3202,
+      "populations": [
+        {
+          "code": "CEU",
+          "name": "CEPH",
+          "superpopulation": "EUR",
+          "superpopulationName": "European Ancestry",
+          "n": 179
+        },
+        {
+          "code": "GWD",
+          "name": "Gambian Mandinka",
+          "superpopulation": "AFR",
+          "superpopulationName": "African Ancestry",
+          "n": 178
+        },
+        {
+          "code": "YRI",
+          "name": "Yoruba",
+          "superpopulation": "AFR",
+          "superpopulationName": "African Ancestry",
+          "n": 178
+        },
+        {
+          "code": "CHS",
+          "name": "Southern Han Chinese",
+          "superpopulation": "EAS",
+          "superpopulationName": "East Asian Ancestry",
+          "n": 163
+        },
+        {
+          "code": "IBS",
+          "name": "Iberian",
+          "superpopulation": "EUR",
+          "superpopulationName": "European Ancestry",
+          "n": 157
+        },
+        {
+          "code": "ESN",
+          "name": "Esan",
+          "superpopulation": "AFR",
+          "superpopulationName": "African Ancestry",
+          "n": 149
+        },
+        {
+          "code": "PJL",
+          "name": "Punjabi",
+          "superpopulation": "SAS",
+          "superpopulationName": "South Asian Ancestry",
+          "n": 146
+        },
+        {
+          "code": "PUR",
+          "name": "Puerto Rican",
+          "superpopulation": "AMR",
+          "superpopulationName": "American Ancestry",
+          "n": 139
+        },
+        {
+          "code": "CLM",
+          "name": "Colombian",
+          "superpopulation": "AMR",
+          "superpopulationName": "American Ancestry",
+          "n": 132
+        },
+        {
+          "code": "BEB",
+          "name": "Bengali",
+          "superpopulation": "SAS",
+          "superpopulationName": "South Asian Ancestry",
+          "n": 131
+        },
+        {
+          "code": "KHV",
+          "name": "Kinh Vietnamese",
+          "superpopulation": "EAS",
+          "superpopulationName": "East Asian Ancestry",
+          "n": 122
+        },
+        {
+          "code": "PEL",
+          "name": "Peruvian",
+          "superpopulation": "AMR",
+          "superpopulationName": "American Ancestry",
+          "n": 122
+        },
+        {
+          "code": "ACB",
+          "name": "African Caribbean",
+          "superpopulation": "AFR",
+          "superpopulationName": "African Ancestry",
+          "n": 116
+        },
+        {
+          "code": "STU",
+          "name": "Tamil",
+          "superpopulation": "SAS",
+          "superpopulationName": "South Asian Ancestry",
+          "n": 114
+        },
+        {
+          "code": "ITU",
+          "name": "Telugu",
+          "superpopulation": "SAS",
+          "superpopulationName": "South Asian Ancestry",
+          "n": 107
+        },
+        {
+          "code": "TSI",
+          "name": "Toscani",
+          "superpopulation": "EUR",
+          "superpopulationName": "European Ancestry",
+          "n": 107
+        },
+        {
+          "code": "JPT",
+          "name": "Japanese",
+          "superpopulation": "EAS",
+          "superpopulationName": "East Asian Ancestry",
+          "n": 104
+        },
+        {
+          "code": "CHB",
+          "name": "Han Chinese",
+          "superpopulation": "EAS",
+          "superpopulationName": "East Asian Ancestry",
+          "n": 103
+        },
+        {
+          "code": "GIH",
+          "name": "Gujarati",
+          "superpopulation": "SAS",
+          "superpopulationName": "South Asian Ancestry",
+          "n": 103
+        },
+        {
+          "code": "FIN",
+          "name": "Finnish",
+          "superpopulation": "EUR",
+          "superpopulationName": "European Ancestry",
+          "n": 99
+        },
+        {
+          "code": "LWK",
+          "name": "Luhya",
+          "superpopulation": "AFR",
+          "superpopulationName": "African Ancestry",
+          "n": 99
+        },
+        {
+          "code": "MSL",
+          "name": "Mende",
+          "superpopulation": "AFR",
+          "superpopulationName": "African Ancestry",
+          "n": 99
+        },
+        {
+          "code": "MXL",
+          "name": "Mexican Ancestry",
+          "superpopulation": "AMR",
+          "superpopulationName": "American Ancestry",
+          "n": 97
+        },
+        {
+          "code": "CDX",
+          "name": "Dai Chinese",
+          "superpopulation": "EAS",
+          "superpopulationName": "East Asian Ancestry",
+          "n": 93
+        },
+        {
+          "code": "GBR",
+          "name": "British",
+          "superpopulation": "EUR",
+          "superpopulationName": "European Ancestry",
+          "n": 91
+        },
+        {
+          "code": "ASW",
+          "name": "African Ancestry SW",
+          "superpopulation": "AFR",
+          "superpopulationName": "African Ancestry",
+          "n": 74
+        }
+      ],
+      "sex": {
+        "M": 1598,
+        "F": 1604
+      }
+    }
+  },
+  "assemblies": {
+    "total": 2594,
+    "byYear": {
+      "2004": {
+        "Chromosome": 4
+      },
+      "2005": {
+        "Chromosome": 1
+      },
+      "2007": {
+        "Chromosome": 2
+      },
+      "2008": {
+        "Chromosome": 2,
+        "Contig": 1
+      },
+      "2010": {
+        "Scaffold": 1
+      },
+      "2011": {
+        "Scaffold": 1
+      },
+      "2013": {
+        "Scaffold": 2,
+        "Chromosome": 3
+      },
+      "2014": {
+        "Scaffold": 1
+      },
+      "2015": {
+        "Chromosome": 1,
+        "Contig": 14,
+        "Scaffold": 8
+      },
+      "2016": {
+        "Chromosome": 1,
+        "Scaffold": 3,
+        "Contig": 5
+      },
+      "2017": {
+        "Chromosome": 1,
+        "Contig": 1,
+        "Scaffold": 90
+      },
+      "2018": {
+        "Chromosome": 3,
+        "Contig": 25,
+        "Scaffold": 28
+      },
+      "2019": {
+        "Contig": 12,
+        "Scaffold": 25
+      },
+      "2020": {
+        "Chromosome": 2,
+        "Contig": 21,
+        "Scaffold": 660
+      },
+      "2021": {
+        "Chromosome": 6,
+        "Contig": 15,
+        "Scaffold": 11
+      },
+      "2022": {
+        "Chromosome": 7,
+        "Complete Genome": 2,
+        "Scaffold": 35
+      },
+      "2023": {
+        "Contig": 1,
+        "Chromosome": 7
+      },
+      "2024": {
+        "Chromosome": 502,
+        "Contig": 139
+      },
+      "2025": {
+        "Chromosome": 12,
+        "Scaffold": 113,
+        "Contig": 171
+      },
+      "2026": {
+        "Complete Genome": 3,
+        "Chromosome": 637,
+        "Contig": 5,
+        "Scaffold": 10
+      }
+    },
+    "levels": {
+      "Chromosome": 1191,
+      "Complete Genome": 5,
+      "Scaffold": 988,
+      "Contig": 410
+    },
+    "submitters": [
+      {
+        "submitter": "NHGRI/NIH",
+        "n": 484
+      },
+      {
+        "submitter": "UCSC Genomics Institute",
+        "n": 454
+      },
+      {
+        "submitter": "University of California, San Francisco",
+        "n": 360
+      },
+      {
+        "submitter": "Academia Sinica",
+        "n": 308
+      },
+      {
+        "submitter": "University of Pennsylvania",
+        "n": 130
+      },
+      {
+        "submitter": "Evan Eichler",
+        "n": 114
+      },
+      {
+        "submitter": "Mohammed Bin Rashid University of Medicine and Health Sciences",
+        "n": 106
+      },
+      {
+        "submitter": "THE JACKSON LABORATORY",
+        "n": 102
+      },
+      {
+        "submitter": "STANFORD UNIVERSITY",
+        "n": 95
+      },
+      {
+        "submitter": "Human Genome Structural Variation Consortium",
+        "n": 69
+      },
+      {
+        "submitter": "UNIVERSITY OF LEEDS",
+        "n": 45
+      },
+      {
+        "submitter": "Genome Medical Science Project, National Center for Global Health and Medicine",
+        "n": 36
+      }
+    ],
+    "n50": [
+      [
+        "2022-02-03",
+        57879411,
+        "Chromosome",
+        "GCA_000001405.29"
+      ],
+      [
+        "2022-02-03",
+        57879411,
+        "Chromosome",
+        "GCF_000001405.40"
+      ],
+      [
+        "2026-08-04",
+        154728740,
+        "Complete Genome",
+        "GCA_059792245.1"
+      ],
+      [
+        "2022-01-24",
+        150617247,
+        "Complete Genome",
+        "GCA_009914755.4"
+      ],
+      [
+        "2022-01-24",
+        150617247,
+        "Complete Genome",
+        "GCF_009914755.1"
+      ],
+      [
+        "2026-01-30",
+        155153153,
+        "Chromosome",
+        "GCA_054883195.1"
+      ],
+      [
+        "2024-07-18",
+        154341397,
+        "Chromosome",
+        "GCA_018852615.3"
+      ],
+      [
+        "2026-06-17",
+        154325629,
+        "Chromosome",
+        "GCA_058280895.1"
+      ],
+      [
+        "2026-01-30",
+        153704768,
+        "Chromosome",
+        "GCA_054883265.1"
+      ],
+      [
+        "2026-08-04",
+        152187297,
+        "Chromosome",
+        "GCA_059792095.1"
+      ],
+      [
+        "2026-10-12",
+        151887367,
+        "Chromosome",
+        "GCA_062034340.1"
+      ],
+      [
+        "2024-07-19",
+        146786823,
+        "Chromosome",
+        "GCA_018852605.3"
+      ],
+      [
+        "2026-07-22",
+        140060034,
+        "Chromosome",
+        "GCA_046332035.2"
+      ],
+      [
+        "2026-06-17",
+        138337885,
+        "Chromosome",
+        "GCA_058280805.1"
+      ],
+      [
+        "2025-06-02",
+        136612994,
+        "Chromosome",
+        "GCA_050656345.1"
+      ],
+      [
+        "2026-07-22",
+        136584450,
+        "Chromosome",
+        "GCA_059568475.1"
+      ],
+      [
+        "2026-07-22",
+        136101078,
+        "Chromosome",
+        "GCA_059568455.1"
+      ],
+      [
+        "2026-07-22",
+        135515027,
+        "Chromosome",
+        "GCA_059568385.1"
+      ],
+      [
+        "2026-07-22",
+        135097797,
+        "Chromosome",
+        "GCA_059568435.1"
+      ],
+      [
+        "2026-07-22",
+        135088667,
+        "Chromosome",
+        "GCA_046332005.3"
+      ],
+      [
+        "2026-07-22",
+        134886033,
+        "Chromosome",
+        "GCA_059568415.1"
+      ],
+      [
+        "2026-07-22",
+        134821226,
+        "Chromosome",
+        "GCA_059568495.1"
+      ],
+      [
+        "2026-03-25",
+        105502934,
+        "Chromosome",
+        "GCA_056321115.1"
+      ],
+      [
+        "2026-03-25",
+        101581577,
+        "Chromosome",
+        "GCA_056321145.1"
+      ],
+      [
+        "2026-03-25",
+        88834161,
+        "Chromosome",
+        "GCA_056321105.1"
+      ],
+      [
+        "2026-03-25",
+        80488942,
+        "Chromosome",
+        "GCA_056321375.1"
+      ],
+      [
+        "2026-04-08",
+        682556,
+        "Chromosome",
+        "GCA_056632735.1"
+      ],
+      [
+        "2026-04-16",
+        155392817,
+        "Chromosome",
+        "GCA_056751295.1"
+      ],
+      [
+        "2026-04-13",
+        155385455,
+        "Chromosome",
+        "GCA_056698125.1"
+      ],
+      [
+        "2026-04-10",
+        155267364,
+        "Chromosome",
+        "GCA_056669185.1"
+      ],
+      [
+        "2026-04-16",
+        155264463,
+        "Chromosome",
+        "GCA_056750115.1"
+      ],
+      [
+        "2026-04-29",
+        155246021,
+        "Chromosome",
+        "GCA_057056705.1"
+      ],
+      [
+        "2026-04-13",
+        155013754,
+        "Chromosome",
+        "GCA_056690335.1"
+      ],
+      [
+        "2026-04-14",
+        154921423,
+        "Chromosome",
+        "GCA_056717455.1"
+      ],
+      [
+        "2026-04-14",
+        154695516,
+        "Chromosome",
+        "GCA_056716475.1"
+      ],
+      [
+        "2026-04-15",
+        154638526,
+        "Chromosome",
+        "GCA_056739675.1"
+      ],
+      [
+        "2026-04-15",
+        154080054,
+        "Chromosome",
+        "GCA_056739645.1"
+      ],
+      [
+        "2026-04-16",
+        153944417,
+        "Chromosome",
+        "GCA_056750055.1"
+      ],
+      [
+        "2026-04-29",
+        153894819,
+        "Chromosome",
+        "GCA_057055885.1"
+      ],
+      [
+        "2026-04-15",
+        153317708,
+        "Chromosome",
+        "GCA_056739315.1"
+      ],
+      [
+        "2026-04-14",
+        152930700,
+        "Chromosome",
+        "GCA_056717115.1"
+      ],
+      [
+        "2022-06-02",
+        150154455,
+        "Chromosome",
+        "GCA_011064465.2"
+      ],
+      [
+        "2021-09-27",
+        149697505,
+        "Chromosome",
+        "GCA_018873775.2"
+      ],
+      [
+        "2022-08-09",
+        148018047,
+        "Chromosome",
+        "GCA_024586135.1"
+      ],
+      [
+        "2026-04-14",
+        147455458,
+        "Chromosome",
+        "GCA_056716995.1"
+      ],
+      [
+        "2024-10-31",
+        147204163,
+        "Chromosome",
+        "GCA_044167135.1"
+      ],
+      [
+        "2026-04-14",
+        146936502,
+        "Chromosome",
+        "GCA_056717135.1"
+      ],
+      [
+        "2026-04-29",
+        146934246,
+        "Chromosome",
+        "GCA_057056105.1"
+      ],
+      [
+        "2026-04-16",
+        146928304,
+        "Chromosome",
+        "GCA_056750905.1"
+      ],
+      [
+        "2026-04-29",
+        146882401,
+        "Chromosome",
+        "GCA_057056985.1"
+      ],
+      [
+        "2026-04-16",
+        146853586,
+        "Chromosome",
+        "GCA_056750085.1"
+      ],
+      [
+        "2026-04-13",
+        146705880,
+        "Chromosome",
+        "GCA_056695745.1"
+      ],
+      [
+        "2026-04-16",
+        146660118,
+        "Chromosome",
+        "GCA_056748145.1"
+      ],
+      [
+        "2026-04-15",
+        146658853,
+        "Chromosome",
+        "GCA_056740015.1"
+      ],
+      [
+        "2026-04-16",
+        146526988,
+        "Chromosome",
+        "GCA_056751265.1"
+      ],
+      [
+        "2026-04-13",
+        146472362,
+        "Chromosome",
+        "GCA_056697475.1"
+      ],
+      [
+        "2024-09-20",
+        146412853,
+        "Chromosome",
+        "GCA_042077855.2"
+      ],
+      [
+        "2026-04-13",
+        146326204,
+        "Chromosome",
+        "GCA_056697545.1"
+      ],
+      [
+        "2026-04-10",
+        146298336,
+        "Chromosome",
+        "GCA_056669485.1"
+      ],
+      [
+        "2026-04-15",
+        146244930,
+        "Chromosome",
+        "GCA_056740125.1"
+      ],
+      [
+        "2026-04-15",
+        146234933,
+        "Chromosome",
+        "GCA_056740095.1"
+      ],
+      [
+        "2026-04-16",
+        146144179,
+        "Chromosome",
+        "GCA_056750725.1"
+      ],
+      [
+        "2026-04-13",
+        146126893,
+        "Chromosome",
+        "GCA_056697655.1"
+      ],
+      [
+        "2026-04-14",
+        146104397,
+        "Chromosome",
+        "GCA_056716575.1"
+      ],
+      [
+        "2026-04-15",
+        145870578,
+        "Chromosome",
+        "GCA_056740175.1"
+      ],
+      [
+        "2026-04-14",
+        145807960,
+        "Chromosome",
+        "GCA_056717205.1"
+      ],
+      [
+        "2026-04-13",
+        145790416,
+        "Chromosome",
+        "GCA_056696005.1"
+      ],
+      [
+        "2026-04-16",
+        145699333,
+        "Chromosome",
+        "GCA_056751255.1"
+      ],
+      [
+        "2026-04-14",
+        145680012,
+        "Chromosome",
+        "GCA_056716755.1"
+      ],
+      [
+        "2026-04-10",
+        145612687,
+        "Chromosome",
+        "GCA_056667915.1"
+      ],
+      [
+        "2026-04-16",
+        145558287,
+        "Chromosome",
+        "GCA_056748685.1"
+      ],
+      [
+        "2026-04-10",
+        145456062,
+        "Chromosome",
+        "GCA_056667935.1"
+      ],
+      [
+        "2026-04-13",
+        145346533,
+        "Chromosome",
+        "GCA_056697775.1"
+      ],
+      [
+        "2026-04-15",
+        145275938,
+        "Chromosome",
+        "GCA_056739295.1"
+      ],
+      [
+        "2024-09-20",
+        145235078,
+        "Chromosome",
+        "GCA_018466985.3"
+      ],
+      [
+        "2026-04-10",
+        145207242,
+        "Chromosome",
+        "GCA_056669255.1"
+      ],
+      [
+        "2026-04-10",
+        144932808,
+        "Chromosome",
+        "GCA_056669445.1"
+      ],
+      [
+        "2026-04-14",
+        144795132,
+        "Chromosome",
+        "GCA_056716825.1"
+      ],
+      [
+        "2025-01-14",
+        144781433,
+        "Chromosome",
+        "GCA_046629225.2"
+      ],
+      [
+        "2026-04-15",
+        144264596,
+        "Chromosome",
+        "GCA_056740135.1"
+      ],
+      [
+        "2024-10-31",
+        143882573,
+        "Chromosome",
+        "GCA_044166315.1"
+      ],
+      [
+        "2026-04-29",
+        143633394,
+        "Chromosome",
+        "GCA_057056595.1"
+      ],
+      [
+        "2026-04-14",
+        143079936,
+        "Chromosome",
+        "GCA_056717475.1"
+      ],
+      [
+        "2024-09-20",
+        142946269,
+        "Chromosome",
+        "GCA_042077155.2"
+      ],
+      [
+        "2024-09-20",
+        142875830,
+        "Chromosome",
+        "GCA_018472605.3"
+      ],
+      [
+        "2026-04-15",
+        142756061,
+        "Chromosome",
+        "GCA_056738575.1"
+      ],
+      [
+        "2026-04-14",
+        142744197,
+        "Chromosome",
+        "GCA_056717345.1"
+      ],
+      [
+        "2026-04-29",
+        142212799,
+        "Chromosome",
+        "GCA_057056465.1"
+      ],
+      [
+        "2026-04-16",
+        142070773,
+        "Chromosome",
+        "GCA_056751125.1"
+      ],
+      [
+        "2026-04-14",
+        141888105,
+        "Chromosome",
+        "GCA_056717555.1"
+      ],
+      [
+        "2026-04-16",
+        141599526,
+        "Chromosome",
+        "GCA_057062045.1"
+      ],
+      [
+        "2026-04-15",
+        141200404,
+        "Chromosome",
+        "GCA_056739265.1"
+      ],
+      [
+        "2026-04-15",
+        141006271,
+        "Chromosome",
+        "GCA_056739125.1"
+      ],
+      [
+        "2025-06-02",
+        141000299,
+        "Chromosome",
+        "GCA_050656315.1"
+      ],
+      [
+        "2026-04-13",
+        140475589,
+        "Chromosome",
+        "GCA_056697325.1"
+      ],
+      [
+        "2024-12-27",
+        140401979,
+        "Chromosome",
+        "GCA_046332195.1"
+      ],
+      [
+        "2026-04-15",
+        140364627,
+        "Chromosome",
+        "GCA_056738595.1"
+      ],
+      [
+        "2026-04-15",
+        140168292,
+        "Chromosome",
+        "GCA_056739865.1"
+      ],
+      [
+        "2026-04-13",
+        140090345,
+        "Chromosome",
+        "GCA_056689515.1"
+      ],
+      [
+        "2026-04-14",
+        139961027,
+        "Chromosome",
+        "GCA_056716875.1"
+      ],
+      [
+        "2026-04-14",
+        139864858,
+        "Chromosome",
+        "GCA_056717175.1"
+      ],
+      [
+        "2026-04-16",
+        139798100,
+        "Chromosome",
+        "GCA_056748605.1"
+      ],
+      [
+        "2024-09-20",
+        139361540,
+        "Chromosome",
+        "GCA_042076565.2"
+      ],
+      [
+        "2026-04-14",
+        139312316,
+        "Chromosome",
+        "GCA_056717095.1"
+      ],
+      [
+        "2026-04-14",
+        139288567,
+        "Chromosome",
+        "GCA_056717615.1"
+      ],
+      [
+        "2026-04-13",
+        139250654,
+        "Chromosome",
+        "GCA_056697865.1"
+      ],
+      [
+        "2026-04-29",
+        139091303,
+        "Chromosome",
+        "GCA_057056045.1"
+      ],
+      [
+        "2026-04-16",
+        138860993,
+        "Chromosome",
+        "GCA_056751115.1"
+      ],
+      [
+        "2026-04-14",
+        138832281,
+        "Chromosome",
+        "GCA_056716895.1"
+      ],
+      [
+        "2024-09-20",
+        138694996,
+        "Chromosome",
+        "GCA_042034335.1"
+      ],
+      [
+        "2026-04-14",
+        138570522,
+        "Chromosome",
+        "GCA_056716695.1"
+      ],
+      [
+        "2024-12-27",
+        138568228,
+        "Chromosome",
+        "GCA_046332475.1"
+      ],
+      [
+        "2026-04-13",
+        138143792,
+        "Chromosome",
+        "GCA_056696475.1"
+      ],
+      [
+        "2026-04-13",
+        138133182,
+        "Chromosome",
+        "GCA_056697055.1"
+      ],
+      [
+        "2026-04-29",
+        138098885,
+        "Chromosome",
+        "GCA_057056415.1"
+      ],
+      [
+        "2026-04-16",
+        138059076,
+        "Chromosome",
+        "GCA_056749955.1"
+      ],
+      [
+        "2026-04-15",
+        137873234,
+        "Chromosome",
+        "GCA_056739925.1"
+      ],
+      [
+        "2026-04-15",
+        137685066,
+        "Chromosome",
+        "GCA_056739915.1"
+      ],
+      [
+        "2024-09-19",
+        137661311,
+        "Chromosome",
+        "GCA_042029385.2"
+      ],
+      [
+        "2026-04-15",
+        137559301,
+        "Chromosome",
+        "GCA_056739895.1"
+      ],
+      [
+        "2024-10-17",
+        137509463,
+        "Chromosome",
+        "GCA_043304515.2"
+      ],
+      [
+        "2024-09-20",
+        137486831,
+        "Chromosome",
+        "GCA_042076675.1"
+      ],
+      [
+        "2024-09-19",
+        137300752,
+        "Chromosome",
+        "GCA_042027545.1"
+      ],
+      [
+        "2026-04-29",
+        137280142,
+        "Chromosome",
+        "GCA_057056445.1"
+      ],
+      [
+        "2026-04-14",
+        137211269,
+        "Chromosome",
+        "GCA_056716835.1"
+      ],
+      [
+        "2026-04-13",
+        137183570,
+        "Chromosome",
+        "GCA_056690095.1"
+      ],
+      [
+        "2024-10-17",
+        137148065,
+        "Chromosome",
+        "GCA_043304975.1"
+      ],
+      [
+        "2026-04-15",
+        137124765,
+        "Chromosome",
+        "GCA_056739225.1"
+      ],
+      [
+        "2024-12-27",
+        137101261,
+        "Chromosome",
+        "GCA_046332135.1"
+      ],
+      [
+        "2026-04-29",
+        137094768,
+        "Chromosome",
+        "GCA_057056345.1"
+      ],
+      [
+        "2026-04-13",
+        137014429,
+        "Chromosome",
+        "GCA_056697675.1"
+      ],
+      [
+        "2026-04-29",
+        136991857,
+        "Chromosome",
+        "GCA_057056685.1"
+      ],
+      [
+        "2026-04-10",
+        136986269,
+        "Chromosome",
+        "GCA_056667625.1"
+      ],
+      [
+        "2026-04-14",
+        136888264,
+        "Chromosome",
+        "GCA_056717485.1"
+      ],
+      [
+        "2026-04-13",
+        136768348,
+        "Chromosome",
+        "GCA_056695555.1"
+      ],
+      [
+        "2026-04-13",
+        136754778,
+        "Chromosome",
+        "GCA_056696485.1"
+      ],
+      [
+        "2026-04-29",
+        136746204,
+        "Chromosome",
+        "GCA_057056805.1"
+      ],
+      [
+        "2026-04-13",
+        136697385,
+        "Chromosome",
+        "GCA_056698095.1"
+      ],
+      [
+        "2026-04-29",
+        136682392,
+        "Chromosome",
+        "GCA_057056885.1"
+      ],
+      [
+        "2026-04-13",
+        136652790,
+        "Chromosome",
+        "GCA_056699375.1"
+      ],
+      [
+        "2026-04-10",
+        136639916,
+        "Chromosome",
+        "GCA_056667985.1"
+      ],
+      [
+        "2024-09-20",
+        136634561,
+        "Chromosome",
+        "GCA_042078065.1"
+      ],
+      [
+        "2026-04-10",
+        136626964,
+        "Chromosome",
+        "GCA_056669525.1"
+      ],
+      [
+        "2026-04-10",
+        136541987,
+        "Chromosome",
+        "GCA_056668535.1"
+      ],
+      [
+        "2026-04-16",
+        136509914,
+        "Chromosome",
+        "GCA_056749765.1"
+      ],
+      [
+        "2026-04-15",
+        136480122,
+        "Chromosome",
+        "GCA_056739205.1"
+      ],
+      [
+        "2026-04-14",
+        136382338,
+        "Chromosome",
+        "GCA_056717675.1"
+      ],
+      [
+        "2026-04-10",
+        136338744,
+        "Chromosome",
+        "GCA_056668655.1"
+      ],
+      [
+        "2026-04-15",
+        136241411,
+        "Chromosome",
+        "GCA_056739575.1"
+      ],
+      [
+        "2026-04-10",
+        136224206,
+        "Chromosome",
+        "GCA_056668155.1"
+      ],
+      [
+        "2026-04-13",
+        136222327,
+        "Chromosome",
+        "GCA_056697375.1"
+      ],
+      [
+        "2026-04-29",
+        136192617,
+        "Chromosome",
+        "GCA_057056485.1"
+      ],
+      [
+        "2026-04-15",
+        136189725,
+        "Chromosome",
+        "GCA_056739795.1"
+      ],
+      [
+        "2026-04-16",
+        136187494,
+        "Chromosome",
+        "GCA_056748705.1"
+      ],
+      [
+        "2024-09-20",
+        136121883,
+        "Chromosome",
+        "GCA_018472575.2"
+      ],
+      [
+        "2024-09-11",
+        136110441,
+        "Chromosome",
+        "GCA_041900365.1"
+      ],
+      [
+        "2026-04-13",
+        136099772,
+        "Chromosome",
+        "GCA_056698965.1"
+      ],
+      [
+        "2026-04-14",
+        136099678,
+        "Chromosome",
+        "GCA_056716965.1"
+      ],
+      [
+        "2024-12-27",
+        136080202,
+        "Chromosome",
+        "GCA_046332485.1"
+      ],
+      [
+        "2024-09-19",
+        136052607,
+        "Chromosome",
+        "GCA_042029915.1"
+      ],
+      [
+        "2026-04-13",
+        136032763,
+        "Chromosome",
+        "GCA_056700505.1"
+      ],
+      [
+        "2026-04-29",
+        136028915,
+        "Chromosome",
+        "GCA_057056305.1"
+      ],
+      [
+        "2026-04-13",
+        136021808,
+        "Chromosome",
+        "GCA_056690215.1"
+      ],
+      [
+        "2024-12-16",
+        136017482,
+        "Chromosome",
+        "GCA_046116005.2"
+      ],
+      [
+        "2026-04-10",
+        136008862,
+        "Chromosome",
+        "GCA_056668475.1"
+      ],
+      [
+        "2024-12-27",
+        135991310,
+        "Chromosome",
+        "GCA_046332435.1"
+      ],
+      [
+        "2024-09-20",
+        135982360,
+        "Chromosome",
+        "GCA_042077995.1"
+      ],
+      [
+        "2026-04-14",
+        135940083,
+        "Chromosome",
+        "GCA_056716375.1"
+      ],
+      [
+        "2026-04-29",
+        135920808,
+        "Chromosome",
+        "GCA_057056065.1"
+      ],
+      [
+        "2024-09-11",
+        135911756,
+        "Chromosome",
+        "GCA_041900265.2"
+      ],
+      [
+        "2026-04-13",
+        135895427,
+        "Chromosome",
+        "GCA_056695505.1"
+      ],
+      [
+        "2024-09-19",
+        135893483,
+        "Chromosome",
+        "GCA_042030705.2"
+      ],
+      [
+        "2024-09-20",
+        135844052,
+        "Chromosome",
+        "GCA_018469935.3"
+      ],
+      [
+        "2026-04-29",
+        135838121,
+        "Chromosome",
+        "GCA_057056645.1"
+      ],
+      [
+        "2026-04-13",
+        135787631,
+        "Chromosome",
+        "GCA_056696655.1"
+      ],
+      [
+        "2026-04-14",
+        135778710,
+        "Chromosome",
+        "GCA_056717315.1"
+      ],
+      [
+        "2026-04-13",
+        135730547,
+        "Chromosome",
+        "GCA_056696045.1"
+      ],
+      [
+        "2024-10-31",
+        135707127,
+        "Chromosome",
+        "GCA_044166645.2"
+      ],
+      [
+        "2026-04-14",
+        135676612,
+        "Chromosome",
+        "GCA_056717025.1"
+      ],
+      [
+        "2026-04-29",
+        135648587,
+        "Chromosome",
+        "GCA_057056245.1"
+      ],
+      [
+        "2024-09-20",
+        135644138,
+        "Chromosome",
+        "GCA_042038865.1"
+      ],
+      [
+        "2026-04-29",
+        135638106,
+        "Chromosome",
+        "GCA_057057025.1"
+      ],
+      [
+        "2024-12-27",
+        135633951,
+        "Chromosome",
+        "GCA_046332305.1"
+      ],
+      [
+        "2026-04-16",
+        135625742,
+        "Chromosome",
+        "GCA_056751455.1"
+      ],
+      [
+        "2026-04-15",
+        135619804,
+        "Chromosome",
+        "GCA_056740045.1"
+      ],
+      [
+        "2026-04-15",
+        135602909,
+        "Chromosome",
+        "GCA_056738665.1"
+      ],
+      [
+        "2026-04-10",
+        135599079,
+        "Chromosome",
+        "GCA_056668755.1"
+      ],
+      [
+        "2026-04-14",
+        135590055,
+        "Chromosome",
+        "GCA_056717295.1"
+      ],
+      [
+        "2026-04-15",
+        135563179,
+        "Chromosome",
+        "GCA_056739985.1"
+      ],
+      [
+        "2026-04-16",
+        135560478,
+        "Chromosome",
+        "GCA_056751925.1"
+      ],
+      [
+        "2026-04-29",
+        135556321,
+        "Chromosome",
+        "GCA_057056715.1"
+      ],
+      [
+        "2026-04-10",
+        135553882,
+        "Chromosome",
+        "GCA_056667895.1"
+      ],
+      [
+        "2026-04-14",
+        135543982,
+        "Chromosome",
+        "GCA_056717015.1"
+      ],
+      [
+        "2026-04-14",
+        135536435,
+        "Chromosome",
+        "GCA_056716655.1"
+      ],
+      [
+        "2026-04-15",
+        135531595,
+        "Chromosome",
+        "GCA_056738535.1"
+      ],
+      [
+        "2024-09-20",
+        135520168,
+        "Chromosome",
+        "GCA_042076925.1"
+      ],
+      [
+        "2026-04-15",
+        135519922,
+        "Chromosome",
+        "GCA_056738385.1"
+      ],
+      [
+        "2024-09-20",
+        135510334,
+        "Chromosome",
+        "GCA_042076685.2"
+      ],
+      [
+        "2026-04-15",
+        135493342,
+        "Chromosome",
+        "GCA_056740115.1"
+      ],
+      [
+        "2026-04-14",
+        135481668,
+        "Chromosome",
+        "GCA_056716355.1"
+      ],
+      [
+        "2026-04-15",
+        135460882,
+        "Chromosome",
+        "GCA_056738315.1"
+      ],
+      [
+        "2026-04-14",
+        135455918,
+        "Chromosome",
+        "GCA_056716365.1"
+      ],
+      [
+        "2024-09-20",
+        135445018,
+        "Chromosome",
+        "GCA_042077015.1"
+      ],
+      [
+        "2026-04-15",
+        135441462,
+        "Chromosome",
+        "GCA_056738785.1"
+      ],
+      [
+        "2026-04-15",
+        135420289,
+        "Chromosome",
+        "GCA_056739385.1"
+      ],
+      [
+        "2026-04-16",
+        135407703,
+        "Chromosome",
+        "GCA_056748565.1"
+      ],
+      [
+        "2026-04-10",
+        135393599,
+        "Chromosome",
+        "GCA_056669385.1"
+      ],
+      [
+        "2026-04-10",
+        135381465,
+        "Chromosome",
+        "GCA_056667615.1"
+      ],
+      [
+        "2026-04-10",
+        135376437,
+        "Chromosome",
+        "GCA_056667855.1"
+      ],
+      [
+        "2024-09-19",
+        135373843,
+        "Chromosome",
+        "GCA_042027065.2"
+      ],
+      [
+        "2026-04-16",
+        135362093,
+        "Chromosome",
+        "GCA_056748645.1"
+      ],
+      [
+        "2026-04-16",
+        135342596,
+        "Chromosome",
+        "GCA_056748825.1"
+      ],
+      [
+        "2024-09-20",
+        135341326,
+        "Chromosome",
+        "GCA_042077735.2"
+      ],
+      [
+        "2026-04-10",
+        135299521,
+        "Chromosome",
+        "GCA_056669545.1"
+      ],
+      [
+        "2026-04-15",
+        135294572,
+        "Chromosome",
+        "GCA_056738395.1"
+      ],
+      [
+        "2026-04-13",
+        135291134,
+        "Chromosome",
+        "GCA_056691055.1"
+      ],
+      [
+        "2026-04-10",
+        135289397,
+        "Chromosome",
+        "GCA_056667875.1"
+      ],
+      [
+        "2026-04-13",
+        135283576,
+        "Chromosome",
+        "GCA_056690555.1"
+      ],
+      [
+        "2026-04-16",
+        135269103,
+        "Chromosome",
+        "GCA_056748755.1"
+      ],
+      [
+        "2024-12-27",
+        135253169,
+        "Chromosome",
+        "GCA_046332185.1"
+      ],
+      [
+        "2026-04-29",
+        135247205,
+        "Chromosome",
+        "GCA_057055935.1"
+      ],
+      [
+        "2026-04-29",
+        135240048,
+        "Chromosome",
+        "GCA_057055925.1"
+      ],
+      [
+        "2026-04-10",
+        135235625,
+        "Chromosome",
+        "GCA_056668915.1"
+      ],
+      [
+        "2026-04-14",
+        135220495,
+        "Chromosome",
+        "GCA_056717375.1"
+      ],
+      [
+        "2026-04-10",
+        135219418,
+        "Chromosome",
+        "GCA_056668805.1"
+      ],
+      [
+        "2026-04-13",
+        135217499,
+        "Chromosome",
+        "GCA_056697915.1"
+      ],
+      [
+        "2024-09-19",
+        135217153,
+        "Chromosome",
+        "GCA_042027765.2"
+      ],
+      [
+        "2024-10-31",
+        135202540,
+        "Chromosome",
+        "GCA_044165565.2"
+      ],
+      [
+        "2026-04-15",
+        135196001,
+        "Chromosome",
+        "GCA_056739505.1"
+      ],
+      [
+        "2026-04-10",
+        135180835,
+        "Chromosome",
+        "GCA_056668595.1"
+      ],
+      [
+        "2026-04-29",
+        135164030,
+        "Chromosome",
+        "GCA_057056775.1"
+      ],
+      [
+        "2026-04-13",
+        135161917,
+        "Chromosome",
+        "GCA_056698215.1"
+      ],
+      [
+        "2026-04-10",
+        135157173,
+        "Chromosome",
+        "GCA_056668415.1"
+      ],
+      [
+        "2026-04-10",
+        135146162,
+        "Chromosome",
+        "GCA_056669345.1"
+      ],
+      [
+        "2024-12-11",
+        135141784,
+        "Chromosome",
+        "GCA_046000055.2"
+      ],
+      [
+        "2026-04-29",
+        135141424,
+        "Chromosome",
+        "GCA_057056135.1"
+      ],
+      [
+        "2026-04-13",
+        135140106,
+        "Chromosome",
+        "GCA_056689625.1"
+      ],
+      [
+        "2024-09-20",
+        135124728,
+        "Chromosome",
+        "GCA_018472595.2"
+      ],
+      [
+        "2026-04-13",
+        135119160,
+        "Chromosome",
+        "GCA_056698115.1"
+      ],
+      [
+        "2024-09-20",
+        135116613,
+        "Chromosome",
+        "GCA_042077495.1"
+      ],
+      [
+        "2024-09-19",
+        135094631,
+        "Chromosome",
+        "GCA_042030975.2"
+      ],
+      [
+        "2026-04-15",
+        135094236,
+        "Chromosome",
+        "GCA_056738455.1"
+      ],
+      [
+        "2026-04-13",
+        135079791,
+        "Chromosome",
+        "GCA_056691075.1"
+      ],
+      [
+        "2026-04-13",
+        135078274,
+        "Chromosome",
+        "GCA_056696355.1"
+      ],
+      [
+        "2026-04-13",
+        135072494,
+        "Chromosome",
+        "GCA_056697605.1"
+      ],
+      [
+        "2026-04-29",
+        135070958,
+        "Chromosome",
+        "GCA_057055985.1"
+      ],
+      [
+        "2026-04-10",
+        135066890,
+        "Chromosome",
+        "GCA_056668985.1"
+      ],
+      [
+        "2026-04-13",
+        135061498,
+        "Chromosome",
+        "GCA_056700655.1"
+      ],
+      [
+        "2024-12-27",
+        135059907,
+        "Chromosome",
+        "GCA_046332235.1"
+      ],
+      [
+        "2024-09-20",
+        135052193,
+        "Chromosome",
+        "GCA_042077465.2"
+      ],
+      [
+        "2026-04-13",
+        135045924,
+        "Chromosome",
+        "GCA_056700125.1"
+      ],
+      [
+        "2024-09-19",
+        135038399,
+        "Chromosome",
+        "GCA_042031165.1"
+      ],
+      [
+        "2024-09-20",
+        135026607,
+        "Chromosome",
+        "GCA_018472705.2"
+      ],
+      [
+        "2026-04-14",
+        135006001,
+        "Chromosome",
+        "GCA_056717195.1"
+      ],
+      [
+        "2026-04-13",
+        134980320,
+        "Chromosome",
+        "GCA_056697735.1"
+      ],
+      [
+        "2026-04-15",
+        134980203,
+        "Chromosome",
+        "GCA_056738995.1"
+      ],
+      [
+        "2026-04-15",
+        134976798,
+        "Chromosome",
+        "GCA_056739615.1"
+      ],
+      [
+        "2026-04-13",
+        134976673,
+        "Chromosome",
+        "GCA_056700145.1"
+      ],
+      [
+        "2024-09-20",
+        134954340,
+        "Chromosome",
+        "GCA_042034465.2"
+      ],
+      [
+        "2026-04-15",
+        134953061,
+        "Chromosome",
+        "GCA_056739375.1"
+      ],
+      [
+        "2024-09-20",
+        134937965,
+        "Chromosome",
+        "GCA_042077085.1"
+      ],
+      [
+        "2026-04-14",
+        134930439,
+        "Chromosome",
+        "GCA_056716515.1"
+      ],
+      [
+        "2024-12-11",
+        134928668,
+        "Chromosome",
+        "GCA_046000005.1"
+      ],
+      [
+        "2026-04-29",
+        134928177,
+        "Chromosome",
+        "GCA_057056525.1"
+      ],
+      [
+        "2026-04-15",
+        134927830,
+        "Chromosome",
+        "GCA_056739695.1"
+      ],
+      [
+        "2026-04-29",
+        134919139,
+        "Chromosome",
+        "GCA_057055965.1"
+      ],
+      [
+        "2026-04-10",
+        134914200,
+        "Chromosome",
+        "GCA_056667655.1"
+      ],
+      [
+        "2026-04-16",
+        134902873,
+        "Chromosome",
+        "GCA_056748585.1"
+      ],
+      [
+        "2026-04-13",
+        134896618,
+        "Chromosome",
+        "GCA_056695975.1"
+      ],
+      [
+        "2026-04-10",
+        134890032,
+        "Chromosome",
+        "GCA_056669065.1"
+      ],
+      [
+        "2026-04-10",
+        134887855,
+        "Chromosome",
+        "GCA_056668935.1"
+      ],
+      [
+        "2024-09-20",
+        134878745,
+        "Chromosome",
+        "GCA_042077625.1"
+      ],
+      [
+        "2026-04-29",
+        134877277,
+        "Chromosome",
+        "GCA_057056005.1"
+      ],
+      [
+        "2026-04-10",
+        134875708,
+        "Chromosome",
+        "GCA_056667535.1"
+      ],
+      [
+        "2026-04-13",
+        134875065,
+        "Chromosome",
+        "GCA_056697885.1"
+      ],
+      [
+        "2024-09-20",
+        134873989,
+        "Chromosome",
+        "GCA_042076825.2"
+      ],
+      [
+        "2026-04-15",
+        134872001,
+        "Chromosome",
+        "GCA_056739735.1"
+      ],
+      [
+        "2026-04-15",
+        134868963,
+        "Chromosome",
+        "GCA_056739135.1"
+      ],
+      [
+        "2026-04-13",
+        134862002,
+        "Chromosome",
+        "GCA_056690385.1"
+      ],
+      [
+        "2024-09-20",
+        134855658,
+        "Chromosome",
+        "GCA_042037715.2"
+      ],
+      [
+        "2026-04-29",
+        134846248,
+        "Chromosome",
+        "GCA_057056955.1"
+      ],
+      [
+        "2024-09-19",
+        134846101,
+        "Chromosome",
+        "GCA_042032115.2"
+      ],
+      [
+        "2026-04-13",
+        134843978,
+        "Chromosome",
+        "GCA_056699705.1"
+      ],
+      [
+        "2026-04-10",
+        134839373,
+        "Chromosome",
+        "GCA_056668115.1"
+      ],
+      [
+        "2026-04-15",
+        134833868,
+        "Chromosome",
+        "GCA_056739115.1"
+      ],
+      [
+        "2026-09-17",
+        134828558,
+        "Chromosome",
+        "GCA_061372785.1"
+      ],
+      [
+        "2026-04-10",
+        134823806,
+        "Chromosome",
+        "GCA_056669105.1"
+      ],
+      [
+        "2026-04-13",
+        134820750,
+        "Chromosome",
+        "GCA_056698415.1"
+      ],
+      [
+        "2026-04-13",
+        134800615,
+        "Chromosome",
+        "GCA_056698275.1"
+      ],
+      [
+        "2026-04-10",
+        134799178,
+        "Chromosome",
+        "GCA_056669405.1"
+      ],
+      [
+        "2024-09-20",
+        134785557,
+        "Chromosome",
+        "GCA_018472695.3"
+      ],
+      [
+        "2026-04-15",
+        134783783,
+        "Chromosome",
+        "GCA_056738675.1"
+      ],
+      [
+        "2024-12-02",
+        134782105,
+        "Chromosome",
+        "GCA_045523085.1"
+      ],
+      [
+        "2026-04-13",
+        134770543,
+        "Chromosome",
+        "GCA_056698245.1"
+      ],
+      [
+        "2026-04-29",
+        134752689,
+        "Chromosome",
+        "GCA_057056585.1"
+      ],
+      [
+        "2026-04-13",
+        134752108,
+        "Chromosome",
+        "GCA_056689315.1"
+      ],
+      [
+        "2026-04-14",
+        134747705,
+        "Chromosome",
+        "GCA_056717335.1"
+      ],
+      [
+        "2026-04-29",
+        134739419,
+        "Chromosome",
+        "GCA_057056015.1"
+      ],
+      [
+        "2026-04-16",
+        134731050,
+        "Chromosome",
+        "GCA_056751855.1"
+      ],
+      [
+        "2025-01-14",
+        134730260,
+        "Chromosome",
+        "GCA_046629215.1"
+      ],
+      [
+        "2026-04-16",
+        134715858,
+        "Chromosome",
+        "GCA_056748155.1"
+      ],
+      [
+        "2024-10-31",
+        134701499,
+        "Chromosome",
+        "GCA_044165205.2"
+      ],
+      [
+        "2026-04-15",
+        134698998,
+        "Chromosome",
+        "GCA_056739255.1"
+      ],
+      [
+        "2026-04-10",
+        134692731,
+        "Chromosome",
+        "GCA_056668375.1"
+      ],
+      [
+        "2026-04-16",
+        134689162,
+        "Chromosome",
+        "GCA_056749755.1"
+      ],
+      [
+        "2024-09-20",
+        134675934,
+        "Chromosome",
+        "GCA_042037355.2"
+      ],
+      [
+        "2026-04-10",
+        134669673,
+        "Chromosome",
+        "GCA_056668215.1"
+      ],
+      [
+        "2026-04-14",
+        134666175,
+        "Chromosome",
+        "GCA_056717255.1"
+      ],
+      [
+        "2026-04-14",
+        134630542,
+        "Chromosome",
+        "GCA_056717155.1"
+      ],
+      [
+        "2026-04-15",
+        134629743,
+        "Chromosome",
+        "GCA_056738835.1"
+      ],
+      [
+        "2026-04-16",
+        134617805,
+        "Chromosome",
+        "GCA_056751055.1"
+      ],
+      [
+        "2026-04-15",
+        134616720,
+        "Chromosome",
+        "GCA_056738475.1"
+      ],
+      [
+        "2024-12-02",
+        134613555,
+        "Chromosome",
+        "GCA_045524175.2"
+      ],
+      [
+        "2024-10-17",
+        134609164,
+        "Chromosome",
+        "GCA_043304535.2"
+      ],
+      [
+        "2026-04-10",
+        134602430,
+        "Chromosome",
+        "GCA_056668275.1"
+      ],
+      [
+        "2026-04-10",
+        134598008,
+        "Chromosome",
+        "GCA_056668485.1"
+      ],
+      [
+        "2024-10-31",
+        134585109,
+        "Chromosome",
+        "GCA_044165025.2"
+      ],
+      [
+        "2024-09-20",
+        134578797,
+        "Chromosome",
+        "GCA_042034505.2"
+      ],
+      [
+        "2024-12-02",
+        134573075,
+        "Chromosome",
+        "GCA_045524125.1"
+      ],
+      [
+        "2026-04-13",
+        134570719,
+        "Chromosome",
+        "GCA_056699755.1"
+      ],
+      [
+        "2026-04-13",
+        134562789,
+        "Chromosome",
+        "GCA_056698595.1"
+      ],
+      [
+        "2026-04-10",
+        134550967,
+        "Chromosome",
+        "GCA_056668955.1"
+      ],
+      [
+        "2026-04-16",
+        134548041,
+        "Chromosome",
+        "GCA_056749705.1"
+      ],
+      [
+        "2024-09-19",
+        134545739,
+        "Chromosome",
+        "GCA_042032535.1"
+      ],
+      [
+        "2024-10-31",
+        134544783,
+        "Chromosome",
+        "GCA_044165735.2"
+      ],
+      [
+        "2026-04-29",
+        134535467,
+        "Chromosome",
+        "GCA_057056075.1"
+      ],
+      [
+        "2026-04-13",
+        134532665,
+        "Chromosome",
+        "GCA_056689255.1"
+      ],
+      [
+        "2026-04-13",
+        134516374,
+        "Chromosome",
+        "GCA_056699355.1"
+      ],
+      [
+        "2026-04-14",
+        134512284,
+        "Chromosome",
+        "GCA_056717435.1"
+      ],
+      [
+        "2026-04-14",
+        134503808,
+        "Chromosome",
+        "GCA_056716765.1"
+      ],
+      [
+        "2026-04-13",
+        134503786,
+        "Chromosome",
+        "GCA_056697535.1"
+      ],
+      [
+        "2026-04-10",
+        134497348,
+        "Chromosome",
+        "GCA_056668295.1"
+      ],
+      [
+        "2026-04-10",
+        134487635,
+        "Chromosome",
+        "GCA_056669555.1"
+      ],
+      [
+        "2026-04-15",
+        134484909,
+        "Chromosome",
+        "GCA_056738585.1"
+      ],
+      [
+        "2024-09-19",
+        134484557,
+        "Chromosome",
+        "GCA_042031845.2"
+      ],
+      [
+        "2026-04-10",
+        134482327,
+        "Chromosome",
+        "GCA_056668355.1"
+      ],
+      [
+        "2026-04-13",
+        134476379,
+        "Chromosome",
+        "GCA_056695735.1"
+      ],
+      [
+        "2024-09-20",
+        134471244,
+        "Chromosome",
+        "GCA_018469965.2"
+      ],
+      [
+        "2026-04-16",
+        134464458,
+        "Chromosome",
+        "GCA_056750195.1"
+      ],
+      [
+        "2026-04-15",
+        134451978,
+        "Chromosome",
+        "GCA_056739455.1"
+      ],
+      [
+        "2026-04-14",
+        134449215,
+        "Chromosome",
+        "GCA_056716415.1"
+      ],
+      [
+        "2024-09-20",
+        134443836,
+        "Chromosome",
+        "GCA_018469425.2"
+      ],
+      [
+        "2026-04-13",
+        134443478,
+        "Chromosome",
+        "GCA_056697495.1"
+      ],
+      [
+        "2026-04-14",
+        134441828,
+        "Chromosome",
+        "GCA_056716535.1"
+      ],
+      [
+        "2026-04-16",
+        134424861,
+        "Chromosome",
+        "GCA_056750335.1"
+      ],
+      [
+        "2026-04-13",
+        134424799,
+        "Chromosome",
+        "GCA_056698035.1"
+      ],
+      [
+        "2026-04-13",
+        134410918,
+        "Chromosome",
+        "GCA_056689445.1"
+      ],
+      [
+        "2026-04-10",
+        134406807,
+        "Chromosome",
+        "GCA_056667595.1"
+      ],
+      [
+        "2024-12-27",
+        134404795,
+        "Chromosome",
+        "GCA_046332025.1"
+      ],
+      [
+        "2024-09-20",
+        134403041,
+        "Chromosome",
+        "GCA_042038875.1"
+      ],
+      [
+        "2026-04-10",
+        134389152,
+        "Chromosome",
+        "GCA_056669355.1"
+      ],
+      [
+        "2024-09-20",
+        134375872,
+        "Chromosome",
+        "GCA_042037725.1"
+      ],
+      [
+        "2024-10-31",
+        134371020,
+        "Chromosome",
+        "GCA_044164725.1"
+      ],
+      [
+        "2026-04-16",
+        134370493,
+        "Chromosome",
+        "GCA_056749635.1"
+      ],
+      [
+        "2024-09-19",
+        134368275,
+        "Chromosome",
+        "GCA_042028895.2"
+      ],
+      [
+        "2026-04-16",
+        134365014,
+        "Chromosome",
+        "GCA_056749645.1"
+      ],
+      [
+        "2026-04-29",
+        134363429,
+        "Chromosome",
+        "GCA_057056835.1"
+      ],
+      [
+        "2026-04-29",
+        134343642,
+        "Chromosome",
+        "GCA_057055865.1"
+      ],
+      [
+        "2026-04-10",
+        134332396,
+        "Chromosome",
+        "GCA_056669415.1"
+      ],
+      [
+        "2026-04-15",
+        134331657,
+        "Chromosome",
+        "GCA_056739725.1"
+      ],
+      [
+        "2026-04-16",
+        134325173,
+        "Chromosome",
+        "GCA_056751745.1"
+      ],
+      [
+        "2026-04-15",
+        134315662,
+        "Chromosome",
+        "GCA_056739635.1"
+      ],
+      [
+        "2024-09-19",
+        134304874,
+        "Chromosome",
+        "GCA_042031775.2"
+      ],
+      [
+        "2026-04-15",
+        134295726,
+        "Chromosome",
+        "GCA_056739515.1"
+      ],
+      [
+        "2024-09-20",
+        134272382,
+        "Chromosome",
+        "GCA_018467015.3"
+      ],
+      [
+        "2024-12-02",
+        134266128,
+        "Chromosome",
+        "GCA_045524135.2"
+      ],
+      [
+        "2026-04-29",
+        134263000,
+        "Chromosome",
+        "GCA_057056165.1"
+      ],
+      [
+        "2026-04-16",
+        134253885,
+        "Chromosome",
+        "GCA_056749785.1"
+      ],
+      [
+        "2024-09-20",
+        134249167,
+        "Chromosome",
+        "GCA_042077575.1"
+      ],
+      [
+        "2024-09-20",
+        134247759,
+        "Chromosome",
+        "GCA_042037625.2"
+      ],
+      [
+        "2024-09-19",
+        134236179,
+        "Chromosome",
+        "GCA_042030115.1"
+      ],
+      [
+        "2026-04-29",
+        134234592,
+        "Chromosome",
+        "GCA_057056175.1"
+      ],
+      [
+        "2026-04-13",
+        134233431,
+        "Chromosome",
+        "GCA_056689605.1"
+      ],
+      [
+        "2024-12-27",
+        134223936,
+        "Chromosome",
+        "GCA_046332365.1"
+      ],
+      [
+        "2026-04-14",
+        134221479,
+        "Chromosome",
+        "GCA_056716445.1"
+      ],
+      [
+        "2026-04-29",
+        134212247,
+        "Chromosome",
+        "GCA_057056325.1"
+      ],
+      [
+        "2026-04-14",
+        134210415,
+        "Chromosome",
+        "GCA_056716715.1"
+      ],
+      [
+        "2026-04-14",
+        134209406,
+        "Chromosome",
+        "GCA_056716295.1"
+      ],
+      [
+        "2026-04-13",
+        134198765,
+        "Chromosome",
+        "GCA_056698425.1"
+      ],
+      [
+        "2026-04-13",
+        134182937,
+        "Chromosome",
+        "GCA_056698005.1"
+      ],
+      [
+        "2026-04-29",
+        134148278,
+        "Chromosome",
+        "GCA_057056205.1"
+      ],
+      [
+        "2025-01-14",
+        134147671,
+        "Chromosome",
+        "GCA_046629265.2"
+      ],
+      [
+        "2026-04-10",
+        134143162,
+        "Chromosome",
+        "GCA_056668775.1"
+      ],
+      [
+        "2026-04-14",
+        134127445,
+        "Chromosome",
+        "GCA_056717055.1"
+      ],
+      [
+        "2026-04-13",
+        134124682,
+        "Chromosome",
+        "GCA_056695495.1"
+      ],
+      [
+        "2026-04-13",
+        134124625,
+        "Chromosome",
+        "GCA_056691015.1"
+      ],
+      [
+        "2025-01-14",
+        134124285,
+        "Chromosome",
+        "GCA_046629565.2"
+      ],
+      [
+        "2026-04-10",
+        134122335,
+        "Chromosome",
+        "GCA_056668035.1"
+      ],
+      [
+        "2024-09-19",
+        134115449,
+        "Chromosome",
+        "GCA_042030035.1"
+      ],
+      [
+        "2024-09-19",
+        134102951,
+        "Chromosome",
+        "GCA_042032565.1"
+      ],
+      [
+        "2024-09-20",
+        134098084,
+        "Chromosome",
+        "GCA_042037885.1"
+      ],
+      [
+        "2026-04-13",
+        134091995,
+        "Chromosome",
+        "GCA_056697385.1"
+      ],
+      [
+        "2026-04-14",
+        134074798,
+        "Chromosome",
+        "GCA_056716935.1"
+      ],
+      [
+        "2024-09-19",
+        134067740,
+        "Chromosome",
+        "GCA_042029485.2"
+      ],
+      [
+        "2026-04-16",
+        134066707,
+        "Chromosome",
+        "GCA_056748805.1"
+      ],
+      [
+        "2026-04-10",
+        134050716,
+        "Chromosome",
+        "GCA_056667795.1"
+      ],
+      [
+        "2026-04-15",
+        134038173,
+        "Chromosome",
+        "GCA_056739065.1"
+      ],
+      [
+        "2026-04-29",
+        134035077,
+        "Chromosome",
+        "GCA_057056225.1"
+      ],
+      [
+        "2024-10-17",
+        134030441,
+        "Chromosome",
+        "GCA_043304965.2"
+      ],
+      [
+        "2026-04-16",
+        134029652,
+        "Chromosome",
+        "GCA_056750075.1"
+      ],
+      [
+        "2024-09-19",
+        134010116,
+        "Chromosome",
+        "GCA_042029495.2"
+      ],
+      [
+        "2025-01-14",
+        134001802,
+        "Chromosome",
+        "GCA_046629205.1"
+      ],
+      [
+        "2026-04-13",
+        133997013,
+        "Chromosome",
+        "GCA_056695795.1"
+      ],
+      [
+        "2026-04-15",
+        133984324,
+        "Chromosome",
+        "GCA_056738465.1"
+      ],
+      [
+        "2024-09-20",
+        133977884,
+        "Chromosome",
+        "GCA_042035275.1"
+      ],
+      [
+        "2024-09-20",
+        133960273,
+        "Chromosome",
+        "GCA_018472845.3"
+      ],
+      [
+        "2026-04-15",
+        133952678,
+        "Chromosome",
+        "GCA_056739415.1"
+      ],
+      [
+        "2026-04-13",
+        133951858,
+        "Chromosome",
+        "GCA_056696565.1"
+      ],
+      [
+        "2024-09-20",
+        133930769,
+        "Chromosome",
+        "GCA_042077305.2"
+      ],
+      [
+        "2026-04-10",
+        133922707,
+        "Chromosome",
+        "GCA_056668555.1"
+      ],
+      [
+        "2024-09-19",
+        133918786,
+        "Chromosome",
+        "GCA_042027455.1"
+      ],
+      [
+        "2026-04-14",
+        133914137,
+        "Chromosome",
+        "GCA_056716635.1"
+      ],
+      [
+        "2024-09-19",
+        133900270,
+        "Chromosome",
+        "GCA_042032545.1"
+      ],
+      [
+        "2024-10-31",
+        133888901,
+        "Chromosome",
+        "GCA_044167235.1"
+      ],
+      [
+        "2026-04-13",
+        133886426,
+        "Chromosome",
+        "GCA_056698625.1"
+      ],
+      [
+        "2026-04-16",
+        133876090,
+        "Chromosome",
+        "GCA_056750015.1"
+      ],
+      [
+        "2024-12-13",
+        133843756,
+        "Chromosome",
+        "GCA_046056495.2"
+      ],
+      [
+        "2024-09-20",
+        133815977,
+        "Chromosome",
+        "GCA_042077475.1"
+      ],
+      [
+        "2026-04-15",
+        133790378,
+        "Chromosome",
+        "GCA_056738895.1"
+      ],
+      [
+        "2024-09-20",
+        133766909,
+        "Chromosome",
+        "GCA_042037555.2"
+      ],
+      [
+        "2024-09-20",
+        133766385,
+        "Chromosome",
+        "GCA_042076985.1"
+      ],
+      [
+        "2026-04-29",
+        133758530,
+        "Chromosome",
+        "GCA_057056405.1"
+      ],
+      [
+        "2024-09-20",
+        133744264,
+        "Chromosome",
+        "GCA_042037875.1"
+      ],
+      [
+        "2024-09-11",
+        133732469,
+        "Chromosome",
+        "GCA_041900145.1"
+      ],
+      [
+        "2024-03-18",
+        133706131,
+        "Chromosome",
+        "GCA_037177555.1"
+      ],
+      [
+        "2026-04-10",
+        133704570,
+        "Chromosome",
+        "GCA_056668835.1"
+      ],
+      [
+        "2024-09-19",
+        133697027,
+        "Chromosome",
+        "GCA_042031265.1"
+      ],
+      [
+        "2026-04-14",
+        133687610,
+        "Chromosome",
+        "GCA_056716885.1"
+      ],
+      [
+        "2026-04-14",
+        133678329,
+        "Chromosome",
+        "GCA_056716525.1"
+      ],
+      [
+        "2024-09-20",
+        133667927,
+        "Chromosome",
+        "GCA_042077635.1"
+      ],
+      [
+        "2026-04-29",
+        133667652,
+        "Chromosome",
+        "GCA_057055875.1"
+      ],
+      [
+        "2026-04-29",
+        133660864,
+        "Chromosome",
+        "GCA_057056565.1"
+      ],
+      [
+        "2024-09-20",
+        133658670,
+        "Chromosome",
+        "GCA_042036435.1"
+      ],
+      [
+        "2026-04-10",
+        133658528,
+        "Chromosome",
+        "GCA_056667515.1"
+      ],
+      [
+        "2026-04-13",
+        133657212,
+        "Chromosome",
+        "GCA_056696285.1"
+      ],
+      [
+        "2024-10-31",
+        133652110,
+        "Chromosome",
+        "GCA_044165595.2"
+      ],
+      [
+        "2024-12-27",
+        133646597,
+        "Chromosome",
+        "GCA_046332015.1"
+      ],
+      [
+        "2026-04-13",
+        133640805,
+        "Chromosome",
+        "GCA_056689565.1"
+      ],
+      [
+        "2024-09-19",
+        133639950,
+        "Chromosome",
+        "GCA_042028065.2"
+      ],
+      [
+        "2026-04-16",
+        133636290,
+        "Chromosome",
+        "GCA_056748085.1"
+      ],
+      [
+        "2026-04-13",
+        133599113,
+        "Chromosome",
+        "GCA_056697355.1"
+      ],
+      [
+        "2024-10-31",
+        133597816,
+        "Chromosome",
+        "GCA_044166805.1"
+      ],
+      [
+        "2026-04-10",
+        133591590,
+        "Chromosome",
+        "GCA_056669505.1"
+      ],
+      [
+        "2026-04-13",
+        133591288,
+        "Chromosome",
+        "GCA_056690505.1"
+      ],
+      [
+        "2026-04-10",
+        133577000,
+        "Chromosome",
+        "GCA_056667735.1"
+      ],
+      [
+        "2024-09-20",
+        133573433,
+        "Chromosome",
+        "GCA_042077865.1"
+      ],
+      [
+        "2026-04-10",
+        133566644,
+        "Chromosome",
+        "GCA_056668725.1"
+      ],
+      [
+        "2026-04-13",
+        133562919,
+        "Chromosome",
+        "GCA_056697565.1"
+      ],
+      [
+        "2024-09-11",
+        133554630,
+        "Chromosome",
+        "GCA_041900115.2"
+      ],
+      [
+        "2026-04-10",
+        133549372,
+        "Chromosome",
+        "GCA_056669155.1"
+      ],
+      [
+        "2026-04-10",
+        133547628,
+        "Chromosome",
+        "GCA_056668305.1"
+      ],
+      [
+        "2026-04-29",
+        133542665,
+        "Chromosome",
+        "GCA_057056255.1"
+      ],
+      [
+        "2026-04-10",
+        133542550,
+        "Chromosome",
+        "GCA_056667525.1"
+      ],
+      [
+        "2026-04-13",
+        133537663,
+        "Chromosome",
+        "GCA_056697795.1"
+      ],
+      [
+        "2024-09-20",
+        133532687,
+        "Chromosome",
+        "GCA_042036255.2"
+      ],
+      [
+        "2024-09-19",
+        133531697,
+        "Chromosome",
+        "GCA_042029905.2"
+      ],
+      [
+        "2026-04-10",
+        133518585,
+        "Chromosome",
+        "GCA_056669015.1"
+      ],
+      [
+        "2026-04-16",
+        133511289,
+        "Chromosome",
+        "GCA_056748045.1"
+      ],
+      [
+        "2026-04-16",
+        133497574,
+        "Chromosome",
+        "GCA_056750355.1"
+      ],
+      [
+        "2024-09-20",
+        133490652,
+        "Chromosome",
+        "GCA_018471065.2"
+      ],
+      [
+        "2024-09-20",
+        133468945,
+        "Chromosome",
+        "GCA_042078085.2"
+      ],
+      [
+        "2026-04-13",
+        133461906,
+        "Chromosome",
+        "GCA_056696095.1"
+      ],
+      [
+        "2024-09-20",
+        133453108,
+        "Chromosome",
+        "GCA_018469925.2"
+      ],
+      [
+        "2024-09-19",
+        133447960,
+        "Chromosome",
+        "GCA_042032345.1"
+      ],
+      [
+        "2026-04-13",
+        133445536,
+        "Chromosome",
+        "GCA_056698925.1"
+      ],
+      [
+        "2024-09-20",
+        133443848,
+        "Chromosome",
+        "GCA_042034175.2"
+      ],
+      [
+        "2024-09-19",
+        133429102,
+        "Chromosome",
+        "GCA_042028835.1"
+      ],
+      [
+        "2024-09-19",
+        133427943,
+        "Chromosome",
+        "GCA_042026475.2"
+      ],
+      [
+        "2026-04-10",
+        133427665,
+        "Chromosome",
+        "GCA_056668065.1"
+      ],
+      [
+        "2026-04-15",
+        133427002,
+        "Chromosome",
+        "GCA_056738725.1"
+      ],
+      [
+        "2024-09-20",
+        133426588,
+        "Chromosome",
+        "GCA_042036515.1"
+      ],
+      [
+        "2024-10-31",
+        133411682,
+        "Chromosome",
+        "GCA_044166465.2"
+      ],
+      [
+        "2026-04-13",
+        133411244,
+        "Chromosome",
+        "GCA_056698655.1"
+      ],
+      [
+        "2025-01-14",
+        133411240,
+        "Chromosome",
+        "GCA_046629235.1"
+      ],
+      [
+        "2026-04-29",
+        133409523,
+        "Chromosome",
+        "GCA_057056385.1"
+      ],
+      [
+        "2026-04-13",
+        133408642,
+        "Chromosome",
+        "GCA_056697155.1"
+      ],
+      [
+        "2026-04-29",
+        133406857,
+        "Chromosome",
+        "GCA_057056655.1"
+      ],
+      [
+        "2026-04-13",
+        133405709,
+        "Chromosome",
+        "GCA_056697165.1"
+      ],
+      [
+        "2024-12-16",
+        133405611,
+        "Chromosome",
+        "GCA_046116025.1"
+      ],
+      [
+        "2026-04-13",
+        133397508,
+        "Chromosome",
+        "GCA_056696275.1"
+      ],
+      [
+        "2024-09-20",
+        133386813,
+        "Chromosome",
+        "GCA_042077485.1"
+      ],
+      [
+        "2026-04-16",
+        133386087,
+        "Chromosome",
+        "GCA_056748765.1"
+      ],
+      [
+        "2026-04-29",
+        133385823,
+        "Chromosome",
+        "GCA_057056825.1"
+      ],
+      [
+        "2026-04-13",
+        133376832,
+        "Chromosome",
+        "GCA_056697595.1"
+      ],
+      [
+        "2024-09-20",
+        133374946,
+        "Chromosome",
+        "GCA_042037765.1"
+      ],
+      [
+        "2024-09-20",
+        133373571,
+        "Chromosome",
+        "GCA_042034315.1"
+      ],
+      [
+        "2026-04-13",
+        133362318,
+        "Chromosome",
+        "GCA_056696925.1"
+      ],
+      [
+        "2026-04-14",
+        133361580,
+        "Chromosome",
+        "GCA_056716495.1"
+      ],
+      [
+        "2024-09-20",
+        133359032,
+        "Chromosome",
+        "GCA_042076735.2"
+      ],
+      [
+        "2026-04-10",
+        133348954,
+        "Chromosome",
+        "GCA_056669325.1"
+      ],
+      [
+        "2025-01-14",
+        133342447,
+        "Chromosome",
+        "GCA_046629585.1"
+      ],
+      [
+        "2024-10-31",
+        133337158,
+        "Chromosome",
+        "GCA_044164665.2"
+      ],
+      [
+        "2024-12-11",
+        133325902,
+        "Chromosome",
+        "GCA_018852585.3"
+      ],
+      [
+        "2024-09-19",
+        133325347,
+        "Chromosome",
+        "GCA_042032465.1"
+      ],
+      [
+        "2026-04-10",
+        133322726,
+        "Chromosome",
+        "GCA_056668865.1"
+      ],
+      [
+        "2024-09-19",
+        133321827,
+        "Chromosome",
+        "GCA_042029925.1"
+      ],
+      [
+        "2026-04-13",
+        133300908,
+        "Chromosome",
+        "GCA_056690535.1"
+      ],
+      [
+        "2024-09-19",
+        133294904,
+        "Chromosome",
+        "GCA_042031355.2"
+      ],
+      [
+        "2026-04-16",
+        133278124,
+        "Chromosome",
+        "GCA_056749975.1"
+      ],
+      [
+        "2024-09-20",
+        133272142,
+        "Chromosome",
+        "GCA_042076455.1"
+      ],
+      [
+        "2026-04-29",
+        133271057,
+        "Chromosome",
+        "GCA_057056865.1"
+      ],
+      [
+        "2026-04-10",
+        133270346,
+        "Chromosome",
+        "GCA_056669285.1"
+      ],
+      [
+        "2024-09-20",
+        133265195,
+        "Chromosome",
+        "GCA_042076715.2"
+      ],
+      [
+        "2026-04-15",
+        133264963,
+        "Chromosome",
+        "GCA_056740035.1"
+      ],
+      [
+        "2026-04-14",
+        133233563,
+        "Chromosome",
+        "GCA_056716425.1"
+      ],
+      [
+        "2026-04-29",
+        133226190,
+        "Chromosome",
+        "GCA_057056945.1"
+      ],
+      [
+        "2026-04-13",
+        133212536,
+        "Chromosome",
+        "GCA_056689395.1"
+      ],
+      [
+        "2024-12-02",
+        133196295,
+        "Chromosome",
+        "GCA_045523115.1"
+      ],
+      [
+        "2026-04-16",
+        133189100,
+        "Chromosome",
+        "GCA_056748095.1"
+      ],
+      [
+        "2026-04-15",
+        133181382,
+        "Chromosome",
+        "GCA_056738815.1"
+      ],
+      [
+        "2024-09-20",
+        133179805,
+        "Chromosome",
+        "GCA_042037925.1"
+      ],
+      [
+        "2024-09-20",
+        133172463,
+        "Chromosome",
+        "GCA_042076865.2"
+      ],
+      [
+        "2026-04-13",
+        133168080,
+        "Chromosome",
+        "GCA_056697995.1"
+      ],
+      [
+        "2024-12-02",
+        133153140,
+        "Chromosome",
+        "GCA_045524515.2"
+      ],
+      [
+        "2026-04-15",
+        133130202,
+        "Chromosome",
+        "GCA_056739325.1"
+      ],
+      [
+        "2024-10-31",
+        133127859,
+        "Chromosome",
+        "GCA_044166535.1"
+      ],
+      [
+        "2024-09-20",
+        133122227,
+        "Chromosome",
+        "GCA_042076855.1"
+      ],
+      [
+        "2026-04-15",
+        133118471,
+        "Chromosome",
+        "GCA_056739855.1"
+      ],
+      [
+        "2026-04-13",
+        133110909,
+        "Chromosome",
+        "GCA_056698155.1"
+      ],
+      [
+        "2026-04-16",
+        133059662,
+        "Chromosome",
+        "GCA_056749935.1"
+      ],
+      [
+        "2024-09-19",
+        133043050,
+        "Chromosome",
+        "GCA_042032525.1"
+      ],
+      [
+        "2026-04-16",
+        132909298,
+        "Chromosome",
+        "GCA_056749845.1"
+      ],
+      [
+        "2024-09-20",
+        132891317,
+        "Chromosome",
+        "GCA_042077765.2"
+      ],
+      [
+        "2026-04-13",
+        132834032,
+        "Chromosome",
+        "GCA_056690485.1"
+      ],
+      [
+        "2026-04-15",
+        132828329,
+        "Chromosome",
+        "GCA_056739775.1"
+      ],
+      [
+        "2026-04-13",
+        132781625,
+        "Chromosome",
+        "GCA_056696075.1"
+      ],
+      [
+        "2024-09-20",
+        132727226,
+        "Chromosome",
+        "GCA_042037855.1"
+      ],
+      [
+        "2026-04-13",
+        132721678,
+        "Chromosome",
+        "GCA_056691535.1"
+      ],
+      [
+        "2024-09-19",
+        132703900,
+        "Chromosome",
+        "GCA_042027595.1"
+      ],
+      [
+        "2024-12-16",
+        132666505,
+        "Chromosome",
+        "GCA_046116015.2"
+      ],
+      [
+        "2024-09-19",
+        132654058,
+        "Chromosome",
+        "GCA_042026525.2"
+      ],
+      [
+        "2026-04-15",
+        132637529,
+        "Chromosome",
+        "GCA_056740225.1"
+      ],
+      [
+        "2024-10-31",
+        132631459,
+        "Chromosome",
+        "GCA_044165125.1"
+      ],
+      [
+        "2024-09-20",
+        132560287,
+        "Chromosome",
+        "GCA_018472825.3"
+      ],
+      [
+        "2025-01-14",
+        132536328,
+        "Chromosome",
+        "GCA_046629575.2"
+      ],
+      [
+        "2024-09-20",
+        132508536,
+        "Chromosome",
+        "GCA_018469685.3"
+      ],
+      [
+        "2026-04-16",
+        132423188,
+        "Chromosome",
+        "GCA_056749655.1"
+      ],
+      [
+        "2026-04-10",
+        132376299,
+        "Chromosome",
+        "GCA_056668855.1"
+      ],
+      [
+        "2026-04-15",
+        132346743,
+        "Chromosome",
+        "GCA_056739945.1"
+      ],
+      [
+        "2026-04-13",
+        132339552,
+        "Chromosome",
+        "GCA_056697745.1"
+      ],
+      [
+        "2026-04-10",
+        132293118,
+        "Chromosome",
+        "GCA_056669045.1"
+      ],
+      [
+        "2026-04-15",
+        132194589,
+        "Chromosome",
+        "GCA_056739435.1"
+      ],
+      [
+        "2024-09-20",
+        132182243,
+        "Chromosome",
+        "GCA_042076885.2"
+      ],
+      [
+        "2024-10-31",
+        132113927,
+        "Chromosome",
+        "GCA_044166785.2"
+      ],
+      [
+        "2026-04-14",
+        131943752,
+        "Chromosome",
+        "GCA_056716645.1"
+      ],
+      [
+        "2026-04-29",
+        131929868,
+        "Chromosome",
+        "GCA_057056625.1"
+      ],
+      [
+        "2026-04-15",
+        131876419,
+        "Chromosome",
+        "GCA_056738325.1"
+      ],
+      [
+        "2026-04-13",
+        131867225,
+        "Chromosome",
+        "GCA_056699735.1"
+      ],
+      [
+        "2024-09-20",
+        131792052,
+        "Chromosome",
+        "GCA_042036805.1"
+      ],
+      [
+        "2026-04-13",
+        131748092,
+        "Chromosome",
+        "GCA_056696175.1"
+      ],
+      [
+        "2026-04-29",
+        131729346,
+        "Chromosome",
+        "GCA_057056365.1"
+      ],
+      [
+        "2026-04-10",
+        131530682,
+        "Chromosome",
+        "GCA_056669245.1"
+      ],
+      [
+        "2026-04-14",
+        131497781,
+        "Chromosome",
+        "GCA_056716955.1"
+      ],
+      [
+        "2026-04-16",
+        131489430,
+        "Chromosome",
+        "GCA_056750895.1"
+      ],
+      [
+        "2026-04-15",
+        131360345,
+        "Chromosome",
+        "GCA_056738715.1"
+      ],
+      [
+        "2026-04-15",
+        131320881,
+        "Chromosome",
+        "GCA_056738875.1"
+      ],
+      [
+        "2026-04-10",
+        131057975,
+        "Chromosome",
+        "GCA_056668435.1"
+      ],
+      [
+        "2024-09-20",
+        130919272,
+        "Chromosome",
+        "GCA_042036285.2"
+      ],
+      [
+        "2024-09-20",
+        130907135,
+        "Chromosome",
+        "GCA_042034305.1"
+      ],
+      [
+        "2026-04-13",
+        130777526,
+        "Chromosome",
+        "GCA_056697805.1"
+      ],
+      [
+        "2024-09-19",
+        130751236,
+        "Chromosome",
+        "GCA_042028275.1"
+      ],
+      [
+        "2026-04-10",
+        130716248,
+        "Chromosome",
+        "GCA_056667975.1"
+      ],
+      [
+        "2026-04-15",
+        130696144,
+        "Chromosome",
+        "GCA_056739495.1"
+      ],
+      [
+        "2024-09-20",
+        130677170,
+        "Chromosome",
+        "GCA_042034525.2"
+      ],
+      [
+        "2024-09-20",
+        130533233,
+        "Chromosome",
+        "GCA_042077005.1"
+      ],
+      [
+        "2026-04-14",
+        130302564,
+        "Chromosome",
+        "GCA_056717275.1"
+      ],
+      [
+        "2026-04-16",
+        130240560,
+        "Chromosome",
+        "GCA_056748625.1"
+      ],
+      [
+        "2026-04-29",
+        130219136,
+        "Chromosome",
+        "GCA_057056745.1"
+      ],
+      [
+        "2024-09-20",
+        130040622,
+        "Chromosome",
+        "GCA_018471555.2"
+      ],
+      [
+        "2026-04-13",
+        129972748,
+        "Chromosome",
+        "GCA_056696775.1"
+      ],
+      [
+        "2024-12-12",
+        129962483,
+        "Chromosome",
+        "GCA_046043155.1"
+      ],
+      [
+        "2024-10-31",
+        129914126,
+        "Chromosome",
+        "GCA_044165215.1"
+      ],
+      [
+        "2026-04-10",
+        129908834,
+        "Chromosome",
+        "GCA_056667355.1"
+      ],
+      [
+        "2024-12-13",
+        129844903,
+        "Chromosome",
+        "GCA_046056445.1"
+      ],
+      [
+        "2026-04-16",
+        129794966,
+        "Chromosome",
+        "GCA_056748725.1"
+      ],
+      [
+        "2024-09-20",
+        129672142,
+        "Chromosome",
+        "GCA_042038595.2"
+      ],
+      [
+        "2026-04-14",
+        129552404,
+        "Chromosome",
+        "GCA_056717655.1"
+      ],
+      [
+        "2024-09-19",
+        129499622,
+        "Chromosome",
+        "GCA_042027445.1"
+      ],
+      [
+        "2024-12-27",
+        129483041,
+        "Chromosome",
+        "GCA_046332355.1"
+      ],
+      [
+        "2024-09-20",
+        129345581,
+        "Chromosome",
+        "GCA_042035225.1"
+      ],
+      [
+        "2024-09-20",
+        129211965,
+        "Chromosome",
+        "GCA_042038345.2"
+      ],
+      [
+        "2024-09-20",
+        129131645,
+        "Chromosome",
+        "GCA_042076665.1"
+      ],
+      [
+        "2024-09-19",
+        129036150,
+        "Chromosome",
+        "GCA_042030125.1"
+      ],
+      [
+        "2026-04-13",
+        128885382,
+        "Chromosome",
+        "GCA_056698455.1"
+      ],
+      [
+        "2024-09-19",
+        128806727,
+        "Chromosome",
+        "GCA_042028145.2"
+      ],
+      [
+        "2026-04-16",
+        128765339,
+        "Chromosome",
+        "GCA_056750735.1"
+      ],
+      [
+        "2024-09-20",
+        128757022,
+        "Chromosome",
+        "GCA_042077885.2"
+      ],
+      [
+        "2026-04-10",
+        128698740,
+        "Chromosome",
+        "GCA_056668055.1"
+      ],
+      [
+        "2024-09-19",
+        128696179,
+        "Chromosome",
+        "GCA_042030015.1"
+      ],
+      [
+        "2024-09-20",
+        128660614,
+        "Chromosome",
+        "GCA_042034345.1"
+      ],
+      [
+        "2026-04-13",
+        128499534,
+        "Chromosome",
+        "GCA_056690035.1"
+      ],
+      [
+        "2026-04-13",
+        128368501,
+        "Chromosome",
+        "GCA_056697315.1"
+      ],
+      [
+        "2026-04-16",
+        128320540,
+        "Chromosome",
+        "GCA_056748745.1"
+      ],
+      [
+        "2026-04-16",
+        128318492,
+        "Chromosome",
+        "GCA_057084165.1"
+      ],
+      [
+        "2026-04-13",
+        128216626,
+        "Chromosome",
+        "GCA_056696865.1"
+      ],
+      [
+        "2026-04-13",
+        128188538,
+        "Chromosome",
+        "GCA_056696965.1"
+      ],
+      [
+        "2026-04-16",
+        127895698,
+        "Chromosome",
+        "GCA_056751895.1"
+      ],
+      [
+        "2024-12-27",
+        127819649,
+        "Chromosome",
+        "GCA_046332375.1"
+      ],
+      [
+        "2024-09-19",
+        127612055,
+        "Chromosome",
+        "GCA_042032335.2"
+      ],
+      [
+        "2024-09-20",
+        127569596,
+        "Chromosome",
+        "GCA_042037445.2"
+      ],
+      [
+        "2024-12-13",
+        127445586,
+        "Chromosome",
+        "GCA_046056425.2"
+      ],
+      [
+        "2024-09-20",
+        127334373,
+        "Chromosome",
+        "GCA_042036915.2"
+      ],
+      [
+        "2026-04-13",
+        127308046,
+        "Chromosome",
+        "GCA_056698065.1"
+      ],
+      [
+        "2026-04-13",
+        127147700,
+        "Chromosome",
+        "GCA_056689195.1"
+      ],
+      [
+        "2024-09-20",
+        126989935,
+        "Chromosome",
+        "GCA_018469665.3"
+      ],
+      [
+        "2024-09-20",
+        126956616,
+        "Chromosome",
+        "GCA_018471525.2"
+      ],
+      [
+        "2024-09-20",
+        126946641,
+        "Chromosome",
+        "GCA_018471085.3"
+      ],
+      [
+        "2026-04-10",
+        126746133,
+        "Chromosome",
+        "GCA_056667685.1"
+      ],
+      [
+        "2026-04-13",
+        126693881,
+        "Chromosome",
+        "GCA_056698905.1"
+      ],
+      [
+        "2026-04-15",
+        126208523,
+        "Chromosome",
+        "GCA_056740195.1"
+      ],
+      [
+        "2024-09-20",
+        126116857,
+        "Chromosome",
+        "GCA_042037825.1"
+      ],
+      [
+        "2024-09-20",
+        125970107,
+        "Chromosome",
+        "GCA_018472835.2"
+      ],
+      [
+        "2026-04-10",
+        125762745,
+        "Chromosome",
+        "GCA_056668715.1"
+      ],
+      [
+        "2024-09-20",
+        125689318,
+        "Chromosome",
+        "GCA_018469675.2"
+      ],
+      [
+        "2024-10-17",
+        125688124,
+        "Chromosome",
+        "GCA_018504085.3"
+      ],
+      [
+        "2024-09-20",
+        125553825,
+        "Chromosome",
+        "GCA_042037705.2"
+      ],
+      [
+        "2026-04-13",
+        125245763,
+        "Chromosome",
+        "GCA_056689435.1"
+      ],
+      [
+        "2026-04-10",
+        125188556,
+        "Chromosome",
+        "GCA_056669225.1"
+      ],
+      [
+        "2024-10-17",
+        124942138,
+        "Chromosome",
+        "GCA_043304645.1"
+      ],
+      [
+        "2024-12-02",
+        124502371,
+        "Chromosome",
+        "GCA_045524245.1"
+      ],
+      [
+        "2024-09-20",
+        124094187,
+        "Chromosome",
+        "GCA_042077335.2"
+      ],
+      [
+        "2024-09-19",
+        123794045,
+        "Chromosome",
+        "GCA_042027475.1"
+      ],
+      [
+        "2026-04-13",
+        123497798,
+        "Chromosome",
+        "GCA_056697485.1"
+      ],
+      [
+        "2024-09-20",
+        123341742,
+        "Chromosome",
+        "GCA_042037435.2"
+      ],
+      [
+        "2024-10-17",
+        123187761,
+        "Chromosome",
+        "GCA_018504055.2"
+      ],
+      [
+        "2026-04-13",
+        123186463,
+        "Chromosome",
+        "GCA_056691475.1"
+      ],
+      [
+        "2024-09-19",
+        123018179,
+        "Chromosome",
+        "GCA_042027495.1"
+      ],
+      [
+        "2024-09-19",
+        122962790,
+        "Chromosome",
+        "GCA_042027655.2"
+      ],
+      [
+        "2024-09-19",
+        122921261,
+        "Chromosome",
+        "GCA_042027145.2"
+      ],
+      [
+        "2026-04-29",
+        122791468,
+        "Chromosome",
+        "GCA_057056925.1"
+      ],
+      [
+        "2024-09-19",
+        122374351,
+        "Chromosome",
+        "GCA_042028875.2"
+      ],
+      [
+        "2024-12-11",
+        122318195,
+        "Chromosome",
+        "GCA_046000145.1"
+      ],
+      [
+        "2026-04-13",
+        122254775,
+        "Chromosome",
+        "GCA_056697685.1"
+      ],
+      [
+        "2026-04-14",
+        121821578,
+        "Chromosome",
+        "GCA_056717535.1"
+      ],
+      [
+        "2026-04-13",
+        121765870,
+        "Chromosome",
+        "GCA_056689545.1"
+      ],
+      [
+        "2026-04-10",
+        121736525,
+        "Chromosome",
+        "GCA_056669035.1"
+      ],
+      [
+        "2024-12-27",
+        121324348,
+        "Chromosome",
+        "GCA_046332065.1"
+      ],
+      [
+        "2024-09-19",
+        121177034,
+        "Chromosome",
+        "GCA_042030045.1"
+      ],
+      [
+        "2024-09-20",
+        120995922,
+        "Chromosome",
+        "GCA_042077095.1"
+      ],
+      [
+        "2024-12-11",
+        120498315,
+        "Chromosome",
+        "GCA_045999875.1"
+      ],
+      [
+        "2024-12-27",
+        120427261,
+        "Chromosome",
+        "GCA_046332285.1"
+      ],
+      [
+        "2024-09-19",
+        120123898,
+        "Chromosome",
+        "GCA_042032555.1"
+      ],
+      [
+        "2024-10-31",
+        120050300,
+        "Chromosome",
+        "GCA_044165645.1"
+      ],
+      [
+        "2024-12-27",
+        119971359,
+        "Chromosome",
+        "GCA_046332145.1"
+      ],
+      [
+        "2024-09-19",
+        119895189,
+        "Chromosome",
+        "GCA_042028635.1"
+      ],
+      [
+        "2026-04-13",
+        119799163,
+        "Chromosome",
+        "GCA_056697215.1"
+      ],
+      [
+        "2024-09-20",
+        119795150,
+        "Chromosome",
+        "GCA_042037735.2"
+      ],
+      [
+        "2024-10-31",
+        119660345,
+        "Chromosome",
+        "GCA_044164745.2"
+      ],
+      [
+        "2024-09-20",
+        119654175,
+        "Chromosome",
+        "GCA_042078005.1"
+      ],
+      [
+        "2026-04-13",
+        119470636,
+        "Chromosome",
+        "GCA_056691035.1"
+      ],
+      [
+        "2024-09-19",
+        119387471,
+        "Chromosome",
+        "GCA_042030635.2"
+      ],
+      [
+        "2024-09-20",
+        119353117,
+        "Chromosome",
+        "GCA_018469405.3"
+      ],
+      [
+        "2026-04-10",
+        119153464,
+        "Chromosome",
+        "GCA_056668095.1"
+      ],
+      [
+        "2026-04-29",
+        119153192,
+        "Chromosome",
+        "GCA_057056765.1"
+      ],
+      [
+        "2026-04-10",
+        118583277,
+        "Chromosome",
+        "GCA_056668615.1"
+      ],
+      [
+        "2024-09-19",
+        118529733,
+        "Chromosome",
+        "GCA_042028645.1"
+      ],
+      [
+        "2026-04-13",
+        118321271,
+        "Chromosome",
+        "GCA_056689985.1"
+      ],
+      [
+        "2026-04-16",
+        118095612,
+        "Chromosome",
+        "GCA_056749815.1"
+      ],
+      [
+        "2024-09-19",
+        118012399,
+        "Chromosome",
+        "GCA_042026535.2"
+      ],
+      [
+        "2026-04-15",
+        117834486,
+        "Chromosome",
+        "GCA_056739085.1"
+      ],
+      [
+        "2024-09-20",
+        117283867,
+        "Chromosome",
+        "GCA_018466855.2"
+      ],
+      [
+        "2024-09-19",
+        117143061,
+        "Chromosome",
+        "GCA_042028845.1"
+      ],
+      [
+        "2026-04-14",
+        116830915,
+        "Chromosome",
+        "GCA_056717595.1"
+      ],
+      [
+        "2026-04-16",
+        116817825,
+        "Chromosome",
+        "GCA_056750035.1"
+      ],
+      [
+        "2026-04-15",
+        116701522,
+        "Chromosome",
+        "GCA_056738775.1"
+      ],
+      [
+        "2024-10-31",
+        116604358,
+        "Chromosome",
+        "GCA_044166135.2"
+      ],
+      [
+        "2026-04-14",
+        116462738,
+        "Chromosome",
+        "GCA_056716585.1"
+      ],
+      [
+        "2026-04-10",
+        116410194,
+        "Chromosome",
+        "GCA_056667715.1"
+      ],
+      [
+        "2024-12-11",
+        116107301,
+        "Chromosome",
+        "GCA_018506955.2"
+      ],
+      [
+        "2024-10-31",
+        116106248,
+        "Chromosome",
+        "GCA_044164695.1"
+      ],
+      [
+        "2024-12-02",
+        116025717,
+        "Chromosome",
+        "GCA_045524165.2"
+      ],
+      [
+        "2024-09-19",
+        115989372,
+        "Chromosome",
+        "GCA_042032445.1"
+      ],
+      [
+        "2026-04-10",
+        115372017,
+        "Chromosome",
+        "GCA_056667775.1"
+      ],
+      [
+        "2026-04-14",
+        115210848,
+        "Chromosome",
+        "GCA_056717075.1"
+      ],
+      [
+        "2024-09-11",
+        115046533,
+        "Chromosome",
+        "GCA_041900385.2"
+      ],
+      [
+        "2026-04-13",
+        114715964,
+        "Chromosome",
+        "GCA_056691495.1"
+      ],
+      [
+        "2024-09-20",
+        114546763,
+        "Chromosome",
+        "GCA_042038095.2"
+      ],
+      [
+        "2024-09-19",
+        114378716,
+        "Chromosome",
+        "GCA_042026455.2"
+      ],
+      [
+        "2026-04-10",
+        114261461,
+        "Chromosome",
+        "GCA_056667435.1"
+      ],
+      [
+        "2026-04-10",
+        114183527,
+        "Chromosome",
+        "GCA_056668565.1"
+      ],
+      [
+        "2026-04-14",
+        114106593,
+        "Chromosome",
+        "GCA_056716595.1"
+      ],
+      [
+        "2024-10-31",
+        114091217,
+        "Chromosome",
+        "GCA_044166665.2"
+      ],
+      [
+        "2024-09-20",
+        113771190,
+        "Chromosome",
+        "GCA_042037225.2"
+      ],
+      [
+        "2026-04-13",
+        113218470,
+        "Chromosome",
+        "GCA_056696105.1"
+      ],
+      [
+        "2026-04-14",
+        113084063,
+        "Chromosome",
+        "GCA_056716315.1"
+      ],
+      [
+        "2026-04-13",
+        113053837,
+        "Chromosome",
+        "GCA_056691115.1"
+      ],
+      [
+        "2026-04-16",
+        112990762,
+        "Chromosome",
+        "GCA_056751955.1"
+      ],
+      [
+        "2026-04-10",
+        112948863,
+        "Chromosome",
+        "GCA_056668895.1"
+      ],
+      [
+        "2024-09-20",
+        112912087,
+        "Chromosome",
+        "GCA_018466835.3"
+      ],
+      [
+        "2026-04-13",
+        112909564,
+        "Chromosome",
+        "GCA_056699345.1"
+      ],
+      [
+        "2026-04-13",
+        112901475,
+        "Chromosome",
+        "GCA_056690705.1"
+      ],
+      [
+        "2026-04-29",
+        112899116,
+        "Chromosome",
+        "GCA_057056535.1"
+      ],
+      [
+        "2024-12-27",
+        112864796,
+        "Chromosome",
+        "GCA_046332325.1"
+      ],
+      [
+        "2024-10-31",
+        112832619,
+        "Chromosome",
+        "GCA_044165085.1"
+      ],
+      [
+        "2024-12-13",
+        112818513,
+        "Chromosome",
+        "GCA_046056435.1"
+      ],
+      [
+        "2026-04-13",
+        112801724,
+        "Chromosome",
+        "GCA_056691755.1"
+      ],
+      [
+        "2024-09-20",
+        112681092,
+        "Chromosome",
+        "GCA_042038895.1"
+      ],
+      [
+        "2026-04-29",
+        112542851,
+        "Chromosome",
+        "GCA_057056115.1"
+      ],
+      [
+        "2024-12-11",
+        112315213,
+        "Chromosome",
+        "GCA_045999905.2"
+      ],
+      [
+        "2024-09-19",
+        112305080,
+        "Chromosome",
+        "GCA_042028945.2"
+      ],
+      [
+        "2026-04-15",
+        112301759,
+        "Chromosome",
+        "GCA_056739185.1"
+      ],
+      [
+        "2024-10-31",
+        112262779,
+        "Chromosome",
+        "GCA_044166285.1"
+      ],
+      [
+        "2026-04-13",
+        112208771,
+        "Chromosome",
+        "GCA_056689305.1"
+      ],
+      [
+        "2024-09-19",
+        112200762,
+        "Chromosome",
+        "GCA_042028795.1"
+      ],
+      [
+        "2024-09-20",
+        112193775,
+        "Chromosome",
+        "GCA_018471545.3"
+      ],
+      [
+        "2024-09-19",
+        112182633,
+        "Chromosome",
+        "GCA_042027645.2"
+      ],
+      [
+        "2026-04-14",
+        112163452,
+        "Chromosome",
+        "GCA_056717415.1"
+      ],
+      [
+        "2024-09-11",
+        112087724,
+        "Chromosome",
+        "GCA_041900015.2"
+      ],
+      [
+        "2024-09-19",
+        112037638,
+        "Chromosome",
+        "GCA_042031275.1"
+      ],
+      [
+        "2024-09-20",
+        112004102,
+        "Chromosome",
+        "GCA_042034285.1"
+      ],
+      [
+        "2024-09-19",
+        111995602,
+        "Chromosome",
+        "GCA_042031955.2"
+      ],
+      [
+        "2026-04-14",
+        111896237,
+        "Chromosome",
+        "GCA_056717505.1"
+      ],
+      [
+        "2024-10-31",
+        111892229,
+        "Chromosome",
+        "GCA_044166635.2"
+      ],
+      [
+        "2024-09-20",
+        111880916,
+        "Chromosome",
+        "GCA_018471515.3"
+      ],
+      [
+        "2024-09-20",
+        111859824,
+        "Chromosome",
+        "GCA_042078025.1"
+      ],
+      [
+        "2026-04-15",
+        111839685,
+        "Chromosome",
+        "GCA_056739035.1"
+      ],
+      [
+        "2024-09-19",
+        111735059,
+        "Chromosome",
+        "GCA_042026465.2"
+      ],
+      [
+        "2024-10-31",
+        111694659,
+        "Chromosome",
+        "GCA_044166765.1"
+      ],
+      [
+        "2026-04-13",
+        111691209,
+        "Chromosome",
+        "GCA_056696695.1"
+      ],
+      [
+        "2026-04-13",
+        111689822,
+        "Chromosome",
+        "GCA_056697715.1"
+      ],
+      [
+        "2026-04-14",
+        111689707,
+        "Chromosome",
+        "GCA_056716815.1"
+      ],
+      [
+        "2024-10-31",
+        111688029,
+        "Chromosome",
+        "GCA_044165335.2"
+      ],
+      [
+        "2024-10-31",
+        111681782,
+        "Chromosome",
+        "GCA_044165725.2"
+      ],
+      [
+        "2026-04-15",
+        111675680,
+        "Chromosome",
+        "GCA_056739445.1"
+      ],
+      [
+        "2026-04-13",
+        111666246,
+        "Chromosome",
+        "GCA_056691395.1"
+      ],
+      [
+        "2024-10-31",
+        111638666,
+        "Chromosome",
+        "GCA_044166585.1"
+      ],
+      [
+        "2024-09-20",
+        111575001,
+        "Chromosome",
+        "GCA_042077185.2"
+      ],
+      [
+        "2026-04-15",
+        111573221,
+        "Chromosome",
+        "GCA_056739805.1"
+      ],
+      [
+        "2026-04-16",
+        111556554,
+        "Chromosome",
+        "GCA_056749715.1"
+      ],
+      [
+        "2024-09-20",
+        111551517,
+        "Chromosome",
+        "GCA_018469415.3"
+      ],
+      [
+        "2026-04-10",
+        111545900,
+        "Chromosome",
+        "GCA_056669095.1"
+      ],
+      [
+        "2024-09-20",
+        111514476,
+        "Chromosome",
+        "GCA_042077145.2"
+      ],
+      [
+        "2024-09-20",
+        111508531,
+        "Chromosome",
+        "GCA_042034145.2"
+      ],
+      [
+        "2024-10-17",
+        111469595,
+        "Chromosome",
+        "GCA_043304525.1"
+      ],
+      [
+        "2026-04-10",
+        111447655,
+        "Chromosome",
+        "GCA_056668425.1"
+      ],
+      [
+        "2024-09-19",
+        111442317,
+        "Chromosome",
+        "GCA_042027505.1"
+      ],
+      [
+        "2024-09-20",
+        111428626,
+        "Chromosome",
+        "GCA_042077755.2"
+      ],
+      [
+        "2024-09-19",
+        111420198,
+        "Chromosome",
+        "GCA_042031945.2"
+      ],
+      [
+        "2024-09-20",
+        111402458,
+        "Chromosome",
+        "GCA_018467155.3"
+      ],
+      [
+        "2024-12-11",
+        111391340,
+        "Chromosome",
+        "GCA_046000115.1"
+      ],
+      [
+        "2024-09-19",
+        111381066,
+        "Chromosome",
+        "GCA_042031255.1"
+      ],
+      [
+        "2024-09-19",
+        111367101,
+        "Chromosome",
+        "GCA_042027095.2"
+      ],
+      [
+        "2024-09-20",
+        111328869,
+        "Chromosome",
+        "GCA_042036205.2"
+      ],
+      [
+        "2024-12-27",
+        111328456,
+        "Chromosome",
+        "GCA_046332225.1"
+      ],
+      [
+        "2024-09-19",
+        111307783,
+        "Chromosome",
+        "GCA_042030255.2"
+      ],
+      [
+        "2026-04-10",
+        111298503,
+        "Chromosome",
+        "GCA_056668635.1"
+      ],
+      [
+        "2026-04-10",
+        111294834,
+        "Chromosome",
+        "GCA_056667675.1"
+      ],
+      [
+        "2024-09-20",
+        111273896,
+        "Chromosome",
+        "GCA_042037895.1"
+      ],
+      [
+        "2024-12-16",
+        111270799,
+        "Chromosome",
+        "GCA_046116065.1"
+      ],
+      [
+        "2024-09-20",
+        111250450,
+        "Chromosome",
+        "GCA_042077285.2"
+      ],
+      [
+        "2024-09-19",
+        111207802,
+        "Chromosome",
+        "GCA_042028975.2"
+      ],
+      [
+        "2024-09-20",
+        111191427,
+        "Chromosome",
+        "GCA_018470435.2"
+      ],
+      [
+        "2026-04-13",
+        111184126,
+        "Chromosome",
+        "GCA_056697395.1"
+      ],
+      [
+        "2026-04-14",
+        111177591,
+        "Chromosome",
+        "GCA_056717235.1"
+      ],
+      [
+        "2024-10-31",
+        111163106,
+        "Chromosome",
+        "GCA_044165395.2"
+      ],
+      [
+        "2024-09-20",
+        111138324,
+        "Chromosome",
+        "GCA_042037905.1"
+      ],
+      [
+        "2024-09-19",
+        111126961,
+        "Chromosome",
+        "GCA_042031405.2"
+      ],
+      [
+        "2024-09-20",
+        111115736,
+        "Chromosome",
+        "GCA_042034155.2"
+      ],
+      [
+        "2024-10-31",
+        111113045,
+        "Chromosome",
+        "GCA_044164705.1"
+      ],
+      [
+        "2024-09-20",
+        111110023,
+        "Chromosome",
+        "GCA_042077135.2"
+      ],
+      [
+        "2026-04-14",
+        111088832,
+        "Chromosome",
+        "GCA_056716705.1"
+      ],
+      [
+        "2024-09-20",
+        111085699,
+        "Chromosome",
+        "GCA_042077605.1"
+      ],
+      [
+        "2024-10-17",
+        111051675,
+        "Chromosome",
+        "GCA_043305115.1"
+      ],
+      [
+        "2024-09-19",
+        111036643,
+        "Chromosome",
+        "GCA_042031175.1"
+      ],
+      [
+        "2024-09-20",
+        111001097,
+        "Chromosome",
+        "GCA_042034585.2"
+      ],
+      [
+        "2024-10-17",
+        110993309,
+        "Chromosome",
+        "GCA_018504065.3"
+      ],
+      [
+        "2024-09-20",
+        110975390,
+        "Chromosome",
+        "GCA_042035175.2"
+      ],
+      [
+        "2024-09-20",
+        110973584,
+        "Chromosome",
+        "GCA_042076705.2"
+      ],
+      [
+        "2024-09-20",
+        110971474,
+        "Chromosome",
+        "GCA_042076465.2"
+      ],
+      [
+        "2026-09-17",
+        110968833,
+        "Chromosome",
+        "GCA_061372825.1"
+      ],
+      [
+        "2026-04-15",
+        110893495,
+        "Chromosome",
+        "GCA_056738525.1"
+      ],
+      [
+        "2026-04-10",
+        110856779,
+        "Chromosome",
+        "GCA_056668495.1"
+      ],
+      [
+        "2024-09-20",
+        110829824,
+        "Chromosome",
+        "GCA_042038585.2"
+      ],
+      [
+        "2026-04-16",
+        110829000,
+        "Chromosome",
+        "GCA_056749835.1"
+      ],
+      [
+        "2024-09-19",
+        110748663,
+        "Chromosome",
+        "GCA_042028705.1"
+      ],
+      [
+        "2026-04-13",
+        110739977,
+        "Chromosome",
+        "GCA_056689635.1"
+      ],
+      [
+        "2026-04-16",
+        110720893,
+        "Chromosome",
+        "GCA_056751735.1"
+      ],
+      [
+        "2024-09-19",
+        110666499,
+        "Chromosome",
+        "GCA_042031315.1"
+      ],
+      [
+        "2026-04-10",
+        110561478,
+        "Chromosome",
+        "GCA_056668175.1"
+      ],
+      [
+        "2026-04-29",
+        110477103,
+        "Chromosome",
+        "GCA_057056285.1"
+      ],
+      [
+        "2024-10-31",
+        110432423,
+        "Chromosome",
+        "GCA_044166095.1"
+      ],
+      [
+        "2026-04-13",
+        110388034,
+        "Chromosome",
+        "GCA_056697925.1"
+      ],
+      [
+        "2026-04-10",
+        110361679,
+        "Chromosome",
+        "GCA_056668185.1"
+      ],
+      [
+        "2026-04-16",
+        110361131,
+        "Chromosome",
+        "GCA_057062025.1"
+      ],
+      [
+        "2026-04-13",
+        110354066,
+        "Chromosome",
+        "GCA_056697855.1"
+      ],
+      [
+        "2026-04-10",
+        110352073,
+        "Chromosome",
+        "GCA_056668795.1"
+      ],
+      [
+        "2024-09-20",
+        110344908,
+        "Chromosome",
+        "GCA_042034195.2"
+      ],
+      [
+        "2024-09-19",
+        110322687,
+        "Chromosome",
+        "GCA_042030175.2"
+      ],
+      [
+        "2024-09-20",
+        110294129,
+        "Chromosome",
+        "GCA_042034575.2"
+      ],
+      [
+        "2026-04-10",
+        110092707,
+        "Chromosome",
+        "GCA_056669125.1"
+      ],
+      [
+        "2026-04-13",
+        110012894,
+        "Chromosome",
+        "GCA_056690815.1"
+      ],
+      [
+        "2026-04-14",
+        109988887,
+        "Chromosome",
+        "GCA_056717545.1"
+      ],
+      [
+        "2026-04-13",
+        109979980,
+        "Chromosome",
+        "GCA_056690155.1"
+      ],
+      [
+        "2024-12-13",
+        109964942,
+        "Chromosome",
+        "GCA_018506965.3"
+      ],
+      [
+        "2024-09-20",
+        109937756,
+        "Chromosome",
+        "GCA_018469705.2"
+      ],
+      [
+        "2026-04-13",
+        109918018,
+        "Chromosome",
+        "GCA_056690695.1"
+      ],
+      [
+        "2024-09-20",
+        109892213,
+        "Chromosome",
+        "GCA_018471345.3"
+      ],
+      [
+        "2024-12-11",
+        109792801,
+        "Chromosome",
+        "GCA_045999925.2"
+      ],
+      [
+        "2026-04-14",
+        109682247,
+        "Chromosome",
+        "GCA_056716305.1"
+      ],
+      [
+        "2026-04-13",
+        109561653,
+        "Chromosome",
+        "GCA_056691215.1"
+      ],
+      [
+        "2024-09-20",
+        109510415,
+        "Chromosome",
+        "GCA_018471095.3"
+      ],
+      [
+        "2024-09-19",
+        109442972,
+        "Chromosome",
+        "GCA_042030055.1"
+      ],
+      [
+        "2026-04-29",
+        109298797,
+        "Chromosome",
+        "GCA_057056505.1"
+      ],
+      [
+        "2026-04-15",
+        109284926,
+        "Chromosome",
+        "GCA_056738735.1"
+      ],
+      [
+        "2024-09-19",
+        109263211,
+        "Chromosome",
+        "GCA_042031325.1"
+      ],
+      [
+        "2024-09-20",
+        109255843,
+        "Chromosome",
+        "GCA_018466845.2"
+      ],
+      [
+        "2026-04-13",
+        109253404,
+        "Chromosome",
+        "GCA_056689575.1"
+      ],
+      [
+        "2026-04-15",
+        109226756,
+        "Chromosome",
+        "GCA_056738655.1"
+      ],
+      [
+        "2024-09-19",
+        109218989,
+        "Chromosome",
+        "GCA_042030215.1"
+      ],
+      [
+        "2024-09-20",
+        109153622,
+        "Chromosome",
+        "GCA_042036105.2"
+      ],
+      [
+        "2026-04-16",
+        109143470,
+        "Chromosome",
+        "GCA_056750345.1"
+      ],
+      [
+        "2024-09-20",
+        109054958,
+        "Chromosome",
+        "GCA_042036525.1"
+      ],
+      [
+        "2024-09-20",
+        108995514,
+        "Chromosome",
+        "GCA_018470465.2"
+      ],
+      [
+        "2024-09-20",
+        108961022,
+        "Chromosome",
+        "GCA_042035195.1"
+      ],
+      [
+        "2024-10-17",
+        108931499,
+        "Chromosome",
+        "GCA_043304655.2"
+      ],
+      [
+        "2024-09-11",
+        108750579,
+        "Chromosome",
+        "GCA_041899995.2"
+      ],
+      [
+        "2024-09-20",
+        108605997,
+        "Chromosome",
+        "GCA_042077745.2"
+      ],
+      [
+        "2024-09-20",
+        108563488,
+        "Chromosome",
+        "GCA_042076445.1"
+      ],
+      [
+        "2024-09-20",
+        108532765,
+        "Chromosome",
+        "GCA_042077165.2"
+      ],
+      [
+        "2024-10-31",
+        108438243,
+        "Chromosome",
+        "GCA_044166615.2"
+      ],
+      [
+        "2026-04-10",
+        108360261,
+        "Chromosome",
+        "GCA_056667995.1"
+      ],
+      [
+        "2026-04-16",
+        108349016,
+        "Chromosome",
+        "GCA_056750235.1"
+      ],
+      [
+        "2024-09-20",
+        108288254,
+        "Chromosome",
+        "GCA_042077325.2"
+      ],
+      [
+        "2024-09-20",
+        108272113,
+        "Chromosome",
+        "GCA_042038885.1"
+      ],
+      [
+        "2026-04-13",
+        108230316,
+        "Chromosome",
+        "GCA_056689425.1"
+      ],
+      [
+        "2024-10-31",
+        108190518,
+        "Chromosome",
+        "GCA_044165925.1"
+      ],
+      [
+        "2025-01-31",
+        108176534,
+        "Chromosome",
+        "GCA_018505835.3"
+      ],
+      [
+        "2024-09-20",
+        108133243,
+        "Chromosome",
+        "GCA_042076995.1"
+      ],
+      [
+        "2026-04-10",
+        108120937,
+        "Chromosome",
+        "GCA_056667365.1"
+      ],
+      [
+        "2026-04-10",
+        108120354,
+        "Chromosome",
+        "GCA_056668695.1"
+      ],
+      [
+        "2024-09-20",
+        108093600,
+        "Chromosome",
+        "GCA_042077695.1"
+      ],
+      [
+        "2024-10-31",
+        108060633,
+        "Chromosome",
+        "GCA_044166515.1"
+      ],
+      [
+        "2024-10-31",
+        108049179,
+        "Chromosome",
+        "GCA_044166835.2"
+      ],
+      [
+        "2024-09-20",
+        107974947,
+        "Chromosome",
+        "GCA_018472715.2"
+      ],
+      [
+        "2026-04-13",
+        107965873,
+        "Chromosome",
+        "GCA_056689725.1"
+      ],
+      [
+        "2026-04-15",
+        107879564,
+        "Chromosome",
+        "GCA_056739585.1"
+      ],
+      [
+        "2026-04-13",
+        107773937,
+        "Chromosome",
+        "GCA_056690475.1"
+      ],
+      [
+        "2026-04-13",
+        107766199,
+        "Chromosome",
+        "GCA_056690975.1"
+      ],
+      [
+        "2026-04-15",
+        107733423,
+        "Chromosome",
+        "GCA_056739975.1"
+      ],
+      [
+        "2024-09-19",
+        107685214,
+        "Chromosome",
+        "GCA_042028805.1"
+      ],
+      [
+        "2024-09-11",
+        107671399,
+        "Chromosome",
+        "GCA_041900135.2"
+      ],
+      [
+        "2026-04-10",
+        107625795,
+        "Chromosome",
+        "GCA_056668235.1"
+      ],
+      [
+        "2024-09-20",
+        107616121,
+        "Chromosome",
+        "GCA_042077595.1"
+      ],
+      [
+        "2024-09-19",
+        107606467,
+        "Chromosome",
+        "GCA_042028165.2"
+      ],
+      [
+        "2024-09-20",
+        107578719,
+        "Chromosome",
+        "GCA_018471535.3"
+      ],
+      [
+        "2024-09-20",
+        107524252,
+        "Chromosome",
+        "GCA_042036275.2"
+      ],
+      [
+        "2024-09-19",
+        107506565,
+        "Chromosome",
+        "GCA_042031805.2"
+      ],
+      [
+        "2026-04-10",
+        107502409,
+        "Chromosome",
+        "GCA_056667815.1"
+      ],
+      [
+        "2026-04-14",
+        107483950,
+        "Chromosome",
+        "GCA_056716775.1"
+      ],
+      [
+        "2026-04-16",
+        107434291,
+        "Chromosome",
+        "GCA_056749995.1"
+      ],
+      [
+        "2024-09-11",
+        107407794,
+        "Chromosome",
+        "GCA_041899985.1"
+      ],
+      [
+        "2024-09-20",
+        107398536,
+        "Chromosome",
+        "GCA_042036445.1"
+      ],
+      [
+        "2026-04-16",
+        107359881,
+        "Chromosome",
+        "GCA_056749695.1"
+      ],
+      [
+        "2026-04-15",
+        107354297,
+        "Chromosome",
+        "GCA_056738515.1"
+      ],
+      [
+        "2024-12-11",
+        107341909,
+        "Chromosome",
+        "GCA_018504045.2"
+      ],
+      [
+        "2024-09-20",
+        107340998,
+        "Chromosome",
+        "GCA_018472585.2"
+      ],
+      [
+        "2024-12-13",
+        107334447,
+        "Chromosome",
+        "GCA_018506945.2"
+      ],
+      [
+        "2026-04-13",
+        107290065,
+        "Chromosome",
+        "GCA_056689865.1"
+      ],
+      [
+        "2026-04-16",
+        107255679,
+        "Chromosome",
+        "GCA_056748665.1"
+      ],
+      [
+        "2026-04-15",
+        107243134,
+        "Chromosome",
+        "GCA_056738855.1"
+      ],
+      [
+        "2024-09-20",
+        107211229,
+        "Chromosome",
+        "GCA_042077875.2"
+      ],
+      [
+        "2024-09-19",
+        107199321,
+        "Chromosome",
+        "GCA_042029935.1"
+      ],
+      [
+        "2024-09-20",
+        107159283,
+        "Chromosome",
+        "GCA_042036935.2"
+      ],
+      [
+        "2024-12-11",
+        107141109,
+        "Chromosome",
+        "GCA_018504375.3"
+      ],
+      [
+        "2024-09-11",
+        107127701,
+        "Chromosome",
+        "GCA_041900235.1"
+      ],
+      [
+        "2026-04-13",
+        107105852,
+        "Chromosome",
+        "GCA_056690195.1"
+      ],
+      [
+        "2024-09-20",
+        107059334,
+        "Chromosome",
+        "GCA_042076535.2"
+      ],
+      [
+        "2026-04-13",
+        107042312,
+        "Chromosome",
+        "GCA_056691335.1"
+      ],
+      [
+        "2026-04-13",
+        107002749,
+        "Chromosome",
+        "GCA_056698055.1"
+      ],
+      [
+        "2026-04-10",
+        106963693,
+        "Chromosome",
+        "GCA_056667745.1"
+      ],
+      [
+        "2024-09-20",
+        106929703,
+        "Chromosome",
+        "GCA_042076545.2"
+      ],
+      [
+        "2024-12-11",
+        106856053,
+        "Chromosome",
+        "GCA_046000045.1"
+      ],
+      [
+        "2024-09-20",
+        106855795,
+        "Chromosome",
+        "GCA_018473315.2"
+      ],
+      [
+        "2024-09-20",
+        106746823,
+        "Chromosome",
+        "GCA_018471075.2"
+      ],
+      [
+        "2026-04-13",
+        106743033,
+        "Chromosome",
+        "GCA_056691255.1"
+      ],
+      [
+        "2024-10-17",
+        106726885,
+        "Chromosome",
+        "GCA_018505825.3"
+      ],
+      [
+        "2024-09-20",
+        106560555,
+        "Chromosome",
+        "GCA_018469865.3"
+      ],
+      [
+        "2024-09-19",
+        106533774,
+        "Chromosome",
+        "GCA_042030135.1"
+      ],
+      [
+        "2026-04-13",
+        106486639,
+        "Chromosome",
+        "GCA_056689005.1"
+      ],
+      [
+        "2024-09-19",
+        106447152,
+        "Chromosome",
+        "GCA_042028935.2"
+      ],
+      [
+        "2026-04-13",
+        106406641,
+        "Chromosome",
+        "GCA_056689845.1"
+      ],
+      [
+        "2024-09-20",
+        106405428,
+        "Chromosome",
+        "GCA_018469695.2"
+      ],
+      [
+        "2024-10-17",
+        106244626,
+        "Chromosome",
+        "GCA_018503245.2"
+      ],
+      [
+        "2026-04-13",
+        106239637,
+        "Chromosome",
+        "GCA_056689665.1"
+      ],
+      [
+        "2026-04-13",
+        106157363,
+        "Chromosome",
+        "GCA_056696675.1"
+      ],
+      [
+        "2026-04-10",
+        106108883,
+        "Chromosome",
+        "GCA_056668125.1"
+      ],
+      [
+        "2024-09-19",
+        106099690,
+        "Chromosome",
+        "GCA_042031205.1"
+      ],
+      [
+        "2026-04-13",
+        105996653,
+        "Chromosome",
+        "GCA_056690415.1"
+      ],
+      [
+        "2024-09-19",
+        105879431,
+        "Chromosome",
+        "GCA_042031155.1"
+      ],
+      [
+        "2024-09-20",
+        105723567,
+        "Chromosome",
+        "GCA_042077505.1"
+      ],
+      [
+        "2024-09-20",
+        105700205,
+        "Chromosome",
+        "GCA_042077985.1"
+      ],
+      [
+        "2024-10-31",
+        105595841,
+        "Chromosome",
+        "GCA_044166395.1"
+      ],
+      [
+        "2024-09-19",
+        105542541,
+        "Chromosome",
+        "GCA_042027105.2"
+      ],
+      [
+        "2024-10-17",
+        105491724,
+        "Chromosome",
+        "GCA_018504365.3"
+      ],
+      [
+        "2024-09-20",
+        105451097,
+        "Chromosome",
+        "GCA_042077965.1"
+      ],
+      [
+        "2024-12-11",
+        105405949,
+        "Chromosome",
+        "GCA_046000135.1"
+      ],
+      [
+        "2024-09-19",
+        105215903,
+        "Chromosome",
+        "GCA_042030695.2"
+      ],
+      [
+        "2024-09-19",
+        105193844,
+        "Chromosome",
+        "GCA_042027135.1"
+      ],
+      [
+        "2024-09-20",
+        105155120,
+        "Chromosome",
+        "GCA_018471105.2"
+      ],
+      [
+        "2024-09-19",
+        105124673,
+        "Chromosome",
+        "GCA_042032395.1"
+      ],
+      [
+        "2026-04-10",
+        105031774,
+        "Chromosome",
+        "GCA_056668245.1"
+      ],
+      [
+        "2026-04-10",
+        104969026,
+        "Chromosome",
+        "GCA_056668665.1"
+      ],
+      [
+        "2026-04-13",
+        104910495,
+        "Chromosome",
+        "GCA_056691135.1"
+      ],
+      [
+        "2024-12-27",
+        104879180,
+        "Chromosome",
+        "GCA_046332495.1"
+      ],
+      [
+        "2024-12-11",
+        104817825,
+        "Chromosome",
+        "GCA_045999885.2"
+      ],
+      [
+        "2024-09-20",
+        104670928,
+        "Chromosome",
+        "GCA_042036505.1"
+      ],
+      [
+        "2024-09-19",
+        104609862,
+        "Chromosome",
+        "GCA_042030025.1"
+      ],
+      [
+        "2024-12-11",
+        104580392,
+        "Chromosome",
+        "GCA_018506975.3"
+      ],
+      [
+        "2026-04-13",
+        104406211,
+        "Chromosome",
+        "GCA_056691405.1"
+      ],
+      [
+        "2026-04-14",
+        104142568,
+        "Chromosome",
+        "GCA_056717605.1"
+      ],
+      [
+        "2026-04-29",
+        104080442,
+        "Chromosome",
+        "GCA_057056895.1"
+      ],
+      [
+        "2024-09-20",
+        103989823,
+        "Chromosome",
+        "GCA_042036245.2"
+      ],
+      [
+        "2026-04-16",
+        103983677,
+        "Chromosome",
+        "GCA_056751545.1"
+      ],
+      [
+        "2024-09-20",
+        103952127,
+        "Chromosome",
+        "GCA_042076555.2"
+      ],
+      [
+        "2024-10-31",
+        103939308,
+        "Chromosome",
+        "GCA_044166625.2"
+      ],
+      [
+        "2026-04-13",
+        103859252,
+        "Chromosome",
+        "GCA_056691515.1"
+      ],
+      [
+        "2024-10-31",
+        103846157,
+        "Chromosome",
+        "GCA_044166575.1"
+      ],
+      [
+        "2026-04-15",
+        103806948,
+        "Chromosome",
+        "GCA_056739055.1"
+      ],
+      [
+        "2026-04-13",
+        103795808,
+        "Chromosome",
+        "GCA_056689215.1"
+      ],
+      [
+        "2024-12-27",
+        103757535,
+        "Chromosome",
+        "GCA_046332455.1"
+      ],
+      [
+        "2026-04-16",
+        103730098,
+        "Chromosome",
+        "GCA_057079665.1"
+      ],
+      [
+        "2024-12-11",
+        103707637,
+        "Chromosome",
+        "GCA_046000095.1"
+      ],
+      [
+        "2026-04-13",
+        103680529,
+        "Chromosome",
+        "GCA_056697625.1"
+      ],
+      [
+        "2026-04-13",
+        103666414,
+        "Chromosome",
+        "GCA_056688995.1"
+      ],
+      [
+        "2024-12-02",
+        103527612,
+        "Chromosome",
+        "GCA_045523135.1"
+      ],
+      [
+        "2024-09-19",
+        103362516,
+        "Chromosome",
+        "GCA_042028155.2"
+      ],
+      [
+        "2026-04-13",
+        103341837,
+        "Chromosome",
+        "GCA_056691305.1"
+      ],
+      [
+        "2026-04-13",
+        103339789,
+        "Chromosome",
+        "GCA_056697835.1"
+      ],
+      [
+        "2024-09-19",
+        103331747,
+        "Chromosome",
+        "GCA_042030185.2"
+      ],
+      [
+        "2024-09-11",
+        103282266,
+        "Chromosome",
+        "GCA_041900245.2"
+      ],
+      [
+        "2024-09-19",
+        103265692,
+        "Chromosome",
+        "GCA_042028025.2"
+      ],
+      [
+        "2024-09-19",
+        103264327,
+        "Chromosome",
+        "GCA_042029645.2"
+      ],
+      [
+        "2026-04-15",
+        103203170,
+        "Chromosome",
+        "GCA_056740255.1"
+      ],
+      [
+        "2024-09-19",
+        103201472,
+        "Chromosome",
+        "GCA_042027665.2"
+      ],
+      [
+        "2026-04-13",
+        103193918,
+        "Chromosome",
+        "GCA_056691555.1"
+      ],
+      [
+        "2024-09-19",
+        103191339,
+        "Chromosome",
+        "GCA_042028775.1"
+      ],
+      [
+        "2024-09-20",
+        103013677,
+        "Chromosome",
+        "GCA_018472685.3"
+      ],
+      [
+        "2024-09-11",
+        102955487,
+        "Chromosome",
+        "GCA_041899965.1"
+      ],
+      [
+        "2026-04-13",
+        102953449,
+        "Chromosome",
+        "GCA_056689335.1"
+      ],
+      [
+        "2024-10-31",
+        102914233,
+        "Chromosome",
+        "GCA_044167285.2"
+      ],
+      [
+        "2024-09-20",
+        102882194,
+        "Chromosome",
+        "GCA_018467005.2"
+      ],
+      [
+        "2024-12-11",
+        102835591,
+        "Chromosome",
+        "GCA_045999895.2"
+      ],
+      [
+        "2024-10-31",
+        102806034,
+        "Chromosome",
+        "GCA_044166065.2"
+      ],
+      [
+        "2024-09-20",
+        102792675,
+        "Chromosome",
+        "GCA_042036425.2"
+      ],
+      [
+        "2024-09-20",
+        102790354,
+        "Chromosome",
+        "GCA_042035185.1"
+      ],
+      [
+        "2024-09-20",
+        102731640,
+        "Chromosome",
+        "GCA_042036395.2"
+      ],
+      [
+        "2026-04-16",
+        102510951,
+        "Chromosome",
+        "GCA_056748055.1"
+      ],
+      [
+        "2024-09-20",
+        102460800,
+        "Chromosome",
+        "GCA_018472865.2"
+      ],
+      [
+        "2024-09-20",
+        102389682,
+        "Chromosome",
+        "GCA_018473295.3"
+      ],
+      [
+        "2024-09-19",
+        102308763,
+        "Chromosome",
+        "GCA_042031415.2"
+      ],
+      [
+        "2024-10-17",
+        102291905,
+        "Chromosome",
+        "GCA_018504075.2"
+      ],
+      [
+        "2024-09-20",
+        102096646,
+        "Chromosome",
+        "GCA_042036535.1"
+      ],
+      [
+        "2024-09-20",
+        101995889,
+        "Chromosome",
+        "GCA_042076525.1"
+      ],
+      [
+        "2026-04-15",
+        101937958,
+        "Chromosome",
+        "GCA_056739835.1"
+      ],
+      [
+        "2024-09-20",
+        101903330,
+        "Chromosome",
+        "GCA_018469875.3"
+      ],
+      [
+        "2026-04-15",
+        101889388,
+        "Chromosome",
+        "GCA_056739355.1"
+      ],
+      [
+        "2024-10-31",
+        101885089,
+        "Chromosome",
+        "GCA_044166435.1"
+      ],
+      [
+        "2026-04-13",
+        101873363,
+        "Chromosome",
+        "GCA_056697945.1"
+      ],
+      [
+        "2024-09-19",
+        101868892,
+        "Chromosome",
+        "GCA_042027485.1"
+      ],
+      [
+        "2024-10-31",
+        101810135,
+        "Chromosome",
+        "GCA_044166845.2"
+      ],
+      [
+        "2026-04-13",
+        101675927,
+        "Chromosome",
+        "GCA_056689885.1"
+      ],
+      [
+        "2024-09-20",
+        101642805,
+        "Chromosome",
+        "GCA_018470445.3"
+      ],
+      [
+        "2026-04-13",
+        101620042,
+        "Chromosome",
+        "GCA_056691155.1"
+      ],
+      [
+        "2024-09-20",
+        101605781,
+        "Chromosome",
+        "GCA_042034325.1"
+      ],
+      [
+        "2026-04-16",
+        101427854,
+        "Chromosome",
+        "GCA_056750875.1"
+      ],
+      [
+        "2026-04-16",
+        101299158,
+        "Chromosome",
+        "GCA_056751655.1"
+      ],
+      [
+        "2024-09-19",
+        101292842,
+        "Chromosome",
+        "GCA_042029955.1"
+      ],
+      [
+        "2026-04-13",
+        101284885,
+        "Chromosome",
+        "GCA_056691195.1"
+      ],
+      [
+        "2024-09-20",
+        101243250,
+        "Chromosome",
+        "GCA_018470425.2"
+      ],
+      [
+        "2024-09-19",
+        101204386,
+        "Chromosome",
+        "GCA_042032625.1"
+      ],
+      [
+        "2024-09-19",
+        101134065,
+        "Chromosome",
+        "GCA_042031485.2"
+      ],
+      [
+        "2024-09-20",
+        101045337,
+        "Chromosome",
+        "GCA_042077705.1"
+      ],
+      [
+        "2024-09-11",
+        101022985,
+        "Chromosome",
+        "GCA_041900255.1"
+      ],
+      [
+        "2024-09-19",
+        101021022,
+        "Chromosome",
+        "GCA_042028725.1"
+      ],
+      [
+        "2024-12-02",
+        100987154,
+        "Chromosome",
+        "GCA_045524615.2"
+      ],
+      [
+        "2024-10-17",
+        100854514,
+        "Chromosome",
+        "GCA_018506125.3"
+      ],
+      [
+        "2024-09-20",
+        100807991,
+        "Chromosome",
+        "GCA_018473305.2"
+      ],
+      [
+        "2024-10-11",
+        100805894,
+        "Chromosome",
+        "GCA_018472765.4"
+      ],
+      [
+        "2024-09-11",
+        100759445,
+        "Chromosome",
+        "GCA_041900275.2"
+      ],
+      [
+        "2024-09-19",
+        100626649,
+        "Chromosome",
+        "GCA_042028475.1"
+      ],
+      [
+        "2026-04-13",
+        100246266,
+        "Chromosome",
+        "GCA_056690745.1"
+      ],
+      [
+        "2024-09-20",
+        100099542,
+        "Chromosome",
+        "GCA_042037975.1"
+      ],
+      [
+        "2026-04-13",
+        100030035,
+        "Chromosome",
+        "GCA_056690085.1"
+      ],
+      [
+        "2026-04-13",
+        99929476,
+        "Chromosome",
+        "GCA_056700065.1"
+      ],
+      [
+        "2025-08-06",
+        99900848,
+        "Chromosome",
+        "GCA_018505845.3"
+      ],
+      [
+        "2026-04-13",
+        99831767,
+        "Chromosome",
+        "GCA_056690735.1"
+      ],
+      [
+        "2026-04-13",
+        99805707,
+        "Chromosome",
+        "GCA_056691795.1"
+      ],
+      [
+        "2026-04-10",
+        99581447,
+        "Chromosome",
+        "GCA_056669175.1"
+      ],
+      [
+        "2024-09-20",
+        99567452,
+        "Chromosome",
+        "GCA_042077345.2"
+      ],
+      [
+        "2024-10-17",
+        99449741,
+        "Chromosome",
+        "GCA_018506165.3"
+      ],
+      [
+        "2026-04-14",
+        99229852,
+        "Chromosome",
+        "GCA_056717395.1"
+      ],
+      [
+        "2024-12-11",
+        99203608,
+        "Chromosome",
+        "GCA_018852595.2"
+      ],
+      [
+        "2024-09-20",
+        98886298,
+        "Chromosome",
+        "GCA_042034215.1"
+      ],
+      [
+        "2024-09-19",
+        98811830,
+        "Chromosome",
+        "GCA_042029545.2"
+      ],
+      [
+        "2024-09-20",
+        98753216,
+        "Chromosome",
+        "GCA_018472565.3"
+      ],
+      [
+        "2024-09-11",
+        98662242,
+        "Chromosome",
+        "GCA_041900165.1"
+      ],
+      [
+        "2024-09-20",
+        98587931,
+        "Chromosome",
+        "GCA_042036925.1"
+      ],
+      [
+        "2026-04-15",
+        98586430,
+        "Chromosome",
+        "GCA_056738915.1"
+      ],
+      [
+        "2024-12-11",
+        98523824,
+        "Chromosome",
+        "GCA_018503265.2"
+      ],
+      [
+        "2026-04-13",
+        98505998,
+        "Chromosome",
+        "GCA_056697975.1"
+      ],
+      [
+        "2024-12-12",
+        98495231,
+        "Chromosome",
+        "GCA_046043145.2"
+      ],
+      [
+        "2026-04-13",
+        98441182,
+        "Chromosome",
+        "GCA_056689105.1"
+      ],
+      [
+        "2024-09-19",
+        98399380,
+        "Chromosome",
+        "GCA_042030225.2"
+      ],
+      [
+        "2024-09-19",
+        98189854,
+        "Chromosome",
+        "GCA_042027635.2"
+      ],
+      [
+        "2024-09-11",
+        98166087,
+        "Chromosome",
+        "GCA_041899975.1"
+      ],
+      [
+        "2026-04-15",
+        98120911,
+        "Chromosome",
+        "GCA_056738935.1"
+      ],
+      [
+        "2024-09-20",
+        98090427,
+        "Chromosome",
+        "GCA_042077025.1"
+      ],
+      [
+        "2024-10-17",
+        98067334,
+        "Chromosome",
+        "GCA_018504645.2"
+      ],
+      [
+        "2024-09-20",
+        98033365,
+        "Chromosome",
+        "GCA_042037155.2"
+      ],
+      [
+        "2026-04-10",
+        98033105,
+        "Chromosome",
+        "GCA_056667835.1"
+      ],
+      [
+        "2024-10-17",
+        97914071,
+        "Chromosome",
+        "GCA_018506155.2"
+      ],
+      [
+        "2024-09-11",
+        97887394,
+        "Chromosome",
+        "GCA_041900085.1"
+      ],
+      [
+        "2024-10-17",
+        97869362,
+        "Chromosome",
+        "GCA_018505865.2"
+      ],
+      [
+        "2024-10-17",
+        97692243,
+        "Chromosome",
+        "GCA_018503285.2"
+      ],
+      [
+        "2026-04-13",
+        97656768,
+        "Chromosome",
+        "GCA_056691165.1"
+      ],
+      [
+        "2026-04-13",
+        97509068,
+        "Chromosome",
+        "GCA_056690025.1"
+      ],
+      [
+        "2024-09-20",
+        97483738,
+        "Chromosome",
+        "GCA_042036795.1"
+      ],
+      [
+        "2024-10-17",
+        97398880,
+        "Chromosome",
+        "GCA_018504655.3"
+      ],
+      [
+        "2024-10-17",
+        97268550,
+        "Chromosome",
+        "GCA_018505855.2"
+      ],
+      [
+        "2024-09-19",
+        97242840,
+        "Chromosome",
+        "GCA_042030595.2"
+      ],
+      [
+        "2024-10-17",
+        97046940,
+        "Chromosome",
+        "GCA_018503255.3"
+      ],
+      [
+        "2024-10-31",
+        96974739,
+        "Chromosome",
+        "GCA_044166545.1"
+      ],
+      [
+        "2024-09-20",
+        96943801,
+        "Chromosome",
+        "GCA_042077615.1"
+      ],
+      [
+        "2026-04-13",
+        96824055,
+        "Chromosome",
+        "GCA_056691615.1"
+      ],
+      [
+        "2026-04-15",
+        96711517,
+        "Chromosome",
+        "GCA_056738955.1"
+      ],
+      [
+        "2024-09-19",
+        96701097,
+        "Chromosome",
+        "GCA_042029535.2"
+      ],
+      [
+        "2024-09-19",
+        96619145,
+        "Chromosome",
+        "GCA_042030605.2"
+      ],
+      [
+        "2024-03-18",
+        96480592,
+        "Chromosome",
+        "GCA_037177635.1"
+      ],
+      [
+        "2026-04-13",
+        96456370,
+        "Chromosome",
+        "GCA_056690125.1"
+      ],
+      [
+        "2024-10-17",
+        96214595,
+        "Chromosome",
+        "GCA_018469955.3"
+      ],
+      [
+        "2024-10-17",
+        96042229,
+        "Chromosome",
+        "GCA_018469945.2"
+      ],
+      [
+        "2026-04-15",
+        95882861,
+        "Chromosome",
+        "GCA_056739005.1"
+      ],
+      [
+        "2024-09-20",
+        95486100,
+        "Chromosome",
+        "GCA_042037995.1"
+      ],
+      [
+        "2024-09-20",
+        95476640,
+        "Chromosome",
+        "GCA_042076875.2"
+      ],
+      [
+        "2026-04-16",
+        95282170,
+        "Chromosome",
+        "GCA_056751535.1"
+      ],
+      [
+        "2026-04-13",
+        95204792,
+        "Chromosome",
+        "GCA_056691655.1"
+      ],
+      [
+        "2024-09-20",
+        95048477,
+        "Chromosome",
+        "GCA_042034105.2"
+      ],
+      [
+        "2026-04-13",
+        95016950,
+        "Chromosome",
+        "GCA_056689705.1"
+      ],
+      [
+        "2026-04-10",
+        94665932,
+        "Chromosome",
+        "GCA_056668365.1"
+      ],
+      [
+        "2026-04-13",
+        94227335,
+        "Chromosome",
+        "GCA_056691685.1"
+      ],
+      [
+        "2026-04-13",
+        94099155,
+        "Chromosome",
+        "GCA_056690065.1"
+      ],
+      [
+        "2026-04-13",
+        93905109,
+        "Chromosome",
+        "GCA_056690775.1"
+      ],
+      [
+        "2026-04-13",
+        93787478,
+        "Chromosome",
+        "GCA_056690165.1"
+      ],
+      [
+        "2026-04-13",
+        93453637,
+        "Chromosome",
+        "GCA_056689115.1"
+      ],
+      [
+        "2024-09-20",
+        93271440,
+        "Chromosome",
+        "GCA_042036495.1"
+      ],
+      [
+        "2026-04-13",
+        93227432,
+        "Chromosome",
+        "GCA_056691225.1"
+      ],
+      [
+        "2026-04-13",
+        92942470,
+        "Chromosome",
+        "GCA_056688985.1"
+      ],
+      [
+        "2026-04-15",
+        92914284,
+        "Chromosome",
+        "GCA_056738375.1"
+      ],
+      [
+        "2024-09-20",
+        92895014,
+        "Chromosome",
+        "GCA_042077425.2"
+      ],
+      [
+        "2026-04-13",
+        92557748,
+        "Chromosome",
+        "GCA_056691775.1"
+      ],
+      [
+        "2024-09-11",
+        92247016,
+        "Chromosome",
+        "GCA_041900105.2"
+      ],
+      [
+        "2024-10-17",
+        92194898,
+        "Chromosome",
+        "GCA_018504625.2"
+      ],
+      [
+        "2024-12-11",
+        92183995,
+        "Chromosome",
+        "GCA_018503275.3"
+      ],
+      [
+        "2026-04-13",
+        92129867,
+        "Chromosome",
+        "GCA_056690795.1"
+      ],
+      [
+        "2024-09-20",
+        92127474,
+        "Chromosome",
+        "GCA_018472725.2"
+      ],
+      [
+        "2024-09-20",
+        91993568,
+        "Chromosome",
+        "GCA_018467165.2"
+      ],
+      [
+        "2026-04-13",
+        91982140,
+        "Chromosome",
+        "GCA_056689745.1"
+      ],
+      [
+        "2024-09-20",
+        91967322,
+        "Chromosome",
+        "GCA_018470455.3"
+      ],
+      [
+        "2026-04-13",
+        91850468,
+        "Chromosome",
+        "GCA_056689965.1"
+      ],
+      [
+        "2024-09-20",
+        91580421,
+        "Chromosome",
+        "GCA_042036305.2"
+      ],
+      [
+        "2024-09-20",
+        91431363,
+        "Chromosome",
+        "GCA_018472855.3"
+      ],
+      [
+        "2026-04-13",
+        91399815,
+        "Chromosome",
+        "GCA_056690595.1"
+      ],
+      [
+        "2024-10-17",
+        91188860,
+        "Chromosome",
+        "GCA_018503525.3"
+      ],
+      [
+        "2026-04-13",
+        91170575,
+        "Chromosome",
+        "GCA_056689685.1"
+      ],
+      [
+        "2026-04-13",
+        90686699,
+        "Chromosome",
+        "GCA_056690835.1"
+      ],
+      [
+        "2026-04-13",
+        90523529,
+        "Chromosome",
+        "GCA_056689125.1"
+      ],
+      [
+        "2026-04-13",
+        90429597,
+        "Chromosome",
+        "GCA_056689185.1"
+      ],
+      [
+        "2026-04-13",
+        89466036,
+        "Chromosome",
+        "GCA_056689045.1"
+      ],
+      [
+        "2024-10-17",
+        89367286,
+        "Chromosome",
+        "GCA_018503575.2"
+      ],
+      [
+        "2026-04-13",
+        89077025,
+        "Chromosome",
+        "GCA_056691715.1"
+      ],
+      [
+        "2026-04-13",
+        88904581,
+        "Chromosome",
+        "GCA_056691095.1"
+      ],
+      [
+        "2026-04-13",
+        88849072,
+        "Chromosome",
+        "GCA_056691735.1"
+      ],
+      [
+        "2026-04-13",
+        88509140,
+        "Chromosome",
+        "GCA_056691565.1"
+      ],
+      [
+        "2024-10-17",
+        87910702,
+        "Chromosome",
+        "GCA_018504635.3"
+      ],
+      [
+        "2026-04-13",
+        87586011,
+        "Chromosome",
+        "GCA_056691435.1"
+      ],
+      [
+        "2026-04-13",
+        87156521,
+        "Chromosome",
+        "GCA_056691675.1"
+      ],
+      [
+        "2026-04-13",
+        86932562,
+        "Chromosome",
+        "GCA_056689065.1"
+      ],
+      [
+        "2026-04-13",
+        85762438,
+        "Chromosome",
+        "GCA_056690875.1"
+      ],
+      [
+        "2026-04-13",
+        85652178,
+        "Chromosome",
+        "GCA_056690005.1"
+      ],
+      [
+        "2022-02-04",
+        84927121,
+        "Chromosome",
+        "GCA_021950905.1"
+      ],
+      [
+        "2026-04-13",
+        84574015,
+        "Chromosome",
+        "GCA_056690995.1"
+      ],
+      [
+        "2026-04-13",
+        84084140,
+        "Chromosome",
+        "GCA_056689245.1"
+      ],
+      [
+        "2026-04-13",
+        82728361,
+        "Chromosome",
+        "GCA_056689785.1"
+      ],
+      [
+        "2026-04-13",
+        82201283,
+        "Chromosome",
+        "GCA_056690565.1"
+      ],
+      [
+        "2026-04-13",
+        81460282,
+        "Chromosome",
+        "GCA_056691455.1"
+      ],
+      [
+        "2024-03-27",
+        81061439,
+        "Chromosome",
+        "GCA_037575895.1"
+      ],
+      [
+        "2026-04-15",
+        80813279,
+        "Chromosome",
+        "GCA_056738335.1"
+      ],
+      [
+        "2026-04-13",
+        80561971,
+        "Chromosome",
+        "GCA_056689765.1"
+      ],
+      [
+        "2026-04-13",
+        80489990,
+        "Chromosome",
+        "GCA_056690935.1"
+      ],
+      [
+        "2026-04-13",
+        79960186,
+        "Chromosome",
+        "GCA_056691285.1"
+      ],
+      [
+        "2026-04-13",
+        79928703,
+        "Chromosome",
+        "GCA_056691275.1"
+      ],
+      [
+        "2026-04-13",
+        79025399,
+        "Chromosome",
+        "GCA_056690855.1"
+      ],
+      [
+        "2026-04-13",
+        78349037,
+        "Chromosome",
+        "GCA_056689495.1"
+      ],
+      [
+        "2026-04-13",
+        75743912,
+        "Chromosome",
+        "GCA_056691625.1"
+      ],
+      [
+        "2024-10-17",
+        75552083,
+        "Chromosome",
+        "GCA_018504665.2"
+      ],
+      [
+        "2026-04-13",
+        72938261,
+        "Chromosome",
+        "GCA_056690225.1"
+      ],
+      [
+        "2026-04-13",
+        72415913,
+        "Chromosome",
+        "GCA_056691595.1"
+      ],
+      [
+        "2026-04-13",
+        72152352,
+        "Chromosome",
+        "GCA_056690235.1"
+      ],
+      [
+        "2026-04-13",
+        71359199,
+        "Chromosome",
+        "GCA_056690955.1"
+      ],
+      [
+        "2026-04-13",
+        69175892,
+        "Chromosome",
+        "GCA_056689265.1"
+      ],
+      [
+        "2026-04-13",
+        68884362,
+        "Chromosome",
+        "GCA_056689485.1"
+      ],
+      [
+        "2024-10-17",
+        65632029,
+        "Chromosome",
+        "GCA_018503585.3"
+      ],
+      [
+        "2026-04-13",
+        65113800,
+        "Chromosome",
+        "GCA_056689055.1"
+      ],
+      [
+        "2022-02-04",
+        62879740,
+        "Chromosome",
+        "GCA_021951015.1"
+      ],
+      [
+        "2026-04-13",
+        62415279,
+        "Chromosome",
+        "GCA_056690635.1"
+      ],
+      [
+        "2026-04-13",
+        60925637,
+        "Chromosome",
+        "GCA_056691355.1"
+      ],
+      [
+        "2026-04-13",
+        59087045,
+        "Chromosome",
+        "GCA_056690675.1"
+      ],
+      [
+        "2026-04-13",
+        58061540,
+        "Chromosome",
+        "GCA_056690655.1"
+      ],
+      [
+        "2026-04-13",
+        56542301,
+        "Chromosome",
+        "GCA_056690605.1"
+      ],
+      [
+        "2026-04-13",
+        55196608,
+        "Chromosome",
+        "GCA_056690915.1"
+      ],
+      [
+        "2026-04-13",
+        53500550,
+        "Chromosome",
+        "GCA_056691365.1"
+      ],
+      [
+        "2026-04-13",
+        52437346,
+        "Chromosome",
+        "GCA_056689365.1"
+      ],
+      [
+        "2026-04-13",
+        48901240,
+        "Chromosome",
+        "GCA_056690895.1"
+      ],
+      [
+        "2026-04-13",
+        47750455,
+        "Chromosome",
+        "GCA_056689375.1"
+      ],
+      [
+        "2026-04-13",
+        46996137,
+        "Chromosome",
+        "GCA_056689825.1"
+      ],
+      [
+        "2026-04-13",
+        46210849,
+        "Chromosome",
+        "GCA_056689805.1"
+      ],
+      [
+        "2026-10-21",
+        35700343,
+        "Chromosome",
+        "GCA_062053368.1"
+      ],
+      [
+        "2026-10-21",
+        35151904,
+        "Chromosome",
+        "GCA_062053367.1"
+      ],
+      [
+        "2018-05-22",
+        29396877,
+        "Chromosome",
+        "GCA_002180035.3"
+      ],
+      [
+        "2017-07-19",
+        29140631,
+        "Chromosome",
+        "GCA_001524155.4"
+      ],
+      [
+        "2018-10-19",
+        26292878,
+        "Chromosome",
+        "GCA_003634875.1"
+      ],
+      [
+        "2021-10-14",
+        24698710,
+        "Chromosome",
+        "GCA_020497115.1"
+      ],
+      [
+        "2020-09-26",
+        23601496,
+        "Chromosome",
+        "GCA_014905855.1"
+      ],
+      [
+        "2021-10-14",
+        20046962,
+        "Chromosome",
+        "GCA_020497085.1"
+      ],
+      [
+        "2018-02-09",
+        16821028,
+        "Chromosome",
+        "GCA_002077035.3"
+      ],
+      [
+        "2021-01-19",
+        13671004,
+        "Chromosome",
+        "GCA_016700455.2"
+      ],
+      [
+        "2021-01-19",
+        12076592,
+        "Chromosome",
+        "GCA_016695395.2"
+      ],
+      [
+        "2020-11-16",
+        5215207,
+        "Chromosome",
+        "GCA_015476435.1"
+      ],
+      [
+        "2005-09-08",
+        608771,
+        "Chromosome",
+        "GCA_022833125.2"
+      ],
+      [
+        "2015-11-12",
+        373039,
+        "Chromosome",
+        "GCA_001292825.2"
+      ],
+      [
+        "2008-09-24",
+        98390,
+        "Chromosome",
+        "GCA_000252825.1"
+      ],
+      [
+        "2008-09-24",
+        98388,
+        "Chromosome",
+        "GCA_000212995.1"
+      ],
+      [
+        "2016-09-20",
+        47865,
+        "Chromosome",
+        "GCA_001712695.1"
+      ],
+      [
+        "2025-07-08",
+        150617247,
+        "Scaffold",
+        "GCA_965302035.1"
+      ],
+      [
+        "2025-05-20",
+        140723744,
+        "Scaffold",
+        "GCA_050494745.1"
+      ],
+      [
+        "2025-05-20",
+        138551757,
+        "Scaffold",
+        "GCA_050494005.1"
+      ],
+      [
+        "2025-05-20",
+        137424476,
+        "Scaffold",
+        "GCA_050494045.1"
+      ],
+      [
+        "2025-05-20",
+        136753856,
+        "Contig",
+        "GCA_050494185.1"
+      ],
+      [
+        "2025-05-20",
+        136194867,
+        "Scaffold",
+        "GCA_050493495.1"
+      ],
+      [
+        "2025-05-20",
+        135652287,
+        "Scaffold",
+        "GCA_050494105.1"
+      ],
+      [
+        "2025-03-21",
+        135546937,
+        "Scaffold",
+        "GCA_965212765.1"
+      ],
+      [
+        "2025-05-20",
+        135193439,
+        "Contig",
+        "GCA_050493665.1"
+      ],
+      [
+        "2025-05-20",
+        134337206,
+        "Scaffold",
+        "GCA_050493775.1"
+      ],
+      [
+        "2025-05-20",
+        134276096,
+        "Scaffold",
+        "GCA_050493855.1"
+      ],
+      [
+        "2025-05-20",
+        134260203,
+        "Scaffold",
+        "GCA_050492305.1"
+      ],
+      [
+        "2025-05-20",
+        133677246,
+        "Scaffold",
+        "GCA_050493585.1"
+      ],
+      [
+        "2025-05-20",
+        133461090,
+        "Scaffold",
+        "GCA_050491735.1"
+      ],
+      [
+        "2025-05-20",
+        133381107,
+        "Scaffold",
+        "GCA_050495095.1"
+      ],
+      [
+        "2025-05-20",
+        133365324,
+        "Scaffold",
+        "GCA_050491585.1"
+      ],
+      [
+        "2025-12-31",
+        133238379,
+        "Contig",
+        "GCA_054252575.1"
+      ],
+      [
+        "2025-05-21",
+        132757960,
+        "Scaffold",
+        "GCA_050506835.1"
+      ],
+      [
+        "2025-05-20",
+        131486147,
+        "Scaffold",
+        "GCA_050493955.1"
+      ],
+      [
+        "2025-05-20",
+        131064946,
+        "Scaffold",
+        "GCA_050493105.1"
+      ],
+      [
+        "2025-05-20",
+        131026771,
+        "Scaffold",
+        "GCA_050493905.1"
+      ],
+      [
+        "2025-05-20",
+        130601890,
+        "Scaffold",
+        "GCA_050493935.1"
+      ],
+      [
+        "2025-05-20",
+        124692722,
+        "Scaffold",
+        "GCA_050493515.1"
+      ],
+      [
+        "2025-05-20",
+        124595660,
+        "Scaffold",
+        "GCA_050494165.1"
+      ],
+      [
+        "2025-05-20",
+        122576363,
+        "Scaffold",
+        "GCA_050495235.1"
+      ],
+      [
+        "2025-05-20",
+        122058871,
+        "Scaffold",
+        "GCA_050494865.1"
+      ],
+      [
+        "2025-05-20",
+        120509685,
+        "Scaffold",
+        "GCA_050493265.1"
+      ],
+      [
+        "2025-05-20",
+        119486663,
+        "Scaffold",
+        "GCA_050495295.1"
+      ],
+      [
+        "2025-05-20",
+        116707583,
+        "Scaffold",
+        "GCA_050493395.1"
+      ],
+      [
+        "2025-05-20",
+        116475068,
+        "Scaffold",
+        "GCA_050492415.1"
+      ],
+      [
+        "2025-05-20",
+        115938779,
+        "Scaffold",
+        "GCA_050495045.1"
+      ],
+      [
+        "2025-05-20",
+        113830775,
+        "Scaffold",
+        "GCA_050495275.1"
+      ],
+      [
+        "2025-05-20",
+        112464961,
+        "Scaffold",
+        "GCA_050492205.1"
+      ],
+      [
+        "2025-05-20",
+        112316803,
+        "Scaffold",
+        "GCA_050494065.1"
+      ],
+      [
+        "2025-05-20",
+        111679122,
+        "Scaffold",
+        "GCA_050492165.1"
+      ],
+      [
+        "2025-05-20",
+        111678983,
+        "Scaffold",
+        "GCA_050493415.1"
+      ],
+      [
+        "2025-05-20",
+        111643311,
+        "Scaffold",
+        "GCA_050493145.1"
+      ],
+      [
+        "2025-05-20",
+        111512509,
+        "Scaffold",
+        "GCA_050492895.1"
+      ],
+      [
+        "2025-05-20",
+        110964555,
+        "Scaffold",
+        "GCA_050493455.1"
+      ],
+      [
+        "2025-05-20",
+        110739791,
+        "Scaffold",
+        "GCA_050493125.1"
+      ],
+      [
+        "2025-05-20",
+        110593299,
+        "Contig",
+        "GCA_050494605.1"
+      ],
+      [
+        "2025-05-20",
+        110522386,
+        "Scaffold",
+        "GCA_050494025.1"
+      ],
+      [
+        "2025-05-20",
+        110110782,
+        "Scaffold",
+        "GCA_050493435.1"
+      ],
+      [
+        "2024-07-01",
+        108928472,
+        "Contig",
+        "GCA_040449315.1"
+      ],
+      [
+        "2025-05-20",
+        108796911,
+        "Scaffold",
+        "GCA_050493885.1"
+      ],
+      [
+        "2025-05-20",
+        108762250,
+        "Scaffold",
+        "GCA_050492145.1"
+      ],
+      [
+        "2025-05-20",
+        108704125,
+        "Scaffold",
+        "GCA_050495335.1"
+      ],
+      [
+        "2025-05-20",
+        108207308,
+        "Scaffold",
+        "GCA_050491965.1"
+      ],
+      [
+        "2025-05-20",
+        108095105,
+        "Scaffold",
+        "GCA_050491905.1"
+      ],
+      [
+        "2025-05-20",
+        107895603,
+        "Scaffold",
+        "GCA_050492225.1"
+      ],
+      [
+        "2025-05-20",
+        107853517,
+        "Scaffold",
+        "GCA_050491985.1"
+      ],
+      [
+        "2025-05-20",
+        107525440,
+        "Scaffold",
+        "GCA_050495025.1"
+      ],
+      [
+        "2025-05-20",
+        107490270,
+        "Scaffold",
+        "GCA_050491605.1"
+      ],
+      [
+        "2025-05-20",
+        107328614,
+        "Scaffold",
+        "GCA_050493555.1"
+      ],
+      [
+        "2025-05-20",
+        106909548,
+        "Scaffold",
+        "GCA_050493535.1"
+      ],
+      [
+        "2025-01-01",
+        106754886,
+        "Contig",
+        "GCA_054806825.1"
+      ],
+      [
+        "2025-05-20",
+        106714338,
+        "Scaffold",
+        "GCA_050492525.1"
+      ],
+      [
+        "2025-05-20",
+        106176257,
+        "Scaffold",
+        "GCA_050492105.1"
+      ],
+      [
+        "2025-05-20",
+        104183495,
+        "Scaffold",
+        "GCA_050491635.1"
+      ],
+      [
+        "2025-05-20",
+        104094207,
+        "Scaffold",
+        "GCA_050493045.1"
+      ],
+      [
+        "2025-05-20",
+        104084614,
+        "Scaffold",
+        "GCA_050493375.1"
+      ],
+      [
+        "2025-05-20",
+        104024592,
+        "Scaffold",
+        "GCA_050495315.1"
+      ],
+      [
+        "2025-05-20",
+        103460986,
+        "Scaffold",
+        "GCA_050493795.1"
+      ],
+      [
+        "2025-05-20",
+        103414596,
+        "Scaffold",
+        "GCA_050494085.1"
+      ],
+      [
+        "2025-04-20",
+        103312553,
+        "Scaffold",
+        "GCA_965212885.2"
+      ],
+      [
+        "2025-05-20",
+        102971584,
+        "Scaffold",
+        "GCA_050494905.1"
+      ],
+      [
+        "2025-05-20",
+        102235777,
+        "Scaffold",
+        "GCA_050495135.1"
+      ],
+      [
+        "2025-03-20",
+        102145166,
+        "Scaffold",
+        "GCA_965213465.1"
+      ],
+      [
+        "2025-05-20",
+        101689912,
+        "Scaffold",
+        "GCA_050491715.1"
+      ],
+      [
+        "2025-05-20",
+        101521980,
+        "Scaffold",
+        "GCA_050492185.1"
+      ],
+      [
+        "2025-05-20",
+        101410558,
+        "Scaffold",
+        "GCA_050494665.1"
+      ],
+      [
+        "2025-05-20",
+        100783804,
+        "Scaffold",
+        "GCA_050491545.1"
+      ],
+      [
+        "2025-05-20",
+        100445433,
+        "Scaffold",
+        "GCA_050493475.1"
+      ],
+      [
+        "2025-05-20",
+        100003253,
+        "Scaffold",
+        "GCA_050492795.1"
+      ],
+      [
+        "2025-05-20",
+        99783586,
+        "Scaffold",
+        "GCA_050494785.1"
+      ],
+      [
+        "2025-05-20",
+        99727028,
+        "Scaffold",
+        "GCA_050492395.1"
+      ],
+      [
+        "2025-05-20",
+        99192912,
+        "Scaffold",
+        "GCA_050491695.1"
+      ],
+      [
+        "2025-05-20",
+        98616337,
+        "Scaffold",
+        "GCA_050493755.1"
+      ],
+      [
+        "2025-05-20",
+        98239835,
+        "Scaffold",
+        "GCA_050491865.1"
+      ],
+      [
+        "2025-05-20",
+        97967879,
+        "Scaffold",
+        "GCA_050492985.1"
+      ],
+      [
+        "2025-05-20",
+        97964146,
+        "Scaffold",
+        "GCA_050495255.1"
+      ],
+      [
+        "2025-05-20",
+        97943727,
+        "Scaffold",
+        "GCA_050492565.1"
+      ],
+      [
+        "2025-01-01",
+        97457663,
+        "Contig",
+        "GCA_054807095.1"
+      ],
+      [
+        "2025-05-20",
+        97321608,
+        "Scaffold",
+        "GCA_050495215.1"
+      ],
+      [
+        "2025-05-20",
+        97134000,
+        "Scaffold",
+        "GCA_050493065.1"
+      ],
+      [
+        "2025-05-20",
+        97047657,
+        "Scaffold",
+        "GCA_050492625.1"
+      ],
+      [
+        "2025-05-20",
+        96738800,
+        "Scaffold",
+        "GCA_050492665.1"
+      ],
+      [
+        "2025-12-31",
+        96627328,
+        "Scaffold",
+        "GCA_054252555.1"
+      ],
+      [
+        "2025-05-20",
+        96514761,
+        "Scaffold",
+        "GCA_050493025.1"
+      ],
+      [
+        "2025-05-20",
+        96508993,
+        "Scaffold",
+        "GCA_050493355.1"
+      ],
+      [
+        "2025-05-20",
+        96003583,
+        "Scaffold",
+        "GCA_050491885.1"
+      ],
+      [
+        "2025-03-20",
+        95590421,
+        "Scaffold",
+        "GCA_965212835.1"
+      ],
+      [
+        "2025-05-20",
+        94696202,
+        "Scaffold",
+        "GCA_050491785.1"
+      ],
+      [
+        "2025-05-20",
+        94682786,
+        "Scaffold",
+        "GCA_050491655.1"
+      ],
+      [
+        "2025-05-20",
+        94572944,
+        "Scaffold",
+        "GCA_050493985.1"
+      ],
+      [
+        "2025-01-01",
+        94410881,
+        "Contig",
+        "GCA_054807155.1"
+      ],
+      [
+        "2025-01-01",
+        94027985,
+        "Contig",
+        "GCA_054807505.1"
+      ],
+      [
+        "2024-07-01",
+        93798764,
+        "Contig",
+        "GCA_040451045.1"
+      ],
+      [
+        "2025-05-20",
+        92860630,
+        "Scaffold",
+        "GCA_050492025.1"
+      ],
+      [
+        "2024-12-31",
+        92827833,
+        "Contig",
+        "GCA_054807935.1"
+      ],
+      [
+        "2025-05-20",
+        92786527,
+        "Scaffold",
+        "GCA_050493005.1"
+      ],
+      [
+        "2025-05-20",
+        92713393,
+        "Contig",
+        "GCA_050493645.1"
+      ],
+      [
+        "2025-01-01",
+        92537487,
+        "Contig",
+        "GCA_054807625.1"
+      ],
+      [
+        "2025-05-20",
+        92409814,
+        "Scaffold",
+        "GCA_050492745.1"
+      ],
+      [
+        "2025-05-20",
+        92302225,
+        "Scaffold",
+        "GCA_050493625.1"
+      ],
+      [
+        "2025-05-20",
+        92289259,
+        "Scaffold",
+        "GCA_050492685.1"
+      ],
+      [
+        "2025-05-20",
+        92224896,
+        "Scaffold",
+        "GCA_050492955.1"
+      ],
+      [
+        "2025-05-20",
+        92014481,
+        "Scaffold",
+        "GCA_050492875.1"
+      ],
+      [
+        "2025-01-01",
+        91910591,
+        "Contig",
+        "GCA_054807955.1"
+      ],
+      [
+        "2025-01-01",
+        91341794,
+        "Contig",
+        "GCA_054807835.1"
+      ],
+      [
+        "2026-02-26",
+        91330698,
+        "Contig",
+        "GCA_977969775.1"
+      ],
+      [
+        "2025-05-20",
+        91235301,
+        "Scaffold",
+        "GCA_050491935.1"
+      ],
+      [
+        "2024-07-01",
+        90412403,
+        "Contig",
+        "GCA_040449595.1"
+      ],
+      [
+        "2024-07-01",
+        90133377,
+        "Contig",
+        "GCA_040450235.1"
+      ],
+      [
+        "2025-05-20",
+        89840076,
+        "Scaffold",
+        "GCA_050492645.1"
+      ],
+      [
+        "2025-05-20",
+        89538658,
+        "Scaffold",
+        "GCA_050492705.1"
+      ],
+      [
+        "2025-01-01",
+        89396509,
+        "Contig",
+        "GCA_054807685.1"
+      ],
+      [
+        "2025-01-01",
+        89116975,
+        "Contig",
+        "GCA_054807855.1"
+      ],
+      [
+        "2024-07-01",
+        88982082,
+        "Contig",
+        "GCA_040449095.1"
+      ],
+      [
+        "2025-05-20",
+        88583983,
+        "Scaffold",
+        "GCA_050492775.1"
+      ],
+      [
+        "2025-05-20",
+        88566946,
+        "Scaffold",
+        "GCA_050492055.1"
+      ],
+      [
+        "2025-05-20",
+        88310049,
+        "Scaffold",
+        "GCA_050491765.1"
+      ],
+      [
+        "2025-01-01",
+        88158313,
+        "Contig",
+        "GCA_054806735.1"
+      ],
+      [
+        "2024-07-01",
+        88087827,
+        "Contig",
+        "GCA_040451085.1"
+      ],
+      [
+        "2024-07-01",
+        87666278,
+        "Contig",
+        "GCA_040449195.1"
+      ],
+      [
+        "2025-01-01",
+        87596185,
+        "Contig",
+        "GCA_054806555.1"
+      ],
+      [
+        "2024-07-01",
+        87554305,
+        "Contig",
+        "GCA_040448835.1"
+      ],
+      [
+        "2025-03-24",
+        87282468,
+        "Contig",
+        "GCA_965213515.1"
+      ],
+      [
+        "2024-07-01",
+        87272606,
+        "Contig",
+        "GCA_040450255.1"
+      ],
+      [
+        "2024-07-01",
+        87219119,
+        "Contig",
+        "GCA_040450475.1"
+      ],
+      [
+        "2025-01-01",
+        86891035,
+        "Contig",
+        "GCA_054807775.1"
+      ],
+      [
+        "2025-05-20",
+        86790061,
+        "Scaffold",
+        "GCA_050492605.1"
+      ],
+      [
+        "2025-01-01",
+        86522391,
+        "Contig",
+        "GCA_054807795.1"
+      ],
+      [
+        "2025-01-01",
+        85323360,
+        "Contig",
+        "GCA_054806645.1"
+      ],
+      [
+        "2025-01-01",
+        84536419,
+        "Contig",
+        "GCA_054807975.1"
+      ],
+      [
+        "2025-05-20",
+        83761181,
+        "Scaffold",
+        "GCA_050492915.1"
+      ],
+      [
+        "2025-01-01",
+        83082284,
+        "Contig",
+        "GCA_054807415.1"
+      ],
+      [
+        "2025-05-20",
+        82387835,
+        "Scaffold",
+        "GCA_050492005.1"
+      ],
+      [
+        "2024-07-01",
+        81239280,
+        "Contig",
+        "GCA_040450435.1"
+      ],
+      [
+        "2025-03-20",
+        80969137,
+        "Scaffold",
+        "GCA_965212805.1"
+      ],
+      [
+        "2025-01-01",
+        80917958,
+        "Contig",
+        "GCA_054807915.1"
+      ],
+      [
+        "2025-01-01",
+        80540373,
+        "Contig",
+        "GCA_054807755.1"
+      ],
+      [
+        "2024-07-01",
+        80472798,
+        "Contig",
+        "GCA_040449215.1"
+      ],
+      [
+        "2024-07-01",
+        78812546,
+        "Contig",
+        "GCA_040449775.1"
+      ],
+      [
+        "2026-02-26",
+        78474799,
+        "Contig",
+        "GCA_977969795.1"
+      ],
+      [
+        "2024-07-01",
+        77773546,
+        "Contig",
+        "GCA_040450735.1"
+      ],
+      [
+        "2024-07-01",
+        77321928,
+        "Contig",
+        "GCA_040451025.1"
+      ],
+      [
+        "2024-07-01",
+        75612415,
+        "Contig",
+        "GCA_040449555.1"
+      ],
+      [
+        "2024-07-01",
+        73904215,
+        "Contig",
+        "GCA_040450815.1"
+      ],
+      [
+        "2025-05-20",
+        73580672,
+        "Scaffold",
+        "GCA_050492075.1"
+      ],
+      [
+        "2024-07-01",
+        72464449,
+        "Contig",
+        "GCA_040451105.1"
+      ],
+      [
+        "2024-07-01",
+        71921462,
+        "Contig",
+        "GCA_040449015.1"
+      ],
+      [
+        "2024-07-01",
+        71261503,
+        "Contig",
+        "GCA_040448855.1"
+      ],
+      [
+        "2024-07-01",
+        71205264,
+        "Contig",
+        "GCA_040450395.1"
+      ],
+      [
+        "2024-07-01",
+        70378606,
+        "Contig",
+        "GCA_040451385.1"
+      ],
+      [
+        "2024-07-01",
+        70374676,
+        "Contig",
+        "GCA_040448785.1"
+      ],
+      [
+        "2025-05-20",
+        70039658,
+        "Scaffold",
+        "GCA_050493245.1"
+      ],
+      [
+        "2024-07-01",
+        69581375,
+        "Contig",
+        "GCA_040450295.1"
+      ],
+      [
+        "2024-07-01",
+        67919913,
+        "Contig",
+        "GCA_040451145.1"
+      ],
+      [
+        "2024-07-01",
+        67738227,
+        "Contig",
+        "GCA_040449935.1"
+      ],
+      [
+        "2025-01-01",
+        67611659,
+        "Contig",
+        "GCA_054807815.1"
+      ],
+      [
+        "2024-12-31",
+        67267216,
+        "Contig",
+        "GCA_054807565.1"
+      ],
+      [
+        "2025-05-20",
+        67037934,
+        "Scaffold",
+        "GCA_050492505.1"
+      ],
+      [
+        "2024-07-01",
+        67008336,
+        "Contig",
+        "GCA_040449755.1"
+      ],
+      [
+        "2024-12-31",
+        67005463,
+        "Contig",
+        "GCA_054808015.1"
+      ],
+      [
+        "2024-07-01",
+        66975073,
+        "Contig",
+        "GCA_040450635.1"
+      ],
+      [
+        "2024-07-01",
+        66704963,
+        "Contig",
+        "GCA_040449335.1"
+      ],
+      [
+        "2024-07-01",
+        66052438,
+        "Contig",
+        "GCA_040449075.1"
+      ],
+      [
+        "2025-03-20",
+        65863092,
+        "Scaffold",
+        "GCA_965212815.1"
+      ],
+      [
+        "2024-07-01",
+        65057816,
+        "Contig",
+        "GCA_040449895.1"
+      ],
+      [
+        "2026-02-26",
+        62855635,
+        "Contig",
+        "GCA_977969785.1"
+      ],
+      [
+        "2025-05-20",
+        62727753,
+        "Scaffold",
+        "GCA_050493175.1"
+      ],
+      [
+        "2024-07-01",
+        62660990,
+        "Contig",
+        "GCA_040449235.1"
+      ],
+      [
+        "2025-01-01",
+        62605957,
+        "Contig",
+        "GCA_054806925.1"
+      ],
+      [
+        "2024-07-01",
+        62296429,
+        "Contig",
+        "GCA_040451165.1"
+      ],
+      [
+        "2024-07-01",
+        62166336,
+        "Contig",
+        "GCA_040450755.1"
+      ],
+      [
+        "2024-07-01",
+        61624919,
+        "Contig",
+        "GCA_040449915.1"
+      ],
+      [
+        "2024-07-01",
+        60644205,
+        "Contig",
+        "GCA_040449875.1"
+      ],
+      [
+        "2024-07-01",
+        60442230,
+        "Contig",
+        "GCA_040449795.1"
+      ],
+      [
+        "2024-07-01",
+        60421081,
+        "Contig",
+        "GCA_040450375.1"
+      ],
+      [
+        "2024-07-01",
+        60137021,
+        "Contig",
+        "GCA_040450455.1"
+      ],
+      [
+        "2024-07-01",
+        59384299,
+        "Contig",
+        "GCA_040450675.1"
+      ],
+      [
+        "2024-07-01",
+        59347716,
+        "Contig",
+        "GCA_040449435.1"
+      ],
+      [
+        "2025-01-01",
+        59152003,
+        "Contig",
+        "GCA_054807245.1"
+      ],
+      [
+        "2024-07-01",
+        58957722,
+        "Contig",
+        "GCA_040449035.1"
+      ],
+      [
+        "2024-07-01",
+        58925380,
+        "Contig",
+        "GCA_040450015.1"
+      ],
+      [
+        "2024-07-01",
+        58523375,
+        "Contig",
+        "GCA_040449995.1"
+      ],
+      [
+        "2024-07-01",
+        58431827,
+        "Contig",
+        "GCA_040449515.1"
+      ],
+      [
+        "2024-07-01",
+        58128308,
+        "Contig",
+        "GCA_040449815.1"
+      ],
+      [
+        "2024-07-01",
+        58082059,
+        "Contig",
+        "GCA_040451405.1"
+      ],
+      [
+        "2024-07-01",
+        57612287,
+        "Contig",
+        "GCA_040451345.1"
+      ],
+      [
+        "2024-07-01",
+        57342231,
+        "Contig",
+        "GCA_040450715.1"
+      ],
+      [
+        "2024-07-01",
+        57315696,
+        "Contig",
+        "GCA_040450835.1"
+      ],
+      [
+        "2024-07-01",
+        57224278,
+        "Contig",
+        "GCA_040450055.1"
+      ],
+      [
+        "2024-07-01",
+        57223754,
+        "Contig",
+        "GCA_040450695.1"
+      ],
+      [
+        "2025-03-20",
+        57191657,
+        "Contig",
+        "GCA_965213485.1"
+      ],
+      [
+        "2024-07-01",
+        57170251,
+        "Contig",
+        "GCA_040450135.1"
+      ],
+      [
+        "2024-07-01",
+        57060850,
+        "Contig",
+        "GCA_040450115.1"
+      ],
+      [
+        "2024-12-31",
+        56898223,
+        "Contig",
+        "GCA_054807345.1"
+      ],
+      [
+        "2024-07-01",
+        56602453,
+        "Contig",
+        "GCA_040450035.1"
+      ],
+      [
+        "2024-07-01",
+        56294789,
+        "Contig",
+        "GCA_040450515.1"
+      ],
+      [
+        "2024-07-01",
+        56071599,
+        "Contig",
+        "GCA_040449275.1"
+      ],
+      [
+        "2025-03-22",
+        55577270,
+        "Contig",
+        "GCA_965217545.1"
+      ],
+      [
+        "2025-03-20",
+        55467668,
+        "Contig",
+        "GCA_965213495.1"
+      ],
+      [
+        "2025-01-01",
+        55228814,
+        "Contig",
+        "GCA_054807995.1"
+      ],
+      [
+        "2024-07-01",
+        55152304,
+        "Contig",
+        "GCA_040450935.1"
+      ],
+      [
+        "2024-07-01",
+        54422464,
+        "Contig",
+        "GCA_040449675.1"
+      ],
+      [
+        "2024-07-01",
+        54401192,
+        "Contig",
+        "GCA_040450075.1"
+      ],
+      [
+        "2024-07-01",
+        54262185,
+        "Contig",
+        "GCA_040450795.1"
+      ],
+      [
+        "2025-03-20",
+        54205321,
+        "Contig",
+        "GCA_965213505.1"
+      ],
+      [
+        "2024-07-01",
+        54170687,
+        "Contig",
+        "GCA_040450535.1"
+      ],
+      [
+        "2024-07-01",
+        54118769,
+        "Contig",
+        "GCA_040450315.1"
+      ],
+      [
+        "2024-07-01",
+        53903684,
+        "Contig",
+        "GCA_040449715.1"
+      ],
+      [
+        "2025-01-01",
+        52813899,
+        "Contig",
+        "GCA_054806985.1"
+      ],
+      [
+        "2024-07-01",
+        52756423,
+        "Contig",
+        "GCA_040450655.1"
+      ],
+      [
+        "2024-07-01",
+        52349486,
+        "Contig",
+        "GCA_040448775.1"
+      ],
+      [
+        "2024-07-01",
+        52097227,
+        "Contig",
+        "GCA_040450775.1"
+      ],
+      [
+        "2025-10-28",
+        51712236,
+        "Contig",
+        "GCA_965251505.2"
+      ],
+      [
+        "2024-07-01",
+        51415623,
+        "Contig",
+        "GCA_040449695.1"
+      ],
+      [
+        "2024-07-01",
+        51243703,
+        "Contig",
+        "GCA_040449735.1"
+      ],
+      [
+        "2024-07-01",
+        50383377,
+        "Contig",
+        "GCA_040449475.1"
+      ],
+      [
+        "2024-07-01",
+        50247934,
+        "Contig",
+        "GCA_040449155.1"
+      ],
+      [
+        "2024-07-01",
+        50231247,
+        "Contig",
+        "GCA_040450985.1"
+      ],
+      [
+        "2024-07-01",
+        49996025,
+        "Contig",
+        "GCA_040450555.1"
+      ],
+      [
+        "2024-07-01",
+        49633055,
+        "Contig",
+        "GCA_040450495.1"
+      ],
+      [
+        "2025-04-23",
+        49317339,
+        "Contig",
+        "GCA_965253285.1"
+      ],
+      [
+        "2025-03-20",
+        49317203,
+        "Scaffold",
+        "GCA_965213475.1"
+      ],
+      [
+        "2024-07-01",
+        48673490,
+        "Contig",
+        "GCA_040450195.1"
+      ],
+      [
+        "2024-07-01",
+        48593825,
+        "Contig",
+        "GCA_040449655.1"
+      ],
+      [
+        "2024-07-01",
+        47568591,
+        "Contig",
+        "GCA_040451185.1"
+      ],
+      [
+        "2024-12-31",
+        47318880,
+        "Contig",
+        "GCA_054808035.1"
+      ],
+      [
+        "2024-07-01",
+        46793486,
+        "Contig",
+        "GCA_040450175.1"
+      ],
+      [
+        "2025-04-20",
+        46705925,
+        "Contig",
+        "GCA_965250575.1"
+      ],
+      [
+        "2024-07-01",
+        45371675,
+        "Contig",
+        "GCA_040450215.1"
+      ],
+      [
+        "2025-10-28",
+        45208589,
+        "Contig",
+        "GCA_965250585.2"
+      ],
+      [
+        "2024-07-01",
+        44987540,
+        "Contig",
+        "GCA_040451365.1"
+      ],
+      [
+        "2024-07-01",
+        43785677,
+        "Contig",
+        "GCA_040450275.1"
+      ],
+      [
+        "2025-04-23",
+        43425844,
+        "Contig",
+        "GCA_965253265.1"
+      ],
+      [
+        "2025-04-23",
+        43018426,
+        "Contig",
+        "GCA_965260555.1"
+      ],
+      [
+        "2024-07-01",
+        42664613,
+        "Contig",
+        "GCA_040451325.1"
+      ],
+      [
+        "2024-07-01",
+        42234969,
+        "Contig",
+        "GCA_040450415.1"
+      ],
+      [
+        "2024-07-01",
+        41706970,
+        "Contig",
+        "GCA_040451205.1"
+      ],
+      [
+        "2025-10-28",
+        41338219,
+        "Contig",
+        "GCA_965251305.2"
+      ],
+      [
+        "2024-07-01",
+        41231927,
+        "Contig",
+        "GCA_040450875.1"
+      ],
+      [
+        "2024-07-01",
+        40614918,
+        "Contig",
+        "GCA_040450975.1"
+      ],
+      [
+        "2024-07-01",
+        40549264,
+        "Contig",
+        "GCA_040449455.1"
+      ],
+      [
+        "2024-07-01",
+        40270070,
+        "Contig",
+        "GCA_040448795.1"
+      ],
+      [
+        "2024-07-01",
+        39995090,
+        "Contig",
+        "GCA_040451225.1"
+      ],
+      [
+        "2024-07-01",
+        39912631,
+        "Contig",
+        "GCA_040449535.1"
+      ],
+      [
+        "2024-07-01",
+        39668808,
+        "Contig",
+        "GCA_040449575.1"
+      ],
+      [
+        "2025-01-01",
+        39348223,
+        "Contig",
+        "GCA_054808055.1"
+      ],
+      [
+        "2024-07-01",
+        39105529,
+        "Contig",
+        "GCA_040450965.1"
+      ],
+      [
+        "2024-07-01",
+        39001550,
+        "Contig",
+        "GCA_040450855.1"
+      ],
+      [
+        "2024-07-01",
+        38466250,
+        "Contig",
+        "GCA_040450095.1"
+      ],
+      [
+        "2024-07-01",
+        36821577,
+        "Contig",
+        "GCA_040449495.1"
+      ],
+      [
+        "2024-07-01",
+        36128496,
+        "Contig",
+        "GCA_040450335.1"
+      ],
+      [
+        "2024-07-01",
+        35073808,
+        "Contig",
+        "GCA_040449615.1"
+      ],
+      [
+        "2015-11-02",
+        34007701,
+        "Contig",
+        "GCA_001420765.1"
+      ],
+      [
+        "2021-05-19",
+        32137607,
+        "Contig",
+        "GCA_018398555.1"
+      ],
+      [
+        "2021-05-19",
+        32131971,
+        "Contig",
+        "GCA_018398495.1"
+      ],
+      [
+        "2021-05-19",
+        32127878,
+        "Contig",
+        "GCA_018398505.1"
+      ],
+      [
+        "2020-01-27",
+        30959455,
+        "Contig",
+        "GCA_009935935.1"
+      ],
+      [
+        "2015-11-02",
+        30935124,
+        "Contig",
+        "GCA_001420755.1"
+      ],
+      [
+        "2024-07-01",
+        30762911,
+        "Contig",
+        "GCA_040449635.1"
+      ],
+      [
+        "2024-07-01",
+        30215896,
+        "Contig",
+        "GCA_040451065.1"
+      ],
+      [
+        "2019-10-18",
+        30131366,
+        "Contig",
+        "GCA_009176485.1"
+      ],
+      [
+        "2018-01-16",
+        29260714,
+        "Contig",
+        "GCA_002884485.1"
+      ],
+      [
+        "2024-07-01",
+        28917580,
+        "Contig",
+        "GCA_040449375.1"
+      ],
+      [
+        "2024-07-01",
+        28491038,
+        "Contig",
+        "GCA_040449855.1"
+      ],
+      [
+        "2024-06-14",
+        28275502,
+        "Contig",
+        "GCA_040182725.1"
+      ],
+      [
+        "2020-04-06",
+        27810504,
+        "Contig",
+        "GCA_012067775.1"
+      ],
+      [
+        "2024-06-14",
+        27008560,
+        "Contig",
+        "GCA_040182735.1"
+      ],
+      [
+        "2024-06-14",
+        27007267,
+        "Contig",
+        "GCA_040182805.1"
+      ],
+      [
+        "2020-06-23",
+        26733280,
+        "Contig",
+        "GCA_013364845.1"
+      ],
+      [
+        "2020-04-20",
+        26657620,
+        "Scaffold",
+        "GCA_012553475.1"
+      ],
+      [
+        "2020-04-20",
+        26656121,
+        "Scaffold",
+        "GCA_012553465.1"
+      ],
+      [
+        "2018-08-31",
+        26547048,
+        "Contig",
+        "GCA_001297185.2"
+      ],
+      [
+        "2020-04-06",
+        26292878,
+        "Contig",
+        "GCA_012067855.1"
+      ],
+      [
+        "2020-04-06",
+        26258291,
+        "Contig",
+        "GCA_012067805.1"
+      ],
+      [
+        "2015-10-14",
+        26162726,
+        "Contig",
+        "GCA_001307015.1"
+      ],
+      [
+        "2026-10-05",
+        25835476,
+        "Scaffold",
+        "GCA_062016263.1"
+      ],
+      [
+        "2020-06-23",
+        25502944,
+        "Contig",
+        "GCA_013364835.1"
+      ],
+      [
+        "2018-04-24",
+        25293151,
+        "Contig",
+        "GCA_003070785.1"
+      ],
+      [
+        "2024-07-01",
+        24787104,
+        "Contig",
+        "GCA_040451125.1"
+      ],
+      [
+        "2024-07-01",
+        24657878,
+        "Contig",
+        "GCA_040449835.1"
+      ],
+      [
+        "2020-02-25",
+        23571461,
+        "Contig",
+        "GCA_011008995.1"
+      ],
+      [
+        "2015-10-14",
+        23313104,
+        "Contig",
+        "GCA_001307125.1"
+      ],
+      [
+        "2019-11-12",
+        22860245,
+        "Contig",
+        "GCA_009650525.1"
+      ],
+      [
+        "2020-04-06",
+        22502524,
+        "Contig",
+        "GCA_012069725.1"
+      ],
+      [
+        "2018-09-18",
+        22499404,
+        "Contig",
+        "GCA_003574075.1"
+      ],
+      [
+        "2020-04-06",
+        22453174,
+        "Contig",
+        "GCA_012069735.1"
+      ],
+      [
+        "2020-04-06",
+        22436427,
+        "Contig",
+        "GCA_012069705.1"
+      ],
+      [
+        "2025-01-01",
+        22255042,
+        "Contig",
+        "GCA_054808075.1"
+      ],
+      [
+        "2017-06-26",
+        22162569,
+        "Contig",
+        "GCA_002208065.1"
+      ],
+      [
+        "2020-04-30",
+        21737748,
+        "Scaffold",
+        "GCA_012933705.1"
+      ],
+      [
+        "2020-04-30",
+        21737748,
+        "Scaffold",
+        "GCA_012933715.1"
+      ],
+      [
+        "2018-07-02",
+        21644977,
+        "Contig",
+        "GCA_002209525.2"
+      ],
+      [
+        "2024-07-01",
+        21588254,
+        "Contig",
+        "GCA_040450895.1"
+      ],
+      [
+        "2018-01-10",
+        21513396,
+        "Contig",
+        "GCA_002872155.1"
+      ],
+      [
+        "2024-07-01",
+        20844221,
+        "Contig",
+        "GCA_040450355.1"
+      ],
+      [
+        "2015-10-14",
+        20609304,
+        "Contig",
+        "GCA_001307025.1"
+      ],
+      [
+        "2019-12-19",
+        20593040,
+        "Contig",
+        "GCA_009769715.1"
+      ],
+      [
+        "2024-07-01",
+        20407903,
+        "Contig",
+        "GCA_040449975.1"
+      ],
+      [
+        "2024-07-01",
+        20174060,
+        "Contig",
+        "GCA_040450915.1"
+      ],
+      [
+        "2019-08-22",
+        20033786,
+        "Contig",
+        "GCA_008065235.1"
+      ],
+      [
+        "2020-02-13",
+        19930731,
+        "Contig",
+        "GCA_010580585.1"
+      ],
+      [
+        "2024-07-01",
+        19914564,
+        "Contig",
+        "GCA_040449395.1"
+      ],
+      [
+        "2020-08-06",
+        19834635,
+        "Contig",
+        "GCA_014083845.1"
+      ],
+      [
+        "2015-06-01",
+        19357701,
+        "Contig",
+        "GCA_001015355.1"
+      ],
+      [
+        "2024-07-01",
+        19203365,
+        "Contig",
+        "GCA_040449355.1"
+      ],
+      [
+        "2024-07-01",
+        19096186,
+        "Contig",
+        "GCA_040450155.1"
+      ],
+      [
+        "2026-10-05",
+        18914956,
+        "Scaffold",
+        "GCA_062016277.1"
+      ],
+      [
+        "2024-12-31",
+        18537744,
+        "Contig",
+        "GCA_054808095.1"
+      ],
+      [
+        "2025-01-01",
+        18485199,
+        "Contig",
+        "GCA_054806465.1"
+      ],
+      [
+        "2019-10-23",
+        18454680,
+        "Contig",
+        "GCA_009299535.1"
+      ],
+      [
+        "2016-10-13",
+        18080262,
+        "Scaffold",
+        "GCA_001750385.2"
+      ],
+      [
+        "2019-12-17",
+        18015395,
+        "Contig",
+        "GCA_004796485.2"
+      ],
+      [
+        "2015-11-02",
+        17843544,
+        "Contig",
+        "GCA_001421375.1"
+      ],
+      [
+        "2024-12-31",
+        17564462,
+        "Contig",
+        "GCA_054806345.1"
+      ],
+      [
+        "2024-07-01",
+        17544286,
+        "Contig",
+        "GCA_040449255.1"
+      ],
+      [
+        "2024-07-01",
+        17347917,
+        "Contig",
+        "GCA_040449955.1"
+      ],
+      [
+        "2019-12-08",
+        16912639,
+        "Contig",
+        "GCA_009734825.1"
+      ],
+      [
+        "2019-04-16",
+        16145298,
+        "Contig",
+        "GCA_004796285.1"
+      ],
+      [
+        "2024-07-01",
+        15950418,
+        "Contig",
+        "GCA_040449415.1"
+      ],
+      [
+        "2026-10-05",
+        15338580,
+        "Scaffold",
+        "GCA_062016271.1"
+      ],
+      [
+        "2026-10-05",
+        14700775,
+        "Scaffold",
+        "GCA_062016268.1"
+      ],
+      [
+        "2024-07-01",
+        13884898,
+        "Contig",
+        "GCA_040449295.1"
+      ],
+      [
+        "2020-02-13",
+        13575823,
+        "Contig",
+        "GCA_010580605.1"
+      ],
+      [
+        "2015-04-30",
+        13331528,
+        "Contig",
+        "GCA_000983465.1"
+      ],
+      [
+        "2024-07-29",
+        13272692,
+        "Contig",
+        "GCA_040939325.1"
+      ],
+      [
+        "2020-02-06",
+        13214010,
+        "Contig",
+        "GCA_010279795.1"
+      ],
+      [
+        "2021-12-20",
+        12577710,
+        "Scaffold",
+        "GCA_021234545.1"
+      ],
+      [
+        "2015-11-20",
+        12252446,
+        "Contig",
+        "GCA_001015385.3"
+      ],
+      [
+        "2018-12-06",
+        11840837,
+        "Contig",
+        "GCA_900232925.2"
+      ],
+      [
+        "2024-07-29",
+        11508905,
+        "Contig",
+        "GCA_040939335.1"
+      ],
+      [
+        "2024-07-29",
+        11409811,
+        "Contig",
+        "GCA_040939345.1"
+      ],
+      [
+        "2015-11-02",
+        11334645,
+        "Contig",
+        "GCA_001420745.1"
+      ],
+      [
+        "2020-06-22",
+        11075981,
+        "Scaffold",
+        "GCA_013364825.1"
+      ],
+      [
+        "2025-01-01",
+        11075347,
+        "Contig",
+        "GCA_054807875.1"
+      ],
+      [
+        "2015-11-20",
+        10549591,
+        "Contig",
+        "GCA_000983455.2"
+      ],
+      [
+        "2024-07-29",
+        9765614,
+        "Contig",
+        "GCA_040939355.1"
+      ],
+      [
+        "2016-10-11",
+        8583694,
+        "Contig",
+        "GCA_001856745.1"
+      ],
+      [
+        "2018-09-27",
+        8420670,
+        "Contig",
+        "GCA_003601015.1"
+      ],
+      [
+        "2016-10-21",
+        8325012,
+        "Scaffold",
+        "GCA_001708065.2"
+      ],
+      [
+        "2020-11-15",
+        8228494,
+        "Contig",
+        "GCA_015476415.1"
+      ],
+      [
+        "2021-08-20",
+        6953386,
+        "Contig",
+        "GCA_903995575.2"
+      ],
+      [
+        "2020-10-20",
+        6953386,
+        "Contig",
+        "GCA_904060995.1"
+      ],
+      [
+        "2018-01-16",
+        6605884,
+        "Contig",
+        "GCA_002884475.1"
+      ],
+      [
+        "2015-04-30",
+        5550336,
+        "Contig",
+        "GCA_000983475.1"
+      ],
+      [
+        "2018-05-02",
+        5301524,
+        "Contig",
+        "GCA_003086635.1"
+      ],
+      [
+        "2016-01-28",
+        4525162,
+        "Contig",
+        "GCA_001542345.1"
+      ],
+      [
+        "2015-05-15",
+        4498608,
+        "Contig",
+        "GCA_001007805.1"
+      ],
+      [
+        "2015-01-21",
+        3945491,
+        "Contig",
+        "GCA_000772585.3"
+      ],
+      [
+        "2019-08-01",
+        3421995,
+        "Contig",
+        "GCA_007821485.1"
+      ],
+      [
+        "2019-09-19",
+        3228826,
+        "Contig",
+        "GCA_008583285.1"
+      ],
+      [
+        "2020-02-14",
+        1956558,
+        "Contig",
+        "GCA_010646975.1"
+      ],
+      [
+        "2020-02-14",
+        1956515,
+        "Contig",
+        "GCA_010645205.1"
+      ],
+      [
+        "2020-02-14",
+        1956431,
+        "Contig",
+        "GCA_010646935.1"
+      ],
+      [
+        "2015-05-29",
+        1557716,
+        "Scaffold",
+        "GCA_001013985.1"
+      ],
+      [
+        "2016-02-16",
+        1039719,
+        "Contig",
+        "GCA_001549595.1"
+      ],
+      [
+        "2016-02-16",
+        916048,
+        "Contig",
+        "GCA_001549605.1"
+      ],
+      [
+        "2017-03-06",
+        535534,
+        "Scaffold",
+        "GCA_002008905.1"
+      ],
+      [
+        "2025-12-31",
+        463806,
+        "Scaffold",
+        "GCA_054252595.1"
+      ],
+      [
+        "2025-12-31",
+        418334,
+        "Contig",
+        "GCA_054252535.1"
+      ],
+      [
+        "2020-10-29",
+        196568,
+        "Scaffold",
+        "GCA_015129125.1"
+      ],
+      [
+        "2020-10-29",
+        196406,
+        "Scaffold",
+        "GCA_015128985.1"
+      ],
+      [
+        "2020-10-30",
+        196014,
+        "Scaffold",
+        "GCA_015156275.1"
+      ],
+      [
+        "2020-10-30",
+        195689,
+        "Scaffold",
+        "GCA_015156255.1"
+      ],
+      [
+        "2020-10-29",
+        195674,
+        "Scaffold",
+        "GCA_015121945.1"
+      ],
+      [
+        "2020-10-29",
+        195614,
+        "Scaffold",
+        "GCA_015128265.1"
+      ],
+      [
+        "2020-10-29",
+        195273,
+        "Scaffold",
+        "GCA_015128305.1"
+      ],
+      [
+        "2020-10-29",
+        195249,
+        "Scaffold",
+        "GCA_015121925.1"
+      ],
+      [
+        "2020-10-29",
+        194930,
+        "Scaffold",
+        "GCA_015128845.1"
+      ],
+      [
+        "2020-10-29",
+        194877,
+        "Scaffold",
+        "GCA_015129205.1"
+      ],
+      [
+        "2020-10-29",
+        194819,
+        "Scaffold",
+        "GCA_015129225.1"
+      ],
+      [
+        "2020-10-29",
+        194732,
+        "Scaffold",
+        "GCA_015128865.1"
+      ],
+      [
+        "2020-10-29",
+        194722,
+        "Scaffold",
+        "GCA_015129085.1"
+      ],
+      [
+        "2020-10-30",
+        194567,
+        "Scaffold",
+        "GCA_015155735.1"
+      ],
+      [
+        "2020-10-29",
+        194470,
+        "Scaffold",
+        "GCA_015129105.1"
+      ],
+      [
+        "2020-10-29",
+        194417,
+        "Scaffold",
+        "GCA_015129065.1"
+      ],
+      [
+        "2020-10-30",
+        194000,
+        "Scaffold",
+        "GCA_015156195.1"
+      ],
+      [
+        "2020-10-30",
+        193870,
+        "Scaffold",
+        "GCA_015156095.1"
+      ],
+      [
+        "2020-10-29",
+        193797,
+        "Scaffold",
+        "GCA_015129165.1"
+      ],
+      [
+        "2020-10-30",
+        193280,
+        "Scaffold",
+        "GCA_015156155.1"
+      ],
+      [
+        "2020-10-29",
+        192287,
+        "Scaffold",
+        "GCA_015126335.1"
+      ],
+      [
+        "2020-10-29",
+        192082,
+        "Scaffold",
+        "GCA_015126355.1"
+      ],
+      [
+        "2020-10-29",
+        191893,
+        "Scaffold",
+        "GCA_015127405.1"
+      ],
+      [
+        "2020-10-29",
+        191827,
+        "Scaffold",
+        "GCA_015127365.1"
+      ],
+      [
+        "2020-10-29",
+        190866,
+        "Scaffold",
+        "GCA_015126315.1"
+      ],
+      [
+        "2020-10-29",
+        190788,
+        "Scaffold",
+        "GCA_015126895.1"
+      ],
+      [
+        "2020-10-29",
+        190678,
+        "Scaffold",
+        "GCA_015127485.1"
+      ],
+      [
+        "2020-10-29",
+        190050,
+        "Scaffold",
+        "GCA_015126375.1"
+      ],
+      [
+        "2020-10-29",
+        189547,
+        "Scaffold",
+        "GCA_015126935.1"
+      ],
+      [
+        "2020-10-29",
+        189435,
+        "Scaffold",
+        "GCA_015126955.1"
+      ],
+      [
+        "2020-10-29",
+        189192,
+        "Scaffold",
+        "GCA_015128285.1"
+      ],
+      [
+        "2020-10-29",
+        188919,
+        "Scaffold",
+        "GCA_015128325.1"
+      ],
+      [
+        "2020-10-30",
+        187522,
+        "Scaffold",
+        "GCA_015156235.1"
+      ],
+      [
+        "2020-10-30",
+        187289,
+        "Scaffold",
+        "GCA_015156715.1"
+      ],
+      [
+        "2020-10-29",
+        186502,
+        "Scaffold",
+        "GCA_015124935.1"
+      ],
+      [
+        "2020-10-29",
+        186100,
+        "Scaffold",
+        "GCA_015125315.1"
+      ],
+      [
+        "2020-10-29",
+        186007,
+        "Scaffold",
+        "GCA_015124505.1"
+      ],
+      [
+        "2020-10-29",
+        185781,
+        "Scaffold",
+        "GCA_015124955.1"
+      ],
+      [
+        "2020-10-30",
+        185539,
+        "Scaffold",
+        "GCA_015159535.1"
+      ],
+      [
+        "2020-10-30",
+        185382,
+        "Scaffold",
+        "GCA_015159515.1"
+      ],
+      [
+        "2020-10-29",
+        185364,
+        "Scaffold",
+        "GCA_015075955.1"
+      ],
+      [
+        "2020-10-30",
+        185041,
+        "Scaffold",
+        "GCA_015159405.1"
+      ],
+      [
+        "2020-10-30",
+        184860,
+        "Scaffold",
+        "GCA_015159385.1"
+      ],
+      [
+        "2020-10-29",
+        184820,
+        "Scaffold",
+        "GCA_015076005.1"
+      ],
+      [
+        "2020-10-29",
+        184015,
+        "Scaffold",
+        "GCA_015125495.1"
+      ],
+      [
+        "2020-10-30",
+        183959,
+        "Scaffold",
+        "GCA_015150555.1"
+      ],
+      [
+        "2020-10-29",
+        183858,
+        "Scaffold",
+        "GCA_015098215.1"
+      ],
+      [
+        "2020-10-30",
+        183759,
+        "Scaffold",
+        "GCA_015149745.1"
+      ],
+      [
+        "2020-10-29",
+        183734,
+        "Scaffold",
+        "GCA_015124455.1"
+      ],
+      [
+        "2020-10-30",
+        183728,
+        "Scaffold",
+        "GCA_015150615.1"
+      ],
+      [
+        "2020-10-29",
+        183712,
+        "Scaffold",
+        "GCA_015098175.1"
+      ],
+      [
+        "2020-10-29",
+        183573,
+        "Scaffold",
+        "GCA_015129715.1"
+      ],
+      [
+        "2020-10-29",
+        183473,
+        "Scaffold",
+        "GCA_015125435.1"
+      ],
+      [
+        "2020-10-30",
+        183360,
+        "Scaffold",
+        "GCA_015158525.1"
+      ],
+      [
+        "2020-10-29",
+        183185,
+        "Scaffold",
+        "GCA_015124495.1"
+      ],
+      [
+        "2020-10-29",
+        183099,
+        "Scaffold",
+        "GCA_015129835.1"
+      ],
+      [
+        "2020-10-30",
+        183067,
+        "Scaffold",
+        "GCA_015158555.1"
+      ],
+      [
+        "2020-10-29",
+        182966,
+        "Scaffold",
+        "GCA_015129375.1"
+      ],
+      [
+        "2020-10-30",
+        182890,
+        "Scaffold",
+        "GCA_015151915.1"
+      ],
+      [
+        "2020-10-29",
+        182875,
+        "Scaffold",
+        "GCA_015129185.1"
+      ],
+      [
+        "2020-10-30",
+        182756,
+        "Scaffold",
+        "GCA_015149575.1"
+      ],
+      [
+        "2020-10-30",
+        182753,
+        "Scaffold",
+        "GCA_015151895.1"
+      ],
+      [
+        "2020-10-30",
+        182708,
+        "Scaffold",
+        "GCA_015149805.1"
+      ],
+      [
+        "2020-10-29",
+        182626,
+        "Scaffold",
+        "GCA_015125335.1"
+      ],
+      [
+        "2020-10-29",
+        182526,
+        "Scaffold",
+        "GCA_015129385.1"
+      ],
+      [
+        "2020-10-30",
+        182523,
+        "Scaffold",
+        "GCA_015149545.1"
+      ],
+      [
+        "2020-10-30",
+        182456,
+        "Scaffold",
+        "GCA_015158375.1"
+      ],
+      [
+        "2020-10-29",
+        182447,
+        "Scaffold",
+        "GCA_015129145.1"
+      ],
+      [
+        "2020-10-30",
+        182417,
+        "Scaffold",
+        "GCA_015158515.1"
+      ],
+      [
+        "2020-10-29",
+        182389,
+        "Scaffold",
+        "GCA_015121905.1"
+      ],
+      [
+        "2020-10-29",
+        182289,
+        "Scaffold",
+        "GCA_015129475.1"
+      ],
+      [
+        "2020-10-29",
+        182266,
+        "Scaffold",
+        "GCA_015129675.1"
+      ],
+      [
+        "2020-10-29",
+        182186,
+        "Scaffold",
+        "GCA_015124575.1"
+      ],
+      [
+        "2020-10-29",
+        182163,
+        "Scaffold",
+        "GCA_015125355.1"
+      ],
+      [
+        "2020-10-29",
+        182052,
+        "Scaffold",
+        "GCA_015129575.1"
+      ],
+      [
+        "2020-10-29",
+        181991,
+        "Scaffold",
+        "GCA_015117995.1"
+      ],
+      [
+        "2020-10-29",
+        181956,
+        "Scaffold",
+        "GCA_015129415.1"
+      ],
+      [
+        "2020-10-29",
+        181940,
+        "Scaffold",
+        "GCA_015095815.1"
+      ],
+      [
+        "2020-10-29",
+        181785,
+        "Scaffold",
+        "GCA_015129815.1"
+      ],
+      [
+        "2020-10-29",
+        181768,
+        "Scaffold",
+        "GCA_015129655.1"
+      ],
+      [
+        "2020-10-29",
+        181749,
+        "Scaffold",
+        "GCA_015129455.1"
+      ],
+      [
+        "2020-10-29",
+        181708,
+        "Scaffold",
+        "GCA_015112895.1"
+      ],
+      [
+        "2020-10-29",
+        181603,
+        "Scaffold",
+        "GCA_015129495.1"
+      ],
+      [
+        "2020-10-30",
+        181575,
+        "Scaffold",
+        "GCA_015143275.1"
+      ],
+      [
+        "2020-10-30",
+        181563,
+        "Scaffold",
+        "GCA_015149785.1"
+      ],
+      [
+        "2020-10-30",
+        181543,
+        "Scaffold",
+        "GCA_015149825.1"
+      ],
+      [
+        "2020-10-30",
+        181423,
+        "Scaffold",
+        "GCA_015150635.1"
+      ],
+      [
+        "2020-10-29",
+        181399,
+        "Scaffold",
+        "GCA_015095775.1"
+      ],
+      [
+        "2020-10-29",
+        181336,
+        "Scaffold",
+        "GCA_015129435.1"
+      ],
+      [
+        "2020-10-29",
+        181298,
+        "Scaffold",
+        "GCA_015129315.1"
+      ],
+      [
+        "2020-10-29",
+        181256,
+        "Scaffold",
+        "GCA_015119835.1"
+      ],
+      [
+        "2020-10-29",
+        181201,
+        "Scaffold",
+        "GCA_015129615.1"
+      ],
+      [
+        "2020-10-30",
+        181140,
+        "Scaffold",
+        "GCA_015150595.1"
+      ],
+      [
+        "2020-10-29",
+        181038,
+        "Scaffold",
+        "GCA_015119915.1"
+      ],
+      [
+        "2020-10-30",
+        180974,
+        "Scaffold",
+        "GCA_015151975.1"
+      ],
+      [
+        "2020-10-30",
+        180680,
+        "Scaffold",
+        "GCA_015151935.1"
+      ],
+      [
+        "2020-10-30",
+        180369,
+        "Scaffold",
+        "GCA_015143305.1"
+      ],
+      [
+        "2020-10-29",
+        180208,
+        "Scaffold",
+        "GCA_015129005.1"
+      ],
+      [
+        "2020-10-29",
+        180196,
+        "Scaffold",
+        "GCA_015129025.1"
+      ],
+      [
+        "2020-10-29",
+        180030,
+        "Scaffold",
+        "GCA_015129295.1"
+      ],
+      [
+        "2020-10-30",
+        179869,
+        "Scaffold",
+        "GCA_015149845.1"
+      ],
+      [
+        "2020-10-30",
+        179842,
+        "Scaffold",
+        "GCA_015152155.1"
+      ],
+      [
+        "2020-10-30",
+        179781,
+        "Scaffold",
+        "GCA_015152315.1"
+      ],
+      [
+        "2020-10-29",
+        179742,
+        "Scaffold",
+        "GCA_015121845.1"
+      ],
+      [
+        "2020-10-30",
+        179689,
+        "Scaffold",
+        "GCA_015150535.1"
+      ],
+      [
+        "2020-10-29",
+        179600,
+        "Scaffold",
+        "GCA_015129595.1"
+      ],
+      [
+        "2020-10-30",
+        179414,
+        "Scaffold",
+        "GCA_015149725.1"
+      ],
+      [
+        "2020-10-29",
+        179322,
+        "Scaffold",
+        "GCA_015129555.1"
+      ],
+      [
+        "2020-10-30",
+        179307,
+        "Scaffold",
+        "GCA_015150475.1"
+      ],
+      [
+        "2020-10-29",
+        179242,
+        "Scaffold",
+        "GCA_015121585.1"
+      ],
+      [
+        "2020-10-29",
+        179186,
+        "Scaffold",
+        "GCA_015129535.1"
+      ],
+      [
+        "2020-10-30",
+        179005,
+        "Scaffold",
+        "GCA_015150655.1"
+      ],
+      [
+        "2020-10-29",
+        178989,
+        "Scaffold",
+        "GCA_015121825.1"
+      ],
+      [
+        "2020-10-29",
+        178988,
+        "Scaffold",
+        "GCA_015129515.1"
+      ],
+      [
+        "2020-10-29",
+        178944,
+        "Scaffold",
+        "GCA_015121605.1"
+      ],
+      [
+        "2020-10-30",
+        178782,
+        "Scaffold",
+        "GCA_015150015.1"
+      ],
+      [
+        "2020-10-30",
+        178609,
+        "Scaffold",
+        "GCA_015149705.1"
+      ],
+      [
+        "2020-10-30",
+        178606,
+        "Scaffold",
+        "GCA_015146925.1"
+      ],
+      [
+        "2020-10-30",
+        178504,
+        "Scaffold",
+        "GCA_015147305.1"
+      ],
+      [
+        "2020-10-30",
+        178449,
+        "Scaffold",
+        "GCA_015150815.1"
+      ],
+      [
+        "2020-10-30",
+        178428,
+        "Scaffold",
+        "GCA_015152365.1"
+      ],
+      [
+        "2020-10-30",
+        178326,
+        "Scaffold",
+        "GCA_015152095.1"
+      ],
+      [
+        "2020-10-30",
+        177924,
+        "Scaffold",
+        "GCA_015150035.1"
+      ],
+      [
+        "2020-10-30",
+        177767,
+        "Scaffold",
+        "GCA_015150835.1"
+      ],
+      [
+        "2020-10-30",
+        177365,
+        "Scaffold",
+        "GCA_015152395.1"
+      ],
+      [
+        "2020-10-29",
+        177309,
+        "Scaffold",
+        "GCA_015128785.1"
+      ],
+      [
+        "2020-10-30",
+        177278,
+        "Scaffold",
+        "GCA_015152115.1"
+      ],
+      [
+        "2020-10-29",
+        177276,
+        "Scaffold",
+        "GCA_015128805.1"
+      ],
+      [
+        "2020-10-30",
+        177148,
+        "Scaffold",
+        "GCA_015149685.1"
+      ],
+      [
+        "2020-10-29",
+        177102,
+        "Scaffold",
+        "GCA_015129335.1"
+      ],
+      [
+        "2020-10-30",
+        177092,
+        "Scaffold",
+        "GCA_015152275.1"
+      ],
+      [
+        "2020-10-30",
+        177042,
+        "Scaffold",
+        "GCA_015152035.1"
+      ],
+      [
+        "2020-10-30",
+        177041,
+        "Scaffold",
+        "GCA_015146865.1"
+      ],
+      [
+        "2020-10-29",
+        177032,
+        "Scaffold",
+        "GCA_015104115.1"
+      ],
+      [
+        "2020-10-29",
+        177032,
+        "Scaffold",
+        "GCA_015129635.1"
+      ],
+      [
+        "2020-10-29",
+        176975,
+        "Scaffold",
+        "GCA_015129355.1"
+      ],
+      [
+        "2020-10-29",
+        176958,
+        "Scaffold",
+        "GCA_015119095.1"
+      ],
+      [
+        "2020-10-30",
+        176887,
+        "Scaffold",
+        "GCA_015150505.1"
+      ],
+      [
+        "2020-10-29",
+        176818,
+        "Scaffold",
+        "GCA_015119085.1"
+      ],
+      [
+        "2020-10-29",
+        176781,
+        "Scaffold",
+        "GCA_015129725.1"
+      ],
+      [
+        "2020-10-29",
+        176692,
+        "Scaffold",
+        "GCA_015104135.1"
+      ],
+      [
+        "2020-10-30",
+        176689,
+        "Scaffold",
+        "GCA_015147265.1"
+      ],
+      [
+        "2020-10-29",
+        176636,
+        "Scaffold",
+        "GCA_015129755.1"
+      ],
+      [
+        "2020-10-29",
+        176548,
+        "Scaffold",
+        "GCA_015129695.1"
+      ],
+      [
+        "2020-10-30",
+        176343,
+        "Scaffold",
+        "GCA_015147365.1"
+      ],
+      [
+        "2020-10-30",
+        176008,
+        "Scaffold",
+        "GCA_015144785.1"
+      ],
+      [
+        "2020-10-30",
+        175975,
+        "Scaffold",
+        "GCA_015144145.1"
+      ],
+      [
+        "2020-10-29",
+        175952,
+        "Scaffold",
+        "GCA_015129775.1"
+      ],
+      [
+        "2020-10-30",
+        175904,
+        "Scaffold",
+        "GCA_015146905.1"
+      ],
+      [
+        "2020-10-30",
+        175886,
+        "Scaffold",
+        "GCA_015146985.1"
+      ],
+      [
+        "2020-10-30",
+        175856,
+        "Scaffold",
+        "GCA_015149915.1"
+      ],
+      [
+        "2020-10-29",
+        175808,
+        "Scaffold",
+        "GCA_015129795.1"
+      ],
+      [
+        "2020-10-30",
+        175740,
+        "Scaffold",
+        "GCA_015150695.1"
+      ],
+      [
+        "2020-10-30",
+        175699,
+        "Scaffold",
+        "GCA_015152335.1"
+      ],
+      [
+        "2020-10-30",
+        175691,
+        "Scaffold",
+        "GCA_015158355.1"
+      ],
+      [
+        "2020-10-30",
+        175662,
+        "Scaffold",
+        "GCA_015147285.1"
+      ],
+      [
+        "2020-10-30",
+        175612,
+        "Scaffold",
+        "GCA_015152135.1"
+      ],
+      [
+        "2020-10-30",
+        175521,
+        "Scaffold",
+        "GCA_015149765.1"
+      ],
+      [
+        "2020-10-29",
+        175512,
+        "Scaffold",
+        "GCA_015121765.1"
+      ],
+      [
+        "2020-10-30",
+        175506,
+        "Scaffold",
+        "GCA_015150915.1"
+      ],
+      [
+        "2020-10-30",
+        175481,
+        "Scaffold",
+        "GCA_015150575.1"
+      ],
+      [
+        "2020-10-30",
+        175370,
+        "Scaffold",
+        "GCA_015146945.1"
+      ],
+      [
+        "2020-10-30",
+        175206,
+        "Scaffold",
+        "GCA_015150075.1"
+      ],
+      [
+        "2020-10-30",
+        175068,
+        "Scaffold",
+        "GCA_015144225.1"
+      ],
+      [
+        "2020-10-30",
+        174978,
+        "Scaffold",
+        "GCA_015158335.1"
+      ],
+      [
+        "2020-10-30",
+        174973,
+        "Scaffold",
+        "GCA_015144825.1"
+      ],
+      [
+        "2020-10-30",
+        174928,
+        "Scaffold",
+        "GCA_015150755.1"
+      ],
+      [
+        "2020-10-30",
+        174888,
+        "Scaffold",
+        "GCA_015149955.1"
+      ],
+      [
+        "2020-10-30",
+        174868,
+        "Scaffold",
+        "GCA_015147245.1"
+      ],
+      [
+        "2020-10-30",
+        174864,
+        "Scaffold",
+        "GCA_015150775.1"
+      ],
+      [
+        "2020-10-30",
+        174854,
+        "Scaffold",
+        "GCA_015152295.1"
+      ],
+      [
+        "2020-10-29",
+        174842,
+        "Scaffold",
+        "GCA_015121665.1"
+      ],
+      [
+        "2020-10-30",
+        174544,
+        "Scaffold",
+        "GCA_015150415.1"
+      ],
+      [
+        "2020-10-30",
+        174480,
+        "Scaffold",
+        "GCA_015152075.1"
+      ],
+      [
+        "2020-10-30",
+        174459,
+        "Scaffold",
+        "GCA_015149975.1"
+      ],
+      [
+        "2020-10-30",
+        174178,
+        "Scaffold",
+        "GCA_015149375.1"
+      ],
+      [
+        "2020-10-29",
+        174081,
+        "Scaffold",
+        "GCA_015125475.1"
+      ],
+      [
+        "2020-10-30",
+        174070,
+        "Scaffold",
+        "GCA_015155765.1"
+      ],
+      [
+        "2020-10-30",
+        174044,
+        "Scaffold",
+        "GCA_015151215.1"
+      ],
+      [
+        "2020-10-30",
+        174025,
+        "Scaffold",
+        "GCA_015155795.1"
+      ],
+      [
+        "2020-10-30",
+        173933,
+        "Scaffold",
+        "GCA_015148185.1"
+      ],
+      [
+        "2020-10-30",
+        173875,
+        "Scaffold",
+        "GCA_015144845.1"
+      ],
+      [
+        "2020-10-30",
+        173869,
+        "Scaffold",
+        "GCA_015149135.1"
+      ],
+      [
+        "2020-10-29",
+        173866,
+        "Scaffold",
+        "GCA_015118045.1"
+      ],
+      [
+        "2020-10-30",
+        173818,
+        "Scaffold",
+        "GCA_015149895.1"
+      ],
+      [
+        "2020-10-29",
+        173807,
+        "Scaffold",
+        "GCA_015125415.1"
+      ],
+      [
+        "2020-10-29",
+        173788,
+        "Scaffold",
+        "GCA_015117975.1"
+      ],
+      [
+        "2020-10-30",
+        173608,
+        "Scaffold",
+        "GCA_015150715.1"
+      ],
+      [
+        "2020-10-30",
+        173586,
+        "Scaffold",
+        "GCA_015149875.1"
+      ],
+      [
+        "2020-10-30",
+        173526,
+        "Scaffold",
+        "GCA_015150675.1"
+      ],
+      [
+        "2020-10-30",
+        173492,
+        "Scaffold",
+        "GCA_015150495.1"
+      ],
+      [
+        "2020-10-30",
+        173302,
+        "Scaffold",
+        "GCA_015152175.1"
+      ],
+      [
+        "2020-10-30",
+        173199,
+        "Scaffold",
+        "GCA_015144245.1"
+      ],
+      [
+        "2020-10-30",
+        173132,
+        "Scaffold",
+        "GCA_015148445.1"
+      ],
+      [
+        "2020-10-29",
+        173039,
+        "Scaffold",
+        "GCA_015104095.1"
+      ],
+      [
+        "2020-10-30",
+        172959,
+        "Scaffold",
+        "GCA_015150235.1"
+      ],
+      [
+        "2020-10-29",
+        172820,
+        "Scaffold",
+        "GCA_015104055.1"
+      ],
+      [
+        "2020-10-30",
+        172808,
+        "Scaffold",
+        "GCA_015150995.1"
+      ],
+      [
+        "2020-10-30",
+        172597,
+        "Scaffold",
+        "GCA_015150355.1"
+      ],
+      [
+        "2020-10-30",
+        172463,
+        "Scaffold",
+        "GCA_015152215.1"
+      ],
+      [
+        "2020-10-30",
+        172446,
+        "Scaffold",
+        "GCA_015152015.1"
+      ],
+      [
+        "2020-10-30",
+        172443,
+        "Scaffold",
+        "GCA_015151175.1"
+      ],
+      [
+        "2020-10-30",
+        172422,
+        "Scaffold",
+        "GCA_015148405.1"
+      ],
+      [
+        "2020-10-30",
+        172368,
+        "Scaffold",
+        "GCA_015145875.1"
+      ],
+      [
+        "2020-10-30",
+        172301,
+        "Scaffold",
+        "GCA_015146075.1"
+      ],
+      [
+        "2020-10-30",
+        172245,
+        "Scaffold",
+        "GCA_015149095.1"
+      ],
+      [
+        "2020-10-30",
+        172239,
+        "Scaffold",
+        "GCA_015149355.1"
+      ],
+      [
+        "2020-10-30",
+        172234,
+        "Scaffold",
+        "GCA_015149295.1"
+      ],
+      [
+        "2020-10-30",
+        172137,
+        "Scaffold",
+        "GCA_015149435.1"
+      ],
+      [
+        "2020-10-30",
+        172091,
+        "Scaffold",
+        "GCA_015148155.1"
+      ],
+      [
+        "2020-10-30",
+        172063,
+        "Scaffold",
+        "GCA_015149455.1"
+      ],
+      [
+        "2020-10-30",
+        172023,
+        "Scaffold",
+        "GCA_015156295.1"
+      ],
+      [
+        "2020-10-29",
+        171967,
+        "Scaffold",
+        "GCA_015109015.1"
+      ],
+      [
+        "2020-10-30",
+        171901,
+        "Scaffold",
+        "GCA_015149195.1"
+      ],
+      [
+        "2020-10-30",
+        171883,
+        "Scaffold",
+        "GCA_015149115.1"
+      ],
+      [
+        "2020-10-30",
+        171869,
+        "Scaffold",
+        "GCA_015145485.1"
+      ],
+      [
+        "2020-10-29",
+        171836,
+        "Scaffold",
+        "GCA_015074505.1"
+      ],
+      [
+        "2020-10-29",
+        171801,
+        "Scaffold",
+        "GCA_015109075.1"
+      ],
+      [
+        "2020-10-30",
+        171766,
+        "Scaffold",
+        "GCA_015145125.1"
+      ],
+      [
+        "2020-10-29",
+        171620,
+        "Scaffold",
+        "GCA_015074525.1"
+      ],
+      [
+        "2020-10-30",
+        171546,
+        "Scaffold",
+        "GCA_015149335.1"
+      ],
+      [
+        "2020-10-30",
+        171518,
+        "Scaffold",
+        "GCA_015148285.1"
+      ],
+      [
+        "2020-10-29",
+        171504,
+        "Scaffold",
+        "GCA_015121865.1"
+      ],
+      [
+        "2020-10-30",
+        171501,
+        "Scaffold",
+        "GCA_015150215.1"
+      ],
+      [
+        "2020-10-30",
+        171494,
+        "Scaffold",
+        "GCA_015149075.1"
+      ],
+      [
+        "2020-10-30",
+        171463,
+        "Scaffold",
+        "GCA_015147705.1"
+      ],
+      [
+        "2020-10-30",
+        171421,
+        "Scaffold",
+        "GCA_015150335.1"
+      ],
+      [
+        "2020-10-30",
+        171396,
+        "Scaffold",
+        "GCA_015151035.1"
+      ],
+      [
+        "2020-10-30",
+        171389,
+        "Scaffold",
+        "GCA_015151135.1"
+      ],
+      [
+        "2020-10-29",
+        171375,
+        "Scaffold",
+        "GCA_015128245.1"
+      ],
+      [
+        "2020-10-30",
+        171231,
+        "Scaffold",
+        "GCA_015150375.1"
+      ],
+      [
+        "2020-10-30",
+        171231,
+        "Scaffold",
+        "GCA_015151195.1"
+      ],
+      [
+        "2020-10-30",
+        171127,
+        "Scaffold",
+        "GCA_015150115.1"
+      ],
+      [
+        "2020-10-29",
+        170966,
+        "Scaffold",
+        "GCA_015121875.1"
+      ],
+      [
+        "2020-10-30",
+        170961,
+        "Scaffold",
+        "GCA_015149415.1"
+      ],
+      [
+        "2020-10-30",
+        170840,
+        "Scaffold",
+        "GCA_015148365.1"
+      ],
+      [
+        "2020-10-29",
+        170808,
+        "Scaffold",
+        "GCA_015074745.1"
+      ],
+      [
+        "2020-10-29",
+        170770,
+        "Scaffold",
+        "GCA_015128225.1"
+      ],
+      [
+        "2020-10-30",
+        170761,
+        "Scaffold",
+        "GCA_015149175.1"
+      ],
+      [
+        "2020-10-30",
+        170759,
+        "Scaffold",
+        "GCA_015150895.1"
+      ],
+      [
+        "2020-10-29",
+        170547,
+        "Scaffold",
+        "GCA_015074605.1"
+      ],
+      [
+        "2020-10-30",
+        170524,
+        "Scaffold",
+        "GCA_015148075.1"
+      ],
+      [
+        "2020-10-30",
+        170503,
+        "Scaffold",
+        "GCA_015151075.1"
+      ],
+      [
+        "2020-10-29",
+        170500,
+        "Scaffold",
+        "GCA_015093255.1"
+      ],
+      [
+        "2020-10-30",
+        170355,
+        "Scaffold",
+        "GCA_015148205.1"
+      ],
+      [
+        "2020-10-29",
+        170344,
+        "Scaffold",
+        "GCA_015121785.1"
+      ],
+      [
+        "2020-10-30",
+        170327,
+        "Scaffold",
+        "GCA_015148265.1"
+      ],
+      [
+        "2020-10-30",
+        170327,
+        "Scaffold",
+        "GCA_015148545.1"
+      ],
+      [
+        "2020-10-30",
+        170258,
+        "Scaffold",
+        "GCA_015143175.1"
+      ],
+      [
+        "2020-10-30",
+        170110,
+        "Scaffold",
+        "GCA_015149395.1"
+      ],
+      [
+        "2020-10-30",
+        170049,
+        "Scaffold",
+        "GCA_015149155.1"
+      ],
+      [
+        "2020-10-29",
+        169969,
+        "Scaffold",
+        "GCA_015093275.1"
+      ],
+      [
+        "2020-10-30",
+        169909,
+        "Scaffold",
+        "GCA_015148465.1"
+      ],
+      [
+        "2020-10-30",
+        169903,
+        "Scaffold",
+        "GCA_015152195.1"
+      ],
+      [
+        "2020-10-30",
+        169848,
+        "Scaffold",
+        "GCA_015150295.1"
+      ],
+      [
+        "2020-10-30",
+        169816,
+        "Scaffold",
+        "GCA_015151955.1"
+      ],
+      [
+        "2020-10-29",
+        169812,
+        "Scaffold",
+        "GCA_015121725.1"
+      ],
+      [
+        "2020-10-30",
+        169793,
+        "Scaffold",
+        "GCA_015145145.1"
+      ],
+      [
+        "2020-10-29",
+        169782,
+        "Scaffold",
+        "GCA_015095855.1"
+      ],
+      [
+        "2020-10-29",
+        169733,
+        "Scaffold",
+        "GCA_015076025.1"
+      ],
+      [
+        "2020-10-30",
+        169707,
+        "Scaffold",
+        "GCA_015144705.1"
+      ],
+      [
+        "2020-10-30",
+        169631,
+        "Scaffold",
+        "GCA_015144745.1"
+      ],
+      [
+        "2020-10-30",
+        169600,
+        "Scaffold",
+        "GCA_015146745.1"
+      ],
+      [
+        "2020-10-29",
+        169589,
+        "Scaffold",
+        "GCA_015076045.1"
+      ],
+      [
+        "2020-10-29",
+        169231,
+        "Scaffold",
+        "GCA_015129255.1"
+      ],
+      [
+        "2020-10-29",
+        169187,
+        "Scaffold",
+        "GCA_015129275.1"
+      ],
+      [
+        "2020-10-30",
+        169151,
+        "Scaffold",
+        "GCA_015151235.1"
+      ],
+      [
+        "2020-10-30",
+        169148,
+        "Scaffold",
+        "GCA_015146395.1"
+      ],
+      [
+        "2020-10-30",
+        169071,
+        "Scaffold",
+        "GCA_015157055.1"
+      ],
+      [
+        "2020-10-30",
+        169057,
+        "Scaffold",
+        "GCA_015144125.1"
+      ],
+      [
+        "2020-10-30",
+        169015,
+        "Scaffold",
+        "GCA_015152055.1"
+      ],
+      [
+        "2020-10-30",
+        168948,
+        "Scaffold",
+        "GCA_015148135.1"
+      ],
+      [
+        "2020-10-30",
+        168891,
+        "Scaffold",
+        "GCA_015148425.1"
+      ],
+      [
+        "2020-10-30",
+        168847,
+        "Scaffold",
+        "GCA_015150385.1"
+      ],
+      [
+        "2020-10-30",
+        168779,
+        "Scaffold",
+        "GCA_015152235.1"
+      ],
+      [
+        "2020-10-30",
+        168754,
+        "Scaffold",
+        "GCA_015157095.1"
+      ],
+      [
+        "2020-10-29",
+        168602,
+        "Scaffold",
+        "GCA_015121485.1"
+      ],
+      [
+        "2020-10-29",
+        168552,
+        "Scaffold",
+        "GCA_015120625.1"
+      ],
+      [
+        "2020-10-30",
+        168427,
+        "Scaffold",
+        "GCA_015151155.1"
+      ],
+      [
+        "2020-10-30",
+        168325,
+        "Scaffold",
+        "GCA_015149935.1"
+      ],
+      [
+        "2020-10-30",
+        168175,
+        "Scaffold",
+        "GCA_015144285.1"
+      ],
+      [
+        "2020-10-29",
+        168119,
+        "Scaffold",
+        "GCA_015112955.1"
+      ],
+      [
+        "2020-10-30",
+        168115,
+        "Scaffold",
+        "GCA_015150735.1"
+      ],
+      [
+        "2020-10-30",
+        168006,
+        "Scaffold",
+        "GCA_015151995.1"
+      ],
+      [
+        "2020-10-30",
+        167978,
+        "Scaffold",
+        "GCA_015152255.1"
+      ],
+      [
+        "2020-10-29",
+        167946,
+        "Scaffold",
+        "GCA_015112875.1"
+      ],
+      [
+        "2020-10-30",
+        167941,
+        "Scaffold",
+        "GCA_015148115.1"
+      ],
+      [
+        "2020-10-30",
+        167940,
+        "Scaffold",
+        "GCA_015148385.1"
+      ],
+      [
+        "2020-10-30",
+        167927,
+        "Scaffold",
+        "GCA_015149005.1"
+      ],
+      [
+        "2020-10-30",
+        167867,
+        "Scaffold",
+        "GCA_015144905.1"
+      ],
+      [
+        "2020-10-29",
+        167504,
+        "Scaffold",
+        "GCA_015074685.1"
+      ],
+      [
+        "2020-10-30",
+        167443,
+        "Scaffold",
+        "GCA_015150955.1"
+      ],
+      [
+        "2020-10-29",
+        167436,
+        "Scaffold",
+        "GCA_015074645.1"
+      ],
+      [
+        "2020-10-30",
+        167429,
+        "Scaffold",
+        "GCA_015157255.1"
+      ],
+      [
+        "2020-10-30",
+        167406,
+        "Scaffold",
+        "GCA_015150275.1"
+      ],
+      [
+        "2020-10-29",
+        167335,
+        "Scaffold",
+        "GCA_015128905.1"
+      ],
+      [
+        "2020-10-29",
+        167321,
+        "Scaffold",
+        "GCA_015128965.1"
+      ],
+      [
+        "2020-10-30",
+        167275,
+        "Scaffold",
+        "GCA_015157295.1"
+      ],
+      [
+        "2020-10-30",
+        167148,
+        "Scaffold",
+        "GCA_015150195.1"
+      ],
+      [
+        "2020-10-30",
+        167130,
+        "Scaffold",
+        "GCA_015151015.1"
+      ],
+      [
+        "2020-10-30",
+        167046,
+        "Scaffold",
+        "GCA_015149515.1"
+      ],
+      [
+        "2020-10-29",
+        166998,
+        "Scaffold",
+        "GCA_015128945.1"
+      ],
+      [
+        "2020-10-30",
+        166985,
+        "Scaffold",
+        "GCA_015151095.1"
+      ],
+      [
+        "2020-10-29",
+        166933,
+        "Scaffold",
+        "GCA_015128925.1"
+      ],
+      [
+        "2020-10-30",
+        166925,
+        "Scaffold",
+        "GCA_015149035.1"
+      ],
+      [
+        "2020-10-30",
+        166902,
+        "Scaffold",
+        "GCA_015151055.1"
+      ],
+      [
+        "2020-10-30",
+        166838,
+        "Scaffold",
+        "GCA_015150435.1"
+      ],
+      [
+        "2020-10-30",
+        166800,
+        "Scaffold",
+        "GCA_015149315.1"
+      ],
+      [
+        "2020-10-30",
+        166783,
+        "Scaffold",
+        "GCA_015150315.1"
+      ],
+      [
+        "2020-10-30",
+        166712,
+        "Scaffold",
+        "GCA_015150175.1"
+      ],
+      [
+        "2020-10-30",
+        166679,
+        "Scaffold",
+        "GCA_015149215.1"
+      ],
+      [
+        "2020-10-30",
+        166665,
+        "Scaffold",
+        "GCA_015151255.1"
+      ],
+      [
+        "2020-10-30",
+        166660,
+        "Scaffold",
+        "GCA_015145405.1"
+      ],
+      [
+        "2020-10-30",
+        166377,
+        "Scaffold",
+        "GCA_015145685.1"
+      ],
+      [
+        "2020-10-30",
+        166312,
+        "Scaffold",
+        "GCA_015145465.1"
+      ],
+      [
+        "2020-10-29",
+        166196,
+        "Scaffold",
+        "GCA_015120235.1"
+      ],
+      [
+        "2020-10-30",
+        166170,
+        "Scaffold",
+        "GCA_015144185.1"
+      ],
+      [
+        "2020-10-30",
+        166109,
+        "Scaffold",
+        "GCA_015144805.1"
+      ],
+      [
+        "2020-10-30",
+        166092,
+        "Scaffold",
+        "GCA_015146495.1"
+      ],
+      [
+        "2020-10-29",
+        166027,
+        "Scaffold",
+        "GCA_015120275.1"
+      ],
+      [
+        "2020-10-30",
+        165987,
+        "Scaffold",
+        "GCA_015144045.1"
+      ],
+      [
+        "2020-10-30",
+        165950,
+        "Scaffold",
+        "GCA_015150135.1"
+      ],
+      [
+        "2020-10-30",
+        165787,
+        "Scaffold",
+        "GCA_015150935.1"
+      ],
+      [
+        "2020-10-30",
+        165648,
+        "Scaffold",
+        "GCA_015146235.1"
+      ],
+      [
+        "2020-10-30",
+        165578,
+        "Scaffold",
+        "GCA_015144685.1"
+      ],
+      [
+        "2020-10-30",
+        165533,
+        "Scaffold",
+        "GCA_015143195.1"
+      ],
+      [
+        "2020-10-30",
+        165514,
+        "Scaffold",
+        "GCA_015149275.1"
+      ],
+      [
+        "2020-10-30",
+        165461,
+        "Scaffold",
+        "GCA_015144085.1"
+      ],
+      [
+        "2020-10-30",
+        165426,
+        "Scaffold",
+        "GCA_015149255.1"
+      ],
+      [
+        "2020-10-30",
+        165346,
+        "Scaffold",
+        "GCA_015148325.1"
+      ],
+      [
+        "2020-10-29",
+        165177,
+        "Scaffold",
+        "GCA_015128825.1"
+      ],
+      [
+        "2020-10-30",
+        165096,
+        "Scaffold",
+        "GCA_015145725.1"
+      ],
+      [
+        "2020-10-30",
+        165051,
+        "Scaffold",
+        "GCA_015145365.1"
+      ],
+      [
+        "2020-10-30",
+        164936,
+        "Scaffold",
+        "GCA_015148335.1"
+      ],
+      [
+        "2020-10-30",
+        164897,
+        "Scaffold",
+        "GCA_015150455.1"
+      ],
+      [
+        "2020-10-30",
+        164830,
+        "Scaffold",
+        "GCA_015146585.1"
+      ],
+      [
+        "2020-10-30",
+        164813,
+        "Scaffold",
+        "GCA_015146275.1"
+      ],
+      [
+        "2020-10-30",
+        164778,
+        "Scaffold",
+        "GCA_015146375.1"
+      ],
+      [
+        "2020-10-30",
+        164765,
+        "Scaffold",
+        "GCA_015149235.1"
+      ],
+      [
+        "2020-10-30",
+        164748,
+        "Scaffold",
+        "GCA_015148485.1"
+      ],
+      [
+        "2020-10-30",
+        164677,
+        "Scaffold",
+        "GCA_015143215.1"
+      ],
+      [
+        "2020-10-30",
+        164469,
+        "Scaffold",
+        "GCA_015146535.1"
+      ],
+      [
+        "2020-10-30",
+        164406,
+        "Scaffold",
+        "GCA_015148225.1"
+      ],
+      [
+        "2020-10-29",
+        164370,
+        "Scaffold",
+        "GCA_015086795.1"
+      ],
+      [
+        "2020-10-30",
+        164350,
+        "Scaffold",
+        "GCA_015146635.1"
+      ],
+      [
+        "2020-10-30",
+        164331,
+        "Scaffold",
+        "GCA_015146825.1"
+      ],
+      [
+        "2020-10-30",
+        164198,
+        "Scaffold",
+        "GCA_015144325.1"
+      ],
+      [
+        "2020-10-30",
+        164018,
+        "Scaffold",
+        "GCA_015157215.1"
+      ],
+      [
+        "2020-10-30",
+        164015,
+        "Scaffold",
+        "GCA_015144945.1"
+      ],
+      [
+        "2020-10-29",
+        163827,
+        "Scaffold",
+        "GCA_015121685.1"
+      ],
+      [
+        "2020-10-30",
+        163787,
+        "Scaffold",
+        "GCA_015159335.1"
+      ],
+      [
+        "2020-10-30",
+        163645,
+        "Scaffold",
+        "GCA_015159365.1"
+      ],
+      [
+        "2020-10-29",
+        163628,
+        "Scaffold",
+        "GCA_015112915.1"
+      ],
+      [
+        "2020-10-30",
+        163604,
+        "Scaffold",
+        "GCA_015144925.1"
+      ],
+      [
+        "2020-10-29",
+        163568,
+        "Scaffold",
+        "GCA_015121805.1"
+      ],
+      [
+        "2020-10-29",
+        163415,
+        "Scaffold",
+        "GCA_015112935.1"
+      ],
+      [
+        "2020-10-30",
+        163376,
+        "Scaffold",
+        "GCA_015158305.1"
+      ],
+      [
+        "2020-10-30",
+        163358,
+        "Scaffold",
+        "GCA_015148505.1"
+      ],
+      [
+        "2020-10-30",
+        163349,
+        "Scaffold",
+        "GCA_015144305.1"
+      ],
+      [
+        "2020-10-29",
+        163276,
+        "Scaffold",
+        "GCA_015105875.1"
+      ],
+      [
+        "2020-10-30",
+        163240,
+        "Scaffold",
+        "GCA_015147565.1"
+      ],
+      [
+        "2020-10-29",
+        163214,
+        "Scaffold",
+        "GCA_015075605.1"
+      ],
+      [
+        "2020-10-30",
+        163106,
+        "Scaffold",
+        "GCA_015148525.1"
+      ],
+      [
+        "2020-10-30",
+        163051,
+        "Scaffold",
+        "GCA_015148245.1"
+      ],
+      [
+        "2020-10-30",
+        163007,
+        "Scaffold",
+        "GCA_015159255.1"
+      ],
+      [
+        "2020-10-30",
+        162999,
+        "Scaffold",
+        "GCA_015159215.1"
+      ],
+      [
+        "2020-10-30",
+        162986,
+        "Scaffold",
+        "GCA_015148305.1"
+      ],
+      [
+        "2020-10-30",
+        162908,
+        "Scaffold",
+        "GCA_015147825.1"
+      ],
+      [
+        "2020-10-29",
+        162892,
+        "Scaffold",
+        "GCA_015074965.1"
+      ],
+      [
+        "2020-10-29",
+        162852,
+        "Scaffold",
+        "GCA_015100085.1"
+      ],
+      [
+        "2020-10-29",
+        162773,
+        "Scaffold",
+        "GCA_015100035.1"
+      ],
+      [
+        "2020-10-30",
+        162700,
+        "Scaffold",
+        "GCA_015147225.1"
+      ],
+      [
+        "2020-10-30",
+        162685,
+        "Scaffold",
+        "GCA_015147585.1"
+      ],
+      [
+        "2020-10-30",
+        162662,
+        "Scaffold",
+        "GCA_015147805.1"
+      ],
+      [
+        "2020-10-29",
+        162643,
+        "Scaffold",
+        "GCA_015105835.1"
+      ],
+      [
+        "2020-10-29",
+        162494,
+        "Scaffold",
+        "GCA_015121425.1"
+      ],
+      [
+        "2020-10-29",
+        162435,
+        "Scaffold",
+        "GCA_015121545.1"
+      ],
+      [
+        "2020-10-30",
+        162418,
+        "Scaffold",
+        "GCA_015146355.1"
+      ],
+      [
+        "2020-10-30",
+        162418,
+        "Scaffold",
+        "GCA_015147505.1"
+      ],
+      [
+        "2020-10-30",
+        162375,
+        "Scaffold",
+        "GCA_015147665.1"
+      ],
+      [
+        "2020-10-30",
+        162320,
+        "Scaffold",
+        "GCA_015146675.1"
+      ],
+      [
+        "2020-10-30",
+        162287,
+        "Scaffold",
+        "GCA_015146885.1"
+      ],
+      [
+        "2020-10-30",
+        162118,
+        "Scaffold",
+        "GCA_015150855.1"
+      ],
+      [
+        "2020-10-30",
+        161871,
+        "Scaffold",
+        "GCA_015150095.1"
+      ],
+      [
+        "2020-10-30",
+        161606,
+        "Scaffold",
+        "GCA_015159235.1"
+      ],
+      [
+        "2020-10-30",
+        161595,
+        "Scaffold",
+        "GCA_015159275.1"
+      ],
+      [
+        "2020-10-30",
+        161572,
+        "Scaffold",
+        "GCA_015150975.1"
+      ],
+      [
+        "2020-10-29",
+        161435,
+        "Scaffold",
+        "GCA_015119855.1"
+      ],
+      [
+        "2020-10-29",
+        161299,
+        "Scaffold",
+        "GCA_015105855.1"
+      ],
+      [
+        "2020-10-30",
+        161293,
+        "Scaffold",
+        "GCA_015145205.1"
+      ],
+      [
+        "2020-10-30",
+        161292,
+        "Scaffold",
+        "GCA_015145545.1"
+      ],
+      [
+        "2020-10-29",
+        161283,
+        "Scaffold",
+        "GCA_015075025.1"
+      ],
+      [
+        "2020-10-29",
+        161283,
+        "Scaffold",
+        "GCA_015120255.1"
+      ],
+      [
+        "2020-10-29",
+        161226,
+        "Scaffold",
+        "GCA_015075085.1"
+      ],
+      [
+        "2020-10-29",
+        161191,
+        "Scaffold",
+        "GCA_015105815.1"
+      ],
+      [
+        "2020-10-30",
+        161009,
+        "Scaffold",
+        "GCA_015150155.1"
+      ],
+      [
+        "2020-10-30",
+        160993,
+        "Scaffold",
+        "GCA_015144665.1"
+      ],
+      [
+        "2020-10-29",
+        160980,
+        "Scaffold",
+        "GCA_015076065.1"
+      ],
+      [
+        "2020-10-29",
+        160964,
+        "Scaffold",
+        "GCA_015075945.1"
+      ],
+      [
+        "2020-10-29",
+        160713,
+        "Scaffold",
+        "GCA_015110605.1"
+      ],
+      [
+        "2020-10-30",
+        160692,
+        "Scaffold",
+        "GCA_015151115.1"
+      ],
+      [
+        "2020-10-30",
+        160685,
+        "Scaffold",
+        "GCA_015150255.1"
+      ],
+      [
+        "2020-10-29",
+        160613,
+        "Scaffold",
+        "GCA_015074545.1"
+      ],
+      [
+        "2020-10-29",
+        160565,
+        "Scaffold",
+        "GCA_015074585.1"
+      ],
+      [
+        "2020-10-29",
+        160560,
+        "Scaffold",
+        "GCA_015086735.1"
+      ],
+      [
+        "2020-10-30",
+        160537,
+        "Scaffold",
+        "GCA_015145105.1"
+      ],
+      [
+        "2020-10-30",
+        160524,
+        "Scaffold",
+        "GCA_015146255.1"
+      ],
+      [
+        "2020-10-30",
+        160524,
+        "Scaffold",
+        "GCA_015146615.1"
+      ],
+      [
+        "2020-10-29",
+        160521,
+        "Scaffold",
+        "GCA_015110655.1"
+      ],
+      [
+        "2020-10-29",
+        160506,
+        "Scaffold",
+        "GCA_015102475.1"
+      ],
+      [
+        "2020-10-29",
+        160427,
+        "Scaffold",
+        "GCA_015074485.1"
+      ],
+      [
+        "2020-10-29",
+        160327,
+        "Scaffold",
+        "GCA_015121565.1"
+      ],
+      [
+        "2020-10-29",
+        160289,
+        "Scaffold",
+        "GCA_015086715.1"
+      ],
+      [
+        "2020-10-29",
+        160233,
+        "Scaffold",
+        "GCA_015107175.1"
+      ],
+      [
+        "2020-10-29",
+        160206,
+        "Scaffold",
+        "GCA_015074565.1"
+      ],
+      [
+        "2020-10-29",
+        160202,
+        "Scaffold",
+        "GCA_015102535.1"
+      ],
+      [
+        "2020-10-29",
+        159990,
+        "Scaffold",
+        "GCA_015121525.1"
+      ],
+      [
+        "2020-10-29",
+        159971,
+        "Scaffold",
+        "GCA_015120705.1"
+      ],
+      [
+        "2020-10-29",
+        159936,
+        "Scaffold",
+        "GCA_015120605.1"
+      ],
+      [
+        "2020-10-29",
+        159897,
+        "Scaffold",
+        "GCA_015120635.1"
+      ],
+      [
+        "2020-10-29",
+        159884,
+        "Scaffold",
+        "GCA_015109095.1"
+      ],
+      [
+        "2020-10-29",
+        159858,
+        "Scaffold",
+        "GCA_015120665.1"
+      ],
+      [
+        "2020-10-30",
+        159848,
+        "Scaffold",
+        "GCA_015147135.1"
+      ],
+      [
+        "2020-10-30",
+        159768,
+        "Scaffold",
+        "GCA_015147685.1"
+      ],
+      [
+        "2020-10-29",
+        159742,
+        "Scaffold",
+        "GCA_015101755.1"
+      ],
+      [
+        "2020-10-30",
+        159389,
+        "Scaffold",
+        "GCA_015146515.1"
+      ],
+      [
+        "2020-10-29",
+        159363,
+        "Scaffold",
+        "GCA_015101675.1"
+      ],
+      [
+        "2020-10-29",
+        159338,
+        "Scaffold",
+        "GCA_015101655.1"
+      ],
+      [
+        "2020-10-29",
+        159217,
+        "Scaffold",
+        "GCA_015101705.1"
+      ],
+      [
+        "2020-10-29",
+        159164,
+        "Scaffold",
+        "GCA_015093335.1"
+      ],
+      [
+        "2020-10-29",
+        159145,
+        "Scaffold",
+        "GCA_015081335.1"
+      ],
+      [
+        "2020-10-30",
+        159090,
+        "Scaffold",
+        "GCA_015146315.1"
+      ],
+      [
+        "2020-10-29",
+        159076,
+        "Scaffold",
+        "GCA_015089695.1"
+      ],
+      [
+        "2020-10-29",
+        159020,
+        "Scaffold",
+        "GCA_015076165.1"
+      ],
+      [
+        "2020-10-29",
+        158802,
+        "Scaffold",
+        "GCA_015076135.1"
+      ],
+      [
+        "2020-10-29",
+        158666,
+        "Scaffold",
+        "GCA_015121645.1"
+      ],
+      [
+        "2020-10-29",
+        158657,
+        "Scaffold",
+        "GCA_015121625.1"
+      ],
+      [
+        "2020-10-29",
+        158512,
+        "Scaffold",
+        "GCA_015081215.1"
+      ],
+      [
+        "2020-10-29",
+        158371,
+        "Scaffold",
+        "GCA_015126875.1"
+      ],
+      [
+        "2020-10-29",
+        158266,
+        "Scaffold",
+        "GCA_015126915.1"
+      ],
+      [
+        "2020-10-30",
+        157921,
+        "Scaffold",
+        "GCA_015146475.1"
+      ],
+      [
+        "2020-10-29",
+        157800,
+        "Scaffold",
+        "GCA_015098195.1"
+      ],
+      [
+        "2020-10-30",
+        157695,
+        "Scaffold",
+        "GCA_015146195.1"
+      ],
+      [
+        "2020-10-29",
+        157694,
+        "Scaffold",
+        "GCA_015075045.1"
+      ],
+      [
+        "2020-10-29",
+        157684,
+        "Scaffold",
+        "GCA_015110585.1"
+      ],
+      [
+        "2020-10-29",
+        157538,
+        "Scaffold",
+        "GCA_015076085.1"
+      ],
+      [
+        "2020-10-29",
+        157519,
+        "Scaffold",
+        "GCA_015098235.1"
+      ],
+      [
+        "2020-10-30",
+        157505,
+        "Scaffold",
+        "GCA_015147405.1"
+      ],
+      [
+        "2020-10-30",
+        157471,
+        "Scaffold",
+        "GCA_015159295.1"
+      ],
+      [
+        "2020-10-29",
+        157464,
+        "Scaffold",
+        "GCA_015110535.1"
+      ],
+      [
+        "2020-10-29",
+        157460,
+        "Scaffold",
+        "GCA_015121975.1"
+      ],
+      [
+        "2020-10-29",
+        157414,
+        "Scaffold",
+        "GCA_015122005.1"
+      ],
+      [
+        "2020-10-29",
+        157396,
+        "Scaffold",
+        "GCA_015075845.1"
+      ],
+      [
+        "2020-10-30",
+        157345,
+        "Scaffold",
+        "GCA_015147025.1"
+      ],
+      [
+        "2020-10-30",
+        157287,
+        "Scaffold",
+        "GCA_015159315.1"
+      ],
+      [
+        "2020-10-30",
+        157283,
+        "Scaffold",
+        "GCA_015145955.1"
+      ],
+      [
+        "2020-10-29",
+        157261,
+        "Scaffold",
+        "GCA_015125915.1"
+      ],
+      [
+        "2020-10-30",
+        157198,
+        "Scaffold",
+        "GCA_015145775.1"
+      ],
+      [
+        "2020-10-29",
+        157115,
+        "Scaffold",
+        "GCA_015076205.1"
+      ],
+      [
+        "2020-10-29",
+        157078,
+        "Scaffold",
+        "GCA_015125955.1"
+      ],
+      [
+        "2020-10-29",
+        157040,
+        "Scaffold",
+        "GCA_015107275.1"
+      ],
+      [
+        "2020-10-29",
+        156944,
+        "Scaffold",
+        "GCA_015100115.1"
+      ],
+      [
+        "2020-10-29",
+        156808,
+        "Scaffold",
+        "GCA_015107195.1"
+      ],
+      [
+        "2020-10-30",
+        156783,
+        "Scaffold",
+        "GCA_015147725.1"
+      ],
+      [
+        "2020-10-29",
+        156781,
+        "Scaffold",
+        "GCA_015095795.1"
+      ],
+      [
+        "2020-10-29",
+        156734,
+        "Scaffold",
+        "GCA_015095755.1"
+      ],
+      [
+        "2020-10-30",
+        156529,
+        "Scaffold",
+        "GCA_015147465.1"
+      ],
+      [
+        "2020-10-29",
+        156481,
+        "Scaffold",
+        "GCA_015100055.1"
+      ],
+      [
+        "2020-10-29",
+        156347,
+        "Scaffold",
+        "GCA_015102375.1"
+      ],
+      [
+        "2020-10-30",
+        156313,
+        "Scaffold",
+        "GCA_015147765.1"
+      ],
+      [
+        "2020-10-29",
+        156312,
+        "Scaffold",
+        "GCA_015102455.1"
+      ],
+      [
+        "2020-10-29",
+        156256,
+        "Scaffold",
+        "GCA_015076225.1"
+      ],
+      [
+        "2020-10-29",
+        156190,
+        "Scaffold",
+        "GCA_015078955.1"
+      ],
+      [
+        "2020-10-30",
+        156178,
+        "Scaffold",
+        "GCA_015147525.1"
+      ],
+      [
+        "2020-10-30",
+        156116,
+        "Scaffold",
+        "GCA_015149995.1"
+      ],
+      [
+        "2020-10-29",
+        156076,
+        "Scaffold",
+        "GCA_015112335.1"
+      ],
+      [
+        "2020-10-29",
+        156051,
+        "Scaffold",
+        "GCA_015112975.1"
+      ],
+      [
+        "2020-10-30",
+        155971,
+        "Scaffold",
+        "GCA_015146555.1"
+      ],
+      [
+        "2020-10-30",
+        155781,
+        "Scaffold",
+        "GCA_015150795.1"
+      ],
+      [
+        "2020-10-29",
+        155655,
+        "Scaffold",
+        "GCA_015075905.1"
+      ],
+      [
+        "2020-10-30",
+        155620,
+        "Scaffold",
+        "GCA_015146295.1"
+      ],
+      [
+        "2020-10-29",
+        155575,
+        "Scaffold",
+        "GCA_015086755.1"
+      ],
+      [
+        "2020-10-30",
+        155572,
+        "Scaffold",
+        "GCA_015143235.1"
+      ],
+      [
+        "2020-10-29",
+        155408,
+        "Scaffold",
+        "GCA_015086825.1"
+      ],
+      [
+        "2020-10-30",
+        155314,
+        "Scaffold",
+        "GCA_015145915.1"
+      ],
+      [
+        "2020-10-30",
+        155028,
+        "Scaffold",
+        "GCA_015146175.1"
+      ],
+      [
+        "2020-10-29",
+        155025,
+        "Scaffold",
+        "GCA_015081235.1"
+      ],
+      [
+        "2020-10-30",
+        154961,
+        "Scaffold",
+        "GCA_015164135.1"
+      ],
+      [
+        "2020-10-30",
+        154824,
+        "Scaffold",
+        "GCA_015156355.1"
+      ],
+      [
+        "2020-10-29",
+        154794,
+        "Scaffold",
+        "GCA_015078775.1"
+      ],
+      [
+        "2020-10-30",
+        154674,
+        "Scaffold",
+        "GCA_015146785.1"
+      ],
+      [
+        "2020-10-30",
+        154605,
+        "Scaffold",
+        "GCA_015147185.1"
+      ],
+      [
+        "2020-10-30",
+        154185,
+        "Scaffold",
+        "GCA_015146965.1"
+      ],
+      [
+        "2020-10-30",
+        153997,
+        "Scaffold",
+        "GCA_015147345.1"
+      ],
+      [
+        "2020-10-30",
+        153894,
+        "Scaffold",
+        "GCA_015147905.1"
+      ],
+      [
+        "2020-10-29",
+        153813,
+        "Scaffold",
+        "GCA_015074705.1"
+      ],
+      [
+        "2020-10-30",
+        153786,
+        "Scaffold",
+        "GCA_015147325.1"
+      ],
+      [
+        "2020-10-29",
+        153782,
+        "Scaffold",
+        "GCA_015074715.1"
+      ],
+      [
+        "2020-10-30",
+        153735,
+        "Scaffold",
+        "GCA_015158435.1"
+      ],
+      [
+        "2020-10-30",
+        153631,
+        "Scaffold",
+        "GCA_015158395.1"
+      ],
+      [
+        "2020-10-29",
+        153629,
+        "Scaffold",
+        "GCA_015075825.1"
+      ],
+      [
+        "2020-10-30",
+        153571,
+        "Scaffold",
+        "GCA_015147645.1"
+      ],
+      [
+        "2020-10-29",
+        153498,
+        "Scaffold",
+        "GCA_015075875.1"
+      ],
+      [
+        "2020-10-29",
+        153489,
+        "Scaffold",
+        "GCA_015121745.1"
+      ],
+      [
+        "2020-10-30",
+        153429,
+        "Scaffold",
+        "GCA_015147045.1"
+      ],
+      [
+        "2020-10-30",
+        153419,
+        "Scaffold",
+        "GCA_015150055.1"
+      ],
+      [
+        "2020-10-29",
+        153407,
+        "Scaffold",
+        "GCA_015121695.1"
+      ],
+      [
+        "2020-10-29",
+        153376,
+        "Scaffold",
+        "GCA_015119075.1"
+      ],
+      [
+        "2020-10-30",
+        153369,
+        "Scaffold",
+        "GCA_015150875.1"
+      ],
+      [
+        "2020-10-29",
+        153334,
+        "Scaffold",
+        "GCA_015078815.1"
+      ],
+      [
+        "2020-10-29",
+        153160,
+        "Scaffold",
+        "GCA_015119155.1"
+      ],
+      [
+        "2020-10-29",
+        153134,
+        "Scaffold",
+        "GCA_015074985.1"
+      ],
+      [
+        "2020-10-29",
+        153128,
+        "Scaffold",
+        "GCA_015078835.1"
+      ],
+      [
+        "2020-10-29",
+        153112,
+        "Scaffold",
+        "GCA_015119895.1"
+      ],
+      [
+        "2020-10-29",
+        153047,
+        "Scaffold",
+        "GCA_015074765.1"
+      ],
+      [
+        "2020-10-29",
+        153035,
+        "Scaffold",
+        "GCA_015119865.1"
+      ],
+      [
+        "2020-10-29",
+        153008,
+        "Scaffold",
+        "GCA_015076105.1"
+      ],
+      [
+        "2020-10-30",
+        152901,
+        "Scaffold",
+        "GCA_015147925.1"
+      ],
+      [
+        "2020-10-29",
+        152872,
+        "Scaffold",
+        "GCA_015076125.1"
+      ],
+      [
+        "2020-10-29",
+        152868,
+        "Scaffold",
+        "GCA_015075925.1"
+      ],
+      [
+        "2020-10-30",
+        152553,
+        "Scaffold",
+        "GCA_015146765.1"
+      ],
+      [
+        "2020-10-30",
+        152522,
+        "Scaffold",
+        "GCA_015147785.1"
+      ],
+      [
+        "2020-10-29",
+        152479,
+        "Scaffold",
+        "GCA_015075985.1"
+      ],
+      [
+        "2020-10-30",
+        152354,
+        "Scaffold",
+        "GCA_015147445.1"
+      ],
+      [
+        "2020-10-30",
+        152281,
+        "Scaffold",
+        "GCA_015147865.1"
+      ],
+      [
+        "2020-10-30",
+        152256,
+        "Scaffold",
+        "GCA_015147625.1"
+      ],
+      [
+        "2020-10-30",
+        151382,
+        "Scaffold",
+        "GCA_015145165.1"
+      ],
+      [
+        "2020-10-30",
+        151291,
+        "Scaffold",
+        "GCA_015145505.1"
+      ],
+      [
+        "2020-10-30",
+        151078,
+        "Scaffold",
+        "GCA_015156315.1"
+      ],
+      [
+        "2020-10-30",
+        151049,
+        "Scaffold",
+        "GCA_015157105.1"
+      ],
+      [
+        "2020-10-30",
+        151023,
+        "Scaffold",
+        "GCA_015147845.1"
+      ],
+      [
+        "2020-10-30",
+        150993,
+        "Scaffold",
+        "GCA_015147545.1"
+      ],
+      [
+        "2020-10-30",
+        150849,
+        "Scaffold",
+        "GCA_015147385.1"
+      ],
+      [
+        "2020-10-30",
+        150763,
+        "Scaffold",
+        "GCA_015147005.1"
+      ],
+      [
+        "2020-10-29",
+        150443,
+        "Scaffold",
+        "GCA_015076185.1"
+      ],
+      [
+        "2020-10-29",
+        150413,
+        "Scaffold",
+        "GCA_015125395.1"
+      ],
+      [
+        "2020-10-29",
+        150263,
+        "Scaffold",
+        "GCA_015089495.1"
+      ],
+      [
+        "2020-10-29",
+        150224,
+        "Scaffold",
+        "GCA_015125975.1"
+      ],
+      [
+        "2020-10-29",
+        150083,
+        "Scaffold",
+        "GCA_015076245.1"
+      ],
+      [
+        "2020-10-29",
+        149935,
+        "Scaffold",
+        "GCA_015089475.1"
+      ],
+      [
+        "2020-10-29",
+        149502,
+        "Scaffold",
+        "GCA_015110565.1"
+      ],
+      [
+        "2020-10-29",
+        149460,
+        "Scaffold",
+        "GCA_015110625.1"
+      ],
+      [
+        "2020-10-29",
+        149418,
+        "Scaffold",
+        "GCA_015112435.1"
+      ],
+      [
+        "2020-10-29",
+        149332,
+        "Scaffold",
+        "GCA_015112355.1"
+      ],
+      [
+        "2020-10-29",
+        149250,
+        "Scaffold",
+        "GCA_015075805.1"
+      ],
+      [
+        "2020-10-30",
+        149113,
+        "Scaffold",
+        "GCA_015158455.1"
+      ],
+      [
+        "2020-10-29",
+        149003,
+        "Scaffold",
+        "GCA_015075865.1"
+      ],
+      [
+        "2020-10-30",
+        148671,
+        "Scaffold",
+        "GCA_015158415.1"
+      ],
+      [
+        "2020-10-29",
+        147569,
+        "Scaffold",
+        "GCA_015121505.1"
+      ],
+      [
+        "2020-10-29",
+        147312,
+        "Scaffold",
+        "GCA_015121455.1"
+      ],
+      [
+        "2020-10-29",
+        147189,
+        "Scaffold",
+        "GCA_015078855.1"
+      ],
+      [
+        "2020-10-29",
+        146811,
+        "Scaffold",
+        "GCA_015078795.1"
+      ],
+      [
+        "2020-10-30",
+        146699,
+        "Scaffold",
+        "GCA_015147425.1"
+      ],
+      [
+        "2020-10-30",
+        146680,
+        "Scaffold",
+        "GCA_015147105.1"
+      ],
+      [
+        "2020-10-30",
+        146577,
+        "Scaffold",
+        "GCA_015147605.1"
+      ],
+      [
+        "2020-10-30",
+        146472,
+        "Scaffold",
+        "GCA_015147885.1"
+      ],
+      [
+        "2020-10-29",
+        144529,
+        "Scaffold",
+        "GCA_015074665.1"
+      ],
+      [
+        "2020-10-29",
+        144515,
+        "Scaffold",
+        "GCA_015074625.1"
+      ],
+      [
+        "2020-10-30",
+        143825,
+        "Scaffold",
+        "GCA_015147485.1"
+      ],
+      [
+        "2020-10-30",
+        143696,
+        "Scaffold",
+        "GCA_015147745.1"
+      ],
+      [
+        "2020-10-29",
+        139740,
+        "Scaffold",
+        "GCA_015128885.1"
+      ],
+      [
+        "2020-10-29",
+        139673,
+        "Scaffold",
+        "GCA_015128765.1"
+      ],
+      [
+        "2020-10-30",
+        138618,
+        "Scaffold",
+        "GCA_015144725.1"
+      ],
+      [
+        "2020-10-30",
+        138586,
+        "Scaffold",
+        "GCA_015144105.1"
+      ],
+      [
+        "2018-05-10",
+        126266,
+        "Scaffold",
+        "GCA_003113115.1"
+      ],
+      [
+        "2018-08-10",
+        126266,
+        "Scaffold",
+        "GCA_003391555.1"
+      ],
+      [
+        "2020-10-29",
+        125981,
+        "Scaffold",
+        "GCA_015129045.1"
+      ],
+      [
+        "2020-10-30",
+        125860,
+        "Scaffold",
+        "GCA_015143255.1"
+      ],
+      [
+        "2015-12-30",
+        124488,
+        "Scaffold",
+        "GCA_001500205.1"
+      ],
+      [
+        "2018-08-10",
+        123936,
+        "Scaffold",
+        "GCA_003391435.1"
+      ],
+      [
+        "2018-05-10",
+        123932,
+        "Scaffold",
+        "GCA_003112915.1"
+      ],
+      [
+        "2020-10-30",
+        123040,
+        "Scaffold",
+        "GCA_015145795.1"
+      ],
+      [
+        "2018-08-10",
+        122880,
+        "Scaffold",
+        "GCA_003384065.1"
+      ],
+      [
+        "2018-05-10",
+        122878,
+        "Scaffold",
+        "GCA_003112815.1"
+      ],
+      [
+        "2020-10-30",
+        122595,
+        "Scaffold",
+        "GCA_015145975.1"
+      ],
+      [
+        "2020-10-30",
+        122427,
+        "Scaffold",
+        "GCA_015145285.1"
+      ],
+      [
+        "2018-05-10",
+        122283,
+        "Scaffold",
+        "GCA_003113235.1"
+      ],
+      [
+        "2020-10-30",
+        122279,
+        "Scaffold",
+        "GCA_015145585.1"
+      ],
+      [
+        "2018-08-10",
+        122265,
+        "Scaffold",
+        "GCA_003391495.1"
+      ],
+      [
+        "2020-10-30",
+        122174,
+        "Scaffold",
+        "GCA_015145225.1"
+      ],
+      [
+        "2020-10-30",
+        121960,
+        "Scaffold",
+        "GCA_015145325.1"
+      ],
+      [
+        "2020-10-30",
+        121929,
+        "Scaffold",
+        "GCA_015145565.1"
+      ],
+      [
+        "2020-10-30",
+        121586,
+        "Scaffold",
+        "GCA_015145665.1"
+      ],
+      [
+        "2017-03-07",
+        120932,
+        "Scaffold",
+        "GCA_002022865.1"
+      ],
+      [
+        "2018-05-10",
+        120753,
+        "Scaffold",
+        "GCA_003113175.1"
+      ],
+      [
+        "2018-08-10",
+        120743,
+        "Scaffold",
+        "GCA_003391775.1"
+      ],
+      [
+        "2018-05-10",
+        119815,
+        "Scaffold",
+        "GCA_003112875.1"
+      ],
+      [
+        "2018-08-10",
+        119815,
+        "Scaffold",
+        "GCA_003384745.1"
+      ],
+      [
+        "2018-05-10",
+        119725,
+        "Scaffold",
+        "GCA_003113215.1"
+      ],
+      [
+        "2018-08-10",
+        119725,
+        "Scaffold",
+        "GCA_003391525.1"
+      ],
+      [
+        "2020-10-30",
+        119578,
+        "Scaffold",
+        "GCA_015144265.1"
+      ],
+      [
+        "2020-10-30",
+        119425,
+        "Scaffold",
+        "GCA_015144885.1"
+      ],
+      [
+        "2018-08-10",
+        118812,
+        "Scaffold",
+        "GCA_003391885.1"
+      ],
+      [
+        "2018-05-10",
+        118797,
+        "Scaffold",
+        "GCA_003112955.1"
+      ],
+      [
+        "2018-05-10",
+        118644,
+        "Scaffold",
+        "GCA_003112855.1"
+      ],
+      [
+        "2018-08-10",
+        118644,
+        "Scaffold",
+        "GCA_003391825.1"
+      ],
+      [
+        "2020-10-30",
+        118467,
+        "Scaffold",
+        "GCA_015146415.1"
+      ],
+      [
+        "2020-10-30",
+        118220,
+        "Scaffold",
+        "GCA_015146695.1"
+      ],
+      [
+        "2018-05-10",
+        117667,
+        "Scaffold",
+        "GCA_003112975.1"
+      ],
+      [
+        "2018-08-13",
+        117667,
+        "Scaffold",
+        "GCA_003391855.1"
+      ],
+      [
+        "2020-10-30",
+        117548,
+        "Scaffold",
+        "GCA_015145835.1"
+      ],
+      [
+        "2017-03-07",
+        117465,
+        "Scaffold",
+        "GCA_002022825.1"
+      ],
+      [
+        "2020-10-30",
+        117416,
+        "Scaffold",
+        "GCA_015146055.1"
+      ],
+      [
+        "2017-03-07",
+        116488,
+        "Scaffold",
+        "GCA_002022845.1"
+      ],
+      [
+        "2017-03-07",
+        116461,
+        "Scaffold",
+        "GCA_002022975.1"
+      ],
+      [
+        "2018-05-10",
+        116184,
+        "Scaffold",
+        "GCA_003112835.1"
+      ],
+      [
+        "2018-08-10",
+        116176,
+        "Scaffold",
+        "GCA_003382745.1"
+      ],
+      [
+        "2020-10-30",
+        115867,
+        "Scaffold",
+        "GCA_015145265.1"
+      ],
+      [
+        "2020-10-30",
+        115790,
+        "Scaffold",
+        "GCA_015145895.1"
+      ],
+      [
+        "2020-10-30",
+        115672,
+        "Scaffold",
+        "GCA_015145705.1"
+      ],
+      [
+        "2018-05-10",
+        115574,
+        "Scaffold",
+        "GCA_003112895.1"
+      ],
+      [
+        "2018-08-10",
+        115574,
+        "Scaffold",
+        "GCA_003391745.1"
+      ],
+      [
+        "2020-10-30",
+        115501,
+        "Scaffold",
+        "GCA_015145605.1"
+      ],
+      [
+        "2015-12-30",
+        114215,
+        "Scaffold",
+        "GCA_001517065.1"
+      ],
+      [
+        "2020-10-30",
+        113842,
+        "Scaffold",
+        "GCA_015146425.1"
+      ],
+      [
+        "2020-10-30",
+        113549,
+        "Scaffold",
+        "GCA_015146715.1"
+      ],
+      [
+        "2020-10-30",
+        113523,
+        "Scaffold",
+        "GCA_015146135.1"
+      ],
+      [
+        "2020-10-30",
+        113453,
+        "Scaffold",
+        "GCA_015146015.1"
+      ],
+      [
+        "2020-10-30",
+        113278,
+        "Scaffold",
+        "GCA_015146035.1"
+      ],
+      [
+        "2020-10-30",
+        113133,
+        "Scaffold",
+        "GCA_015145855.1"
+      ],
+      [
+        "2020-10-30",
+        112163,
+        "Scaffold",
+        "GCA_015145305.1"
+      ],
+      [
+        "2017-03-07",
+        112062,
+        "Scaffold",
+        "GCA_002022805.1"
+      ],
+      [
+        "2020-10-30",
+        112030,
+        "Scaffold",
+        "GCA_015145815.1"
+      ],
+      [
+        "2020-10-30",
+        111935,
+        "Scaffold",
+        "GCA_015145645.1"
+      ],
+      [
+        "2020-10-30",
+        111823,
+        "Scaffold",
+        "GCA_015145995.1"
+      ],
+      [
+        "2017-03-07",
+        110685,
+        "Scaffold",
+        "GCA_002022525.1"
+      ],
+      [
+        "2018-08-10",
+        110117,
+        "Scaffold",
+        "GCA_003391465.1"
+      ],
+      [
+        "2020-10-30",
+        110083,
+        "Scaffold",
+        "GCA_015145245.1"
+      ],
+      [
+        "2020-10-30",
+        109828,
+        "Scaffold",
+        "GCA_015146335.1"
+      ],
+      [
+        "2020-10-30",
+        109768,
+        "Scaffold",
+        "GCA_015146575.1"
+      ],
+      [
+        "2020-10-30",
+        109308,
+        "Scaffold",
+        "GCA_015145625.1"
+      ],
+      [
+        "2020-10-30",
+        106731,
+        "Scaffold",
+        "GCA_015143905.1"
+      ],
+      [
+        "2020-10-30",
+        106577,
+        "Scaffold",
+        "GCA_015144445.1"
+      ],
+      [
+        "2020-10-30",
+        104892,
+        "Scaffold",
+        "GCA_015144615.1"
+      ],
+      [
+        "2020-10-30",
+        104791,
+        "Scaffold",
+        "GCA_015145065.1"
+      ],
+      [
+        "2018-05-10",
+        104318,
+        "Scaffold",
+        "GCA_003112935.1"
+      ],
+      [
+        "2018-08-10",
+        104318,
+        "Scaffold",
+        "GCA_003391915.1"
+      ],
+      [
+        "2020-10-30",
+        104284,
+        "Scaffold",
+        "GCA_015143805.1"
+      ],
+      [
+        "2020-10-30",
+        104255,
+        "Scaffold",
+        "GCA_015144345.1"
+      ],
+      [
+        "2017-03-07",
+        103770,
+        "Scaffold",
+        "GCA_002023025.1"
+      ],
+      [
+        "2020-10-30",
+        103124,
+        "Scaffold",
+        "GCA_015144635.1"
+      ],
+      [
+        "2020-10-30",
+        103020,
+        "Scaffold",
+        "GCA_015144505.1"
+      ],
+      [
+        "2020-10-30",
+        102960,
+        "Scaffold",
+        "GCA_015143885.1"
+      ],
+      [
+        "2020-10-30",
+        102914,
+        "Scaffold",
+        "GCA_015144005.1"
+      ],
+      [
+        "2020-10-30",
+        102366,
+        "Scaffold",
+        "GCA_015146455.1"
+      ],
+      [
+        "2020-10-30",
+        102286,
+        "Scaffold",
+        "GCA_015146155.1"
+      ],
+      [
+        "2020-10-30",
+        102052,
+        "Scaffold",
+        "GCA_015146805.1"
+      ],
+      [
+        "2020-10-30",
+        101985,
+        "Scaffold",
+        "GCA_015147095.1"
+      ],
+      [
+        "2020-10-30",
+        101896,
+        "Scaffold",
+        "GCA_015143845.1"
+      ],
+      [
+        "2020-10-30",
+        101759,
+        "Scaffold",
+        "GCA_015144425.1"
+      ],
+      [
+        "2020-10-30",
+        101256,
+        "Scaffold",
+        "GCA_015145345.1"
+      ],
+      [
+        "2020-10-30",
+        101135,
+        "Scaffold",
+        "GCA_015143765.1"
+      ],
+      [
+        "2020-10-30",
+        101132,
+        "Scaffold",
+        "GCA_015145005.1"
+      ],
+      [
+        "2020-10-30",
+        101099,
+        "Scaffold",
+        "GCA_015147165.1"
+      ],
+      [
+        "2020-10-30",
+        101088,
+        "Scaffold",
+        "GCA_015144385.1"
+      ],
+      [
+        "2020-10-30",
+        100901,
+        "Scaffold",
+        "GCA_015146845.1"
+      ],
+      [
+        "2020-10-30",
+        99988,
+        "Scaffold",
+        "GCA_015144485.1"
+      ],
+      [
+        "2020-10-30",
+        99946,
+        "Scaffold",
+        "GCA_015143865.1"
+      ],
+      [
+        "2020-10-29",
+        99424,
+        "Scaffold",
+        "GCA_015125375.1"
+      ],
+      [
+        "2020-10-29",
+        99348,
+        "Scaffold",
+        "GCA_015125015.1"
+      ],
+      [
+        "2020-10-30",
+        99324,
+        "Scaffold",
+        "GCA_015144015.1"
+      ],
+      [
+        "2020-10-30",
+        99228,
+        "Scaffold",
+        "GCA_015144585.1"
+      ],
+      [
+        "2020-10-30",
+        99055,
+        "Scaffold",
+        "GCA_015144205.1"
+      ],
+      [
+        "2020-10-30",
+        99045,
+        "Scaffold",
+        "GCA_015144865.1"
+      ],
+      [
+        "2020-10-30",
+        97564,
+        "Scaffold",
+        "GCA_015143785.1"
+      ],
+      [
+        "2020-10-30",
+        97488,
+        "Scaffold",
+        "GCA_015144365.1"
+      ],
+      [
+        "2020-10-30",
+        96202,
+        "Scaffold",
+        "GCA_015145045.1"
+      ],
+      [
+        "2020-10-30",
+        96197,
+        "Scaffold",
+        "GCA_015145425.1"
+      ],
+      [
+        "2020-10-30",
+        95644,
+        "Scaffold",
+        "GCA_015144565.1"
+      ],
+      [
+        "2020-10-30",
+        95574,
+        "Scaffold",
+        "GCA_015143985.1"
+      ],
+      [
+        "2020-10-30",
+        94893,
+        "Scaffold",
+        "GCA_015144405.1"
+      ],
+      [
+        "2020-10-30",
+        94756,
+        "Scaffold",
+        "GCA_015143825.1"
+      ],
+      [
+        "2020-10-30",
+        92409,
+        "Scaffold",
+        "GCA_015144525.1"
+      ],
+      [
+        "2020-10-30",
+        92284,
+        "Scaffold",
+        "GCA_015143945.1"
+      ],
+      [
+        "2020-10-30",
+        91171,
+        "Scaffold",
+        "GCA_015143965.1"
+      ],
+      [
+        "2020-10-30",
+        91125,
+        "Scaffold",
+        "GCA_015144545.1"
+      ],
+      [
+        "2020-10-30",
+        90703,
+        "Scaffold",
+        "GCA_015145445.1"
+      ],
+      [
+        "2020-10-30",
+        90581,
+        "Scaffold",
+        "GCA_015145085.1"
+      ],
+      [
+        "2020-10-30",
+        90263,
+        "Scaffold",
+        "GCA_015145185.1"
+      ],
+      [
+        "2020-10-30",
+        90203,
+        "Scaffold",
+        "GCA_015145525.1"
+      ],
+      [
+        "2020-10-30",
+        87960,
+        "Scaffold",
+        "GCA_015145375.1"
+      ],
+      [
+        "2020-10-30",
+        87955,
+        "Scaffold",
+        "GCA_015145025.1"
+      ],
+      [
+        "2020-10-30",
+        86958,
+        "Scaffold",
+        "GCA_015143925.1"
+      ],
+      [
+        "2020-10-30",
+        86912,
+        "Scaffold",
+        "GCA_015144465.1"
+      ],
+      [
+        "2020-03-31",
+        74348,
+        "Scaffold",
+        "GCA_011801095.1"
+      ],
+      [
+        "2020-10-30",
+        69720,
+        "Scaffold",
+        "GCA_015145935.1"
+      ],
+      [
+        "2020-10-30",
+        69706,
+        "Scaffold",
+        "GCA_015146215.1"
+      ],
+      [
+        "2015-12-30",
+        43065,
+        "Scaffold",
+        "GCA_001483685.1"
+      ],
+      [
+        "2015-12-30",
+        42538,
+        "Scaffold",
+        "GCA_001483585.1"
+      ],
+      [
+        "2015-12-30",
+        42375,
+        "Scaffold",
+        "GCA_001483605.1"
+      ],
+      [
+        "2015-12-30",
+        27153,
+        "Scaffold",
+        "GCA_001500185.1"
+      ],
+      [
+        "2013-06-10",
+        20516,
+        "Scaffold",
+        "GCA_000004845.2"
+      ],
+      [
+        "2020-10-30",
+        19199,
+        "Scaffold",
+        "GCA_015144165.1"
+      ],
+      [
+        "2020-10-30",
+        19199,
+        "Scaffold",
+        "GCA_015144765.1"
+      ],
+      [
+        "2026-01-25",
+        59940,
+        "Complete Genome",
+        "GCA_947361175.1"
+      ],
+      [
+        "2026-01-25",
+        59940,
+        "Complete Genome",
+        "GCA_963931935.1"
+      ],
+      [
+        "2013-12-06",
+        648981,
+        "Chromosome",
+        "GCA_000442335.2"
+      ],
+      [
+        "2013-06-14",
+        143936,
+        "Chromosome",
+        "GCA_000306695.2"
+      ],
+      [
+        "2013-06-14",
+        143936,
+        "Chromosome",
+        "GCF_000306695.2"
+      ],
+      [
+        "2007-09-24",
+        108431,
+        "Chromosome",
+        "GCA_000002125.2"
+      ],
+      [
+        "2007-09-24",
+        108431,
+        "Chromosome",
+        "GCF_000002125.1"
+      ],
+      [
+        "2004-02-25",
+        97525,
+        "Chromosome",
+        "GCA_000365445.1"
+      ],
+      [
+        "2004-02-25",
+        23350,
+        "Chromosome",
+        "GCA_000002115.2"
+      ],
+      [
+        "2026-09-17",
+        173035924,
+        "Scaffold",
+        "GCA_061372705.1"
+      ],
+      [
+        "2026-09-17",
+        158902045,
+        "Scaffold",
+        "GCA_061372725.1"
+      ],
+      [
+        "2018-09-27",
+        2684,
+        "Scaffold",
+        "GCA_003610035.2"
+      ],
+      [
+        "2025-01-24",
+        137389990,
+        "Contig",
+        "GCA_964662955.1"
+      ],
+      [
+        "2025-01-24",
+        136035125,
+        "Contig",
+        "GCA_964662935.1"
+      ],
+      [
+        "2025-01-24",
+        135231221,
+        "Contig",
+        "GCA_964662805.1"
+      ],
+      [
+        "2025-01-24",
+        134303832,
+        "Contig",
+        "GCA_964662755.1"
+      ],
+      [
+        "2025-01-24",
+        133695336,
+        "Contig",
+        "GCA_964662635.1"
+      ],
+      [
+        "2025-01-24",
+        132806438,
+        "Contig",
+        "GCA_964662665.1"
+      ],
+      [
+        "2025-01-03",
+        132721678,
+        "Scaffold",
+        "GCA_964659605.1"
+      ],
+      [
+        "2025-01-24",
+        129842290,
+        "Contig",
+        "GCA_964662655.1"
+      ],
+      [
+        "2025-01-23",
+        127125265,
+        "Contig",
+        "GCA_964662425.1"
+      ],
+      [
+        "2025-01-23",
+        115117197,
+        "Contig",
+        "GCA_964662485.1"
+      ],
+      [
+        "2025-01-24",
+        111987447,
+        "Contig",
+        "GCA_964662745.1"
+      ],
+      [
+        "2025-01-24",
+        111041862,
+        "Contig",
+        "GCA_964662385.1"
+      ],
+      [
+        "2025-01-23",
+        109320174,
+        "Contig",
+        "GCA_964662715.1"
+      ],
+      [
+        "2025-01-24",
+        109308030,
+        "Contig",
+        "GCA_964662415.1"
+      ],
+      [
+        "2025-01-24",
+        108926541,
+        "Contig",
+        "GCA_964662765.1"
+      ],
+      [
+        "2025-01-24",
+        108819064,
+        "Contig",
+        "GCA_964662915.1"
+      ],
+      [
+        "2025-01-23",
+        107265587,
+        "Contig",
+        "GCA_964662685.1"
+      ],
+      [
+        "2025-01-23",
+        106380187,
+        "Contig",
+        "GCA_964662965.1"
+      ],
+      [
+        "2025-01-23",
+        106165205,
+        "Contig",
+        "GCA_964662925.1"
+      ],
+      [
+        "2025-01-24",
+        103497336,
+        "Contig",
+        "GCA_964662345.1"
+      ],
+      [
+        "2025-01-23",
+        103161820,
+        "Contig",
+        "GCA_964662505.1"
+      ],
+      [
+        "2025-01-23",
+        102463900,
+        "Contig",
+        "GCA_964662595.1"
+      ],
+      [
+        "2025-01-23",
+        101993031,
+        "Contig",
+        "GCA_964662625.1"
+      ],
+      [
+        "2025-01-23",
+        101420457,
+        "Contig",
+        "GCA_964662395.1"
+      ],
+      [
+        "2025-01-24",
+        100570978,
+        "Contig",
+        "GCA_964662975.1"
+      ],
+      [
+        "2025-01-23",
+        100566715,
+        "Contig",
+        "GCA_964662845.1"
+      ],
+      [
+        "2025-01-24",
+        99545760,
+        "Contig",
+        "GCA_964662795.1"
+      ],
+      [
+        "2025-01-23",
+        99324806,
+        "Contig",
+        "GCA_964662775.1"
+      ],
+      [
+        "2025-01-23",
+        98584344,
+        "Contig",
+        "GCA_964662675.1"
+      ],
+      [
+        "2025-01-23",
+        98269464,
+        "Contig",
+        "GCA_964662735.1"
+      ],
+      [
+        "2025-01-23",
+        97734725,
+        "Contig",
+        "GCA_964662525.1"
+      ],
+      [
+        "2025-01-23",
+        97638753,
+        "Contig",
+        "GCA_964662315.1"
+      ],
+      [
+        "2025-01-23",
+        96393932,
+        "Contig",
+        "GCA_964662365.1"
+      ],
+      [
+        "2025-01-23",
+        96244604,
+        "Contig",
+        "GCA_964662705.1"
+      ],
+      [
+        "2025-01-23",
+        95340849,
+        "Contig",
+        "GCA_964662865.1"
+      ],
+      [
+        "2025-01-03",
+        94632420,
+        "Contig",
+        "GCA_964657415.1"
+      ],
+      [
+        "2025-01-23",
+        94632420,
+        "Contig",
+        "GCA_964662895.1"
+      ],
+      [
+        "2025-01-03",
+        93085424,
+        "Contig",
+        "GCA_964657305.1"
+      ],
+      [
+        "2025-01-23",
+        93085424,
+        "Contig",
+        "GCA_964662545.1"
+      ],
+      [
+        "2025-01-23",
+        92907137,
+        "Contig",
+        "GCA_964662575.1"
+      ],
+      [
+        "2025-01-23",
+        92822618,
+        "Contig",
+        "GCA_964662555.1"
+      ],
+      [
+        "2025-01-23",
+        92104009,
+        "Contig",
+        "GCA_964662465.1"
+      ],
+      [
+        "2025-01-23",
+        91818594,
+        "Contig",
+        "GCA_964662515.1"
+      ],
+      [
+        "2025-01-23",
+        91042303,
+        "Contig",
+        "GCA_964662375.1"
+      ],
+      [
+        "2025-01-23",
+        90193146,
+        "Contig",
+        "GCA_964662645.1"
+      ],
+      [
+        "2025-01-24",
+        90109158,
+        "Contig",
+        "GCA_964662455.1"
+      ],
+      [
+        "2025-01-23",
+        89037443,
+        "Contig",
+        "GCA_964662355.1"
+      ],
+      [
+        "2025-01-23",
+        88940453,
+        "Contig",
+        "GCA_964662535.1"
+      ],
+      [
+        "2025-01-23",
+        88930785,
+        "Contig",
+        "GCA_964662585.1"
+      ],
+      [
+        "2025-01-23",
+        88614888,
+        "Contig",
+        "GCA_964662565.1"
+      ],
+      [
+        "2025-01-23",
+        88419110,
+        "Contig",
+        "GCA_964662785.1"
+      ],
+      [
+        "2025-01-23",
+        88380893,
+        "Contig",
+        "GCA_964662725.1"
+      ],
+      [
+        "2025-01-03",
+        87667217,
+        "Contig",
+        "GCA_964659285.1"
+      ],
+      [
+        "2025-01-23",
+        87559491,
+        "Contig",
+        "GCA_964662605.1"
+      ],
+      [
+        "2025-01-06",
+        87043919,
+        "Contig",
+        "GCA_964659055.1"
+      ],
+      [
+        "2025-01-23",
+        86641833,
+        "Contig",
+        "GCA_964662435.1"
+      ],
+      [
+        "2025-01-03",
+        85901022,
+        "Contig",
+        "GCA_964659435.1"
+      ],
+      [
+        "2025-01-24",
+        85576365,
+        "Contig",
+        "GCA_964662495.1"
+      ],
+      [
+        "2025-01-03",
+        83915978,
+        "Contig",
+        "GCA_964659455.1"
+      ],
+      [
+        "2022-05-03",
+        74988543,
+        "Scaffold",
+        "GCA_913843615.1"
+      ],
+      [
+        "2025-01-23",
+        74766313,
+        "Contig",
+        "GCA_964662875.1"
+      ],
+      [
+        "2025-01-23",
+        74125906,
+        "Contig",
+        "GCA_964662825.1"
+      ],
+      [
+        "2025-01-23",
+        73285690,
+        "Contig",
+        "GCA_964662945.1"
+      ],
+      [
+        "2025-01-03",
+        72508381,
+        "Contig",
+        "GCA_964659185.1"
+      ],
+      [
+        "2025-01-03",
+        71919846,
+        "Contig",
+        "GCA_964659225.1"
+      ],
+      [
+        "2025-01-14",
+        71299764,
+        "Contig",
+        "GCA_964658955.1"
+      ],
+      [
+        "2025-01-14",
+        70501096,
+        "Contig",
+        "GCA_964659105.1"
+      ],
+      [
+        "2025-01-03",
+        70275906,
+        "Contig",
+        "GCA_964659335.1"
+      ],
+      [
+        "2025-01-14",
+        70160805,
+        "Contig",
+        "GCA_964658915.1"
+      ],
+      [
+        "2025-01-14",
+        69238924,
+        "Contig",
+        "GCA_964659115.1"
+      ],
+      [
+        "2025-01-03",
+        69104476,
+        "Contig",
+        "GCA_964659325.1"
+      ],
+      [
+        "2024-12-31",
+        68898377,
+        "Contig",
+        "GCA_054807735.1"
+      ],
+      [
+        "2025-01-03",
+        67284042,
+        "Contig",
+        "GCA_964659265.1"
+      ],
+      [
+        "2024-12-05",
+        66397000,
+        "Contig",
+        "GCA_964417615.1"
+      ],
+      [
+        "2025-01-03",
+        65536773,
+        "Contig",
+        "GCA_964659145.1"
+      ],
+      [
+        "2021-11-19",
+        65486560,
+        "Scaffold",
+        "GCA_913844065.1"
+      ],
+      [
+        "2025-01-03",
+        64341054,
+        "Contig",
+        "GCA_964659215.1"
+      ],
+      [
+        "2025-01-14",
+        63697956,
+        "Contig",
+        "GCA_964659135.1"
+      ],
+      [
+        "2022-05-02",
+        62756510,
+        "Scaffold",
+        "GCA_913844035.1"
+      ],
+      [
+        "2025-01-23",
+        62624377,
+        "Contig",
+        "GCA_964662475.1"
+      ],
+      [
+        "2022-05-03",
+        62494878,
+        "Scaffold",
+        "GCA_913843925.1"
+      ],
+      [
+        "2022-03-05",
+        61767748,
+        "Scaffold",
+        "GCA_913844015.1"
+      ],
+      [
+        "2022-03-05",
+        61014763,
+        "Scaffold",
+        "GCA_913844055.1"
+      ],
+      [
+        "2022-05-02",
+        60979591,
+        "Scaffold",
+        "GCA_913843625.1"
+      ],
+      [
+        "2022-05-02",
+        60974499,
+        "Scaffold",
+        "GCA_913844075.1"
+      ],
+      [
+        "2022-05-02",
+        60923630,
+        "Scaffold",
+        "GCA_913843595.1"
+      ],
+      [
+        "2025-01-03",
+        60656922,
+        "Contig",
+        "GCA_964659065.1"
+      ],
+      [
+        "2022-05-01",
+        60650285,
+        "Scaffold",
+        "GCA_913843955.1"
+      ],
+      [
+        "2022-03-11",
+        60623878,
+        "Scaffold",
+        "GCA_913844125.1"
+      ],
+      [
+        "2022-05-02",
+        60444092,
+        "Scaffold",
+        "GCA_913844095.1"
+      ],
+      [
+        "2025-01-03",
+        60297754,
+        "Contig",
+        "GCA_964659345.1"
+      ],
+      [
+        "2022-03-11",
+        60184894,
+        "Scaffold",
+        "GCA_913844105.1"
+      ],
+      [
+        "2025-01-14",
+        60100091,
+        "Contig",
+        "GCA_964658945.1"
+      ],
+      [
+        "2025-01-03",
+        60098275,
+        "Contig",
+        "GCA_964659375.1"
+      ],
+      [
+        "2022-03-11",
+        60054902,
+        "Scaffold",
+        "GCA_913844045.1"
+      ],
+      [
+        "2022-05-03",
+        60054070,
+        "Scaffold",
+        "GCA_913844115.1"
+      ],
+      [
+        "2022-03-11",
+        59691691,
+        "Scaffold",
+        "GCA_913843885.1"
+      ],
+      [
+        "2025-01-03",
+        59689866,
+        "Contig",
+        "GCA_964659205.1"
+      ],
+      [
+        "2022-05-02",
+        59454195,
+        "Scaffold",
+        "GCA_913843605.1"
+      ],
+      [
+        "2022-05-01",
+        59376810,
+        "Scaffold",
+        "GCA_913843545.1"
+      ],
+      [
+        "2022-03-05",
+        59368711,
+        "Scaffold",
+        "GCA_913843965.1"
+      ],
+      [
+        "2021-09-28",
+        59356191,
+        "Scaffold",
+        "GCA_914822365.1"
+      ],
+      [
+        "2022-05-02",
+        59351391,
+        "Scaffold",
+        "GCA_913843525.1"
+      ],
+      [
+        "2022-05-02",
+        59351390,
+        "Scaffold",
+        "GCA_913843635.1"
+      ],
+      [
+        "2022-03-11",
+        59351390,
+        "Scaffold",
+        "GCA_913843675.1"
+      ],
+      [
+        "2021-09-28",
+        59351387,
+        "Scaffold",
+        "GCA_914823235.1"
+      ],
+      [
+        "2021-09-28",
+        59347058,
+        "Scaffold",
+        "GCA_914823105.1"
+      ],
+      [
+        "2021-09-28",
+        59341213,
+        "Scaffold",
+        "GCA_914824655.1"
+      ],
+      [
+        "2022-05-02",
+        59341210,
+        "Scaffold",
+        "GCA_913843535.1"
+      ],
+      [
+        "2021-09-28",
+        59336180,
+        "Scaffold",
+        "GCA_914824835.1"
+      ],
+      [
+        "2025-01-23",
+        59309297,
+        "Contig",
+        "GCA_964662405.1"
+      ],
+      [
+        "2021-09-28",
+        59275114,
+        "Scaffold",
+        "GCA_914826315.1"
+      ],
+      [
+        "2021-09-28",
+        59261427,
+        "Scaffold",
+        "GCA_914826275.1"
+      ],
+      [
+        "2021-09-28",
+        59215978,
+        "Scaffold",
+        "GCA_914825625.1"
+      ],
+      [
+        "2022-05-02",
+        58530032,
+        "Scaffold",
+        "GCA_913843505.1"
+      ],
+      [
+        "2025-01-03",
+        58479217,
+        "Contig",
+        "GCA_964659245.1"
+      ],
+      [
+        "2022-05-02",
+        58383873,
+        "Scaffold",
+        "GCA_913843575.1"
+      ],
+      [
+        "2022-03-11",
+        58380376,
+        "Scaffold",
+        "GCA_913844145.1"
+      ],
+      [
+        "2022-05-02",
+        58378529,
+        "Scaffold",
+        "GCA_913843645.1"
+      ],
+      [
+        "2022-03-11",
+        58375135,
+        "Scaffold",
+        "GCA_913844085.1"
+      ],
+      [
+        "2022-05-03",
+        58370250,
+        "Scaffold",
+        "GCA_913843555.1"
+      ],
+      [
+        "2022-05-02",
+        58370250,
+        "Scaffold",
+        "GCA_913843665.1"
+      ],
+      [
+        "2022-03-11",
+        58370250,
+        "Scaffold",
+        "GCA_913843685.1"
+      ],
+      [
+        "2022-03-05",
+        58369029,
+        "Scaffold",
+        "GCA_913843585.1"
+      ],
+      [
+        "2021-09-28",
+        58365048,
+        "Scaffold",
+        "GCA_914822985.1"
+      ],
+      [
+        "2022-05-02",
+        58355533,
+        "Scaffold",
+        "GCA_913843655.1"
+      ],
+      [
+        "2022-03-11",
+        58226343,
+        "Scaffold",
+        "GCA_913844005.1"
+      ],
+      [
+        "2025-01-23",
+        58111413,
+        "Contig",
+        "GCA_964662335.1"
+      ],
+      [
+        "2022-05-02",
+        57816307,
+        "Scaffold",
+        "GCA_913843515.1"
+      ],
+      [
+        "2025-01-03",
+        57716844,
+        "Contig",
+        "GCA_964659305.1"
+      ],
+      [
+        "2025-01-14",
+        57499700,
+        "Contig",
+        "GCA_964658905.1"
+      ],
+      [
+        "2022-05-02",
+        57439005,
+        "Scaffold",
+        "GCA_913843565.1"
+      ],
+      [
+        "2025-01-23",
+        56328893,
+        "Contig",
+        "GCA_964662695.1"
+      ],
+      [
+        "2025-01-14",
+        55788598,
+        "Contig",
+        "GCA_964658985.1"
+      ],
+      [
+        "2025-01-03",
+        55316074,
+        "Contig",
+        "GCA_964659235.1"
+      ],
+      [
+        "2025-01-03",
+        54757207,
+        "Contig",
+        "GCA_964659355.1"
+      ],
+      [
+        "2025-01-03",
+        53197233,
+        "Contig",
+        "GCA_964659475.1"
+      ],
+      [
+        "2025-01-03",
+        52791537,
+        "Contig",
+        "GCA_964659405.1"
+      ],
+      [
+        "2025-01-03",
+        51914992,
+        "Contig",
+        "GCA_964659315.1"
+      ],
+      [
+        "2025-01-23",
+        51894198,
+        "Contig",
+        "GCA_964662815.1"
+      ],
+      [
+        "2025-01-03",
+        51783125,
+        "Contig",
+        "GCA_964659465.1"
+      ],
+      [
+        "2025-01-03",
+        49123779,
+        "Contig",
+        "GCA_964659395.1"
+      ],
+      [
+        "2025-01-23",
+        48812273,
+        "Contig",
+        "GCA_964662445.1"
+      ],
+      [
+        "2025-01-14",
+        48730775,
+        "Contig",
+        "GCA_964659035.1"
+      ],
+      [
+        "2025-01-03",
+        48237404,
+        "Contig",
+        "GCA_964659175.1"
+      ],
+      [
+        "2025-01-03",
+        47182481,
+        "Contig",
+        "GCA_964659165.1"
+      ],
+      [
+        "2025-01-03",
+        46417859,
+        "Contig",
+        "GCA_964659255.1"
+      ],
+      [
+        "2025-01-03",
+        46146750,
+        "Contig",
+        "GCA_964659195.1"
+      ],
+      [
+        "2025-01-03",
+        43290461,
+        "Contig",
+        "GCA_964659365.1"
+      ],
+      [
+        "2025-01-03",
+        42053022,
+        "Contig",
+        "GCA_964659415.1"
+      ],
+      [
+        "2025-01-14",
+        40898585,
+        "Contig",
+        "GCA_964659015.1"
+      ],
+      [
+        "2025-01-23",
+        40852275,
+        "Contig",
+        "GCA_964662885.1"
+      ],
+      [
+        "2025-01-14",
+        39656451,
+        "Contig",
+        "GCA_964659075.1"
+      ],
+      [
+        "2025-01-14",
+        39105526,
+        "Contig",
+        "GCA_964658925.1"
+      ],
+      [
+        "2025-01-14",
+        38876427,
+        "Contig",
+        "GCA_964659085.1"
+      ],
+      [
+        "2025-01-23",
+        36999103,
+        "Contig",
+        "GCA_964662615.1"
+      ],
+      [
+        "2025-01-03",
+        36006552,
+        "Contig",
+        "GCA_964659295.1"
+      ],
+      [
+        "2025-01-23",
+        35997547,
+        "Contig",
+        "GCA_964662905.1"
+      ],
+      [
+        "2025-01-03",
+        35067235,
+        "Contig",
+        "GCA_964657255.1"
+      ],
+      [
+        "2025-01-23",
+        35067235,
+        "Contig",
+        "GCA_964662325.1"
+      ],
+      [
+        "2025-01-03",
+        34480545,
+        "Contig",
+        "GCA_964659275.1"
+      ],
+      [
+        "2025-01-14",
+        31302236,
+        "Contig",
+        "GCA_964659045.1"
+      ],
+      [
+        "2025-01-03",
+        29814559,
+        "Contig",
+        "GCA_964659155.1"
+      ],
+      [
+        "2024-07-29",
+        29187323,
+        "Contig",
+        "GCA_040939185.1"
+      ],
+      [
+        "2025-01-03",
+        27957754,
+        "Contig",
+        "GCA_964659385.1"
+      ],
+      [
+        "2024-07-29",
+        26264161,
+        "Contig",
+        "GCA_040939315.1"
+      ],
+      [
+        "2025-01-03",
+        25655921,
+        "Contig",
+        "GCA_964659425.1"
+      ],
+      [
+        "2025-01-14",
+        25353230,
+        "Contig",
+        "GCA_964659095.1"
+      ],
+      [
+        "2026-10-05",
+        25018285,
+        "Scaffold",
+        "GCA_062016259.1"
+      ],
+      [
+        "2024-07-29",
+        24782322,
+        "Contig",
+        "GCA_040939165.1"
+      ],
+      [
+        "2025-01-14",
+        23666181,
+        "Contig",
+        "GCA_964658935.1"
+      ],
+      [
+        "2025-01-14",
+        22982141,
+        "Contig",
+        "GCA_964659025.1"
+      ],
+      [
+        "2024-07-29",
+        20672347,
+        "Contig",
+        "GCA_040939175.1"
+      ],
+      [
+        "2026-10-05",
+        20603871,
+        "Scaffold",
+        "GCA_062016265.1"
+      ],
+      [
+        "2025-01-03",
+        19838467,
+        "Contig",
+        "GCA_964659445.1"
+      ],
+      [
+        "2024-07-29",
+        19448625,
+        "Contig",
+        "GCA_040939155.1"
+      ],
+      [
+        "2026-10-05",
+        18543295,
+        "Scaffold",
+        "GCA_062016262.1"
+      ],
+      [
+        "2025-01-14",
+        17652265,
+        "Contig",
+        "GCA_964658975.1"
+      ],
+      [
+        "2024-07-29",
+        17462781,
+        "Contig",
+        "GCA_040939145.1"
+      ],
+      [
+        "2025-01-14",
+        17032425,
+        "Contig",
+        "GCA_964659125.1"
+      ],
+      [
+        "2025-01-14",
+        16087726,
+        "Contig",
+        "GCA_964658965.1"
+      ],
+      [
+        "2026-10-05",
+        15480683,
+        "Scaffold",
+        "GCA_062016266.1"
+      ],
+      [
+        "2025-01-14",
+        14228460,
+        "Contig",
+        "GCA_964659005.1"
+      ],
+      [
+        "2019-11-14",
+        10508117,
+        "Contig",
+        "GCA_902652775.1"
+      ],
+      [
+        "2024-12-31",
+        10045505,
+        "Contig",
+        "GCA_054807895.1"
+      ],
+      [
+        "2026-01-26",
+        8431402,
+        "Contig",
+        "GCA_054742105.1"
+      ],
+      [
+        "2021-08-12",
+        2538690,
+        "Contig",
+        "GCA_912157075.1"
+      ],
+      [
+        "2016-10-21",
+        2408968,
+        "Contig",
+        "GCA_002009925.1"
+      ],
+      [
+        "2021-08-12",
+        2065644,
+        "Contig",
+        "GCA_912157055.1"
+      ],
+      [
+        "2021-08-12",
+        2037252,
+        "Contig",
+        "GCA_912157065.1"
+      ],
+      [
+        "2024-07-29",
+        2021623,
+        "Contig",
+        "GCA_040939415.1"
+      ],
+      [
+        "2021-08-12",
+        2014510,
+        "Contig",
+        "GCA_912157105.1"
+      ],
+      [
+        "2021-08-12",
+        1926195,
+        "Contig",
+        "GCA_912157085.1"
+      ],
+      [
+        "2021-08-12",
+        1921837,
+        "Contig",
+        "GCA_912157025.1"
+      ],
+      [
+        "2021-08-12",
+        1913797,
+        "Contig",
+        "GCA_912157035.1"
+      ],
+      [
+        "2021-08-12",
+        1886262,
+        "Contig",
+        "GCA_912157115.1"
+      ],
+      [
+        "2021-08-12",
+        1883799,
+        "Contig",
+        "GCA_912157015.1"
+      ],
+      [
+        "2021-08-12",
+        1860593,
+        "Contig",
+        "GCA_912157095.1"
+      ],
+      [
+        "2024-07-29",
+        1854763,
+        "Contig",
+        "GCA_040939435.1"
+      ],
+      [
+        "2025-01-06",
+        1500486,
+        "Contig",
+        "GCA_964658995.1"
+      ],
+      [
+        "2020-04-06",
+        672119,
+        "Contig",
+        "GCA_012069685.1"
+      ],
+      [
+        "2020-04-06",
+        566770,
+        "Contig",
+        "GCA_012069745.1"
+      ],
+      [
+        "2021-05-19",
+        351716,
+        "Contig",
+        "GCA_018398685.1"
+      ],
+      [
+        "2019-03-04",
+        251331,
+        "Scaffold",
+        "GCA_900009665.2"
+      ],
+      [
+        "2020-10-30",
+        220280,
+        "Scaffold",
+        "GCA_015144065.1"
+      ],
+      [
+        "2020-10-30",
+        201534,
+        "Scaffold",
+        "GCA_015144605.1"
+      ],
+      [
+        "2019-03-04",
+        159554,
+        "Scaffold",
+        "GCA_900010305.2"
+      ],
+      [
+        "2019-03-04",
+        154008,
+        "Scaffold",
+        "GCA_900008125.2"
+      ],
+      [
+        "2019-03-04",
+        146199,
+        "Scaffold",
+        "GCA_900008935.2"
+      ],
+      [
+        "2019-03-04",
+        142029,
+        "Scaffold",
+        "GCA_900009335.2"
+      ],
+      [
+        "2019-03-04",
+        141222,
+        "Scaffold",
+        "GCA_900008195.2"
+      ],
+      [
+        "2019-03-04",
+        139408,
+        "Scaffold",
+        "GCA_900011055.2"
+      ],
+      [
+        "2019-03-04",
+        134771,
+        "Scaffold",
+        "GCA_900010215.2"
+      ],
+      [
+        "2019-03-04",
+        133670,
+        "Scaffold",
+        "GCA_900008135.2"
+      ],
+      [
+        "2019-03-27",
+        132534,
+        "Contig",
+        "GCA_900661295.1"
+      ],
+      [
+        "2019-03-04",
+        127275,
+        "Scaffold",
+        "GCA_900010775.2"
+      ],
+      [
+        "2019-03-04",
+        117253,
+        "Scaffold",
+        "GCA_900010005.2"
+      ],
+      [
+        "2019-03-04",
+        114345,
+        "Scaffold",
+        "GCA_900016255.2"
+      ],
+      [
+        "2019-03-04",
+        101651,
+        "Scaffold",
+        "GCA_900010785.2"
+      ],
+      [
+        "2019-03-04",
+        100749,
+        "Scaffold",
+        "GCA_900009035.2"
+      ],
+      [
+        "2026-03-08",
+        99718,
+        "Contig",
+        "GCA_982145515.1"
+      ],
+      [
+        "2019-03-04",
+        95306,
+        "Scaffold",
+        "GCA_900008245.2"
+      ],
+      [
+        "2019-03-04",
+        94763,
+        "Scaffold",
+        "GCA_900009695.2"
+      ],
+      [
+        "2019-03-04",
+        94719,
+        "Scaffold",
+        "GCA_900008875.2"
+      ],
+      [
+        "2019-03-04",
+        87305,
+        "Scaffold",
+        "GCA_900009055.2"
+      ],
+      [
+        "2018-11-02",
+        86969,
+        "Contig",
+        "GCA_003711475.1"
+      ],
+      [
+        "2019-03-04",
+        85278,
+        "Scaffold",
+        "GCA_900009655.2"
+      ],
+      [
+        "2019-03-04",
+        84035,
+        "Scaffold",
+        "GCA_900008995.2"
+      ],
+      [
+        "2018-11-02",
+        83112,
+        "Contig",
+        "GCA_003711455.1"
+      ],
+      [
+        "2018-11-02",
+        81065,
+        "Contig",
+        "GCA_003709635.1"
+      ],
+      [
+        "2018-11-02",
+        78378,
+        "Contig",
+        "GCA_003709745.1"
+      ],
+      [
+        "2018-11-02",
+        73605,
+        "Contig",
+        "GCA_003709805.1"
+      ],
+      [
+        "2018-11-02",
+        73146,
+        "Contig",
+        "GCA_003709695.1"
+      ],
+      [
+        "2018-11-02",
+        72602,
+        "Contig",
+        "GCA_003709765.1"
+      ],
+      [
+        "2018-11-02",
+        71949,
+        "Contig",
+        "GCA_003709785.1"
+      ],
+      [
+        "2018-11-02",
+        71538,
+        "Contig",
+        "GCA_003709735.1"
+      ],
+      [
+        "2019-03-04",
+        69660,
+        "Scaffold",
+        "GCA_900009795.2"
+      ],
+      [
+        "2019-03-04",
+        65967,
+        "Scaffold",
+        "GCA_900009065.2"
+      ],
+      [
+        "2019-03-04",
+        63220,
+        "Scaffold",
+        "GCA_900008275.2"
+      ],
+      [
+        "2018-11-02",
+        61120,
+        "Contig",
+        "GCA_003709615.1"
+      ],
+      [
+        "2019-03-04",
+        59858,
+        "Scaffold",
+        "GCA_900008695.2"
+      ],
+      [
+        "2023-09-13",
+        58898,
+        "Contig",
+        "GCA_963426525.1"
+      ],
+      [
+        "2018-11-02",
+        58728,
+        "Contig",
+        "GCA_003709625.1"
+      ],
+      [
+        "2018-11-02",
+        51016,
+        "Contig",
+        "GCA_003709685.1"
+      ],
+      [
+        "2018-11-02",
+        49656,
+        "Contig",
+        "GCA_003709675.1"
+      ],
+      [
+        "2018-12-05",
+        49594,
+        "Contig",
+        "GCA_003864135.1"
+      ],
+      [
+        "2015-12-30",
+        47466,
+        "Scaffold",
+        "GCA_001483655.1"
+      ],
+      [
+        "2019-03-04",
+        45618,
+        "Scaffold",
+        "GCA_900009345.2"
+      ],
+      [
+        "2011-01-06",
+        23924,
+        "Scaffold",
+        "GCA_000185165.1"
+      ],
+      [
+        "2010-06-21",
+        887,
+        "Scaffold",
+        "GCA_000005465.1"
+      ],
+      [
+        "2023-05-18",
+        2668988,
+        "Chromosome",
+        "GCA_948473235.1"
+      ],
+      [
+        "2023-05-18",
+        2640901,
+        "Chromosome",
+        "GCA_948474675.1"
+      ],
+      [
+        "2023-05-18",
+        2637664,
+        "Chromosome",
+        "GCA_948473255.1"
+      ],
+      [
+        "2023-05-18",
+        2441479,
+        "Chromosome",
+        "GCA_948473215.1"
+      ],
+      [
+        "2023-05-18",
+        1492506,
+        "Chromosome",
+        "GCA_948474725.1"
+      ],
+      [
+        "2023-05-18",
+        1458937,
+        "Chromosome",
+        "GCA_948473225.1"
+      ],
+      [
+        "2023-05-18",
+        1396989,
+        "Chromosome",
+        "GCA_948474735.1"
+      ],
+      [
+        "2004-09-01",
+        6194666,
+        "Chromosome",
+        "GCA_000002135.3"
+      ],
+      [
+        "2004-09-01",
+        6194666,
+        "Chromosome",
+        "GCF_000002135.2"
+      ],
+      [
+        "2016-11-15",
+        2776999,
+        "Scaffold",
+        "GCA_001879175.2"
+      ],
+      [
+        "2018-10-12",
+        1463983,
+        "Contig",
+        "GCA_900518905.1"
+      ],
+      [
+        "2017-06-08",
+        288210,
+        "Scaffold",
+        "GCA_900008895.2"
+      ],
+      [
+        "2017-02-14",
+        246893,
+        "Scaffold",
+        "GCA_900065935.1"
+      ],
+      [
+        "2017-06-08",
+        220168,
+        "Scaffold",
+        "GCA_900009965.2"
+      ],
+      [
+        "2017-06-08",
+        198043,
+        "Scaffold",
+        "GCA_900008675.2"
+      ],
+      [
+        "2017-06-08",
+        183885,
+        "Scaffold",
+        "GCA_900009685.2"
+      ],
+      [
+        "2017-06-08",
+        181417,
+        "Scaffold",
+        "GCA_900008985.2"
+      ],
+      [
+        "2017-06-08",
+        166748,
+        "Scaffold",
+        "GCA_900008885.2"
+      ],
+      [
+        "2017-06-08",
+        157242,
+        "Scaffold",
+        "GCA_900016265.2"
+      ],
+      [
+        "2017-06-08",
+        141013,
+        "Scaffold",
+        "GCA_900011565.2"
+      ],
+      [
+        "2017-06-08",
+        131529,
+        "Scaffold",
+        "GCA_900009015.2"
+      ],
+      [
+        "2017-06-08",
+        128834,
+        "Scaffold",
+        "GCA_900009025.2"
+      ],
+      [
+        "2017-06-08",
+        128547,
+        "Scaffold",
+        "GCA_900009215.2"
+      ],
+      [
+        "2017-06-08",
+        124968,
+        "Scaffold",
+        "GCA_900009005.2"
+      ],
+      [
+        "2017-06-08",
+        118470,
+        "Scaffold",
+        "GCA_900009075.2"
+      ],
+      [
+        "2017-06-08",
+        110410,
+        "Scaffold",
+        "GCA_900007535.2"
+      ],
+      [
+        "2017-06-08",
+        107470,
+        "Scaffold",
+        "GCA_900012675.2"
+      ],
+      [
+        "2017-06-08",
+        107303,
+        "Scaffold",
+        "GCA_900009105.2"
+      ],
+      [
+        "2017-06-08",
+        105783,
+        "Scaffold",
+        "GCA_900010295.2"
+      ],
+      [
+        "2017-06-08",
+        105290,
+        "Scaffold",
+        "GCA_900007485.2"
+      ],
+      [
+        "2017-06-08",
+        104884,
+        "Scaffold",
+        "GCA_900009225.2"
+      ],
+      [
+        "2017-06-08",
+        102509,
+        "Scaffold",
+        "GCA_900009935.2"
+      ],
+      [
+        "2017-06-08",
+        96238,
+        "Scaffold",
+        "GCA_900008955.2"
+      ],
+      [
+        "2017-06-08",
+        95167,
+        "Scaffold",
+        "GCA_900008185.2"
+      ],
+      [
+        "2017-06-08",
+        94915,
+        "Scaffold",
+        "GCA_900011785.2"
+      ],
+      [
+        "2017-06-08",
+        94894,
+        "Scaffold",
+        "GCA_900008225.2"
+      ],
+      [
+        "2017-06-08",
+        94492,
+        "Scaffold",
+        "GCA_900019285.2"
+      ],
+      [
+        "2017-06-08",
+        94328,
+        "Scaffold",
+        "GCA_900008905.2"
+      ],
+      [
+        "2017-06-08",
+        93589,
+        "Scaffold",
+        "GCA_900011235.2"
+      ],
+      [
+        "2017-06-08",
+        92506,
+        "Scaffold",
+        "GCA_900010575.2"
+      ],
+      [
+        "2017-06-08",
+        88031,
+        "Scaffold",
+        "GCA_900009925.2"
+      ],
+      [
+        "2017-06-08",
+        84613,
+        "Scaffold",
+        "GCA_900009085.2"
+      ],
+      [
+        "2017-06-08",
+        84401,
+        "Scaffold",
+        "GCA_900012405.2"
+      ],
+      [
+        "2017-06-08",
+        83657,
+        "Scaffold",
+        "GCA_900009675.2"
+      ],
+      [
+        "2017-06-08",
+        83612,
+        "Scaffold",
+        "GCA_900008175.2"
+      ],
+      [
+        "2017-06-08",
+        83226,
+        "Scaffold",
+        "GCA_900008975.2"
+      ],
+      [
+        "2017-06-08",
+        82065,
+        "Scaffold",
+        "GCA_900009325.2"
+      ],
+      [
+        "2017-06-08",
+        81468,
+        "Scaffold",
+        "GCA_900016245.2"
+      ],
+      [
+        "2017-06-08",
+        81118,
+        "Scaffold",
+        "GCA_900007505.2"
+      ],
+      [
+        "2017-06-08",
+        79835,
+        "Scaffold",
+        "GCA_900007515.2"
+      ],
+      [
+        "2017-06-08",
+        79656,
+        "Scaffold",
+        "GCA_900008705.2"
+      ],
+      [
+        "2017-06-08",
+        78451,
+        "Scaffold",
+        "GCA_900008915.2"
+      ],
+      [
+        "2017-06-08",
+        77545,
+        "Scaffold",
+        "GCA_900007475.2"
+      ],
+      [
+        "2017-06-08",
+        77480,
+        "Scaffold",
+        "GCA_900008205.2"
+      ],
+      [
+        "2017-06-08",
+        72117,
+        "Scaffold",
+        "GCA_900008685.2"
+      ],
+      [
+        "2017-06-08",
+        71485,
+        "Scaffold",
+        "GCA_900009045.2"
+      ],
+      [
+        "2017-06-08",
+        69820,
+        "Scaffold",
+        "GCA_900008115.2"
+      ],
+      [
+        "2017-06-08",
+        69281,
+        "Scaffold",
+        "GCA_900011575.2"
+      ],
+      [
+        "2017-06-08",
+        68639,
+        "Scaffold",
+        "GCA_900008965.2"
+      ],
+      [
+        "2017-06-08",
+        68592,
+        "Scaffold",
+        "GCA_900019275.2"
+      ],
+      [
+        "2017-06-08",
+        68454,
+        "Scaffold",
+        "GCA_900011495.2"
+      ],
+      [
+        "2017-06-08",
+        66469,
+        "Scaffold",
+        "GCA_900008145.2"
+      ],
+      [
+        "2017-09-21",
+        64426,
+        "Scaffold",
+        "GCA_900231025.1"
+      ],
+      [
+        "2017-06-08",
+        62569,
+        "Scaffold",
+        "GCA_900009945.2"
+      ],
+      [
+        "2017-06-08",
+        62012,
+        "Scaffold",
+        "GCA_900008165.2"
+      ],
+      [
+        "2017-06-08",
+        58669,
+        "Scaffold",
+        "GCA_900016275.2"
+      ],
+      [
+        "2017-06-08",
+        58094,
+        "Scaffold",
+        "GCA_900010205.2"
+      ],
+      [
+        "2017-06-08",
+        57730,
+        "Scaffold",
+        "GCA_900007495.2"
+      ],
+      [
+        "2017-06-08",
+        57465,
+        "Scaffold",
+        "GCA_900008925.2"
+      ],
+      [
+        "2017-06-08",
+        56841,
+        "Scaffold",
+        "GCA_900008155.2"
+      ],
+      [
+        "2017-06-08",
+        54275,
+        "Scaffold",
+        "GCA_900009095.2"
+      ],
+      [
+        "2017-06-08",
+        51282,
+        "Scaffold",
+        "GCA_900008235.2"
+      ],
+      [
+        "2017-06-08",
+        49411,
+        "Scaffold",
+        "GCA_900008255.2"
+      ],
+      [
+        "2017-06-08",
+        49174,
+        "Scaffold",
+        "GCA_900010315.2"
+      ],
+      [
+        "2017-06-08",
+        47917,
+        "Scaffold",
+        "GCA_900010225.2"
+      ],
+      [
+        "2017-06-08",
+        47701,
+        "Scaffold",
+        "GCA_900007525.2"
+      ],
+      [
+        "2017-06-08",
+        47399,
+        "Scaffold",
+        "GCA_900009355.2"
+      ],
+      [
+        "2017-06-08",
+        47010,
+        "Scaffold",
+        "GCA_900008945.2"
+      ],
+      [
+        "2017-06-08",
+        44460,
+        "Scaffold",
+        "GCA_900009955.2"
+      ],
+      [
+        "2017-06-08",
+        41546,
+        "Scaffold",
+        "GCA_900011225.2"
+      ],
+      [
+        "2013-07-31",
+        37086,
+        "Scaffold",
+        "GCA_000442295.1"
+      ],
+      [
+        "2017-09-21",
+        30462,
+        "Scaffold",
+        "GCA_900230875.1"
+      ],
+      [
+        "2017-06-08",
+        29664,
+        "Scaffold",
+        "GCA_900008215.2"
+      ],
+      [
+        "2017-10-06",
+        10466,
+        "Scaffold",
+        "GCA_900230885.1"
+      ],
+      [
+        "2017-06-08",
+        10070,
+        "Scaffold",
+        "GCA_900009995.2"
+      ],
+      [
+        "2017-09-21",
+        9931,
+        "Scaffold",
+        "GCA_900231015.1"
+      ],
+      [
+        "2017-09-21",
+        9873,
+        "Scaffold",
+        "GCA_900230895.1"
+      ],
+      [
+        "2017-09-21",
+        8024,
+        "Scaffold",
+        "GCA_900230995.1"
+      ],
+      [
+        "2017-09-21",
+        6045,
+        "Scaffold",
+        "GCA_900230985.1"
+      ],
+      [
+        "2017-09-21",
+        5021,
+        "Scaffold",
+        "GCA_900231005.1"
+      ],
+      [
+        "2017-09-21",
+        4682,
+        "Scaffold",
+        "GCA_900230955.1"
+      ],
+      [
+        "2017-09-21",
+        3543,
+        "Scaffold",
+        "GCA_900230965.1"
+      ],
+      [
+        "2017-09-21",
+        3260,
+        "Scaffold",
+        "GCA_900230975.1"
+      ],
+      [
+        "2017-09-21",
+        3128,
+        "Scaffold",
+        "GCA_900231045.1"
+      ],
+      [
+        "2014-12-18",
+        2785,
+        "Scaffold",
+        "GCA_000786075.2"
+      ],
+      [
+        "2008-04-17",
+        235,
+        "Contig",
+        "GCA_000181135.1"
+      ],
+      [
+        "2022-01-24",
+        154349815,
+        "Chromosome",
+        "GCA_020881995.2"
+      ],
+      [
+        "2021-02-16",
+        146259670,
+        "Chromosome",
+        "GCA_016894425.1"
+      ],
+      [
+        "2024-04-28",
+        58903441,
+        "Chromosome",
+        "GCA_964035085.1"
+      ],
+      [
+        "2024-04-28",
+        54782457,
+        "Chromosome",
+        "GCA_964035025.1"
+      ],
+      [
+        "2024-04-28",
+        47080722,
+        "Chromosome",
+        "GCA_964035065.1"
+      ],
+      [
+        "2024-04-29",
+        46407904,
+        "Chromosome",
+        "GCA_964035445.1"
+      ],
+      [
+        "2024-04-28",
+        42511642,
+        "Chromosome",
+        "GCA_964035295.1"
+      ],
+      [
+        "2024-04-29",
+        40624160,
+        "Chromosome",
+        "GCA_964035455.1"
+      ],
+      [
+        "2024-04-28",
+        38207660,
+        "Chromosome",
+        "GCA_964035035.1"
+      ],
+      [
+        "2024-04-28",
+        38199645,
+        "Chromosome",
+        "GCA_964035265.1"
+      ],
+      [
+        "2024-04-28",
+        38050762,
+        "Chromosome",
+        "GCA_964035395.1"
+      ],
+      [
+        "2024-04-28",
+        36730323,
+        "Chromosome",
+        "GCA_964035115.1"
+      ],
+      [
+        "2024-04-28",
+        34038951,
+        "Chromosome",
+        "GCA_964035185.1"
+      ],
+      [
+        "2024-04-28",
+        33925773,
+        "Chromosome",
+        "GCA_964035205.1"
+      ],
+      [
+        "2024-04-28",
+        32547296,
+        "Chromosome",
+        "GCA_964035155.1"
+      ],
+      [
+        "2024-04-28",
+        29733107,
+        "Chromosome",
+        "GCA_964035355.1"
+      ],
+      [
+        "2024-04-28",
+        28217775,
+        "Chromosome",
+        "GCA_964035225.1"
+      ],
+      [
+        "2024-04-29",
+        23285575,
+        "Chromosome",
+        "GCA_964035435.1"
+      ],
+      [
+        "2024-04-28",
+        15440854,
+        "Chromosome",
+        "GCA_964035055.1"
+      ],
+      [
+        "2024-04-28",
+        14050610,
+        "Chromosome",
+        "GCA_964035385.1"
+      ],
+      [
+        "2024-04-28",
+        13140686,
+        "Chromosome",
+        "GCA_964035375.1"
+      ],
+      [
+        "2024-04-28",
+        10639436,
+        "Chromosome",
+        "GCA_964035215.1"
+      ],
+      [
+        "2024-04-28",
+        10416792,
+        "Chromosome",
+        "GCA_964035415.1"
+      ],
+      [
+        "2024-04-28",
+        9604305,
+        "Chromosome",
+        "GCA_964035335.1"
+      ],
+      [
+        "2024-04-28",
+        9584566,
+        "Chromosome",
+        "GCA_964035305.1"
+      ],
+      [
+        "2024-04-28",
+        9509743,
+        "Chromosome",
+        "GCA_964035365.1"
+      ],
+      [
+        "2024-04-28",
+        9387464,
+        "Chromosome",
+        "GCA_964035135.1"
+      ],
+      [
+        "2024-04-28",
+        9263951,
+        "Chromosome",
+        "GCA_964035165.1"
+      ],
+      [
+        "2024-04-28",
+        8657391,
+        "Chromosome",
+        "GCA_964035235.1"
+      ],
+      [
+        "2024-04-28",
+        8582849,
+        "Chromosome",
+        "GCA_964035255.1"
+      ],
+      [
+        "2024-04-28",
+        8444755,
+        "Chromosome",
+        "GCA_964035145.1"
+      ],
+      [
+        "2024-04-28",
+        8432301,
+        "Chromosome",
+        "GCA_964035275.1"
+      ],
+      [
+        "2024-04-28",
+        7871356,
+        "Chromosome",
+        "GCA_964035125.1"
+      ],
+      [
+        "2024-04-28",
+        7847493,
+        "Chromosome",
+        "GCA_964035075.1"
+      ],
+      [
+        "2024-04-28",
+        7669645,
+        "Chromosome",
+        "GCA_964035315.1"
+      ],
+      [
+        "2024-04-28",
+        7309642,
+        "Chromosome",
+        "GCA_964035245.1"
+      ],
+      [
+        "2024-04-28",
+        6904960,
+        "Chromosome",
+        "GCA_964035325.1"
+      ],
+      [
+        "2024-04-28",
+        6161230,
+        "Chromosome",
+        "GCA_964035175.1"
+      ],
+      [
+        "2024-04-28",
+        5720263,
+        "Chromosome",
+        "GCA_964035285.1"
+      ],
+      [
+        "2024-04-28",
+        4727027,
+        "Chromosome",
+        "GCA_964035095.1"
+      ],
+      [
+        "2024-04-28",
+        3917674,
+        "Chromosome",
+        "GCA_964035345.1"
+      ],
+      [
+        "2024-04-28",
+        3212496,
+        "Chromosome",
+        "GCA_964035045.1"
+      ],
+      [
+        "2024-04-28",
+        3051335,
+        "Chromosome",
+        "GCA_964035405.1"
+      ],
+      [
+        "2024-04-28",
+        2598327,
+        "Chromosome",
+        "GCA_964035195.1"
+      ],
+      [
+        "2024-04-28",
+        1409689,
+        "Chromosome",
+        "GCA_964035105.1"
+      ]
+    ],
+    "best": {
+      "accession": "GCA_061372705.1",
+      "name": "HG008Tv3.2_hap2",
+      "n50": 173035924,
+      "submitter": "NIST"
     }
   },
   "clinvar": {
