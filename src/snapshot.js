@@ -1,5 +1,5 @@
 export default {
-  "generated": "2026-11-04T08:26:41.861Z",
+  "generated": "2026-11-04T08:55:16.367Z",
   "asOf": {
     "assembly": "2026-11-04T05:28:42.686Z",
     "sequence": "2026-11-04T06:07:32.158Z",
@@ -8,10 +8,13 @@ export default {
     "catalogs": "2026-11-04T06:47:41.912Z",
     "proteins": "2026-11-04T07:28:17.574Z",
     "targets": "2026-11-04T07:28:17.574Z",
-    "expression": "2026-11-04T07:36:39.948Z",
+    "expression": "2026-11-04T08:55:16.367Z",
     "networks": "2026-11-04T08:24:05.339Z",
     "pathways": "2026-11-04T08:24:05.339Z",
-    "ontology": "2026-11-04T08:26:41.861Z"
+    "ontology": "2026-11-04T08:26:41.861Z",
+    "regulation": "2026-11-04T08:55:16.367Z",
+    "trnas": "2026-11-04T08:53:16.210Z",
+    "encode": "2026-11-04T08:53:16.210Z"
   },
   "failed": [],
   "assembly": {
@@ -27620,6 +27623,1028 @@ export default {
       {
         "group": "ParkinsonsUK-UCL",
         "n": 4389
+      }
+    ]
+  },
+  "regulation": {
+    "ccre": {
+      "count": 2348854,
+      "classes": {
+        "pELS": {
+          "count": 249464,
+          "bp": 63616814
+        },
+        "CA-CTCF": {
+          "count": 126034,
+          "bp": 30704262
+        },
+        "CA-TF": {
+          "count": 26102,
+          "bp": 7430883
+        },
+        "CA": {
+          "count": 245985,
+          "bp": 67977747
+        },
+        "dELS": {
+          "count": 1469205,
+          "bp": 394637116
+        },
+        "TF": {
+          "count": 105286,
+          "bp": 28925253
+        },
+        "CA-H3K4me3": {
+          "count": 79246,
+          "bp": 20694781
+        },
+        "PLS": {
+          "count": 47532,
+          "bp": 13461873
+        }
+      },
+      "byChrom": {
+        "1": {
+          "pELS": 23976,
+          "CA-CTCF": 9900,
+          "CA-TF": 2305,
+          "CA": 18045,
+          "dELS": 129220,
+          "TF": 9889,
+          "CA-H3K4me3": 6227,
+          "PLS": 4412
+        },
+        "2": {
+          "dELS": 126630,
+          "CA-CTCF": 10581,
+          "CA-H3K4me3": 6817,
+          "pELS": 17624,
+          "PLS": 3307,
+          "CA": 21151,
+          "TF": 9264,
+          "CA-TF": 2313
+        },
+        "3": {
+          "pELS": 14053,
+          "PLS": 2645,
+          "CA": 17121,
+          "TF": 6345,
+          "CA-CTCF": 9178,
+          "dELS": 99543,
+          "CA-H3K4me3": 5463,
+          "CA-TF": 1750
+        },
+        "4": {
+          "dELS": 76500,
+          "CA-H3K4me3": 5850,
+          "CA": 17727,
+          "TF": 4861,
+          "CA-CTCF": 8511,
+          "pELS": 9732,
+          "PLS": 1891,
+          "CA-TF": 1455
+        },
+        "5": {
+          "dELS": 85838,
+          "CA-CTCF": 8434,
+          "CA": 15707,
+          "CA-TF": 1588,
+          "CA-H3K4me3": 5065,
+          "TF": 5690,
+          "pELS": 11631,
+          "PLS": 2270
+        },
+        "6": {
+          "TF": 7181,
+          "CA-H3K4me3": 4568,
+          "dELS": 88211,
+          "CA": 13655,
+          "CA-TF": 1654,
+          "CA-CTCF": 7364,
+          "pELS": 13020,
+          "PLS": 2575
+        },
+        "7": {
+          "CA-CTCF": 7579,
+          "pELS": 11892,
+          "PLS": 2368,
+          "CA": 13454,
+          "dELS": 79063,
+          "CA-H3K4me3": 4884,
+          "CA-TF": 1676,
+          "TF": 6182
+        },
+        "8": {
+          "CA-CTCF": 7609,
+          "CA": 14674,
+          "CA-H3K4me3": 4498,
+          "TF": 4252,
+          "pELS": 10258,
+          "dELS": 72770,
+          "PLS": 1926,
+          "CA-TF": 1385
+        },
+        "9": {
+          "CA-H3K4me3": 3073,
+          "pELS": 9712,
+          "TF": 3471,
+          "CA": 9616,
+          "dELS": 64488,
+          "CA-CTCF": 4892,
+          "PLS": 1792,
+          "CA-TF": 911
+        },
+        "10": {
+          "CA-H3K4me3": 3685,
+          "CA-CTCF": 5867,
+          "CA": 11613,
+          "pELS": 10024,
+          "PLS": 1795,
+          "TF": 4733,
+          "dELS": 75372,
+          "CA-TF": 1195
+        },
+        "11": {
+          "TF": 4280,
+          "CA-H3K4me3": 3522,
+          "dELS": 71285,
+          "CA-CTCF": 6005,
+          "CA": 11399,
+          "pELS": 14245,
+          "PLS": 2802,
+          "CA-TF": 1041
+        },
+        "12": {
+          "pELS": 13539,
+          "CA-H3K4me3": 3545,
+          "CA": 11371,
+          "dELS": 70251,
+          "CA-CTCF": 5981,
+          "TF": 4970,
+          "CA-TF": 1309,
+          "PLS": 2499
+        },
+        "13": {
+          "CA": 9973,
+          "CA-H3K4me3": 3113,
+          "CA-CTCF": 4557,
+          "dELS": 42770,
+          "pELS": 5075,
+          "CA-TF": 721,
+          "PLS": 929,
+          "TF": 2089
+        },
+        "14": {
+          "CA": 6889,
+          "CA-H3K4me3": 2341,
+          "CA-CTCF": 3824,
+          "dELS": 45779,
+          "TF": 3351,
+          "pELS": 8830,
+          "CA-TF": 731,
+          "PLS": 1803
+        },
+        "15": {
+          "CA": 6381,
+          "TF": 2974,
+          "CA-H3K4me3": 1915,
+          "CA-CTCF": 3350,
+          "dELS": 46483,
+          "pELS": 8514,
+          "CA-TF": 702,
+          "PLS": 1555
+        },
+        "16": {
+          "pELS": 10858,
+          "CA-H3K4me3": 2050,
+          "TF": 4722,
+          "CA": 6576,
+          "dELS": 45468,
+          "PLS": 2018,
+          "CA-CTCF": 3283,
+          "CA-TF": 899
+        },
+        "17": {
+          "CA-CTCF": 3409,
+          "CA-H3K4me3": 1959,
+          "dELS": 55341,
+          "CA": 5392,
+          "CA-TF": 809,
+          "TF": 4407,
+          "pELS": 14585,
+          "PLS": 2706
+        },
+        "18": {
+          "CA-H3K4me3": 2241,
+          "CA-CTCF": 3619,
+          "CA": 7537,
+          "PLS": 896,
+          "TF": 2105,
+          "dELS": 35461,
+          "pELS": 4806,
+          "CA-TF": 601
+        },
+        "19": {
+          "PLS": 2901,
+          "CA-H3K4me3": 2785,
+          "TF": 3754,
+          "pELS": 13772,
+          "CA-CTCF": 1777,
+          "dELS": 33824,
+          "CA": 2620,
+          "CA-TF": 571
+        },
+        "20": {
+          "dELS": 41474,
+          "TF": 4013,
+          "CA-H3K4me3": 1741,
+          "CA": 5222,
+          "CA-CTCF": 3488,
+          "PLS": 1252,
+          "pELS": 7088,
+          "CA-TF": 965
+        },
+        "21": {
+          "CA": 2976,
+          "TF": 1280,
+          "dELS": 18564,
+          "CA-H3K4me3": 1078,
+          "pELS": 3247,
+          "PLS": 579,
+          "CA-CTCF": 1477,
+          "CA-TF": 257
+        },
+        "22": {
+          "CA": 2534,
+          "CA-H3K4me3": 1082,
+          "TF": 2053,
+          "CA-CTCF": 1290,
+          "dELS": 27677,
+          "pELS": 6821,
+          "PLS": 1113,
+          "CA-TF": 376
+        },
+        "X": {
+          "CA-H3K4me3": 1668,
+          "dELS": 35574,
+          "CA": 13134,
+          "pELS": 5944,
+          "TF": 3354,
+          "PLS": 1446,
+          "CA-TF": 869,
+          "CA-CTCF": 3926
+        },
+        "Y": {
+          "dELS": 1619,
+          "CA": 1218,
+          "pELS": 218,
+          "PLS": 52,
+          "TF": 66,
+          "CA-CTCF": 133,
+          "CA-H3K4me3": 76,
+          "CA-TF": 19
+        }
+      },
+      "widths": {
+        "edges": [
+          0,
+          25,
+          50,
+          75,
+          100,
+          125,
+          150,
+          175,
+          200,
+          225,
+          250,
+          275,
+          300,
+          325,
+          350,
+          375,
+          400,
+          425,
+          450,
+          475,
+          500
+        ],
+        "counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          256527,
+          213391,
+          313462,
+          201059,
+          204586,
+          195423,
+          229470,
+          619464,
+          115472,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "summary": {
+          "n": 2348854,
+          "min": 150,
+          "q1": 205,
+          "median": 273,
+          "q3": 335,
+          "max": 350,
+          "mean": 267.12972751818546
+        }
+      }
+    },
+    "cpg": {
+      "count": 27949,
+      "bp": 21790871,
+      "byChrom": {
+        "1": 2535,
+        "2": 1682,
+        "3": 1156,
+        "4": 1025,
+        "5": 1236,
+        "6": 1255,
+        "7": 1582,
+        "8": 1040,
+        "9": 1237,
+        "10": 1165,
+        "11": 1371,
+        "12": 1211,
+        "13": 612,
+        "14": 796,
+        "15": 781,
+        "16": 1501,
+        "17": 1650,
+        "18": 509,
+        "19": 2492,
+        "20": 847,
+        "21": 446,
+        "22": 737,
+        "X": 889,
+        "Y": 194
+      },
+      "lengths": {
+        "edges": [
+          100,
+          125.892541179,
+          158.489319246,
+          199.526231497,
+          251.188643151,
+          316.227766017,
+          398.107170553,
+          501.187233627,
+          630.95734448,
+          794.328234724,
+          1000,
+          1258.92541179,
+          1584.89319246,
+          1995.26231497,
+          2511.88643151,
+          3162.27766017,
+          3981.07170553,
+          5011.87233627,
+          6309.5734448,
+          7943.28234724,
+          10000,
+          12589.2541179,
+          15848.9319246,
+          19952.6231497,
+          25118.8643151,
+          31622.7766017,
+          39810.7170553,
+          50118.7233627,
+          63095.734448,
+          79432.8234724,
+          100000
+        ],
+        "counts": [
+          0,
+          0,
+          0,
+          3495,
+          3014,
+          2848,
+          2858,
+          2975,
+          3170,
+          2976,
+          2438,
+          1753,
+          1095,
+          635,
+          323,
+          179,
+          80,
+          49,
+          30,
+          17,
+          5,
+          4,
+          0,
+          2,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "summary": {
+          "n": 27949,
+          "min": 201,
+          "q1": 328,
+          "median": 575,
+          "q3": 969,
+          "max": 45712,
+          "mean": 779.6654978711224
+        }
+      },
+      "obsExp": {
+        "edges": [
+          0.6,
+          0.65,
+          0.7,
+          0.75,
+          0.8,
+          0.85,
+          0.9,
+          0.95,
+          1,
+          1.05,
+          1.1,
+          1.15,
+          1.2,
+          1.25,
+          1.3,
+          1.35,
+          1.4
+        ],
+        "counts": [
+          979,
+          1859,
+          2795,
+          3465,
+          4237,
+          4081,
+          3572,
+          2621,
+          1757,
+          1077,
+          606,
+          337,
+          222,
+          131,
+          73,
+          137
+        ],
+        "summary": {
+          "n": 27949,
+          "min": 0.6,
+          "q1": 0.77,
+          "median": 0.85,
+          "q3": 0.94,
+          "max": 2.33,
+          "mean": 0.8636806325808016
+        }
+      },
+      "gc": {
+        "edges": [
+          50,
+          52,
+          54,
+          56,
+          58,
+          60,
+          62,
+          64,
+          66,
+          68,
+          70,
+          72,
+          74,
+          76,
+          78,
+          80
+        ],
+        "counts": [
+          96,
+          197,
+          342,
+          721,
+          1307,
+          2098,
+          3208,
+          4280,
+          4633,
+          4196,
+          3184,
+          1928,
+          1064,
+          440,
+          255
+        ],
+        "summary": {
+          "n": 27949,
+          "min": 50,
+          "q1": 63.4,
+          "median": 66.7,
+          "q3": 69.9,
+          "max": 85.9,
+          "mean": 66.54835593402278
+        }
+      },
+      "promoters": {
+        "tss": 19363,
+        "inIsland": 12221,
+        "bySpecificity": {
+          "Tissue enhanced": {
+            "genes": 5958,
+            "inIsland": 3717
+          },
+          "Tissue enriched": {
+            "genes": 2884,
+            "inIsland": 929
+          },
+          "Not detected": {
+            "genes": 825,
+            "inIsland": 53
+          },
+          "Low tissue specificity": {
+            "genes": 7913,
+            "inIsland": 6753
+          },
+          "Group enriched": {
+            "genes": 1434,
+            "inIsland": 626
+          }
+        }
+      }
+    }
+  },
+  "trnas": {
+    "genes": 432,
+    "isotypes": {
+      "Ala": 38,
+      "Arg": 28,
+      "Asn": 25,
+      "Asp": 13,
+      "Cys": 29,
+      "Gln": 19,
+      "Glu": 16,
+      "Gly": 28,
+      "His": 9,
+      "Ile": 23,
+      "Leu": 32,
+      "Lys": 27,
+      "Met": 11,
+      "Phe": 10,
+      "Pro": 20,
+      "SeC": 1,
+      "Ser": 25,
+      "Thr": 20,
+      "Trp": 7,
+      "Tyr": 14,
+      "Val": 28,
+      "iMet": 9
+    },
+    "anticodons": {
+      "Ala-AGC": 26,
+      "Ala-CGC": 4,
+      "Ala-TGC": 8,
+      "Arg-ACG": 7,
+      "Arg-CCG": 4,
+      "Arg-CCT": 5,
+      "Arg-TCG": 6,
+      "Arg-TCT": 6,
+      "Asn-GTT": 25,
+      "Asp-GTC": 13,
+      "Cys-GCA": 29,
+      "Gln-CTG": 13,
+      "Gln-TTG": 6,
+      "Glu-CTC": 8,
+      "Glu-TTC": 8,
+      "Gly-CCC": 5,
+      "Gly-GCC": 14,
+      "Gly-TCC": 9,
+      "His-GTG": 9,
+      "Ile-AAT": 15,
+      "Ile-GAT": 3,
+      "Ile-TAT": 5,
+      "Leu-AAG": 9,
+      "Leu-CAA": 7,
+      "Leu-CAG": 9,
+      "Leu-TAA": 4,
+      "Leu-TAG": 3,
+      "Lys-CTT": 15,
+      "Lys-TTT": 12,
+      "Met-CAT": 11,
+      "Phe-GAA": 10,
+      "Pro-AGG": 9,
+      "Pro-CGG": 4,
+      "Pro-TGG": 7,
+      "SeC-TCA": 1,
+      "Ser-AGA": 9,
+      "Ser-CGA": 4,
+      "Ser-GCT": 8,
+      "Ser-TGA": 4,
+      "Thr-AGT": 9,
+      "Thr-CGT": 5,
+      "Thr-TGT": 6,
+      "Trp-CCA": 7,
+      "Tyr-ATA": 1,
+      "Tyr-GTA": 13,
+      "Val-AAC": 10,
+      "Val-CAC": 13,
+      "Val-TAC": 5,
+      "iMet-CAT": 9
+    },
+    "byChrom": {
+      "1": 82,
+      "2": 8,
+      "3": 4,
+      "4": 1,
+      "5": 18,
+      "6": 154,
+      "7": 21,
+      "8": 6,
+      "9": 3,
+      "10": 3,
+      "11": 13,
+      "12": 10,
+      "13": 4,
+      "14": 19,
+      "15": 9,
+      "16": 28,
+      "17": 33,
+      "19": 9,
+      "21": 1,
+      "X": 4
+    }
+  },
+  "encode": {
+    "total": 20450,
+    "assays": [
+      {
+        "name": "TF ChIP-seq",
+        "n": 3502
+      },
+      {
+        "name": "DNase-seq",
+        "n": 3144
+      },
+      {
+        "name": "Histone ChIP-seq",
+        "n": 3090
+      },
+      {
+        "name": "total RNA-seq",
+        "n": 1650
+      },
+      {
+        "name": "Control ChIP-seq",
+        "n": 1635
+      },
+      {
+        "name": "Mint-ChIP-seq",
+        "n": 987
+      },
+      {
+        "name": "shRNA RNA-seq",
+        "n": 522
+      },
+      {
+        "name": "polyA plus RNA-seq",
+        "n": 503
+      },
+      {
+        "name": "ATAC-seq",
+        "n": 463
+      },
+      {
+        "name": "CRISPR RNA-seq",
+        "n": 461
+      },
+      {
+        "name": "intact Hi-C",
+        "n": 340
+      },
+      {
+        "name": "long read RNA-seq",
+        "n": 331
+      },
+      {
+        "name": "snATAC-seq",
+        "n": 319
+      },
+      {
+        "name": "Control eCLIP",
+        "n": 261
+      },
+      {
+        "name": "DNAme array",
+        "n": 256
+      },
+      {
+        "name": "eCLIP",
+        "n": 252
+      },
+      {
+        "name": "microRNA-seq",
+        "n": 246
+      },
+      {
+        "name": "PRO-cap",
+        "n": 224
+      },
+      {
+        "name": "ChIA-PET",
+        "n": 189
+      },
+      {
+        "name": "small RNA-seq",
+        "n": 176
+      },
+      {
+        "name": "Control Mint-ChIP-seq",
+        "n": 175
+      },
+      {
+        "name": "RAMPAGE",
+        "n": 168
+      },
+      {
+        "name": "RNA microarray",
+        "n": 139
+      },
+      {
+        "name": "snRNA-seq",
+        "n": 136
+      },
+      {
+        "name": "WGBS",
+        "n": 127
+      },
+      {
+        "name": "genotyping array",
+        "n": 123
+      },
+      {
+        "name": "Repli-seq",
+        "n": 104
+      },
+      {
+        "name": "RRBS",
+        "n": 103
+      },
+      {
+        "name": "in situ Hi-C",
+        "n": 98
+      },
+      {
+        "name": "CAGE",
+        "n": 77
+      },
+      {
+        "name": "CRISPRi RNA-seq",
+        "n": 77
+      },
+      {
+        "name": "siRNA RNA-seq",
+        "n": 54
+      },
+      {
+        "name": "Bru-seq",
+        "n": 49
+      },
+      {
+        "name": "GM DNase-seq",
+        "n": 46
+      },
+      {
+        "name": "Repli-chip",
+        "n": 45
+      },
+      {
+        "name": "microRNA counts",
+        "n": 38
+      },
+      {
+        "name": "FAIRE-seq",
+        "n": 37
+      },
+      {
+        "name": "BruChase-seq",
+        "n": 32
+      },
+      {
+        "name": "RIP-chip",
+        "n": 32
+      },
+      {
+        "name": "polyA minus RNA-seq",
+        "n": 32
+      },
+      {
+        "name": "RNA-PET",
+        "n": 30
+      },
+      {
+        "name": "WGS",
+        "n": 27
+      },
+      {
+        "name": "PRO-seq",
+        "n": 22
+      },
+      {
+        "name": "PAS-seq",
+        "n": 17
+      },
+      {
+        "name": "BruUV-seq",
+        "n": 16
+      },
+      {
+        "name": "RIP-seq",
+        "n": 15
+      },
+      {
+        "name": "MS-MS",
+        "n": 14
+      },
+      {
+        "name": "5C",
+        "n": 13
+      },
+      {
+        "name": "scRNA-seq",
+        "n": 7
+      },
+      {
+        "name": "DNA-PET",
+        "n": 6
+      },
+      {
+        "name": "dilution Hi-C",
+        "n": 6
+      },
+      {
+        "name": "icSHAPE",
+        "n": 6
+      },
+      {
+        "name": "seqFISH",
+        "n": 5
+      },
+      {
+        "name": "GRO-cap",
+        "n": 4
+      },
+      {
+        "name": "Hi-C",
+        "n": 4
+      },
+      {
+        "name": "iCLIP",
+        "n": 3
+      },
+      {
+        "name": "MNase-seq",
+        "n": 2
+      },
+      {
+        "name": "MRE-seq",
+        "n": 2
+      },
+      {
+        "name": "MeDIP-seq",
+        "n": 2
+      },
+      {
+        "name": "Switchgear",
+        "n": 2
+      },
+      {
+        "name": "capture Hi-C",
+        "n": 2
+      },
+      {
+        "name": "icLASER",
+        "n": 2
+      }
+    ],
+    "biosamples": [
+      {
+        "name": "cell line",
+        "n": 9781
+      },
+      {
+        "name": "tissue",
+        "n": 5921
+      },
+      {
+        "name": "primary cell",
+        "n": 3910
+      },
+      {
+        "name": "in vitro differentiated cells",
+        "n": 761
+      },
+      {
+        "name": "organoid",
+        "n": 77
+      }
+    ],
+    "phases": [
+      {
+        "name": "ENCODE4",
+        "n": 10367
+      },
+      {
+        "name": "ENCODE3",
+        "n": 4673
+      },
+      {
+        "name": "ENCODE2",
+        "n": 2602
+      },
+      {
+        "name": "Roadmap",
+        "n": 2158
+      },
+      {
+        "name": "GGR",
+        "n": 418
+      },
+      {
+        "name": "community",
+        "n": 219
+      },
+      {
+        "name": "ENCODE2-Mouse",
+        "n": 13
+      }
+    ],
+    "targets": [
+      {
+        "name": "histone",
+        "n": 4092
+      },
+      {
+        "name": "transcription factor",
+        "n": 2900
+      },
+      {
+        "name": "broad histone mark",
+        "n": 2393
+      },
+      {
+        "name": "narrow histone mark",
+        "n": 1595
+      },
+      {
+        "name": "RNA binding protein",
+        "n": 1073
+      },
+      {
+        "name": "chromatin remodeler",
+        "n": 329
+      },
+      {
+        "name": "RNA polymerase complex",
+        "n": 288
+      },
+      {
+        "name": "cofactor",
+        "n": 232
+      },
+      {
+        "name": "DNA repair",
+        "n": 87
+      },
+      {
+        "name": "cohesin",
+        "n": 85
+      },
+      {
+        "name": "DNA replication",
+        "n": 44
+      },
+      {
+        "name": "other context",
+        "n": 37
+      },
+      {
+        "name": "tag",
+        "n": 9
       }
     ]
   }
