@@ -16,6 +16,14 @@ test('every source is an https URL with a title in a known group', () => {
   for (const key of Object.keys(SOURCE_TITLES)) assert.ok(SOURCES[key], `title without source: ${key}`);
 });
 
+test('protein, target and expression sources are cited in their groups', () => {
+  const proteins = ['uniprot', 'uniprot2025', 'interpro', 'pfam2021', 'interpro2025', 'pdb', 'burley2019', 'pharos', 'pharos2023', 'oprea2018'];
+  const expression = ['hpa', 'uhlen2015', 'karlsson2021', 'uhlen2019', 'gtex', 'gtex2020'];
+  for (const key of proteins) assert.equal(SOURCE_TITLES[key]?.[0], 'Genes and proteins', key);
+  for (const key of expression) assert.equal(SOURCE_TITLES[key]?.[0], 'Expression and regulation', key);
+  for (const key of [...proteins, ...expression]) assert.ok(SOURCES[key], key);
+});
+
 test('every decoder example is recognised, unique and described', () => {
   assert.ok(EXAMPLES.length >= 18);
   assert.equal(new Set(EXAMPLES.map((e) => e.id)).size, EXAMPLES.length);
