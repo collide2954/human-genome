@@ -300,7 +300,32 @@ const ontology = (snap) => {
   return `GO holds ${exact(total)} annotations of ${exact(proteins)} human proteins and ${exact(others)} other gene products; ${pct(electronic / total)} are electronic (IEA)`;
 };
 
+const ccres = (snap) => {
+  const { count, classes } = snap.regulation.ccre;
+  const bp = Object.values(classes).reduce((n, c) => n + c.bp, 0);
+  return `ENCODE’s registry lists ${exact(count)} candidate cis-regulatory elements covering ${pct(bp / sequenceNumbers(snap).acgt)} of GRCh38; ${exact(classes.dELS.count)} are distal enhancer-like`;
+};
+
+const cpgislands = (snap) => {
+  const { count, bp, promoters } = snap.regulation.cpg;
+  return `${exact(count)} CpG islands cover ${pct(bp / sequenceNumbers(snap).acgt)} of GRCh38; ${pct(promoters.inIsland / promoters.tss)} of MANE Select transcripts start inside one`;
+};
+
+const trna = (snap) => {
+  const pairs = trnaPairs(snap.sequence.mane.codons, snap.trnas.anticodons);
+  return `GtRNAdb lists ${exact(snap.trnas.genes)} high-confidence tRNA genes; ${pairs.filter((p) => !p.copies).length} of the ${pairs.length} sense codons have none with an exactly pairing anticodon`;
+};
+
+const encode = (snap) => {
+  const { total, assays } = snap.encode;
+  return `ENCODE has released ${exact(total)} human experiments; ${assays[0].name} is the most common assay, with ${exact(assays[0].n)}`;
+};
+
 export const findings = (snap) => ({
+  ccres: ccres(snap),
+  cpgislands: cpgislands(snap),
+  trna: trna(snap),
+  encode: encode(snap),
   interactions: interactions(snap),
   pathways: pathways(snap),
   ontology: ontology(snap),
