@@ -2146,7 +2146,7 @@ const renderValidity = () => {
   const V = snapshot.validity;
   const mois = Object.keys(V.byMoi).sort((a, b) => sumOf(Object.values(V.byMoi[b])) - sumOf(Object.values(V.byMoi[a])));
   const { AD, AR } = V.loeufByMoi;
-  $('#validity-dek').textContent = `${exact(V.diseases)} diseases, as MONDO terms, from the curation file of ${longDate(V.date)}. Genes with a definitive, strong or moderate dominant link have a median LOEUF of ${AD.median.toFixed(2)}, recessive ones ${AR.median.toFixed(2)}. The ${V.gceps.length} expert panels are led by ${V.gceps[0].name.replace(/ Gene Curation Expert Panel$/, '')}, with ${exact(V.gceps[0].n)} curations.`;
+  $('#validity-dek').textContent = `${exact(V.diseases)} diseases, as MONDO terms, from the curation file of ${longDate(V.date)}. Genes with a definitive, strong or moderate dominant link have a median LOEUF of ${AD.median.toFixed(2)}, recessive ones ${AR.median.toFixed(2)}. Of the ${V.gceps.length} expert panels, the ${V.gceps[0].name.replace(/ Gene Curation Expert Panel$/, '')} panel has made the most curations, ${exact(V.gceps[0].n)}.`;
   hbars({
     mount: $('#validity-chart'),
     rows: mois.map((m) => ({ key: m, label: m, values: V.byMoi[m] })),
@@ -2201,7 +2201,7 @@ const renderCnvRegions = () => {
   const RG = snapshot.regions;
   const sizes = RG.sensitive.map((r) => r.end - r.start + 1);
   const both = RG.sensitive.filter((r) => r.hi === 3 && r.ts === 3).length;
-  $('#cnvregions-dek').textContent = `${exact(RG.sensitive.length)} regions have sufficient evidence for at least one direction, ${exact(both)} for both a loss and a gain; ${exact(RG.sensitive.filter((r) => r.recurrent).length)} are recurrent, flanked by segmental duplications. They span ${bases(Math.min(...sizes))} to ${bases(Math.max(...sizes))}. ${exact(RG.hi[40] ?? 0)} regions are scored as unlikely to be haploinsufficient.`;
+  $('#cnvregions-dek').textContent = `${exact(RG.sensitive.length)} regions have sufficient evidence for at least one direction, ${exact(both)} for both a loss and a gain; ${exact(RG.sensitive.filter((r) => r.recurrent).length)} carry ClinGen’s recurrent region name. They span ${bases(Math.min(...sizes))} to ${bases(Math.max(...sizes))}. ${exact(RG.hi[40] ?? 0)} regions are scored as unlikely to be haploinsufficient.`;
   ideogram({
     mount: $('#regions-ideogram-chart'),
     chromosomes: NUCLEAR,
