@@ -147,6 +147,13 @@ export const aadrSummary = (text) => {
   };
 };
 
+export const aadrAnnoFile = (dataset) => {
+  const latest = dataset?.data?.latestVersion ?? {};
+  const file = (latest.files ?? []).map((f) => f.dataFile).find((f) => /_1240K\.aadr\.PUB\.anno$/.test(f?.filename ?? ''));
+  if (!file) return null;
+  return { id: file.id, version: /^(v[\d.]+(?:\.p\d+)?)_/.exec(file.filename)?.[1] ?? null, released: latest.releaseTime?.slice(0, 10) ?? null };
+};
+
 export const igsrSamples = (json, collection) => {
   const hits = json?.hits?.hits ?? [];
   const collections = new Map();

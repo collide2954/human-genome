@@ -46,6 +46,10 @@ export const TRIAL_MODALITIES = [
   { key: 'sirna', label: 'siRNA', query: 'siRNA OR "small interfering RNA"' },
 ];
 
+const ASSEMBLIES = 'https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/9606/dataset_report';
+
+export const assemblyPage = (token = null) => `${ASSEMBLIES}?${new URLSearchParams({ page_size: '1000', ...(token ? { page_token: token } : {}) })}`;
+
 export const trialPage = (query, token = null) => `${TRIALS}?${new URLSearchParams({
   'query.intr': query, 'filter.advanced': 'AREA[StudyType]INTERVENTIONAL', pageSize: '1000', fields: 'NCTId,StartDate,Phase,OverallStatus', ...(token ? { pageToken: token } : {}),
 })}`;
@@ -110,6 +114,10 @@ export const FILES = {
   gtrTests: 'https://ftp.ncbi.nlm.nih.gov/pub/GTR/data/test_version.gz',
   fdaCgt: 'https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/approved-cellular-and-gene-therapy-products',
   trials: TRIALS,
+  gwasAncestry: 'https://www.ebi.ac.uk/gwas/api/search/downloads/ancestry',
+  aadrDataset: `https://dataverse.harvard.edu/api/datasets/:persistentId/?${new URLSearchParams({ persistentId: 'doi:10.7910/DVN/FFIDCW' })}`,
+  dataverseFile: 'https://dataverse.harvard.edu/api/access/datafile/',
+  igsrSamples: 'https://www.internationalgenome.org/api/beta/sample/_search',
   strchiveCommits: `https://api.github.com/repos/dashnowlab/STRchive/commits?${new URLSearchParams({ path: 'data/STRchive-loci.json', per_page: '1' })}`,
   ccre: 'https://downloads.wenglab.org/Registry-V4/GRCh38-cCREs.bed',
   cpgIslands: `${UCSC}/database/cpgIslandExt.txt.gz`,
