@@ -194,6 +194,18 @@ test('bandInterval spans every sub-band under a band name', () => {
   assert.equal(hit.url, 'https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&position=chr17%3A6500001-10800000');
 });
 
+test('every chromosome accession in the snapshot decodes to its own chromosome and assembly', async () => {
+  const { default: snapshot } = await import('../../src/snapshot.js');
+  const { grch38, t2t } = snapshot.assembly;
+  for (const [asm, name] of [[grch38, 'GRCh38'], [t2t, 'T2T-CHM13v2.0']]) {
+    for (const c of asm.chromosomes.filter((x) => x.refseq)) {
+      const hit = identify(c.refseq);
+      assert.equal(part(hit, 'Molecule'), c.chrom === 'MT' ? 'Mitochondrion (rCRS)' : `Chromosome ${c.chrom}`, c.refseq);
+      assert.equal(part(hit, 'Assembly'), name, c.refseq);
+    }
+  }
+});
+
 test('empty and unknown input gives no match', () => {
   assert.equal(identify(''), null);
   assert.equal(identify('   '), null);
