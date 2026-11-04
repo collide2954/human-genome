@@ -47,7 +47,22 @@ export const readTwoBit = (buffer) => {
     for (let i = 0; i < mCount; i += 1) masked += u32(p + 4 * (mCount + i));
     p += 8 * mCount + 4;
     const dna = p;
-    return { size, nBlocks, masked, codes: () => decode(buffer, dna, size, nBlocks) };
+    const at = (i) => {
+      if (!(i >= 0 && i < size)) return 4;
+      let lo = 0;
+      let hi = nBlocks.length - 1;
+      while (lo <= hi) {
+        const mid = (lo + hi) >> 1;
+        const [start, n] = nBlocks[mid];
+        if (i < start) hi = mid - 1;
+        else if (i >= start + n) lo = mid + 1;
+        else return 4;
+      }
+      return TABLE[buffer[dna + (i >> 2)] * 4 + (i & 3)];
+    };
+    return {
+      size, nBlocks, masked, codes: () => decode(buffer, dna, size, nBlocks), at,
+    };
   };
   return { names: [...offsets.keys()], sequence };
 };
