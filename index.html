@@ -176,8 +176,123 @@
     </div>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-genes" data-chapter="genes">
     <p class="chapter-no">Part 3</p>
+    <h2 class="chapter-title">Genes</h2>
+    <p class="chapter-dek">How many genes there are and by whose count, where they sit, how long they run, how they are built and named, their pseudogene copies, and the immune receptor loci.</p>
+  </div>
+
+  <section class="story wrap" id="genecount" data-lens="genes" data-nav="Gene counts">
+    <header class="head"><p class="label">How many genes</p><h2 data-finding="genecount">How many genes</h2><p class="dek" id="genecount-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="source-count-chart"></div>
+        <figcaption>Protein-coding genes as each catalog counts them: GENCODE genes of the protein_coding type, NCBI Gene records of type protein-coding, HGNC approved symbols in the protein-coding locus group, and MANE Select transcripts, one per gene. Sources: GENCODE, NCBI gene_info, HGNC complete set, MANE summary.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="biotype-chart"></div>
+        <figcaption>GENCODE genes by biotype, log scale; the rarest types are left out. Source: GENCODE comprehensive annotation, chromosomes and mitochondrial genome.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="density" data-lens="genes" data-nav="Density">
+    <header class="head"><p class="label">Gene density</p><h2 data-finding="density">Gene density</h2><p class="dek" id="density-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="density-chart"></div>
+      <figcaption>Protein-coding genes starting in each megabase, darker for more, with each chromosome’s genes per sequenced megabase at the right. Source: GENCODE comprehensive annotation.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="density-gc-chart"></div>
+      <figcaption>Each megabase’s protein-coding gene count against its GC content, with the least-squares line. Sources: GENCODE; GC computed from the hg38 2bit sequence.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="genesize" data-lens="genes" data-nav="Gene size">
+    <header class="head"><p class="label">Gene size</p><h2 data-finding="genesize">Gene size</h2><p class="dek" id="genesize-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="span-chart"></div>
+      <figcaption>Genomic span in bases of protein-coding and lncRNA genes, from first to last base of any transcript, as a share of each type, in bins of a tenth of a decade on a log scale. Source: GENCODE comprehensive annotation.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="longest-chart"></div>
+      <figcaption>The 15 longest protein-coding genes. Source: GENCODE comprehensive annotation.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="structure" data-lens="genes" data-nav="Exons and introns">
+    <header class="head"><p class="label">Exons and introns</p><h2 data-finding="exons">Exons and introns</h2><p class="dek" id="structure-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="exon-count-chart"></div>
+      <figcaption>MANE Select transcripts by number of exons; the last bar holds 100 or more. Source: GENCODE transcripts tagged MANE_Select.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="intron-chart"></div>
+      <figcaption>Lengths in bases of the exons and introns of MANE Select transcripts, as a share of each, in bins of a tenth of a decade on a log scale. Source: GENCODE transcripts tagged MANE_Select.</figcaption>
+    </figure>
+    <h3 class="subhead" data-finding="territory">Territory</h3>
+    <figure class="fig narrow">
+      <div class="chart" id="territory-chart"></div>
+      <figcaption>Sequenced bases of GRCh38 chromosomes, each counted once, in this order of precedence: coding sequence of any transcript, other exons of protein-coding genes, exons of other genes, introns of any gene, and the rest. Each square is 1%. Sources: GENCODE comprehensive annotation; the hg38 2bit sequence.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="isoforms" data-lens="genes" data-nav="Isoforms">
+    <header class="head"><p class="label">Isoforms</p><h2 data-finding="isoforms">Isoforms</h2><p class="dek" id="isoforms-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="isoform-chart"></div>
+        <figcaption>Protein-coding genes by number of GENCODE transcripts; the last bar holds 50 or more. Source: GENCODE comprehensive annotation.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="tx-biotype-chart"></div>
+        <figcaption>GENCODE transcripts by biotype, log scale. Nonsense-mediated decay transcripts carry a stop codon that the cell is expected to degrade. Source: GENCODE comprehensive annotation.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="names" data-lens="genes" data-nav="Names">
+    <header class="head"><p class="label">Gene names</p><h2 data-finding="names">Gene names</h2><p class="dek" id="names-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="approvals-chart"></div>
+        <figcaption>Approved HGNC symbols by the year each was approved or reserved. Source: HGNC complete set.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="renames-chart"></div>
+        <figcaption>Approved symbols by the year their symbol last changed. Source: HGNC complete set.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig narrow">
+      <div class="chart" id="groups-chart"></div>
+      <figcaption>The 15 largest HGNC gene groups. A gene can belong to several. Source: HGNC complete set.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="pseudogenes" data-lens="genes" data-nav="Pseudogenes">
+    <header class="head"><p class="label">Pseudogenes</p><h2 data-finding="pseudogenes">Pseudogenes</h2><p class="dek" id="pseudogenes-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="pseudotype-chart"></div>
+        <figcaption>GENCODE pseudogenes by type, log scale. Processed pseudogenes are retrotransposed copies of mRNA; unprocessed ones are duplicated with their introns; unitary ones are genes broken in humans and intact in relatives. Source: GENCODE comprehensive annotation.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="parents-chart"></div>
+        <figcaption>Approved genes with the most pseudogenes named after them, counting HGNC pseudogene symbols of the form parent, P, number. Source: HGNC complete set.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="immune" data-lens="genes clinic" data-nav="Immune loci">
+    <header class="head"><p class="label">Immune receptor loci</p><h2 data-finding="immune">Immune receptor loci</h2><p class="dek" id="immune-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="immune-chart"></div>
+      <figcaption>Gene segments in the three immunoglobulin and four T-cell receptor loci, as GENCODE types them: variable (V), diversity (D), joining (J) and constant (C) genes, and pseudogenes. Source: GENCODE comprehensive annotation.</figcaption>
+    </figure>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 4</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>
