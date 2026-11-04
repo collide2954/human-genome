@@ -290,7 +290,7 @@ export const columns = ({
 };
 
 export const dotplot = ({
-  mount, rows, attr = 'row', scale = 'log', format = exact, describe, rowH = 24, href, linkText, labelShare = 0.34, labelMax = 240, aria,
+  mount, rows, attr = 'row', scale = 'log', format = exact, tickFormat = compact, describe, rowH = 24, href, linkText, labelShare = 0.34, labelMax = 240, aria,
 }) => {
   const W = widthOf(mount);
   const R = 70;
@@ -326,7 +326,7 @@ export const dotplot = ({
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
     ticks.map((t) => el('g', {},
       el('line', { class: 'grid', x1: x(t), x2: x(t), y1: T - 6, y2: H }),
-      el('text', { class: 'tick', x: x(t), y: 10, 'text-anchor': 'middle' }, compact(t)))),
+      el('text', { class: 'tick', x: x(t), y: 10, 'text-anchor': 'middle' }, tickFormat(t)))),
     rowsG);
   hover(svg, (k) => {
     const r = rows[Number(k)];
@@ -348,16 +348,15 @@ export const dotplot = ({
 };
 
 export const hbars = ({
-  mount, rows, segments, aria, describe, format = exact, tickFormat = compact, labelShare = 0.16, rowH = 22, showSign = false,
+  mount, rows, segments, aria, describe, format = exact, tickFormat = compact, labelShare = 0.16, rowH = 22, showSign = false, max, valueText, R = 78,
 }) => {
   const W = widthOf(mount);
-  const R = 78;
   const T = 22;
   const lay = rowLayout(rows, Math.min(150, Math.max(44, W * labelShare)), rowH);
   const { L } = lay;
   const H = T + rows.length * lay.rowH + 6;
   const totals = rows.map((r) => segments.reduce((n, s) => n + (r.values[s.key] ?? 0), 0));
-  const ticks = axisTicks(Math.min(0, ...totals), Math.max(0, ...totals));
+  const ticks = axisTicks(Math.min(0, ...totals), max ?? Math.max(0, ...totals));
   const x = scaleLinear([ticks[0], ticks.at(-1)], [L, W - R]);
   const bh = Math.min(14, lay.rowH - 8);
   const text = (v) => (showSign && v > 0 ? `+${format(v)}` : v < 0 ? `−${format(-v)}` : format(v));
@@ -384,7 +383,7 @@ export const hbars = ({
         el('rect', { class: 'row-hit', x: 0, y: mid - lay.rowH / 2, width: W, height: lay.rowH }),
         el('text', { class: 'lab', x: 0, y: mid + lay.labelY }, r.label),
         segs,
-        el('text', { class: 'val', x: total < 0 ? x(0) + 6 : x(total) + 6, y: y + 4 }, text(total)));
+        el('text', { class: 'val', x: total < 0 ? x(0) + 6 : x(total) + 6, y: y + 4 }, valueText ? valueText(r, total) : text(total)));
     })));
   hover(svg, (k) => describe(rows[Number(k)]));
   return segments.length > 1 ? mountSvg(mount, svg, legendOf(segments)) : mountSvg(mount, svg);
@@ -517,7 +516,7 @@ export const heatmap = ({
 };
 
 export const histo = ({
-  mount, bins, series, aria, describe, tickLabel, tickEvery = 10, height = 220, yFormat = compact,
+  mount, bins, series, aria, describe, tickLabel, tickEvery = 10, height = 220, yFormat = compact, centered = false,
 }) => {
   const W = widthOf(mount);
   const L = 46;
@@ -539,7 +538,9 @@ export const histo = ({
       series.map((s, k) => el('rect', {
         class: 'bar', x: L + i * band + k * bw, y: y(s.values[i]), width: bw, height: Math.max(0, H - B - y(s.values[i])), style: `fill:${s.color};--i:${i}`,
       })))),
-    bins.map((b, i) => (i % tickEvery === 0 && tickLabel(b, i) !== null ? el('text', { class: 'tick', x: L + i * band, y: H - 6, 'text-anchor': 'middle' }, tickLabel(b, i)) : null)));
+    bins.map((b, i) => (i % tickEvery === 0 && tickLabel(b, i) !== null ? el('text', {
+      class: 'tick', x: L + i * band + (centered ? (bw * series.length) / 2 : 0), y: H - 6, 'text-anchor': 'middle',
+    }, tickLabel(b, i)) : null)));
   hover(svg, (k) => describe(Number(k)), { axis: 'x' });
   return series.length > 1 ? mountSvg(mount, svg, legendOf(series)) : mountSvg(mount, svg);
 };

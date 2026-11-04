@@ -472,6 +472,7 @@ const renderStructure = () => {
     bins: exonBins,
     series: [{ key: 'tx', label: 'MANE Select transcripts', color: 'var(--data)', values: ex.counts }],
     tickEvery: 1,
+    centered: true,
     tickLabel: (b, i) => (i === 0 || (i + 1) % 10 === 0 ? (i === 99 ? '100+' : String(i + 1)) : null),
     aria: 'MANE Select transcripts by number of exons',
     describe: (i) => tipLines(`${exact(ex.counts[i])} transcripts`, i === 99 ? '100 or more exons' : `${i + 1} exon${i ? 's' : ''}`),
@@ -514,6 +515,7 @@ const renderIsoforms = () => {
     bins: iso.counts.map((n, i) => ({ n: i + 1 })),
     series: [{ key: 'genes', label: 'Protein-coding genes', color: 'var(--data)', values: iso.counts }],
     tickEvery: 1,
+    centered: true,
     tickLabel: (b, i) => (i === 0 || (i + 1) % 10 === 0 ? (i === 49 ? '50+' : String(i + 1)) : null),
     aria: 'Protein-coding genes by number of transcripts',
     describe: (i) => tipLines(`${exact(iso.counts[i])} genes`, i === 49 ? '50 or more transcripts' : `${i + 1} transcript${i ? 's' : ''}`),
@@ -750,6 +752,7 @@ const renderStructures = () => {
     bins: tail.map((n, i) => ({ n: i + 1 })),
     series: [{ key: 'proteins', label: 'Proteins', color: 'var(--data)', values: tail }],
     tickEvery: 1,
+    centered: true,
     tickLabel: (b, i) => (i === 0 || (i + 1) % 10 === 0 ? (i === last ? '50+' : String(i + 1)) : null),
     aria: 'Proteins by number of PDB entries',
     describe: (i) => tipLines(`${exact(tail[i])} proteins`, capped(i, last, 'PDB entries').replace(/^1 PDB entries$/, '1 PDB entry')),
@@ -778,6 +781,7 @@ const renderMembrane = () => {
     bins: spans.map((n, i) => ({ n: i + 1 })),
     series: [{ key: 'proteins', label: 'Proteins', color: 'var(--data)', values: spans }],
     tickEvery: 1,
+    centered: true,
     tickLabel: (b, i) => (i === 0 || (i + 1) % 5 === 0 ? (i === last ? '25+' : String(i + 1)) : null),
     aria: 'Proteins by number of transmembrane segments',
     describe: (i) => tipLines(`${exact(spans[i])} proteins`, capped(i, last, 'transmembrane segments').replace(/^1 transmembrane segments$/, '1 transmembrane segment')),
@@ -822,6 +826,7 @@ const renderDomains = () => {
     bins: perProtein.map((n, i) => ({ n: i })),
     series: [{ key: 'proteins', label: 'Proteins', color: 'var(--data)', values: perProtein }],
     tickEvery: 1,
+    centered: true,
     tickLabel: (b, i) => (i % 5 === 0 ? (i === last ? `${i}+` : String(i)) : null),
     aria: 'Proteins by number of distinct Pfam families',
     describe: (i) => tipLines(`${exact(perProtein[i])} proteins`, i === last ? `${i} or more Pfam families` : `${i} Pfam ${i === 1 ? 'family' : 'families'}`),
@@ -885,11 +890,17 @@ const renderTargets = () => {
   attachData('#tdl-chart', 'target-development-levels', ['Level', 'Targets'], parts.map((p) => [p.label, p.value]));
   hbars({
     mount: $('#family-chart'),
-    rows: families.map((f) => ({ key: f.family, label: f.family, values: f })),
+    rows: families.map((f) => ({
+      key: f.family, label: f.family, f, values: Object.fromEntries(LEVELS.map(([l]) => [l, (f[l] / famTotal(f)) * 100])),
+    })),
     segments: LEVELS.map(([key, color]) => ({ key, label: key, color })),
     labelShare: 0.22,
-    aria: 'Target development level by protein family',
-    describe: (r) => tipLines(`${exact(famTotal(r.values))} targets`, r.key, ...LEVELS.map(([l]) => `${l}: ${exact(r.values[l])}`)),
+    max: 100,
+    R: 96,
+    tickFormat: (t) => `${t}%`,
+    valueText: (r) => `${exact(famTotal(r.f))} targets`,
+    aria: 'Target development level by protein family, as shares',
+    describe: (r) => tipLines(`${exact(famTotal(r.f))} targets`, r.key, ...LEVELS.map(([l]) => `${l}: ${exact(r.f[l])}, ${pct(r.f[l] / famTotal(r.f))}`)),
   });
   attachData('#family-chart', 'target-levels-by-family', ['Family', 'Tclin', 'Tchem', 'Tbio', 'Tdark'], families.map((f) => [f.family, f.Tclin, f.Tchem, f.Tbio, f.Tdark]));
   halfBins('#pubmed-score-chart', 'pharos-pubmed-score', TG.pubmed, 'Targets by log PubMed score', 'log PubMed score');
@@ -938,8 +949,8 @@ const renderGtex = () => {
   const r = pearson(eq.map((t) => t.samples), eq.map((t) => t.eGenes));
   $('#gtex-dek').textContent = `${exact(GT.genes)} genes in the median expression table, ${exact(GT.correlated)} of them at 1 TPM in at least one tissue. ${exact(bySpecific[0].specific)} genes are at least five times higher in ${bySpecific[0].name.toLowerCase()} than in any other tissue; ${bySpecific[1].name.toLowerCase()} is next with ${exact(bySpecific[1].specific)}. Across ${eq.length} tissues with eQTL results, eGene count and sample size correlate with r = ${r.toFixed(2)}.`;
   const names = tissues.map((t) => shortTissue(t.name));
-  const flat = GT.correlation.flat();
-  const lo = Math.min(...flat);
+  const off = GT.correlation.flatMap((row, i) => row.filter((_, j) => j !== i)).sort((a, b) => a - b);
+  const lo = off[Math.floor(off.length * 0.02)];
   heatmap({
     mount: $('#tissue-corr-chart'),
     labels: names,
@@ -947,7 +958,8 @@ const renderGtex = () => {
     order: GT.order,
     lo,
     hi: 1,
-    legend: rampLegend(lo, 1, (v) => v.toFixed(2), 'var(--data)'),
+    color: 'var(--s2)',
+    legend: rampLegend(lo, 1, (v) => (v <= lo ? `≤${v.toFixed(2)}` : v.toFixed(2)), 'var(--s2)'),
     aria: 'Correlation of median expression between GTEx tissues',
     describe: (i, j) => tipLines(`r = ${GT.correlation[i][j].toFixed(3)}`, `${tissues[i].name} and ${tissues[j].name}`, `over ${exact(GT.correlated)} genes`),
   });
@@ -1007,6 +1019,7 @@ const renderPlasma = () => {
     mount: $('#plasma-top-chart'),
     rows: blood.top.map((p, i) => ({ key: p.gene, label: p.gene, value: plasmaLevel(p), hi: i === 0 })),
     format: perLitre,
+    tickFormat: perLitre,
     aria: 'Proteins with the highest plasma concentration',
     describe: (r) => {
       const p = blood.top.find((x) => x.gene === r.key);
@@ -1020,6 +1033,7 @@ const renderPlasma = () => {
     rows: sec.map(([k, n], i) => ({ key: k, label: k, value: n, hi: i === 0 })),
     scale: 'linear',
     labelShare: 0.5,
+    labelMax: 330,
     aria: 'Secreted proteins by destination',
     describe: (r) => tipLines(`${exact(r.value)} genes`, r.label),
   });
