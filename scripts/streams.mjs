@@ -4,7 +4,7 @@ import { open, rename } from 'node:fs/promises';
 import { Readable } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
 import { StringDecoder } from 'node:string_decoder';
-import { createGunzip, inflateRawSync } from 'node:zlib';
+import { createGunzip, createInflateRaw, inflateRawSync } from 'node:zlib';
 
 const trimCr = (s) => (s.endsWith('\r') ? s.slice(0, -1) : s);
 
@@ -50,6 +50,42 @@ export const unzip = (buffer) => {
     at += 46 + nameLen + extraLen + commentLen;
   }
   return files;
+};
+
+const findZipEntry = async (handle, pattern) => {
+  const { size } = await handle.stat();
+  const tail = Buffer.alloc(Math.min(size, 65557));
+  await handle.read(tail, 0, tail.length, size - tail.length);
+  let end = tail.length - 22;
+  while (end >= 0 && tail.readUInt32LE(end) !== 0x06054b50) end -= 1;
+  if (end < 0) throw new Error('Not a zip file');
+  const count = tail.readUInt16LE(end + 10);
+  const dir = Buffer.alloc(tail.readUInt32LE(end + 12));
+  await handle.read(dir, 0, dir.length, tail.readUInt32LE(end + 16));
+  let at = 0;
+  for (let k = 0; k < count; k += 1) {
+    const nameLen = dir.readUInt16LE(at + 28);
+    if (pattern.test(dir.toString('utf8', at + 46, at + 46 + nameLen))) {
+      const local = Buffer.alloc(30);
+      const offset = dir.readUInt32LE(at + 42);
+      await handle.read(local, 0, 30, offset);
+      return { method: dir.readUInt16LE(at + 10), packed: dir.readUInt32LE(at + 20), start: offset + 30 + local.readUInt16LE(26) + local.readUInt16LE(28) };
+    }
+    at += 46 + nameLen + dir.readUInt16LE(at + 30) + dir.readUInt16LE(at + 32);
+  }
+  throw new Error(`No zip entry matching ${pattern}`);
+};
+
+export const zipLines = async (path, pattern) => {
+  const handle = await open(path, 'r');
+  let entry;
+  try {
+    entry = await findZipEntry(handle, pattern);
+  } finally {
+    await handle.close();
+  }
+  const raw = createReadStream(path, { start: entry.start, end: entry.start + Math.max(entry.packed, 1) - 1 });
+  return lines(entry.method === 8 ? raw.pipe(createInflateRaw()) : raw);
 };
 
 export const gzLines = (path) => lines(createReadStream(path).pipe(createGunzip()));
