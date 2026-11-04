@@ -237,6 +237,30 @@ fixture.structure = {
 fixture.genes.genes.byChrom.X = { protein_coding: 867 };
 fixture.genes.genes.byChrom.Y = { protein_coding: 61 };
 
+fixture.variation = {
+  dbsnp: {
+    build: 157, total: 1206053617, ss: { total: 4849775973 }, status: { 'Live RS': 1172689405 },
+  },
+  sv: {
+    classes: {
+      deletion: 2178603, duplication: 634313, cnv: 153161, insertion: 1651014,
+    },
+  },
+};
+fixture.constraint = {
+  gnomad: { genes: 17331, below06: 3784 },
+  dosage: { hi: { 3: 422 }, ts: { 3: 3 } },
+  byDosage: { sufficient: { n: 314, median: 0.279 }, other: { n: 17017, median: 0.972 } },
+};
+
+test('findings state the variation and constraint sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.dbsnp, 'dbSNP build 157 holds 1,206,053,617 reference SNP records from 4,849,775,973 submitted variants; 1,172,689,405 are live');
+  assert.equal(f.sv, 'dbVar’s non-redundant sets hold 2,178,603 deletions, 1,651,014 insertions and 634,313 duplications on GRCh38');
+  assert.equal(f.constraint, '3,784 of 17,331 genes in gnomAD v4.1 have a LOEUF below 0.6; ClinGen haploinsufficient genes have a median of 0.28');
+  assert.equal(f.dosage, 'ClinGen finds sufficient evidence of haploinsufficiency for 422 genes and of triplosensitivity for 3');
+});
+
 test('findings state the chromosome structure sections as numbers', () => {
   const f = findings(fixture);
   assert.equal(f.mito, 'The mitochondrial genome’s 100 bp hold 37 genes, 13 for proteins, 22 tRNAs and 2 rRNAs; gnomAD finds variants at 8,793 positions');
