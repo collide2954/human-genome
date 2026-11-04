@@ -10,6 +10,15 @@ export const exact = (v) => {
   return Number.isFinite(n) ? WHOLE.format(Math.round(n)) : '—';
 };
 
+const PART = new Intl.NumberFormat('en-US', { maximumFractionDigits: 6 });
+
+export const cell = (v) => {
+  const n = toNumber(v);
+  if (!Number.isFinite(n)) return '—';
+  if (Number.isInteger(n)) return WHOLE.format(n);
+  return Math.abs(n) < 1e-4 ? String(Number(n.toPrecision(4))) : PART.format(n);
+};
+
 const UNITS = [
   [1e12, 'T'],
   [1e9, 'B'],
