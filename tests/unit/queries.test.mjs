@@ -188,7 +188,7 @@ test('cancer files point at the IntOGen downloads and the GDC API', () => {
     op: 'and',
     content: [
       { op: 'in', content: { field: 'cases.project.program.name', value: ['TCGA'] } },
-      { op: 'in', content: { field: 'cases.summary.data_categories.data_category', value: ['Simple Nucleotide Variation'] } },
+      { op: 'in', content: { field: 'cases.summary.experimental_strategies.experimental_strategy', value: ['WXS'] } },
     ],
   });
   const ssm = new URL(gdcSsmPage('KRAS', 5000));
