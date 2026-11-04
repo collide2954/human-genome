@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS, GENE_THERAPIES, DIAGNOSTIC_YIELD, CFDNA_SCREENING, CARRIER_TIER3,
+  SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS, GENE_THERAPIES, GENE_THERAPIES_CHECKED, DIAGNOSTIC_YIELD, CFDNA_SCREENING, CARRIER_TIER3,
 } from '../../src/facts.js';
 
 test('chromosome structure sources are cited', () => {
@@ -49,6 +49,7 @@ test('gene therapies list each FDA product with its first approval year, vector 
   });
   assert.equal(GENE_THERAPIES.find((g) => g.trade === 'IMLYGIC').year, 2015);
   assert.equal(GENE_THERAPIES.filter((g) => g.group === 'AAV').length, 11);
+  assert.equal(GENE_THERAPIES_CHECKED, '2026-11-04');
 });
 
 test('diagnostic yields, cfDNA screening and carrier screening come from cited meta-analyses and guidance', () => {
