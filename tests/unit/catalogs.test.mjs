@@ -1,6 +1,18 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { hgncSummary, geneInfoSummary, maneSummary } from '../../scripts/catalogs.mjs';
+import {
+  hgncSummary, geneInfoSummary, maneSummary, codingSymbols,
+} from '../../scripts/catalogs.mjs';
+
+test('codingSymbols lists approved protein-coding HGNC symbols', () => {
+  const text = [
+    'hgnc_id\tsymbol\tstatus\tlocus_group',
+    'HGNC:12403\tTTN\tApproved\tprotein-coding gene',
+    'HGNC:44124\tTTN-AS1\tApproved\tnon-coding RNA',
+    'HGNC:9\tOLD1\tEntry Withdrawn\tprotein-coding gene',
+  ].join('\n');
+  assert.deepEqual([...codingSymbols(text)], ['TTN']);
+});
 
 const HEAD = ['hgnc_id', 'symbol', 'name', 'locus_group', 'locus_type', 'status', 'location', 'alias_symbol', 'alias_name', 'prev_symbol', 'prev_name',
   'gene_group', 'gene_group_id', 'date_approved_reserved', 'date_symbol_changed', 'date_name_changed', 'date_modified', 'entrez_id', 'mane_select'];
