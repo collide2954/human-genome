@@ -1,5 +1,5 @@
 export default {
-  "generated": "2026-11-04T15:39:18.953Z",
+  "generated": "2026-11-04T16:19:32.716Z",
   "asOf": {
     "assembly": "2026-11-04T05:28:42.686Z",
     "sequence": "2026-11-04T06:07:32.158Z",
@@ -19,15 +19,17 @@ export default {
     "variation": "2026-11-04T09:49:36.112Z",
     "constraint": "2026-11-04T09:49:36.112Z",
     "clinvar": "2026-11-04T12:50:41.045Z",
-    "clinvarTable": "2026-11-04T12:48:05.854Z",
+    "clinvarTable": "2026-11-04T16:19:32.716Z",
+    "domains": "2026-11-04T16:19:32.716Z",
     "clinvarGrowth": "2026-11-04T12:50:41.045Z",
     "validity": "2026-11-04T12:48:05.854Z",
     "regions": "2026-11-04T12:48:05.854Z",
     "expansions": "2026-11-04T14:15:47.146Z",
     "hpo": "2026-11-04T15:39:18.953Z",
     "orphanet": "2026-11-04T15:38:11.730Z",
-    "gtr": "2026-11-04T15:38:11.730Z",
-    "therapies": "2026-11-04T15:38:11.730Z"
+    "gtr": "2026-11-04T16:18:15.305Z",
+    "fda": "2026-11-04T16:19:32.716Z",
+    "trials": "2026-11-04T16:19:32.716Z"
   },
   "failed": [],
   "assembly": {
@@ -76145,128 +76147,128 @@ export default {
           "down": 1606
         }
       }
+    }
+  },
+  "domains": {
+    "TP53": {
+      "accession": "P04637",
+      "length": 393,
+      "domains": [
+        {
+          "id": "PF08563",
+          "name": "P53 transactivation motif",
+          "start": 6,
+          "end": 30
+        },
+        {
+          "id": "PF18521",
+          "name": "Transactivation domain 2",
+          "start": 35,
+          "end": 59
+        },
+        {
+          "id": "PF00870",
+          "name": "P53 DNA-binding domain",
+          "start": 100,
+          "end": 288
+        },
+        {
+          "id": "PF07710",
+          "name": "P53 tetramerisation motif",
+          "start": 319,
+          "end": 357
+        }
+      ]
     },
-    "proteins": {
-      "TP53": {
-        "accession": "P04637",
-        "length": 393,
-        "domains": [
-          {
-            "id": "PF08563",
-            "name": "P53 transactivation motif",
-            "start": 6,
-            "end": 30
-          },
-          {
-            "id": "PF18521",
-            "name": "Transactivation domain 2",
-            "start": 35,
-            "end": 59
-          },
-          {
-            "id": "PF00870",
-            "name": "P53 DNA-binding domain",
-            "start": 100,
-            "end": 288
-          },
-          {
-            "id": "PF07710",
-            "name": "P53 tetramerisation motif",
-            "start": 319,
-            "end": 357
-          }
-        ]
-      },
-      "BRCA1": {
-        "accession": "P38398",
-        "length": 1863,
-        "domains": [
-          {
-            "id": "PF00097",
-            "name": "Zinc finger, C3HC4 type (RING finger)",
-            "start": 24,
-            "end": 64
-          },
-          {
-            "id": "PF12820",
-            "name": "Serine-rich domain associated with BRCT",
-            "start": 345,
-            "end": 508
-          },
-          {
-            "id": "PF00533",
-            "name": "BRCA1 C Terminus (BRCT) domain",
-            "start": 1645,
-            "end": 1723
-          },
-          {
-            "id": "PF00533",
-            "name": "BRCA1 C Terminus (BRCT) domain",
-            "start": 1758,
-            "end": 1841
-          }
-        ]
-      },
-      "CFTR": {
-        "accession": "P13569",
-        "length": 1480,
-        "domains": [
-          {
-            "id": "PF00664",
-            "name": "ABC transporter transmembrane region",
-            "start": 82,
-            "end": 350
-          },
-          {
-            "id": "PF00005",
-            "name": "ABC transporter",
-            "start": 441,
-            "end": 575
-          },
-          {
-            "id": "PF14396",
-            "name": "Cystic fibrosis TM conductance regulator (CFTR), regulator domain",
-            "start": 639,
-            "end": 849
-          },
-          {
-            "id": "PF00664",
-            "name": "ABC transporter transmembrane region",
-            "start": 863,
-            "end": 1147
-          },
-          {
-            "id": "PF00005",
-            "name": "ABC transporter",
-            "start": 1227,
-            "end": 1373
-          }
-        ]
-      },
-      "MYH7": {
-        "accession": "P12883",
-        "length": 1935,
-        "domains": [
-          {
-            "id": "PF02736",
-            "name": "Myosin N-terminal SH3-like domain",
-            "start": 23,
-            "end": 80
-          },
-          {
-            "id": "PF00063",
-            "name": "Myosin head (motor domain)",
-            "start": 88,
-            "end": 766
-          },
-          {
-            "id": "PF01576",
-            "name": "Myosin tail",
-            "start": 845,
-            "end": 1923
-          }
-        ]
-      }
+    "BRCA1": {
+      "accession": "P38398",
+      "length": 1863,
+      "domains": [
+        {
+          "id": "PF00097",
+          "name": "Zinc finger, C3HC4 type (RING finger)",
+          "start": 24,
+          "end": 64
+        },
+        {
+          "id": "PF12820",
+          "name": "Serine-rich domain associated with BRCT",
+          "start": 345,
+          "end": 508
+        },
+        {
+          "id": "PF00533",
+          "name": "BRCA1 C Terminus (BRCT) domain",
+          "start": 1645,
+          "end": 1723
+        },
+        {
+          "id": "PF00533",
+          "name": "BRCA1 C Terminus (BRCT) domain",
+          "start": 1758,
+          "end": 1841
+        }
+      ]
+    },
+    "CFTR": {
+      "accession": "P13569",
+      "length": 1480,
+      "domains": [
+        {
+          "id": "PF00664",
+          "name": "ABC transporter transmembrane region",
+          "start": 82,
+          "end": 350
+        },
+        {
+          "id": "PF00005",
+          "name": "ABC transporter",
+          "start": 441,
+          "end": 575
+        },
+        {
+          "id": "PF14396",
+          "name": "Cystic fibrosis TM conductance regulator (CFTR), regulator domain",
+          "start": 639,
+          "end": 849
+        },
+        {
+          "id": "PF00664",
+          "name": "ABC transporter transmembrane region",
+          "start": 863,
+          "end": 1147
+        },
+        {
+          "id": "PF00005",
+          "name": "ABC transporter",
+          "start": 1227,
+          "end": 1373
+        }
+      ]
+    },
+    "MYH7": {
+      "accession": "P12883",
+      "length": 1935,
+      "domains": [
+        {
+          "id": "PF02736",
+          "name": "Myosin N-terminal SH3-like domain",
+          "start": 23,
+          "end": 80
+        },
+        {
+          "id": "PF00063",
+          "name": "Myosin head (motor domain)",
+          "start": 88,
+          "end": 766
+        },
+        {
+          "id": "PF01576",
+          "name": "Myosin tail",
+          "start": 845,
+          "end": 1923
+        }
+      ]
     }
   },
   "clinvarGrowth": {
@@ -80434,12 +80436,12 @@ export default {
     }
   },
   "gtr": {
-    "tests": 63430,
+    "tests": 63425,
     "labs": 291,
     "countries": [
       {
         "country": "United States",
-        "tests": 31399,
+        "tests": 31394,
         "labs": 180
       },
       {
@@ -80516,19 +80518,19 @@ export default {
     "methods": [
       {
         "method": "Sequence analysis of the entire coding region",
-        "tests": 46648
+        "tests": 46647
       },
       {
         "method": "Deletion/duplication analysis",
-        "tests": 28853
+        "tests": 28852
       },
       {
         "method": "Sequence analysis of select exons",
-        "tests": 5059
+        "tests": 5056
       },
       {
         "method": "Targeted variant analysis",
-        "tests": 4291
+        "tests": 4290
       },
       {
         "method": "Mutation scanning of the entire coding region",
@@ -80552,7 +80554,7 @@ export default {
       },
       {
         "method": "Mutation scanning of select exons",
-        "tests": 155
+        "tests": 154
       },
       {
         "method": "FISH-metaphase",
@@ -80626,9 +80628,9 @@ export default {
       ],
       "counts": [
         2391,
-        54890,
+        54887,
         3209,
-        2435,
+        2433,
         486,
         19
       ]
@@ -80636,7 +80638,7 @@ export default {
     "topGenes": [
       {
         "gene": "TP53",
-        "tests": 593
+        "tests": 592
       },
       {
         "gene": "PTEN",
@@ -80660,7 +80662,7 @@ export default {
       },
       {
         "gene": "KRAS",
-        "tests": 456
+        "tests": 455
       },
       {
         "gene": "LMNA",
@@ -80668,7 +80670,7 @@ export default {
       },
       {
         "gene": "BRAF",
-        "tests": 441
+        "tests": 440
       },
       {
         "gene": "BRCA1",
@@ -80700,11 +80702,11 @@ export default {
       },
       {
         "gene": "NRAS",
-        "tests": 382
+        "tests": 381
       },
       {
         "gene": "PTPN11",
-        "tests": 377
+        "tests": 376
       },
       {
         "gene": "PALB2",
@@ -80717,7 +80719,7 @@ export default {
     ],
     "development": {
       "not stated": 28276,
-      "Test developed by laboratory (no manufacturer test name)": 31200,
+      "Test developed by laboratory (no manufacturer test name)": 31195,
       "Manufactured (research use only; not FDA-reviewed)": 221,
       "FDA-reviewed (has FDA test name)": 3623,
       "Test developed by laboratory but exempt from FDA oversight (eg. NYS CLEP approved, offered within a hospital or clinic)": 105,
@@ -80728,7 +80730,7 @@ export default {
       "2013": 3597,
       "2014": 5193,
       "2015": 3400,
-      "2016": 13012,
+      "2016": 13011,
       "2017": 1171,
       "2018": 1925,
       "2019": 5611,
@@ -80737,574 +80739,572 @@ export default {
       "2022": 401,
       "2023": 6826,
       "2024": 390,
-      "2025": 5944,
+      "2025": 5940,
       "2026": 304
     }
   },
-  "therapies": {
-    "fda": [
-      {
-        "trade": "ABECMA",
-        "name": "ABECMA (idecabtagene vicleucel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/abecma"
+  "fda": [
+    {
+      "trade": "ABECMA",
+      "name": "ABECMA (idecabtagene vicleucel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/abecma"
+    },
+    {
+      "trade": "ADSTILADRIN",
+      "name": "ADSTILADRIN (nadofaragene firadenovec-vcng)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/adstiladrin"
+    },
+    {
+      "trade": "ALLOCORD",
+      "name": "ALLOCORD (HPC, Cord Blood)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/allocord-hpc-cord-blood"
+    },
+    {
+      "trade": "AMTAGVI",
+      "name": "AMTAGVI (lifileucel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/amtagvi"
+    },
+    {
+      "trade": "TREGZI",
+      "name": "TREGZI (Allogeneic regulatory T cell immunotherapy with HSPC and T cells-vldq)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/tregzi"
+    },
+    {
+      "trade": "AUCATZYL",
+      "name": "AUCATZYL (obecabtagene autoleucel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/aucatzyl"
+    },
+    {
+      "trade": "BEQVEZ",
+      "name": "BEQVEZ (fidanacogene elaparvovec-dzkt)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/beqvez"
+    },
+    {
+      "trade": "BREYANZI",
+      "name": "BREYANZI (lisocabtagene maraleucel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/breyanzi"
+    },
+    {
+      "trade": "CARVYKTI",
+      "name": "CARVYKTI (ciltacabtagene autoleucel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/carvykti"
+    },
+    {
+      "trade": "CASGEVY",
+      "name": "CASGEVY (exagamglogene autotemcel [exa-cel])",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/casgevy"
+    },
+    {
+      "trade": "CLEVECORD",
+      "name": "CLEVECORD (HPC Cord Blood)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/clevecord-hpc-cord-blood"
+    },
+    {
+      "trade": "Ducord, HPC Cord Blood",
+      "name": "Ducord, HPC Cord Blood",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/ducord"
+    },
+    {
+      "trade": "ELEVIDYS",
+      "name": "ELEVIDYS (delandistrogene moxeparvovec-rokl)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/tissue-tissue-products/elevidys"
+    },
+    {
+      "trade": "ENCELTO",
+      "name": "ENCELTO (revakinagene taroretcel-lwey)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/center-biologics-evaluation-and-research-cber-product-approval-information/encelto"
+    },
+    {
+      "trade": "FAYUVI",
+      "name": "FAYUVI (rebisufligene etisparvovec-hopf)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/fayuvi"
+    },
+    {
+      "trade": "GENGLYCOS",
+      "name": "GENGLYCOS (pariglasgene brecaparvovec-opnr)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/genglycos"
+    },
+    {
+      "trade": "GINTUIT",
+      "name": "GINTUIT (Allogeneic Cultured Keratinocytes and Fibroblasts in Bovine Collagen)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/gintuit-allogeneic-cultured-keratinocytes-and-fibroblasts-bovine-collagen"
+    },
+    {
+      "trade": "HEMACORD",
+      "name": "HEMACORD (HPC, cord blood)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hemacord-hpc-cord-blood"
+    },
+    {
+      "trade": "HEMGENIX",
+      "name": "HEMGENIX (etranacogene dezaparvovec-drlb)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/vaccines/hemgenix"
+    },
+    {
+      "trade": "HPC, Cord Blood",
+      "name": "HPC, Cord Blood",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood"
+    },
+    {
+      "trade": "HPC, Cord Blood - MD Anderson Cord Blood Bank",
+      "name": "HPC, Cord Blood - MD Anderson Cord Blood Bank",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood-md-anderson-cord-blood-bank"
+    },
+    {
+      "trade": "HPC, Cord Blood - LifeSouth",
+      "name": "HPC, Cord Blood - LifeSouth",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood-lifesouth"
+    },
+    {
+      "trade": "HPC, Cord Blood - Bloodworks",
+      "name": "HPC, Cord Blood - Bloodworks",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood-bloodworks"
+    },
+    {
+      "trade": "IMLYGIC",
+      "name": "IMLYGIC (talimogene laherparepvec)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/imlygic"
+    },
+    {
+      "trade": "ITVISMA",
+      "name": "ITVISMA (onasemnogene abeparvovec-brve)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/itvisma"
+    },
+    {
+      "trade": "KEBILIDI",
+      "name": "KEBILIDI (eladocagene exuparvovec-tneq)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/kebilidi"
+    },
+    {
+      "trade": "KRESLADI",
+      "name": "KRESLADI (marnetegragene autotemcel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/kresladi"
+    },
+    {
+      "trade": "KYMRIAH",
+      "name": "KYMRIAH (tisagenlecleucel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/kymriah"
+    },
+    {
+      "trade": "LANTIDRA",
+      "name": "LANTIDRA (donislecel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/lantidra"
+    },
+    {
+      "trade": "LAVIV",
+      "name": "LAVIV (Azficel-T)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/laviv"
+    },
+    {
+      "trade": "LENMELDY",
+      "name": "LENMELDY (atidarsagene autotemcel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/lenmeldy"
+    },
+    {
+      "trade": "LUXTURNA",
+      "name": "LUXTURNA (voretigene neparvovec-rzyl)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/luxturna"
+    },
+    {
+      "trade": "LYFGENIA",
+      "name": "LYFGENIA (lovotibeglogene autotemcel [lovo-cel])",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/lyfgenia"
+    },
+    {
+      "trade": "MACI",
+      "name": "MACI (Autologous Cultured Chondrocytes on a Porcine Collagen Membrane)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/maci-autologous-cultured-chondrocytes-porcine-collagen-membrane"
+    },
+    {
+      "trade": "OMISIRGE",
+      "name": "OMISIRGE (omidubicel-onlv)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/omisirge"
+    },
+    {
+      "trade": "OTARMENI",
+      "name": "OTARMENI™ (lunsotogene parvec cwha)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/otarmeni"
+    },
+    {
+      "trade": "PAPZIMEOS",
+      "name": "PAPZIMEOS (zopapogene imadenovec-drba)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/papzimeos"
+    },
+    {
+      "trade": "PROVENGE",
+      "name": "PROVENGE (sipuleucel-T)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/provenge-sipuleucel-t"
+    },
+    {
+      "trade": "REGENECYTE",
+      "name": "REGENECYTE (HPC, Cord Blood)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/regenecyte"
+    },
+    {
+      "trade": "RETHYMIC",
+      "name": "RETHYMIC (allogeneic processed thymus tissue – agdc)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/rethymic"
+    },
+    {
+      "trade": "ROCTAVIAN",
+      "name": "ROCTAVIAN (valoctocogene roxaparvovec-rvox)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/roctavian"
+    },
+    {
+      "trade": "RYONCIL",
+      "name": "RYONCIL (remestemcel-L-rknd)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/ryoncil"
+    },
+    {
+      "trade": "SYMVESS",
+      "name": "SYMVESS (acellular tissue engineered vessel-tyod)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/symvess"
+    },
+    {
+      "trade": "SKYSONA",
+      "name": "SKYSONA (elivaldogene autotemcel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/skysona"
+    },
+    {
+      "trade": "STRATAGRAFT",
+      "name": "STRATAGRAFT (allogeneic cultured keratinocytes and dermal fibroblasts in murine collagen-dsat)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/stratagraft"
+    },
+    {
+      "trade": "TECARTUS",
+      "name": "TECARTUS (brexucabtagene autoleucel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/tecartus"
+    },
+    {
+      "trade": "TECELRA",
+      "name": "TECELRA (afamitresgene autoleucel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/tecelra"
+    },
+    {
+      "trade": "TUDRIQEV",
+      "name": "TUDRIQEV (vusolimogene oderparepvec-wtpg",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/tudriqev"
+    },
+    {
+      "trade": "VOCERYQ",
+      "name": "VOCERYQ (doruxapapogene ralaplasmid and lalikinogene sifuplasmid-gxfd)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/voceryq"
+    },
+    {
+      "trade": "VYJUVEK",
+      "name": "VYJUVEK (beremagene geperpavec-svdt)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/vyjuvek"
+    },
+    {
+      "trade": "WASKYRA",
+      "name": "WASKYRA (etuvetidigene autotemcel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/waskyra"
+    },
+    {
+      "trade": "YESCARTA",
+      "name": "YESCARTA (axicabtagene ciloleucel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/yescarta"
+    },
+    {
+      "trade": "ZEVASKYN",
+      "name": "ZEVASKYN (prademagene zamikeracel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/zevaskyn"
+    },
+    {
+      "trade": "ZYNTEGLO",
+      "name": "ZYNTEGLO (betibeglogene autotemcel)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/zynteglo"
+    },
+    {
+      "trade": "ZOLGENSMA",
+      "name": "ZOLGENSMA (onasemnogene abeparvovec-xioi)",
+      "url": "https://www.fda.gov/vaccines-blood-biologics/zolgensma"
+    }
+  ],
+  "trials": {
+    "aav": {
+      "total": 407,
+      "byYear": {
+        "1999": 1,
+        "2003": 3,
+        "2004": 6,
+        "2005": 3,
+        "2006": 4,
+        "2007": 5,
+        "2008": 4,
+        "2009": 4,
+        "2010": 6,
+        "2011": 4,
+        "2012": 4,
+        "2013": 5,
+        "2014": 7,
+        "2015": 15,
+        "2016": 11,
+        "2017": 26,
+        "2018": 29,
+        "2019": 17,
+        "2020": 16,
+        "2021": 21,
+        "2022": 28,
+        "2023": 46,
+        "2024": 49,
+        "2025": 43,
+        "2026": 48,
+        "2027": 2
       },
-      {
-        "trade": "ADSTILADRIN",
-        "name": "ADSTILADRIN (nadofaragene firadenovec-vcng)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/adstiladrin"
+      "undated": 0,
+      "phases": {
+        "Phase 2": 204,
+        "Phase 3": 56,
+        "Phase 1": 97,
+        "Not applicable": 18,
+        "Early phase 1": 29,
+        "Phase 4": 3
       },
-      {
-        "trade": "ALLOCORD",
-        "name": "ALLOCORD (HPC, Cord Blood)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/allocord-hpc-cord-blood"
+      "recruiting": 109
+    },
+    "lentiviral": {
+      "total": 420,
+      "byYear": {
+        "2003": 1,
+        "2004": 1,
+        "2005": 1,
+        "2007": 1,
+        "2008": 1,
+        "2009": 5,
+        "2010": 5,
+        "2011": 5,
+        "2012": 7,
+        "2013": 15,
+        "2014": 17,
+        "2015": 15,
+        "2016": 21,
+        "2017": 27,
+        "2018": 31,
+        "2019": 34,
+        "2020": 25,
+        "2021": 23,
+        "2022": 29,
+        "2023": 27,
+        "2024": 32,
+        "2025": 38,
+        "2026": 49,
+        "2027": 10
       },
-      {
-        "trade": "AMTAGVI",
-        "name": "AMTAGVI (lifileucel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/amtagvi"
+      "undated": 0,
+      "phases": {
+        "Phase 1": 199,
+        "Phase 2": 146,
+        "Phase 3": 12,
+        "Not applicable": 24,
+        "Early phase 1": 39
       },
-      {
-        "trade": "TREGZI",
-        "name": "TREGZI (Allogeneic regulatory T cell immunotherapy with HSPC and T cells-vldq)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/tregzi"
+      "recruiting": 86
+    },
+    "retroviral": {
+      "total": 323,
+      "byYear": {
+        "1988": 1,
+        "1990": 1,
+        "1992": 1,
+        "1993": 1,
+        "1994": 1,
+        "1995": 2,
+        "1996": 2,
+        "1997": 2,
+        "1998": 5,
+        "1999": 3,
+        "2000": 5,
+        "2001": 6,
+        "2002": 5,
+        "2003": 6,
+        "2004": 11,
+        "2005": 16,
+        "2006": 12,
+        "2007": 11,
+        "2008": 8,
+        "2009": 7,
+        "2010": 14,
+        "2011": 13,
+        "2012": 17,
+        "2013": 10,
+        "2014": 10,
+        "2015": 10,
+        "2016": 17,
+        "2017": 15,
+        "2018": 17,
+        "2019": 17,
+        "2020": 11,
+        "2021": 8,
+        "2022": 10,
+        "2023": 10,
+        "2024": 6,
+        "2025": 10,
+        "2026": 7,
+        "2027": 1
       },
-      {
-        "trade": "AUCATZYL",
-        "name": "AUCATZYL (obecabtagene autoleucel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/aucatzyl"
+      "undated": 14,
+      "phases": {
+        "Phase 3": 38,
+        "Phase 4": 35,
+        "Phase 1": 91,
+        "Phase 2": 104,
+        "Early phase 1": 8,
+        "Not applicable": 47
       },
-      {
-        "trade": "BEQVEZ",
-        "name": "BEQVEZ (fidanacogene elaparvovec-dzkt)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/beqvez"
+      "recruiting": 24
+    },
+    "cart": {
+      "total": 2556,
+      "byYear": {
+        "1997": 1,
+        "2003": 1,
+        "2007": 1,
+        "2008": 1,
+        "2009": 2,
+        "2010": 8,
+        "2011": 5,
+        "2012": 8,
+        "2013": 13,
+        "2014": 23,
+        "2015": 46,
+        "2016": 82,
+        "2017": 105,
+        "2018": 111,
+        "2019": 153,
+        "2020": 171,
+        "2021": 203,
+        "2022": 211,
+        "2023": 234,
+        "2024": 354,
+        "2025": 399,
+        "2026": 385,
+        "2027": 39
       },
-      {
-        "trade": "BREYANZI",
-        "name": "BREYANZI (lisocabtagene maraleucel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/breyanzi"
+      "undated": 0,
+      "phases": {
+        "Phase 2": 813,
+        "Phase 1": 1102,
+        "Early phase 1": 383,
+        "Not applicable": 199,
+        "Phase 3": 53,
+        "Phase 4": 6
       },
-      {
-        "trade": "CARVYKTI",
-        "name": "CARVYKTI (ciltacabtagene autoleucel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/carvykti"
+      "recruiting": 867
+    },
+    "editing": {
+      "total": 158,
+      "byYear": {
+        "2009": 2,
+        "2010": 1,
+        "2014": 1,
+        "2015": 1,
+        "2016": 6,
+        "2017": 8,
+        "2018": 10,
+        "2019": 13,
+        "2020": 7,
+        "2021": 8,
+        "2022": 12,
+        "2023": 15,
+        "2024": 25,
+        "2025": 21,
+        "2026": 25,
+        "2027": 2,
+        "2028": 1
       },
-      {
-        "trade": "CASGEVY",
-        "name": "CASGEVY (exagamglogene autotemcel [exa-cel])",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/casgevy"
+      "undated": 0,
+      "phases": {
+        "Phase 3": 10,
+        "Phase 1": 58,
+        "Phase 2": 52,
+        "Not applicable": 22,
+        "Early phase 1": 16
       },
-      {
-        "trade": "CLEVECORD",
-        "name": "CLEVECORD (HPC Cord Blood)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/clevecord-hpc-cord-blood"
+      "recruiting": 43
+    },
+    "antisense": {
+      "total": 362,
+      "byYear": {
+        "1993": 1,
+        "1997": 1,
+        "1998": 2,
+        "1999": 2,
+        "2000": 7,
+        "2001": 9,
+        "2002": 10,
+        "2003": 15,
+        "2004": 9,
+        "2005": 9,
+        "2006": 8,
+        "2007": 10,
+        "2008": 11,
+        "2009": 8,
+        "2010": 13,
+        "2011": 7,
+        "2012": 14,
+        "2013": 4,
+        "2014": 10,
+        "2015": 9,
+        "2016": 5,
+        "2017": 11,
+        "2018": 8,
+        "2019": 20,
+        "2020": 13,
+        "2021": 26,
+        "2022": 17,
+        "2023": 14,
+        "2024": 29,
+        "2025": 32,
+        "2026": 27,
+        "2027": 1
       },
-      {
-        "trade": "Ducord, HPC Cord Blood",
-        "name": "Ducord, HPC Cord Blood",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/ducord"
+      "undated": 0,
+      "phases": {
+        "Phase 1": 113,
+        "Phase 2": 186,
+        "Phase 3": 32,
+        "Not applicable": 21,
+        "Early phase 1": 7,
+        "Phase 4": 3
       },
-      {
-        "trade": "ELEVIDYS",
-        "name": "ELEVIDYS (delandistrogene moxeparvovec-rokl)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/tissue-tissue-products/elevidys"
+      "recruiting": 48
+    },
+    "sirna": {
+      "total": 165,
+      "byYear": {
+        "2005": 1,
+        "2006": 1,
+        "2007": 2,
+        "2008": 4,
+        "2009": 3,
+        "2010": 1,
+        "2011": 3,
+        "2012": 3,
+        "2013": 1,
+        "2014": 4,
+        "2015": 2,
+        "2016": 4,
+        "2017": 10,
+        "2018": 5,
+        "2019": 7,
+        "2020": 5,
+        "2021": 19,
+        "2022": 12,
+        "2023": 15,
+        "2024": 18,
+        "2025": 15,
+        "2026": 30
       },
-      {
-        "trade": "ENCELTO",
-        "name": "ENCELTO (revakinagene taroretcel-lwey)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/center-biologics-evaluation-and-research-cber-product-approval-information/encelto"
+      "undated": 0,
+      "phases": {
+        "Phase 3": 26,
+        "Phase 2": 66,
+        "Phase 1": 65,
+        "Early phase 1": 4,
+        "Phase 4": 2,
+        "Not applicable": 2
       },
-      {
-        "trade": "FAYUVI",
-        "name": "FAYUVI (rebisufligene etisparvovec-hopf)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/fayuvi"
-      },
-      {
-        "trade": "GENGLYCOS",
-        "name": "GENGLYCOS (pariglasgene brecaparvovec-opnr)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/genglycos"
-      },
-      {
-        "trade": "GINTUIT",
-        "name": "GINTUIT (Allogeneic Cultured Keratinocytes and Fibroblasts in Bovine Collagen)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/gintuit-allogeneic-cultured-keratinocytes-and-fibroblasts-bovine-collagen"
-      },
-      {
-        "trade": "HEMACORD",
-        "name": "HEMACORD (HPC, cord blood)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hemacord-hpc-cord-blood"
-      },
-      {
-        "trade": "HEMGENIX",
-        "name": "HEMGENIX (etranacogene dezaparvovec-drlb)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/vaccines/hemgenix"
-      },
-      {
-        "trade": "HPC, Cord Blood",
-        "name": "HPC, Cord Blood",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood"
-      },
-      {
-        "trade": "HPC, Cord Blood - MD Anderson Cord Blood Bank",
-        "name": "HPC, Cord Blood - MD Anderson Cord Blood Bank",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood-md-anderson-cord-blood-bank"
-      },
-      {
-        "trade": "HPC, Cord Blood - LifeSouth",
-        "name": "HPC, Cord Blood - LifeSouth",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood-lifesouth"
-      },
-      {
-        "trade": "HPC, Cord Blood - Bloodworks",
-        "name": "HPC, Cord Blood - Bloodworks",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood-bloodworks"
-      },
-      {
-        "trade": "IMLYGIC",
-        "name": "IMLYGIC (talimogene laherparepvec)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/imlygic"
-      },
-      {
-        "trade": "ITVISMA",
-        "name": "ITVISMA (onasemnogene abeparvovec-brve)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/itvisma"
-      },
-      {
-        "trade": "KEBILIDI",
-        "name": "KEBILIDI (eladocagene exuparvovec-tneq)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/kebilidi"
-      },
-      {
-        "trade": "KRESLADI",
-        "name": "KRESLADI (marnetegragene autotemcel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/kresladi"
-      },
-      {
-        "trade": "KYMRIAH",
-        "name": "KYMRIAH (tisagenlecleucel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/kymriah"
-      },
-      {
-        "trade": "LANTIDRA",
-        "name": "LANTIDRA (donislecel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/lantidra"
-      },
-      {
-        "trade": "LAVIV",
-        "name": "LAVIV (Azficel-T)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/laviv"
-      },
-      {
-        "trade": "LENMELDY",
-        "name": "LENMELDY (atidarsagene autotemcel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/lenmeldy"
-      },
-      {
-        "trade": "LUXTURNA",
-        "name": "LUXTURNA (voretigene neparvovec-rzyl)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/luxturna"
-      },
-      {
-        "trade": "LYFGENIA",
-        "name": "LYFGENIA (lovotibeglogene autotemcel [lovo-cel])",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/lyfgenia"
-      },
-      {
-        "trade": "MACI",
-        "name": "MACI (Autologous Cultured Chondrocytes on a Porcine Collagen Membrane)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/maci-autologous-cultured-chondrocytes-porcine-collagen-membrane"
-      },
-      {
-        "trade": "OMISIRGE",
-        "name": "OMISIRGE (omidubicel-onlv)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/omisirge"
-      },
-      {
-        "trade": "OTARMENI",
-        "name": "OTARMENI™ (lunsotogene parvec cwha)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/otarmeni"
-      },
-      {
-        "trade": "PAPZIMEOS",
-        "name": "PAPZIMEOS (zopapogene imadenovec-drba)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/papzimeos"
-      },
-      {
-        "trade": "PROVENGE",
-        "name": "PROVENGE (sipuleucel-T)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/provenge-sipuleucel-t"
-      },
-      {
-        "trade": "REGENECYTE",
-        "name": "REGENECYTE (HPC, Cord Blood)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/regenecyte"
-      },
-      {
-        "trade": "RETHYMIC",
-        "name": "RETHYMIC (allogeneic processed thymus tissue – agdc)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/rethymic"
-      },
-      {
-        "trade": "ROCTAVIAN",
-        "name": "ROCTAVIAN (valoctocogene roxaparvovec-rvox)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/roctavian"
-      },
-      {
-        "trade": "RYONCIL",
-        "name": "RYONCIL (remestemcel-L-rknd)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/ryoncil"
-      },
-      {
-        "trade": "SYMVESS",
-        "name": "SYMVESS (acellular tissue engineered vessel-tyod)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/symvess"
-      },
-      {
-        "trade": "SKYSONA",
-        "name": "SKYSONA (elivaldogene autotemcel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/skysona"
-      },
-      {
-        "trade": "STRATAGRAFT",
-        "name": "STRATAGRAFT (allogeneic cultured keratinocytes and dermal fibroblasts in murine collagen-dsat)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/stratagraft"
-      },
-      {
-        "trade": "TECARTUS",
-        "name": "TECARTUS (brexucabtagene autoleucel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/tecartus"
-      },
-      {
-        "trade": "TECELRA",
-        "name": "TECELRA (afamitresgene autoleucel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/tecelra"
-      },
-      {
-        "trade": "TUDRIQEV",
-        "name": "TUDRIQEV (vusolimogene oderparepvec-wtpg",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/tudriqev"
-      },
-      {
-        "trade": "VOCERYQ",
-        "name": "VOCERYQ (doruxapapogene ralaplasmid and lalikinogene sifuplasmid-gxfd)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/voceryq"
-      },
-      {
-        "trade": "VYJUVEK",
-        "name": "VYJUVEK (beremagene geperpavec-svdt)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/vyjuvek"
-      },
-      {
-        "trade": "WASKYRA",
-        "name": "WASKYRA (etuvetidigene autotemcel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/waskyra"
-      },
-      {
-        "trade": "YESCARTA",
-        "name": "YESCARTA (axicabtagene ciloleucel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/yescarta"
-      },
-      {
-        "trade": "ZEVASKYN",
-        "name": "ZEVASKYN (prademagene zamikeracel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/zevaskyn"
-      },
-      {
-        "trade": "ZYNTEGLO",
-        "name": "ZYNTEGLO (betibeglogene autotemcel)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/zynteglo"
-      },
-      {
-        "trade": "ZOLGENSMA",
-        "name": "ZOLGENSMA (onasemnogene abeparvovec-xioi)",
-        "url": "https://www.fda.gov/vaccines-blood-biologics/zolgensma"
-      }
-    ],
-    "trials": {
-      "aav": {
-        "total": 407,
-        "byYear": {
-          "1999": 1,
-          "2003": 3,
-          "2004": 6,
-          "2005": 3,
-          "2006": 4,
-          "2007": 5,
-          "2008": 4,
-          "2009": 4,
-          "2010": 6,
-          "2011": 4,
-          "2012": 4,
-          "2013": 5,
-          "2014": 7,
-          "2015": 15,
-          "2016": 11,
-          "2017": 26,
-          "2018": 29,
-          "2019": 17,
-          "2020": 16,
-          "2021": 21,
-          "2022": 28,
-          "2023": 46,
-          "2024": 49,
-          "2025": 43,
-          "2026": 48,
-          "2027": 2
-        },
-        "undated": 0,
-        "phases": {
-          "Phase 2": 204,
-          "Phase 3": 56,
-          "Phase 1": 97,
-          "Not applicable": 18,
-          "Early phase 1": 29,
-          "Phase 4": 3
-        },
-        "recruiting": 109
-      },
-      "lentiviral": {
-        "total": 420,
-        "byYear": {
-          "2003": 1,
-          "2004": 1,
-          "2005": 1,
-          "2007": 1,
-          "2008": 1,
-          "2009": 5,
-          "2010": 5,
-          "2011": 5,
-          "2012": 7,
-          "2013": 15,
-          "2014": 17,
-          "2015": 15,
-          "2016": 21,
-          "2017": 27,
-          "2018": 31,
-          "2019": 34,
-          "2020": 25,
-          "2021": 23,
-          "2022": 29,
-          "2023": 27,
-          "2024": 32,
-          "2025": 38,
-          "2026": 49,
-          "2027": 10
-        },
-        "undated": 0,
-        "phases": {
-          "Phase 1": 199,
-          "Phase 2": 146,
-          "Phase 3": 12,
-          "Not applicable": 24,
-          "Early phase 1": 39
-        },
-        "recruiting": 86
-      },
-      "retroviral": {
-        "total": 323,
-        "byYear": {
-          "1988": 1,
-          "1990": 1,
-          "1992": 1,
-          "1993": 1,
-          "1994": 1,
-          "1995": 2,
-          "1996": 2,
-          "1997": 2,
-          "1998": 5,
-          "1999": 3,
-          "2000": 5,
-          "2001": 6,
-          "2002": 5,
-          "2003": 6,
-          "2004": 11,
-          "2005": 16,
-          "2006": 12,
-          "2007": 11,
-          "2008": 8,
-          "2009": 7,
-          "2010": 14,
-          "2011": 13,
-          "2012": 17,
-          "2013": 10,
-          "2014": 10,
-          "2015": 10,
-          "2016": 17,
-          "2017": 15,
-          "2018": 17,
-          "2019": 17,
-          "2020": 11,
-          "2021": 8,
-          "2022": 10,
-          "2023": 10,
-          "2024": 6,
-          "2025": 10,
-          "2026": 7,
-          "2027": 1
-        },
-        "undated": 14,
-        "phases": {
-          "Phase 3": 38,
-          "Phase 4": 35,
-          "Phase 1": 91,
-          "Phase 2": 104,
-          "Early phase 1": 8,
-          "Not applicable": 47
-        },
-        "recruiting": 24
-      },
-      "cart": {
-        "total": 2556,
-        "byYear": {
-          "1997": 1,
-          "2003": 1,
-          "2007": 1,
-          "2008": 1,
-          "2009": 2,
-          "2010": 8,
-          "2011": 5,
-          "2012": 8,
-          "2013": 13,
-          "2014": 23,
-          "2015": 46,
-          "2016": 82,
-          "2017": 105,
-          "2018": 111,
-          "2019": 153,
-          "2020": 171,
-          "2021": 203,
-          "2022": 211,
-          "2023": 234,
-          "2024": 354,
-          "2025": 399,
-          "2026": 385,
-          "2027": 39
-        },
-        "undated": 0,
-        "phases": {
-          "Phase 2": 813,
-          "Phase 1": 1102,
-          "Early phase 1": 383,
-          "Not applicable": 199,
-          "Phase 3": 53,
-          "Phase 4": 6
-        },
-        "recruiting": 867
-      },
-      "editing": {
-        "total": 158,
-        "byYear": {
-          "2009": 2,
-          "2010": 1,
-          "2014": 1,
-          "2015": 1,
-          "2016": 6,
-          "2017": 8,
-          "2018": 10,
-          "2019": 13,
-          "2020": 7,
-          "2021": 8,
-          "2022": 12,
-          "2023": 15,
-          "2024": 25,
-          "2025": 21,
-          "2026": 25,
-          "2027": 2,
-          "2028": 1
-        },
-        "undated": 0,
-        "phases": {
-          "Phase 3": 10,
-          "Phase 1": 58,
-          "Phase 2": 52,
-          "Not applicable": 22,
-          "Early phase 1": 16
-        },
-        "recruiting": 43
-      },
-      "antisense": {
-        "total": 362,
-        "byYear": {
-          "1993": 1,
-          "1997": 1,
-          "1998": 2,
-          "1999": 2,
-          "2000": 7,
-          "2001": 9,
-          "2002": 10,
-          "2003": 15,
-          "2004": 9,
-          "2005": 9,
-          "2006": 8,
-          "2007": 10,
-          "2008": 11,
-          "2009": 8,
-          "2010": 13,
-          "2011": 7,
-          "2012": 14,
-          "2013": 4,
-          "2014": 10,
-          "2015": 9,
-          "2016": 5,
-          "2017": 11,
-          "2018": 8,
-          "2019": 20,
-          "2020": 13,
-          "2021": 26,
-          "2022": 17,
-          "2023": 14,
-          "2024": 29,
-          "2025": 32,
-          "2026": 27,
-          "2027": 1
-        },
-        "undated": 0,
-        "phases": {
-          "Phase 1": 113,
-          "Phase 2": 186,
-          "Phase 3": 32,
-          "Not applicable": 21,
-          "Early phase 1": 7,
-          "Phase 4": 3
-        },
-        "recruiting": 48
-      },
-      "sirna": {
-        "total": 165,
-        "byYear": {
-          "2005": 1,
-          "2006": 1,
-          "2007": 2,
-          "2008": 4,
-          "2009": 3,
-          "2010": 1,
-          "2011": 3,
-          "2012": 3,
-          "2013": 1,
-          "2014": 4,
-          "2015": 2,
-          "2016": 4,
-          "2017": 10,
-          "2018": 5,
-          "2019": 7,
-          "2020": 5,
-          "2021": 19,
-          "2022": 12,
-          "2023": 15,
-          "2024": 18,
-          "2025": 15,
-          "2026": 30
-        },
-        "undated": 0,
-        "phases": {
-          "Phase 3": 26,
-          "Phase 2": 66,
-          "Phase 1": 65,
-          "Early phase 1": 4,
-          "Phase 4": 2,
-          "Not applicable": 2
-        },
-        "recruiting": 36
-      }
+      "recruiting": 36
     }
   }
 };
