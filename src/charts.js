@@ -491,6 +491,70 @@ export const matrix = ({
   return mountSvg(mount, svg);
 };
 
+export const histo = ({
+  mount, bins, series, aria, describe, tickLabel, tickEvery = 10, height = 220, yFormat = compact,
+}) => {
+  const W = widthOf(mount);
+  const L = 46;
+  const R = 10;
+  const T = 12;
+  const B = 24;
+  const H = height + T;
+  const values = series.flatMap((s) => s.values);
+  const ticks = niceTicks(Math.max(...values, 1e-9), 4);
+  const y = scaleLinear([0, ticks.at(-1)], [H - B, T]);
+  const band = (W - L - R) / bins.length;
+  const bw = Math.max(0.6, (band - (band > 4 ? 1 : 0)) / series.length);
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
+    ticks.map((t) => el('g', {},
+      el('line', { class: t === 0 ? 'base' : 'grid', x1: L, x2: W - R, y1: y(t), y2: y(t) }),
+      el('text', { class: 'tick', x: L - 8, y: y(t) + 4, 'text-anchor': 'end' }, yFormat(t)))),
+    bins.map((b, i) => el('g', { 'data-bin': i, 'data-k': i, 'data-rank': i },
+      el('rect', { class: 'row-hit', x: L + i * band, y: T, width: band, height: H - T - B }),
+      series.map((s, k) => el('rect', {
+        class: 'bar', x: L + i * band + k * bw, y: y(s.values[i]), width: bw, height: Math.max(0, H - B - y(s.values[i])), style: `fill:${s.color};--i:${i}`,
+      })))),
+    bins.map((b, i) => (i % tickEvery === 0 && tickLabel(b, i) !== null ? el('text', { class: 'tick', x: L + i * band, y: H - 6, 'text-anchor': 'middle' }, tickLabel(b, i)) : null)));
+  hover(svg, (k) => describe(Number(k)), { axis: 'x' });
+  return series.length > 1 ? mountSvg(mount, svg, legendOf(series)) : mountSvg(mount, svg);
+};
+
+export const scatter = ({
+  mount, points, aria, describe, xFormat = compact, yFormat = compact, xLabel, yLabel, trend, height = 300,
+}) => {
+  const W = widthOf(mount);
+  const L = 46;
+  const R = 12;
+  const T = 14;
+  const B = 34;
+  const H = height;
+  const xs = points.map((p) => p.x);
+  const xt = (() => {
+    const lo = Math.min(...xs);
+    const hi = Math.max(...xs);
+    const step = niceTicks(hi - lo, 4)[1] || 1;
+    const out = [];
+    for (let t = Math.floor(lo / step) * step; t <= hi + step / 2; t += step) out.push(Number(t.toPrecision(12)));
+    return out;
+  })();
+  const yt = niceTicks(Math.max(...points.map((p) => p.y), 1e-9), 4);
+  const x = scaleLinear([xt[0], xt.at(-1)], [L, W - R]);
+  const y = scaleLinear([0, yt.at(-1)], [H - B, T]);
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
+    yt.map((t) => el('g', {},
+      el('line', { class: t === 0 ? 'base' : 'grid', x1: L, x2: W - R, y1: y(t), y2: y(t) }),
+      el('text', { class: 'tick', x: L - 8, y: y(t) + 4, 'text-anchor': 'end' }, yFormat(t)))),
+    xt.map((t) => el('text', { class: 'tick', x: x(t), y: H - B + 16, 'text-anchor': 'middle' }, xFormat(t))),
+    xLabel ? el('text', { class: 'axis-lab', x: W - R, y: H - 4, 'text-anchor': 'end' }, xLabel) : null,
+    yLabel ? el('text', { class: 'axis-lab', x: L, y: T - 4 }, yLabel) : null,
+    trend ? el('path', { class: 'trend', d: `M${x(xt[0])},${y(trend.intercept + trend.slope * xt[0])}L${x(xt.at(-1))},${y(trend.intercept + trend.slope * xt.at(-1))}` }) : null,
+    points.map((p, i) => el('circle', {
+      class: `dot pt${p.hi ? ' hi' : ''}`, cx: x(p.x), cy: y(p.y), r: p.hi ? 3.5 : 2.2, 'data-point': p.key, 'data-k': i, 'data-rank': i, style: `--i:${i % 60}`,
+    })));
+  hover(svg, (k) => describe(points[Number(k)]));
+  return mountSvg(mount, svg);
+};
+
 export const stackedArea = ({
   mount, years, series, aria, format = exact, max = null, xFormat = (v) => v, xTick = (v) => v,
 }) => {

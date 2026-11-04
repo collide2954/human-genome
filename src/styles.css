@@ -807,6 +807,30 @@ h2,
   stroke-width: 1.5;
 }
 
+.chart .pt {
+  fill: var(--ink-2);
+  fill-opacity: 0.55;
+  stroke: none;
+}
+
+.chart .pt.hi,
+.chart .pt.sel {
+  fill: var(--accent);
+  fill-opacity: 1;
+}
+
+.chart .trend {
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+  fill: none;
+}
+
+.chart .axis-lab {
+  fill: var(--ink-2);
+  font-size: 11.5px;
+}
+
 .chart .tile-lab,
 .chart .tile-sub {
   fill: #fff;
