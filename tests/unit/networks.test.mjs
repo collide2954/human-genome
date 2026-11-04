@@ -160,7 +160,25 @@ test('oboTerms counts live terms by namespace and keeps their names', () => {
   assert.equal(o.terms.has('part_of'), false);
 });
 
-const gaf = (acc, symbol, qualifier, term, evidence, aspect, by) => ['UniProtKB', acc, symbol, qualifier, term, 'PMID:1', evidence, '', aspect, 'name', '', 'protein', 'taxon:9606', '20240101', by, '', ''].join('\t');
+const gaf = (acc, symbol, qualifier, term, evidence, aspect, by, db = 'UniProtKB', type = 'protein') => [db, acc, symbol, qualifier, term, 'PMID:1', evidence, '', aspect, 'name', '', type, 'taxon:9606', '20240101', by, '', ''].join('\t');
+
+test('goSummary keeps RNAs and complexes out of the protein counts but in the annotation totals', () => {
+  const acc = goSummary(oboTerms(OBO).terms);
+  [
+    gaf('P1', 'TP53', 'involved_in', 'GO:0006915', 'IDA', 'P', 'UniProt'),
+    gaf('URS0001', 'MIR21', 'involved_in', 'GO:0035195', 'IDA', 'P', 'RNAcentral', 'RNAcentral', 'miRNA'),
+    gaf('URS0001', 'MIR21', 'involved_in', 'GO:0035195', 'IMP', 'P', 'RNAcentral', 'RNAcentral', 'miRNA'),
+    gaf('CPX-1', 'Complex', 'part_of', 'GO:0005634', 'IDA', 'C', 'ComplexPortal', 'ComplexPortal', 'protein_complex'),
+  ].forEach((l) => acc.add(l));
+  const g = acc.result();
+  assert.equal(g.annotations, 4);
+  assert.equal(g.proteins, 1);
+  assert.deepEqual(g.types, { protein: 1, miRNA: 1, protein_complex: 1 });
+  assert.equal(g.byAspect.P.experimental, 3);
+  assert.deepEqual(g.topTerms.P.map((t) => t.id), ['GO:0006915']);
+  assert.deepEqual(g.topTerms.C, []);
+  assert.deepEqual(g.topProteins.map((p) => p.acc), ['P1']);
+});
 
 test('goSummary counts annotations by aspect and evidence and ranks proteins and terms', () => {
   const acc = goSummary(oboTerms(OBO).terms);
