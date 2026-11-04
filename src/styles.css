@@ -920,6 +920,26 @@ h2,
   font-size: 11px;
 }
 
+.chart .col-lab.small {
+  font-size: 9px;
+}
+
+.chart .cell.empty {
+  fill: none;
+  stroke: var(--hair);
+  stroke-dasharray: 2 2;
+}
+
+.chart .guide {
+  stroke: var(--hair);
+  stroke-width: 1;
+}
+
+.chart .median {
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
 .chart g.sel .cell,
 .chart [data-cell]:hover .cell {
   stroke: var(--ink);

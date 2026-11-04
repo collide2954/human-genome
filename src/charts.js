@@ -262,6 +262,30 @@ const rowLayout = (rows, labelW, rowH) => {
     : { L: 14, rowH: rowH + 16, labelY: -8, markY: 5, cls: 'rows stacked' };
 };
 
+const splitLabel = (text, limit) => {
+  if (text.length <= limit) return [text];
+  const cuts = [...text.matchAll(/[ /-]/g)].map((m) => (m[0] === ' ' ? m.index : m.index + 1)).filter((at) => at > 0 && at < text.length);
+  if (!cuts.length) return [text];
+  const best = cuts.reduce((a, b) => (Math.max(b, text.length - b) < Math.max(a, text.length - a) ? b : a));
+  return [text.slice(0, best).trim(), text.slice(best).trim()];
+};
+
+const wrapLabels = (base, rows, W) => {
+  const room = Math.floor((W - 8) / 6.6);
+  const wraps = base.cls.includes('stacked') && rows.some((r) => String(r.label).length > room);
+  const lay = wraps ? {
+    ...base, rowH: base.rowH + 14, labelY: base.labelY + 7, markY: base.markY + 7,
+  } : base;
+  const labelOf = (label) => {
+    const text = String(label);
+    if (!wraps || text.length <= room) return text;
+    const cut = text.lastIndexOf(' ', room);
+    const at = cut > 0 ? cut : room;
+    return [el('tspan', { x: 0, dy: -14 }, text.slice(0, at)), el('tspan', { x: 0, dy: 14 }, text.slice(at).trim())];
+  };
+  return { lay, labelOf };
+};
+
 const axisTicks = (lo, hi) => {
   const span = Math.max(hi, -lo);
   const step = niceTicks(span, 4)[1] ?? 1;
@@ -324,20 +348,8 @@ export const dotplot = ({
   const W = widthOf(mount);
   const R = 70;
   const T = 22;
-  const base = rowLayout(rows, Math.min(labelMax, Math.max(96, W * labelShare)), rowH);
-  const room = Math.floor((W - 8) / 6.6);
-  const wraps = base.cls.includes('stacked') && rows.some((r) => String(r.label).length > room);
-  const lay = wraps ? {
-    ...base, rowH: base.rowH + 14, labelY: base.labelY + 7, markY: base.markY + 7,
-  } : base;
+  const { lay, labelOf } = wrapLabels(rowLayout(rows, Math.min(labelMax, Math.max(96, W * labelShare)), rowH), rows, W);
   const { L } = lay;
-  const labelOf = (label) => {
-    const text = String(label);
-    if (!wraps || text.length <= room) return text;
-    const cut = text.lastIndexOf(' ', room);
-    const at = cut > 0 ? cut : room;
-    return [el('tspan', { x: 0, dy: -14 }, text.slice(0, at)), el('tspan', { x: 0, dy: 14 }, text.slice(at).trim())];
-  };
   const H = T + rows.length * lay.rowH + 6;
   const values = rows.map((r) => r.value).filter((v) => v > 0);
   const min = Math.min(...values);
@@ -393,7 +405,7 @@ export const hbars = ({
 }) => {
   const W = widthOf(mount);
   const T = 22;
-  const lay = rowLayout(rows, Math.min(labelMax, Math.max(44, W * labelShare)), rowH);
+  const { lay, labelOf } = wrapLabels(rowLayout(rows, Math.min(labelMax, Math.max(44, W * labelShare)), rowH), rows, W);
   const { L } = lay;
   const H = T + rows.length * lay.rowH + 6;
   const totals = rows.map((r) => segments.reduce((n, s) => n + (r.values[s.key] ?? 0), 0));
@@ -422,7 +434,7 @@ export const hbars = ({
       const total = totals[i];
       return el('g', { 'data-row': r.key, 'data-k': i, 'data-rank': i },
         el('rect', { class: 'row-hit', x: 0, y: mid - lay.rowH / 2, width: W, height: lay.rowH }),
-        el('text', { class: 'lab', x: 0, y: mid + lay.labelY }, r.label),
+        el('text', { class: 'lab', x: 0, y: mid + lay.labelY }, labelOf(r.label)),
         segs,
         el('text', { class: 'val', x: total < 0 ? x(0) + 6 : x(total) + 6, y: y + 4 }, valueText ? valueText(r, total) : text(total)));
     })));
@@ -593,50 +605,110 @@ export const heatmap = ({
 };
 
 export const grid = ({
-  mount, rows, cols, values, totals, aria, describe, color = 'var(--s2)', format = (v) => (v >= 0.01 ? String(Math.round(v * 100)) : '<1'),
+  mount, rows, cols, values, totals = null, aria, describe, color = 'var(--s2)', max = 1, colKeys = null, legend = null,
+  format = (v) => (v >= 0.01 ? String(Math.round(v * 100)) : '<1'),
 }) => {
   const W = widthOf(mount);
-  const L = Math.ceil(Math.max(...rows.map((r) => String(r).length)) * 6.8) + 12;
-  const R = 54;
+  const lines = rows.map((r) => splitLabel(String(r), Math.max(8, Math.floor((W * 0.42) / 6.8))));
+  const L = Math.ceil(Math.max(...lines.flat().map((t) => t.length)) * 6.8) + 12;
+  const R = totals ? 54 : 8;
   const cw = Math.min(64, (W - L - R) / cols.length);
-  const tilted = cw < 40;
-  const T = tilted ? 44 : 22;
-  const rh = 22;
+  const showCols = cw >= 10;
+  const colClass = cw < 16 ? 'col-lab small' : 'col-lab';
+  const longest = Math.max(...cols.map((c) => String(c).length));
+  const tilted = cw < 40 || longest * 6.4 > cw - 4;
+  const keyH = colKeys ? 8 : 0;
+  const T = (!showCols ? 8 : tilted ? Math.max(44, Math.ceil(longest * 6.4 * 0.77) + 14) : 22) + keyH;
+  const rh = lines.some((t) => t.length > 1) ? 28 : 22;
   const H = T + rows.length * rh + 2;
   const flat = [];
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
-    cols.map((c, j) => {
+    showCols ? cols.map((c, j) => {
       const cx = L + j * cw + cw / 2;
       return el('text', tilted
         ? {
-          class: 'col-lab', x: cx - 3, y: T - 6, transform: `rotate(-50 ${cx - 3} ${T - 6})`, 'text-anchor': 'start',
+          class: colClass, x: cx - 3, y: T - 6 - keyH, transform: `rotate(-50 ${cx - 3} ${T - 6 - keyH})`, 'text-anchor': 'start',
         }
         : {
-          class: 'col-lab', x: cx, y: 14, 'text-anchor': 'middle',
+          class: colClass, x: cx, y: 14, 'text-anchor': 'middle',
         }, c);
-    }),
-    el('text', {
+    }) : null,
+    colKeys ? colKeys.map((key, j) => el('rect', {
+      class: 'col-key', x: L + j * cw + cw / 2 - 5, y: T - 9, width: 10, height: 5, style: `fill:${key}`,
+    })) : null,
+    totals ? el('text', {
       class: 'tick', x: L + cols.length * cw + 6, y: T - 6, 'text-anchor': 'start',
-    }, 'n'),
+    }, 'n') : null,
     rows.map((r, i) => el('g', {},
-      el('text', { class: 'lab', x: 0, y: T + i * rh + rh / 2 + 4 }, r),
+      lines[i].length > 1
+        ? el('text', { class: 'lab', x: 0, y: T + i * rh + rh / 2 - 2 }, el('tspan', { x: 0 }, lines[i][0]), el('tspan', { x: 0, dy: 12 }, lines[i][1]))
+        : el('text', { class: 'lab', x: 0, y: T + i * rh + rh / 2 + 4 }, lines[i][0]),
       cols.map((c, j) => {
         const v = values[i][j];
         const k = flat.push([i, j]) - 1;
-        const shade = heat(v, 0, 1);
+        const shade = heat(v ?? 0, 0, max);
+        const box = {
+          x: L + j * cw, y: T + i * rh, width: cw - 1.5, height: rh - 1.5,
+        };
         return el('g', { 'data-cell': `${i}:${j}`, 'data-k': k, 'data-rank': k },
-          el('rect', {
-            class: 'cell', x: L + j * cw, y: T + i * rh, width: cw - 1.5, height: rh - 1.5, style: `fill:${color};fill-opacity:${v > 0 ? shade : 0.03};--i:${i}`,
-          }),
+          v === null
+            ? el('rect', { class: 'cell empty', ...box })
+            : el('rect', { class: 'cell', ...box, style: `fill:${color};fill-opacity:${v > 0 ? shade : 0.03};--i:${i}` }),
           cw >= 24 && v > 0 ? el('text', {
             class: `grid-lab${shade > 0.55 ? ' on' : ''}`, x: L + j * cw + (cw - 1.5) / 2, y: T + i * rh + rh / 2 + 3.5, 'text-anchor': 'middle',
           }, format(v)) : null);
       }),
-      el('text', {
+      totals ? el('text', {
         class: 'val', x: L + cols.length * cw + 6, y: T + i * rh + rh / 2 + 4, 'text-anchor': 'start',
-      }, compact(totals[i])))));
+      }, compact(totals[i])) : null)));
   hover(svg, (k) => describe(...flat[Number(k)]));
-  return mountSvg(mount, svg);
+  return legend ? mountSvg(mount, svg, legendOf(legend)) : mountSvg(mount, svg);
+};
+
+export const dotRows = ({
+  mount, rows, kinds, aria, describe, rowH = 16, labelShare = 0.32, labelMax = 260, tickFormat = compact,
+}) => {
+  const W = widthOf(mount);
+  const R = 14;
+  const T = 22;
+  const { lay, labelOf } = wrapLabels(rowLayout(rows, Math.min(labelMax, Math.max(96, W * labelShare)), rowH), rows, W);
+  const { L } = lay;
+  const H = T + rows.length * lay.rowH + 6;
+  const all = rows.flatMap((r) => r.points.map((p) => p.value)).filter((v) => v > 0);
+  const lo = 10 ** Math.floor(Math.log10(Math.min(...all)));
+  const hi = 10 ** Math.ceil(Math.log10(Math.max(...all)));
+  const x = scaleLog([lo, hi], [L, W - R]);
+  const at = (v) => x(Math.min(hi, Math.max(lo, v)));
+  const colorOf = (kind) => kinds.find((k) => k.key === kind)?.color ?? 'var(--data)';
+  const flat = [];
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
+    logTicks(lo, hi).map((t) => el('g', {},
+      el('line', {
+        class: 'grid', x1: x(t), x2: x(t), y1: T - 6, y2: H,
+      }),
+      el('text', {
+        class: 'tick', x: x(t), y: 10, 'text-anchor': 'middle',
+      }, tickFormat(t)))),
+    el('g', { class: lay.cls }, rows.map((r, i) => {
+      const mid = T + i * lay.rowH + lay.rowH / 2;
+      const y = mid + lay.markY;
+      return el('g', { 'data-row': r.key },
+        el('text', { class: 'lab', x: 0, y: mid + lay.labelY }, labelOf(r.label)),
+        el('line', {
+          class: 'guide', x1: L, x2: W - R, y1: y, y2: y,
+        }),
+        r.median ? el('line', {
+          class: 'median', x1: at(r.median), x2: at(r.median), y1: y - 5, y2: y + 5,
+        }) : null,
+        r.points.map((p) => {
+          const k = flat.push([i, p]) - 1;
+          return el('circle', {
+            class: 'pt', cx: at(p.value), cy: y, r: 3, 'data-k': k, 'data-rank': k, style: `--pt:${colorOf(p.kind)}`,
+          });
+        }));
+    })));
+  hover(svg, (k) => describe(rows[flat[Number(k)][0]], flat[Number(k)][1]));
+  return mountSvg(mount, svg, legendOf(kinds));
 };
 
 export const lollipop = ({
