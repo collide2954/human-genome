@@ -19,6 +19,9 @@ import {
   stringNames, stringSummary, physicalSummary, reactomeSummary, oboTerms, goSummary,
 } from './networks.mjs';
 import {
+  ccreSummary, cpgIslands, tssInIslands, specificityByGene, trnaSummary, encodeSummary,
+} from './regulation.mjs';
+import {
   uniprotSummary, hpaSummary, gtexSummary, pharosSummary, tissueSites, pfamNames, alignSites,
 } from './proteins.mjs';
 import { runSections } from './sections.mjs';
@@ -66,12 +69,23 @@ const assembly = async () => buildAssembly({
   cen: await text(FILES.centromeres),
 });
 
-const sequence = async () => {
+const maneGtf = async () => {
   const gtf = latestFile(await text(FILES.maneDir), /MANE\.GRCh38\.v([\d.]+)\.ensembl_genomic\.gtf\.gz/);
   if (!gtf) throw new Error('No MANE GTF in the current release folder');
-  const transcripts = parseManeGtf((await text(`${FILES.maneDir}${gtf.file}`)).split('\n'));
+  return { version: gtf.version, transcripts: parseManeGtf((await text(`${FILES.maneDir}${gtf.file}`)).split('\n')) };
+};
+
+const hpaTable = async () => {
+  const zip = unzip(await readFile(await file(FILES.hpa)));
+  const tsv = Object.keys(zip).find((name) => name.endsWith('.tsv'));
+  if (!tsv) throw new Error('No TSV inside the HPA download');
+  return zip[tsv].toString('utf8');
+};
+
+const sequence = async () => {
+  const { version, transcripts } = await maneGtf();
   const twoBit = readTwoBit(await readFile(await file(FILES.hg38TwoBit)));
-  return { maneRelease: gtf.version, ...sequenceSection(twoBit, transcripts) };
+  return { maneRelease: version, ...sequenceSection(twoBit, transcripts) };
 };
 
 const summarize = async (url, accumulator) => {
@@ -122,13 +136,11 @@ const targets = async () => {
 };
 
 const expression = async () => {
-  const zip = unzip(await readFile(await file(FILES.hpa)));
-  const tsv = Object.keys(zip).find((name) => name.endsWith('.tsv'));
-  if (!tsv) throw new Error('No TSV inside the HPA download');
+  const table = await hpaTable();
   const modified = (await headersOf(FILES.hpa)).get('last-modified');
   const gtex = gtexSummary((await text(FILES.gtexMedian)).split('\n'));
   return {
-    hpa: { file: modified ? new Date(modified).toISOString().slice(0, 10) : null, ...hpaSummary(zip[tsv].toString('utf8')) },
+    hpa: { file: modified ? new Date(modified).toISOString().slice(0, 10) : null, ...hpaSummary(table) },
     gtex: { release: 'v10', ...gtex, sites: alignSites(gtex.tissues, tissueSites((await json(FILES.gtexTissues)).data)) },
   };
 };
@@ -159,8 +171,21 @@ const ontology = async () => {
   };
 };
 
+const regulation = async () => {
+  const { intervals, ...islands } = cpgIslands(await text(FILES.cpgIslands));
+  const promoters = tssInIslands((await maneGtf()).transcripts, intervals, specificityByGene(await hpaTable()));
+  return {
+    ccre: await summarize(FILES.ccre, ccreSummary()),
+    cpg: { ...islands, promoters },
+  };
+};
+
+const trnas = async () => trnaSummary(await text(FILES.trnas));
+
+const encode = async () => encodeSummary(await json(FILES.encode));
+
 const SECTIONS = {
-  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology,
+  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode,
 };
 
 const now = new Date();
