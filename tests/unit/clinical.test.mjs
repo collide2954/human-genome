@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   germlineClass, consequenceOf, starsOf, CHANNELS, channelOf, clinvarVcf, vcfClassCounts, earliestFile,
-  geneSummary, organizations, proteinChange, variantTable, pfamDomains,
+  geneSummary, organizations, proteinChange, variantTable, pfamDomains, validitySummary, regionSummary,
 } from '../../scripts/clinical.mjs';
 
 test('germlineClass folds VCF and table spellings into nine classes', () => {
@@ -301,4 +301,68 @@ test('pfamDomains lists each Pfam match on a protein in order', () => {
       id: 'PF07710', name: 'P53 tetramerisation motif', start: 319, end: 357,
     },
   ]);
+});
+
+const quoted = (cells) => cells.map((c) => `"${c}"`).join(',');
+const RULE = quoted(Array(10).fill('+++'));
+const curation = (gene, moi, cls, date, gcep, mondo) => quoted([gene, 'HGNC:1', 'a disease', mondo, moi, 'SOP10', cls, 'https://search.clinicalgenome.org/kb/gene-validity/x', `${date}T16:00:00.000Z`, gcep]);
+
+test('validitySummary counts ClinGen curations by class, inheritance, year and panel', () => {
+  const text = [
+    quoted(['CLINGEN GENE DISEASE VALIDITY CURATIONS', '', '', '', '', '', '', '', '', '']),
+    quoted(['FILE CREATED: 2026-11-04', '', '', '', '', '', '', '', '', '']),
+    quoted(['WEBPAGE: https://search.clinicalgenome.org/kb/gene-validity', '', '', '', '', '', '', '', '', '']),
+    RULE,
+    quoted(['GENE SYMBOL', 'GENE ID (HGNC)', 'DISEASE LABEL', 'DISEASE ID (MONDO)', 'MOI', 'SOP', 'CLASSIFICATION', 'ONLINE REPORT', 'CLASSIFICATION DATE', 'GCEP']),
+    RULE,
+    curation('AARS1', 'AD', 'Definitive', '2024-03-14', 'Charcot-Marie-Tooth Disease Gene Curation Expert Panel', 'MONDO:1'),
+    curation('AARS2', 'AR', 'Definitive', '2022-04-18', 'Mitochondrial Diseases Gene Curation Expert Panel', 'MONDO:2'),
+    curation('AARS2', 'AD', 'Disputed', '2023-01-02', 'Mitochondrial Diseases Gene Curation Expert Panel', 'MONDO:3'),
+    curation('SCN2A', 'AD', 'Definitive', '2019-05-01', 'Epilepsy Gene Curation Expert Panel', 'MONDO:4'),
+    curation('SCN2A', 'AR', 'Moderate', '2023-05-01', 'Epilepsy Gene Curation Expert Panel', 'MONDO:4'),
+    curation('MT-X', 'MT', 'Strong', '2023-06-01', 'Mitochondrial Diseases Gene Curation Expert Panel', 'MONDO:5'),
+    curation('GENE5', 'UD', 'Limited', '2018-01-01', 'Hearing Loss Gene Curation Expert Panel', 'MONDO:6'),
+  ].join('\n');
+  const v = validitySummary(text);
+  assert.equal(v.date, '2026-11-04');
+  assert.equal(v.curations, 7);
+  assert.equal(v.genes, 5);
+  assert.equal(v.diseases, 6);
+  assert.deepEqual(v.classes, {
+    Definitive: 3, Strong: 1, Moderate: 1, Limited: 1, Disputed: 1, Refuted: 0, 'No Known Disease Relationship': 0,
+  });
+  assert.deepEqual(v.byMoi, {
+    AD: { Definitive: 2, Disputed: 1 }, AR: { Definitive: 1, Moderate: 1 }, MT: { Strong: 1 }, UD: { Limited: 1 },
+  });
+  assert.deepEqual(v.byYear, {
+    2018: { Limited: 1 }, 2019: { Definitive: 1 }, 2022: { Definitive: 1 }, 2023: { Disputed: 1, Moderate: 1, Strong: 1 }, 2024: { Definitive: 1 },
+  });
+  assert.deepEqual(v.gceps[0], { name: 'Mitochondrial Diseases Gene Curation Expert Panel', n: 3 });
+  assert.equal(v.gceps.length, 4);
+  assert.deepEqual([...v.moiGenes], [['AARS1', 'AD'], ['AARS2', 'AR'], ['SCN2A', 'both'], ['MT-X', 'MT']]);
+});
+
+const REGION_HEAD = ['#ISCA ID', 'ISCA Region Name', 'cytoBand', 'Genomic Location', 'Haploinsufficiency Score', 'Haploinsufficiency Description', 'Haploinsufficiency PMID1', 'Triplosensitivity Score', 'Triplosensitivity Description', 'Date Last Evaluated'].join('\t');
+const region = (id, name, band, loc, hi, ts) => [id, name, band, loc, hi, 'x', '1', ts, 'y', '2025-10-27'].join('\t');
+
+test('regionSummary scores ClinGen dosage regions and lists the sensitive ones with their spans', () => {
+  const text = [
+    '#ClinGen Region Curation Results', '#28 Apr,2026', '#Genomic Locations are reported on GRCh38 (hg38): GCF_000001405.36', REGION_HEAD,
+    region('ISCA-37446', '22q11.2 recurrent (DGS/VCFS) region (proximal, A-D) (includes TBX1)', '22q11.21', 'chr22:18924718-21111383', '3', '3'),
+    region('ISCA-1', 'Xq25 region (includes STAG2)', 'Xq25', 'chrX:123900469-124102669', '3', '1'),
+    region('ISCA-2', '16p12.3 recurrent region (BP3-BP4)', '16p12.3', 'chr16:16762939-18073544', '0', '0'),
+    region('ISCA-3', '21q21.3 region (includes APP)', '21q21.3', 'chr21:25734570-26573286', '0', '3'),
+    region('ISCA-4', 'A region unlikely to matter', '1p36.33', 'chr1:100-200', '40', '40'),
+    region('ISCA-5', 'Not yet placed', '1p36', 'tbd', '', ''),
+  ].join('\n');
+  const r = regionSummary(text);
+  assert.equal(r.date, '28 Apr,2026');
+  assert.equal(r.regions, 6);
+  assert.deepEqual(r.hi, { 3: 2, 0: 2, 40: 1 });
+  assert.deepEqual(r.ts, { 3: 2, 1: 1, 0: 1, 40: 1 });
+  assert.deepEqual(r.sensitive.map((s) => s.id), ['ISCA-3', 'ISCA-37446', 'ISCA-1']);
+  assert.deepEqual(r.sensitive[1], {
+    id: 'ISCA-37446', name: '22q11.2 recurrent (DGS/VCFS) region (proximal, A-D) (includes TBX1)', band: '22q11.21', chrom: '22', start: 18924718, end: 21111383, hi: 3, ts: 3, recurrent: true,
+  });
+  assert.equal(r.sensitive[2].recurrent, false);
 });
