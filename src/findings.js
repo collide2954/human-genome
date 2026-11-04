@@ -473,7 +473,94 @@ const assemblies = (snap) => {
   return `NCBI lists ${exact(a.total)} human genome assemblies, ${exact(total(Object.values(a.byYear[year])))} released in ${year}; the longest contig N50 is ${bases(a.best.n50)}`;
 };
 
+const perTumour = (v) => (v < 10 ? v.toFixed(1) : exact(v));
+const extremes = (shares) => {
+  const entries = Object.entries(shares);
+  const [minGroup, min] = entries.reduce((a, b) => (b[1] < a[1] ? b : a));
+  const [maxGroup, max] = entries.reduce((a, b) => (b[1] > a[1] ? b : a));
+  return {
+    minGroup, min, maxGroup, max,
+  };
+};
+
+export const tcgaShares = (snap) => {
+  const { genes, projects, mutated } = snap.gdc.tcga;
+  return genes.flatMap((gene) => projects.filter((p) => p.tested > 0).map((p) => {
+    const n = mutated[gene]?.[p.project] ?? 0;
+    return {
+      gene, project: p.project, name: p.name, n, tested: p.tested, share: n / p.tested,
+    };
+  }));
+};
+
+export const exomeBurden = (snap) => snap.intogen.cohorts.burden.map((row) => {
+  const exomes = row.cohorts.filter((c) => c.platform === 'WXS');
+  const samples = exomes.reduce((n, c) => n + c.samples, 0);
+  return {
+    cancer: row.cancer, name: row.name, cohorts: exomes.length, samples, perTumour: samples ? exomes.reduce((n, c) => n + c.perSample * c.samples, 0) / samples : null,
+  };
+}).filter((r) => r.perTumour !== null);
+
+const drivers = (snap) => {
+  const d = snap.intogen.drivers;
+  return `IntOGen calls ${exact(d.genes)} genes cancer drivers across ${exact(d.cancerTypes)} cancer types; ${d.top[0].gene} is a driver in ${exact(d.top[0].types)} of them`;
+};
+
+const tcga = (snap) => {
+  const cells = tcgaShares(snap);
+  const best = cells.reduce((a, b) => (b.share > a.share ? b : a));
+  return `${best.gene} has a somatic mutation in ${pct(best.share)} of TCGA ${best.name} cases, the highest of ${snap.gdc.tcga.genes.length} drivers across ${new Set(cells.map((c) => c.project)).size} projects`;
+};
+
+const burden = (snap) => {
+  const rows = exomeBurden(snap);
+  const low = rows.reduce((a, b) => (b.perTumour < a.perTumour ? b : a));
+  const high = rows.reduce((a, b) => (b.perTumour > a.perTumour ? b : a));
+  return `Exome cohorts in IntOGen average ${perTumour(low.perTumour)} mutations per tumour in ${low.name} and ${perTumour(high.perTumour)} in ${high.name}`;
+};
+
+const somatic = (snap) => `The GDC holds ${exact(snap.gdc.cases)} cases from ${exact(snap.gdc.projects)} projects; ClinVar lists ${exact(total(Object.values(snap.clinvar.oncogenicity)))} somatic oncogenicity classifications`;
+
+const cpic = (snap) => {
+  const { levels, byGene } = snap.cpic.pairs;
+  const withA = byGene.filter((g) => g.levels.A);
+  const top = withA.reduce((a, b) => (b.levels.A > a.levels.A ? b : a));
+  return `CPIC rates ${exact(levels.A)} gene–drug pairs level A across ${exact(withA.length)} genes; ${top.gene} has the most, ${exact(top.levels.A)}`;
+};
+
+const phenotypes = (snap) => {
+  const widest = snap.cpic.phenotypes.genes.map((g) => ({ gene: g.gene, ...extremes(g.shares) })).reduce((a, b) => (b.max - b.min > a.max - a.min ? b : a));
+  return `Predicted high-risk ${widest.gene} phenotypes run from ${pct(widest.min)} of ${widest.minGroup} to ${pct(widest.max)} of ${widest.maxGroup} people in CPIC’s tables`;
+};
+
+const cyp2d6 = (snap) => {
+  const c = snap.cpic.cyp2d6;
+  const poor = Object.fromEntries(Object.entries(c.phenotypes).filter(([, p]) => p['Poor Metabolizer'] !== undefined).map(([group, p]) => [group, p['Poor Metabolizer']]));
+  const e = extremes(poor);
+  return `CPIC lists ${exact(c.alleles)} CYP2D6 alleles; predicted poor metabolizers run from ${pct(e.min)} of ${e.minGroup} to ${pct(e.max)} of ${e.maxGroup} people`;
+};
+
+const fdalabels = (snap) => {
+  const f = snap.fdaPgx;
+  const oncology = f.areas.find((a) => a.area === 'Oncology')?.rows ?? 0;
+  return `FDA’s biomarker table pairs ${exact(f.drugs)} drugs with ${exact(f.biomarkers)} biomarkers in ${exact(f.rows)} rows; ${pct(oncology / f.rows)} are in oncology`;
+};
+
+const clinpgx = (snap) => {
+  const a = snap.clinpgx.annotations;
+  return `ClinPGx holds ${exact(a.annotations)} clinical annotations; ${exact(a.levels['1A'] ?? 0)} reach level 1A and ${exact(a.levels[3] ?? 0)} sit at level 3`;
+};
+
 export const findings = (snap) => ({
+  drivers: drivers(snap),
+  tcga: tcga(snap),
+  burden: burden(snap),
+  somatic: somatic(snap),
+  cpic: cpic(snap),
+  phenotypes: phenotypes(snap),
+  cyp2d6: cyp2d6(snap),
+  fdalabels: fdalabels(snap),
+  clinpgx: clinpgx(snap),
   ancestry: ancestry(snap),
   ancient: ancient(snap),
   panels: panels(snap),
