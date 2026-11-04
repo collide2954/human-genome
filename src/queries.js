@@ -32,6 +32,24 @@ export const LOLLIPOPS = [
   { gene: 'MYH7', accession: 'P12883' },
 ];
 
+const HPO = 'https://github.com/obophenotype/human-phenotype-ontology/releases/latest/download/';
+const ORPHADATA = 'https://www.orphadata.com/data/xml/';
+const TRIALS = 'https://clinicaltrials.gov/api/v2/studies';
+
+export const TRIAL_MODALITIES = [
+  { key: 'aav', label: 'AAV vectors', query: 'adeno-associated OR AAV' },
+  { key: 'lentiviral', label: 'Lentiviral vectors', query: 'lentiviral OR lentivirus' },
+  { key: 'retroviral', label: 'Gammaretroviral vectors', query: 'retroviral OR gammaretroviral' },
+  { key: 'cart', label: 'CAR T cells', query: '"chimeric antigen receptor" OR CAR-T OR "CAR T"' },
+  { key: 'editing', label: 'Gene editing', query: 'CRISPR OR Cas9 OR "base editing" OR "prime editing" OR "zinc finger nuclease" OR TALEN' },
+  { key: 'antisense', label: 'Antisense oligonucleotides', query: 'antisense OR oligonucleotide' },
+  { key: 'sirna', label: 'siRNA', query: 'siRNA OR "small interfering RNA"' },
+];
+
+export const trialPage = (query, token = null) => `${TRIALS}?${new URLSearchParams({
+  'query.intr': query, 'filter.advanced': 'AREA[StudyType]INTERVENTIONAL', pageSize: '1000', fields: 'NCTId,StartDate,Phase,OverallStatus', ...(token ? { pageToken: token } : {}),
+})}`;
+
 export const pharosLevelQuery = (level) => `{ targets(filter: { facets: [{ facet: "Target Development Level", values: ["${level}"] }] }) { count facets(include: ["IDG Family"]) { facet values { name value } } } }`;
 
 export const FILES = {
@@ -83,6 +101,15 @@ export const FILES = {
   clingenRegions: 'https://ftp.clinicalgenome.org/ClinGen_region_curation_list_GRCh38.tsv',
   interproProtein: 'https://www.ebi.ac.uk/interpro/api/entry/pfam/protein/uniprot/',
   strchive: 'https://raw.githubusercontent.com/dashnowlab/STRchive/main/data/STRchive-loci.json',
+  hpoAnnotations: `${HPO}phenotype.hpoa`,
+  hpoOntology: `${HPO}hp.obo`,
+  hpoGenes: `${HPO}genes_to_disease.txt`,
+  orphaGenes: `${ORPHADATA}en_product6.xml`,
+  orphaPrevalence: `${ORPHADATA}en_product9_prev.xml`,
+  orphaAges: `${ORPHADATA}en_product9_ages.xml`,
+  gtrTests: 'https://ftp.ncbi.nlm.nih.gov/pub/GTR/data/test_version.gz',
+  fdaCgt: 'https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/approved-cellular-and-gene-therapy-products',
+  trials: TRIALS,
   strchiveCommits: `https://api.github.com/repos/dashnowlab/STRchive/commits?${new URLSearchParams({ path: 'data/STRchive-loci.json', per_page: '1' })}`,
   ccre: 'https://downloads.wenglab.org/Registry-V4/GRCh38-cCREs.bed',
   cpgIslands: `${UCSC}/database/cpgIslandExt.txt.gz`,
