@@ -55,6 +55,8 @@ const CHAPTERS = {
   populations: ['ancestry', 'ancient', 'panels', 'assemblies'],
   clinical: ['clinvar', 'review', 'growth', 'lollipops', 'spectrum', 'validity', 'cnvregions', 'expansions'],
   rare: ['hpo', 'orphanet', 'gtr', 'therapy', 'yield', 'prenatal'],
+  cancer: ['drivers', 'tcga', 'burden', 'somatic'],
+  pgx: ['cpic', 'phenotypes', 'cyp2d6', 'fdalabels', 'clinpgx'],
   reference: ['decoder', 'sources'],
 };
 
@@ -490,6 +492,53 @@ test('population charts cover GWAS ancestry, ancient genomes on a grid map, refe
   assert.equal(await count('#assemblies-years-chart path.area'), Object.keys(S.levels).length);
   assert.equal(await count('#assemblies-n50-chart circle.pt'), S.n50.length);
   assert.equal(await count('#assemblies-submitters-chart [data-row]'), S.submitters.length);
+  await page.close();
+});
+
+test('cancer charts cover IntOGen drivers, TCGA mutation frequencies, mutation burden and somatic classifications', async () => {
+  const { page } = await open();
+  const I = snapshot.intogen;
+  const G = snapshot.gdc;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#drivers-types-chart [data-row]'), Math.min(30, I.drivers.byType.length));
+  assert.equal(await count('#drivers-genes-chart [data-row]'), I.drivers.top.length);
+  assert.equal(await count('#tcga-chart [data-cell]'), G.tcga.genes.length * G.tcga.projects.filter((p) => p.tested > 0).length);
+  assert.equal(await count('#burden-chart [data-row]'), I.cohorts.burden.length);
+  assert.equal(await count('#burden-chart circle.pt'), I.cohorts.cohorts);
+  assert.equal(await count('#somatic-programs-chart [data-row]'), G.programs.length);
+  assert.equal(await count('#somatic-sites-chart [data-row]'), Math.min(20, G.sites.length));
+  assert.equal(await count('#somatic-oncogenicity-chart [data-row]'), Object.keys(snapshot.clinvar.oncogenicity).length);
+  assert.equal(await count('#somatic-impact-chart [data-row]'), Object.keys(snapshot.clinvar.clinicalImpact).length);
+  await page.hover('#tcga-chart [data-cell="0:0"]');
+  assert.match(await page.textContent('#tip'), new RegExp(`${G.tcga.genes[0]}[\\s\\S]*%`));
+  await page.close();
+});
+
+test('pharmacogenomics charts cover CPIC levels and alleles, phenotypes by group, CYP2D6, FDA label biomarkers and ClinPGx', async () => {
+  const { page } = await open();
+  const C = snapshot.cpic;
+  const F = snapshot.fdaPgx;
+  const P = snapshot.clinpgx;
+  const groups = C.phenotypes.groups.length;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#cpic-genes-chart [data-row]'), Math.min(30, C.pairs.byGene.length));
+  assert.equal(await count('#cpic-levels-chart [data-cell]'), Object.keys(C.pairs.clinpgx).length * 7);
+  assert.equal(await count('#cpic-alleles-chart [data-row]'), C.alleles.genes.length);
+  assert.equal(await count('#phenotypes-chart [data-cell]'), C.phenotypes.genes.length * groups);
+  assert.equal(await count('#cyp2d6-alleles-chart [data-cell]'), C.cyp2d6.top.length * groups);
+  assert.equal(await count('#cyp2d6-phenotypes-chart [data-row]'), groups);
+  assert.equal(await count('#cyp2d6-scores-chart [data-cell]'), groups * C.cyp2d6.scores.bins.length);
+  assert.equal(await count('#cyp2d6-function-chart [data-row]'), groups);
+  assert.equal(await count('#fdalabels-areas-chart [data-row]'), F.areas.length);
+  assert.equal(await count('#fdalabels-biomarkers-chart [data-row]'), F.top.length);
+  assert.equal(await count('#fdalabels-sections-chart [data-row]'), F.sections.length);
+  assert.equal(await count('#clinpgx-levels-chart [data-cell]'), Object.keys(P.annotations.levels).length * Object.keys(P.annotations.categories).length);
+  assert.equal(await count('#clinpgx-genes-chart [data-row]'), P.annotations.genes.length);
+  assert.equal(await count('#clinpgx-labels-chart [data-row]'), Object.keys(P.labels.sources).length);
+  await page.hover('#cyp2d6-alleles-chart [data-cell="0:0"]');
+  assert.match(await page.textContent('#tip'), new RegExp(`${C.cyp2d6.top[0].name.replace('*', '\\*')}[\\s\\S]*function`));
+  assert.match(await page.textContent('#clinpgx'), /CC BY-SA 4\.0/);
+  assert.ok(await count('#clinpgx a[href="https://creativecommons.org/licenses/by-sa/4.0/"]') >= 1);
   await page.close();
 });
 
