@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  parseAssemblyReport, summarizeRoles, parseAssemblyStats, parseCytobands, parseGaps, parseCentromeres,
+  parseAssemblyReport, summarizeRoles, parseAssemblyStats, parseCytobands, parseGaps, parseCentromeres, buildAssembly,
 } from '../../scripts/parsers.mjs';
 
 const REPORT = [
@@ -116,4 +116,42 @@ const CEN = [
 
 test('centromere models sum to bases per chromosome', () => {
   assert.deepEqual(parseCentromeres(CEN), { 1: 476588, 2: 1902412 });
+});
+
+const T2T_REPORT = [
+  '# Assembly name:  T2T-CHM13v2.0',
+  '# Date:           2022-01-24',
+  '# GenBank assembly accession: GCA_009914755.4',
+  '# RefSeq assembly accession: GCF_009914755.1',
+  '1\tassembled-molecule\t1\tChromosome\tCP068277.2\t=\tNC_060925.1\tPrimary Assembly\t248387328\tchr1',
+  'MT\tassembled-molecule\tMT\tMitochondrion\tCP068254.1\t<>\tna\tnon-nuclear\t16569\tchrM',
+].join('\n');
+
+const T2T_STATS = [
+  'all\tall\tall\tall\ttotal-length\t3117292070',
+  'all\tall\tall\tall\ttotal-gap-length\t0',
+  'Primary Assembly\t1\tChromosome\tassembled-molecule\ttotal-length\t248387328',
+  'Primary Assembly\t1\tChromosome\tassembled-molecule\tungapped-length\t248387328',
+  'Primary Assembly\t1\tChromosome\tassembled-molecule\tgc-perc\t41.5',
+].join('\n');
+
+test('buildAssembly joins reports and stats into one record per chromosome', () => {
+  const a = buildAssembly({
+    report38: REPORT, stats38: STATS, reportT2t: T2T_REPORT, statsT2t: T2T_STATS, cyto: CYTO, gaps: GAPS, cen: CEN,
+  });
+  assert.equal(a.grch38.name, 'GRCh38.p14');
+  assert.equal(a.grch38.altLoci, 2);
+  assert.equal(a.grch38.roles.length, 6);
+  assert.equal(a.grch38.total.totalGapLength, 161611139);
+  assert.deepEqual(a.grch38.chromosomes, [
+    { chrom: '1', length: 248956422, ungapped: 230481121, gc: 41.5, spanned: 64, unspanned: 13, refseq: 'NC_000001.11', genbank: 'CM000663.2' },
+    { chrom: 'MT', length: 16569, ungapped: 16569, gc: null, spanned: null, unspanned: null, refseq: 'NC_012920.1', genbank: 'J01415.2' },
+  ]);
+  assert.equal(a.t2t.name, 'T2T-CHM13v2.0');
+  assert.deepEqual(a.t2t.chromosomes, [
+    { chrom: '1', length: 248387328, ungapped: 248387328, gc: 41.5, spanned: null, unspanned: null, refseq: 'NC_060925.1', genbank: 'CP068277.2' },
+  ]);
+  assert.equal(a.bands.length, 4);
+  assert.deepEqual(a.gaps.Y, { contig: { count: 1, bp: 227094 } });
+  assert.equal(a.centromeres[1], 476588);
 });
