@@ -104,6 +104,17 @@ export const signed = (v, format = exact) => {
   return v > 0 ? `+${format(v)}` : `−${format(-v)}`;
 };
 
+export const retry = async (fn, { tries = 3, wait = 1000 } = {}) => {
+  for (let attempt = 1; ; attempt += 1) {
+    try {
+      return await fn();
+    } catch (error) {
+      if (attempt >= tries) throw error;
+      await new Promise((r) => setTimeout(r, wait * 2 ** (attempt - 1)));
+    }
+  }
+};
+
 const ENSEMBL_FEATURES = { G: 'gene', T: 'transcript', P: 'protein', E: 'exon', R: 'regulatory feature' };
 
 const REFSEQ_PREFIXES = {
