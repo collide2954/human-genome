@@ -1,5 +1,5 @@
 import {
-  exact, pct, codonOf, perLitre, GENETIC_CODE, AA3, bases,
+  exact, pct, codonOf, perLitre, GENETIC_CODE, AA3, bases, longDate,
 } from './lib.js';
 import { reverseComplement } from './stats.js';
 
@@ -361,7 +361,69 @@ const dosage = (snap) => {
   return `ClinGen finds sufficient evidence of haploinsufficiency for ${exact(hi[3] ?? 0)} genes and of triplosensitivity for ${exact(ts[3] ?? 0)}`;
 };
 
+const PLP = ['Pathogenic', 'Pathogenic/Likely pathogenic', 'Likely pathogenic'];
+const total = (list) => list.reduce((a, b) => a + b, 0);
+
+export const titv = (channels) => {
+  const ti = total(channels.slice(32, 48)) + total(channels.slice(64, 80));
+  return ti / (total(channels) - ti);
+};
+
+const clinvar = (snap) => {
+  const { records, classes } = snap.clinvar;
+  const plp = total(PLP.map((k) => classes[k] ?? 0));
+  return `ClinVar’s GRCh38 file lists ${exact(records)} variants; ${pct(classes['Uncertain significance'] / records)} are of uncertain significance, ${pct(plp / records)} pathogenic or likely pathogenic`;
+};
+
+const review = (snap) => {
+  const panel = total(Object.values(snap.clinvar.stars).map((s) => s[3]));
+  const groups = Object.entries(snap.clinvarTable.submitters).filter(([k]) => k !== 'bins').map(([, v]) => v);
+  return `Expert panels have reviewed ${exact(panel)} ClinVar variants; ${pct(total(groups.map((g) => g[0])) / total(groups.map(total)))} of classified variants rest on one submitter`;
+};
+
+const growth = (snap) => {
+  const { points } = snap.clinvarGrowth;
+  const [first, last] = [points[0], points.at(-1)];
+  const fold = last.classes['Uncertain significance'] / first.classes['Uncertain significance'];
+  return `ClinVar grew from ${exact(first.records)} variants in ${longDate(first.release.slice(0, 7))} to ${exact(last.records)}; those of uncertain significance rose ${fold.toFixed(1)}-fold`;
+};
+
+const kindShare = (lollipop, kind) => total(lollipop.up.filter((r) => r[1] === kind).map((r) => r[2])) / total(lollipop.up.map((r) => r[2]));
+
+const lollipops = (snap) => {
+  const l = snap.clinvarTable.lollipops;
+  return `${pct(kindShare(l.BRCA1, 'truncating'))} of BRCA1’s P/LP variants placed on the protein truncate it; in MYH7 ${pct(kindShare(l.MYH7, 'missense'))} are missense`;
+};
+
+const spectrum = (snap) => {
+  const s = snap.clinvar.spectrum;
+  return `P/LP SNVs in ClinVar carry ${titv(s.plp).toFixed(2)} transitions per transversion; B/LB SNVs carry ${titv(s.blb).toFixed(2)}`;
+};
+
+const validity = (snap) => {
+  const v = snap.validity;
+  return `ClinGen has curated ${exact(v.curations)} gene–disease pairs in ${exact(v.genes)} genes; ${exact(v.classes.Definitive)} are definitive, ${exact(v.classes.Disputed + v.classes.Refuted)} disputed or refuted`;
+};
+
+const cnvregions = (snap) => {
+  const r = snap.regions;
+  return `Of ${exact(r.regions)} genomic regions ClinGen has curated, ${exact(r.hi[3] ?? 0)} are haploinsufficient and ${exact(r.ts[3] ?? 0)} triplosensitive`;
+};
+
+const expansions = (snap) => {
+  const e = snap.expansions;
+  return `STRchive lists ${exact(e.loci.length)} disease-linked tandem repeat loci, ${exact(e.evidence.Definitive ?? 0)} with definitive evidence; ${exact(e.loci.filter((l) => l.year >= 2015).length)} were found since 2015`;
+};
+
 export const findings = (snap) => ({
+  clinvar: clinvar(snap),
+  review: review(snap),
+  growth: growth(snap),
+  lollipops: lollipops(snap),
+  spectrum: spectrum(snap),
+  validity: validity(snap),
+  cnvregions: cnvregions(snap),
+  expansions: expansions(snap),
   dbsnp: dbsnp(snap),
   sv: sv(snap),
   constraint: constraint(snap),

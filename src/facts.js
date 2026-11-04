@@ -67,6 +67,18 @@ export const SOURCES = {
   riggs2020: 'https://doi.org/10.1038/s41436-019-0686-8',
   impc: 'https://www.mousephenotype.org/',
   dickinson2016: 'https://doi.org/10.1038/nature19356',
+  clinvar: 'https://www.ncbi.nlm.nih.gov/clinvar/',
+  landrum2018: 'https://doi.org/10.1093/nar/gkx1153',
+  landrum2025: 'https://doi.org/10.1093/nar/gkae1090',
+  richards2015: 'https://doi.org/10.1038/gim.2015.30',
+  mclaren2016: 'https://doi.org/10.1186/s13059-016-0974-4',
+  alexandrov2020: 'https://doi.org/10.1038/s41586-020-1943-3',
+  clingenValidity: 'https://search.clinicalgenome.org/kb/gene-validity',
+  strande2017: 'https://doi.org/10.1016/j.ajhg.2017.04.015',
+  dosageMap: 'https://www.ncbi.nlm.nih.gov/projects/dbvar/clingen/',
+  riggs2012: 'https://doi.org/10.1111/j.1399-0004.2011.01818.x',
+  strchive: 'https://strchive.org/',
+  hiatt2025: 'https://doi.org/10.1186/s13073-025-01454-4',
 };
 
 export const PARS = [
@@ -138,6 +150,18 @@ export const SOURCE_TITLES = {
   riggs2020: ['Clinical genetics', 'Riggs et al. 2020, Technical standards for the interpretation and reporting of constitutional copy-number variants, Genetics in Medicine 22:245'],
   impc: ['Genes and proteins', 'International Mouse Phenotyping Consortium'],
   dickinson2016: ['Genes and proteins', 'Dickinson et al. 2016, High-throughput discovery of novel developmental phenotypes, Nature 537:508'],
+  clinvar: ['Clinical genetics', 'ClinVar, NCBI: GRCh38 VCF, monthly VCF archive and tab-delimited summaries'],
+  landrum2018: ['Clinical genetics', 'Landrum et al. 2018, ClinVar: improving access to variant interpretations and supporting evidence, Nucleic Acids Research 46:D1062'],
+  landrum2025: ['Clinical genetics', 'Landrum et al. 2025, ClinVar: updates to support classifications of both germline and somatic variants, Nucleic Acids Research 53:D1313'],
+  richards2015: ['Clinical genetics', 'Richards et al. 2015, Standards and guidelines for the interpretation of sequence variants (ACMG/AMP), Genetics in Medicine 17:405'],
+  mclaren2016: ['Variation and populations', 'McLaren et al. 2016, The Ensembl Variant Effect Predictor, Genome Biology 17:122'],
+  alexandrov2020: ['Variation and populations', 'Alexandrov et al. 2020, The repertoire of mutational signatures in human cancer, Nature 578:94'],
+  clingenValidity: ['Clinical genetics', 'ClinGen gene-disease validity curations, CSV download'],
+  strande2017: ['Clinical genetics', 'Strande et al. 2017, Evaluating the clinical validity of gene-disease associations: an evidence-based framework developed by ClinGen, American Journal of Human Genetics 100:895'],
+  dosageMap: ['Clinical genetics', 'ClinGen dosage sensitivity map, region curation list on GRCh38'],
+  riggs2012: ['Clinical genetics', 'Riggs et al. 2012, Towards an evidence-based process for the clinical interpretation of copy number variation, Clinical Genetics 81:403'],
+  strchive: ['Clinical genetics', 'STRchive, curated tandem repeat disease loci, data on GitHub'],
+  hiatt2025: ['Clinical genetics', 'Hiatt et al. 2025, STRchive: a dynamic resource detailing population-level and locus-specific insights at tandem repeat disease loci, Genome Medicine 17:29'],
 };
 
 export const EXAMPLES = [
