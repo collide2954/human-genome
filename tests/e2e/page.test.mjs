@@ -586,6 +586,19 @@ test('figure tables and CSV files are built only when asked for', async () => {
   await page.close();
 });
 
+test('one chart that fails to draw does not stop the others', async () => {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce' });
+  const errors = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await page.addInitScript(() => document.addEventListener('DOMContentLoaded', () => document.querySelector('#gaps-chart').remove()));
+  await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort());
+  await page.goto(base);
+  await page.waitForSelector('html[data-drawn]', { state: 'attached' });
+  assert.equal(await page.locator('#prenatal-chart svg').count(), 1);
+  assert.equal(errors.length, 1);
+  await page.close();
+});
+
 test('figure tables keep the decimals of their numbers', async () => {
   const { page } = await open();
   const fig = page.locator('#loeuf-chart').locator('xpath=ancestor::figure');
