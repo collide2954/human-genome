@@ -44,6 +44,12 @@ export const SOURCES = {
   geneOntology: 'https://geneontology.org/',
   go2023: 'https://doi.org/10.1093/genetics/iyad031',
   ashburner2000: 'https://doi.org/10.1038/75556',
+  encode: 'https://www.encodeproject.org/',
+  encode2020: 'https://doi.org/10.1038/s41586-020-2493-4',
+  encode2012: 'https://doi.org/10.1038/nature11247',
+  gardinerGarden1987: 'https://doi.org/10.1016/0022-2836(87)90689-9',
+  gtrnadb: 'https://gtrnadb.ucsc.edu/',
+  chan2016: 'https://doi.org/10.1093/nar/gkv1309',
 };
 
 export const SOURCE_TITLES = {
@@ -87,6 +93,12 @@ export const SOURCE_TITLES = {
   geneOntology: ['Genes and proteins', 'Gene Ontology Consortium'],
   go2023: ['Genes and proteins', 'Gene Ontology Consortium 2023, The Gene Ontology knowledgebase in 2023, Genetics 224:iyad031'],
   ashburner2000: ['Genes and proteins', 'Ashburner et al. 2000, Gene Ontology: tool for the unification of biology, Nature Genetics 25:25'],
+  encode: ['Expression and regulation', 'ENCODE portal and the SCREEN cCRE registry'],
+  encode2020: ['Expression and regulation', 'ENCODE Project Consortium 2020, Expanded encyclopaedias of DNA elements in the human and mouse genomes, Nature 583:699'],
+  encode2012: ['Expression and regulation', 'ENCODE Project Consortium 2012, An integrated encyclopedia of DNA elements in the human genome, Nature 489:57'],
+  gardinerGarden1987: ['Expression and regulation', 'Gardiner-Garden and Frommer 1987, CpG islands in vertebrate genomes, Journal of Molecular Biology 196:261'],
+  gtrnadb: ['Genes and proteins', 'GtRNAdb, the genomic tRNA database'],
+  chan2016: ['Genes and proteins', 'Chan and Lowe 2016, GtRNAdb 2.0: an expanded database of transfer RNA genes, Nucleic Acids Research 44:D184'],
 };
 
 export const EXAMPLES = [
