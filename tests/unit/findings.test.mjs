@@ -326,6 +326,61 @@ test('findings state the population and ancient genome sections as numbers', () 
   assert.equal(f.assemblies, 'NCBI lists 2,594 human genome assemblies, 655 released in 2026; the longest contig N50 is 173 Mb');
 });
 
+fixture.intogen = {
+  drivers: { genes: 633, cancerTypes: 86, top: [{ gene: 'TP53', types: 74 }, { gene: 'PIK3CA', types: 47 }] },
+  cohorts: {
+    burden: [
+      { cancer: 'CML', name: 'Chronic Myelogenous Leukemia', cohorts: [{ platform: 'WXS', samples: 97, perSample: 1.5 }] },
+      {
+        cancer: 'ACC',
+        name: 'Adrenocortical Carcinoma',
+        cohorts: [{ platform: 'WXS', samples: 90, perSample: 100 }, { platform: 'WXS', samples: 10, perSample: 200 }, { platform: 'WGS', samples: 20, perSample: 900 }],
+      },
+      { cancer: 'SKIN', name: 'Skin', cohorts: [{ platform: 'WGS', samples: 26, perSample: 107513 }] },
+      { cancer: 'COAD', name: 'Colon Adenocarcinoma', cohorts: [{ platform: 'WXS', samples: 50, perSample: 2273.7 }] },
+    ],
+  },
+};
+fixture.gdc = {
+  cases: 50571,
+  projects: 93,
+  tcga: {
+    genes: ['TP53', 'KRAS'],
+    projects: [{ project: 'TCGA-UCS', name: 'Uterine Carcinosarcoma', tested: 57 }, { project: 'TCGA-PAAD', name: 'Pancreatic Adenocarcinoma', tested: 185 }, { project: 'TCGA-XX', name: 'Empty', tested: 0 }],
+    mutated: { TP53: { 'TCGA-UCS': 49, 'TCGA-PAAD': 99 }, KRAS: { 'TCGA-PAAD': 106 } },
+  },
+};
+fixture.clinvar.oncogenicity = {
+  Oncogenic: 472, 'Likely oncogenic': 1299, 'Uncertain significance': 617, Benign: 6, 'Likely benign': 6, 'Oncogenic/Likely oncogenic': 2, 'Conflicting classifications of oncogenicity': 3,
+};
+fixture.cpic = {
+  pairs: { levels: { A: 23, D: 3 }, byGene: [{ gene: 'CYP2C9', levels: { A: 12 } }, { gene: 'CYP2D6', levels: { A: 11, B: 11 } }, { gene: 'ABCB1', levels: { D: 3 } }] },
+  phenotypes: {
+    genes: [
+      { gene: 'CYP2C19', shares: { American: 0.372, Oceanian: 0.965, European: 0.604 } },
+      { gene: 'CYP2C9', shares: { Oceanian: 0.088, 'Near Eastern': 0.389 } },
+    ],
+  },
+  cyp2d6: { alleles: 208, phenotypes: { European: { 'Poor Metabolizer': 0.065 }, Oceanian: { 'Poor Metabolizer': 0.0031 }, Latino: { 'Normal Metabolizer': 0.5 } } },
+};
+fixture.fdaPgx = {
+  rows: 692, drugs: 440, biomarkers: 177, areas: [{ area: 'Oncology', rows: 334 }, { area: 'Neurology', rows: 57 }],
+};
+fixture.clinpgx = { annotations: { annotations: 5186, levels: { '1A': 311, 3: 4482, 4: 308 } } };
+
+test('findings state the cancer genomics and pharmacogenomics sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.drivers, 'IntOGen calls 633 genes cancer drivers across 86 cancer types; TP53 is a driver in 74 of them');
+  assert.equal(f.tcga, 'TP53 has a somatic mutation in 86% of TCGA Uterine Carcinosarcoma cases, the highest of 2 drivers across 2 projects');
+  assert.equal(f.burden, 'Exome cohorts in IntOGen average 1.5 mutations per tumour in Chronic Myelogenous Leukemia and 2,274 in Colon Adenocarcinoma');
+  assert.equal(f.somatic, 'The GDC holds 50,571 cases from 93 projects; ClinVar lists 2,405 somatic oncogenicity classifications');
+  assert.equal(f.cpic, 'CPIC rates 23 gene–drug pairs level A across 2 genes; CYP2C9 has the most, 12');
+  assert.equal(f.phenotypes, 'Predicted high-risk CYP2C19 phenotypes run from 37.2% of American to 96.5% of Oceanian people in CPIC’s tables');
+  assert.equal(f.cyp2d6, 'CPIC lists 208 CYP2D6 alleles; predicted poor metabolizers run from 0.3% of Oceanian to 6.5% of European people');
+  assert.equal(f.fdalabels, 'FDA’s biomarker table pairs 440 drugs with 177 biomarkers in 692 rows; 48.3% are in oncology');
+  assert.equal(f.clinpgx, 'ClinPGx holds 5,186 clinical annotations; 311 reach level 1A and 4,482 sit at level 3');
+});
+
 test('findings state the variation and constraint sections as numbers', () => {
   const f = findings(fixture);
   assert.equal(f.dbsnp, 'dbSNP build 157 holds 1,206,053,617 reference SNP records from 4,849,775,973 submitted variants; 1,172,689,405 are live');
