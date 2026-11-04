@@ -2,6 +2,7 @@ import {
   exact, pct, codonOf, perLitre, GENETIC_CODE, AA3, bases, longDate,
 } from './lib.js';
 import { reverseComplement } from './stats.js';
+import { GENE_THERAPIES, DIAGNOSTIC_YIELD, CFDNA_SCREENING } from './facts.js';
 
 const nuclear = (list) => list.filter((c) => c.chrom !== 'MT');
 const sum = (list, key) => list.reduce((n, x) => n + (x[key] ?? 0), 0);
@@ -415,7 +416,46 @@ const expansions = (snap) => {
   return `STRchive lists ${exact(e.loci.length)} disease-linked tandem repeat loci, ${exact(e.evidence.Definitive ?? 0)} with definitive evidence; ${exact(e.loci.filter((l) => l.year >= 2015).length)} were found since 2015`;
 };
 
+const hpo = (snap) => {
+  const h = snap.hpo;
+  const top = h.systems[0];
+  return `HPO annotates ${exact(h.diseases)} rare diseases, a median of ${h.perDisease.median} phenotype terms each; ${pct(top.diseases / h.diseases)} involve ${/^Abnormality of /.test(top.name) ? top.name.replace(/^Abnormality of /, '') : top.name.toLowerCase()}`;
+};
+
+const orphanet = (snap) => {
+  const { prevalence, ages } = snap.orphanet;
+  return `${exact(prevalence.classes['<1 / 1 000 000'] ?? 0)} of ${exact(prevalence.disorders)} Orphanet disorders affect fewer than 1 in a million people; ${exact(ages.onset.Neonatal ?? 0)} can start in the newborn period`;
+};
+
+const gtr = (snap) => {
+  const g = snap.gtr;
+  return `The Genetic Testing Registry lists ${exact(g.tests)} current tests from ${exact(g.labs)} laboratories; ${pct(g.genesPerTest.counts[1] / g.tests)} look at a single gene`;
+};
+
+const therapy = (snap) => {
+  const { fda } = snap.therapies;
+  const known = new Map(GENE_THERAPIES.map((g) => [g.trade, g]));
+  const present = fda.filter((p) => known.has(p.trade));
+  return `FDA lists ${exact(fda.length)} approved cell and gene therapy products; ${exact(present.length)} deliver or modify genes, ${exact(present.filter((p) => known.get(p.trade).group === 'AAV').length)} of them with AAV vectors`;
+};
+
+const diagnosticYield = () => {
+  const of = (key) => DIAGNOSTIC_YIELD.find((y) => y.key === key).value;
+  return `Genome sequencing diagnosed ${of('wgs')}% of children with a suspected genetic disease, exome ${of('wes')}% and microarray ${of('cma')}%`;
+};
+
+const prenatal = () => {
+  const t21 = CFDNA_SCREENING.find((s) => s.condition === 'Trisomy 21');
+  return `Cell-free DNA screening detects ${t21.detection}% of trisomy 21 pregnancies with a false-positive rate of ${t21.fpr}%`;
+};
+
 export const findings = (snap) => ({
+  hpo: hpo(snap),
+  orphanet: orphanet(snap),
+  gtr: gtr(snap),
+  therapy: therapy(snap),
+  yield: diagnosticYield(),
+  prenatal: prenatal(),
   clinvar: clinvar(snap),
   review: review(snap),
   growth: growth(snap),
