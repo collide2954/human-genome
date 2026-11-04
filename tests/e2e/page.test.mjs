@@ -852,7 +852,16 @@ test('the footer says AI helped and that a person reviewed the work', async () =
   const note = await page.textContent('#foot .made');
   assert.match(note, /^Made by a person, with help from AI tools\./);
   assert.match(note, /reviewed before publishing/);
-  assert.match(await page.textContent('#foot'), /Not an official NIH, NCBI, EMBL-EBI or UCSC site/);
+  assert.match(await page.textContent('#foot'), /Not an official site of NIH, NCBI, EMBL-EBI, UCSC, ClinGen, FDA or any other source/);
+  await page.close();
+});
+
+test('the reading guide names the weekly sources and the fixed values from papers', async () => {
+  const { page } = await open();
+  const guide = await page.textContent('#readme');
+  assert.match(guide, /ClinGen/);
+  assert.match(guide, /Fixed values/);
+  assert.doesNotMatch(await page.textContent('#stamp'), /from NCBI, UCSC, GENCODE and EBI files/);
   await page.close();
 });
 
