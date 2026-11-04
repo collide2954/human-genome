@@ -2072,7 +2072,7 @@ const renderLollipops = () => {
   $('#lollipops-dek').textContent = `${genes.map((g) => `${g} ${exact(placed(CT.lollipops[g].up))} P/LP and ${exact(placed(CT.lollipops[g].down))} B/LB`).join('; ')}, placed on ${genes.map((g) => CT.lollipops[g].transcript).join(', ')}. Large deletions, deep intronic and untranslated variants have no residue and are left out.`;
   for (const gene of genes) {
     const l = CT.lollipops[gene];
-    const p = CT.proteins[gene];
+    const p = snapshot.domains[gene];
     const sites = sitesOf(l);
     const ids = [...new Set(p.domains.map((d) => d.id))];
     const domains = p.domains.map((d) => ({ ...d, short: shortDomain(d.name), color: CAT[ids.indexOf(d.id) % CAT.length] }));
@@ -2257,7 +2257,7 @@ const renderExpansions = () => {
   const shrink = ranged.filter(contracts);
   const lows = grows[0];
   const highs = grows.at(-1);
-  $('#expansions-dek').textContent = `${exact(ranged.length)} loci with definitive or strong evidence, from STRchive’s data of ${longDate(E.updated)}. Pathogenic expansions start at ${exact(lows.pathogenic[0])} repeats in ${lows.gene} and at ${exact(highs.pathogenic[0])} in ${highs.gene}${shrink.length ? `; at ${shrink.map((l) => l.gene).join(' and ')} the pathogenic allele is shorter than the benign one` : ''}. ${exact(E.loci.filter((l) => l.location === 'coding exon').length)} of the ${exact(E.loci.length)} loci sit in coding exons, ${exact(E.loci.filter((l) => l.location === 'intron').length)} in introns.`;
+  $('#expansions-dek').textContent = `${exact(ranged.length)} loci with definitive or strong evidence, from STRchive’s data${E.updated ? ` of ${longDate(E.updated)}` : ''}. Pathogenic expansions start at ${exact(lows.pathogenic[0])} repeats in ${lows.gene} and at ${exact(highs.pathogenic[0])} in ${highs.gene}${shrink.length ? `; at ${shrink.map((l) => l.gene).join(' and ')} the pathogenic allele is shorter than the benign one` : ''}. ${exact(E.loci.filter((l) => l.location === 'coding exon').length)} of the ${exact(E.loci.length)} loci sit in coding exons, ${exact(E.loci.filter((l) => l.location === 'intron').length)} in introns.`;
   ranges({
     mount: $('#expansions-chart'),
     rows,
@@ -2429,7 +2429,7 @@ const TRIAL_COLORS = ['var(--accent)', 'var(--s2)', 'var(--s5)', 'var(--s3)', 'v
 const PHASE_ORDER = [['Early phase 1', 'var(--data-2)'], ['Phase 1', 'var(--s3)'], ['Phase 2', 'var(--s2)'], ['Phase 3', 'var(--accent)'], ['Phase 4', 'var(--ink)'], ['Not applicable', 'var(--s5)'], ['Not stated', 'var(--s4)']];
 
 const renderTherapy = () => {
-  const T = snapshot.therapies;
+  const T = { fda: snapshot.fda, trials: snapshot.trials };
   const listed = new Set(T.fda.map((p) => p.trade));
   const present = GENE_THERAPIES.filter((g) => listed.has(g.trade));
   const others = T.fda.length - present.length;

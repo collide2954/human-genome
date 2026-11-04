@@ -433,7 +433,7 @@ const gtr = (snap) => {
 };
 
 const therapy = (snap) => {
-  const { fda } = snap.therapies;
+  const { fda } = snap;
   const known = new Map(GENE_THERAPIES.map((g) => [g.trade, g]));
   const present = fda.filter((p) => known.has(p.trade));
   return `FDA lists ${exact(fda.length)} approved cell and gene therapy products; ${exact(present.length)} deliver or modify genes, ${exact(present.filter((p) => known.get(p.trade).group === 'AAV').length)} of them with AAV vectors`;
