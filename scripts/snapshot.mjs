@@ -14,7 +14,7 @@ import { gencodeSummary } from './genes.mjs';
 import { hgncSummary, geneInfoSummary, maneSummary } from './catalogs.mjs';
 import { cacheName, downloadTo, gzLines, unzip } from './streams.mjs';
 import {
-  uniprotSummary, hpaSummary, gtexSummary, pharosSummary, tissueSites, pfamNames,
+  uniprotSummary, hpaSummary, gtexSummary, pharosSummary, tissueSites, pfamNames, alignSites,
 } from './proteins.mjs';
 import { runSections } from './sections.mjs';
 import { readTwoBit } from './twobit.mjs';
@@ -124,7 +124,7 @@ const expression = async () => {
   const gtex = gtexSummary((await text(FILES.gtexMedian)).split('\n'));
   return {
     hpa: { file: modified ? new Date(modified).toISOString().slice(0, 10) : null, ...hpaSummary(zip[tsv].toString('utf8')) },
-    gtex: { release: 'v10', ...gtex, sites: tissueSites((await json(FILES.gtexTissues)).data) },
+    gtex: { release: 'v10', ...gtex, sites: alignSites(gtex.tissues, tissueSites((await json(FILES.gtexTissues)).data)) },
   };
 };
 
