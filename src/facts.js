@@ -10,6 +10,9 @@ export const SOURCES = {
   ucscHg38: 'https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/',
   ucscGap: 'https://genome.ucsc.edu/cgi-bin/hgTables?db=hg38&hgta_group=map&hgta_track=gap&hgta_doSchema=describe+table+schema',
   nurk2022: 'https://doi.org/10.1126/science.abj6987',
+  ucscBigZips: 'https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/',
+  mane: 'https://www.ncbi.nlm.nih.gov/refseq/MANE/',
+  huppert2005: 'https://doi.org/10.1093/nar/gki609',
 };
 
 export const SOURCE_TITLES = {
@@ -19,6 +22,9 @@ export const SOURCE_TITLES = {
   ucscHg38: ['Assemblies and sequence', 'UCSC Genome Browser hg38 annotation tables'],
   ucscGap: ['Assemblies and sequence', 'UCSC hg38 gap table schema'],
   nurk2022: ['Assemblies and sequence', 'Nurk et al. 2022, The complete sequence of a human genome, Science 376:44'],
+  ucscBigZips: ['Assemblies and sequence', 'UCSC hg38 sequence downloads, including hg38.2bit'],
+  mane: ['Genes and proteins', 'MANE: Matched Annotation from NCBI and EMBL-EBI'],
+  huppert2005: ['Assemblies and sequence', 'Huppert and Balasubramanian 2005, Prevalence of quadruplexes in the human genome, Nucleic Acids Research 33:2908'],
 };
 
 export const EXAMPLES = [
