@@ -22,6 +22,9 @@ import {
   ccreSummary, cpgIslands, tssInIslands, specificityByGene, trnaSummary, encodeSummary,
 } from './regulation.mjs';
 import {
+  mitoFeatures, mitoVariants, censatSummary, telomeres,
+} from './structure.mjs';
+import {
   uniprotSummary, hpaSummary, gtexSummary, pharosSummary, tissueSites, pfamNames, alignSites,
 } from './proteins.mjs';
 import { runSections } from './sections.mjs';
@@ -184,8 +187,17 @@ const trnas = async () => trnaSummary(await text(FILES.trnas));
 
 const encode = async () => encodeSummary(await json(FILES.encode));
 
+const structure = async () => ({
+  mito: {
+    ...mitoFeatures(await text(FILES.mitoFeatures)),
+    variants: await summarize(FILES.gnomadMito, mitoVariants({ length: 16569 })),
+  },
+  censat: censatSummary(await text(FILES.censat)),
+  telomeres: telomeres(await text(FILES.telomeres)),
+});
+
 const SECTIONS = {
-  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode,
+  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure,
 };
 
 const now = new Date();
