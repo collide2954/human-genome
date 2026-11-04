@@ -60,6 +60,44 @@ export const parseGaps = (text) => {
   return out;
 };
 
+const joinChromosomes = (report, stats, nuclearOnly) => {
+  const byChrom = new Map(stats.chromosomes.map((c) => [c.chrom, c]));
+  return report.sequences
+    .filter((s) => s.role === 'assembled-molecule' && !(nuclearOnly && s.unit === 'non-nuclear'))
+    .map((s) => {
+      const st = byChrom.get(s.molecule) ?? {};
+      return {
+        chrom: s.molecule,
+        length: s.length,
+        ungapped: st.ungappedLength ?? null,
+        gc: st.gcPerc ?? null,
+        spanned: st.spannedGaps ?? null,
+        unspanned: st.unspannedGaps ?? null,
+        refseq: s.refseq === 'na' ? null : s.refseq,
+        genbank: s.genbank,
+      };
+    });
+};
+
+export const buildAssembly = ({ report38, stats38, reportT2t, statsT2t, cyto, gaps, cen }) => {
+  const r38 = parseAssemblyReport(report38);
+  const s38 = parseAssemblyStats(stats38);
+  const rT2t = parseAssemblyReport(reportT2t);
+  const sT2t = parseAssemblyStats(statsT2t);
+  return {
+    grch38: {
+      name: r38.name, date: r38.date, genbank: r38.genbank, refseq: r38.refseq, altLoci: r38.altLoci,
+      roles: summarizeRoles(r38.sequences), total: s38.total, chromosomes: joinChromosomes(r38, s38, false),
+    },
+    t2t: {
+      name: rT2t.name, date: rT2t.date, genbank: rT2t.genbank, refseq: rT2t.refseq, total: sT2t.total, chromosomes: joinChromosomes(rT2t, sT2t, true),
+    },
+    bands: parseCytobands(cyto),
+    gaps: parseGaps(gaps),
+    centromeres: parseCentromeres(cen),
+  };
+};
+
 export const parseCentromeres = (text) => {
   const out = {};
   for (const c of rows(text)) {
