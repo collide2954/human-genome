@@ -599,8 +599,100 @@
     </figure>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-regulation" data-chapter="regulation">
     <p class="chapter-no">Part 8</p>
+    <h2 class="chapter-title">Regulation and RNA genes</h2>
+    <p class="chapter-dek">The switches around the genes: ENCODE’s registry of candidate regulatory elements, the CpG islands that mark most promoters, the tRNA genes that read the codons, and the experiments ENCODE ran to find them.</p>
+  </div>
+
+  <section class="story wrap" id="ccres" data-lens="sequence genes" data-nav="cCREs">
+    <header class="head"><p class="label">Regulatory elements</p><h2 data-finding="ccres">Regulatory elements</h2><p class="dek" id="ccres-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="ccre-class-chart"></div>
+        <figcaption>Candidate cis-regulatory elements by class, log scale. PLS: promoter-like, at an annotated TSS with high H3K4me3. pELS and dELS: enhancer-like with high H3K27ac, within 2 kb of a TSS or farther. CA-H3K4me3, CA-CTCF and CA-TF: accessible chromatin with that mark or binding only. CA: accessible only. TF: transcription factor binding without high accessibility. Source: ENCODE SCREEN registry V4.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="ccre-width-chart"></div>
+        <figcaption>cCREs by width, in steps of 25 bp. Source: ENCODE SCREEN registry V4.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig">
+      <div class="chart" id="ccre-density-chart"></div>
+      <figcaption>cCREs per sequenced megabase of each chromosome, split by class. Source: ENCODE registry V4; sequenced bases from the hg38 2bit file.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="cpgislands" data-lens="sequence genes" data-nav="CpG islands">
+    <header class="head"><p class="label">CpG islands and promoters</p><h2 data-finding="cpgislands">CpG islands and promoters</h2><p class="dek" id="cpgislands-dek"></p></header>
+    <figure class="fig narrow">
+      <div class="chart" id="cpg-promoter-chart"></div>
+      <figcaption>Share of MANE Select transcripts whose first base lies inside a CpG island, for all of them and by the gene’s HPA tissue specificity call. Source: UCSC CpG islands; MANE; Human Protein Atlas.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="cpg-length-chart"></div>
+        <figcaption>CpG islands by length, ten bins per tenfold step. UCSC calls an island where a stretch longer than 200 bp has GC of 50% or more and observed over expected CpG above 0.6. Source: UCSC cpgIslandExt.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="cpg-density-chart"></div>
+        <figcaption>CpG islands per sequenced megabase of each chromosome. Source: as left; sequenced bases from the hg38 2bit file.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="cpg-oe-chart"></div>
+        <figcaption>Islands by observed over expected CpG, in steps of 0.05; the last bin also holds everything above. Source: UCSC cpgIslandExt.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="cpg-gc-chart"></div>
+        <figcaption>Islands by GC content, in steps of 2 points; the last bin also holds everything above. Source: as left.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="trna" data-lens="genes" data-nav="tRNA genes">
+    <header class="head"><p class="label">tRNA genes</p><h2 data-finding="trna">tRNA genes</h2><p class="dek" id="trna-dek"></p></header>
+    <figure class="fig narrow">
+      <div class="chart" id="trna-codon-chart"></div>
+      <figcaption>Each of the 61 sense codons by how often MANE Select coding sequences use it and how many high-confidence tRNA genes carry the exactly pairing anticodon; the line is a least-squares fit. Codons at zero are read by wobble at the third position, through G–U pairs or inosine at anticodon position 34. Source: GtRNAdb; codon counts from the hg38 2bit file at MANE coordinates.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="trna-isotype-chart"></div>
+        <figcaption>High-confidence tRNA genes by the amino acid they carry; iMet is the initiator methionine tRNA. Source: GtRNAdb.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="trna-chrom-chart"></div>
+        <figcaption>High-confidence tRNA genes per chromosome. Source: GtRNAdb.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="encode" data-lens="sequence genes" data-nav="ENCODE">
+    <header class="head"><p class="label">What ENCODE measured</p><h2 data-finding="encode">What ENCODE measured</h2><p class="dek" id="encode-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="encode-assay-chart"></div>
+      <figcaption>Released human ENCODE experiments by assay, the 25 most common, log scale; control experiments count as their own. Source: ENCODE portal search.</figcaption>
+    </figure>
+    <div class="trio">
+      <figure class="fig">
+        <div class="chart" id="encode-phase-chart"></div>
+        <figcaption>By funding phase, including Roadmap Epigenomics and GGR data held at the portal. Source: as above.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="encode-sample-chart"></div>
+        <figcaption>By type of biosample. Source: as above.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="encode-target-chart"></div>
+        <figcaption>Experiments with a target, by the target’s class, log scale; a target can belong to several classes. Source: as above.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 9</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>

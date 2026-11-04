@@ -8,7 +8,7 @@ import {
 import { pearson, linearFit } from './stats.js';
 import { FILES } from './queries.js';
 import {
-  findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons, gtexTissues, plasmaLevel, proteomeResidues, proteinLabel,
+  findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons, gtexTissues, plasmaLevel, proteomeResidues, proteinLabel, trnaPairs,
 } from './findings.js';
 import {
   ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, heatmap, observeFigures, countUp, tipLines,
@@ -1244,6 +1244,216 @@ const renderOntology = () => {
   attachData('#go-groups-chart', 'go-contributors', ['Group', 'Annotations'], GO.assignedBy.map((g) => [g.group, g.n]));
 };
 
+const REG = snapshot.regulation;
+const TR = snapshot.trnas;
+const ENC = snapshot.encode;
+const span = (counts) => [counts.findIndex((n) => n > 0), counts.findLastIndex((n) => n > 0) + 1];
+const sequencedMb = (chrom) => {
+  const c = S.chromosomes.find((x) => x.chrom === chrom);
+  return c ? acgtOf(c) / 1e6 : null;
+};
+
+const CCRE_CLASSES = [
+  ['PLS', 'Promoter-like (PLS)', 'var(--s1)'], ['pELS', 'Proximal enhancer-like (pELS)', 'var(--s5)'], ['dELS', 'Distal enhancer-like (dELS)', 'var(--s3)'],
+  ['CA-H3K4me3', 'Accessible with H3K4me3', 'var(--s2)'], ['CA-CTCF', 'Accessible with CTCF', 'var(--s4)'], ['CA-TF', 'Accessible with TF', 'var(--data)'],
+  ['CA', 'Accessible only', 'var(--data-2)'], ['TF', 'TF only', 'var(--ink-2)'],
+];
+
+const renderCcres = () => {
+  const { classes, byChrom, widths } = REG.ccre;
+  const known = CCRE_CLASSES.filter(([key]) => classes[key]);
+  const extra = Object.keys(classes).filter((k) => !CCRE_CLASSES.some(([key]) => key === k)).map((k) => [k, k, 'var(--muted)']);
+  const list = [...known, ...extra];
+  const bp = sumOf(Object.values(classes).map((c) => c.bp));
+  $('#ccres-dek').textContent = `Together they span ${bases(bp)}. Every element is ${widths.summary.min} to ${widths.summary.max} bp wide, median ${exact(widths.summary.median)}. ${exact(classes.PLS?.count ?? 0)} are promoter-like, and ${exact(classes['CA-CTCF']?.count ?? 0)} are accessible sites whose only other mark is CTCF binding.`;
+  dotplot({
+    mount: $('#ccre-class-chart'),
+    rows: list.map(([key, label], i) => ({ key, label, value: classes[key].count, hi: i === 2 })),
+    labelShare: 0.48,
+    aria: 'Candidate cis-regulatory elements by class',
+    describe: (r) => {
+      const c = classes[r.key];
+      return tipLines(`${exact(c.count)} cCREs`, r.label, `${bases(c.bp)}, ${pct(c.bp / SN.acgt)} of GRCh38`, `mean width ${exact(c.bp / c.count)} bp`);
+    },
+  });
+  attachData('#ccre-class-chart', 'ccre-classes', ['Class', 'cCREs', 'Bases'], list.map(([key]) => [key, classes[key].count, classes[key].bp]));
+  const [a, b] = span(widths.counts);
+  const wBins = binsOf(widths.edges).slice(a, b);
+  const wCounts = widths.counts.slice(a, b);
+  histo({
+    mount: $('#ccre-width-chart'),
+    bins: wBins,
+    series: [{ key: 'ccres', label: 'cCREs', color: 'var(--data)', values: wCounts }],
+    tickEvery: 2,
+    tickLabel: (bin) => String(bin.lo),
+    aria: 'cCREs by width',
+    describe: (i) => {
+      const top = Math.min(wBins[i].hi - 1, widths.summary.max);
+      return tipLines(`${exact(wCounts[i])} cCREs`, top === wBins[i].lo ? `${top} bp wide` : `${wBins[i].lo} to ${top} bp wide`);
+    },
+  });
+  attachData('#ccre-width-chart', 'ccre-widths', ['Width from', 'Width to', 'cCREs'], wBins.map((bin, i) => [bin.lo, Math.min(bin.hi - 1, widths.summary.max), wCounts[i]]));
+  const rows = NUCLEAR.filter((c) => byChrom[c.chrom] && sequencedMb(c.chrom)).map((c) => ({
+    key: c.chrom, label: c.chrom, values: Object.fromEntries(list.map(([k]) => [k, (byChrom[c.chrom][k] ?? 0) / sequencedMb(c.chrom)])),
+  }));
+  hbars({
+    mount: $('#ccre-density-chart'),
+    rows,
+    segments: list.map(([key, label, color]) => ({ key, label, color })),
+    labelShare: 0.05,
+    rowH: 18,
+    aria: 'cCREs per sequenced megabase by chromosome and class',
+    describe: (r) => tipLines(`${exact(sumOf(Object.values(r.values)))} cCREs per Mb`, `chromosome ${r.key}`, ...list.map(([k, label]) => `${label}: ${r.values[k].toFixed(1)}`)),
+  });
+  attachData('#ccre-density-chart', 'ccre-density', ['Chromosome', ...list.map(([k]) => `${k} per Mb`)], rows.map((r) => [r.key, ...list.map(([k]) => Number(r.values[k].toFixed(2)))]));
+};
+
+const renderCpgIslands = () => {
+  const cpg = REG.cpg;
+  const p = cpg.promoters;
+  const cats = Object.entries(p.bySpecificity).sort((x, y) => y[1].inIsland / y[1].genes - x[1].inIsland / x[1].genes);
+  const rows = [['all', 'All MANE Select', { genes: p.tss, inIsland: p.inIsland }], ...cats.map(([k, v]) => [k, k, v])];
+  const low = p.bySpecificity['Low tissue specificity'];
+  const enriched = p.bySpecificity['Tissue enriched'];
+  $('#cpgislands-dek').textContent = `Islands have a median length of ${exact(cpg.lengths.summary.median)} bp; the longest runs ${exact(cpg.lengths.summary.max)}.${low && enriched ? ` ${pct(low.inIsland / low.genes)} of genes with low tissue specificity start in an island, against ${pct(enriched.inIsland / enriched.genes)} of tissue-enriched genes.` : ''} Chromosome 19 carries ${(cpg.byChrom['19'] / sequencedMb('19')).toFixed(1)} islands per sequenced megabase.`;
+  hbars({
+    mount: $('#cpg-promoter-chart'),
+    rows: rows.map(([key, label, v]) => ({
+      key, label, v, values: { in: (v.inIsland / v.genes) * 100, out: 100 - (v.inIsland / v.genes) * 100 },
+    })),
+    segments: [{ key: 'in', label: 'Starts in a CpG island', color: 'var(--s2)' }, { key: 'out', label: 'Starts elsewhere', color: 'var(--data-2)' }],
+    labelShare: 0.3,
+    max: 100,
+    R: 96,
+    tickFormat: (t) => `${t}%`,
+    valueText: (r) => `${exact(r.v.genes)} genes`,
+    aria: 'MANE Select transcripts starting in CpG islands, by tissue specificity',
+    describe: (r) => tipLines(`${pct(r.v.inIsland / r.v.genes)} start in an island`, r.label, `${exact(r.v.inIsland)} of ${exact(r.v.genes)} transcripts`),
+  });
+  attachData('#cpg-promoter-chart', 'cpg-promoters', ['Group', 'Transcripts', 'Starting in a CpG island'], rows.map(([, label, v]) => [label, v.genes, v.inIsland]));
+  const [a, b] = span(cpg.lengths.counts);
+  const lBins = binsOf(cpg.lengths.edges).slice(a, b);
+  const lCounts = cpg.lengths.counts.slice(a, b);
+  histo({
+    mount: $('#cpg-length-chart'),
+    bins: lBins,
+    series: [{ key: 'islands', label: 'CpG islands', color: 'var(--data)', values: lCounts }],
+    tickEvery: 1,
+    tickLabel: (bin, i) => (i === 0 || (i + a) % 10 === 0 ? shortBases(bin.lo) : null),
+    aria: 'CpG islands by length',
+    describe: (i) => tipLines(`${exact(lCounts[i])} islands`, `${exact(lBins[i].lo)} to ${exact(lBins[i].hi)} bp`),
+  });
+  attachData('#cpg-length-chart', 'cpg-island-lengths', ['Length from', 'Length to', 'Islands'], lBins.map((bin, i) => [Math.round(bin.lo), Math.round(bin.hi), lCounts[i]]));
+  const dens = NUCLEAR.filter((c) => cpg.byChrom[c.chrom] && sequencedMb(c.chrom)).map((c) => ({ chrom: c.chrom, n: cpg.byChrom[c.chrom], perMb: cpg.byChrom[c.chrom] / sequencedMb(c.chrom) }));
+  const top = dens.reduce((x, y) => (y.perMb > x.perMb ? y : x));
+  dotplot({
+    mount: $('#cpg-density-chart'),
+    rows: dens.map((d) => ({
+      key: d.chrom, label: d.chrom, value: d.perMb, hi: d === top,
+    })),
+    scale: 'linear',
+    rowH: 18,
+    labelShare: 0.05,
+    format: (v) => v.toFixed(1),
+    aria: 'CpG islands per sequenced megabase by chromosome',
+    describe: (r) => {
+      const d = dens.find((x) => x.chrom === r.key);
+      return tipLines(`${d.perMb.toFixed(1)} islands per Mb`, `chromosome ${d.chrom}`, `${exact(d.n)} islands`);
+    },
+  });
+  attachData('#cpg-density-chart', 'cpg-island-density', ['Chromosome', 'Islands', 'Per sequenced Mb'], dens.map((d) => [d.chrom, d.n, Number(d.perMb.toFixed(2))]));
+  const ratioBins = binsOf(cpg.obsExp.edges);
+  histo({
+    mount: $('#cpg-oe-chart'),
+    bins: ratioBins,
+    series: [{ key: 'islands', label: 'CpG islands', color: 'var(--data)', values: cpg.obsExp.counts }],
+    tickEvery: 4,
+    tickLabel: (bin) => bin.lo.toFixed(1),
+    aria: 'CpG islands by observed over expected CpG',
+    describe: (i) => tipLines(`${exact(cpg.obsExp.counts[i])} islands`, i === ratioBins.length - 1 ? `observed over expected ${ratioBins[i].lo.toFixed(2)} or more` : `observed over expected ${ratioBins[i].lo.toFixed(2)} to ${ratioBins[i].hi.toFixed(2)}`),
+  });
+  attachData('#cpg-oe-chart', 'cpg-island-obs-exp', ['Ratio from', 'Ratio to', 'Islands'], ratioBins.map((bin, i) => [bin.lo, bin.hi, cpg.obsExp.counts[i]]));
+  const gcBins = binsOf(cpg.gc.edges);
+  histo({
+    mount: $('#cpg-gc-chart'),
+    bins: gcBins,
+    series: [{ key: 'islands', label: 'CpG islands', color: 'var(--data)', values: cpg.gc.counts }],
+    tickEvery: 5,
+    tickLabel: (bin) => `${bin.lo}%`,
+    aria: 'CpG islands by GC content',
+    describe: (i) => tipLines(`${exact(cpg.gc.counts[i])} islands`, i === gcBins.length - 1 ? `${gcBins[i].lo}% GC or more` : `${gcBins[i].lo}% to ${gcBins[i].hi}% GC`),
+  });
+  attachData('#cpg-gc-chart', 'cpg-island-gc', ['GC from', 'GC to', 'Islands'], gcBins.map((bin, i) => [bin.lo, bin.hi, cpg.gc.counts[i]]));
+};
+
+const ISOTYPE_NAMES = { ...Object.fromEntries(Object.entries(AA3).filter(([k]) => k !== '*').map(([one, three]) => [three, AMINO_ACIDS[one]])), iMet: 'Initiator methionine', SeC: 'Selenocysteine' };
+
+const renderTrna = () => {
+  const pairs = trnaPairs(MN.codons, TR.anticodons);
+  const fit = linearFit(pairs.map((x) => x.perK), pairs.map((x) => x.copies));
+  const r = pearson(pairs.map((x) => x.perK), pairs.map((x) => x.copies));
+  const zero = pairs.filter((x) => !x.copies);
+  const [first, second] = Object.entries(TR.byChrom).sort((x, y) => y[1] - x[1]);
+  $('#trna-dek').textContent = `Across the 61 sense codons, codon use and exact-match tRNA gene copies correlate with Pearson r = ${r.toFixed(2)}. The codons without an exact match are ${zero.map((x) => x.codon).join(', ')}. Chromosome ${first[0]} carries ${exact(first[1])} of the genes and chromosome ${second[0]} ${exact(second[1])}.`;
+  scatter({
+    mount: $('#trna-codon-chart'),
+    points: pairs.map((x) => ({ ...x, key: x.codon, x: Number(x.perK.toFixed(2)), y: x.copies, hi: !x.copies })),
+    xFormat: (v) => String(v),
+    yFormat: (v) => String(v),
+    xLabel: 'Codon use per thousand',
+    yLabel: 'tRNA genes with the pairing anticodon',
+    trend: fit,
+    aria: 'tRNA gene copies against codon usage',
+    describe: (pt) => tipLines(`${pt.copies} tRNA genes`, `${pt.codon}, ${pt.aa}; anticodon ${pt.anticodon}`, `${pt.perK.toFixed(1)} per thousand codons`),
+  });
+  attachData('#trna-codon-chart', 'trna-codons', ['Codon', 'Amino acid', 'Anticodon', 'Per thousand codons', 'tRNA genes'], pairs.map((x) => [x.codon, x.aa, x.anticodon, Number(x.perK.toFixed(3)), x.copies]));
+  const iso = Object.entries(TR.isotypes).sort((x, y) => y[1] - x[1]);
+  dotplot({
+    mount: $('#trna-isotype-chart'),
+    rows: iso.map(([k, n], i) => ({ key: k, label: `${ISOTYPE_NAMES[k] ?? k} (${k})`, value: n, hi: i === 0 })),
+    scale: 'linear',
+    rowH: 20,
+    labelShare: 0.46,
+    aria: 'tRNA genes by amino acid',
+    describe: (row) => tipLines(`${exact(row.value)} tRNA genes`, row.label, Object.entries(TR.anticodons).filter(([k]) => k.startsWith(`${row.key}-`)).map(([k, n]) => `${k.split('-')[1]} ${n}`).join(', ')),
+  });
+  attachData('#trna-isotype-chart', 'trna-isotypes', ['Isotype', 'tRNA genes'], iso);
+  const chroms = NUCLEAR.map((c) => c.chrom).filter((c) => TR.byChrom[c]);
+  dotplot({
+    mount: $('#trna-chrom-chart'),
+    rows: chroms.map((c) => ({
+      key: c, label: c, value: TR.byChrom[c], hi: c === first[0],
+    })),
+    scale: 'linear',
+    rowH: 20,
+    labelShare: 0.05,
+    aria: 'tRNA genes by chromosome',
+    describe: (row) => tipLines(`${exact(row.value)} tRNA genes`, `chromosome ${row.key}`),
+  });
+  attachData('#trna-chrom-chart', 'trna-chromosomes', ['Chromosome', 'tRNA genes'], chroms.map((c) => [c, TR.byChrom[c]]));
+};
+
+const renderEncode = () => {
+  const share = (list, name) => (list.find((x) => x.name === name)?.n ?? 0) / ENC.total;
+  $('#encode-dek').textContent = `${pct(share(ENC.biosamples, 'cell line'))} of the experiments use cell lines and ${pct(share(ENC.biosamples, 'tissue'))} tissues. The fourth phase, ENCODE4, released ${exact(ENC.phases.find((x) => x.name === 'ENCODE4')?.n ?? 0)} of them. Histone and transcription factor ChIP-seq together account for ${exact(sumOf(ENC.assays.filter((x) => /^(TF|Histone) ChIP-seq$/.test(x.name)).map((x) => x.n)))}.`;
+  const ranked = (sel, name, list, aria, scale, labelShare) => {
+    dotplot({
+      mount: $(sel),
+      rows: list.map((x, i) => ({ key: x.name, label: x.name, value: x.n, hi: i === 0 })),
+      scale,
+      labelShare,
+      rowH: 20,
+      aria,
+      describe: (row) => tipLines(`${exact(row.value)} experiments`, row.label, pct(row.value / ENC.total)),
+    });
+    attachData(sel, name, ['Group', 'Experiments'], list.map((x) => [x.name, x.n]));
+  };
+  ranked('#encode-assay-chart', 'encode-assays', ENC.assays.slice(0, 25), 'ENCODE experiments by assay', 'log', 0.3);
+  ranked('#encode-phase-chart', 'encode-phases', ENC.phases, 'ENCODE experiments by phase', 'linear', 0.44);
+  ranked('#encode-sample-chart', 'encode-biosamples', ENC.biosamples, 'ENCODE experiments by biosample type', 'linear', 0.44);
+  ranked('#encode-target-chart', 'encode-targets', ENC.targets, 'ENCODE experiments by target class', 'log', 0.44);
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -1307,6 +1517,10 @@ const DATA_SOURCES = [
   ['Reactome UniProt mapping, all levels', FILES.reactomeUniprot],
   ['GO annotations, goa_human', FILES.goaHuman],
   ['Gene Ontology, go-basic', FILES.goBasic],
+  ['ENCODE SCREEN cCRE registry V4, GRCh38', FILES.ccre],
+  ['UCSC hg38 CpG islands', FILES.cpgIslands],
+  ['GtRNAdb hg38 high-confidence mature tRNAs', FILES.trnas],
+  ['ENCODE portal, released human experiments', FILES.encode],
 ];
 
 const renderSources = () => {
@@ -1398,6 +1612,10 @@ const drawCharts = () => {
   renderInteractions();
   renderPathways();
   renderOntology();
+  renderCcres();
+  renderCpgIslands();
+  renderTrna();
+  renderEncode();
   applySearch();
 };
 
