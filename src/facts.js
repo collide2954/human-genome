@@ -16,6 +16,11 @@ export const SOURCES = {
   repeatMasker: 'https://www.repeatmasker.org/',
   bailey2002: 'https://doi.org/10.1126/science.1072047',
   benson1999: 'https://doi.org/10.1093/nar/27.2.573',
+  gencode: 'https://www.gencodegenes.org/human/',
+  hgnc: 'https://www.genenames.org/',
+  ncbiGene: 'https://www.ncbi.nlm.nih.gov/gene/',
+  bruford2020: 'https://doi.org/10.1038/s41588-020-0669-3',
+  imgt: 'https://www.imgt.org/',
 };
 
 export const SOURCE_TITLES = {
@@ -31,6 +36,11 @@ export const SOURCE_TITLES = {
   repeatMasker: ['Assemblies and sequence', 'RepeatMasker, the repeat annotation behind the rmsk table'],
   bailey2002: ['Assemblies and sequence', 'Bailey et al. 2002, Recent segmental duplications in the human genome, Science 297:1003'],
   benson1999: ['Assemblies and sequence', 'Benson 1999, Tandem Repeats Finder, Nucleic Acids Research 27:573'],
+  gencode: ['Genes and proteins', 'GENCODE human releases'],
+  hgnc: ['Genes and proteins', 'HUGO Gene Nomenclature Committee'],
+  ncbiGene: ['Genes and proteins', 'NCBI Gene'],
+  bruford2020: ['Genes and proteins', 'Bruford et al. 2020, Guidelines for human gene nomenclature, Nature Genetics 52:754'],
+  imgt: ['Genes and proteins', 'IMGT, the international ImMunoGeneTics information system'],
 };
 
 export const EXAMPLES = [
