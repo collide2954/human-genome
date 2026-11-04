@@ -61,9 +61,9 @@ test('geneDiseases counts Mendelian genes, diseases and diseases per gene', () =
   const g = geneDiseases([
     'ncbi_gene_id\tgene_symbol\tassociation_type\tdisease_id\tsource',
     'NCBIGene:1\tA\tMENDELIAN\tOMIM:1\tx', 'NCBIGene:1\tA\tMENDELIAN\tOMIM:2\tx', 'NCBIGene:2\tB\tMENDELIAN\tOMIM:1\tx',
-    'NCBIGene:3\tC\tPOLYGENIC\tOMIM:3\tx', 'NCBIGene:4\tD\tUNKNOWN\tORPHA:4\tx',
+    'NCBIGene:3\tC\tPOLYGENIC\tOMIM:3\tx', 'NCBIGene:4\tD\tUNKNOWN\tORPHA:4\tx', '-\t-\tMENDELIAN\tOMIM:5\tx',
   ].join('\n'));
-  assert.deepEqual(g.types, { MENDELIAN: 3, POLYGENIC: 1, UNKNOWN: 1 });
+  assert.deepEqual(g.types, { MENDELIAN: 4, POLYGENIC: 1, UNKNOWN: 1 });
   assert.equal(g.genes, 2);
   assert.equal(g.diseases, 2);
   assert.deepEqual(g.perGene, { bins: ['1', '2', '3-5', '6-10', '>10'], counts: [1, 1, 0, 0, 0] });
