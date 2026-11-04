@@ -141,6 +141,54 @@ fixture.expression = {
   },
 };
 
+fixture.networks = {
+  version: '12.5',
+  edges: {
+    all: 6000000, medium: 900000, high: 250000, highest: 120000,
+  },
+  proteins: { all: 19500, high: 16000 },
+  hubs: [{ id: '9606.ENSP1', name: 'UBC', degree: 2500 }],
+};
+fixture.pathways = {
+  release: '98',
+  pathways: 2700,
+  proteins: 11000,
+  topLevel: [
+    {
+      id: 'R-HSA-162582', name: 'Signal Transduction', proteins: 2700, pathways: 500,
+    },
+    {
+      id: 'R-HSA-1430728', name: 'Metabolism', proteins: 2100, pathways: 600,
+    },
+    {
+      id: 'R-HSA-168256', name: 'Immune System', proteins: 2000, pathways: 200,
+    },
+  ],
+};
+fixture.ontology = {
+  annotations: 1005,
+  not: 5,
+  proteins: 19800,
+  byAspect: {
+    P: {
+      experimental: 300, phylogenetic: 100, computational: 50, author: 38, electronic: 112,
+    },
+    F: {
+      experimental: 150, phylogenetic: 0, computational: 0, author: 0, electronic: 100,
+    },
+    C: {
+      experimental: 50, phylogenetic: 0, computational: 0, author: 0, electronic: 100,
+    },
+  },
+};
+
+test('findings state the network, pathway and ontology sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.interactions, 'STRING 12.5 links 16,000 human proteins by 250,000 interactions scored 0.7 or more; UBC has the most partners, 2,500');
+  assert.equal(f.pathways, 'Reactome 98 places 11,000 human proteins in 2,700 pathways; Signal Transduction, the largest of 3 top-level pathways, holds 2,700');
+  assert.equal(f.ontology, '19,800 human proteins carry 1,000 GO annotations; 31.2% are electronic inferences (IEA)');
+});
+
 test('findings state the protein sections as numbers', () => {
   const f = findings(fixture);
   assert.equal(f.proteome, 'UniProt 2026_03 lists 20,431 reviewed human proteins; the median is 415 residues long and TTN, the longest, 34,350');
