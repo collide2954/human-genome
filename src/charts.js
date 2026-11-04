@@ -363,7 +363,7 @@ export const dotplot = ({
   el('text', { class: 'lab', x: 0, y: lay.labelY }, labelOf(r.label)),
   el('line', { class: 'stem', x1: L, x2: at(r.value), y1: lay.markY, y2: lay.markY, style: `--i:${i}` }),
   el('circle', { class: `dot${r.hi ? ' hi' : ''}`, cx: at(r.value), cy: lay.markY, r: 4.5, style: `--i:${i}` }),
-  el('text', { class: 'val', x: at(r.value) + 9, y: lay.markY + 4 }, format(r.value)))));
+  el('text', { class: 'val', x: at(r.value) + 9, y: lay.markY + 4 }, format(r.value, r)))));
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
     ticks.map((t) => el('g', {},
       el('line', { class: 'grid', x1: x(t), x2: x(t), y1: T - 6, y2: H }),
@@ -389,11 +389,11 @@ export const dotplot = ({
 };
 
 export const hbars = ({
-  mount, rows, segments, aria, describe, format = exact, tickFormat = compact, labelShare = 0.16, rowH = 22, showSign = false, max, valueText, R = 78,
+  mount, rows, segments, aria, describe, format = exact, tickFormat = compact, labelShare = 0.16, labelMax = 150, rowH = 22, showSign = false, max, valueText, R = 78,
 }) => {
   const W = widthOf(mount);
   const T = 22;
-  const lay = rowLayout(rows, Math.min(150, Math.max(44, W * labelShare)), rowH);
+  const lay = rowLayout(rows, Math.min(labelMax, Math.max(44, W * labelShare)), rowH);
   const { L } = lay;
   const H = T + rows.length * lay.rowH + 6;
   const totals = rows.map((r) => segments.reduce((n, s) => n + (r.values[s.key] ?? 0), 0));
@@ -899,7 +899,7 @@ export const histo = ({
 };
 
 export const scatter = ({
-  mount, points, aria, describe, xFormat = compact, yFormat = compact, xLabel, yLabel, trend, height = 300,
+  mount, points, aria, describe, xFormat = compact, yFormat = compact, xLabel, yLabel, trend, height = 300, yLog = false, legend = null,
 }) => {
   const W = widthOf(mount);
   const L = 46;
@@ -909,9 +909,11 @@ export const scatter = ({
   const H = height;
   const xs = points.map((p) => p.x);
   const xt = spanTicks(Math.min(...xs), Math.max(...xs));
-  const yt = niceTicks(Math.max(...points.map((p) => p.y), 1e-9), 4);
+  const positive = points.map((p) => p.y).filter((v) => v > 0);
+  const decades = yLog ? [Math.floor(Math.log10(Math.min(...positive))), Math.ceil(Math.log10(Math.max(...positive)))] : null;
+  const yt = yLog ? Array.from({ length: decades[1] - decades[0] + 1 }, (_, i) => 10 ** (decades[0] + i)) : niceTicks(Math.max(...points.map((p) => p.y), 1e-9), 4);
   const x = scaleLinear([xt[0], xt.at(-1)], [L, W - R]);
-  const y = scaleLinear([0, yt.at(-1)], [H - B, T]);
+  const y = yLog ? scaleLog([yt[0], yt.at(-1)], [H - B, T]) : scaleLinear([0, yt.at(-1)], [H - B, T]);
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
     yt.map((t) => el('g', {},
       el('line', { class: t === 0 ? 'base' : 'grid', x1: L, x2: W - R, y1: y(t), y2: y(t) }),
@@ -921,9 +923,48 @@ export const scatter = ({
     yLabel ? el('text', { class: 'axis-lab', x: L, y: T - 4 }, yLabel) : null,
     trend ? el('path', { class: 'trend', d: `M${x(xt[0])},${y(trend.intercept + trend.slope * xt[0])}L${x(xt.at(-1))},${y(trend.intercept + trend.slope * xt.at(-1))}` }) : null,
     points.map((p, i) => el('circle', {
-      class: `dot pt${p.hi ? ' hi' : ''}`, cx: x(p.x), cy: y(p.y), r: p.hi ? 3.5 : 2.2, 'data-point': p.key, 'data-k': i, 'data-rank': i, style: `--i:${i % 60}`,
+      class: `dot pt${p.hi ? ' hi' : ''}`, cx: x(p.x), cy: y(p.y), r: p.hi ? 3.5 : 2.2, 'data-point': p.key, 'data-k': i, 'data-rank': i, style: `--i:${i % 60}${p.color ? `;--pt:${p.color}` : ''}`,
     })));
   hover(svg, (k) => describe(points[Number(k)]));
+  return legend ? mountSvg(mount, svg, legendOf(legend)) : mountSvg(mount, svg);
+};
+
+const degrees = (v, pos, neg) => (v === 0 ? '0°' : `${Math.abs(v)}°${v > 0 ? pos : neg}`);
+
+export const dotmap = ({
+  mount, cells, size, aria, describe, color = 'var(--accent)', top = 84, bottom = -56,
+}) => {
+  const W = widthOf(mount);
+  const L = 34;
+  const B = 18;
+  const H = Math.round(((W - L) * (top - bottom)) / 360) + B;
+  const x = scaleLinear([-180, 180], [L, W]);
+  const y = scaleLinear([top, bottom], [0, H - B]);
+  const most = Math.max(...cells.map((c) => c.n));
+  const lons = [-120, -60, 0, 60, 120];
+  const lats = [60, 30, 0, -30];
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
+    el('rect', {
+      class: 'map-bg', x: L, y: 0, width: W - L, height: H - B,
+    }),
+    lons.map((v) => el('g', {},
+      el('line', {
+        class: 'grid', x1: x(v), x2: x(v), y1: 0, y2: H - B,
+      }),
+      el('text', {
+        class: 'tick', x: x(v), y: H - 4, 'text-anchor': 'middle',
+      }, degrees(v, 'E', 'W')))),
+    lats.map((v) => el('g', {},
+      el('line', {
+        class: 'grid', x1: L, x2: W, y1: y(v), y2: y(v),
+      }),
+      el('text', {
+        class: 'tick', x: L - 4, y: y(v) + 4, 'text-anchor': 'end',
+      }, degrees(v, 'N', 'S')))),
+    cells.map((c, i) => el('rect', {
+      class: 'map-cell', 'data-cell': `${c.lat}:${c.lon}`, 'data-k': i, 'data-rank': i, x: x(c.lon), y: y(c.lat + size), width: Math.max(1, x(c.lon + size) - x(c.lon)), height: Math.max(1, y(c.lat) - y(c.lat + size)), style: `fill:${color};fill-opacity:${heat(Math.log10(c.n + 1), 0, Math.log10(most + 1))}`,
+    })));
+  hover(svg, (k) => describe(cells[Number(k)]));
   return mountSvg(mount, svg);
 };
 
@@ -1000,7 +1041,7 @@ export const codonTable = ({
 };
 
 export const stackedArea = ({
-  mount, years, series, aria, format = exact, max = null, xFormat = (v) => v, xTick = (v) => v, xTicks = null,
+  mount, years, series, aria, format = exact, max = null, xFormat = (v) => v, xTick = (v) => v, xTicks = null, yFormat = compact, head = null,
 }) => {
   const W = widthOf(mount);
   const L = 46;
@@ -1024,7 +1065,7 @@ export const stackedArea = ({
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
     ticks.map((t) => el('g', {},
       el('line', { class: t === 0 ? 'base' : 'grid', x1: L, x2: W - R, y1: y(t), y2: y(t) }),
-      el('text', { class: 'tick', x: L - 8, y: y(t) + 4, 'text-anchor': 'end' }, compact(t)))),
+      el('text', { class: 'tick', x: L - 8, y: y(t) + 4, 'text-anchor': 'end' }, yFormat(t)))),
     layers.map((layer, i) => el('path', {
       class: 'area', 'data-key': layer.key, d: area(layer.points), style: `fill:${series[i].color};--i:${i * 8}`,
     })),
@@ -1041,7 +1082,7 @@ export const stackedArea = ({
     cross.setAttribute('x2', x(years[i]));
     cross.setAttribute('visibility', 'visible');
     return [
-      html('b', {}, `${xFormat(years[i])}: ${format(totals[i])}`),
+      html('b', {}, head ? head(i) : `${xFormat(years[i])}: ${format(totals[i])}`),
       ...[...series].reverse().map((s) => html('span', {}, html('i', { style: `background:${s.color}` }), `${s.label} ${format(rows[i][s.key])}`)),
     ];
   }, { steps: years.length });

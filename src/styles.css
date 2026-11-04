@@ -826,7 +826,7 @@ h2,
 }
 
 .chart .pt {
-  fill: var(--ink-2);
+  fill: var(--pt, var(--ink-2));
   fill-opacity: 0.55;
   stroke: none;
 }
@@ -994,6 +994,17 @@ h2,
 .chart .range {
   stroke: var(--paper);
   stroke-width: 0.5;
+}
+
+.chart .map-bg {
+  fill: var(--hair);
+  fill-opacity: 0.35;
+}
+
+.chart .map-cell:hover,
+.chart .map-cell.sel {
+  stroke: var(--ink);
+  stroke-width: 1;
 }
 
 .chart .ci {
