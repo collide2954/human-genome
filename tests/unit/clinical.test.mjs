@@ -2,8 +2,44 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   germlineClass, consequenceOf, starsOf, CHANNELS, channelOf, clinvarVcf, vcfClassCounts, earliestFile,
-  geneSummary, organizations, proteinChange, variantTable, pfamDomains, validitySummary, regionSummary,
+  geneSummary, organizations, proteinChange, variantTable, pfamDomains, validitySummary, regionSummary, repeatLoci,
 } from '../../scripts/clinical.mjs';
+
+const locus = (fields) => ({
+  id: 'X', disease_id: 'X', gene: 'X', disease: 'x', evidence: ['Definitive'], inheritance: ['AD'], location_in_gene: null, mechanism: null, year: null, benign_min: null, benign_max: null, intermediate_min: null, intermediate_max: null, pathogenic_min: null, pathogenic_max: null, reference_motif_reference_orientation: [], pathogenic_motif_reference_orientation: [], motif_len: 3, typ_age_onset_min: null, typ_age_onset_max: null, genereviews: [], ...fields,
+});
+
+test('repeatLoci reads STRchive ranges, motifs, gene locations, discovery years and onset ages', () => {
+  const r = repeatLoci([
+    locus({
+      id: 'HD_HTT', disease_id: 'HD', gene: 'HTT', disease: 'Huntington disease', location_in_gene: 'Coding Exon 1', mechanism: 'GoF', year: '1993 [@pmid:8458085]', benign_min: 6, benign_max: 26, intermediate_min: 27, intermediate_max: 35, pathogenic_min: 36, pathogenic_max: 250, reference_motif_reference_orientation: ['CAG'], pathogenic_motif_reference_orientation: ['CAG'], typ_age_onset_min: 35, typ_age_onset_max: 44, genereviews: ['NBK1305'],
+    }),
+    locus({
+      id: 'CANVAS_RFC1', disease_id: 'CANVAS', gene: 'RFC1', disease: 'CANVAS', evidence: ['Definitive'], inheritance: ['AR'], location_in_gene: 'Intron 2', year: 'Causation identified in 2019 [@pmid:31230722]; clinical association found in 2004', benign_min: 0, benign_max: 11, pathogenic_min: 400, pathogenic_max: 2750, reference_motif_reference_orientation: ['AAAAG'], pathogenic_motif_reference_orientation: ['AAGGG', 'ACAGG'], motif_len: 5,
+    }),
+    locus({
+      id: 'MODY8_CEL', disease_id: 'MODY8', gene: 'CEL', disease: 'Maturity-onset diabetes', evidence: ['Provisional'], location_in_gene: 'Exon 11', year: '2005', motif_len: 33,
+    }),
+    locus({
+      id: 'OPDM2_GIPC1', gene: 'GIPC1', location_in_gene: "5' UTR", year: null,
+    }),
+  ]);
+  assert.deepEqual(r.evidence, { Definitive: 3, Provisional: 1 });
+  assert.deepEqual(r.loci[0], {
+    id: 'HD_HTT', gene: 'HTT', disease: 'HD', name: 'Huntington disease', evidence: 'Definitive', inheritance: 'AD', motif: 'CAG', motifLength: 3, location: 'coding exon', mechanism: 'GoF', year: 1993, benign: [6, 26], intermediate: [27, 35], pathogenic: [36, 250], onset: [35, 44], genereviews: 'NBK1305',
+  });
+  assert.equal(r.loci[1].motif, 'AAGGG');
+  assert.equal(r.loci[1].year, 2019);
+  assert.equal(r.loci[1].location, 'intron');
+  assert.equal(r.loci[1].intermediate, null);
+  assert.equal(r.loci[1].onset, null);
+  assert.equal(r.loci[1].genereviews, null);
+  assert.equal(r.loci[2].location, 'exon');
+  assert.equal(r.loci[2].pathogenic, null);
+  assert.equal(r.loci[2].year, 2005);
+  assert.equal(r.loci[3].location, "5' UTR");
+  assert.equal(r.loci[3].year, null);
+});
 
 test('germlineClass folds VCF and table spellings into nine classes', () => {
   const cases = {
