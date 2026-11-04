@@ -1,5 +1,5 @@
 export default {
-  "generated": "2026-11-04T14:15:47.146Z",
+  "generated": "2026-11-04T15:39:18.953Z",
   "asOf": {
     "assembly": "2026-11-04T05:28:42.686Z",
     "sequence": "2026-11-04T06:07:32.158Z",
@@ -23,7 +23,11 @@ export default {
     "clinvarGrowth": "2026-11-04T12:50:41.045Z",
     "validity": "2026-11-04T12:48:05.854Z",
     "regions": "2026-11-04T12:48:05.854Z",
-    "expansions": "2026-11-04T14:15:47.146Z"
+    "expansions": "2026-11-04T14:15:47.146Z",
+    "hpo": "2026-11-04T15:39:18.953Z",
+    "orphanet": "2026-11-04T15:38:11.730Z",
+    "gtr": "2026-11-04T15:38:11.730Z",
+    "therapies": "2026-11-04T15:38:11.730Z"
   },
   "failed": [],
   "assembly": {
@@ -79858,6 +79862,1449 @@ export default {
       "Strong": 4,
       "Disputed": 3,
       "Refuted": 1
+    }
+  },
+  "hpo": {
+    "ontology": "2026-09-01",
+    "terms": 19894,
+    "version": "2026-09-02",
+    "diseases": 12880,
+    "sources": {
+      "OMIM": 8478,
+      "DECIPHER": 47,
+      "ORPHA": 4355
+    },
+    "annotations": 268180,
+    "evidence": {
+      "PCS": 105595,
+      "TAS": 134490,
+      "IEA": 28095
+    },
+    "perDisease": {
+      "edges": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50,
+        100,
+        200,
+        500,
+        1000
+      ],
+      "counts": [
+        645,
+        1611,
+        2144,
+        3233,
+        4206,
+        918,
+        108,
+        2,
+        0
+      ],
+      "median": 15
+    },
+    "systems": [
+      {
+        "id": "HP:0033127",
+        "name": "Abnormality of the musculoskeletal system",
+        "diseases": 8526
+      },
+      {
+        "id": "HP:0000707",
+        "name": "Abnormality of the nervous system",
+        "diseases": 8457
+      },
+      {
+        "id": "HP:0000152",
+        "name": "Abnormality of head or neck",
+        "diseases": 6686
+      },
+      {
+        "id": "HP:0000478",
+        "name": "Abnormality of the eye",
+        "diseases": 5925
+      },
+      {
+        "id": "HP:0001574",
+        "name": "Abnormality of the integument",
+        "diseases": 5041
+      },
+      {
+        "id": "HP:0025031",
+        "name": "Abnormality of the digestive system",
+        "diseases": 5036
+      },
+      {
+        "id": "HP:0040064",
+        "name": "Abnormality of limbs",
+        "diseases": 5009
+      },
+      {
+        "id": "HP:0001626",
+        "name": "Abnormality of the cardiovascular system",
+        "diseases": 4967
+      },
+      {
+        "id": "HP:0001939",
+        "name": "Abnormality of metabolism/homeostasis",
+        "diseases": 4584
+      },
+      {
+        "id": "HP:0000119",
+        "name": "Abnormality of the genitourinary system",
+        "diseases": 4539
+      },
+      {
+        "id": "HP:0001507",
+        "name": "Growth abnormality",
+        "diseases": 4504
+      },
+      {
+        "id": "HP:0000598",
+        "name": "Abnormality of the ear",
+        "diseases": 3823
+      },
+      {
+        "id": "HP:0002715",
+        "name": "Abnormality of the immune system",
+        "diseases": 3423
+      },
+      {
+        "id": "HP:0002086",
+        "name": "Abnormality of the respiratory system",
+        "diseases": 3140
+      },
+      {
+        "id": "HP:0001871",
+        "name": "Abnormality of blood and blood-forming tissues",
+        "diseases": 2429
+      },
+      {
+        "id": "HP:0000818",
+        "name": "Abnormality of the endocrine system",
+        "diseases": 1934
+      },
+      {
+        "id": "HP:0025142",
+        "name": "Constitutional symptom",
+        "diseases": 1777
+      },
+      {
+        "id": "HP:0002664",
+        "name": "Neoplasm",
+        "diseases": 1389
+      },
+      {
+        "id": "HP:0001197",
+        "name": "Abnormality of prenatal development or birth",
+        "diseases": 1205
+      },
+      {
+        "id": "HP:0025354",
+        "name": "Abnormal cellular phenotype",
+        "diseases": 1013
+      },
+      {
+        "id": "HP:0000769",
+        "name": "Abnormality of the breast",
+        "diseases": 570
+      },
+      {
+        "id": "HP:0001608",
+        "name": "Abnormality of the voice",
+        "diseases": 517
+      },
+      {
+        "id": "HP:0045027",
+        "name": "Abnormality of the thoracic cavity",
+        "diseases": 62
+      }
+    ],
+    "topTerms": [
+      {
+        "id": "HP:0001263",
+        "name": "Global developmental delay",
+        "diseases": 2583
+      },
+      {
+        "id": "HP:0001250",
+        "name": "Seizure",
+        "diseases": 2544
+      },
+      {
+        "id": "HP:0001249",
+        "name": "Intellectual disability",
+        "diseases": 2480
+      },
+      {
+        "id": "HP:0004322",
+        "name": "Short stature",
+        "diseases": 1875
+      },
+      {
+        "id": "HP:0001252",
+        "name": "Hypotonia",
+        "diseases": 1863
+      },
+      {
+        "id": "HP:0000252",
+        "name": "Microcephaly",
+        "diseases": 1726
+      },
+      {
+        "id": "HP:0002650",
+        "name": "Scoliosis",
+        "diseases": 1410
+      },
+      {
+        "id": "HP:0000316",
+        "name": "Hypertelorism",
+        "diseases": 1286
+      },
+      {
+        "id": "HP:0000486",
+        "name": "Strabismus",
+        "diseases": 1199
+      },
+      {
+        "id": "HP:0000347",
+        "name": "Micrognathia",
+        "diseases": 1136
+      },
+      {
+        "id": "HP:0000750",
+        "name": "Delayed speech and language development",
+        "diseases": 1115
+      },
+      {
+        "id": "HP:0000639",
+        "name": "Nystagmus",
+        "diseases": 1108
+      },
+      {
+        "id": "HP:0001508",
+        "name": "Failure to thrive",
+        "diseases": 1103
+      },
+      {
+        "id": "HP:0000369",
+        "name": "Low-set ears",
+        "diseases": 1064
+      },
+      {
+        "id": "HP:0001251",
+        "name": "Ataxia",
+        "diseases": 1047
+      },
+      {
+        "id": "HP:0000218",
+        "name": "High palate",
+        "diseases": 958
+      },
+      {
+        "id": "HP:0000028",
+        "name": "Cryptorchidism",
+        "diseases": 951
+      },
+      {
+        "id": "HP:0011968",
+        "name": "Feeding difficulties",
+        "diseases": 935
+      },
+      {
+        "id": "HP:0000365",
+        "name": "Hearing impairment",
+        "diseases": 933
+      },
+      {
+        "id": "HP:0000407",
+        "name": "Sensorineural hearing impairment",
+        "diseases": 882
+      }
+    ],
+    "inheritance": [
+      {
+        "id": "HP:0000007",
+        "name": "Autosomal recessive inheritance",
+        "diseases": 4265
+      },
+      {
+        "id": "HP:0000006",
+        "name": "Autosomal dominant inheritance",
+        "diseases": 3569
+      },
+      {
+        "id": "HP:0001419",
+        "name": "X-linked recessive inheritance",
+        "diseases": 278
+      },
+      {
+        "id": "HP:0003745",
+        "name": "Sporadic",
+        "diseases": 159
+      },
+      {
+        "id": "HP:0003829",
+        "name": "Typified by incomplete penetrance",
+        "diseases": 159
+      },
+      {
+        "id": "HP:0001417",
+        "name": "X-linked inheritance",
+        "diseases": 154
+      },
+      {
+        "id": "HP:0001442",
+        "name": "Typified by somatic mosaicism",
+        "diseases": 103
+      },
+      {
+        "id": "HP:0001423",
+        "name": "X-linked dominant inheritance",
+        "diseases": 96
+      },
+      {
+        "id": "HP:0001426",
+        "name": "Non-Mendelian inheritance",
+        "diseases": 52
+      },
+      {
+        "id": "HP:0001427",
+        "name": "Mitochondrial inheritance",
+        "diseases": 29
+      },
+      {
+        "id": "HP:0010982",
+        "name": "Polygenic inheritance",
+        "diseases": 25
+      },
+      {
+        "id": "HP:0001466",
+        "name": "Contiguous gene syndrome",
+        "diseases": 24
+      },
+      {
+        "id": "HP:0025352",
+        "name": "Typically de novo",
+        "diseases": 13
+      },
+      {
+        "id": "HP:0010984",
+        "name": "Digenic inheritance",
+        "diseases": 11
+      },
+      {
+        "id": "HP:0003743",
+        "name": "Genetic anticipation",
+        "diseases": 8
+      },
+      {
+        "id": "HP:0003831",
+        "name": "Typified by age-related disease onset",
+        "diseases": 7
+      },
+      {
+        "id": "HP:0001470",
+        "name": "Sex-limited expression",
+        "diseases": 6
+      },
+      {
+        "id": "HP:0001450",
+        "name": "Y-linked inheritance",
+        "diseases": 6
+      },
+      {
+        "id": "HP:0001475",
+        "name": "Male-limited expression",
+        "diseases": 3
+      },
+      {
+        "id": "HP:0012275",
+        "name": "Autosomal dominant inheritance with maternal imprinting",
+        "diseases": 2
+      },
+      {
+        "id": "HP:0003744",
+        "name": "Genetic anticipation with paternal anticipation bias",
+        "diseases": 2
+      },
+      {
+        "id": "HP:0010983",
+        "name": "Oligogenic inheritance",
+        "diseases": 2
+      },
+      {
+        "id": "HP:0034344",
+        "name": "Female-limited expression",
+        "diseases": 1
+      },
+      {
+        "id": "HP:0034341",
+        "name": "Pseudoautosomal recessive inheritance",
+        "diseases": 1
+      },
+      {
+        "id": "HP:4000158",
+        "name": "Typified by high penetrance",
+        "diseases": 1
+      },
+      {
+        "id": "HP:0032382",
+        "name": "Uniparental disomy",
+        "diseases": 1
+      },
+      {
+        "id": "HP:0032384",
+        "name": "Uniparental isodisomy",
+        "diseases": 1
+      }
+    ],
+    "genes": {
+      "types": {
+        "MENDELIAN": 7094,
+        "POLYGENIC": 582,
+        "UNKNOWN": 8423
+      },
+      "genes": 4885,
+      "diseases": 6616,
+      "perGene": {
+        "bins": [
+          "1",
+          "2",
+          "3-5",
+          "6-10",
+          ">10"
+        ],
+        "counts": [
+          3551,
+          874,
+          416,
+          37,
+          7
+        ]
+      },
+      "top": [
+        {
+          "gene": "COL2A1",
+          "diseases": 17
+        },
+        {
+          "gene": "PIK3CA",
+          "diseases": 15
+        },
+        {
+          "gene": "FGFR3",
+          "diseases": 14
+        },
+        {
+          "gene": "KRAS",
+          "diseases": 13
+        },
+        {
+          "gene": "FGFR2",
+          "diseases": 11
+        },
+        {
+          "gene": "LMNA",
+          "diseases": 11
+        },
+        {
+          "gene": "TRPV4",
+          "diseases": 11
+        },
+        {
+          "gene": "SLC4A1",
+          "diseases": 10
+        },
+        {
+          "gene": "FLNA",
+          "diseases": 9
+        },
+        {
+          "gene": "FBN1",
+          "diseases": 8
+        },
+        {
+          "gene": "FGFR1",
+          "diseases": 8
+        },
+        {
+          "gene": "GDF5",
+          "diseases": 8
+        },
+        {
+          "gene": "GNAS",
+          "diseases": 8
+        },
+        {
+          "gene": "KRT5",
+          "diseases": 8
+        },
+        {
+          "gene": "NRAS",
+          "diseases": 8
+        }
+      ]
+    }
+  },
+  "orphanet": {
+    "genes": {
+      "date": "2026-06-23",
+      "disorders": 3417,
+      "genes": 4623,
+      "associations": {
+        "Disease-causing germline mutation(s) in": 5421,
+        "Candidate gene tested in": 302,
+        "Disease-causing germline mutation(s) (loss of function) in": 1222,
+        "Disease-causing somatic mutation(s) in": 250,
+        "Major susceptibility factor in": 440,
+        "Modifying germline mutation in": 57,
+        "Disease-causing germline mutation(s) (gain of function) in": 214,
+        "Role in the phenotype of": 282,
+        "Part of a fusion gene in": 262,
+        "Biomarker tested in": 53
+      },
+      "perDisorder": {
+        "bins": [
+          "1",
+          "2",
+          "3-5",
+          "6-10",
+          ">10"
+        ],
+        "counts": [
+          2561,
+          394,
+          307,
+          93,
+          62
+        ]
+      }
+    },
+    "prevalence": {
+      "date": "2026-06-23",
+      "disorders": 5807,
+      "classes": {
+        "<1 / 1 000 000": 3470,
+        "Unknown": 1468,
+        "1-9 / 1 000 000": 215,
+        "1-9 / 100 000": 329,
+        "1-5 / 10 000": 171,
+        "No point prevalence": 136,
+        ">1 / 1000": 7,
+        "6-9 / 10 000": 3,
+        "Not yet documented": 6,
+        "Case reports only": 2
+      }
+    },
+    "ages": {
+      "date": "2026-06-23",
+      "disorders": 6391,
+      "onset": {
+        "Infancy": 2297,
+        "Neonatal": 2754,
+        "Childhood": 1517,
+        "All ages": 693,
+        "Adolescent": 781,
+        "Antenatal": 843,
+        "Adult": 1353,
+        "Elderly": 321,
+        "No data available": 48
+      },
+      "inheritance": {
+        "Autosomal recessive": 2132,
+        "Autosomal dominant": 1643,
+        "Not applicable": 1661,
+        "Unknown": 387,
+        "X-linked recessive": 303,
+        "Mitochondrial inheritance": 34,
+        "X-linked dominant": 88,
+        "Multigenic/multifactorial": 154,
+        "Semi-dominant": 4,
+        "Y-linked": 3,
+        "Oligogenic": 4,
+        "No data available": 15,
+        "Not yet documented": 1
+      },
+      "noOnset": 362,
+      "noInheritance": 774
+    }
+  },
+  "gtr": {
+    "tests": 63430,
+    "labs": 291,
+    "countries": [
+      {
+        "country": "United States",
+        "tests": 31399,
+        "labs": 180
+      },
+      {
+        "country": "Turkey",
+        "tests": 11273,
+        "labs": 3
+      },
+      {
+        "country": "Spain",
+        "tests": 5260,
+        "labs": 9
+      },
+      {
+        "country": "India",
+        "tests": 4011,
+        "labs": 12
+      },
+      {
+        "country": "Portugal",
+        "tests": 3400,
+        "labs": 3
+      },
+      {
+        "country": "Germany",
+        "tests": 2720,
+        "labs": 11
+      },
+      {
+        "country": "Canada",
+        "tests": 1971,
+        "labs": 18
+      },
+      {
+        "country": "Netherlands",
+        "tests": 1280,
+        "labs": 5
+      },
+      {
+        "country": "Austria",
+        "tests": 1017,
+        "labs": 2
+      },
+      {
+        "country": "Finland",
+        "tests": 228,
+        "labs": 1
+      },
+      {
+        "country": "Belgium",
+        "tests": 156,
+        "labs": 3
+      },
+      {
+        "country": "Brazil",
+        "tests": 118,
+        "labs": 2
+      },
+      {
+        "country": "Poland",
+        "tests": 91,
+        "labs": 2
+      },
+      {
+        "country": "Denmark",
+        "tests": 70,
+        "labs": 1
+      },
+      {
+        "country": "Chile",
+        "tests": 65,
+        "labs": 1
+      }
+    ],
+    "methods": [
+      {
+        "method": "Sequence analysis of the entire coding region",
+        "tests": 46648
+      },
+      {
+        "method": "Deletion/duplication analysis",
+        "tests": 28853
+      },
+      {
+        "method": "Sequence analysis of select exons",
+        "tests": 5059
+      },
+      {
+        "method": "Targeted variant analysis",
+        "tests": 4291
+      },
+      {
+        "method": "Mutation scanning of the entire coding region",
+        "tests": 4064
+      },
+      {
+        "method": "Analyte",
+        "tests": 398
+      },
+      {
+        "method": "FISH-interphase",
+        "tests": 203
+      },
+      {
+        "method": "Methylation analysis",
+        "tests": 181
+      },
+      {
+        "method": "Enzyme assay",
+        "tests": 169
+      },
+      {
+        "method": "Mutation scanning of select exons",
+        "tests": 155
+      },
+      {
+        "method": "FISH-metaphase",
+        "tests": 149
+      },
+      {
+        "method": "Karyotyping",
+        "tests": 128
+      },
+      {
+        "method": "RNA analysis",
+        "tests": 114
+      },
+      {
+        "method": "Fluorescence in situ hybridization (FISH)",
+        "tests": 99
+      },
+      {
+        "method": "Linkage analysis",
+        "tests": 56
+      },
+      {
+        "method": "Microsatellite instability testing (MSI)",
+        "tests": 46
+      },
+      {
+        "method": "Detection of homozygosity",
+        "tests": 43
+      },
+      {
+        "method": "Uniparental disomy study (UPD)",
+        "tests": 43
+      },
+      {
+        "method": "Immunohistochemistry",
+        "tests": 27
+      },
+      {
+        "method": "Chromosome breakage studies",
+        "tests": 12
+      },
+      {
+        "method": "Protein analysis",
+        "tests": 7
+      },
+      {
+        "method": "Protein expression",
+        "tests": 2
+      },
+      {
+        "method": "Sister chromatid exchange",
+        "tests": 2
+      },
+      {
+        "method": "Multicolor FISH (M-FISH)/Spectral Karyotypingâ„¢ (SKYâ„¢)",
+        "tests": 1
+      },
+      {
+        "method": "Multicolor FISH (M-FISH)/Spectral Karyotyping™ (SKY™)",
+        "tests": 1
+      }
+    ],
+    "genesPerTest": {
+      "bins": [
+        "0",
+        "1",
+        "2-10",
+        "11-100",
+        "101-1000",
+        ">1000"
+      ],
+      "counts": [
+        2391,
+        54890,
+        3209,
+        2435,
+        486,
+        19
+      ]
+    },
+    "topGenes": [
+      {
+        "gene": "TP53",
+        "tests": 593
+      },
+      {
+        "gene": "PTEN",
+        "tests": 578
+      },
+      {
+        "gene": "NF1",
+        "tests": 513
+      },
+      {
+        "gene": "ATM",
+        "tests": 493
+      },
+      {
+        "gene": "BRCA2",
+        "tests": 482
+      },
+      {
+        "gene": "MLH1",
+        "tests": 459
+      },
+      {
+        "gene": "KRAS",
+        "tests": 456
+      },
+      {
+        "gene": "LMNA",
+        "tests": 445
+      },
+      {
+        "gene": "BRAF",
+        "tests": 441
+      },
+      {
+        "gene": "BRCA1",
+        "tests": 430
+      },
+      {
+        "gene": "MSH2",
+        "tests": 430
+      },
+      {
+        "gene": "MSH6",
+        "tests": 427
+      },
+      {
+        "gene": "SMAD4",
+        "tests": 415
+      },
+      {
+        "gene": "HRAS",
+        "tests": 401
+      },
+      {
+        "gene": "PMS2",
+        "tests": 398
+      },
+      {
+        "gene": "FGFR3",
+        "tests": 382
+      },
+      {
+        "gene": "NRAS",
+        "tests": 382
+      },
+      {
+        "gene": "PTPN11",
+        "tests": 377
+      },
+      {
+        "gene": "PALB2",
+        "tests": 367
+      },
+      {
+        "gene": "FBN1",
+        "tests": 360
+      }
+    ],
+    "development": {
+      "not stated": 28276,
+      "Test developed by laboratory (no manufacturer test name)": 31200,
+      "Manufactured (research use only; not FDA-reviewed)": 221,
+      "FDA-reviewed (has FDA test name)": 3623,
+      "Test developed by laboratory but exempt from FDA oversight (eg. NYS CLEP approved, offered within a hospital or clinic)": 105,
+      "Modified FDA (has FDA-reviewed entry, but with lab modifications/field changes)": 5
+    },
+    "created": {
+      "2012": 224,
+      "2013": 3597,
+      "2014": 5193,
+      "2015": 3400,
+      "2016": 13012,
+      "2017": 1171,
+      "2018": 1925,
+      "2019": 5611,
+      "2020": 13051,
+      "2021": 2381,
+      "2022": 401,
+      "2023": 6826,
+      "2024": 390,
+      "2025": 5944,
+      "2026": 304
+    }
+  },
+  "therapies": {
+    "fda": [
+      {
+        "trade": "ABECMA",
+        "name": "ABECMA (idecabtagene vicleucel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/abecma"
+      },
+      {
+        "trade": "ADSTILADRIN",
+        "name": "ADSTILADRIN (nadofaragene firadenovec-vcng)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/adstiladrin"
+      },
+      {
+        "trade": "ALLOCORD",
+        "name": "ALLOCORD (HPC, Cord Blood)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/allocord-hpc-cord-blood"
+      },
+      {
+        "trade": "AMTAGVI",
+        "name": "AMTAGVI (lifileucel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/approved-blood-products/amtagvi"
+      },
+      {
+        "trade": "TREGZI",
+        "name": "TREGZI (Allogeneic regulatory T cell immunotherapy with HSPC and T cells-vldq)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/tregzi"
+      },
+      {
+        "trade": "AUCATZYL",
+        "name": "AUCATZYL (obecabtagene autoleucel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/aucatzyl"
+      },
+      {
+        "trade": "BEQVEZ",
+        "name": "BEQVEZ (fidanacogene elaparvovec-dzkt)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/beqvez"
+      },
+      {
+        "trade": "BREYANZI",
+        "name": "BREYANZI (lisocabtagene maraleucel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/breyanzi"
+      },
+      {
+        "trade": "CARVYKTI",
+        "name": "CARVYKTI (ciltacabtagene autoleucel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/carvykti"
+      },
+      {
+        "trade": "CASGEVY",
+        "name": "CASGEVY (exagamglogene autotemcel [exa-cel])",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/casgevy"
+      },
+      {
+        "trade": "CLEVECORD",
+        "name": "CLEVECORD (HPC Cord Blood)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/clevecord-hpc-cord-blood"
+      },
+      {
+        "trade": "Ducord, HPC Cord Blood",
+        "name": "Ducord, HPC Cord Blood",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/ducord"
+      },
+      {
+        "trade": "ELEVIDYS",
+        "name": "ELEVIDYS (delandistrogene moxeparvovec-rokl)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/tissue-tissue-products/elevidys"
+      },
+      {
+        "trade": "ENCELTO",
+        "name": "ENCELTO (revakinagene taroretcel-lwey)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/center-biologics-evaluation-and-research-cber-product-approval-information/encelto"
+      },
+      {
+        "trade": "FAYUVI",
+        "name": "FAYUVI (rebisufligene etisparvovec-hopf)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/fayuvi"
+      },
+      {
+        "trade": "GENGLYCOS",
+        "name": "GENGLYCOS (pariglasgene brecaparvovec-opnr)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/genglycos"
+      },
+      {
+        "trade": "GINTUIT",
+        "name": "GINTUIT (Allogeneic Cultured Keratinocytes and Fibroblasts in Bovine Collagen)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/gintuit-allogeneic-cultured-keratinocytes-and-fibroblasts-bovine-collagen"
+      },
+      {
+        "trade": "HEMACORD",
+        "name": "HEMACORD (HPC, cord blood)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hemacord-hpc-cord-blood"
+      },
+      {
+        "trade": "HEMGENIX",
+        "name": "HEMGENIX (etranacogene dezaparvovec-drlb)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/vaccines/hemgenix"
+      },
+      {
+        "trade": "HPC, Cord Blood",
+        "name": "HPC, Cord Blood",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood"
+      },
+      {
+        "trade": "HPC, Cord Blood - MD Anderson Cord Blood Bank",
+        "name": "HPC, Cord Blood - MD Anderson Cord Blood Bank",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood-md-anderson-cord-blood-bank"
+      },
+      {
+        "trade": "HPC, Cord Blood - LifeSouth",
+        "name": "HPC, Cord Blood - LifeSouth",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood-lifesouth"
+      },
+      {
+        "trade": "HPC, Cord Blood - Bloodworks",
+        "name": "HPC, Cord Blood - Bloodworks",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/hpc-cord-blood-bloodworks"
+      },
+      {
+        "trade": "IMLYGIC",
+        "name": "IMLYGIC (talimogene laherparepvec)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/imlygic"
+      },
+      {
+        "trade": "ITVISMA",
+        "name": "ITVISMA (onasemnogene abeparvovec-brve)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/itvisma"
+      },
+      {
+        "trade": "KEBILIDI",
+        "name": "KEBILIDI (eladocagene exuparvovec-tneq)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/kebilidi"
+      },
+      {
+        "trade": "KRESLADI",
+        "name": "KRESLADI (marnetegragene autotemcel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/kresladi"
+      },
+      {
+        "trade": "KYMRIAH",
+        "name": "KYMRIAH (tisagenlecleucel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/kymriah"
+      },
+      {
+        "trade": "LANTIDRA",
+        "name": "LANTIDRA (donislecel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/lantidra"
+      },
+      {
+        "trade": "LAVIV",
+        "name": "LAVIV (Azficel-T)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/laviv"
+      },
+      {
+        "trade": "LENMELDY",
+        "name": "LENMELDY (atidarsagene autotemcel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/lenmeldy"
+      },
+      {
+        "trade": "LUXTURNA",
+        "name": "LUXTURNA (voretigene neparvovec-rzyl)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/luxturna"
+      },
+      {
+        "trade": "LYFGENIA",
+        "name": "LYFGENIA (lovotibeglogene autotemcel [lovo-cel])",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/lyfgenia"
+      },
+      {
+        "trade": "MACI",
+        "name": "MACI (Autologous Cultured Chondrocytes on a Porcine Collagen Membrane)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/maci-autologous-cultured-chondrocytes-porcine-collagen-membrane"
+      },
+      {
+        "trade": "OMISIRGE",
+        "name": "OMISIRGE (omidubicel-onlv)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/omisirge"
+      },
+      {
+        "trade": "OTARMENI",
+        "name": "OTARMENI™ (lunsotogene parvec cwha)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/otarmeni"
+      },
+      {
+        "trade": "PAPZIMEOS",
+        "name": "PAPZIMEOS (zopapogene imadenovec-drba)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/papzimeos"
+      },
+      {
+        "trade": "PROVENGE",
+        "name": "PROVENGE (sipuleucel-T)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/provenge-sipuleucel-t"
+      },
+      {
+        "trade": "REGENECYTE",
+        "name": "REGENECYTE (HPC, Cord Blood)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/regenecyte"
+      },
+      {
+        "trade": "RETHYMIC",
+        "name": "RETHYMIC (allogeneic processed thymus tissue – agdc)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/rethymic"
+      },
+      {
+        "trade": "ROCTAVIAN",
+        "name": "ROCTAVIAN (valoctocogene roxaparvovec-rvox)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/roctavian"
+      },
+      {
+        "trade": "RYONCIL",
+        "name": "RYONCIL (remestemcel-L-rknd)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/ryoncil"
+      },
+      {
+        "trade": "SYMVESS",
+        "name": "SYMVESS (acellular tissue engineered vessel-tyod)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/symvess"
+      },
+      {
+        "trade": "SKYSONA",
+        "name": "SKYSONA (elivaldogene autotemcel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/skysona"
+      },
+      {
+        "trade": "STRATAGRAFT",
+        "name": "STRATAGRAFT (allogeneic cultured keratinocytes and dermal fibroblasts in murine collagen-dsat)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/stratagraft"
+      },
+      {
+        "trade": "TECARTUS",
+        "name": "TECARTUS (brexucabtagene autoleucel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/tecartus"
+      },
+      {
+        "trade": "TECELRA",
+        "name": "TECELRA (afamitresgene autoleucel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/tecelra"
+      },
+      {
+        "trade": "TUDRIQEV",
+        "name": "TUDRIQEV (vusolimogene oderparepvec-wtpg",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/tudriqev"
+      },
+      {
+        "trade": "VOCERYQ",
+        "name": "VOCERYQ (doruxapapogene ralaplasmid and lalikinogene sifuplasmid-gxfd)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/voceryq"
+      },
+      {
+        "trade": "VYJUVEK",
+        "name": "VYJUVEK (beremagene geperpavec-svdt)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/vyjuvek"
+      },
+      {
+        "trade": "WASKYRA",
+        "name": "WASKYRA (etuvetidigene autotemcel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/waskyra"
+      },
+      {
+        "trade": "YESCARTA",
+        "name": "YESCARTA (axicabtagene ciloleucel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/yescarta"
+      },
+      {
+        "trade": "ZEVASKYN",
+        "name": "ZEVASKYN (prademagene zamikeracel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/zevaskyn"
+      },
+      {
+        "trade": "ZYNTEGLO",
+        "name": "ZYNTEGLO (betibeglogene autotemcel)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/zynteglo"
+      },
+      {
+        "trade": "ZOLGENSMA",
+        "name": "ZOLGENSMA (onasemnogene abeparvovec-xioi)",
+        "url": "https://www.fda.gov/vaccines-blood-biologics/zolgensma"
+      }
+    ],
+    "trials": {
+      "aav": {
+        "total": 407,
+        "byYear": {
+          "1999": 1,
+          "2003": 3,
+          "2004": 6,
+          "2005": 3,
+          "2006": 4,
+          "2007": 5,
+          "2008": 4,
+          "2009": 4,
+          "2010": 6,
+          "2011": 4,
+          "2012": 4,
+          "2013": 5,
+          "2014": 7,
+          "2015": 15,
+          "2016": 11,
+          "2017": 26,
+          "2018": 29,
+          "2019": 17,
+          "2020": 16,
+          "2021": 21,
+          "2022": 28,
+          "2023": 46,
+          "2024": 49,
+          "2025": 43,
+          "2026": 48,
+          "2027": 2
+        },
+        "undated": 0,
+        "phases": {
+          "Phase 2": 204,
+          "Phase 3": 56,
+          "Phase 1": 97,
+          "Not applicable": 18,
+          "Early phase 1": 29,
+          "Phase 4": 3
+        },
+        "recruiting": 109
+      },
+      "lentiviral": {
+        "total": 420,
+        "byYear": {
+          "2003": 1,
+          "2004": 1,
+          "2005": 1,
+          "2007": 1,
+          "2008": 1,
+          "2009": 5,
+          "2010": 5,
+          "2011": 5,
+          "2012": 7,
+          "2013": 15,
+          "2014": 17,
+          "2015": 15,
+          "2016": 21,
+          "2017": 27,
+          "2018": 31,
+          "2019": 34,
+          "2020": 25,
+          "2021": 23,
+          "2022": 29,
+          "2023": 27,
+          "2024": 32,
+          "2025": 38,
+          "2026": 49,
+          "2027": 10
+        },
+        "undated": 0,
+        "phases": {
+          "Phase 1": 199,
+          "Phase 2": 146,
+          "Phase 3": 12,
+          "Not applicable": 24,
+          "Early phase 1": 39
+        },
+        "recruiting": 86
+      },
+      "retroviral": {
+        "total": 323,
+        "byYear": {
+          "1988": 1,
+          "1990": 1,
+          "1992": 1,
+          "1993": 1,
+          "1994": 1,
+          "1995": 2,
+          "1996": 2,
+          "1997": 2,
+          "1998": 5,
+          "1999": 3,
+          "2000": 5,
+          "2001": 6,
+          "2002": 5,
+          "2003": 6,
+          "2004": 11,
+          "2005": 16,
+          "2006": 12,
+          "2007": 11,
+          "2008": 8,
+          "2009": 7,
+          "2010": 14,
+          "2011": 13,
+          "2012": 17,
+          "2013": 10,
+          "2014": 10,
+          "2015": 10,
+          "2016": 17,
+          "2017": 15,
+          "2018": 17,
+          "2019": 17,
+          "2020": 11,
+          "2021": 8,
+          "2022": 10,
+          "2023": 10,
+          "2024": 6,
+          "2025": 10,
+          "2026": 7,
+          "2027": 1
+        },
+        "undated": 14,
+        "phases": {
+          "Phase 3": 38,
+          "Phase 4": 35,
+          "Phase 1": 91,
+          "Phase 2": 104,
+          "Early phase 1": 8,
+          "Not applicable": 47
+        },
+        "recruiting": 24
+      },
+      "cart": {
+        "total": 2556,
+        "byYear": {
+          "1997": 1,
+          "2003": 1,
+          "2007": 1,
+          "2008": 1,
+          "2009": 2,
+          "2010": 8,
+          "2011": 5,
+          "2012": 8,
+          "2013": 13,
+          "2014": 23,
+          "2015": 46,
+          "2016": 82,
+          "2017": 105,
+          "2018": 111,
+          "2019": 153,
+          "2020": 171,
+          "2021": 203,
+          "2022": 211,
+          "2023": 234,
+          "2024": 354,
+          "2025": 399,
+          "2026": 385,
+          "2027": 39
+        },
+        "undated": 0,
+        "phases": {
+          "Phase 2": 813,
+          "Phase 1": 1102,
+          "Early phase 1": 383,
+          "Not applicable": 199,
+          "Phase 3": 53,
+          "Phase 4": 6
+        },
+        "recruiting": 867
+      },
+      "editing": {
+        "total": 158,
+        "byYear": {
+          "2009": 2,
+          "2010": 1,
+          "2014": 1,
+          "2015": 1,
+          "2016": 6,
+          "2017": 8,
+          "2018": 10,
+          "2019": 13,
+          "2020": 7,
+          "2021": 8,
+          "2022": 12,
+          "2023": 15,
+          "2024": 25,
+          "2025": 21,
+          "2026": 25,
+          "2027": 2,
+          "2028": 1
+        },
+        "undated": 0,
+        "phases": {
+          "Phase 3": 10,
+          "Phase 1": 58,
+          "Phase 2": 52,
+          "Not applicable": 22,
+          "Early phase 1": 16
+        },
+        "recruiting": 43
+      },
+      "antisense": {
+        "total": 362,
+        "byYear": {
+          "1993": 1,
+          "1997": 1,
+          "1998": 2,
+          "1999": 2,
+          "2000": 7,
+          "2001": 9,
+          "2002": 10,
+          "2003": 15,
+          "2004": 9,
+          "2005": 9,
+          "2006": 8,
+          "2007": 10,
+          "2008": 11,
+          "2009": 8,
+          "2010": 13,
+          "2011": 7,
+          "2012": 14,
+          "2013": 4,
+          "2014": 10,
+          "2015": 9,
+          "2016": 5,
+          "2017": 11,
+          "2018": 8,
+          "2019": 20,
+          "2020": 13,
+          "2021": 26,
+          "2022": 17,
+          "2023": 14,
+          "2024": 29,
+          "2025": 32,
+          "2026": 27,
+          "2027": 1
+        },
+        "undated": 0,
+        "phases": {
+          "Phase 1": 113,
+          "Phase 2": 186,
+          "Phase 3": 32,
+          "Not applicable": 21,
+          "Early phase 1": 7,
+          "Phase 4": 3
+        },
+        "recruiting": 48
+      },
+      "sirna": {
+        "total": 165,
+        "byYear": {
+          "2005": 1,
+          "2006": 1,
+          "2007": 2,
+          "2008": 4,
+          "2009": 3,
+          "2010": 1,
+          "2011": 3,
+          "2012": 3,
+          "2013": 1,
+          "2014": 4,
+          "2015": 2,
+          "2016": 4,
+          "2017": 10,
+          "2018": 5,
+          "2019": 7,
+          "2020": 5,
+          "2021": 19,
+          "2022": 12,
+          "2023": 15,
+          "2024": 18,
+          "2025": 15,
+          "2026": 30
+        },
+        "undated": 0,
+        "phases": {
+          "Phase 3": 26,
+          "Phase 2": 66,
+          "Phase 1": 65,
+          "Early phase 1": 4,
+          "Phase 4": 2,
+          "Not applicable": 2
+        },
+        "recruiting": 36
+      }
     }
   }
 };
