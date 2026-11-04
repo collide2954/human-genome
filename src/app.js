@@ -2456,6 +2456,7 @@ const renderTherapy = () => {
     rows: vectorRows.map(([v, n]) => ({ key: v, label: v, value: n })),
     scale: 'linear',
     rowH: 20,
+    labelShare: 0.45,
     format: (v) => String(v),
     tickFormat: (t) => String(t),
     aria: 'FDA-approved gene therapies by vector or editing method',
@@ -2468,10 +2469,11 @@ const renderTherapy = () => {
     series: TRIAL_MODALITIES.map((m, i) => ({
       label: m.label, color: TRIAL_COLORS[i], rows: startYears.map((y) => ({ x: y, y: T.trials[m.key].byYear[y] ?? 0 })),
     })),
-    scale: 'linear',
+    scale: 'log',
+    logStep: 1,
     height: 320,
     labelW: 170,
-    aria: 'Interventional studies starting each year, by the gene therapy modality their intervention names',
+    aria: 'Interventional studies starting each year, by the gene therapy modality their intervention names, log scale',
     describe: (y) => tipLines(String(y), 'studies starting that year', ...TRIAL_MODALITIES.map((m) => `${m.label}: ${exact(T.trials[m.key].byYear[y] ?? 0)}`)),
   });
   attachData('#therapy-trials-chart', 'trials-by-modality', ['Start year', ...TRIAL_MODALITIES.map((m) => m.label)], startYears.map((y) => [y, ...TRIAL_MODALITIES.map((m) => T.trials[m.key].byYear[y] ?? 0)]));
