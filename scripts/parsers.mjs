@@ -1,3 +1,8 @@
+import { exact } from '../src/lib.js';
+import {
+  linearEdges, binIndex, coverage, canonicalMotif,
+} from '../src/stats.js';
+
 export const CHROMS = [...Array.from({ length: 22 }, (_, i) => String(i + 1)), 'X', 'Y'];
 const STANDARD = new Set(CHROMS);
 
@@ -109,6 +114,135 @@ export const buildAssembly = ({ report38, stats38, reportT2t, statsT2t, cyto, ga
     bands: parseCytobands(cyto),
     gaps: parseGaps(gaps),
     centromeres: parseCentromeres(cen),
+  };
+};
+
+const LANDSCAPE = ['LINE', 'SINE', 'LTR', 'DNA'];
+const ALU = ['AluY', 'AluS', 'AluJ'];
+
+const tally = (map, key, make, len) => {
+  if (!map.has(key)) map.set(key, { ...make, count: 0, bp: 0 });
+  const t = map.get(key);
+  t.count += 1;
+  t.bp += len;
+};
+
+export const rmskSummary = () => {
+  const classes = new Map();
+  const families = new Map();
+  const perChrom = {};
+  const edges = linearEdges(0, 50, 1);
+  const bp = Object.fromEntries(LANDSCAPE.map((c) => [c, new Array(50).fill(0)]));
+  const alu = Object.fromEntries(ALU.map((a) => [a, { count: 0, bp: 0 }]));
+  const l1hs = { count: 0, fullLength: 0 };
+  const total = { count: 0, bp: 0 };
+  let longest = null;
+  return {
+    add(line) {
+      const c = line.split('\t');
+      const chrom = bare(c[5]);
+      if (!STANDARD.has(chrom)) return;
+      const start = Number(c[6]);
+      const len = Number(c[7]) - start;
+      const cls = c[11].replace(/\?$/, '');
+      const family = c[12].replace(/\?$/, '');
+      const name = c[10];
+      total.count += 1;
+      total.bp += len;
+      tally(classes, cls, { cls }, len);
+      tally(families, `${cls}\t${family}`, { cls, family }, len);
+      perChrom[chrom] = (perChrom[chrom] ?? 0) + len;
+      if (bp[cls]) bp[cls][binIndex(edges, Number(c[2]) / 10)] += len;
+      if (family === 'Alu' && alu[name.slice(0, 4)]) {
+        alu[name.slice(0, 4)].count += 1;
+        alu[name.slice(0, 4)].bp += len;
+      }
+      if (name === 'L1HS') {
+        l1hs.count += 1;
+        if (len >= 6000) l1hs.fullLength += 1;
+      }
+      if (!longest || len > longest.length) longest = { name, cls, chrom, start: start + 1, length: len };
+    },
+    result() {
+      const byBp = (a, b) => b.bp - a.bp;
+      return {
+        total,
+        classes: [...classes.values()].sort(byBp),
+        families: [...families.values()].sort(byBp),
+        perChrom,
+        landscape: { classes: LANDSCAPE, edges, bp },
+        alu,
+        l1hs,
+        longest,
+      };
+    },
+  };
+};
+
+export const superDupsSummary = () => {
+  const intervals = {};
+  const pairs = new Map();
+  const edges = linearEdges(0.9, 1, 0.005);
+  let longest = null;
+  return {
+    add(line) {
+      const c = line.split('\t');
+      const chrom = bare(c[1]);
+      if (!STANDARD.has(chrom)) return;
+      const s = Number(c[2]);
+      const e = Number(c[3]);
+      (intervals[chrom] ??= []).push([s, e]);
+      if (!pairs.has(c[11])) pairs.set(c[11], { identity: Number(c[26]), intra: c[1] === c[7] });
+      if (!longest || e - s > longest.length) {
+        longest = { chrom, start: s + 1, length: e - s, other: `${c[7]}:${exact(Number(c[8]) + 1)}-${exact(Number(c[9]))}`, identity: Number(c[26]) };
+      }
+    },
+    result() {
+      const counts = new Array(edges.length - 1).fill(0);
+      const kinds = { intra: 0, inter: 0 };
+      for (const p of pairs.values()) {
+        counts[binIndex(edges, p.identity)] += 1;
+        kinds[p.intra ? 'intra' : 'inter'] += 1;
+      }
+      return {
+        pairs: pairs.size,
+        kinds,
+        covered: Object.fromEntries(Object.entries(intervals).map(([chrom, list]) => [chrom, coverage(list)])),
+        identity: { edges, counts },
+        longest,
+      };
+    },
+  };
+};
+
+const UNITS = ['1', '2', '3', '4', '5', '6', '7-12', '13-50', '51+'];
+const unitOf = (n) => (n <= 6 ? String(n) : n <= 12 ? '7-12' : n <= 50 ? '13-50' : '51+');
+
+export const tandemSummary = () => {
+  const units = new Map(UNITS.map((u) => [u, { unit: u, count: 0, bp: 0 }]));
+  const motifs = new Map();
+  let longest = null;
+  return {
+    add(line) {
+      const c = line.split('\t');
+      const chrom = bare(c[1]);
+      if (!STANDARD.has(chrom)) return;
+      const start = Number(c[2]);
+      const len = Number(c[3]) - start;
+      const size = Number(c[7]);
+      const u = units.get(unitOf(size));
+      u.count += 1;
+      u.bp += len;
+      if (size <= 6) tally(motifs, canonicalMotif(c[16]), { motif: canonicalMotif(c[16]) }, len);
+      if (!longest || len > longest.length) longest = { chrom, start: start + 1, length: len, motif: c[16] };
+    },
+    result() {
+      return {
+        units: [...units.values()],
+        motifs: [...motifs.values()].sort((a, b) => b.count - a.count || b.bp - a.bp).slice(0, 30),
+        longest,
+      };
+    },
   };
 };
 

@@ -74,7 +74,7 @@ test('superDupsSummary merges covered bases and bins identity once per pair', ()
   assert.equal(r.identity.edges.length, 21);
   assert.equal(r.identity.counts[19], 1);
   assert.equal(r.identity.counts[6], 1);
-  assert.deepEqual(r.longest, { chrom: '2', start: 101, length: 1100, other: 'chr1:901-2,000', identity: 0.93 });
+  assert.deepEqual(r.longest, { chrom: '1', start: 901, length: 1100, other: 'chr2:101-1,200', identity: 0.93 });
 });
 
 const trf = (chrom, s, e, size, seq) => {
