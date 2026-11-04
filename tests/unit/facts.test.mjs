@@ -74,6 +74,22 @@ test('population and ancient genome sources are cited', () => {
   }
 });
 
+test('cancer genomics sources are cited in their own group after clinical genetics', () => {
+  for (const key of ['intogen', 'martinezJimenez2020', 'gdc', 'heath2021', 'tcga2013', 'bailey2018', 'lawrence2013', 'alexandrov2013', 'horak2022', 'li2017']) {
+    assert.equal(SOURCE_TITLES[key]?.[0], 'Cancer genomics', key);
+  }
+  assert.equal(SOURCE_GROUPS.indexOf('Cancer genomics'), SOURCE_GROUPS.indexOf('Clinical genetics') + 1);
+});
+
+test('pharmacogenomics sources are cited, with the license of the ClinPGx data', () => {
+  for (const key of ['cpic', 'relling2011', 'caudle2014', 'caudle2020', 'gaedigk2017', 'huddart2019', 'fdaPgx', 'clinpgx', 'whirlCarrillo2021', 'clinpgxLicense']) {
+    assert.equal(SOURCE_TITLES[key]?.[0], 'Pharmacogenomics', key);
+  }
+  assert.equal(SOURCES.clinpgxLicense, 'https://creativecommons.org/licenses/by-sa/4.0/');
+  assert.match(SOURCE_TITLES.clinpgx[1], /PharmGKB/);
+  assert.match(SOURCE_TITLES.cpic[1], /CPIC®/);
+});
+
 test('biobank sizes and gnomAD v4 totals are fixed values from their papers and release post', () => {
   assert.equal(BIOBANKS.length, 8);
   for (const b of BIOBANKS) {
