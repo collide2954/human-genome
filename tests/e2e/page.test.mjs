@@ -47,8 +47,11 @@ const CHAPTERS = {
   transcripts: ['splicing', 'translation', 'codons'],
   proteins: ['proteome', 'structures', 'membrane', 'domains', 'modifications', 'targets'],
   expression: ['specificity', 'gtex', 'plasma'],
+  networks: ['interactions', 'pathways', 'ontology'],
   reference: ['decoder', 'sources'],
 };
+
+const lastBin = (counts) => counts.findLastIndex((n) => n > 0) + 1;
 
 before(async () => {
   server = await start(0);
@@ -315,6 +318,51 @@ test('the family chart compares shares, with each family\'s size at the end', as
   const widths = rows.map((r) => r.width);
   assert.ok(Math.max(...widths) - Math.min(...widths) < 2, widths.join(', '));
   for (const r of rows) assert.match(r.value, /^[\d,]+ targets$/);
+  await page.close();
+});
+
+test('network charts draw degrees on log axes, hubs, evidence channels and scores', async () => {
+  const { page } = await open();
+  const N = snapshot.networks;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#degree-chart [data-bin]'), lastBin(N.degree.counts));
+  const yTicks = await page.$$eval('#degree-chart text.tick[text-anchor="end"]', (ts) => ts.map((t) => t.textContent));
+  assert.ok(yTicks.length >= 3, yTicks.join(','));
+  for (const t of yTicks) assert.match(t, /^(1|10|100|1K|10K)$/);
+  assert.equal(await count('#hub-chart [data-row]'), 20);
+  assert.equal(await count('#channel-chart [data-row]'), 7);
+  assert.equal(await count('#channel-chart .legend li'), 2);
+  assert.equal(await count('#score-chart [data-bin]'), N.scores.counts.length);
+  await page.close();
+});
+
+test('pathway charts rank, overlap and size Reactome pathways', async () => {
+  const { page } = await open();
+  const R = snapshot.pathways;
+  const n = R.topLevel.length;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#toplevel-chart [data-row]'), n);
+  assert.equal(await count('#pathway-overlap-chart [data-cell]'), n * n);
+  await page.hover('#pathway-overlap-chart [data-cell="0:1"]');
+  const lines = await tipLinesOf(page);
+  assert.match(lines[0], /^Jaccard index \d\.\d{3}$/);
+  assert.ok(lines[1].includes(R.topLevel[0].name) && lines[1].includes(R.topLevel[1].name), lines[1]);
+  assert.equal(await count('#breadth-chart [data-bin]'), R.breadth.findLastIndex((v) => v > 0));
+  assert.equal(await count('#pathway-size-chart [data-bin]'), lastBin(R.sizes.counts));
+  assert.equal(await count('#largest-pathway-chart [data-row]'), 15);
+  await page.close();
+});
+
+test('ontology charts split GO annotations by evidence and rank proteins, terms and curators', async () => {
+  const { page } = await open();
+  const O = snapshot.ontology;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#go-evidence-chart [data-row]'), 3);
+  assert.equal(await count('#go-evidence-chart .legend li'), 5);
+  assert.equal(await count('#go-per-protein-chart [data-bin]'), lastBin(O.perProtein.counts));
+  assert.equal(await count('#go-protein-chart [data-row]'), 15);
+  for (const [id, aspect] of [['go-bp-chart', 'P'], ['go-mf-chart', 'F'], ['go-cc-chart', 'C']]) assert.equal(await count(`#${id} [data-row]`), O.topTerms[aspect].length, id);
+  assert.equal(await count('#go-groups-chart [data-row]'), O.assignedBy.length);
   await page.close();
 });
 
