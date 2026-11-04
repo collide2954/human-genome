@@ -1,5 +1,5 @@
 import {
-  exact, compact, niceTicks, scaleLinear, scaleLog, logTicks, labelStep, waffle as waffleCells, stack, easeOut, spread, squarify,
+  exact, compact, niceTicks, scaleLinear, scaleLog, logTicks, labelStep, waffle as waffleCells, stack, easeOut, spread, squarify, heat,
 } from './lib.js';
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -426,6 +426,68 @@ export const ideogram = ({
       }),
       el('rect', { class: 'body', x: L, y: 0, width: x(c.length) - L, height: bh, rx: 3 }))));
   hover(svg, (k) => describe(flat[Number(k)]));
+  return mountSvg(mount, svg);
+};
+
+export const rampLegend = (lo, hi, format, color = 'var(--ink)', steps = 5) => html('ul', { class: 'legend ramp' },
+  Array.from({ length: steps }, (_, i) => {
+    const v = lo + ((hi - lo) * i) / (steps - 1);
+    return html('li', {}, html('i', { style: `background:${color};opacity:${heat(v, lo, hi)}` }), format(v));
+  }));
+
+export const strips = ({
+  mount, rows, lo, hi, aria, describe, legend,
+}) => {
+  const W = widthOf(mount);
+  const L = 26;
+  const R = 50;
+  const rowH = W < 560 ? 11 : 14;
+  const bh = rowH - 3;
+  const most = Math.max(...rows.map((r) => r.bins.length));
+  const cw = (W - L - R) / most;
+  const H = rows.length * rowH + 2;
+  const flat = [];
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
+    rows.map((r, i) => el('g', { 'data-chrom': r.key, transform: `translate(0 ${i * rowH})` },
+      el('text', { class: 'lab', x: 0, y: bh / 2 + 4 }, r.key),
+      r.bins.map((v, j) => {
+        if (v === null) return null;
+        const k = flat.push({ row: r, index: j, value: v }) - 1;
+        return el('rect', {
+          class: 'cell', 'data-bin': `${r.key}:${j}`, 'data-k': k, 'data-rank': k, x: L + j * cw, y: 0, width: cw + 0.4, height: bh, style: `fill:var(--ink);fill-opacity:${heat(v, lo, hi)};--i:${i}`,
+        });
+      }),
+      el('text', { class: 'val', x: L + r.bins.length * cw + 6, y: bh / 2 + 4 }, r.right))));
+  hover(svg, (k) => describe(flat[Number(k)]));
+  return mountSvg(mount, svg, legend);
+};
+
+export const matrix = ({
+  mount, rows, cols, values, aria, describe, format, center = 1,
+}) => {
+  const W = widthOf(mount);
+  const L = 24;
+  const T = 22;
+  const side = Math.min(64, (Math.min(W, 420) - L) / cols.length);
+  const flatValues = values.flat();
+  const below = Math.max(...flatValues.map((v) => center - v), 1e-9);
+  const above = Math.max(...flatValues.map((v) => v - center), 1e-9);
+  const H = T + rows.length * side + 2;
+  const svg = el('svg', { viewBox: `0 0 ${L + cols.length * side} ${H}`, role: 'img', 'aria-label': aria, style: `max-width:${L + cols.length * side}px` },
+    cols.map((c, j) => el('text', { class: 'tick', x: L + j * side + side / 2, y: 14, 'text-anchor': 'middle' }, c)),
+    rows.map((r, i) => el('g', {},
+      el('text', { class: 'lab', x: 0, y: T + i * side + side / 2 + 4 }, r),
+      cols.map((c, j) => {
+        const v = values[i][j];
+        const color = v < center ? 'var(--s2)' : 'var(--s1)';
+        const shade = v < center ? heat(center - v, 0, below) : heat(v - center, 0, above);
+        return el('g', { 'data-cell': `${r}${c}`, 'data-k': i * cols.length + j, 'data-rank': i * cols.length + j },
+          el('rect', {
+            class: 'cell', x: L + j * side, y: T + i * side, width: side - 2, height: side - 2, style: `fill:${color};fill-opacity:${shade};--i:${i * 4 + j}`,
+          }),
+          el('text', { class: 'cell-lab', x: L + j * side + (side - 2) / 2, y: T + i * side + (side - 2) / 2 + 4, 'text-anchor': 'middle' }, format(v)));
+      }))));
+  hover(svg, (k) => describe(Math.floor(Number(k) / cols.length), Number(k) % cols.length));
   return mountSvg(mount, svg);
 };
 

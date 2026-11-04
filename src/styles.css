@@ -807,6 +807,17 @@ h2,
   stroke-width: 1.5;
 }
 
+.chart .cell-lab {
+  fill: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.legend.ramp {
+  gap: 4px 10px;
+}
+
 .legend {
   display: flex;
   flex-wrap: wrap;
