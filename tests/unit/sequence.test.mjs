@@ -66,6 +66,13 @@ test('readTwoBit lists sequences and decodes bases, Ns and soft masking', () => 
   assert.equal(decodeText(file.sequence('chrB').codes()), 'TTTTTTTTT');
 });
 
+test('readTwoBit reads single bases without decoding the whole sequence', () => {
+  const a = readTwoBit(twoBitOf({ chrA: 'ACGTNNNNacgtGG', chrB: 'T' })).sequence('chrA');
+  assert.equal(decodeText(Uint8Array.from([0, 3, 4, 7, 8, 13].map((i) => a.at(i)))), 'ATNNAG');
+  assert.equal(a.at(-1), 4);
+  assert.equal(a.at(14), 4);
+});
+
 test('encode and decodeText round-trip', () => {
   assert.equal(decodeText(encode('ACGTN')), 'ACGTN');
 });
