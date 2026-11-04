@@ -253,6 +253,46 @@ fixture.constraint = {
   byDosage: { sufficient: { n: 314, median: 0.279 }, other: { n: 17017, median: 0.972 } },
 };
 
+const channels = (entries) => Array.from({ length: 96 }, (_, i) => entries[i] ?? 0);
+fixture.clinvar = {
+  records: 1000,
+  classes: {
+    Pathogenic: 50, 'Pathogenic/Likely pathogenic': 10, 'Likely pathogenic': 20, 'Uncertain significance': 500, 'Likely benign': 200, 'Benign/Likely benign': 20, Benign: 100, Conflicting: 50, Other: 10, none: 40,
+  },
+  stars: { Pathogenic: [0, 0, 0, 9, 1], 'Uncertain significance': [0, 0, 0, 1, 0] },
+  spectrum: { plp: channels({ 34: 30, 64: 10, 0: 40 }), blb: channels({ 34: 60, 0: 20 }) },
+};
+fixture.clinvarTable = {
+  submitters: {
+    'P/LP': [6, 2], VUS: [10, 0], 'B/LB': [4, 4], Conflicting: [0, 4],
+  },
+  lollipops: {
+    BRCA1: { up: [[10, 'truncating', 9, 'Arg'], [20, 'missense', 1, 'Gly']] },
+    MYH7: { up: [[403, 'missense', 3, 'Arg'], [500, 'truncating', 1, 'Gln']] },
+  },
+};
+fixture.clinvarGrowth = {
+  points: [
+    { release: '2017-12-31', records: 100, classes: { 'Uncertain significance': 40 } },
+    { release: '2026-11-01', records: 1000, classes: { 'Uncertain significance': 500 } },
+  ],
+};
+fixture.validity = { curations: 3722, genes: 3072, classes: { Definitive: 2322, Disputed: 200, Refuted: 49 } };
+fixture.regions = { regions: 513, hi: { 3: 42 }, ts: { 3: 20 } };
+fixture.expansions = { loci: [{ year: 1991 }, { year: 2019 }, { year: 2015 }, { year: null }], evidence: { Definitive: 2 } };
+
+test('findings state the clinical variant sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.clinvar, 'ClinVar’s GRCh38 file lists 1,000 variants; 50% are of uncertain significance, 8% pathogenic or likely pathogenic');
+  assert.equal(f.review, 'Expert panels have reviewed 10 ClinVar variants; 66.7% of classified variants rest on one submitter');
+  assert.equal(f.growth, 'ClinVar grew from 100 variants in December 2017 to 1,000; those of uncertain significance rose 12.5-fold');
+  assert.equal(f.lollipops, '90% of BRCA1’s P/LP variants placed on the protein truncate it; in MYH7 75% are missense');
+  assert.equal(f.spectrum, 'P/LP SNVs in ClinVar carry 1.00 transitions per transversion; B/LB SNVs carry 3.00');
+  assert.equal(f.validity, 'ClinGen has curated 3,722 gene–disease pairs in 3,072 genes; 2,322 are definitive, 249 disputed or refuted');
+  assert.equal(f.cnvregions, 'Of 513 genomic regions ClinGen has curated, 42 are haploinsufficient and 20 triplosensitive');
+  assert.equal(f.expansions, 'STRchive lists 4 disease-linked tandem repeat loci, 2 with definitive evidence; 2 were found since 2015');
+});
+
 test('findings state the variation and constraint sections as numbers', () => {
   const f = findings(fixture);
   assert.equal(f.dbsnp, 'dbSNP build 157 holds 1,206,053,617 reference SNP records from 4,849,775,973 submitted variants; 1,172,689,405 are live');

@@ -24,6 +24,11 @@ test('the GRCh38 pseudoautosomal regions match on X and Y', () => {
 });
 import { identify } from '../../src/lib.js';
 
+test('clinical variant sources are cited', () => {
+  for (const key of ['clinvar', 'landrum2018', 'landrum2025', 'richards2015', 'strande2017', 'clingenValidity', 'dosageMap', 'riggs2012', 'strchive', 'hiatt2025']) assert.equal(SOURCE_TITLES[key]?.[0], 'Clinical genetics', key);
+  for (const key of ['mclaren2016', 'alexandrov2020']) assert.equal(SOURCE_TITLES[key]?.[0], 'Variation and populations', key);
+});
+
 test('every source is an https URL with a title in a known group', () => {
   assert.ok(Object.keys(SOURCES).length >= 6);
   for (const [key, url] of Object.entries(SOURCES)) {
