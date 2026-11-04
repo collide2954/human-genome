@@ -469,6 +469,24 @@ test('chart labels are never cut off and axis labels never overlap', async () =>
   }
 });
 
+test('scatter points sit inside their plot', async () => {
+  const { page } = await open();
+  const out = await page.$$eval('.chart svg', (svgs) => svgs.flatMap((svg) => {
+    const box = svg.viewBox.baseVal;
+    return [...svg.querySelectorAll('circle.pt')]
+      .filter((c) => Number(c.getAttribute('cx')) > box.width || Number(c.getAttribute('cx')) < 0 || Number(c.getAttribute('cy')) < 0 || Number(c.getAttribute('cy')) > box.height)
+      .map((c) => `${svg.closest('[id]')?.id}: ${c.dataset.point}`);
+  }));
+  assert.deepEqual(out, []);
+  const right = await page.$$eval('#egene-chart svg', ([svg]) => {
+    const ticks = [...svg.querySelectorAll('text.tick[text-anchor="middle"]')].map((t) => Number(t.getAttribute('x')));
+    const dots = [...svg.querySelectorAll('circle.pt')].map((c) => Number(c.getAttribute('cx')));
+    return { tick: Math.max(...ticks), dot: Math.max(...dots) };
+  });
+  assert.ok(right.dot <= right.tick + 0.5, JSON.stringify(right));
+  await page.close();
+});
+
 test('chart labels stay inside their chart', async () => {
   for (const width of [1280, 375]) {
     const { page } = await open({ width });

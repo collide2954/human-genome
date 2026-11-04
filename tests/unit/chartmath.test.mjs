@@ -1,10 +1,17 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  waffle, scaleLinear, scaleLog, logTicks, stack, zoomDomain, panDomain, easeOut, spread, squarify,
+  waffle, scaleLinear, scaleLog, logTicks, stack, zoomDomain, panDomain, easeOut, spread, squarify, spanTicks,
 } from '../../src/lib.js';
 
 const close = (a, b, eps = 1e-6) => Math.abs(a - b) <= eps;
+
+test('spanTicks covers the whole range with round steps', () => {
+  assert.deepEqual(spanTicks(73, 803), [0, 200, 400, 600, 800, 1000]);
+  assert.deepEqual(spanTicks(0, 800), [0, 200, 400, 600, 800]);
+  assert.deepEqual(spanTicks(36.5, 47.9), [35, 40, 45, 50]);
+  assert.deepEqual(spanTicks(5, 5), [5, 6]);
+});
 
 test('waffle splits 100 cells by largest remainder', () => {
   const cells = waffle([{ key: 'yes', value: 24.1 }, { key: 'no', value: 75.9 }]);
