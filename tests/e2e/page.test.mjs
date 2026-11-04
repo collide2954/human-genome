@@ -499,7 +499,7 @@ test('lollipops mirror P/LP and B/LB variants over each protein\'s Pfam domains 
     const l = T.lollipops[gene];
     const sites = new Set([...l.up.map((r) => `up:${r[0]}`), ...l.down.map((r) => `down:${r[0]}`)]);
     assert.equal(await page.locator(`#lollipop-${gene}-chart [data-site]`).count(), sites.size, gene);
-    assert.equal(await page.locator(`#lollipop-${gene}-chart [data-domain]`).count(), T.proteins[gene].domains.length, gene);
+    assert.equal(await page.locator(`#lollipop-${gene}-chart [data-domain]`).count(), snapshot.domains[gene].domains.length, gene);
   }
   const top = [...T.lollipops.TP53.up].sort((a, b) => b[2] - a[2] || a[0] - b[0])[0];
   await page.locator(`#lollipop-TP53-chart [data-site="up:${top[0]}"]`).first().hover();
@@ -550,7 +550,7 @@ test('rare disease charts cover HPO systems and terms, Orphanet prevalence, onse
 
 test('therapy and testing charts cover approvals, vectors, trials, diagnostic yield and cfDNA screening with intervals', async () => {
   const { page } = await open();
-  const T = snapshot.therapies;
+  const T = { trials: snapshot.trials };
   const count = (sel) => page.locator(sel).count();
   assert.equal(await count('#therapy-approvals-chart path.area'), 5);
   assert.ok(await count('#therapy-vectors-chart [data-row]') >= 8);

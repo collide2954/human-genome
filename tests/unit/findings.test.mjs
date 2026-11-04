@@ -301,7 +301,7 @@ fixture.orphanet = {
   ages: { onset: { Neonatal: 2754 } },
 };
 fixture.gtr = { tests: 63430, labs: 291, genesPerTest: { counts: [2391, 54890, 3209, 2435, 486, 19] } };
-fixture.therapies = { fda: [{ trade: 'LUXTURNA' }, { trade: 'ZOLGENSMA' }, { trade: 'KYMRIAH' }, { trade: 'HEMACORD' }] };
+fixture.fda = [{ trade: 'LUXTURNA' }, { trade: 'ZOLGENSMA' }, { trade: 'KYMRIAH' }, { trade: 'HEMACORD' }];
 
 test('findings state the rare disease and testing sections as numbers', () => {
   const f = findings(fixture);
