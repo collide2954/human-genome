@@ -295,7 +295,7 @@ test('axes speak the units of their data and count bins label their own bars', a
   assert.ok(plasmaTicks.length >= 2);
   for (const t of plasmaTicks) assert.match(t, /g\/L$/);
   const offsets = await page.$$eval('#pfam-per-protein-chart svg', ([svg]) => [...svg.querySelectorAll('text.tick')]
-    .filter((t) => /^\d+\+?$/.test(t.textContent))
+    .filter((t) => t.getAttribute('text-anchor') === 'middle' && /^\d+\+?$/.test(t.textContent))
     .map((t) => {
       const i = Number(t.textContent.replace('+', ''));
       const bar = svg.querySelector(`[data-bin="${i}"] rect.bar`);
