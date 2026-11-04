@@ -563,6 +563,229 @@ export const heatmap = ({
   return mountSvg(mount, svg, legend);
 };
 
+export const grid = ({
+  mount, rows, cols, values, totals, aria, describe, color = 'var(--s2)', format = (v) => (v >= 0.01 ? String(Math.round(v * 100)) : '<1'),
+}) => {
+  const W = widthOf(mount);
+  const L = Math.ceil(Math.max(...rows.map((r) => String(r).length)) * 6.8) + 12;
+  const R = 54;
+  const cw = Math.min(64, (W - L - R) / cols.length);
+  const tilted = cw < 40;
+  const T = tilted ? 44 : 22;
+  const rh = 22;
+  const H = T + rows.length * rh + 2;
+  const flat = [];
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
+    cols.map((c, j) => {
+      const cx = L + j * cw + cw / 2;
+      return el('text', tilted
+        ? {
+          class: 'col-lab', x: cx - 3, y: T - 6, transform: `rotate(-50 ${cx - 3} ${T - 6})`, 'text-anchor': 'start',
+        }
+        : {
+          class: 'col-lab', x: cx, y: 14, 'text-anchor': 'middle',
+        }, c);
+    }),
+    el('text', {
+      class: 'tick', x: L + cols.length * cw + 6, y: T - 6, 'text-anchor': 'start',
+    }, 'n'),
+    rows.map((r, i) => el('g', {},
+      el('text', { class: 'lab', x: 0, y: T + i * rh + rh / 2 + 4 }, r),
+      cols.map((c, j) => {
+        const v = values[i][j];
+        const k = flat.push([i, j]) - 1;
+        const shade = heat(v, 0, 1);
+        return el('g', { 'data-cell': `${i}:${j}`, 'data-k': k, 'data-rank': k },
+          el('rect', {
+            class: 'cell', x: L + j * cw, y: T + i * rh, width: cw - 1.5, height: rh - 1.5, style: `fill:${color};fill-opacity:${v > 0 ? shade : 0.03};--i:${i}`,
+          }),
+          cw >= 24 && v > 0 ? el('text', {
+            class: `grid-lab${shade > 0.55 ? ' on' : ''}`, x: L + j * cw + (cw - 1.5) / 2, y: T + i * rh + rh / 2 + 3.5, 'text-anchor': 'middle',
+          }, format(v)) : null);
+      }),
+      el('text', {
+        class: 'val', x: L + cols.length * cw + 6, y: T + i * rh + rh / 2 + 4, 'text-anchor': 'start',
+      }, compact(totals[i])))));
+  hover(svg, (k) => describe(...flat[Number(k)]));
+  return mountSvg(mount, svg);
+};
+
+export const lollipop = ({
+  mount, length, domains, sites, kinds, labels = [], aria, describe, describeDomain, sideLabel,
+}) => {
+  const W = widthOf(mount);
+  const L = 44;
+  const R = 12;
+  const T = 30;
+  const arm = W < 560 ? 70 : 96;
+  const band = 14;
+  const B = 22;
+  const mid = T + arm + band / 2;
+  const H = T + arm * 2 + band + B;
+  const x = scaleLinear([0, length], [L, W - R]);
+  const most = Math.max(1, ...sites.map((s) => s.n));
+  const stretch = (n) => (arm * n) / most;
+  const ticks = niceTicks(length, W < 560 ? 4 : 8).filter((t) => t <= length);
+  const colorOf = (kind) => kinds.find((k) => k.key === kind)?.color ?? 'var(--data)';
+  const at = (pos) => x(pos - 0.5);
+  const clampX = (v) => Math.max(L + 16, Math.min(W - R - 16, v));
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
+    ticks.map((t) => el('g', {},
+      el('line', {
+        class: 'grid', x1: x(t), x2: x(t), y1: T, y2: H - B,
+      }),
+      el('text', {
+        class: 'tick', x: x(t), y: H - 6, 'text-anchor': 'middle',
+      }, exact(t)))),
+    el('text', { class: 'axis-lab', x: 0, y: 12 }, sideLabel),
+    el('text', {
+      class: 'tick', x: L - 6, y: mid - band / 2 - arm + 4, 'text-anchor': 'end',
+    }, String(most)),
+    el('text', {
+      class: 'tick', x: L - 6, y: mid + band / 2 + arm + 4, 'text-anchor': 'end',
+    }, String(most)),
+    el('rect', {
+      class: 'backbone', x: L, y: mid - 3, width: x(length) - L, height: 6,
+    }),
+    domains.map((d, i) => el('rect', {
+      class: 'domain', 'data-domain': i, 'data-k': sites.length + i, 'data-rank': sites.length + i, x: x(d.start - 1), y: mid - band / 2, width: Math.max(2, x(d.end) - x(d.start - 1)), height: band, rx: 3, style: `fill:${d.color}`,
+    })),
+    domains.filter((d) => x(d.end) - x(d.start - 1) >= String(d.short).length * 6.2 + 8).map((d) => el('text', {
+      class: 'feat-lab', x: (x(d.start - 1) + x(d.end)) / 2, y: mid + 4, 'text-anchor': 'middle',
+    }, d.short)),
+    sites.map((s, i) => [s, i]).sort((a, b) => a[0].n - b[0].n).map(([s, i]) => {
+      const y0 = s.side === 'up' ? mid - band / 2 : mid + band / 2;
+      const y1 = s.side === 'up' ? y0 - stretch(s.n) : y0 + stretch(s.n);
+      return el('g', { 'data-site': s.key, 'data-k': i, 'data-rank': i },
+        el('line', {
+          class: 'site-hit', x1: at(s.pos), x2: at(s.pos), y1: y0, y2: y1,
+        }),
+        el('line', {
+          class: 'stalk', x1: at(s.pos), x2: at(s.pos), y1: y0, y2: y1,
+        }),
+        el('circle', {
+          class: 'head', cx: at(s.pos), cy: y1, r: 2.6, style: `fill:${colorOf(s.kind)}`,
+        }));
+    }),
+    labels.reduce((kept, s) => {
+      const lx = clampX(at(s.pos));
+      const w = String(s.label).length * 6.5;
+      return kept.every((p) => Math.abs(p.x - lx) > (p.w + w) / 2 + 4) ? [...kept, { ...s, x: lx, w }] : kept;
+    }, []).map((s) => el('text', {
+      class: 'site-lab', x: s.x, y: mid - band / 2 - stretch(s.n) - 6, 'text-anchor': 'middle',
+    }, s.label)));
+  hover(svg, (k) => (Number(k) < sites.length ? describe(sites[Number(k)]) : describeDomain(domains[Number(k) - sites.length])));
+  return mountSvg(mount, svg, legendOf(kinds));
+};
+
+export const spectrum = ({
+  mount, channels, up, down, colors, groups, aria, describe, upLabel, downLabel,
+}) => {
+  const W = widthOf(mount);
+  const L = 40;
+  const R = 6;
+  const T = 26;
+  const arm = W < 560 ? 80 : 110;
+  const band = (W - L - R) / channels.length;
+  const context = band >= 8.5;
+  const mid = T + arm;
+  const H = mid + arm + (context ? 30 : 8);
+  const ticks = niceTicks(Math.max(...up, ...down, 1e-9), 3);
+  const top = ticks.at(-1);
+  const yUp = scaleLinear([0, top], [mid, T]);
+  const yDown = scaleLinear([0, top], [mid, mid + arm]);
+  const bw = Math.max(0.8, band - (band > 4 ? 1 : 0.2));
+  const per = channels.length / groups.length;
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
+    ticks.filter((t) => t > 0).map((t) => el('g', {},
+      el('line', {
+        class: 'grid', x1: L, x2: W - R, y1: yUp(t), y2: yUp(t),
+      }),
+      el('line', {
+        class: 'grid', x1: L, x2: W - R, y1: yDown(t), y2: yDown(t),
+      }),
+      el('text', {
+        class: 'tick', x: L - 6, y: yUp(t) + 4, 'text-anchor': 'end',
+      }, `${t}%`),
+      el('text', {
+        class: 'tick', x: L - 6, y: yDown(t) + 4, 'text-anchor': 'end',
+      }, `${t}%`))),
+    groups.map((g, i) => el('g', {},
+      el('rect', {
+        class: 'sub-band', x: L + i * per * band, y: 0, width: per * band - 2, height: 5, style: `fill:${colors[i]}`,
+      }),
+      el('text', {
+        class: 'sub-lab', x: L + (i + 0.5) * per * band, y: 17, 'text-anchor': 'middle',
+      }, g))),
+    el('text', { class: 'axis-lab', x: L + 4, y: T + 10 }, upLabel),
+    el('text', { class: 'axis-lab', x: L + 4, y: mid + arm - 4 }, downLabel),
+    channels.map((c, i) => {
+      const color = colors[Math.floor(i / per)];
+      return el('g', { 'data-channel': c, 'data-k': i, 'data-rank': i },
+        el('rect', {
+          class: 'row-hit', x: L + i * band, y: T, width: band, height: arm * 2,
+        }),
+        el('rect', {
+          class: 'sbar', x: L + i * band, y: yUp(up[i]), width: bw, height: Math.max(0, mid - yUp(up[i])), style: `fill:${color}`,
+        }),
+        el('rect', {
+          class: 'sbar down', x: L + i * band, y: mid, width: bw, height: Math.max(0, yDown(down[i]) - mid), style: `fill:${color}`,
+        }));
+    }),
+    el('line', {
+      class: 'base', x1: L, x2: W - R, y1: mid, y2: mid,
+    }),
+    context ? channels.map((c, i) => {
+      const cx = L + i * band + bw / 2 + 3;
+      return el('text', {
+        class: 'ctx', x: cx, y: mid + arm + 6, transform: `rotate(-90 ${cx} ${mid + arm + 6})`, 'text-anchor': 'end',
+      }, `${c[0]}${c[2]}${c[6]}`);
+    }) : null);
+  hover(svg, (k) => describe(Number(k)), { axis: 'x' });
+  return mountSvg(mount, svg);
+};
+
+export const ranges = ({
+  mount, rows, kinds, aria, describe, valueText, rowH = 20, labelShare = 0.26, tickFormat = compact,
+}) => {
+  const W = widthOf(mount);
+  const R = 52;
+  const T = 22;
+  const lay = rowLayout(rows, Math.min(200, Math.max(96, W * labelShare)), rowH);
+  const { L } = lay;
+  const H = T + rows.length * lay.rowH + 6;
+  const all = rows.flatMap((r) => r.segments.flatMap((s) => [s.lo, s.hi])).filter((v) => v > 0);
+  const lo = 10 ** Math.floor(Math.log10(Math.min(...all)));
+  const hi = 10 ** Math.ceil(Math.log10(Math.max(...all)));
+  const x = scaleLog([lo, hi], [L, W - R]);
+  const at = (v) => x(Math.min(hi, Math.max(lo, v)));
+  const colorOf = (kind) => kinds.find((k) => k.key === kind)?.color ?? 'var(--data)';
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
+    logTicks(lo, hi).map((t) => el('g', {},
+      el('line', {
+        class: 'grid', x1: x(t), x2: x(t), y1: T - 6, y2: H,
+      }),
+      el('text', {
+        class: 'tick', x: x(t), y: 10, 'text-anchor': 'middle',
+      }, tickFormat(t)))),
+    el('g', { class: lay.cls }, rows.map((r, i) => {
+      const mid = T + i * lay.rowH + lay.rowH / 2;
+      const y = mid + lay.markY;
+      const end = Math.max(...r.segments.map((s) => at(s.hi)));
+      return el('g', { 'data-row': r.key, 'data-k': i, 'data-rank': i },
+        el('rect', {
+          class: 'row-hit', x: 0, y: mid - lay.rowH / 2, width: W, height: lay.rowH,
+        }),
+        el('text', { class: 'lab', x: 0, y: mid + lay.labelY }, r.label),
+        r.segments.map((s) => el('rect', {
+          class: 'range', x: at(s.lo), y: y - 5, width: Math.max(3, at(s.hi) - at(s.lo)), height: 10, rx: 2, style: `fill:${colorOf(s.kind)};--i:${i}`,
+        })),
+        el('text', { class: 'val', x: end + 6, y: y + 4 }, valueText(r)));
+    })));
+  hover(svg, (k) => describe(rows[Number(k)]));
+  return mountSvg(mount, svg, legendOf(kinds));
+};
+
 const logAxis = (values, lo, hi) => {
   const positive = values.filter((v) => v > 0);
   const least = positive.length ? Math.min(...positive) : 1;
@@ -707,7 +930,7 @@ export const codonTable = ({
 };
 
 export const stackedArea = ({
-  mount, years, series, aria, format = exact, max = null, xFormat = (v) => v, xTick = (v) => v,
+  mount, years, series, aria, format = exact, max = null, xFormat = (v) => v, xTick = (v) => v, xTicks = null,
 }) => {
   const W = widthOf(mount);
   const L = 46;
@@ -735,7 +958,9 @@ export const stackedArea = ({
     layers.map((layer, i) => el('path', {
       class: 'area', 'data-key': layer.key, d: area(layer.points), style: `fill:${series[i].color};--i:${i * 8}`,
     })),
-    years.map((yr) => (yr % step === 0 ? el('text', { class: 'tick', x: x(yr), y: H - 6, 'text-anchor': 'middle' }, xTick(yr)) : null)),
+    (xTicks ?? years.filter((yr) => yr % step === 0)).map((yr) => el('text', {
+      class: 'tick', x: x(yr), y: H - 6, 'text-anchor': 'middle',
+    }, xTick(yr))),
     cross,
     el('rect', { class: 'hit', 'data-k': 0, x: L, y: T, width: W - L - R, height: H - T - B }));
   hover(svg, (k, event) => {

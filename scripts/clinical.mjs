@@ -1,4 +1,5 @@
 import { csvLine } from './variation.mjs';
+import { CHANNELS, SUBSTITUTIONS } from '../src/lib.js';
 
 const own = (s) => Buffer.from(s, 'utf8').toString('utf8');
 const zeros = (n) => new Array(n).fill(0);
@@ -83,13 +84,13 @@ export const starsOf = (raw) => {
   return 0;
 };
 
-const SUBS = [['C', 'A'], ['C', 'G'], ['C', 'T'], ['T', 'A'], ['T', 'C'], ['T', 'G']];
+const SUBS = SUBSTITUTIONS.map((s) => s.split('>'));
 const NT = 'ACGT';
 const COMP = {
   A: 'T', C: 'G', G: 'C', T: 'A',
 };
 
-export const CHANNELS = SUBS.flatMap(([r, a]) => [...NT].flatMap((b5) => [...NT].map((b3) => `${b5}[${r}>${a}]${b3}`)));
+export { CHANNELS };
 
 export const channelOf = (b5, ref, b3, alt) => {
   if (![b5, ref, b3, alt].every((b) => COMP[b]) || ref === alt) return -1;

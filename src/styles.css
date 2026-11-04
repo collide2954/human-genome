@@ -905,6 +905,109 @@ h2,
   pointer-events: none;
 }
 
+.chart .grid-lab {
+  fill: var(--ink);
+  font-size: 10.5px;
+  pointer-events: none;
+}
+
+.chart .grid-lab.on {
+  fill: #fff;
+}
+
+.chart .col-lab {
+  fill: var(--ink-2);
+  font-size: 11px;
+}
+
+.chart g.sel .cell,
+.chart [data-cell]:hover .cell {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.chart .backbone {
+  fill: var(--hair);
+}
+
+.chart .domain {
+  stroke: var(--paper);
+  stroke-width: 1;
+}
+
+.chart .domain:hover,
+.chart .domain.sel {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.chart .stalk {
+  stroke: var(--data-2);
+  stroke-width: 1;
+  pointer-events: none;
+}
+
+.chart .site-hit {
+  stroke: transparent;
+  stroke-width: 7;
+}
+
+.chart .head {
+  stroke: var(--paper);
+  stroke-width: 0.6;
+}
+
+.chart [data-site]:hover .stalk,
+.chart [data-site].sel .stalk {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.chart [data-site]:hover .head,
+.chart [data-site].sel .head {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.chart .site-lab {
+  fill: var(--ink);
+  font-size: 10.5px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.chart .sub-lab {
+  fill: var(--ink-2);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.chart .sbar.down {
+  opacity: 0.55;
+}
+
+.chart [data-channel]:hover .sbar,
+.chart [data-channel].sel .sbar {
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+
+.chart .ctx {
+  font: 8.5px var(--sans);
+  letter-spacing: 0.04em;
+}
+
+.chart .range {
+  stroke: var(--paper);
+  stroke-width: 0.5;
+}
+
+.chart [data-row]:hover .range,
+.chart [data-row].sel .range {
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+
 .legend.ramp {
   gap: 4px 10px;
 }

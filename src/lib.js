@@ -359,6 +359,10 @@ export const AMINO_ACIDS = {
 
 export const codonOf = (i) => `${BASES[i >> 4]}${BASES[(i >> 2) & 3]}${BASES[i & 3]}`;
 
+export const SUBSTITUTIONS = ['C>A', 'C>G', 'C>T', 'T>A', 'T>C', 'T>G'];
+
+export const CHANNELS = SUBSTITUTIONS.flatMap((s) => [...'ACGT'].flatMap((b5) => [...'ACGT'].map((b3) => `${b5}[${s}]${b3}`)));
+
 export const heat = (v, lo, hi) => {
   if (hi === lo) return 1;
   const t = Math.min(1, Math.max(0, (v - lo) / (hi - lo)));
