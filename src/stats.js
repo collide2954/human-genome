@@ -90,3 +90,32 @@ export const canonicalMotif = (motif) => {
 };
 
 export const topBy = (rows, key, n) => [...rows].sort((a, b) => b[key] - a[key]).slice(0, n);
+
+const moments = (xs, ys) => {
+  const mx = xs.reduce((a, b) => a + b, 0) / xs.length;
+  const my = ys.reduce((a, b) => a + b, 0) / ys.length;
+  let sxy = 0;
+  let sxx = 0;
+  let syy = 0;
+  for (let i = 0; i < xs.length; i += 1) {
+    const dx = xs[i] - mx;
+    const dy = ys[i] - my;
+    sxy += dx * dy;
+    sxx += dx * dx;
+    syy += dy * dy;
+  }
+  return {
+    mx, my, sxy, sxx, syy,
+  };
+};
+
+export const pearson = (xs, ys) => {
+  const m = moments(xs, ys);
+  return m.sxx && m.syy ? tidy(m.sxy / Math.sqrt(m.sxx * m.syy)) : NaN;
+};
+
+export const linearFit = (xs, ys) => {
+  const m = moments(xs, ys);
+  const slope = m.sxy / m.sxx;
+  return { slope: tidy(slope), intercept: tidy(m.my - slope * m.mx) };
+};
