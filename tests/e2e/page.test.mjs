@@ -50,6 +50,8 @@ const CHAPTERS = {
   networks: ['interactions', 'pathways', 'ontology'],
   regulation: ['ccres', 'cpgislands', 'trna', 'encode'],
   structure: ['mito', 'censat', 'sexchrom'],
+  variation: ['dbsnp', 'sv'],
+  constraint: ['constraint', 'dosage'],
   reference: ['decoder', 'sources'],
 };
 
@@ -432,6 +434,33 @@ test('satellite, telomere and sex chromosome charts cover every chromosome and b
   assert.equal(await count('#par-chart [data-mark]'), 4);
   assert.equal(await count('#par-chart [data-chrom]'), 2);
   assert.ok(await count('#y-satellite-chart .legend li') >= 3);
+  await page.close();
+});
+
+test('variation charts cover dbSNP density and status, and SV sizes, chromosomes, mobile elements, studies and clinical calls', async () => {
+  const { page } = await open();
+  const V = snapshot.variation;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#dbsnp-density-chart [data-row]'), 24);
+  assert.equal(await count('#dbsnp-status-chart [data-row]'), Object.keys(V.dbsnp.status).length);
+  assert.equal(await count('#sv-size-chart [data-bin]'), V.sv.sizes.deletion.counts.length);
+  assert.equal(await count('#sv-size-chart .legend li'), Object.keys(V.sv.sizes).length);
+  assert.equal(await count('#sv-chrom-chart [data-row]'), 24);
+  assert.equal(await count('#sv-mobile-chart [data-row]'), 4);
+  assert.equal(await count('#sv-study-chart [data-row]'), V.sv.studies.length);
+  assert.equal(await count('#sv-clinical-chart [data-row]'), 5);
+  await page.close();
+});
+
+test('constraint charts compare LOEUF for haploinsufficient genes and all others', async () => {
+  const { page } = await open();
+  const C = snapshot.constraint;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#loeuf-chart [data-bin]'), C.gnomad.loeuf.counts.length);
+  assert.equal(await count('#loeuf-chart .legend li'), 2);
+  assert.equal(await count('#misz-chart [data-bin]'), C.gnomad.misZ.counts.length);
+  assert.equal(await count('#constrained-chart [data-row]'), C.gnomad.top.length);
+  assert.equal(await count('#dosage-chart [data-row]'), 2);
   await page.close();
 });
 
