@@ -57,6 +57,16 @@ export const SOURCES = {
   altemose2022: 'https://doi.org/10.1126/science.abl4178',
   rhie2023: 'https://doi.org/10.1038/s41586-023-06457-y',
   t2tAnnotation: 'https://github.com/marbl/CHM13',
+  dbsnp: 'https://www.ncbi.nlm.nih.gov/snp/',
+  sherry2001: 'https://doi.org/10.1093/nar/29.1.308',
+  dbvar: 'https://www.ncbi.nlm.nih.gov/dbvar/',
+  gnomad: 'https://gnomad.broadinstitute.org/',
+  karczewski2020: 'https://doi.org/10.1038/s41586-020-2308-7',
+  clingen: 'https://clinicalgenome.org/',
+  rehm2015: 'https://doi.org/10.1056/NEJMsr1406261',
+  riggs2020: 'https://doi.org/10.1038/s41436-019-0686-8',
+  impc: 'https://www.mousephenotype.org/',
+  dickinson2016: 'https://doi.org/10.1038/nature19356',
 };
 
 export const PARS = [
@@ -118,6 +128,16 @@ export const SOURCE_TITLES = {
   altemose2022: ['Assemblies and sequence', 'Altemose et al. 2022, Complete genomic and epigenetic maps of human centromeres, Science 376:eabl4178'],
   rhie2023: ['Assemblies and sequence', 'Rhie et al. 2023, The complete sequence of a human Y chromosome, Nature 621:344'],
   t2tAnnotation: ['Assemblies and sequence', 'T2T-CHM13 annotation files, including CenSat and telomeres'],
+  dbsnp: ['Variation and populations', 'dbSNP, NCBI'],
+  sherry2001: ['Variation and populations', 'Sherry et al. 2001, dbSNP: the NCBI database of genetic variation, Nucleic Acids Research 29:308'],
+  dbvar: ['Variation and populations', 'dbVar, NCBI structural variation archive, non-redundant SV sets'],
+  gnomad: ['Variation and populations', 'Genome Aggregation Database (gnomAD)'],
+  karczewski2020: ['Variation and populations', 'Karczewski et al. 2020, The mutational constraint spectrum quantified from variation in 141,456 humans, Nature 581:434'],
+  clingen: ['Clinical genetics', 'ClinGen, the Clinical Genome Resource, dosage sensitivity curation'],
+  rehm2015: ['Clinical genetics', 'Rehm et al. 2015, ClinGen: the Clinical Genome Resource, New England Journal of Medicine 372:2235'],
+  riggs2020: ['Clinical genetics', 'Riggs et al. 2020, Technical standards for the interpretation and reporting of constitutional copy-number variants, Genetics in Medicine 22:245'],
+  impc: ['Genes and proteins', 'International Mouse Phenotyping Consortium'],
+  dickinson2016: ['Genes and proteins', 'Dickinson et al. 2016, High-throughput discovery of novel developmental phenotypes, Nature 537:508'],
 };
 
 export const EXAMPLES = [
