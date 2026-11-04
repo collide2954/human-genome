@@ -99,6 +99,57 @@ fixture.sequence.mane = {
   codons: codonFixture,
 };
 
+fixture.proteins = {
+  release: '2026_03',
+  count: 20431,
+  lengths: { summary: { n: 20431, median: 415, mean: 558.8 } },
+  longest: [{ acc: 'Q8WZ42', gene: 'TTN', length: 34350 }],
+  pdb: { withAny: 8856, top: [{ acc: 'P61769', gene: 'B2M', n: 1345 }] },
+  transmem: { counts: [15200, 2391, 325, 159, 413, 77, 277, 945], proteins: 5231 },
+  signal: 3616,
+  pfam: { withAny: 19457, top: [{ id: 'PF00096', n: 681, name: 'Zinc finger, C2H2 type', short: 'zf-C2H2' }] },
+  disorder: { residues: 1141682, proteins: 11304 },
+  ptm: {
+    phosphoS: 33295, phosphoT: 6065, phosphoY: 2153, nGlyco: 16263,
+  },
+};
+fixture.targets = {
+  count: 20412,
+  levels: {
+    Tclin: 704, Tchem: 1904, Tbio: 12303, Tdark: 5501,
+  },
+};
+fixture.expression = {
+  hpa: {
+    specificity: { 'Tissue enriched': 3132 },
+    enriched: [{ tissue: 'testis', n: 932 }, { tissue: 'brain', n: 475 }],
+    blood: { proteins: 4520, top: [{ gene: 'ALB', im: 4e13, ms: null }], lowest: { gene: 'IL6', im: 1200, ms: 5000 } },
+  },
+  gtex: {
+    release: 'v10',
+    tissues: ['Testis', 'Whole_Blood', 'Liver'],
+    expressed: [25533, 11947, 15000],
+    sites: [{ id: 'Testis', name: 'Testis' }, { id: 'Whole_Blood', name: 'Whole Blood' }, { id: 'Liver', name: 'Liver' }],
+  },
+};
+
+test('findings state the protein sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.proteome, 'UniProt 2026_03 lists 20,431 reviewed human proteins; the median is 415 residues long and TTN, the longest, 34,350');
+  assert.equal(f.structures, '8,856 reviewed human proteins, 43.3%, have at least one PDB structure; B2M appears in 1,345');
+  assert.equal(f.membrane, '5,231 proteins cross a membrane: 2,391 once and 945 seven times; 3,616 carry a signal peptide');
+  assert.equal(f.domains, '95.2% of proteins carry a Pfam domain; 681 carry zf-C2H2 (PF00096), the most common');
+  assert.equal(f.modifications, '10% of residues sit in disordered regions; UniProt lists 33,295 phosphoserines, 6,065 phosphothreonines and 2,153 phosphotyrosines');
+  assert.equal(f.targets, 'Pharos counts 704 targets of approved drugs (Tclin) among 20,412 human proteins; 5,501 are Tdark');
+});
+
+test('findings state the expression sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.specificity, 'HPA calls 3,132 genes tissue enriched; testis has 932 of them, brain 475');
+  assert.equal(f.gtex, 'In GTEx v10, 25,533 genes reach a median of 1 TPM in Testis; 11,947 do in Whole Blood');
+  assert.equal(f.plasma, 'Plasma levels in HPA run from 40 g/L for ALB to 1.2 ng/L for IL6, across 4,520 proteins');
+});
+
 test('findings state the splicing, translation and codon sections as numbers', () => {
   const f = findings(fixture);
   assert.equal(f.splicing, '90% of MANE Select introns start GT and end AG; 8 start GC and 1 runs from AT to AC');
