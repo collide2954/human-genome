@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  gwasAncestry, aadrSummary, majorHaplogroup, igsrSamples, assemblySummary,
+  gwasAncestry, aadrSummary, majorHaplogroup, igsrSamples, assemblySummary, aadrAnnoFile,
 } from '../../scripts/populations.mjs';
 
 const GWAS_HEAD = ['STUDY ACCESSION', 'PUBMEDID', 'FIRST AUTHOR', 'DATE', 'INITIAL SAMPLE DESCRIPTION', 'REPLICATION SAMPLE DESCRIPTION', 'STAGE', 'NUMBER OF INDIVDUALS', 'BROAD ANCESTRAL CATEGORY', 'COUNTRY OF ORIGIN', 'COUNTRY OF RECRUITMENT', 'ADDITONAL ANCESTRY DESCRIPTION'];
@@ -79,6 +79,23 @@ test('aadrSummary counts each ancient individual once by age, first publication,
   assert.deepEqual(a.grid, [
     { lat: 46, lon: 18, n: 1, age: 7500 }, { lat: 50, lon: -2, n: 1, age: 3000 }, { lat: 56, lon: 72, n: 1, age: 45000 }, { lat: 70, lon: -50, n: 1, age: 4000 },
   ]);
+});
+
+test('aadrAnnoFile finds the 1240K annotation file in the latest AADR release', () => {
+  const dataset = {
+    data: {
+      latestVersion: {
+        releaseTime: '2026-06-08T20:36:49Z',
+        files: [
+          { dataFile: { id: 13994513, filename: 'v66.p1_1240K.aadr.patch.PUB.ind' } },
+          { dataFile: { id: 13994515, filename: 'v66.p1_1240K.aadr.PUB.anno' } },
+          { dataFile: { id: 13994518, filename: 'v66.p1_2M.aadr.PUB.anno' } },
+        ],
+      },
+    },
+  };
+  assert.deepEqual(aadrAnnoFile(dataset), { id: 13994515, version: 'v66.p1', released: '2026-06-08' });
+  assert.equal(aadrAnnoFile({ data: { latestVersion: { files: [] } } }), null);
 });
 
 const sample = (name, sex, pop, superpop, collections) => ({

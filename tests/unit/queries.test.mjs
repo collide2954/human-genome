@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS, TRIAL_MODALITIES, trialPage,
+  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS, TRIAL_MODALITIES, trialPage, assemblyPage,
 } from '../../src/queries.js';
 
 test('network, pathway and ontology files point at STRING, Reactome and the GO release', () => {
@@ -24,7 +24,7 @@ test('every data file is an https URL on a known host', () => {
     'ftp.clinicalgenome.org', 'github.com', 'www.proteinatlas.org', 'downloads.wenglab.org', 'rest.uniprot.org', 'api.cpicpgx.org',
     'eutils.ncbi.nlm.nih.gov', 'api.ncbi.nlm.nih.gov', 'rest.ensembl.org', 'www.ebi.ac.uk', 'gtexportal.org', 'pharos-api.ncats.io',
     'string-db.org', 'reactome.org', 'current.geneontology.org', 'gtrnadb.ucsc.edu', 'www.encodeproject.org', 's3-us-west-2.amazonaws.com',
-    'raw.githubusercontent.com', 'api.github.com', 'www.orphadata.com', 'www.fda.gov', 'clinicaltrials.gov',
+    'raw.githubusercontent.com', 'api.github.com', 'www.orphadata.com', 'www.fda.gov', 'clinicaltrials.gov', 'dataverse.harvard.edu', 'www.internationalgenome.org',
   ]);
   for (const [key, url] of Object.entries(FILES)) {
     const u = new URL(url);
@@ -152,6 +152,20 @@ test('trial modalities name their ClinicalTrials.gov intervention searches and p
   assert.equal(first.searchParams.get('fields'), 'NCTId,StartDate,Phase,OverallStatus');
   assert.equal(first.searchParams.has('pageToken'), false);
   assert.equal(new URL(trialPage('x', 'abc')).searchParams.get('pageToken'), 'abc');
+});
+
+test('population files point at the GWAS Catalog, the AADR on Dataverse, IGSR and NCBI Datasets', () => {
+  assert.equal(FILES.gwasAncestry, 'https://www.ebi.ac.uk/gwas/api/search/downloads/ancestry');
+  const d = new URL(FILES.aadrDataset);
+  assert.equal(`${d.origin}${d.pathname}`, 'https://dataverse.harvard.edu/api/datasets/:persistentId/');
+  assert.equal(d.searchParams.get('persistentId'), 'doi:10.7910/DVN/FFIDCW');
+  assert.equal(FILES.dataverseFile, 'https://dataverse.harvard.edu/api/access/datafile/');
+  assert.equal(FILES.igsrSamples, 'https://www.internationalgenome.org/api/beta/sample/_search');
+  const first = new URL(assemblyPage());
+  assert.equal(`${first.origin}${first.pathname}`, 'https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/9606/dataset_report');
+  assert.equal(first.searchParams.get('page_size'), '1000');
+  assert.equal(first.searchParams.has('page_token'), false);
+  assert.equal(new URL(assemblyPage('t1')).searchParams.get('page_token'), 't1');
 });
 
 test('lollipop proteins name their UniProt accessions', () => {
