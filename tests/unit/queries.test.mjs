@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles,
+  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS,
 } from '../../src/queries.js';
 
 test('network, pathway and ontology files point at STRING, Reactome and the GO release', () => {
@@ -105,6 +105,27 @@ test('variation and constraint files point at dbSNP, dbVar, gnomAD v4.1, ClinGen
   assert.equal(FILES.gnomadConstraint, 'https://storage.googleapis.com/gcp-public-data--gnomad/release/4.1/constraint/gnomad.v4.1.constraint_metrics.tsv');
   assert.equal(FILES.clingenGenes, 'https://ftp.clinicalgenome.org/ClinGen_gene_curation_list_GRCh38.tsv');
   assert.equal(FILES.impcViability, 'https://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/latest/results/viability.csv.gz');
+});
+
+test('clinical files point at ClinVar, its archive, ClinGen validity and regions and InterPro', () => {
+  const clinvar = 'https://ftp.ncbi.nlm.nih.gov/pub/clinvar/';
+  assert.equal(FILES.clinvarVcf, `${clinvar}vcf_GRCh38/clinvar.vcf.gz`);
+  assert.equal(FILES.clinvarArchive, `${clinvar}vcf_GRCh38/archive_2.0/`);
+  assert.equal(FILES.clinvarTable, `${clinvar}tab_delimited/variant_summary.txt.gz`);
+  assert.equal(FILES.clinvarGenes, `${clinvar}tab_delimited/gene_specific_summary.txt`);
+  assert.equal(FILES.clinvarOrgs, `${clinvar}tab_delimited/organization_summary.txt`);
+  assert.equal(FILES.clingenValidity, 'https://search.clinicalgenome.org/kb/gene-validity/download');
+  assert.equal(FILES.clingenRegions, 'https://ftp.clinicalgenome.org/ClinGen_region_curation_list_GRCh38.tsv');
+  assert.equal(FILES.interproProtein, 'https://www.ebi.ac.uk/interpro/api/entry/pfam/protein/uniprot/');
+});
+
+test('lollipop proteins name their UniProt accessions', () => {
+  assert.deepEqual(LOLLIPOPS, [
+    { gene: 'TP53', accession: 'P04637' },
+    { gene: 'BRCA1', accession: 'P38398' },
+    { gene: 'CFTR', accession: 'P13569' },
+    { gene: 'MYH7', accession: 'P12883' },
+  ]);
 });
 
 test('requests identify the project', () => {
