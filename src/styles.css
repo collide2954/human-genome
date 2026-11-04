@@ -831,6 +831,35 @@ h2,
   font-size: 11.5px;
 }
 
+.chart .glyph {
+  font: 700 100px var(--sans);
+  pointer-events: none;
+}
+
+.chart .split {
+  stroke: var(--ink);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.chart .codon-lab {
+  fill: var(--ink);
+  font: 600 12px var(--sans);
+  pointer-events: none;
+}
+
+.chart .codon-val {
+  fill: var(--ink-2);
+  font-size: 11.5px;
+  pointer-events: none;
+}
+
+.chart .codon:hover,
+.chart g.sel .codon {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
 .chart .tile-lab,
 .chart .tile-sub {
   fill: #fff;

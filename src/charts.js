@@ -555,6 +555,75 @@ export const scatter = ({
   return mountSvg(mount, svg);
 };
 
+const LOGO_COLORS = {
+  A: 'var(--s4)', C: 'var(--s2)', G: 'var(--s3)', T: 'var(--s1)',
+};
+
+export const logo = ({
+  mount, positions, labels, split, aria, describe, height = 170,
+}) => {
+  const W = widthOf(mount);
+  const L = 30;
+  const T = 12;
+  const B = 22;
+  const cw = Math.min(46, (W - L - 4) / positions.length);
+  const right = L + cw * positions.length;
+  const y = scaleLinear([0, 2], [height - B, T]);
+  const svg = el('svg', { viewBox: `0 0 ${right + 4} ${height}`, role: 'img', 'aria-label': aria, style: `max-width:${right + 4}px` },
+    [0, 1, 2].map((t) => el('g', {},
+      el('line', { class: t === 0 ? 'base' : 'grid', x1: L, x2: right, y1: y(t), y2: y(t) }),
+      el('text', { class: 'tick', x: L - 6, y: y(t) + 4, 'text-anchor': 'end' }, `${t}`))),
+    el('text', { class: 'axis-lab', x: L, y: T - 2 }, 'bits'),
+    split === undefined ? null : el('line', { class: 'split', x1: L + split * cw, x2: L + split * cw, y1: T, y2: height - B + 4 }),
+    positions.map((p, i) => {
+      let top = height - B;
+      return el('g', { 'data-pos': i, 'data-k': i, 'data-rank': i },
+        el('rect', { class: 'row-hit', x: L + i * cw, y: T, width: cw, height: height - T - B }),
+        p.letters.map((l) => {
+          const h = y(0) - y(l.height);
+          top -= h;
+          return el('text', {
+            class: 'glyph', x: 0, y: 0, textLength: cw - 3, lengthAdjust: 'spacingAndGlyphs', transform: `translate(${L + i * cw + 1.5} ${top + h}) scale(1 ${Math.max(h, 0.01) / 72})`, style: `fill:${LOGO_COLORS[l.base]}`,
+          }, l.base);
+        }),
+        el('text', { class: 'tick', x: L + i * cw + cw / 2, y: height - 6, 'text-anchor': 'middle' }, labels[i]));
+    }));
+  hover(svg, (k) => describe(Number(k)));
+  return mountSvg(mount, svg);
+};
+
+const TCAG_ORDER = 'TCAG';
+
+export const codonTable = ({
+  mount, cells, aria, describe, max,
+}) => {
+  const W = widthOf(mount);
+  const L = 20;
+  const T = 22;
+  const colW = (Math.min(W, 760) - L) / 4;
+  const rowH = 22;
+  const wide = colW >= 150;
+  const order = [];
+  const svg = el('svg', { viewBox: `0 0 ${L + colW * 4} ${T + rowH * 16 + 4}`, role: 'img', 'aria-label': aria, style: `max-width:${L + colW * 4}px` },
+    [...TCAG_ORDER].map((b2, j) => el('text', { class: 'tick', x: L + j * colW + colW / 2, y: 14, 'text-anchor': 'middle' }, `second ${b2}`)),
+    [...TCAG_ORDER].map((b1, i) => el('text', { class: 'lab', x: 2, y: T + i * 4 * rowH + 2 * rowH + 4 }, b1)),
+    [...TCAG_ORDER].flatMap((b1, i) => [...TCAG_ORDER].flatMap((b2, j) => [...TCAG_ORDER].map((b3, k) => {
+      const codon = `${b1}${b2}${b3}`;
+      const c = cells[codon];
+      const n = order.push(codon) - 1;
+      const x = L + j * colW;
+      const yy = T + (i * 4 + k) * rowH;
+      return el('g', { 'data-codon': codon, 'data-k': n, 'data-rank': n },
+        el('rect', {
+          class: `cell codon${c.aa === '*' ? ' stop' : ''}`, x: x + 1, y: yy + 1, width: colW - 2, height: rowH - 2, style: `fill:${c.aa === '*' ? 'var(--accent)' : 'var(--s2)'};fill-opacity:${c.aa === '*' ? 0.25 : heat(c.perK, 0, max)};--i:${n}`,
+        }),
+        el('text', { class: 'codon-lab', x: x + 6, y: yy + rowH / 2 + 4 }, wide ? `${codon}  ${c.aa3}` : `${codon} ${c.aa}`),
+        wide ? el('text', { class: 'codon-val', x: x + colW - 6, y: yy + rowH / 2 + 4, 'text-anchor': 'end' }, c.aa === '*' ? 'stop' : c.perK.toFixed(1)) : null);
+    }))));
+  hover(svg, (k) => describe(order[Number(k)]));
+  return mountSvg(mount, svg);
+};
+
 export const stackedArea = ({
   mount, years, series, aria, format = exact, max = null, xFormat = (v) => v, xTick = (v) => v,
 }) => {
