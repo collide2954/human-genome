@@ -90,6 +90,14 @@ test('pharmacogenomics sources are cited, with the license of the ClinPGx data',
   assert.match(SOURCE_TITLES.cpic[1], /CPIC®/);
 });
 
+test('complex trait sources are cited, with the license of the Pan-UKB results', () => {
+  for (const key of ['gwasRelease', 'manolio2009', 'visscher2017', 'pgsCatalog', 'lambert2021', 'lambert2024', 'martin2019', 'panukb', 'karczewski2024', 'bulikSullivan2015', 'panukbLicense']) {
+    assert.equal(SOURCE_TITLES[key]?.[0], 'Complex traits', key);
+  }
+  assert.equal(SOURCES.panukbLicense, 'https://creativecommons.org/licenses/by/4.0/');
+  assert.match(SOURCE_TITLES.karczewski2024[1], /medRxiv/);
+});
+
 test('biobank sizes and gnomAD v4 totals are fixed values from their papers and release post', () => {
   assert.equal(BIOBANKS.length, 8);
   for (const b of BIOBANKS) {
