@@ -11,7 +11,7 @@ import {
   findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons, gtexTissues, plasmaLevel, proteomeResidues, proteinLabel, trnaPairs, titv,
 } from './findings.js';
 import {
-  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, heatmap, genomeMap, dumbbell, grid as shareGrid, lollipop as lollipopChart, spectrum, ranges, intervals, lines, observeFigures, countUp, tipLines,
+  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, heatmap, genomeMap, dumbbell, grid as shareGrid, lollipop as lollipopChart, spectrum, ranges, intervals, lines, observeFigures, countUp, tipLines, measureWidths, forgetWidths,
 } from './charts.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -48,13 +48,23 @@ const state = { query: '', lens: 'all' };
 const attachData = (mountSel, name, heads, rows) => {
   const caption = $(mountSel).closest('.fig').querySelector('figcaption');
   caption.querySelectorAll('.figdata').forEach((n) => n.remove());
-  const table = h('table', { class: 'data' },
-    h('thead', {}, h('tr', {}, heads.map((c) => h('th', { scope: 'col' }, c)))),
-    h('tbody', {}, rows.map((r) => h('tr', { 'data-search': r.join(' ') }, r.map((v) => h('td', { class: typeof v === 'number' ? 'n' : null }, v === null ? '—' : typeof v === 'number' ? exact(v) : v))))));
-  caption.append(
-    h('span', { class: 'figdata' }, ' ', h('details', { class: 'data' }, h('summary', {}, 'Table'), h('div', { class: 'scroll' }, table))),
-    h('a', { class: 'csv figdata', download: `${name}.csv`, href: `data:text/csv;charset=utf-8,${encodeURIComponent(toCsv(heads, rows))}` }, 'CSV'),
-  );
+  const scroll = h('div', { class: 'scroll' });
+  const details = h('details', { class: 'data' }, h('summary', {}, 'Table'), scroll);
+  details.addEventListener('toggle', () => {
+    if (!details.open || scroll.firstChild) return;
+    scroll.append(h('table', { class: 'data' },
+      h('thead', {}, h('tr', {}, heads.map((c) => h('th', { scope: 'col' }, c)))),
+      h('tbody', {}, rows.map((r) => h('tr', { 'data-search': r.join(' '), hidden: !matches(r.join(' '), state.query) }, r.map((v) => h('td', { class: typeof v === 'number' ? 'n' : null }, v === null ? '—' : typeof v === 'number' ? exact(v) : v)))))));
+  });
+  const csv = h('a', { class: 'csv figdata', download: `${name}.csv`, href: '#' }, 'CSV');
+  let written = false;
+  const write = () => {
+    if (written) return;
+    written = true;
+    csv.setAttribute('href', `data:text/csv;charset=utf-8,${encodeURIComponent(toCsv(heads, rows))}`);
+  };
+  for (const type of ['pointerdown', 'focus', 'click']) csv.addEventListener(type, write);
+  caption.append(h('span', { class: 'figdata' }, ' ', details), csv);
 };
 
 const day = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
@@ -2687,64 +2697,37 @@ const store = {
   },
 };
 
+const RENDERERS = [
+  renderChromosomes, renderGaps, renderT2t, renderComposition, renderTransposons, renderLandscape, renderSegdups, renderTandem,
+  renderGenecount, renderDensity, renderGenesize, renderStructure, renderIsoforms, renderNames, renderPseudogenes, renderImmune,
+  renderSplicing, renderTranslation, renderCodons, renderProteome, renderStructures, renderMembrane, renderDomains, renderModifications,
+  renderTargets, renderSpecificity, renderGtex, renderPlasma, renderInteractions, renderPathways, renderOntology, renderCcres,
+  renderCpgIslands, renderTrna, renderEncode, renderMito, renderCensat, renderSexchrom, renderDbsnp, renderSv, renderConstraint,
+  renderDosage, renderClinvar, renderReview, renderGrowth, renderLollipops, renderSpectrum, renderValidity, renderCnvRegions,
+  renderExpansions, renderHpo, renderOrphanet, renderGtr, renderTherapy, renderYield, renderPrenatal,
+];
+
+let drawRun = 0;
+
 const drawCharts = () => {
-  renderChromosomes();
-  renderGaps();
-  renderT2t();
-  renderComposition();
-  renderTransposons();
-  renderLandscape();
-  renderSegdups();
-  renderTandem();
-  renderGenecount();
-  renderDensity();
-  renderGenesize();
-  renderStructure();
-  renderIsoforms();
-  renderNames();
-  renderPseudogenes();
-  renderImmune();
-  renderSplicing();
-  renderTranslation();
-  renderCodons();
-  renderProteome();
-  renderStructures();
-  renderMembrane();
-  renderDomains();
-  renderModifications();
-  renderTargets();
-  renderSpecificity();
-  renderGtex();
-  renderPlasma();
-  renderInteractions();
-  renderPathways();
-  renderOntology();
-  renderCcres();
-  renderCpgIslands();
-  renderTrna();
-  renderEncode();
-  renderMito();
-  renderCensat();
-  renderSexchrom();
-  renderDbsnp();
-  renderSv();
-  renderConstraint();
-  renderDosage();
-  renderClinvar();
-  renderReview();
-  renderGrowth();
-  renderLollipops();
-  renderSpectrum();
-  renderValidity();
-  renderCnvRegions();
-  renderExpansions();
-  renderHpo();
-  renderOrphanet();
-  renderGtr();
-  renderTherapy();
-  renderYield();
-  renderPrenatal();
-  applySearch();
+  drawRun += 1;
+  const run = drawRun;
+  delete document.documentElement.dataset.drawn;
+  measureWidths($$('.chart'));
+  const queue = [...RENDERERS];
+  const step = () => {
+    if (run !== drawRun) return;
+    const until = performance.now() + 32;
+    while (queue.length && performance.now() < until) queue.shift()();
+    if (queue.length) {
+      setTimeout(step, 0);
+      return;
+    }
+    forgetWidths();
+    applySearch();
+    document.documentElement.dataset.drawn = 'true';
+  };
+  step();
 };
 
 const paintTheme = () => {
@@ -2756,16 +2739,12 @@ const initTheme = () => {
   const saved = store.get(THEME_KEY);
   if (saved) document.documentElement.dataset.theme = saved;
   paintTheme();
-  darkQuery.addEventListener('change', () => {
-    paintTheme();
-    drawCharts();
-  });
+  darkQuery.addEventListener('change', paintTheme);
   $('#theme').addEventListener('click', () => {
     const next = theme() === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = next;
     store.set(THEME_KEY, next);
     paintTheme();
-    drawCharts();
   });
 };
 
