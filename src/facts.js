@@ -79,6 +79,19 @@ export const SOURCES = {
   riggs2012: 'https://doi.org/10.1111/j.1399-0004.2011.01818.x',
   strchive: 'https://strchive.org/',
   hiatt2025: 'https://doi.org/10.1186/s13073-025-01454-4',
+  hpo: 'https://hpo.jax.org/',
+  gargano2024: 'https://doi.org/10.1093/nar/gkad1005',
+  orphanet: 'https://www.orphadata.com/',
+  nguengang2020: 'https://doi.org/10.1038/s41431-019-0508-0',
+  gtr: 'https://www.ncbi.nlm.nih.gov/gtr/',
+  rubinstein2013: 'https://doi.org/10.1093/nar/gks1173',
+  clinicaltrials: 'https://clinicaltrials.gov/',
+  fdaCgt: 'https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/approved-cellular-and-gene-therapy-products',
+  miller2010: 'https://doi.org/10.1016/j.ajhg.2010.04.006',
+  clark2018: 'https://doi.org/10.1038/s41525-018-0053-8',
+  srivastava2019: 'https://doi.org/10.1038/s41436-019-0554-6',
+  gil2017: 'https://doi.org/10.1002/uog.17484',
+  gregg2021: 'https://doi.org/10.1038/s41436-021-01203-z',
 };
 
 export const PARS = [
@@ -162,7 +175,93 @@ export const SOURCE_TITLES = {
   riggs2012: ['Clinical genetics', 'Riggs et al. 2012, Towards an evidence-based process for the clinical interpretation of copy number variation, Clinical Genetics 81:403'],
   strchive: ['Clinical genetics', 'STRchive, curated tandem repeat disease loci, data on GitHub'],
   hiatt2025: ['Clinical genetics', 'Hiatt et al. 2025, STRchive: a dynamic resource detailing population-level and locus-specific insights at tandem repeat disease loci, Genome Medicine 17:29'],
+  hpo: ['Clinical genetics', 'Human Phenotype Ontology, ontology and disease annotation releases'],
+  gargano2024: ['Clinical genetics', 'Gargano et al. 2024, The Human Phenotype Ontology in 2024: phenotypes around the world, Nucleic Acids Research 52:D1333'],
+  orphanet: ['Clinical genetics', 'Orphadata, Orphanet’s gene, prevalence, onset and inheritance products'],
+  nguengang2020: ['Clinical genetics', 'Nguengang Wakap et al. 2020, Estimating cumulative point prevalence of rare diseases: analysis of the Orphanet database, European Journal of Human Genetics 28:165'],
+  gtr: ['Clinical genetics', 'NIH Genetic Testing Registry (GTR)'],
+  rubinstein2013: ['Clinical genetics', 'Rubinstein et al. 2013, The NIH genetic testing registry, Nucleic Acids Research 41:D925'],
+  clinicaltrials: ['Clinical genetics', 'ClinicalTrials.gov, API version 2'],
+  fdaCgt: ['Clinical genetics', 'FDA, Approved Cellular and Gene Therapy Products, with each product’s page and package insert'],
+  miller2010: ['Clinical genetics', 'Miller et al. 2010, Chromosomal microarray is a first-tier clinical diagnostic test for individuals with developmental disabilities or congenital anomalies, American Journal of Human Genetics 86:749'],
+  clark2018: ['Clinical genetics', 'Clark et al. 2018, Meta-analysis of the diagnostic and clinical utility of genome and exome sequencing and chromosomal microarray in children with suspected genetic diseases, npj Genomic Medicine 3:16'],
+  srivastava2019: ['Clinical genetics', 'Srivastava et al. 2019, Exome sequencing is a first-tier clinical diagnostic test for individuals with neurodevelopmental disorders, Genetics in Medicine 21:2413'],
+  gil2017: ['Clinical genetics', 'Gil et al. 2017, Analysis of cell-free DNA in maternal blood in screening for aneuploidies: updated meta-analysis, Ultrasound in Obstetrics & Gynecology 50:302'],
+  gregg2021: ['Clinical genetics', 'Gregg et al. 2021, Screening for autosomal recessive and X-linked conditions during pregnancy and preconception (ACMG), Genetics in Medicine 23:1793'],
 };
+
+const therapy = (trade, proper, year, vector, group, condition) => ({
+  trade, proper, year, vector, group, condition,
+});
+
+export const GENE_THERAPIES = [
+  therapy('IMLYGIC', 'talimogene laherparepvec', 2015, 'HSV-1, oncolytic', 'Other in vivo vectors', 'melanoma'),
+  therapy('KYMRIAH', 'tisagenlecleucel', 2017, 'lentiviral', 'CAR-T and TCR-T cells', 'B-cell ALL and lymphomas'),
+  therapy('YESCARTA', 'axicabtagene ciloleucel', 2017, 'gammaretroviral', 'CAR-T and TCR-T cells', 'large B-cell lymphoma'),
+  therapy('LUXTURNA', 'voretigene neparvovec-rzyl', 2017, 'AAV2', 'AAV', 'biallelic RPE65 retinal dystrophy'),
+  therapy('ZOLGENSMA', 'onasemnogene abeparvovec-xioi', 2019, 'AAV9', 'AAV', 'spinal muscular atrophy'),
+  therapy('TECARTUS', 'brexucabtagene autoleucel', 2020, 'gammaretroviral', 'CAR-T and TCR-T cells', 'mantle cell lymphoma and B-cell ALL'),
+  therapy('BREYANZI', 'lisocabtagene maraleucel', 2021, 'lentiviral', 'CAR-T and TCR-T cells', 'large B-cell lymphoma'),
+  therapy('ABECMA', 'idecabtagene vicleucel', 2021, 'lentiviral', 'CAR-T and TCR-T cells', 'multiple myeloma'),
+  therapy('CARVYKTI', 'ciltacabtagene autoleucel', 2022, 'lentiviral', 'CAR-T and TCR-T cells', 'multiple myeloma'),
+  therapy('ZYNTEGLO', 'betibeglogene autotemcel', 2022, 'lentiviral', 'Blood stem cells', 'transfusion-dependent β-thalassemia'),
+  therapy('SKYSONA', 'elivaldogene autotemcel', 2022, 'lentiviral', 'Blood stem cells', 'cerebral adrenoleukodystrophy'),
+  therapy('HEMGENIX', 'etranacogene dezaparvovec-drlb', 2022, 'AAV5', 'AAV', 'hemophilia B'),
+  therapy('ADSTILADRIN', 'nadofaragene firadenovec-vncg', 2022, 'adenovirus', 'Other in vivo vectors', 'BCG-unresponsive bladder cancer'),
+  therapy('VYJUVEK', 'beremagene geperpavec-svdt', 2023, 'HSV-1', 'Other in vivo vectors', 'dystrophic epidermolysis bullosa'),
+  therapy('ELEVIDYS', 'delandistrogene moxeparvovec-rokl', 2023, 'AAVrh74', 'AAV', 'Duchenne muscular dystrophy'),
+  therapy('ROCTAVIAN', 'valoctocogene roxaparvovec-rvox', 2023, 'AAV5', 'AAV', 'hemophilia A'),
+  therapy('CASGEVY', 'exagamglogene autotemcel', 2023, 'CRISPR-Cas9 edited', 'Blood stem cells', 'sickle cell disease and β-thalassemia'),
+  therapy('LYFGENIA', 'lovotibeglogene autotemcel', 2023, 'lentiviral', 'Blood stem cells', 'sickle cell disease'),
+  therapy('LENMELDY', 'atidarsagene autotemcel', 2024, 'lentiviral', 'Blood stem cells', 'metachromatic leukodystrophy'),
+  therapy('BEQVEZ', 'fidanacogene elaparvovec-dzkt', 2024, 'AAVRh74var', 'AAV', 'hemophilia B'),
+  therapy('TECELRA', 'afamitresgene autoleucel', 2024, 'lentiviral', 'CAR-T and TCR-T cells', 'synovial sarcoma'),
+  therapy('AUCATZYL', 'obecabtagene autoleucel', 2024, 'lentiviral', 'CAR-T and TCR-T cells', 'B-cell ALL'),
+  therapy('KEBILIDI', 'eladocagene exuparvovec-tneq', 2024, 'AAV2', 'AAV', 'AADC deficiency'),
+  therapy('ENCELTO', 'revakinagene taroretcel-lwey', 2025, 'encapsulated engineered cells', 'Other gene-modified cells', 'macular telangiectasia type 2'),
+  therapy('ZEVASKYN', 'prademagene zamikeracel', 2025, 'gammaretroviral', 'Other gene-modified cells', 'recessive dystrophic epidermolysis bullosa'),
+  therapy('PAPZIMEOS', 'zopapogene imadenovec-drba', 2025, 'adenovirus', 'Other in vivo vectors', 'recurrent respiratory papillomatosis'),
+  therapy('ITVISMA', 'onasemnogene abeparvovec-brve', 2025, 'AAV9', 'AAV', 'spinal muscular atrophy, age 2 and older'),
+  therapy('WASKYRA', 'etuvetidigene autotemcel', 2025, 'lentiviral', 'Blood stem cells', 'Wiskott-Aldrich syndrome'),
+  therapy('KRESLADI', 'marnetegragene autotemcel', 2026, 'lentiviral', 'Blood stem cells', 'leukocyte adhesion deficiency I'),
+  therapy('OTARMENI', 'lunsotogene parvec-cwha', 2026, 'AAV1', 'AAV', 'OTOF hearing loss'),
+  therapy('TUDRIQEV', 'vusolimogene oderparepvec-wtpg', 2026, 'HSV-1, oncolytic', 'Other in vivo vectors', 'melanoma'),
+  therapy('GENGLYCOS', 'pariglasgene brecaparvovec-opnr', 2026, 'AAV8', 'AAV', 'glycogen storage disease Ia'),
+  therapy('FAYUVI', 'rebisufligene etisparvovec-hopf', 2026, 'AAV9', 'AAV', 'MPS IIIA, Sanfilippo syndrome type A'),
+  therapy('VOCERYQ', 'doruxapapogene ralaplasmid and lalikinogene sifuplasmid-gxfd', 2026, 'plasmid DNA', 'Other in vivo vectors', 'recurrent respiratory papillomatosis'),
+];
+
+const yieldOf = (key, test, measure, value, lo, hi, source) => ({
+  key, test, measure, value, lo, hi, source,
+});
+
+export const DIAGNOSTIC_YIELD = [
+  yieldOf('karyotype', 'G-banded karyotype', 'diagnostic', 3, null, null, 'miller2010'),
+  yieldOf('cma-2010', 'Chromosomal microarray', 'diagnostic', null, 15, 20, 'miller2010'),
+  yieldOf('cma', 'Chromosomal microarray', 'diagnostic', 10, 8, 12, 'clark2018'),
+  yieldOf('wes', 'Exome sequencing', 'diagnostic', 36, 33, 40, 'clark2018'),
+  yieldOf('wgs', 'Genome sequencing', 'diagnostic', 41, 34, 48, 'clark2018'),
+  yieldOf('es-ndd', 'Exome sequencing, NDD', 'diagnostic', 36, null, null, 'srivastava2019'),
+  yieldOf('es-ndd-isolated', 'Exome sequencing, isolated NDD', 'diagnostic', 31, null, null, 'srivastava2019'),
+  yieldOf('es-ndd-plus', 'Exome sequencing, NDD with other conditions', 'diagnostic', 53, null, null, 'srivastava2019'),
+  yieldOf('cma-clinical', 'Chromosomal microarray', 'clinical', 6, 5, 7, 'clark2018'),
+  yieldOf('wes-clinical', 'Exome sequencing', 'clinical', 17, 12, 24, 'clark2018'),
+  yieldOf('wgs-clinical', 'Genome sequencing', 'clinical', 27, 17, 40, 'clark2018'),
+];
+
+const screen = (condition, detection, lo, hi, fpr, fprLo, fprHi, cases, unaffected) => ({
+  condition, detection, lo, hi, fpr, fprLo, fprHi, cases, unaffected,
+});
+
+export const CFDNA_SCREENING = [
+  screen('Trisomy 21', 99.7, 99.1, 99.9, 0.04, 0.02, 0.07, 1963, 223932),
+  screen('Trisomy 18', 97.9, 94.9, 99.1, 0.04, 0.03, 0.07, 563, 222013),
+  screen('Trisomy 13', 99.0, 65.8, 100, 0.04, 0.02, 0.07, 119, 212883),
+  screen('Monosomy X', 95.8, 70.3, 99.5, 0.14, 0.05, 0.38, 36, 7676),
+  screen('Other sex chromosome aneuploidies', 100, 83.6, 100, 0.004, 0, 0.08, 17, 5400),
+];
+
+export const CARRIER_TIER3 = { genes: 97, definitive: 39, frequency: '1 in 200' };
 
 export const EXAMPLES = [
   { id: 'NM_000546.6:c.215C>G', is: 'TP53 p.Pro72Arg, a common polymorphism' },
