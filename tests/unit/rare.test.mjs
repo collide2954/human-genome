@@ -122,8 +122,10 @@ test('orphaAges counts disorders by age of onset and type of inheritance', () =>
   assert.equal(a.noInheritance, 1);
 });
 
-const GTR_COLS = ['test_accession_ver', 'name_of_laboratory', 'facility_country', 'lab_id', 'test_development', 'method_categories', 'genes', 'now_current', 'test_create_date'];
-const gtr = (fields) => GTR_COLS.map((c) => fields[c] ?? '').join('\t');
+const GTR_COLS = ['test_accession_ver', 'name_of_laboratory', 'facility_country', 'lab_id', 'test_development', 'method_categories', 'genes', 'now_current', 'test_currStat', 'test_pubStat', 'lab_currStat', 'lab_pubStat', 'test_create_date'];
+const gtr = (fields) => GTR_COLS.map((c) => fields[c] ?? {
+  test_currStat: '1', test_pubStat: '3', lab_currStat: '1', lab_pubStat: '3',
+}[c] ?? '').join('\t');
 
 test('gtrTests counts current GTR tests by lab, country, method, development and genes', () => {
   const g = gtrTests([
@@ -139,6 +141,12 @@ test('gtrTests counts current GTR tests by lab, country, method, development and
     }),
     gtr({
       test_accession_ver: 'GTR000000001.1', facility_country: 'Spain', lab_id: '3', method_categories: 'Karyotyping', genes: 'TP53', now_current: '0', test_create_date: '2014-01-01',
+    }),
+    gtr({
+      test_accession_ver: 'GTR000000004.3', facility_country: 'Spain', lab_id: '4', method_categories: 'Karyotyping', genes: 'TP53', now_current: '1', test_currStat: '72', test_create_date: '2015-01-01',
+    }),
+    gtr({
+      test_accession_ver: 'GTR000000005.1', facility_country: 'Spain', lab_id: '5', method_categories: 'Karyotyping', genes: 'TP53', now_current: '1', lab_pubStat: '4', test_create_date: '2015-01-01',
     }),
   ].join('\n'));
   assert.equal(g.tests, 3);
