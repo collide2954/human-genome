@@ -1,6 +1,7 @@
 import {
-  exact, pct, codonOf, perLitre,
+  exact, pct, codonOf, perLitre, GENETIC_CODE, AA3,
 } from './lib.js';
+import { reverseComplement } from './stats.js';
 
 const nuclear = (list) => list.filter((c) => c.chrom !== 'MT');
 const sum = (list, key) => list.reduce((n, x) => n + (x[key] ?? 0), 0);
@@ -182,6 +183,18 @@ const translation = (snap) => {
 const STOP_CODONS = new Set([48, 50, 56]);
 
 export const senseCodons = (counts) => counts.map((n, i) => ({ codon: codonOf(i), n })).filter((_, i) => !STOP_CODONS.has(i));
+
+export const trnaPairs = (counts, anticodons) => {
+  const sense = senseCodons(counts);
+  const total = sense.reduce((s, c) => s + c.n, 0);
+  return sense.map(({ codon, n }) => {
+    const aa = AA3[GENETIC_CODE[codon]];
+    const anticodon = reverseComplement(codon);
+    return {
+      codon, aa, anticodon, perK: (n / total) * 1000, copies: anticodons[`${aa}-${anticodon}`] ?? 0,
+    };
+  });
+};
 
 const codons = (snap) => {
   const sense = senseCodons(snap.sequence.mane.codons);
