@@ -1,4 +1,6 @@
-import { exact, pct, codonOf } from './lib.js';
+import {
+  exact, pct, codonOf, perLitre,
+} from './lib.js';
 
 const nuclear = (list) => list.filter((c) => c.chrom !== 'MT');
 const sum = (list, key) => list.reduce((n, x) => n + (x[key] ?? 0), 0);
@@ -190,7 +192,81 @@ const codons = (snap) => {
   return `${top.codon} is the most used codon, ${perK(top.n)} per thousand; ${rare.codon} the least used sense codon, ${perK(rare.n)}`;
 };
 
+const proteome = (snap) => {
+  const P = snap.proteins;
+  const [top] = P.longest;
+  return `UniProt ${P.release} lists ${exact(P.count)} reviewed human proteins; the median is ${exact(P.lengths.summary.median)} residues long and ${top.gene}, the longest, ${exact(top.length)}`;
+};
+
+const structures = (snap) => {
+  const { count, pdb } = snap.proteins;
+  return `${exact(pdb.withAny)} reviewed human proteins, ${pct(pdb.withAny / count)}, have at least one PDB structure; ${pdb.top[0].gene} appears in ${exact(pdb.top[0].n)}`;
+};
+
+const membrane = (snap) => {
+  const { transmem, signal } = snap.proteins;
+  return `${exact(transmem.proteins)} proteins cross a membrane: ${exact(transmem.counts[1])} once and ${exact(transmem.counts[7])} seven times; ${exact(signal)} carry a signal peptide`;
+};
+
+const domains = (snap) => {
+  const { count, pfam } = snap.proteins;
+  const [top] = pfam.top;
+  return `${pct(pfam.withAny / count)} of proteins carry a Pfam domain; ${exact(top.n)} carry ${top.short} (${top.id}), the most common`;
+};
+
+export const proteomeResidues = (snap) => snap.proteins.lengths.summary.mean * snap.proteins.lengths.summary.n;
+
+const modifications = (snap) => {
+  const { disorder, ptm } = snap.proteins;
+  return `${pct(disorder.residues / proteomeResidues(snap))} of residues sit in disordered regions; UniProt lists ${exact(ptm.phosphoS)} phosphoserines, ${exact(ptm.phosphoT)} phosphothreonines and ${exact(ptm.phosphoY)} phosphotyrosines`;
+};
+
+const targets = (snap) => {
+  const { count, levels } = snap.targets;
+  return `Pharos counts ${exact(levels.Tclin)} targets of approved drugs (Tclin) among ${exact(count)} human proteins; ${exact(levels.Tdark)} are Tdark`;
+};
+
+const specificity = (snap) => {
+  const { hpa } = snap.expression;
+  const [a, b] = hpa.enriched;
+  return `HPA calls ${exact(hpa.specificity['Tissue enriched'])} genes tissue enriched; ${a.tissue} has ${exact(a.n)} of them, ${b.tissue} ${exact(b.n)}`;
+};
+
+export const gtexTissues = (snap) => {
+  const { gtex } = snap.expression;
+  return gtex.tissues.map((id, i) => ({
+    ...(gtex.sites.find((s) => s.id === id) ?? { id, name: id }),
+    expressed: gtex.expressed[i],
+    specific: gtex.specific?.[i] ?? null,
+    index: i,
+  }));
+};
+
+const gtex = (snap) => {
+  const list = gtexTissues(snap);
+  const most = list.reduce((a, b) => (b.expressed > a.expressed ? b : a));
+  const least = list.reduce((a, b) => (b.expressed < a.expressed ? b : a));
+  return `In GTEx ${snap.expression.gtex.release}, ${exact(most.expressed)} genes reach a median of 1 TPM in ${most.name}; ${exact(least.expressed)} do in ${least.name}`;
+};
+
+export const plasmaLevel = (p, pick = Math.max) => pick(...[p.im, p.ms].filter((v) => v !== null && v !== undefined));
+
+const plasma = (snap) => {
+  const { blood } = snap.expression.hpa;
+  const [top] = blood.top;
+  return `Plasma levels in HPA run from ${perLitre(plasmaLevel(top))} for ${top.gene} to ${perLitre(plasmaLevel(blood.lowest, Math.min))} for ${blood.lowest.gene}, across ${exact(blood.proteins)} proteins`;
+};
+
 export const findings = (snap) => ({
+  proteome: proteome(snap),
+  structures: structures(snap),
+  membrane: membrane(snap),
+  domains: domains(snap),
+  modifications: modifications(snap),
+  targets: targets(snap),
+  specificity: specificity(snap),
+  gtex: gtex(snap),
+  plasma: plasma(snap),
   splicing: splicing(snap),
   translation: translation(snap),
   codons: codons(snap),
