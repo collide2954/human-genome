@@ -492,7 +492,7 @@ export const matrix = ({
 };
 
 export const stackedArea = ({
-  mount, years, series, aria, format = exact, max = null,
+  mount, years, series, aria, format = exact, max = null, xFormat = (v) => v, xTick = (v) => v,
 }) => {
   const W = widthOf(mount);
   const L = 46;
@@ -520,7 +520,7 @@ export const stackedArea = ({
     layers.map((layer, i) => el('path', {
       class: 'area', 'data-key': layer.key, d: area(layer.points), style: `fill:${series[i].color};--i:${i * 8}`,
     })),
-    years.map((yr) => (yr % step === 0 ? el('text', { class: 'tick', x: x(yr), y: H - 6, 'text-anchor': 'middle' }, yr) : null)),
+    years.map((yr) => (yr % step === 0 ? el('text', { class: 'tick', x: x(yr), y: H - 6, 'text-anchor': 'middle' }, xTick(yr)) : null)),
     cross,
     el('rect', { class: 'hit', 'data-k': 0, x: L, y: T, width: W - L - R, height: H - T - B }));
   hover(svg, (k, event) => {
@@ -531,7 +531,7 @@ export const stackedArea = ({
     cross.setAttribute('x2', x(years[i]));
     cross.setAttribute('visibility', 'visible');
     return [
-      html('b', {}, `${years[i]}: ${format(totals[i])}`),
+      html('b', {}, `${xFormat(years[i])}: ${format(totals[i])}`),
       ...[...series].reverse().map((s) => html('span', {}, html('i', { style: `background:${s.color}` }), `${s.label} ${format(rows[i][s.key])}`)),
     ];
   }, { steps: years.length });
