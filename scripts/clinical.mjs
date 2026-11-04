@@ -1,3 +1,5 @@
+import { csvLine } from './variation.mjs';
+
 const own = (s) => Buffer.from(s, 'utf8').toString('utf8');
 const zeros = (n) => new Array(n).fill(0);
 const spaced = (s) => String(s).replace(/_/g, ' ');
@@ -378,3 +380,87 @@ export const variantTable = ({ genes }) => {
 export const pfamDomains = (json) => (json?.results ?? []).flatMap((r) => (r.proteins ?? []).flatMap((p) => (p.entry_protein_locations ?? []).flatMap((loc) => (loc.fragments ?? []).map((f) => ({
   id: r.metadata.accession, name: r.metadata.name, start: f.start, end: f.end,
 }))))).sort((a, b) => a.start - b.start || a.end - b.end);
+
+export const VALIDITY = ['Definitive', 'Strong', 'Moderate', 'Limited', 'Disputed', 'Refuted', 'No Known Disease Relationship'];
+const SUPPORTED = new Set(['Definitive', 'Strong', 'Moderate']);
+
+const bumpIn = (obj, key, sub) => {
+  obj[key] ??= {};
+  bump(obj[key], sub);
+};
+
+const moiLabel = (set) => {
+  if (set.has('AD') && set.has('AR')) return 'both';
+  return set.size === 1 ? [...set][0] : 'several';
+};
+
+export const validitySummary = (text) => {
+  const lines = text.split('\n').map((l) => l.replace(/\r$/, ''));
+  const at = lines.findIndex((l) => l.startsWith('"GENE SYMBOL"'));
+  const col = Object.fromEntries(csvLine(lines[at]).map((h, i) => [h, i]));
+  const classes = Object.fromEntries(VALIDITY.map((c) => [c, 0]));
+  const byMoi = {};
+  const byYear = {};
+  const gceps = new Map();
+  const genes = new Set();
+  const diseases = new Set();
+  const moi = new Map();
+  let curations = 0;
+  for (const line of lines.slice(at + 1)) {
+    if (!line || line.startsWith('"+++')) continue;
+    const c = csvLine(line);
+    const gene = c[col['GENE SYMBOL']];
+    const mode = c[col.MOI];
+    const cls = c[col.CLASSIFICATION];
+    curations += 1;
+    genes.add(gene);
+    diseases.add(c[col['DISEASE ID (MONDO)']]);
+    if (cls in classes) classes[cls] += 1;
+    bumpIn(byMoi, mode, cls);
+    bumpIn(byYear, c[col['CLASSIFICATION DATE']].slice(0, 4), cls);
+    gceps.set(c[col.GCEP], (gceps.get(c[col.GCEP]) ?? 0) + 1);
+    if (SUPPORTED.has(cls)) moi.set(gene, (moi.get(gene) ?? new Set()).add(mode));
+  }
+  return {
+    date: /FILE CREATED: (\d{4}-\d{2}-\d{2})/.exec(text)?.[1] ?? null,
+    curations,
+    genes: genes.size,
+    diseases: diseases.size,
+    classes,
+    byMoi,
+    byYear,
+    gceps: [...gceps].map(([name, n]) => ({ name, n })).sort((a, b) => b.n - a.n || a.name.localeCompare(b.name)),
+    moiGenes: new Map([...moi].map(([g, set]) => [g, moiLabel(set)])),
+  };
+};
+
+const CHROM_ORDER = [...Array.from({ length: 22 }, (_, i) => String(i + 1)), 'X', 'Y'];
+const score = (v) => (/^\d+$/.test(v ?? '') ? Number(v) : null);
+
+export const regionSummary = (text) => {
+  const lines = text.split('\n');
+  const col = Object.fromEntries(lines.find((l) => l.startsWith('#ISCA ID')).slice(1).split('\t').map((h, i) => [h, i]));
+  const hi = {};
+  const ts = {};
+  const sensitive = [];
+  let regions = 0;
+  for (const line of lines) {
+    if (!line || line.startsWith('#')) continue;
+    const c = line.split('\t');
+    regions += 1;
+    const h = score(c[col['Haploinsufficiency Score']]);
+    const t = score(c[col['Triplosensitivity Score']]);
+    if (h !== null) bump(hi, h);
+    if (t !== null) bump(ts, t);
+    const loc = /^chr(\w+):(\d+)-(\d+)$/.exec((c[col['Genomic Location']] ?? '').trim());
+    if (!loc || (h !== 3 && t !== 3)) continue;
+    const name = own(c[col['ISCA Region Name']].trim());
+    sensitive.push({
+      id: own(c[col['ISCA ID']]), name, band: own(c[col.cytoBand]), chrom: loc[1], start: Number(loc[2]), end: Number(loc[3]), hi: h, ts: t, recurrent: /recurrent/i.test(name),
+    });
+  }
+  sensitive.sort((a, b) => CHROM_ORDER.indexOf(a.chrom) - CHROM_ORDER.indexOf(b.chrom) || a.start - b.start);
+  return {
+    date: lines[1]?.startsWith('#') ? lines[1].slice(1).trim() : null, regions, hi, ts, sensitive,
+  };
+};

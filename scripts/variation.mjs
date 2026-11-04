@@ -164,7 +164,7 @@ export const clingenDosage = (text) => {
   };
 };
 
-const csvLine = (line) => {
+export const csvLine = (line) => {
   const out = [];
   let cur = '';
   let quoted = false;
