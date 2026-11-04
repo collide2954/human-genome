@@ -8,7 +8,7 @@ import {
 import { FILES } from './queries.js';
 import { findings, assemblyNumbers, sequenceNumbers } from './findings.js';
 import {
-  ideogram, hbars, dotplot, strips, matrix, rampLegend, observeFigures, countUp, tipLines,
+  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, observeFigures, countUp, tipLines,
 } from './charts.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -42,15 +42,15 @@ const NUCLEAR = A.grch38.chromosomes.filter((c) => c.chrom !== 'MT');
 
 const state = { query: '', lens: 'all' };
 
-const attachData = (mountSel, name, columns, rows) => {
+const attachData = (mountSel, name, heads, rows) => {
   const caption = $(mountSel).closest('.fig').querySelector('figcaption');
   caption.querySelectorAll('.figdata').forEach((n) => n.remove());
   const table = h('table', { class: 'data' },
-    h('thead', {}, h('tr', {}, columns.map((c) => h('th', { scope: 'col' }, c)))),
+    h('thead', {}, h('tr', {}, heads.map((c) => h('th', { scope: 'col' }, c)))),
     h('tbody', {}, rows.map((r) => h('tr', { 'data-search': r.join(' ') }, r.map((v) => h('td', { class: typeof v === 'number' ? 'n' : null }, v === null ? '—' : typeof v === 'number' ? exact(v) : v))))));
   caption.append(
     h('span', { class: 'figdata' }, ' ', h('details', { class: 'data' }, h('summary', {}, 'Table'), h('div', { class: 'scroll' }, table))),
-    h('a', { class: 'csv figdata', download: `${name}.csv`, href: `data:text/csv;charset=utf-8,${encodeURIComponent(toCsv(columns, rows))}` }, 'CSV'),
+    h('a', { class: 'csv figdata', download: `${name}.csv`, href: `data:text/csv;charset=utf-8,${encodeURIComponent(toCsv(heads, rows))}` }, 'CSV'),
   );
 };
 
@@ -235,6 +235,121 @@ const renderComposition = () => {
   attachData('#g4-chart', 'g-quadruplex-motifs', ['Chromosome', 'G-rich strand', 'C-rich strand', 'Sequenced bases'], nuclear.map((c) => [c.chrom, c.g4.plus, c.g4.minus, acgtOf(c)]));
 };
 
+const R = snapshot.repeats;
+const CLASS_COLORS = {
+  LINE: 'var(--s1)', SINE: 'var(--s2)', LTR: 'var(--s3)', DNA: 'var(--s4)', Satellite: 'var(--s5)',
+};
+const CLASS_NAMES = {
+  LINE: 'LINE', SINE: 'SINE', LTR: 'LTR', DNA: 'DNA transposons', Satellite: 'satellites', Simple_repeat: 'simple repeats', Low_complexity: 'low complexity', Retroposon: 'SVA',
+};
+
+const renderTransposons = () => {
+  const { rmsk } = R;
+  const top = rmsk.families.slice(0, 18);
+  const rest = rmsk.families.slice(18);
+  const items = [
+    ...top.map((f) => ({
+      key: `${f.cls}/${f.family}`, label: f.family.replace(/_/g, ' '), sub: pct(f.bp / SN.acgt), value: f.bp, color: CLASS_COLORS[f.cls] ?? 'var(--data)', f,
+    })),
+    {
+      key: 'other', label: 'Other', sub: pct(rest.reduce((n, f) => n + f.bp, 0) / SN.acgt), value: rest.reduce((n, f) => n + f.bp, 0), color: 'var(--data-2)',
+      f: { cls: `${rest.length} families`, family: 'Other', count: rest.reduce((n, f) => n + f.count, 0), bp: rest.reduce((n, f) => n + f.bp, 0) },
+    },
+  ];
+  $('#transposons-dek').textContent = `${rmsk.classes.slice(0, 5).map((c) => `${CLASS_NAMES[c.cls] ?? c.cls} ${pct(c.bp / SN.acgt)}`).join(', ')}. ${exact(rmsk.total.count)} annotations in ${exact(rmsk.families.length)} families.`;
+  treemap({
+    mount: $('#repeat-chart'),
+    items,
+    aria: 'Bases in each repeat family',
+    describe: (item) => tipLines(bases(item.f.bp), `${item.f.family} (${item.f.cls})`, `${exact(item.f.count)} copies`, `${pct(item.f.bp / SN.acgt)} of sequenced bases`),
+  });
+  attachData('#repeat-chart', 'repeat-families', ['Class', 'Family', 'Copies', 'Bases'], rmsk.families.map((f) => [f.cls, f.family, f.count, f.bp]));
+};
+
+const renderLandscape = () => {
+  const { landscape, alu: subs } = R.rmsk;
+  const years = landscape.edges.slice(0, -1);
+  const peakOf = (cls) => landscape.bp[cls].indexOf(Math.max(...landscape.bp[cls]));
+  $('#landscape-dek').textContent = `SINE bases peak at ${peakOf('SINE')}–${peakOf('SINE') + 1}% divergence, the Alu expansion; LINE bases at ${peakOf('LINE')}–${peakOf('LINE') + 1}%, DNA transposons at ${peakOf('DNA')}–${peakOf('DNA') + 1}%. Copies under 2% divergence are the recent, sometimes still active, L1 and Alu.`;
+  stackedArea({
+    mount: $('#landscape-chart'),
+    years,
+    series: landscape.classes.map((cls) => ({ key: cls, label: CLASS_NAMES[cls], color: CLASS_COLORS[cls], values: landscape.bp[cls] })),
+    format: bases,
+    xFormat: (v) => `${v}–${v + 1}% divergence`,
+    xTick: (v) => `${v}%`,
+    aria: 'Transposon bases by divergence from consensus',
+  });
+  attachData('#landscape-chart', 'repeat-landscape', ['Divergence from', 'Divergence to', ...landscape.classes],
+    years.map((v, i) => [v, v + 1, ...landscape.classes.map((cls) => landscape.bp[cls][i])]));
+  const parts = [['AluJ', 'var(--s3)'], ['AluS', 'var(--s2)'], ['AluY', 'var(--s1)']].map(([key, color]) => ({ label: key, value: subs[key].count, color }));
+  waffle({ mount: $('#alu-chart'), parts, aria: 'Alu copies by subfamily' });
+  attachData('#alu-chart', 'alu-subfamilies', ['Subfamily', 'Copies', 'Bases'], ['AluJ', 'AluS', 'AluY'].map((k) => [k, subs[k].count, subs[k].bp]));
+};
+
+const renderSegdups = () => {
+  const { superDups } = R;
+  const { edges, counts } = superDups.identity;
+  const rows = counts.map((count, i) => ({ lo: edges[i], hi: edges[i + 1], count }));
+  const high = rows.filter((r) => r.lo >= 0.99).reduce((n, r) => n + r.count, 0);
+  const covered = Object.values(superDups.covered).reduce((a, b) => a + b, 0);
+  const share = (c) => (superDups.covered[c.chrom] ?? 0) / acgtOf(S.chromosomes.find((x) => x.chrom === c.chrom));
+  const most = NUCLEAR.reduce((a, b) => (share(b) > share(a) ? b : a));
+  $('#segdups-dek').textContent = `${exact(high)} of the ${exact(superDups.pairs)} pairs are at least 99% identical. ${exact(superDups.kinds.intra)} pairs sit on one chromosome. Chromosome ${most.chrom} has the largest share in duplications, ${pct(share(most))} of its sequenced bases; ${bases(covered)} are duplicated across the genome.`;
+  const pctLabel = (v) => `${(v * 100).toFixed(1)}`;
+  columns({
+    mount: $('#segdup-chart'),
+    rows,
+    key: (r) => r.lo,
+    value: (r) => r.count,
+    attr: 'bin',
+    label: (r) => pctLabel(r.lo),
+    height: 220,
+    aria: 'Segmental duplication pairs by identity',
+    describe: (r) => tipLines(`${exact(r.count)} pairs`, `${pctLabel(r.lo)}–${pctLabel(r.hi)}% identity`),
+  });
+  attachData('#segdup-chart', 'segdup-identity', ['Identity from', 'Identity to', 'Pairs'], rows.map((r) => [r.lo, r.hi, r.count]));
+  hbars({
+    mount: $('#segdup-chrom-chart'),
+    rows: NUCLEAR.map((c) => ({ key: c.chrom, label: c.chrom, values: { bp: superDups.covered[c.chrom] ?? 0 } })),
+    segments: [{ key: 'bp', label: 'Duplicated bases', color: 'var(--s2)' }],
+    aria: 'Bases in segmental duplications by chromosome',
+    describe: (r) => tipLines(bases(r.values.bp), `chromosome ${r.key}`, `${pct(share({ chrom: r.key }))} of its sequenced bases`),
+  });
+  attachData('#segdup-chrom-chart', 'segdup-by-chromosome', ['Chromosome', 'Duplicated bases', 'Sequenced bases'],
+    NUCLEAR.map((c) => [c.chrom, superDups.covered[c.chrom] ?? 0, acgtOf(S.chromosomes.find((x) => x.chrom === c.chrom))]));
+};
+
+const renderTandem = () => {
+  const { units, motifs: top } = R.tandem;
+  const unitLabel = (u) => `${u} bp`;
+  const micro = units.slice(0, 6).reduce((n, u) => n + u.count, 0);
+  $('#tandem-dek').textContent = `${exact(micro)} calls have units of 1 to 6 bases, the microsatellites; ${exact(units.at(-1).count)} have units over 50 bases. (AC)n alone is called ${exact(top.find((m) => m.motif === 'AC').count)} times.`;
+  hbars({
+    mount: $('#tandem-chart'),
+    rows: units.map((u) => ({ key: u.unit, label: unitLabel(u.unit), values: { count: u.count } })),
+    segments: [{ key: 'count', label: 'Calls', color: 'var(--data)' }],
+    labelShare: 0.22,
+    aria: 'Tandem repeats by unit length',
+    describe: (r) => {
+      const u = units.find((x) => x.unit === r.key);
+      return tipLines(`${exact(u.count)} repeats`, `units of ${unitLabel(u.unit)}`, `${bases(u.bp)} called`);
+    },
+  });
+  attachData('#tandem-chart', 'tandem-units', ['Unit length', 'Repeats', 'Bases'], units.map((u) => [u.unit, u.count, u.bp]));
+  const shown = top.slice(0, 15);
+  dotplot({
+    mount: $('#motif-chart'),
+    rows: shown.map((m, i) => ({ key: m.motif, label: `(${m.motif})n`, value: m.count, hi: i === 0 })),
+    aria: 'The most frequent tandem repeat units',
+    describe: (r) => {
+      const m = shown.find((x) => x.motif === r.key);
+      return tipLines(`${exact(m.count)} repeats`, `(${m.motif})n with its rotations and reverse complement`, `${bases(m.bp)} called`);
+    },
+  });
+  attachData('#motif-chart', 'tandem-motifs', ['Unit', 'Repeats', 'Bases'], top.map((m) => [m.motif, m.count, m.bp]));
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -279,6 +394,9 @@ const DATA_SOURCES = [
   ['UCSC hg38 centromere models', FILES.centromeres],
   ['UCSC hg38 2bit sequence', FILES.hg38TwoBit],
   ['NCBI MANE release folder', FILES.maneDir],
+  ['UCSC hg38 RepeatMasker table', FILES.rmsk],
+  ['UCSC hg38 segmental duplications', FILES.superDups],
+  ['UCSC hg38 Tandem Repeats Finder table', FILES.simpleRepeat],
 ];
 
 const renderSources = () => {
@@ -343,6 +461,10 @@ const drawCharts = () => {
   renderGaps();
   renderT2t();
   renderComposition();
+  renderTransposons();
+  renderLandscape();
+  renderSegdups();
+  renderTandem();
   applySearch();
 };
 
