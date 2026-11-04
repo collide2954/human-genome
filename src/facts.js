@@ -37,6 +37,13 @@ export const SOURCES = {
   uhlen2019: 'https://doi.org/10.1126/scisignal.aaz0274',
   gtex: 'https://gtexportal.org/',
   gtex2020: 'https://doi.org/10.1126/science.aaz1776',
+  string: 'https://string-db.org/',
+  szklarczyk2023: 'https://doi.org/10.1093/nar/gkac1000',
+  reactome: 'https://reactome.org/',
+  milacic2024: 'https://doi.org/10.1093/nar/gkad1025',
+  geneOntology: 'https://geneontology.org/',
+  go2023: 'https://doi.org/10.1093/genetics/iyad031',
+  ashburner2000: 'https://doi.org/10.1038/75556',
 };
 
 export const SOURCE_TITLES = {
@@ -73,6 +80,13 @@ export const SOURCE_TITLES = {
   uhlen2019: ['Expression and regulation', 'Uhlén et al. 2019, The human secretome, Science Signaling 12:eaaz0274'],
   gtex: ['Expression and regulation', 'GTEx Portal, release v10'],
   gtex2020: ['Expression and regulation', 'GTEx Consortium 2020, The GTEx Consortium atlas of genetic regulatory effects across human tissues, Science 369:1318'],
+  string: ['Genes and proteins', 'STRING protein association networks'],
+  szklarczyk2023: ['Genes and proteins', 'Szklarczyk et al. 2023, The STRING database in 2023, Nucleic Acids Research 51:D638'],
+  reactome: ['Genes and proteins', 'Reactome Pathway Knowledgebase'],
+  milacic2024: ['Genes and proteins', 'Milacic et al. 2024, The Reactome Pathway Knowledgebase 2024, Nucleic Acids Research 52:D672'],
+  geneOntology: ['Genes and proteins', 'Gene Ontology Consortium'],
+  go2023: ['Genes and proteins', 'Gene Ontology Consortium 2023, The Gene Ontology knowledgebase in 2023, Genetics 224:iyad031'],
+  ashburner2000: ['Genes and proteins', 'Ashburner et al. 2000, Gene Ontology: tool for the unification of biology, Nature Genetics 25:25'],
 };
 
 export const EXAMPLES = [
