@@ -48,6 +48,7 @@ const CHAPTERS = {
   proteins: ['proteome', 'structures', 'membrane', 'domains', 'modifications', 'targets'],
   expression: ['specificity', 'gtex', 'plasma'],
   networks: ['interactions', 'pathways', 'ontology'],
+  regulation: ['ccres', 'cpgislands', 'trna', 'encode'],
   reference: ['decoder', 'sources'],
 };
 
@@ -363,6 +364,44 @@ test('ontology charts split GO annotations by evidence and rank proteins, terms 
   assert.equal(await count('#go-protein-chart [data-row]'), 15);
   for (const [id, aspect] of [['go-bp-chart', 'P'], ['go-mf-chart', 'F'], ['go-cc-chart', 'C']]) assert.equal(await count(`#${id} [data-row]`), O.topTerms[aspect].length, id);
   assert.equal(await count('#go-groups-chart [data-row]'), O.assignedBy.length);
+  await page.close();
+});
+
+test('regulation charts cover cCRE classes and density, CpG islands and promoters', async () => {
+  const { page } = await open();
+  const R = snapshot.regulation;
+  const classes = Object.keys(R.ccre.classes).length;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#ccre-class-chart [data-row]'), classes);
+  assert.equal(await count('#ccre-density-chart [data-row]'), 24);
+  assert.equal(await count('#ccre-density-chart .legend li'), classes);
+  assert.equal(await count('#cpg-promoter-chart [data-row]'), Object.keys(R.cpg.promoters.bySpecificity).length + 1);
+  assert.ok(await count('#cpg-length-chart [data-bin]') >= 10);
+  assert.equal(await count('#cpg-oe-chart [data-bin]'), R.cpg.obsExp.counts.length);
+  assert.equal(await count('#cpg-gc-chart [data-bin]'), R.cpg.gc.counts.length);
+  assert.equal(await count('#cpg-density-chart [data-row]'), 24);
+  await page.close();
+});
+
+test('tRNA genes are set against codon usage, isotype and chromosome', async () => {
+  const { page } = await open();
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#trna-codon-chart [data-point]'), 61);
+  await page.hover('#trna-codon-chart [data-point="GCT"]');
+  assert.match(await page.textContent('#tip'), /GCT[\s\S]*AGC/);
+  assert.equal(await count('#trna-isotype-chart [data-row]'), Object.keys(snapshot.trnas.isotypes).length);
+  assert.equal(await count('#trna-chrom-chart [data-row]'), Object.keys(snapshot.trnas.byChrom).length);
+  await page.close();
+});
+
+test('ENCODE charts count experiments by assay, phase, sample type and target', async () => {
+  const { page } = await open();
+  const E = snapshot.encode;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#encode-assay-chart [data-row]'), Math.min(25, E.assays.length));
+  assert.equal(await count('#encode-phase-chart [data-row]'), E.phases.length);
+  assert.equal(await count('#encode-sample-chart [data-row]'), E.biosamples.length);
+  assert.equal(await count('#encode-target-chart [data-row]'), E.targets.length);
   await page.close();
 });
 
