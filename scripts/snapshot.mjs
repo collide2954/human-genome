@@ -5,13 +5,19 @@ import { join } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { retry } from '../src/lib.js';
 import {
-  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles,
+  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS,
 } from '../src/queries.js';
+import { linearEdges } from '../src/stats.js';
 import {
   buildAssembly, latestFile, toModule, rmskSummary, superDupsSummary, tandemSummary, parseAssemblyReport,
 } from './parsers.mjs';
 import { gencodeSummary } from './genes.mjs';
-import { hgncSummary, geneInfoSummary, maneSummary } from './catalogs.mjs';
+import {
+  hgncSummary, geneInfoSummary, maneSummary, codingSymbols,
+} from './catalogs.mjs';
+import {
+  clinvarVcf, vcfClassCounts, earliestFile, geneSummary, organizations, variantTable, pfamDomains, validitySummary, regionSummary, repeatLoci,
+} from './clinical.mjs';
 import {
   cacheName, downloadTo, anyLines, unzip,
 } from './streams.mjs';
@@ -227,8 +233,60 @@ const constraint = async () => {
   };
 };
 
+const genomeBase = (twoBit) => {
+  const seqs = new Map();
+  return (chrom, pos) => {
+    const name = chrom === 'MT' ? 'chrM' : `chr${chrom}`;
+    if (!seqs.has(name)) seqs.set(name, twoBit.sequence(name));
+    const s = seqs.get(name);
+    return s ? 'ACGTN'[s.at(pos - 1)] : null;
+  };
+};
+
+const clinvar = async () => {
+  const twoBit = readTwoBit(await readFile(await file(FILES.hg38TwoBit)));
+  return {
+    ...await summarize(FILES.clinvarVcf, clinvarVcf({ base: genomeBase(twoBit) })),
+    genes: geneSummary(await text(FILES.clinvarGenes), codingSymbols(await text(FILES.hgnc))),
+    organizations: organizations(await text(FILES.clinvarOrgs)),
+  };
+};
+
+const clinvarTable = async () => {
+  const table = await summarize(FILES.clinvarTable, variantTable({ genes: LOLLIPOPS.map((l) => l.gene) }));
+  const byGene = {};
+  for (const { gene, accession } of LOLLIPOPS) {
+    const pfam = await json(`${FILES.interproProtein}${accession}/`);
+    byGene[gene] = { accession, length: pfam.results?.[0]?.proteins?.[0]?.protein_length ?? null, domains: pfamDomains(pfam) };
+  }
+  return { ...table, proteins: byGene };
+};
+
+const clinvarGrowth = async () => {
+  const years = [...(await text(FILES.clinvarArchive)).matchAll(/href="(\d{4})\/"/g)].map((m) => Number(m[1])).filter((y) => y >= 2018).sort((a, b) => a - b);
+  const points = [];
+  for (const year of years) {
+    const first = earliestFile(await text(`${FILES.clinvarArchive}${year}/`), /clinvar_(\d{8})\.vcf\.gz/);
+    if (first) points.push(await summarize(`${FILES.clinvarArchive}${year}/${first.file}`, vcfClassCounts()));
+  }
+  points.push(await summarize(FILES.clinvarVcf, vcfClassCounts()));
+  return { points };
+};
+
+const validity = async () => {
+  const { moiGenes, ...summary } = validitySummary(await text(FILES.clingenValidity));
+  return { ...summary, loeufByMoi: groupedValues((await constraintFile()).values(), moiGenes, linearEdges(0, 2, 0.05)) };
+};
+
+const regions = async () => regionSummary(await text(FILES.clingenRegions));
+
+const expansions = async () => {
+  const [last] = await json(FILES.strchiveCommits);
+  return { updated: last?.commit?.committer?.date?.slice(0, 10) ?? null, ...repeatLoci(await json(FILES.strchive)) };
+};
+
 const SECTIONS = {
-  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint,
+  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint, clinvar, clinvarTable, clinvarGrowth, validity, regions, expansions,
 };
 
 const now = new Date();
