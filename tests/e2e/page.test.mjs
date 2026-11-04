@@ -440,6 +440,20 @@ test('chart labels are never cut off and axis labels never overlap', async () =>
   }
 });
 
+test('chart labels stay inside their chart', async () => {
+  for (const width of [1280, 375]) {
+    const { page } = await open({ width });
+    const out = await page.$$eval('.chart svg', (svgs) => svgs.flatMap((svg) => {
+      const box = svg.viewBox.baseVal;
+      return [...svg.querySelectorAll('text.lab')].map((t) => ({ t: t.textContent, b: t.getBBox() }))
+        .filter(({ b }) => b.x < -1 || b.x + b.width > box.width + 1)
+        .map(({ t }) => `${svg.closest('[id]')?.id}: ${t}`);
+    }));
+    assert.deepEqual(out, [], `${width}px`);
+    await page.close();
+  }
+});
+
 test('the page states numbers, not opinions', async () => {
   const { page } = await open();
   const text = await page.evaluate(() => document.querySelector('main').innerText);

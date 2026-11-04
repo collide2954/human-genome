@@ -1,6 +1,14 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { findings, assemblyNumbers, sequenceNumbers } from '../../src/findings.js';
+import {
+  findings, assemblyNumbers, sequenceNumbers, proteinLabel,
+} from '../../src/findings.js';
+
+test('proteinLabel names a protein by its first gene and counts the rest', () => {
+  assert.equal(proteinLabel({ acc: 'P61769', gene: 'B2M' }), 'B2M');
+  assert.equal(proteinLabel({ acc: 'P62805', gene: 'H4C1; H4C2; H4C3' }), 'H4C1 and 2 more');
+  assert.equal(proteinLabel({ acc: 'P01858', gene: '' }), 'P01858');
+});
 import snapshot from '../../src/snapshot.js';
 
 const chrom = (c, length, ungapped) => ({ chrom: c, length, ungapped, gc: 41, spanned: 1, unspanned: 1, refseq: null, genbank: null });
