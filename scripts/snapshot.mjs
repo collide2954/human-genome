@@ -5,8 +5,11 @@ import { join } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { retry } from '../src/lib.js';
 import {
-  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS, TRIAL_MODALITIES, trialPage,
+  FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS, TRIAL_MODALITIES, trialPage, assemblyPage,
 } from '../src/queries.js';
+import {
+  gwasAncestry, aadrSummary, aadrAnnoFile, igsrSamples, assemblySummary,
+} from './populations.mjs';
 import {
   hpoTerms, hpoAnnotations, geneDiseases, orphaGenes, orphaPrevalence, orphaAges, gtrTests, fdaProducts, trialYears,
 } from './rare.mjs';
@@ -323,8 +326,48 @@ const trials = async () => {
   return out;
 };
 
+const postJson = (url, body) => retry(async () => {
+  const res = await fetch(url, { method: 'POST', headers: { ...HEADERS, 'content-type': 'application/json' }, body: JSON.stringify(body) });
+  if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
+  return res.json();
+}, { tries: 5, wait: 3000 });
+
+const ancestry = async () => gwasAncestry(await text(FILES.gwasAncestry));
+
+const ancient = async () => {
+  const anno = aadrAnnoFile(await json(FILES.aadrDataset));
+  if (!anno) throw new Error('No 1240K annotation file in the latest AADR release');
+  return { version: anno.version, released: anno.released, ...aadrSummary(await text(`${FILES.dataverseFile}${anno.id}`)) };
+};
+
+const igsr = async () => {
+  const byName = new Map();
+  let total = Infinity;
+  for (let from = 0; from < total; from += 500) {
+    const page = await postJson(FILES.igsrSamples, {
+      size: 500, from, _source: ['name', 'sex', 'populations.code', 'populations.name', 'populations.superpopulationCode', 'populations.superpopulationName', 'dataCollections.title'],
+    });
+    const { hits } = page.hits;
+    total = typeof page.hits.total === 'object' ? page.hits.total.value : page.hits.total;
+    if (!hits.length) break;
+    for (const hit of hits) byName.set(hit._source.name, hit);
+  }
+  return igsrSamples({ hits: { total, hits: [...byName.values()] } }, '1000 Genomes 30x on GRCh38');
+};
+
+const assemblies = async () => {
+  const reports = [];
+  let token = null;
+  do {
+    const page = await json(assemblyPage(token));
+    reports.push(...(page.reports ?? []));
+    token = page.next_page_token ?? null;
+  } while (token);
+  return assemblySummary(reports);
+};
+
 const SECTIONS = {
-  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint, clinvar, clinvarTable, domains, clinvarGrowth, validity, regions, expansions, hpo, orphanet, gtr, fda, trials,
+  assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint, ancestry, ancient, igsr, assemblies, clinvar, clinvarTable, domains, clinvarGrowth, validity, regions, expansions, hpo, orphanet, gtr, fda, trials,
 };
 
 const now = new Date();
