@@ -217,7 +217,8 @@ export const gtrTests = (text) => {
   for (const line of lines.slice(1)) {
     if (!line) continue;
     const c = line.split('\t');
-    if (c[col.now_current] !== '1') continue;
+    const live = c[col.now_current] === '1' && c[col.test_currStat] === '1' && c[col.test_pubStat] === '3' && c[col.lab_currStat] === '1' && c[col.lab_pubStat] === '3';
+    if (!live) continue;
     tests += 1;
     const lab = c[col.lab_id];
     labs.add(lab);
