@@ -60,6 +60,16 @@ export const majorHaplogroup = (call, kind) => {
   return s[0];
 };
 
+export const dataClass = (raw) => {
+  const t = String(raw ?? '').replace(/"/g, '').toLowerCase();
+  if (/^shotgun pulled down/.test(t)) return 'Shotgun';
+  const shotgun = t.includes('shotgun');
+  const capture = /1240k|twist|390k|50k|exome|capture|bigyoruba|archaicadmixture/.test(t);
+  if (shotgun && capture) return 'Capture and shotgun';
+  if (shotgun) return 'Shotgun';
+  return capture ? 'Capture' : 'Other';
+};
+
 const AGE_EDGES = logEdges(2, 6, 4);
 const SNP_EDGES = logEdges(3, 7, 4);
 const column = (head, prefix) => head.findIndex((h) => h.replace(/^"/, '').startsWith(prefix));
@@ -111,7 +121,7 @@ export const aadrSummary = (text) => {
     const year = /((?:19|20)\d{2})\D*$/.exec(c[col.pub] ?? '')?.[1];
     if (year) bump(published, year);
     countries.set(countries.has(place) ? place : own(place), (countries.get(place) ?? 0) + 1);
-    bump(dataTypes, c[col.type] || 'not stated');
+    bump(dataTypes, dataClass(c[col.type]));
     bump(sex, (c[col.sex] || 'U')[0]);
     const yg = majorHaplogroup(c[col.y], 'y');
     if (yg) y.set(yg, (y.get(yg) ?? 0) + 1);
