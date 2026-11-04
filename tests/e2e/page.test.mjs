@@ -617,7 +617,15 @@ test('one chart that fails to draw does not stop the others', async () => {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce' });
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
-  await page.addInitScript(() => document.addEventListener('DOMContentLoaded', () => document.querySelector('#gaps-chart').remove()));
+  await page.addInitScript(() => {
+    const watch = new MutationObserver(() => {
+      const chart = document.querySelector('#gaps-chart');
+      if (!chart) return;
+      chart.remove();
+      watch.disconnect();
+    });
+    watch.observe(document, { childList: true, subtree: true });
+  });
   await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort());
   await page.goto(base);
   await page.waitForSelector('html[data-drawn]', { state: 'attached' });
