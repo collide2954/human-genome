@@ -941,15 +941,15 @@ h2,
   stroke-width: 1.5;
 }
 
-.chart .stalk {
+.chart .stalks {
+  fill: none;
   stroke: var(--data-2);
   stroke-width: 1;
   pointer-events: none;
 }
 
 .chart .site-hit {
-  stroke: transparent;
-  stroke-width: 7;
+  fill: transparent;
 }
 
 .chart .head {
@@ -957,14 +957,8 @@ h2,
   stroke-width: 0.6;
 }
 
-.chart [data-site]:hover .stalk,
-.chart [data-site].sel .stalk {
-  stroke: var(--ink);
-  stroke-width: 1.5;
-}
-
-.chart [data-site]:hover .head,
-.chart [data-site].sel .head {
+.chart .site-hit:hover + .head,
+.chart .site-hit.sel + .head {
   stroke: var(--ink);
   stroke-width: 1.5;
 }

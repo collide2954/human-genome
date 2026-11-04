@@ -73,6 +73,8 @@ export const tip = {
   },
 };
 
+let epoch = 0;
+
 const installGlobal = () => {
   if (document.body.dataset.tipReady) return;
   document.body.dataset.tipReady = '1';
@@ -82,6 +84,11 @@ const installGlobal = () => {
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') tip.hide();
   });
+  const moved = () => {
+    epoch += 1;
+  };
+  window.addEventListener('scroll', moved, { passive: true });
+  window.addEventListener('resize', moved, { passive: true });
 };
 
 const tipLink = (href, text) => html('a', { href, target: '_blank', rel: 'noopener' }, `${text ?? 'Open the source'} ↗`);
@@ -96,13 +103,15 @@ export const tipLines = (value, label, ...extra) => [
   }),
 ];
 
-export const nearestMark = (root, cx, cy, axis) => {
+const markRects = (root) => [...root.querySelectorAll('[data-k]')]
+  .filter((m) => !m.classList.contains('hit'))
+  .map((m) => [m, m.getBoundingClientRect()])
+  .filter(([, r]) => r.width || r.height);
+
+const nearestIn = (rects, cx, cy, axis) => {
   let best = null;
   let bestD = Infinity;
-  for (const m of root.querySelectorAll('[data-k]')) {
-    if (m.classList.contains('hit')) continue;
-    const r = m.getBoundingClientRect();
-    if (!r.width && !r.height) continue;
+  for (const [m, r] of rects) {
     const d = axis === 'x'
       ? Math.abs(r.left + r.width / 2 - cx)
       : Math.hypot(Math.max(r.left - cx, 0, cx - r.right), Math.max(r.top - cy, 0, cy - r.bottom));
@@ -114,12 +123,22 @@ export const nearestMark = (root, cx, cy, axis) => {
   return bestD <= (axis === 'x' ? 40 : 36) ? best : null;
 };
 
+export const nearestMark = (root, cx, cy, axis) => nearestIn(markRects(root), cx, cy, axis);
+
 const hover = (root, lookup, { axis, steps } = {}) => {
   installGlobal();
+  let cache = null;
+  const rects = () => {
+    if (!cache || cache.epoch !== epoch) cache = { epoch, rects: markRects(root) };
+    return cache.rects;
+  };
+  root.addEventListener('pointerleave', () => {
+    cache = null;
+  });
   const resolve = (event) => {
     const direct = event.target.closest?.('[data-k]');
     if (direct && root.contains(direct)) return direct;
-    return Number.isFinite(event.clientX) ? nearestMark(root, event.clientX, event.clientY, axis) : null;
+    return Number.isFinite(event.clientX) ? nearestIn(rects(), event.clientX, event.clientY, axis) : null;
   };
   const select = (mark) => {
     clearMarks();
@@ -194,7 +213,17 @@ const hover = (root, lookup, { axis, steps } = {}) => {
   });
 };
 
-const widthOf = (mount) => Math.round(Math.min(Math.max(mount.clientWidth || 800, 280), 1120));
+let widths = null;
+
+export const measureWidths = (mounts) => {
+  widths = new Map(mounts.map((m) => [m, m.clientWidth]));
+};
+
+export const forgetWidths = () => {
+  widths = null;
+};
+
+const widthOf = (mount) => Math.round(Math.min(Math.max((widths?.has(mount) ? widths.get(mount) : mount.clientWidth) || 800, 280), 1120));
 
 const measureLines = (svg) => {
   for (const path of svg.querySelectorAll('.line')) {
@@ -628,6 +657,8 @@ export const lollipop = ({
   const ticks = niceTicks(length, W < 560 ? 4 : 8).filter((t) => t <= length);
   const colorOf = (kind) => kinds.find((k) => k.key === kind)?.color ?? 'var(--data)';
   const at = (pos) => x(pos - 0.5);
+  const foot = (s) => (s.side === 'up' ? mid - band / 2 : mid + band / 2);
+  const top = (s) => (s.side === 'up' ? foot(s) - stretch(s.n) : foot(s) + stretch(s.n));
   const clampX = (v) => Math.max(L + 16, Math.min(W - R - 16, v));
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
     ticks.map((t) => el('g', {},
@@ -653,20 +684,15 @@ export const lollipop = ({
     domains.filter((d) => x(d.end) - x(d.start - 1) >= String(d.short).length * 6.2 + 8).map((d) => el('text', {
       class: 'feat-lab', x: (x(d.start - 1) + x(d.end)) / 2, y: mid + 4, 'text-anchor': 'middle',
     }, d.short)),
-    sites.map((s, i) => [s, i]).sort((a, b) => a[0].n - b[0].n).map(([s, i]) => {
-      const y0 = s.side === 'up' ? mid - band / 2 : mid + band / 2;
-      const y1 = s.side === 'up' ? y0 - stretch(s.n) : y0 + stretch(s.n);
-      return el('g', { 'data-site': s.key, 'data-k': i, 'data-rank': i },
-        el('line', {
-          class: 'site-hit', x1: at(s.pos), x2: at(s.pos), y1: y0, y2: y1,
-        }),
-        el('line', {
-          class: 'stalk', x1: at(s.pos), x2: at(s.pos), y1: y0, y2: y1,
-        }),
-        el('circle', {
-          class: 'head', cx: at(s.pos), cy: y1, r: 2.6, style: `fill:${colorOf(s.kind)}`,
-        }));
-    }),
+    el('path', { class: 'stalks', d: sites.map((s) => `M${at(s.pos).toFixed(1)} ${foot(s)}V${top(s).toFixed(1)}`).join('') }),
+    sites.map((s, i) => [s, i]).sort((a, b) => a[0].n - b[0].n).flatMap(([s, i]) => [
+      el('rect', {
+        class: 'site-hit', 'data-site': s.key, 'data-k': i, 'data-rank': i, x: at(s.pos) - 3, y: Math.min(foot(s), top(s)), width: 6, height: Math.max(1, Math.abs(top(s) - foot(s))),
+      }),
+      el('circle', {
+        class: 'head', cx: at(s.pos), cy: top(s), r: 2.6, style: `fill:${colorOf(s.kind)}`,
+      }),
+    ]),
     labels.reduce((kept, s) => {
       const lx = clampX(at(s.pos));
       const w = String(s.label).length * 6.5;
