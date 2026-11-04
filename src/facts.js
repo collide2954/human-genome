@@ -1,6 +1,6 @@
 export const SOURCE_GROUPS = [
   'Assemblies and sequence', 'Genes and proteins', 'Expression and regulation', 'Variation and populations', 'Clinical genetics',
-  'Pharmacogenomics', 'Complex traits', 'Research and funding', 'Methods', 'Landmark papers', 'History',
+  'Cancer genomics', 'Pharmacogenomics', 'Complex traits', 'Research and funding', 'Methods', 'Landmark papers', 'History',
 ];
 
 export const SOURCES = {
@@ -113,6 +113,26 @@ export const SOURCES = {
   verma2024: 'https://doi.org/10.1126/science.adj1182',
   ziyatdinov2023: 'https://doi.org/10.1038/s41586-023-06595-3',
   feng2022: 'https://doi.org/10.1016/j.xgen.2022.100197',
+  intogen: 'https://www.intogen.org/',
+  martinezJimenez2020: 'https://doi.org/10.1038/s41568-020-0290-x',
+  gdc: 'https://portal.gdc.cancer.gov/',
+  heath2021: 'https://doi.org/10.1038/s41588-021-00791-5',
+  tcga2013: 'https://doi.org/10.1038/ng.2764',
+  bailey2018: 'https://doi.org/10.1016/j.cell.2018.02.060',
+  lawrence2013: 'https://doi.org/10.1038/nature12213',
+  alexandrov2013: 'https://doi.org/10.1038/nature12477',
+  horak2022: 'https://doi.org/10.1016/j.gim.2022.01.001',
+  li2017: 'https://doi.org/10.1016/j.jmoldx.2016.10.002',
+  cpic: 'https://cpicpgx.org/',
+  relling2011: 'https://doi.org/10.1038/clpt.2010.279',
+  caudle2014: 'https://doi.org/10.2174/1389200215666140130124910',
+  caudle2020: 'https://doi.org/10.1111/cts.12692',
+  gaedigk2017: 'https://doi.org/10.1038/gim.2016.80',
+  huddart2019: 'https://doi.org/10.1002/cpt.1322',
+  fdaPgx: 'https://www.fda.gov/drugs/science-and-research-drugs/table-pharmacogenomic-biomarkers-drug-labeling',
+  clinpgx: 'https://www.clinpgx.org/',
+  whirlCarrillo2021: 'https://doi.org/10.1002/cpt.2350',
+  clinpgxLicense: 'https://creativecommons.org/licenses/by-sa/4.0/',
 };
 
 export const PARS = [
@@ -230,6 +250,26 @@ export const SOURCE_TITLES = {
   verma2024: ['Variation and populations', 'Verma et al. 2024, Diversity and scale: genetic architecture of 2068 traits in the VA Million Veteran Program, Science 385:eadj1182'],
   ziyatdinov2023: ['Variation and populations', 'Ziyatdinov et al. 2023, Genotyping, sequencing and analysis of 140,000 adults from Mexico City, Nature 622:784'],
   feng2022: ['Variation and populations', 'Feng et al. 2022, Taiwan Biobank: a rich biomedical research database of the Taiwanese population, Cell Genomics 2:100197'],
+  intogen: ['Cancer genomics', 'IntOGen, compendium of mutational cancer driver genes and cohorts, CC0 downloads'],
+  martinezJimenez2020: ['Cancer genomics', 'Martínez-Jiménez et al. 2020, A compendium of mutational cancer driver genes, Nature Reviews Cancer 20:555'],
+  gdc: ['Cancer genomics', 'NCI Genomic Data Commons API: projects, cases and simple somatic mutation occurrences'],
+  heath2021: ['Cancer genomics', 'Heath et al. 2021, The NCI Genomic Data Commons, Nature Genetics 53:257'],
+  tcga2013: ['Cancer genomics', 'Weinstein et al. 2013, The Cancer Genome Atlas Pan-Cancer analysis project, Nature Genetics 45:1113'],
+  bailey2018: ['Cancer genomics', 'Bailey et al. 2018, Comprehensive characterization of cancer driver genes and mutations, Cell 173:371'],
+  lawrence2013: ['Cancer genomics', 'Lawrence et al. 2013, Mutational heterogeneity in cancer and the search for new cancer-associated genes, Nature 499:214'],
+  alexandrov2013: ['Cancer genomics', 'Alexandrov et al. 2013, Signatures of mutational processes in human cancer, Nature 500:415'],
+  horak2022: ['Cancer genomics', 'Horak et al. 2022, Standards for the classification of pathogenicity of somatic variants in cancer (oncogenicity), Genetics in Medicine 24:986'],
+  li2017: ['Cancer genomics', 'Li et al. 2017, Standards and guidelines for the interpretation and reporting of sequence variants in cancer (AMP/ASCO/CAP), Journal of Molecular Diagnostics 19:4'],
+  cpic: ['Pharmacogenomics', 'CPIC®, Clinical Pharmacogenetics Implementation Consortium, database API (CC0)'],
+  relling2011: ['Pharmacogenomics', 'Relling and Klein 2011, CPIC: Clinical Pharmacogenetics Implementation Consortium of the Pharmacogenomics Research Network, Clinical Pharmacology & Therapeutics 89:464'],
+  caudle2014: ['Pharmacogenomics', 'Caudle et al. 2014, Incorporation of pharmacogenomics into routine clinical practice: the CPIC guideline development process, Current Drug Metabolism 15:209'],
+  caudle2020: ['Pharmacogenomics', 'Caudle et al. 2020, Standardizing CYP2D6 genotype to phenotype translation: consensus recommendations from CPIC and DPWG, Clinical and Translational Science 13:116'],
+  gaedigk2017: ['Pharmacogenomics', 'Gaedigk et al. 2017, Prediction of CYP2D6 phenotype from genotype across world populations, Genetics in Medicine 19:69'],
+  huddart2019: ['Pharmacogenomics', 'Huddart et al. 2019, Standardized biogeographic grouping system for annotating populations in pharmacogenetic research, Clinical Pharmacology & Therapeutics 105:1256'],
+  fdaPgx: ['Pharmacogenomics', 'FDA, Table of Pharmacogenomic Biomarkers in Drug Labeling'],
+  clinpgx: ['Pharmacogenomics', 'ClinPGx (formerly PharmGKB), clinical annotation and drug label annotation downloads'],
+  whirlCarrillo2021: ['Pharmacogenomics', 'Whirl-Carrillo et al. 2021, An evidence-based framework for evaluating pharmacogenomics knowledge for personalized medicine, Clinical Pharmacology & Therapeutics 110:563'],
+  clinpgxLicense: ['Pharmacogenomics', 'Creative Commons Attribution-ShareAlike 4.0, the license of ClinPGx data and of the numbers this page derives from it'],
 };
 
 const biobank = (name, people, qualifier, measure, source) => ({
