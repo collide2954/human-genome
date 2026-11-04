@@ -69,7 +69,8 @@ test('gene, disease and phenotype IDs resolve with links', () => {
   const mim = identify('MIM:191170');
   assert.equal(mim.type, 'OMIM entry');
   assert.equal(mim.url, 'https://www.omim.org/entry/191170');
-  assert.equal(part(mim, 'Number'), 'Autosomal, entered since May 1994');
+  assert.equal(part(mim, 'Number'), 'Autosomal, entered before May 1994');
+  assert.equal(part(identify('MIM:602421'), 'Number'), 'Autosomal, entered since May 1994');
   const cf = identify('#219700');
   assert.equal(part(cf, 'Prefix'), '#: phenotype, molecular basis known');
   assert.equal(part(cf, 'Number'), 'Autosomal, entered before May 1994');
