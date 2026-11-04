@@ -5,7 +5,7 @@ import { mkdtemp, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import {
-  lines, bufferLines, unzip, gzLines, fileLines, cacheName, anyLines,
+  lines, bufferLines, unzip, gzLines, fileLines, cacheName, anyLines, zipLines,
 } from '../../scripts/streams.mjs';
 import { retry } from '../../src/lib.js';
 
@@ -67,6 +67,16 @@ const zipOf = (files) => {
   end.writeUInt32LE(offset, 16);
   return Buffer.concat([...locals, dir, end]);
 };
+
+test('zipLines streams the lines of one entry of a zip file on disk', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'zip-'));
+  const path = join(dir, 'a.zip');
+  await writeFile(path, zipOf({ 'README.txt': 'read me', 'data/assoc.tsv': 'h1\th2\r\n1\t2\n3\t4\n' }));
+  assert.deepEqual(await collect(await zipLines(path, /assoc\.tsv$/)), ['h1\th2', '1\t2', '3\t4']);
+  assert.deepEqual(await collect(await zipLines(path, /^README/)), ['read me']);
+  await assert.rejects(() => zipLines(path, /missing/), /No zip entry/);
+  await rm(dir, { recursive: true });
+});
 
 test('unzip inflates every entry by name', () => {
   const files = unzip(zipOf({ 'a.tsv': 'x\ty\n1\t2\n', 'b.txt': 'hello' }));
