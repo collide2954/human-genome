@@ -70,7 +70,7 @@ const attachData = (mountSel, name, heads, rows) => {
 const day = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 const renderHead = () => {
-  $('#stamp').textContent = `Data as of ${day(snapshot.generated)}. Rebuilt every Sunday from NCBI, UCSC, GENCODE and EBI files.`;
+  $('#stamp').textContent = `Data as of ${day(snapshot.generated)}. Rebuilt every Sunday from public genome and clinical files.`;
   for (const node of $$('[data-finding]')) node.textContent = F[node.dataset.finding];
 };
 
@@ -2656,7 +2656,7 @@ const renderSources = () => {
     '. The code and the weekly rebuild are on ', ext(REPO, 'GitHub'),
     `. Cite as: Human Genome in Numbers, snapshot of ${when}. ${SITE}`);
   fill('#foot',
-    h('p', {}, `Built from public NCBI, UCSC, GENCODE and EBI data. Snapshot ${snapshot.generated.slice(0, 16).replace('T', ' ')} UTC. Not an official NIH, NCBI, EMBL-EBI or UCSC site.`),
+    h('p', {}, `Built from public data. Snapshot ${snapshot.generated.slice(0, 16).replace('T', ' ')} UTC. Not an official site of NIH, NCBI, EMBL-EBI, UCSC, ClinGen, FDA or any other source.`),
     h('p', { class: 'made' }, 'Made by a person, with help from AI tools. Every line, chart and figure was reviewed before publishing; the numbers now refresh on their own each Sunday.'));
 };
 
