@@ -6,8 +6,9 @@ import { gunzipSync } from 'node:zlib';
 import { retry } from '../src/lib.js';
 import { FILES, USER_AGENT } from '../src/queries.js';
 import {
-  buildAssembly, latestFile, toModule, rmskSummary, superDupsSummary, tandemSummary,
+  buildAssembly, latestFile, toModule, rmskSummary, superDupsSummary, tandemSummary, parseAssemblyReport,
 } from './parsers.mjs';
+import { gencodeSummary } from './genes.mjs';
 import { cacheName, downloadTo, gzLines } from './streams.mjs';
 import { runSections } from './sections.mjs';
 import { readTwoBit } from './twobit.mjs';
@@ -57,7 +58,17 @@ const repeats = async () => ({
   tandem: await summarize(FILES.simpleRepeat, tandemSummary()),
 });
 
-const SECTIONS = { assembly, sequence, repeats };
+const genes = async () => {
+  const gtf = latestFile(await text(FILES.gencodeDir), /gencode\.v(\d+)\.annotation\.gtf\.gz/);
+  if (!gtf) throw new Error('No GENCODE annotation in the latest release folder');
+  const lengths = Object.fromEntries(parseAssemblyReport(await text(FILES.grch38Report)).sequences
+    .filter((s) => s.role === 'assembled-molecule').map((s) => [s.molecule, s.length]));
+  return summarize(`${FILES.gencodeDir}${gtf.file}`, gencodeSummary({ lengths }));
+};
+
+const SECTIONS = {
+  assembly, sequence, repeats, genes,
+};
 
 const now = new Date();
 const only = process.argv.slice(2).filter((a) => SECTIONS[a]);

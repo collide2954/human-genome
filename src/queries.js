@@ -18,4 +18,5 @@ export const FILES = {
   simpleRepeat: `${UCSC}/database/simpleRepeat.txt.gz`,
   hg38TwoBit: `${UCSC}/bigZips/hg38.2bit`,
   maneDir: 'https://ftp.ncbi.nlm.nih.gov/refseq/MANE/MANE_human/current/',
+  gencodeDir: 'https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/latest_release/',
 };

@@ -29,6 +29,10 @@ test('sequence files point at the hg38 2bit and the current MANE release folder'
   assert.equal(FILES.maneDir, 'https://ftp.ncbi.nlm.nih.gov/refseq/MANE/MANE_human/current/');
 });
 
+test('gene annotation comes from the latest GENCODE release folder', () => {
+  assert.equal(FILES.gencodeDir, 'https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/latest_release/');
+});
+
 test('requests identify the project', () => {
   assert.match(USER_AGENT, /human-genome/);
   assert.doesNotMatch(USER_AGENT, /@/);
