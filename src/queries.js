@@ -52,4 +52,10 @@ export const FILES = {
   reactomeUniprot: `${REACTOME}UniProt2Reactome_All_Levels.txt`,
   goaHuman: 'https://current.geneontology.org/annotations/goa_human.gaf.gz',
   goBasic: 'https://current.geneontology.org/ontology/go-basic.obo',
+  ccre: 'https://downloads.wenglab.org/Registry-V4/GRCh38-cCREs.bed',
+  cpgIslands: `${UCSC}/database/cpgIslandExt.txt.gz`,
+  trnas: 'https://gtrnadb.ucsc.edu/genomes/eukaryota/Hsapi38/hg38-mature-tRNAs.fa',
+  encode: `https://www.encodeproject.org/search/?${new URLSearchParams({
+    type: 'Experiment', status: 'released', 'replicates.library.biosample.donor.organism.scientific_name': 'Homo sapiens', limit: '0', format: 'json',
+  })}`,
 };
