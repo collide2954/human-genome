@@ -147,6 +147,17 @@ export const niceTicks = (max, count) => {
   return Array.from({ length: Math.round(top / step) + 1 }, (_, i) => Number((i * step).toPrecision(12)));
 };
 
+export const spanTicks = (lo, hi, count = 4) => {
+  const step = niceTicks(hi - lo, count)[1] || 1;
+  let t = Math.floor(lo / step) * step;
+  const out = [Number(t.toPrecision(12))];
+  while (t < hi || out.length < 2) {
+    t += step;
+    out.push(Number(t.toPrecision(12)));
+  }
+  return out;
+};
+
 export const yearOf = (date) => Number(String(date).slice(0, 4));
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

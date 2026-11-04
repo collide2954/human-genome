@@ -1,5 +1,5 @@
 import {
-  exact, compact, niceTicks, scaleLinear, scaleLog, logTicks, labelStep, waffle as waffleCells, stack, easeOut, spread, squarify, heat,
+  exact, compact, niceTicks, scaleLinear, scaleLog, logTicks, labelStep, waffle as waffleCells, stack, easeOut, spread, squarify, heat, spanTicks,
 } from './lib.js';
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -555,14 +555,7 @@ export const scatter = ({
   const B = 34;
   const H = height;
   const xs = points.map((p) => p.x);
-  const xt = (() => {
-    const lo = Math.min(...xs);
-    const hi = Math.max(...xs);
-    const step = niceTicks(hi - lo, 4)[1] || 1;
-    const out = [];
-    for (let t = Math.floor(lo / step) * step; t <= hi + step / 2; t += step) out.push(Number(t.toPrecision(12)));
-    return out;
-  })();
+  const xt = spanTicks(Math.min(...xs), Math.max(...xs));
   const yt = niceTicks(Math.max(...points.map((p) => p.y), 1e-9), 4);
   const x = scaleLinear([xt[0], xt.at(-1)], [L, W - R]);
   const y = scaleLinear([0, yt.at(-1)], [H - B, T]);
