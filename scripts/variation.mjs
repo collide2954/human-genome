@@ -48,11 +48,22 @@ const clinicalOf = (s) => {
   return 'other';
 };
 
+const svClass = (type) => {
+  if (/insertion/.test(type)) return 'insertion';
+  if (/deletion|loss/.test(type)) return 'deletion';
+  if (/duplication|gain/.test(type)) return 'duplication';
+  if (/copy_number_variation/.test(type)) return 'cnv';
+  return 'other';
+};
+
+const MOBILE = [['Alu', 'alu_'], ['L1', 'line1_'], ['SVA', 'sva_'], ['HERV', 'herv_']];
+
 export const svSummary = () => {
-  const types = {};
+  const classes = {};
   const byChrom = {};
   const sizes = {};
   const studies = new Map();
+  const mobile = Object.fromEntries(MOBILE.map(([name]) => [name, { insertion: 0, deletion: 0 }]));
   const clinical = {
     pathogenic: 0, benign: 0, conflicting: 0, uncertain: 0, other: 0, none: 0,
   };
@@ -62,18 +73,22 @@ export const svSummary = () => {
       const c = line.split('\t');
       if (!isStandard(c[0])) return;
       const chrom = bare(c[0]);
-      const type = c[4];
-      if (!(type in types)) types[own(type)] = 0;
-      types[type] += 1;
+      const cls = svClass(c[4]);
+      classes[cls] = (classes[cls] ?? 0) + 1;
       byChrom[chrom] ??= {};
-      byChrom[chrom][type] = (byChrom[chrom][type] ?? 0) + 1;
-      if (!/insertion/i.test(type)) (sizes[type] ??= []).push(Number(c[2]) - Number(c[1]) + 1);
+      byChrom[chrom][cls] = (byChrom[chrom][cls] ?? 0) + 1;
+      if (cls !== 'insertion') (sizes[cls] ??= []).push(Number(c[2]) - Number(c[1]) + 1);
+      for (const [name, prefix] of MOBILE) {
+        if (c[4].includes(`${prefix}insertion`)) mobile[name].insertion += 1;
+        if (c[4].includes(`${prefix}deletion`)) mobile[name].deletion += 1;
+      }
       const study = studies.get(c[8]);
       studies.set(study === undefined ? own(c[8]) : c[8], (study ?? 0) + 1);
       clinical[clinicalOf(c[10])] += 1;
     },
     result: () => ({
-      types,
+      classes,
+      mobile,
       byChrom,
       sizes: Object.fromEntries(Object.entries(sizes).map(([t, list]) => [t, binned(list, SV_EDGES)])),
       studies: [...studies].map(([study, n]) => ({ study, n })).sort((a, b) => b.n - a.n || a.study.localeCompare(b.study)).slice(0, 15),
@@ -97,7 +112,7 @@ export const constraintSummary = () => {
         col = Object.fromEntries(c.map((name, i) => [name, i]));
         return;
       }
-      if (c[col.mane_select] !== 'true') return;
+      if (c[col.mane_select] !== 'true' || values.has(c[col.gene])) return;
       const loeuf = Number(c[col['lof.oe_ci.upper']]);
       if (!Number.isFinite(loeuf)) return;
       const gene = own(c[col.gene]);
