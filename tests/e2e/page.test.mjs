@@ -52,6 +52,7 @@ const CHAPTERS = {
   structure: ['mito', 'censat', 'sexchrom'],
   variation: ['dbsnp', 'sv'],
   constraint: ['constraint', 'dosage'],
+  clinical: ['clinvar', 'review', 'growth', 'lollipops', 'spectrum', 'validity', 'cnvregions', 'expansions'],
   reference: ['decoder', 'sources'],
 };
 
@@ -461,6 +462,67 @@ test('constraint charts compare LOEUF for haploinsufficient genes and all others
   assert.equal(await count('#misz-chart [data-bin]'), C.gnomad.misZ.counts.length);
   assert.equal(await count('#constrained-chart [data-row]'), C.gnomad.top.length);
   assert.equal(await count('#dosage-chart [data-row]'), 2);
+  await page.close();
+});
+
+test('ClinVar charts cross classes with consequences and cover types, genes, review, submitters, growth and the spectrum', async () => {
+  const { page } = await open();
+  const C = snapshot.clinvar;
+  const T = snapshot.clinvarTable;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#clinvar-grid-chart [data-cell]'), Object.keys(C.consequences).length * 9);
+  assert.equal(await count('#clinvar-grid-chart text.lab'), Object.keys(C.consequences).length);
+  assert.equal(await count('#clinvar-types-chart [data-row]'), Object.keys(T.types).length);
+  assert.equal(await count('#clinvar-genes-chart [data-row]'), C.genes.top.length);
+  assert.equal(await count('#clinvar-lorenz-chart path.line'), 1);
+  assert.equal(await count('#review-stars-chart [data-row]'), 9);
+  assert.equal(await count('#review-stars-chart .legend li'), 5);
+  assert.equal(await count('#review-submitters-chart [data-bin]'), T.submitters.bins.length);
+  assert.equal(await count('#review-submitters-chart .legend li'), 4);
+  const years = Object.keys(T.evaluated['P/LP']).filter((y) => y !== 'none').map(Number);
+  assert.equal(await count('#review-evaluated-chart [data-year]'), Math.max(...years) - 2005 + 2);
+  assert.equal(await count('#review-orgs-chart [data-row]'), C.organizations.top.length);
+  assert.equal(await count('#review-types-chart [data-row]'), C.organizations.types.length);
+  assert.equal(await count('#growth-chart path.area'), 5);
+  assert.equal(await count('#growth-chart text.tick[text-anchor="middle"]'), snapshot.clinvarGrowth.points.length);
+  assert.equal(await count('#spectrum-chart [data-channel]'), 96);
+  assert.equal(await count('#spectrum-chart text.sub-lab'), 6);
+  assert.equal(await count('#spectrum-classes-chart [data-bin]'), 6);
+  await page.close();
+});
+
+test('lollipops mirror P/LP and B/LB variants over each protein\'s Pfam domains and name a residue on hover', async () => {
+  const { page } = await open();
+  const T = snapshot.clinvarTable;
+  for (const gene of ['TP53', 'BRCA1', 'CFTR', 'MYH7']) {
+    const l = T.lollipops[gene];
+    const sites = new Set([...l.up.map((r) => `up:${r[0]}`), ...l.down.map((r) => `down:${r[0]}`)]);
+    assert.equal(await page.locator(`#lollipop-${gene}-chart [data-site]`).count(), sites.size, gene);
+    assert.equal(await page.locator(`#lollipop-${gene}-chart [data-domain]`).count(), T.proteins[gene].domains.length, gene);
+  }
+  const top = [...T.lollipops.TP53.up].sort((a, b) => b[2] - a[2] || a[0] - b[0])[0];
+  await page.locator(`#lollipop-TP53-chart [data-site="up:${top[0]}"]`).first().hover();
+  assert.match((await tipLinesOf(page)).join(' '), new RegExp(`\\b${top[0]}\\b`));
+  await page.close();
+});
+
+test('ClinGen and STRchive charts split validity by inheritance, map dosage regions and range repeat thresholds', async () => {
+  const { page } = await open();
+  const V = snapshot.validity;
+  const R = snapshot.regions;
+  const E = snapshot.expansions;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#validity-chart [data-row]'), Object.keys(V.byMoi).length);
+  assert.equal(await count('#validity-chart .legend li'), 7);
+  assert.equal(await count('#validity-years-chart path.area'), 7);
+  assert.equal(await count('#validity-loeuf-chart .legend li'), 2);
+  assert.equal(await count('#validity-gcep-chart [data-row]'), 12);
+  assert.equal(await count('#regions-ideogram-chart [data-mark]'), R.sensitive.length);
+  assert.equal(await count('#regions-size-chart [data-row]'), R.sensitive.length);
+  const ranged = E.loci.filter((l) => ['Definitive', 'Strong'].includes(l.evidence) && l.pathogenic);
+  assert.equal(await count('#expansions-chart [data-row]'), ranged.length);
+  assert.equal(await count('#expansions-chart rect.range'), ranged.reduce((n, l) => n + [l.benign, l.intermediate, l.pathogenic].filter(Boolean).length, 0));
+  assert.ok(await count('#expansions-years-chart path.area') >= 4);
   await page.close();
 });
 
