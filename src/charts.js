@@ -290,12 +290,12 @@ export const columns = ({
 };
 
 export const dotplot = ({
-  mount, rows, attr = 'row', scale = 'log', format = exact, describe, rowH = 24, href, linkText, labelShare = 0.34, aria,
+  mount, rows, attr = 'row', scale = 'log', format = exact, describe, rowH = 24, href, linkText, labelShare = 0.34, labelMax = 240, aria,
 }) => {
   const W = widthOf(mount);
   const R = 70;
   const T = 22;
-  const lay = rowLayout(rows, Math.min(240, Math.max(96, W * labelShare)), rowH);
+  const lay = rowLayout(rows, Math.min(labelMax, Math.max(96, W * labelShare)), rowH);
   const { L } = lay;
   const H = T + rows.length * lay.rowH + 6;
   const values = rows.map((r) => r.value).filter((v) => v > 0);
@@ -489,6 +489,31 @@ export const matrix = ({
       }))));
   hover(svg, (k) => describe(Math.floor(Number(k) / cols.length), Number(k) % cols.length));
   return mountSvg(mount, svg);
+};
+
+export const heatmap = ({
+  mount, labels, values, order, lo, hi, aria, describe, legend, color = 'var(--data)', labelMin = 10,
+}) => {
+  const W = widthOf(mount);
+  const n = order.length;
+  const labelW = Math.ceil(Math.max(...labels.map((l) => String(l).length)) * 5.3) + 10;
+  const roomy = (W - labelW - 4) / n >= labelMin;
+  const L = roomy ? labelW : 0;
+  const side = Math.min(14, (W - L - 4) / n);
+  const size = L + side * n;
+  const flat = [];
+  const svg = el('svg', { viewBox: `0 0 ${size} ${side * n}`, role: 'img', 'aria-label': aria, style: `max-width:${size}px` },
+    roomy ? order.map((r, i) => el('text', {
+      class: 'lab heat-lab', x: L - 6, y: i * side + side / 2 + 3.2, 'text-anchor': 'end',
+    }, labels[r])) : null,
+    order.flatMap((r, i) => order.map((c, j) => {
+      const k = flat.push([r, c]) - 1;
+      return el('rect', {
+        class: 'cell', 'data-cell': `${r}:${c}`, 'data-k': k, 'data-rank': k, x: L + j * side, y: i * side, width: side + 0.25, height: side + 0.25, style: `fill:${color};fill-opacity:${heat(values[r][c], lo, hi)};--i:${i}`,
+      });
+    })));
+  hover(svg, (k) => describe(...flat[Number(k)]));
+  return mountSvg(mount, svg, legend);
 };
 
 export const histo = ({

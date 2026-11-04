@@ -3,15 +3,15 @@ import {
   SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES,
 } from './facts.js';
 import {
-  exact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, codonOf,
+  exact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, codonOf, perLitre,
 } from './lib.js';
 import { pearson, linearFit } from './stats.js';
 import { FILES } from './queries.js';
 import {
-  findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons,
+  findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons, gtexTissues, plasmaLevel, proteomeResidues, proteinLabel,
 } from './findings.js';
 import {
-  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, observeFigures, countUp, tipLines,
+  ideogram, hbars, dotplot, strips, matrix, rampLegend, treemap, stackedArea, waffle, columns, histo, scatter, logo, codonTable, heatmap, observeFigures, countUp, tipLines,
 } from './charts.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -690,6 +690,342 @@ const renderCodons = () => {
   attachData('#amino-chart', 'amino-acids', ['Amino acid', 'Residues', 'Percent'], aas.map(([aa, n]) => [AMINO_ACIDS[aa], n, Number(((n / total) * 100).toFixed(3))]));
 };
 
+const P = snapshot.proteins;
+const TG = snapshot.targets;
+const HPA = snapshot.expression.hpa;
+const GT = snapshot.expression.gtex;
+const uniprotEntry = (acc) => `https://www.uniprot.org/uniprotkb/${acc}/entry`;
+const proteinName = proteinLabel;
+const genesOf = (p) => (String(p.gene).includes(';') ? `Genes: ${p.gene}` : null);
+const sumOf = (list) => list.reduce((a, b) => a + b, 0);
+const capped = (i, last, unit) => (i === last ? `${i + 1} or more ${unit}` : `${i + 1} ${unit}`);
+
+const EXISTENCE = ['Evidence at protein level', 'Evidence at transcript level', 'Inferred from homology', 'Predicted', 'Uncertain'];
+
+const renderProteome = () => {
+  const { summary: s, edges, counts } = P.lengths;
+  const [short] = P.shortest;
+  $('#proteome-dek').textContent = `Quartiles: ${exact(s.q1)}, ${exact(s.median)} and ${exact(s.q3)} amino acids; the mean is ${exact(s.mean)}. ${pct(P.existence['Evidence at protein level'] / P.count)} of entries have evidence at protein level and ${exact(P.existence.Uncertain ?? 0)} are flagged uncertain. The shortest, ${proteinName(short)}, has ${short.length}.`;
+  const bins = binsOf(edges);
+  const last = bins.length - 1;
+  const span = (i) => (i === 0 ? `fewer than ${exact(bins[0].hi)} amino acids` : i === last ? `${exact(bins[i].lo)} or more amino acids` : `${exact(bins[i].lo)} to ${exact(bins[i].hi)} amino acids`);
+  histo({
+    mount: $('#protein-length-chart'),
+    bins,
+    series: [{ key: 'proteins', label: 'Reviewed proteins', color: 'var(--data)', values: counts }],
+    tickLabel: (b) => shortBases(b.lo),
+    aria: 'Reviewed human proteins by length',
+    describe: (i) => tipLines(`${exact(counts[i])} proteins`, span(i)),
+  });
+  attachData('#protein-length-chart', 'protein-lengths', ['Length from', 'Length to', 'Proteins'], bins.map((b, i) => [Math.round(b.lo), Math.round(b.hi), counts[i]]));
+  const levels = EXISTENCE.filter((l) => P.existence[l]);
+  dotplot({
+    mount: $('#existence-chart'),
+    rows: levels.map((l, i) => ({ key: l, label: l, value: P.existence[l], hi: i === 0 })),
+    labelShare: 0.46,
+    aria: 'Reviewed human proteins by existence level',
+    describe: (r) => tipLines(`${exact(r.value)} proteins`, r.label, pct(r.value / P.count)),
+  });
+  attachData('#existence-chart', 'protein-existence', ['Existence level', 'Proteins'], levels.map((l) => [l, P.existence[l]]));
+  const longest = P.longest.slice(0, 10);
+  dotplot({
+    mount: $('#longest-protein-chart'),
+    rows: longest.map((p, i) => ({ key: p.acc, label: proteinName(p), value: p.length, hi: i === 0 })),
+    scale: 'linear',
+    aria: 'The longest reviewed human proteins',
+    href: (r) => uniprotEntry(r.key),
+    linkText: () => 'Open in UniProt',
+    describe: (r) => tipLines(`${exact(r.value)} amino acids`, `${r.label}, UniProt ${r.key}`, genesOf(longest.find((p) => p.acc === r.key))),
+  });
+  attachData('#longest-protein-chart', 'longest-proteins', ['Gene', 'UniProt', 'Amino acids'], P.longest.map((p) => [p.gene, p.acc, p.length]));
+};
+
+const renderStructures = () => {
+  const { counts, top, withAny } = P.pdb;
+  const tail = counts.slice(1);
+  const last = tail.length - 1;
+  $('#structures-dek').textContent = `${exact(counts[0])} reviewed proteins have no PDB entry. Of the ${exact(withAny)} that do, ${exact(counts[1])} appear in one entry and ${exact(counts.at(-1))} in 50 or more.`;
+  histo({
+    mount: $('#pdb-count-chart'),
+    bins: tail.map((n, i) => ({ n: i + 1 })),
+    series: [{ key: 'proteins', label: 'Proteins', color: 'var(--data)', values: tail }],
+    tickEvery: 1,
+    tickLabel: (b, i) => (i === 0 || (i + 1) % 10 === 0 ? (i === last ? '50+' : String(i + 1)) : null),
+    aria: 'Proteins by number of PDB entries',
+    describe: (i) => tipLines(`${exact(tail[i])} proteins`, capped(i, last, 'PDB entries').replace(/^1 PDB entries$/, '1 PDB entry')),
+  });
+  attachData('#pdb-count-chart', 'pdb-entries-per-protein', ['PDB entries', 'Proteins'], counts.map((n, i) => [i === counts.length - 1 ? `${i}+` : String(i), n]));
+  dotplot({
+    mount: $('#pdb-top-chart'),
+    rows: top.map((p, i) => ({ key: p.acc, label: proteinName(p), value: p.n, hi: i === 0 })),
+    scale: 'linear',
+    aria: 'Proteins in the most PDB entries',
+    href: (r) => uniprotEntry(r.key),
+    linkText: () => 'Open in UniProt',
+    describe: (r) => tipLines(`${exact(r.value)} PDB entries`, `${r.label}, UniProt ${r.key}`, genesOf(top.find((p) => p.acc === r.key))),
+  });
+  attachData('#pdb-top-chart', 'most-solved-proteins', ['Gene', 'UniProt', 'PDB entries'], top.map((p) => [p.gene, p.acc, p.n]));
+};
+
+const renderMembrane = () => {
+  const tm = P.transmem.counts;
+  const spans = tm.slice(1);
+  const last = spans.length - 1;
+  const [nuc] = HPA.locations;
+  $('#membrane-dek').textContent = `${exact(tm[1])} proteins have one transmembrane segment and ${exact(sumOf(tm.slice(2)))} have two or more; ${exact(tm[7])} have exactly seven. ${exact(P.signal)} carry an N-terminal signal peptide. By immunofluorescence, HPA finds ${exact(nuc.n)} proteins mainly in the ${nuc.name.toLowerCase()}.`;
+  histo({
+    mount: $('#tm-chart'),
+    bins: spans.map((n, i) => ({ n: i + 1 })),
+    series: [{ key: 'proteins', label: 'Proteins', color: 'var(--data)', values: spans }],
+    tickEvery: 1,
+    tickLabel: (b, i) => (i === 0 || (i + 1) % 5 === 0 ? (i === last ? '25+' : String(i + 1)) : null),
+    aria: 'Proteins by number of transmembrane segments',
+    describe: (i) => tipLines(`${exact(spans[i])} proteins`, capped(i, last, 'transmembrane segments').replace(/^1 transmembrane segments$/, '1 transmembrane segment')),
+  });
+  attachData('#tm-chart', 'transmembrane-segments', ['Segments', 'Proteins'], tm.map((n, i) => [i === tm.length - 1 ? `${i}+` : String(i), n]));
+  const where = (sel, name, list, aria, what) => {
+    dotplot({
+      mount: $(sel),
+      rows: list.slice(0, 20).map((l, i) => ({ key: l.name, label: l.name, value: l.n, hi: i === 0 })),
+      scale: 'linear',
+      labelShare: 0.46,
+      aria,
+      describe: (r) => tipLines(`${exact(r.value)} proteins`, r.label, what),
+    });
+    attachData(sel, name, ['Location', 'Proteins'], list.map((l) => [l.name, l.n]));
+  };
+  where('#location-chart', 'uniprot-locations', P.locations, 'Subcellular locations in UniProt', 'curated UniProt location');
+  where('#hpa-location-chart', 'hpa-locations', HPA.locations, 'Main subcellular locations in the Human Protein Atlas', 'main location by immunofluorescence');
+};
+
+const renderDomains = () => {
+  const { top, perProtein } = P.pfam;
+  const last = perProtein.length - 1;
+  $('#domains-dek').textContent = `${exact(perProtein[0])} reviewed proteins carry no Pfam domain, ${exact(perProtein[1])} carry one family and ${exact(sumOf(perProtein.slice(5)))} carry five or more. The next most common after ${top[0].short} are ${top.slice(1, 4).map((p) => `${p.short} (${exact(p.n)})`).join(', ')}.`;
+  dotplot({
+    mount: $('#pfam-chart'),
+    rows: top.map((p, i) => ({ key: p.id, label: p.name ?? p.id, value: p.n, hi: i === 0 })),
+    scale: 'linear',
+    labelShare: 0.36,
+    labelMax: 330,
+    aria: 'The most common Pfam families in human proteins',
+    href: (r) => `https://www.ebi.ac.uk/interpro/entry/pfam/${r.key}/`,
+    linkText: () => 'Open in InterPro',
+    describe: (r) => {
+      const p = top.find((x) => x.id === r.key);
+      return tipLines(`${exact(p.n)} proteins`, `${p.id} · ${p.short ?? ''}`, p.name);
+    },
+  });
+  attachData('#pfam-chart', 'pfam-families', ['Pfam', 'Short name', 'Name', 'Proteins'], top.map((p) => [p.id, p.short, p.name, p.n]));
+  histo({
+    mount: $('#pfam-per-protein-chart'),
+    bins: perProtein.map((n, i) => ({ n: i })),
+    series: [{ key: 'proteins', label: 'Proteins', color: 'var(--data)', values: perProtein }],
+    tickEvery: 1,
+    tickLabel: (b, i) => (i % 5 === 0 ? (i === last ? `${i}+` : String(i)) : null),
+    aria: 'Proteins by number of distinct Pfam families',
+    describe: (i) => tipLines(`${exact(perProtein[i])} proteins`, i === last ? `${i} or more Pfam families` : `${i} Pfam ${i === 1 ? 'family' : 'families'}`),
+  });
+  attachData('#pfam-per-protein-chart', 'pfam-families-per-protein', ['Pfam families', 'Proteins'], perProtein.map((n, i) => [i === last ? `${i}+` : String(i), n]));
+};
+
+const PTMS = [
+  ['phosphoS', 'Phosphoserine'], ['phosphoT', 'Phosphothreonine'], ['phosphoY', 'Phosphotyrosine'], ['acetyl', 'Acetylation'], ['methyl', 'Methylation'],
+  ['nGlyco', 'N-linked glycosylation'], ['oGlyco', 'O-linked glycosylation'], ['ubiquitin', 'Ubiquitin cross-link'], ['sumo', 'SUMO cross-link'],
+];
+
+const renderModifications = () => {
+  const { share, proteins } = P.disorder;
+  $('#modifications-dek').textContent = `${exact(P.disorder.residues)} of ${exact(proteomeResidues(snapshot))} residues, in ${exact(proteins)} proteins, fall in disordered regions; ${exact(share.at(-1))} proteins are disordered over 90% or more of their length. N-linked glycans are annotated at ${exact(P.ptm.nGlyco)} sites and O-linked at ${exact(P.ptm.oGlyco)}; ${exact(P.ptm.sumo)} lysines carry a SUMO cross-link.`;
+  histo({
+    mount: $('#disorder-chart'),
+    bins: share.map((n, i) => ({ lo: i / 10 })),
+    series: [{ key: 'proteins', label: 'Proteins', color: 'var(--data)', values: share }],
+    tickEvery: 1,
+    tickLabel: (b, i) => (i % 2 === 0 ? `${i * 10}%` : null),
+    aria: 'Proteins by share of residues in disordered regions',
+    describe: (i) => tipLines(`${exact(share[i])} proteins`, `${i * 10}% to ${(i + 1) * 10}% of residues disordered`),
+  });
+  attachData('#disorder-chart', 'disorder-share', ['Disordered from', 'Disordered to', 'Proteins'], share.map((n, i) => [`${i * 10}%`, `${(i + 1) * 10}%`, n]));
+  dotplot({
+    mount: $('#ptm-chart'),
+    rows: PTMS.map(([key, label], i) => ({ key, label, value: P.ptm[key], hi: i === 0 })),
+    labelShare: 0.42,
+    aria: 'Annotated modification sites by kind',
+    describe: (r) => tipLines(`${exact(r.value)} sites`, r.label),
+  });
+  attachData('#ptm-chart', 'modification-sites', ['Modification', 'Sites'], PTMS.map(([key, label]) => [label, P.ptm[key]]));
+};
+
+const LEVELS = [['Tclin', 'var(--s1)'], ['Tchem', 'var(--s2)'], ['Tbio', 'var(--s3)'], ['Tdark', 'var(--data-2)']];
+
+const halfBins = (sel, name, pairs, aria, what) => {
+  histo({
+    mount: $(sel),
+    bins: pairs.map(([x]) => ({ x })),
+    series: [{ key: 'targets', label: 'Targets', color: 'var(--data)', values: pairs.map(([, n]) => n) }],
+    tickEvery: 1,
+    tickLabel: (b) => (Number.isInteger(b.x) && b.x % 2 === 0 ? signed(b.x, String) : null),
+    aria,
+    describe: (i) => tipLines(`${exact(pairs[i][1])} targets`, `${what} ${signed(pairs[i][0], String)} to ${signed(pairs[i][0] + 0.5, String)}`),
+  });
+  attachData(sel, name, [`${what} from`, 'Targets'], pairs.map(([x, n]) => [x, n]));
+};
+
+const renderTargets = () => {
+  const { levels, count, families } = TG;
+  const fam = (name) => families.find((f) => f.family === name);
+  const famTotal = (f) => LEVELS.reduce((n, [l]) => n + f[l], 0);
+  const kin = fam('Kinase');
+  const gpcr = fam('GPCR');
+  const olf = fam('oGPCR');
+  $('#targets-dek').textContent = `${pct(levels.Tclin / count)} of human proteins are approved-drug targets and ${pct(levels.Tchem / count)} have potent ligands without one. ${exact(kin.Tclin)} of ${exact(famTotal(kin))} kinases and ${exact(gpcr.Tclin)} of ${exact(famTotal(gpcr))} non-olfactory GPCRs are Tclin; ${exact(olf.Tdark)} of ${exact(famTotal(olf))} olfactory receptors are Tdark.`;
+  const parts = LEVELS.map(([l, color]) => ({ label: l, value: levels[l], color }));
+  waffle({ mount: $('#tdl-chart'), parts, aria: 'Human proteins by target development level' });
+  attachData('#tdl-chart', 'target-development-levels', ['Level', 'Targets'], parts.map((p) => [p.label, p.value]));
+  hbars({
+    mount: $('#family-chart'),
+    rows: families.map((f) => ({ key: f.family, label: f.family, values: f })),
+    segments: LEVELS.map(([key, color]) => ({ key, label: key, color })),
+    labelShare: 0.22,
+    aria: 'Target development level by protein family',
+    describe: (r) => tipLines(`${exact(famTotal(r.values))} targets`, r.key, ...LEVELS.map(([l]) => `${l}: ${exact(r.values[l])}`)),
+  });
+  attachData('#family-chart', 'target-levels-by-family', ['Family', 'Tclin', 'Tchem', 'Tbio', 'Tdark'], families.map((f) => [f.family, f.Tclin, f.Tchem, f.Tbio, f.Tdark]));
+  halfBins('#pubmed-score-chart', 'pharos-pubmed-score', TG.pubmed, 'Targets by log PubMed score', 'log PubMed score');
+  halfBins('#novelty-chart', 'pharos-novelty', TG.novelty, 'Targets by log novelty', 'log novelty');
+};
+
+const CONTEXTS = [['tissue', 'Tissues'], ['singleCell', 'Single cell types'], ['blood', 'Blood cells'], ['brain', 'Brain regions'], ['cellLine', 'Cell lines'], ['cancer', 'Cancers']];
+const KINDS = [['enriched', 'Enriched', 'var(--s1)'], ['group', 'Group enriched', 'var(--s2)'], ['enhanced', 'Enhanced', 'var(--s3)'], ['low', 'Low specificity', 'var(--data-2)'], ['none', 'Not detected', 'var(--s5)']];
+
+const renderSpecificity = () => {
+  const c = HPA.contexts;
+  $('#specificity-dek').textContent = `The single cell type section calls ${exact(c.singleCell.enriched)} genes cell type enriched and the brain section ${exact(c.brain.enriched)} region enriched. ${exact(c.tissue.none)} genes are not detected in any tissue, and ${exact(c.blood.none)} in no immune cell type. The most cell-type-enriched genes belong to ${HPA.cellTypes[0].cell.toLowerCase()} (${exact(HPA.cellTypes[0].n)}).`;
+  hbars({
+    mount: $('#contexts-chart'),
+    rows: CONTEXTS.map(([key, label]) => ({ key, label, values: c[key] })),
+    segments: KINDS.map(([key, label, color]) => ({ key, label, color })),
+    aria: 'Genes by specificity call in six HPA sections',
+    describe: (r) => {
+      const total = sumOf(Object.values(r.values));
+      return tipLines(`${exact(total)} genes`, r.label, ...KINDS.map(([k, label]) => `${label}: ${exact(r.values[k])}, ${pct(r.values[k] / total)}`));
+    },
+  });
+  attachData('#contexts-chart', 'hpa-specificity', ['Section', ...KINDS.map(([, label]) => label)], CONTEXTS.map(([key, label]) => [label, ...KINDS.map(([k]) => c[key][k])]));
+  const ranked = (sel, name, list, field, aria, what) => {
+    dotplot({
+      mount: $(sel),
+      rows: list.slice(0, 20).map((t, i) => ({ key: t[field], label: t[field], value: t.n, hi: i === 0 })),
+      scale: 'linear',
+      labelShare: 0.44,
+      aria,
+      describe: (r) => tipLines(`${exact(r.value)} genes`, `${what} ${r.label}`),
+    });
+    attachData(sel, name, [field === 'tissue' ? 'Tissue' : 'Cell type', 'Enriched genes'], list.map((t) => [t[field], t.n]));
+  };
+  ranked('#enriched-chart', 'tissue-enriched-genes', HPA.enriched, 'tissue', 'Tissues with the most tissue-enriched genes', 'tissue enriched in');
+  ranked('#celltype-chart', 'cell-type-enriched-genes', HPA.cellTypes, 'cell', 'Cell types with the most cell-type-enriched genes', 'cell type enriched in');
+};
+
+const shortTissue = (name) => name.replace(/\s*\([^)]*\)/g, '');
+
+const renderGtex = () => {
+  const tissues = gtexTissues(snapshot);
+  const byExpressed = [...tissues].sort((a, b) => b.expressed - a.expressed);
+  const bySpecific = [...tissues].sort((a, b) => b.specific - a.specific);
+  const eq = tissues.filter((t) => t.eGenes && t.samples);
+  const r = pearson(eq.map((t) => t.samples), eq.map((t) => t.eGenes));
+  $('#gtex-dek').textContent = `${exact(GT.genes)} genes in the median expression table, ${exact(GT.correlated)} of them at 1 TPM in at least one tissue. ${exact(bySpecific[0].specific)} genes are at least five times higher in ${bySpecific[0].name.toLowerCase()} than in any other tissue; ${bySpecific[1].name.toLowerCase()} is next with ${exact(bySpecific[1].specific)}. Across ${eq.length} tissues with eQTL results, eGene count and sample size correlate with r = ${r.toFixed(2)}.`;
+  const names = tissues.map((t) => shortTissue(t.name));
+  const flat = GT.correlation.flat();
+  const lo = Math.min(...flat);
+  heatmap({
+    mount: $('#tissue-corr-chart'),
+    labels: names,
+    values: GT.correlation,
+    order: GT.order,
+    lo,
+    hi: 1,
+    legend: rampLegend(lo, 1, (v) => v.toFixed(2), 'var(--data)'),
+    aria: 'Correlation of median expression between GTEx tissues',
+    describe: (i, j) => tipLines(`r = ${GT.correlation[i][j].toFixed(3)}`, `${tissues[i].name} and ${tissues[j].name}`, `over ${exact(GT.correlated)} genes`),
+  });
+  attachData('#tissue-corr-chart', 'gtex-tissue-correlation', ['Tissue', ...GT.order.map((i) => tissues[i].id)], GT.order.map((i) => [tissues[i].name, ...GT.order.map((j) => GT.correlation[i][j])]));
+  const people = (t) => (t.samples ? `${exact(t.samples)} RNA-seq samples, ${exact(t.female)} female and ${exact(t.male)} male` : 'sample counts not listed by the GTEx API');
+  dotplot({
+    mount: $('#tissue-genes-chart'),
+    rows: byExpressed.map((t, i) => ({ key: t.id, label: shortTissue(t.name), value: t.expressed, hi: i === 0 })),
+    scale: 'linear',
+    rowH: 18,
+    labelShare: 0.3,
+    labelMax: 330,
+    aria: 'Genes at 1 TPM or more in each GTEx tissue',
+    describe: (row) => {
+      const t = tissues.find((x) => x.id === row.key);
+      return tipLines(`${exact(t.expressed)} genes`, t.name, `${exact(t.specific)} at least five times higher here than in any other tissue`, people(t));
+    },
+  });
+  attachData('#tissue-genes-chart', 'gtex-expressed-genes', ['Tissue', 'GTEx ID', 'Genes at 1 TPM', 'Tissue-specific genes', 'RNA-seq samples', 'Female', 'Male'],
+    byExpressed.map((t) => [t.name, t.id, t.expressed, t.specific, t.samples, t.female, t.male]));
+  const top = eq.reduce((a, b) => (b.eGenes > a.eGenes ? b : a));
+  scatter({
+    mount: $('#egene-chart'),
+    points: eq.map((t) => ({
+      key: t.id, x: t.samples, y: t.eGenes, hi: t === top, t,
+    })),
+    xFormat: exact,
+    xLabel: 'RNA-seq samples',
+    yLabel: 'eGenes',
+    trend: linearFit(eq.map((t) => t.samples), eq.map((t) => t.eGenes)),
+    aria: 'eGenes against sample size across GTEx tissues',
+    describe: (p) => tipLines(`${exact(p.y)} eGenes`, p.t.name, `${exact(p.x)} samples`, p.t.sGenes ? `${exact(p.t.sGenes)} sGenes` : null),
+  });
+  attachData('#egene-chart', 'gtex-egenes', ['Tissue', 'RNA-seq samples', 'eGenes', 'sGenes'], eq.map((t) => [t.name, t.samples, t.eGenes, t.sGenes]));
+};
+
+const SECRETOME_ORDER = (a, b) => b[1] - a[1];
+
+const renderPlasma = () => {
+  const { blood } = HPA;
+  const bins = binsOf(blood.edges);
+  $('#plasma-dek').textContent = `${exact(blood.im.count)} proteins have an immunoassay level and ${exact(blood.ms.count)} a mass spectrometry level; ${exact(blood.im.count + blood.ms.count - blood.proteins)} have both. ${exact(HPA.secretome['Secreted to blood'] ?? 0)} genes are classed as secreted to blood.`;
+  histo({
+    mount: $('#plasma-chart'),
+    bins,
+    series: [
+      { key: 'im', label: 'Immunoassay', color: 'var(--s1)', values: blood.im.counts },
+      { key: 'ms', label: 'Mass spectrometry', color: 'var(--s2)', values: blood.ms.counts },
+    ],
+    tickEvery: 1,
+    tickLabel: (b, i) => (i % 3 === 0 ? perLitre(b.lo) : null),
+    aria: 'Proteins by plasma concentration and method',
+    describe: (i) => tipLines(`${perLitre(bins[i].lo)} to ${perLitre(bins[i].hi)}`, 'plasma concentration', `Immunoassay: ${exact(blood.im.counts[i])} proteins`, `Mass spectrometry: ${exact(blood.ms.counts[i])} proteins`),
+  });
+  attachData('#plasma-chart', 'plasma-concentrations', ['From pg per L', 'To pg per L', 'Immunoassay', 'Mass spectrometry'], bins.map((b, i) => [b.lo, b.hi, blood.im.counts[i], blood.ms.counts[i]]));
+  dotplot({
+    mount: $('#plasma-top-chart'),
+    rows: blood.top.map((p, i) => ({ key: p.gene, label: p.gene, value: plasmaLevel(p), hi: i === 0 })),
+    format: perLitre,
+    aria: 'Proteins with the highest plasma concentration',
+    describe: (r) => {
+      const p = blood.top.find((x) => x.gene === r.key);
+      return tipLines(perLitre(r.value), p.gene, p.im ? `Immunoassay: ${perLitre(p.im)}` : 'No immunoassay level', p.ms ? `Mass spectrometry: ${perLitre(p.ms)}` : 'No mass spectrometry level');
+    },
+  });
+  attachData('#plasma-top-chart', 'plasma-top-proteins', ['Gene', 'Immunoassay pg per L', 'Mass spectrometry pg per L'], blood.top.map((p) => [p.gene, p.im, p.ms]));
+  const sec = Object.entries(HPA.secretome).sort(SECRETOME_ORDER);
+  dotplot({
+    mount: $('#secretome-chart'),
+    rows: sec.map(([k, n], i) => ({ key: k, label: k, value: n, hi: i === 0 })),
+    scale: 'linear',
+    labelShare: 0.5,
+    aria: 'Secreted proteins by destination',
+    describe: (r) => tipLines(`${exact(r.value)} genes`, r.label),
+  });
+  attachData('#secretome-chart', 'hpa-secretome', ['Secretome location', 'Genes'], sec);
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -740,6 +1076,12 @@ const DATA_SOURCES = [
   ['GENCODE latest release folder', FILES.gencodeDir],
   ['HGNC complete set', FILES.hgnc],
   ['NCBI Homo sapiens gene_info', FILES.geneInfo],
+  ['UniProt reviewed human entries, streamed as TSV', FILES.uniprot],
+  ['InterPro Pfam entry API', FILES.interproPfam],
+  ['Pharos GraphQL API', FILES.pharos],
+  ['Human Protein Atlas proteinatlas.tsv', FILES.hpa],
+  ['GTEx v10 gene median TPM', FILES.gtexMedian],
+  ['GTEx Portal tissue summary API', FILES.gtexTissues],
 ];
 
 const renderSources = () => {
@@ -819,6 +1161,15 @@ const drawCharts = () => {
   renderSplicing();
   renderTranslation();
   renderCodons();
+  renderProteome();
+  renderStructures();
+  renderMembrane();
+  renderDomains();
+  renderModifications();
+  renderTargets();
+  renderSpecificity();
+  renderGtex();
+  renderPlasma();
   applySearch();
 };
 

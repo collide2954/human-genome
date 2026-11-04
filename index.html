@@ -341,8 +341,172 @@
     </figure>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-proteins" data-chapter="proteins">
     <p class="chapter-no">Part 5</p>
+    <h2 class="chapter-title">Proteins</h2>
+    <p class="chapter-dek">The reviewed human proteome in UniProt: how long the proteins are and how firmly their existence is shown, which have structures, which cross membranes, the domains they are built from, the disorder and modifications annotated on them, and how many drugs reach.</p>
+  </div>
+
+  <section class="story wrap" id="proteome" data-lens="genes" data-nav="Proteome">
+    <header class="head"><p class="label">The proteome</p><h2 data-finding="proteome">The proteome</h2><p class="dek" id="proteome-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="protein-length-chart"></div>
+        <figcaption>Reviewed human proteins by length in amino acids, ten bins per tenfold step; the first bin also holds anything shorter. Source: UniProtKB/Swiss-Prot.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="existence-chart"></div>
+        <figcaption>Reviewed human proteins by UniProt protein existence level, from direct protein evidence down to prediction, log scale. Source: UniProtKB/Swiss-Prot.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig narrow">
+      <div class="chart" id="longest-protein-chart"></div>
+      <figcaption>The ten longest reviewed human proteins, in amino acids. Source: UniProtKB/Swiss-Prot.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="structures" data-lens="genes" data-nav="Structures">
+    <header class="head"><p class="label">Structures</p><h2 data-finding="structures">Structures</h2><p class="dek" id="structures-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="pdb-count-chart"></div>
+        <figcaption>Proteins with at least one structure, by the number of PDB entries their UniProt record lists, 1 to 49 and 50 or more. One PDB entry can hold several proteins. Source: UniProtKB/Swiss-Prot cross-references to the PDB.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="pdb-top-chart"></div>
+        <figcaption>The 15 proteins in the most PDB entries. Source: as above.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="membrane" data-lens="genes" data-nav="Membranes">
+    <header class="head"><p class="label">Membranes and location</p><h2 data-finding="membrane">Membranes and location</h2><p class="dek" id="membrane-dek"></p></header>
+    <figure class="fig narrow">
+      <div class="chart" id="tm-chart"></div>
+      <figcaption>Proteins by the number of transmembrane segments UniProt annotates, 1 to 24 and 25 or more; proteins with none are left out. Seven segments is the G protein-coupled receptor fold. Source: UniProtKB/Swiss-Prot.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="location-chart"></div>
+        <figcaption>The 20 subcellular locations UniProt’s curators give most often, main compartment only; a protein can have several. Source: UniProtKB/Swiss-Prot.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="hpa-location-chart"></div>
+        <figcaption>Main locations seen by antibody immunofluorescence in cultured cells, from the Human Protein Atlas subcellular section; a protein can have several. Source: Human Protein Atlas.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="domains" data-lens="genes" data-nav="Domains">
+    <header class="head"><p class="label">Protein domains</p><h2 data-finding="domains">Protein domains</h2><p class="dek" id="domains-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="pfam-chart"></div>
+      <figcaption>The 25 Pfam families found in the most reviewed human proteins, each protein counted once per family; names from InterPro. Source: UniProtKB/Swiss-Prot cross-references to Pfam; InterPro.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="pfam-per-protein-chart"></div>
+      <figcaption>Proteins by the number of distinct Pfam families they carry, 0 to 14 and 15 or more. Source: as above.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="modifications" data-lens="genes" data-nav="Disorder and PTMs">
+    <header class="head"><p class="label">Disorder and modifications</p><h2 data-finding="modifications">Disorder and modifications</h2><p class="dek" id="modifications-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="disorder-chart"></div>
+        <figcaption>Proteins by the share of their residues inside regions UniProt annotates as disordered, in tenths; overlapping regions count once. Most of these annotations come from sequence-based prediction. Source: UniProtKB/Swiss-Prot region features.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="ptm-chart"></div>
+        <figcaption>Modification sites annotated in reviewed human proteins, by kind, log scale. Source: UniProtKB/Swiss-Prot modified residue, glycosylation and cross-link features.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="targets" data-lens="genes clinic" data-nav="Drug targets">
+    <header class="head"><p class="label">The druggable genome</p><h2 data-finding="targets">The druggable genome</h2><p class="dek" id="targets-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="tdl-chart"></div>
+        <figcaption>Human proteins by target development level. Tclin: target of an approved drug. Tchem: potent small-molecule ligands but no approved drug. Tbio: no qualifying ligand, but experimental Gene Ontology terms, an OMIM phenotype or enough literature. Tdark: none of these. Each square is 1%. Source: Pharos.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="family-chart"></div>
+        <figcaption>Each IDG protein family split by target development level; oGPCR are the olfactory G protein-coupled receptors. Source: Pharos.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="pubmed-score-chart"></div>
+        <figcaption>Targets by log PubMed score, a text-mining count of the abstracts that mention each protein, in half-unit bins. Source: Pharos, from Jensen lab text mining.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="novelty-chart"></div>
+        <figcaption>Targets by log novelty, the TIN-X score that rises as fewer publications mention a protein, in half-unit bins. Source: Pharos.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="chapter wrap" id="ch-expression" data-chapter="expression">
+    <p class="chapter-no">Part 6</p>
+    <h2 class="chapter-title">Expression</h2>
+    <p class="chapter-dek">Where genes are switched on: specificity calls from six Human Protein Atlas sections, median expression and tissue similarity across GTEx, and the proteins measured in plasma.</p>
+  </div>
+
+  <section class="story wrap" id="specificity" data-lens="genes" data-nav="Specificity">
+    <header class="head"><p class="label">Tissue specificity</p><h2 data-finding="specificity">Tissue specificity</h2><p class="dek" id="specificity-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="contexts-chart"></div>
+      <figcaption>Genes in each HPA RNA section by specificity call. Enriched: at least four times the level in any other tissue or cell type. Group enriched: four times higher in a small group than in any other. Enhanced: four times the mean of the others in at least one. Low: detected but none of these. Source: Human Protein Atlas.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="enriched-chart"></div>
+        <figcaption>The 20 tissues with the most tissue-enriched genes, tissue names as HPA gives them. Source: Human Protein Atlas consensus tissue RNA data.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="celltype-chart"></div>
+        <figcaption>The 20 single cell types with the most cell-type-enriched genes. Source: Human Protein Atlas single cell type section.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="gtex" data-lens="genes" data-nav="GTEx tissues">
+    <header class="head"><p class="label">Expression across tissues</p><h2 data-finding="gtex">Expression across tissues</h2><p class="dek" id="gtex-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="tissue-corr-chart"></div>
+      <figcaption>Pearson correlation between GTEx tissues of log10(median TPM + 1), over genes reaching 1 TPM in at least one tissue. Rows and columns share one order from average-linkage clustering; darker is more alike. Source: GTEx v10 gene median TPM.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="tissue-genes-chart"></div>
+      <figcaption>Genes of any type with a median of at least 1 TPM in each GTEx tissue. Source: GTEx v10 gene median TPM.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="egene-chart"></div>
+      <figcaption>Genes with at least one significant cis-eQTL (eGenes) against the number of RNA-seq samples, one point per tissue with eQTL results; the line is a least-squares fit. Source: GTEx Portal tissue summary.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="plasma" data-lens="genes clinic" data-nav="Plasma">
+    <header class="head"><p class="label">Proteins in blood</p><h2 data-finding="plasma">Proteins in blood</h2><p class="dek" id="plasma-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="plasma-chart"></div>
+        <figcaption>Proteins by plasma concentration, one bin per tenfold step, as HPA reports them from immunoassay and mass spectrometry studies; a protein measured both ways counts in each. Source: Human Protein Atlas blood protein section.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="plasma-top-chart"></div>
+        <figcaption>The 15 proteins with the highest reported plasma concentration by either method, log scale. Source: as above.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig narrow">
+      <div class="chart" id="secretome-chart"></div>
+      <figcaption>Genes in the HPA secretome by where the secreted protein goes, with intracellular and membrane isoforms and immunoglobulin genes listed apart. Source: Human Protein Atlas secretome section.</figcaption>
+    </figure>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 7</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>
