@@ -341,7 +341,31 @@ const sexchrom = (snap) => {
   return `Chromosome X carries ${exact(by.X.protein_coding)} protein-coding genes and Y ${exact(by.Y.protein_coding)}; in T2T-CHM13 satellite arrays make up ${pct(sat / y)} of Y`;
 };
 
+const dbsnp = (snap) => {
+  const d = snap.variation.dbsnp;
+  return `dbSNP build ${d.build} holds ${exact(d.total)} reference SNP records from ${exact(d.ss.total)} submitted variants; ${exact(d.status['Live RS'])} are live`;
+};
+
+const sv = (snap) => {
+  const c = snap.variation.sv.classes;
+  return `dbVar’s non-redundant sets hold ${exact(c.deletion)} deletions, ${exact(c.insertion)} insertions and ${exact(c.duplication)} duplications on GRCh38`;
+};
+
+const constraint = (snap) => {
+  const { gnomad, byDosage } = snap.constraint;
+  return `${exact(gnomad.below06)} of ${exact(gnomad.genes)} genes in gnomAD v4.1 have a LOEUF below 0.6; ClinGen haploinsufficient genes have a median of ${byDosage.sufficient.median.toFixed(2)}`;
+};
+
+const dosage = (snap) => {
+  const { hi, ts } = snap.constraint.dosage;
+  return `ClinGen finds sufficient evidence of haploinsufficiency for ${exact(hi[3] ?? 0)} genes and of triplosensitivity for ${exact(ts[3] ?? 0)}`;
+};
+
 export const findings = (snap) => ({
+  dbsnp: dbsnp(snap),
+  sv: sv(snap),
+  constraint: constraint(snap),
+  dosage: dosage(snap),
   mito: mito(snap),
   censat: censat(snap),
   sexchrom: sexchrom(snap),
