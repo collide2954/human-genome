@@ -920,6 +920,29 @@ h2,
   font-size: 11px;
 }
 
+.chart .mh.c0 {
+  fill: var(--s2);
+}
+
+.chart .mh.c1 {
+  fill: var(--data);
+}
+
+.chart .mh.cap {
+  stroke: var(--ink);
+  stroke-width: 0.6;
+}
+
+.chart .mh.sel,
+.chart .mh:hover {
+  fill: var(--accent);
+}
+
+.chart .threshold {
+  stroke: var(--accent);
+  stroke-dasharray: 4 3;
+}
+
 .chart .col-lab.small {
   font-size: 9px;
 }

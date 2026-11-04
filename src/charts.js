@@ -656,7 +656,7 @@ export const grid = ({
             : el('rect', { class: 'cell', ...box, style: `fill:${color};fill-opacity:${v > 0 ? shade : 0.03};--i:${i}` }),
           cw >= 24 && v > 0 ? el('text', {
             class: `grid-lab${shade > 0.55 ? ' on' : ''}`, x: L + j * cw + (cw - 1.5) / 2, y: T + i * rh + rh / 2 + 3.5, 'text-anchor': 'middle',
-          }, format(v)) : null);
+          }, format(v, i, j)) : null);
       }),
       totals ? el('text', {
         class: 'val', x: L + cols.length * cw + 6, y: T + i * rh + rh / 2 + 4, 'text-anchor': 'start',
@@ -1037,6 +1037,63 @@ export const dotmap = ({
       class: 'map-cell', 'data-cell': `${c.lat}:${c.lon}`, 'data-k': i, 'data-rank': i, x: x(c.lon), y: y(c.lat + size), width: Math.max(1, x(c.lon + size) - x(c.lon)), height: Math.max(1, y(c.lat) - y(c.lat + size)), style: `fill:${color};fill-opacity:${heat(Math.log10(c.n + 1), 0, Math.log10(most + 1))}`,
     })));
   hover(svg, (k) => describe(cells[Number(k)]));
+  return mountSvg(mount, svg);
+};
+
+export const manhattan = ({
+  mount, chromosomes, cap = 300, threshold, aria, describe, height = 280,
+}) => {
+  const W = widthOf(mount);
+  const L = 40;
+  const R = 8;
+  const T = 18;
+  const B = 22;
+  const total = chromosomes.reduce((n, c) => n + c.length, 0);
+  const x = scaleLinear([0, total], [L, W - R]);
+  const y = scaleLinear([0, cap], [height - B, T]);
+  const flat = [];
+  let offset = 0;
+  let labelEnd = -Infinity;
+  const groups = chromosomes.map((c, ci) => {
+    const start = offset;
+    offset += c.length;
+    const mid = (x(start) + x(offset)) / 2;
+    const half = (String(c.chrom).length * 6.6) / 2;
+    const labelled = mid - half > labelEnd + 3;
+    if (labelled) labelEnd = mid + half;
+    return el('g', {},
+      labelled ? el('text', {
+        class: 'tick', x: mid, y: height - 6, 'text-anchor': 'middle',
+      }, c.chrom) : null,
+      c.bins.map((b) => {
+        const k = flat.push([c.chrom, b]) - 1;
+        const cx = x(start + (b[0] + 0.5) * 1e6);
+        const capped = b[1] > cap;
+        const cy = y(Math.min(b[1], cap));
+        const attrs = {
+          class: `mh c${ci % 2}${capped ? ' cap' : ''}`, 'data-bin': `${c.chrom}:${b[0]}`, 'data-k': k, 'data-rank': k,
+        };
+        return capped
+          ? el('path', { ...attrs, d: `M${cx - 3.5},${cy + 3}L${cx},${cy - 3.5}L${cx + 3.5},${cy + 3}Z` })
+          : el('circle', {
+            ...attrs, cx, cy, r: 2,
+          });
+      }));
+  });
+  const svg = el('svg', { viewBox: `0 0 ${W} ${height}`, role: 'img', 'aria-label': aria },
+    niceTicks(cap, 6).filter((t) => t <= cap).map((t) => el('g', {},
+      el('line', {
+        class: t === 0 ? 'base' : 'grid', x1: L, x2: W - R, y1: y(t), y2: y(t),
+      }),
+      el('text', {
+        class: 'tick', x: L - 6, y: y(t) + 4, 'text-anchor': 'end',
+      }, String(t)))),
+    el('line', {
+      class: 'threshold', x1: L, x2: W - R, y1: y(threshold), y2: y(threshold),
+    }),
+    el('text', { class: 'axis-lab', x: L, y: T - 8 }, '−log10 p'),
+    groups);
+  hover(svg, (k) => describe(...flat[Number(k)]));
   return mountSvg(mount, svg);
 };
 
