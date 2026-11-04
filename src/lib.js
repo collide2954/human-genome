@@ -314,6 +314,35 @@ export const squarify = (items, width, height) => {
   return out;
 };
 
+const BASES = ['A', 'C', 'G', 'T'];
+
+export const information = (counts) => counts.map((row) => {
+  const n = row.reduce((a, b) => a + b, 0);
+  const p = row.map((c) => (n ? c / n : 0));
+  const entropy = -p.reduce((acc, q) => acc + (q > 0 ? q * Math.log2(q) : 0), 0);
+  const bits = n ? 2 - entropy : 0;
+  const letters = p.map((q, i) => ({ base: BASES[i], p: q, height: q * bits })).sort((a, b) => a.height - b.height);
+  return { n, bits, letters };
+});
+
+const TCAG = 'TCAG';
+const TABLE_ONE = 'FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG';
+
+export const GENETIC_CODE = Object.fromEntries([...TABLE_ONE].map((aa, i) => [`${TCAG[i >> 4]}${TCAG[(i >> 2) & 3]}${TCAG[i & 3]}`, aa]));
+
+export const AMINO_ACIDS = {
+  A: 'Alanine', R: 'Arginine', N: 'Asparagine', D: 'Aspartic acid', C: 'Cysteine', Q: 'Glutamine', E: 'Glutamic acid', G: 'Glycine', H: 'Histidine', I: 'Isoleucine',
+  L: 'Leucine', K: 'Lysine', M: 'Methionine', F: 'Phenylalanine', P: 'Proline', S: 'Serine', T: 'Threonine', W: 'Tryptophan', Y: 'Tyrosine', V: 'Valine',
+};
+
+export const codonOf = (i) => `${BASES[i >> 4]}${BASES[(i >> 2) & 3]}${BASES[i & 3]}`;
+
+export const heat = (v, lo, hi) => {
+  if (hi === lo) return 1;
+  const t = Math.min(1, Math.max(0, (v - lo) / (hi - lo)));
+  return Number((0.06 + 0.94 * t).toFixed(3));
+};
+
 const csvCell = (v) => {
   if (v === null || v === undefined) return '';
   const s = String(v);
