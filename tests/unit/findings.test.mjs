@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  findings, assemblyNumbers, sequenceNumbers, proteinLabel,
+  findings, assemblyNumbers, sequenceNumbers, proteinLabel, trnaPairs,
 } from '../../src/findings.js';
 
 test('proteinLabel names a protein by its first gene and counts the rest', () => {
@@ -205,6 +205,21 @@ test('findings state the expression sections as numbers', () => {
   assert.equal(f.specificity, 'HPA calls 3,132 genes tissue enriched; testis has 932 of them, brain 475');
   assert.equal(f.gtex, 'In GTEx v10, 25,533 genes reach a median of 1 TPM in Testis; 11,947 do in Whole Blood');
   assert.equal(f.plasma, 'Plasma levels in HPA run from 40 g/L for ALB to 1.2 ng/L for IL6, across 4,520 proteins');
+});
+
+test('trnaPairs sets each sense codon against the tRNA genes whose anticodon pairs with it', () => {
+  const pairs = trnaPairs(codonFixture, {
+    'Ala-AGC': 26, 'Glu-CTC': 8, 'Met-CAT': 11, 'iMet-CAT': 9, 'SeC-TCA': 1,
+  });
+  assert.equal(pairs.length, 61);
+  const of = (codon) => pairs.find((p) => p.codon === codon);
+  assert.equal(of('GCT').copies, 26);
+  assert.equal(of('GCT').anticodon, 'AGC');
+  assert.equal(of('GAG').copies, 8);
+  assert.equal(of('GAG').aa, 'Glu');
+  assert.equal(of('GAG').perK.toFixed(1), '403.2');
+  assert.equal(of('ATG').copies, 11);
+  assert.equal(of('GCC').copies, 0);
 });
 
 test('findings state the splicing, translation and codon sections as numbers', () => {
