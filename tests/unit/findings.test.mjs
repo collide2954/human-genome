@@ -219,6 +219,31 @@ fixture.regulation = {
 fixture.trnas = { genes: 432, anticodons: { 'Ala-AGC': 26, 'Glu-CTC': 8, 'Met-CAT': 11 } };
 fixture.encode = { total: 20450, assays: [{ name: 'TF ChIP-seq', n: 3502 }] };
 
+const mtGene = (kind, i) => ({
+  name: `${kind}${i}`, start: i, end: i + 1, strand: '+', kind, product: null,
+});
+fixture.structure = {
+  mito: {
+    genes: [...Array.from({ length: 13 }, (_, i) => mtGene('protein', i)), ...Array.from({ length: 22 }, (_, i) => mtGene('tRNA', i)), ...Array.from({ length: 2 }, (_, i) => mtGene('rRNA', i))],
+    variants: { positions: 8793 },
+  },
+  censat: {
+    total: 240521368,
+    classes: { hor: 70325827, hsat3: 69334314 },
+    arrays: { hor: [{ chrom: '18', bp: 5479654 }, { chrom: '21', bp: 432213 }] },
+    byChrom: { Y: { hsat3: 21685400, hsat1B: 14206138 } },
+  },
+};
+fixture.genes.genes.byChrom.X = { protein_coding: 867 };
+fixture.genes.genes.byChrom.Y = { protein_coding: 61 };
+
+test('findings state the chromosome structure sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.mito, 'The mitochondrial genome’s 100 bp hold 37 genes, 13 for proteins, 22 tRNAs and 2 rRNAs; gnomAD finds variants at 8,793 positions');
+  assert.equal(f.censat, 'T2T-CHM13 maps 240.5 Mb of satellite arrays; active α-satellite HORs make up 70.3 Mb, the most on chromosome 18 (5.5 Mb)');
+  assert.equal(f.sexchrom, 'Chromosome X carries 867 protein-coding genes and Y 61; in T2T-CHM13 satellite arrays make up 57.5% of Y');
+});
+
 test('findings state the regulation sections as numbers', () => {
   const f = findings(fixture);
   assert.equal(f.ccres, 'ENCODE’s registry lists 1,000 candidate cis-regulatory elements covering 10% of GRCh38; 600 are distal enhancer-like');
