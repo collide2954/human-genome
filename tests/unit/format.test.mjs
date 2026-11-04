@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  exact, compact, pct, usd, decimal, wordy, ordinal, bases, sci, mlog, coords, density, signed, toCsv, perLitre,
+  exact, cell, compact, pct, usd, decimal, wordy, ordinal, bases, sci, mlog, coords, density, signed, toCsv, perLitre,
 } from '../../src/lib.js';
 
 test('perLitre writes a mass concentration in the unit that keeps it between 1 and 1,000', () => {
@@ -59,6 +59,17 @@ test('pct formats a ratio as a percentage', () => {
 test('usd formats dollars compactly', () => {
   assert.equal(usd(95_263_072), '$95.3M');
   assert.equal(usd(525), '$525');
+});
+
+test('cell writes table numbers with thousands grouped and their decimals kept', () => {
+  assert.equal(cell(1234567), '1,234,567');
+  assert.equal(cell(0.279), '0.279');
+  assert.equal(cell(0.15000000000000002), '0.15');
+  assert.equal(cell(1234.5678), '1,234.5678');
+  assert.equal(cell(-0.5), '-0.5');
+  assert.equal(cell(99.7), '99.7');
+  assert.equal(cell(0.0000012), '0.0000012');
+  assert.equal(cell(null), '—');
 });
 
 test('decimal keeps a fixed number of places', () => {
