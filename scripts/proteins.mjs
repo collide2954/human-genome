@@ -177,10 +177,13 @@ export const hpaSummary = (text) => {
     listOf(c[col['Protein class']]).forEach((l) => bump(classes, l));
   }
   const levels = (key) => plasma.map((p) => p[key]).filter(Boolean);
+  const least = (p) => Math.min(p.im ?? Infinity, p.ms ?? Infinity);
   return {
     genes: lines.length - 1,
     contexts,
     blood: {
+      proteins: plasma.length,
+      lowest: plasma.reduce((a, b) => (a && least(a) <= least(b) ? a : b), null),
       edges: CONCENTRATION_EDGES,
       im: { count: levels('im').length, counts: histogram(levels('im'), CONCENTRATION_EDGES) },
       ms: { count: levels('ms').length, counts: histogram(levels('ms'), CONCENTRATION_EDGES) },
@@ -256,6 +259,24 @@ export const tissueSites = (rows) => rows.map((r) => ({
   eGenes: r.eGeneCount ?? null,
   sGenes: r.sGeneCount ?? null,
 }));
+
+const spelled = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+export const alignSites = (ids, sites) => ids.map((id) => {
+  const site = sites.find((s) => s.id === id);
+  const parent = sites.filter((s) => id.startsWith(`${s.id}_`)).sort((a, b) => b.id.length - a.id.length)[0];
+  const named = site && spelled(site.name) === spelled(id);
+  return {
+    id,
+    name: named ? site.name : id.replaceAll('_', ' '),
+    organ: site?.organ ?? parent?.organ ?? null,
+    samples: site?.samples ?? null,
+    female: site?.female ?? null,
+    male: site?.male ?? null,
+    eGenes: site?.eGenes ?? null,
+    sGenes: site?.sGenes ?? null,
+  };
+});
 
 export const pfamNames = (top, entries) => top.map((p) => ({
   ...p,
