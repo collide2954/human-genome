@@ -45,7 +45,7 @@ test('gwasAssociations bins the strongest hit per megabase and counts years, cat
       study: 'GCST3', date: '2015-03-03', chrom: 'X', pos: '100', mlog: '8', trait: 'asthma', uri: `${EFO}EFO_0000270`, gene: 'GENEE', effect: '1.2', snp: 'rs5',
     }),
     assoc({
-      study: 'GCST2', date: '2015-01-02', added: '2016-01-01', chrom: '6', pos: '32500000', mlog: '50', trait: 'type 1 diabetes mellitus', uri: 'http://purl.obolibrary.org/obo/MONDO_0005147', gene: 'HLA-DQA1', context: 'missense_variant', raf: '0.04', effect: '2.5', ci: '[2.0-3.0]', snp: 'rs6',
+      study: 'GCST2', date: '2015-01-02', added: '2016-01-01', chrom: '6', pos: '32500000', mlog: '50', trait: 'type 1 diabetes mellitus', uri: 'http://purl.obolibrary.org/obo/MONDO_0005147', gene: 'HLA-DQA1', context: 'missense_variant; intron_variant', raf: '0.04', effect: '2.5', ci: '[2.0-3.0]', snp: 'rs6',
     }),
   ]) acc.add(line);
   const g = acc.result();
@@ -69,7 +69,7 @@ test('gwasAssociations bins the strongest hit per megabase and counts years, cat
     { gene: 'HLA-DQA1', n: 2 }, { gene: 'GENEA', n: 1 }, { gene: 'GENEB', n: 1 }, { gene: 'GENEC', n: 1 }, { gene: 'GENED', n: 1 }, { gene: 'GENEE', n: 1 },
   ]);
   assert.deepEqual(g.context, {
-    intron_variant: 1, intergenic_variant: 1, missense_variant: 2, Interaction: 1, 'Not given': 1,
+    intron_variant: 1, intergenic_variant: 1, missense_variant: 1, 'Several variants': 1, Interaction: 1, 'Not given': 1,
   });
   assert.deepEqual(g.effects.orEdges, [1, 1.1, 1.25, 1.5, 2, 3, 5, 10]);
   assert.equal(g.effects.rafEdges.length, 11);
