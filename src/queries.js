@@ -21,6 +21,7 @@ export const stringFiles = (v) => ({
 
 const REACTOME = 'https://reactome.org/download/current/';
 const T2T_ANNOTATION = 'https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/annotation/';
+const DBVAR_NR = 'https://ftp.ncbi.nlm.nih.gov/pub/dbVar/sandbox/sv_datasets/nonredundant/';
 
 export const pharosLevelQuery = (level) => `{ targets(filter: { facets: [{ facet: "Target Development Level", values: ["${level}"] }] }) { count facets(include: ["IDG Family"]) { facet values { name value } } } }`;
 
@@ -57,6 +58,13 @@ export const FILES = {
   gnomadMito: 'https://storage.googleapis.com/gcp-public-data--gnomad/release/3.1/vcf/genomes/gnomad.genomes.v3.1.sites.chrM.reduced_annotations.tsv',
   censat: `${T2T_ANNOTATION}chm13v2.0_censat_v2.1.bed`,
   telomeres: `${T2T_ANNOTATION}chm13v2.0_telomere.bed`,
+  dbsnpNotes: 'https://ftp.ncbi.nlm.nih.gov/snp/latest_release/release_notes.txt',
+  nr_deletions: `${DBVAR_NR}deletions/GRCh38.nr_deletions.tsv.gz`,
+  nr_duplications: `${DBVAR_NR}duplications/GRCh38.nr_duplications.tsv.gz`,
+  nr_insertions: `${DBVAR_NR}insertions/GRCh38.nr_insertions.tsv.gz`,
+  gnomadConstraint: 'https://storage.googleapis.com/gcp-public-data--gnomad/release/4.1/constraint/gnomad.v4.1.constraint_metrics.tsv',
+  clingenGenes: 'https://ftp.clinicalgenome.org/ClinGen_gene_curation_list_GRCh38.tsv',
+  impcViability: 'https://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/latest/results/viability.csv.gz',
   ccre: 'https://downloads.wenglab.org/Registry-V4/GRCh38-cCREs.bed',
   cpgIslands: `${UCSC}/database/cpgIslandExt.txt.gz`,
   trnas: 'https://gtrnadb.ucsc.edu/genomes/eukaryota/Hsapi38/hg38-mature-tRNAs.fa',
