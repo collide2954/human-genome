@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Human Genome in Numbers</title>
+<meta name="description" content="The human genome counted: the GRCh38 and T2T-CHM13 assemblies, genes, proteins, variants, clinical genetics and research, from NCBI, UCSC, GENCODE and EBI files. Rebuilt weekly.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Human Genome in Numbers">
+<meta property="og:description" content="The human genome counted: the GRCh38 and T2T-CHM13 assemblies, genes, proteins, variants, clinical genetics and research, from NCBI, UCSC, GENCODE and EBI files. Rebuilt weekly.">
+<meta property="og:url" content="https://collide2954.github.io/human-genome/">
+<meta property="og:image" content="https://collide2954.github.io/human-genome/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Human Genome in Numbers: assemblies, genes, variants and clinical genetics, counted">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f1ea'/%3E%3Crect x='5' y='12' width='22' height='8' rx='4' fill='%231a1a1a'/%3E%3Crect x='13' y='12' width='3' height='8' fill='%23d93a1f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&amp;family=Schibsted+Grotesk:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="src/styles.css">
+<script type="module" src="src/app.js"></script>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap mast">
+    <a class="wordmark" href="./">HUMAN<i>/</i>GENOME <em>in numbers</em></a>
+    <p class="dateline" id="stamp"></p>
+    <div class="controls">
+      <label class="filter"><span class="sr">Filter lists on this page</span><input id="q" type="search" placeholder="Filter: BRCA1, 17q21, Alu" autocomplete="off"></label>
+      <button id="theme" type="button" class="textbtn" aria-label="Toggle dark mode">Dark</button>
+    </div>
+  </div>
+  <div class="wrap lensbar">
+    <span class="readas">Read as</span>
+    <div class="lenses" id="lenses" role="group" aria-label="Lens"></div>
+    <p class="lens-hint" id="lens-hint"></p>
+  </div>
+</header>
+
+<nav class="jump" aria-label="Sections">
+  <div class="wrap" id="jump"></div>
+</nav>
+
+<main>
+  <section class="lede wrap" id="lede" aria-label="Headline numbers">
+    <p class="kicker">The human genome, counted</p>
+    <h1><span class="hero" data-hero="bases">0</span> <span class="hero-unit">base pairs in one complete human genome</span></h1>
+    <p class="standfirst" id="lede-text"></p>
+    <dl class="ticker" id="ticker"></dl>
+  </section>
+
+  <aside class="readme wrap" id="readme" aria-labelledby="readme-title">
+    <h2 class="readme-title" id="readme-title">How to read these numbers</h2>
+    <ul>
+      <li><b>Rebuilt weekly.</b> Every count comes from the files NCBI, UCSC, GENCODE and EBI publish, pulled every Sunday. A source that fails keeps last week’s numbers and its own date. Tap a mark for its numbers.</li>
+      <li><b>GRCh38 coordinates.</b> Positions are on GRCh38.p14, counted from 1 with both ends included, as genome browsers show them. The UCSC tables count from 0; they are converted.</li>
+      <li><b>Two assemblies.</b> GRCh38 is the reference the databases annotate. T2T-CHM13v2.0 is the first gapless assembly, from one cell line, with chromosome Y from a second person.</li>
+      <li><b>Chromosomes only.</b> Counts cover chromosomes 1 to 22, X, Y and the mitochondrial genome where it says so. Alternate loci, patches and unplaced scaffolds are counted apart.</li>
+      <li><b>Log scales.</b> Charts that span several orders of magnitude say log scale in their caption.</li>
+      <li><b>Every figure’s numbers.</b> Each caption ends with a table and a CSV of exactly what is drawn.</li>
+    </ul>
+  </aside>
+
+  <div class="chapter wrap" id="ch-assembly" data-chapter="assembly">
+    <p class="chapter-no">Part 1</p>
+    <h2 class="chapter-title">The assembly</h2>
+    <p class="chapter-dek">Chromosomes and their bands, the gaps and alternate sequence in GRCh38, and what the telomere-to-telomere assembly filled in.</p>
+  </div>
+
+  <section class="story wrap" id="chromosomes" data-lens="sequence" data-nav="Chromosomes">
+    <header class="head"><p class="label">Chromosomes</p><h2 data-finding="chromosomes">Chromosomes</h2><p class="dek" id="chromosomes-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="ideogram-chart"></div>
+      <figcaption>GRCh38 chromosomes to scale with their Giemsa bands. Darker bands stain more strongly; red marks the centromere, hatching the variable heterochromatin, and the narrow stalks the acrocentric short arms. Source: UCSC hg38 cytoBandIdeo.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="gaps" data-lens="sequence" data-nav="Gaps">
+    <header class="head"><p class="label">Gaps</p><h2 data-finding="gaps">Gaps</h2><p class="dek" id="gaps-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="gaps-chart"></div>
+      <figcaption>Bases left as N in each GRCh38 chromosome, by the kind of gap UCSC records. Sources: UCSC hg38 gap table; NCBI GRCh38.p14 assembly statistics.</figcaption>
+    </figure>
+    <h3 class="subhead" data-finding="scaffolds">Alternate sequence</h3>
+    <figure class="fig narrow">
+      <div class="chart" id="roles-chart"></div>
+      <figcaption>Sequences in GRCh38.p14 by role, total length on a log scale. Alternate loci carry a second version of a variable region; fix patches correct the chromosomes and novel patches add sequence, both without changing coordinates. Source: NCBI GRCh38.p14 assembly report.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="t2t" data-lens="sequence" data-nav="T2T-CHM13">
+    <header class="head"><p class="label">Telomere to telomere</p><h2 data-finding="t2t">Telomere to telomere</h2><p class="dek" id="t2t-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="t2t-chart"></div>
+      <figcaption>Length of each T2T-CHM13v2.0 chromosome less the sequenced (non-N) bases of the same GRCh38 chromosome. Chromosome Y in T2T-CHM13v2.0 comes from HG002. Sources: NCBI assembly reports and statistics for GCF_009914755.1 and GCF_000001405.40.</figcaption>
+    </figure>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 2</p>
+    <h2 class="chapter-title">History and reference</h2>
+    <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
+  </div>
+
+  <section class="story wrap" id="decoder" data-nav="Decoder">
+    <header class="head"><p class="label">Identifier decoder</p><h2>What is NM_000546.6:c.215C&gt;G?</h2><p class="dek">Paste an HGVS name, an rsID, a ClinVar, Ensembl, RefSeq, UniProt or PDB accession, a star or HLA allele, a cytoband or GRCh38 coordinates.</p></header>
+    <label class="decoder-input"><span class="sr">Identifier</span><input id="decoder-input" type="text" placeholder="NM_000546.6:c.215C>G" autocomplete="off" spellcheck="false"></label>
+    <div id="decoder-out" class="decoded" aria-live="polite"></div>
+    <div class="chips" id="examples"></div>
+  </section>
+
+  <section class="story wrap" id="sources" data-nav="Sources">
+    <header class="head"><p class="label">Sources</p><h2>Where every number comes from</h2><p class="dek" id="data-use"></p></header>
+    <div class="srcgroups" id="source-list"></div>
+  </section>
+</main>
+
+<footer class="wrap foot" id="foot"></footer>
+<div id="tip" class="tip" role="status" hidden></div>
+</body>
+</html>
