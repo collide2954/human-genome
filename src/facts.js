@@ -133,6 +133,17 @@ export const SOURCES = {
   clinpgx: 'https://www.clinpgx.org/',
   whirlCarrillo2021: 'https://doi.org/10.1002/cpt.2350',
   clinpgxLicense: 'https://creativecommons.org/licenses/by-sa/4.0/',
+  gwasRelease: 'https://ftp.ebi.ac.uk/pub/databases/gwas/releases/latest/',
+  manolio2009: 'https://doi.org/10.1038/nature08494',
+  visscher2017: 'https://doi.org/10.1016/j.ajhg.2017.06.005',
+  pgsCatalog: 'https://www.pgscatalog.org/',
+  lambert2021: 'https://doi.org/10.1038/s41588-021-00783-5',
+  lambert2024: 'https://doi.org/10.1038/s41588-024-01937-x',
+  martin2019: 'https://doi.org/10.1038/s41588-019-0379-x',
+  panukb: 'https://pan.ukbb.broadinstitute.org/',
+  karczewski2024: 'https://doi.org/10.1101/2024.03.13.24303864',
+  bulikSullivan2015: 'https://doi.org/10.1038/ng.3211',
+  panukbLicense: 'https://creativecommons.org/licenses/by/4.0/',
 };
 
 export const PARS = [
@@ -270,6 +281,17 @@ export const SOURCE_TITLES = {
   clinpgx: ['Pharmacogenomics', 'ClinPGx (formerly PharmGKB), clinical annotation and drug label annotation downloads'],
   whirlCarrillo2021: ['Pharmacogenomics', 'Whirl-Carrillo et al. 2021, An evidence-based framework for evaluating pharmacogenomics knowledge for personalized medicine, Clinical Pharmacology & Therapeutics 110:563'],
   clinpgxLicense: ['Pharmacogenomics', 'Creative Commons Attribution-ShareAlike 4.0, the license of ClinPGx data and of the numbers this page derives from it'],
+  gwasRelease: ['Complex traits', 'NHGRI-EBI GWAS Catalog latest release: associations with ontology annotations, EFO trait mappings'],
+  manolio2009: ['Complex traits', 'Manolio et al. 2009, Finding the missing heritability of complex diseases, Nature 461:747'],
+  visscher2017: ['Complex traits', 'Visscher et al. 2017, 10 years of GWAS discovery: biology, function, and translation, American Journal of Human Genetics 101:5'],
+  pgsCatalog: ['Complex traits', 'PGS Catalog, metadata downloads and REST API'],
+  lambert2021: ['Complex traits', 'Lambert et al. 2021, The Polygenic Score Catalog as an open database for reproducibility and systematic evaluation, Nature Genetics 53:420'],
+  lambert2024: ['Complex traits', 'Lambert et al. 2024, Enhancing the Polygenic Score Catalog with tools for score calculation and ancestry normalization, Nature Genetics 56:1989'],
+  martin2019: ['Complex traits', 'Martin et al. 2019, Clinical use of current polygenic risk scores may exacerbate health disparities, Nature Genetics 51:584'],
+  panukb: ['Complex traits', 'Pan-UK Biobank, heritability and phenotype manifests'],
+  karczewski2024: ['Complex traits', 'Karczewski et al. 2024, Pan-UK Biobank GWAS improves discovery, analysis of genetic architecture, and resolution into ancestry-enriched effects, medRxiv preprint'],
+  bulikSullivan2015: ['Complex traits', 'Bulik-Sullivan et al. 2015, LD Score regression distinguishes confounding from polygenicity in genome-wide association studies, Nature Genetics 47:291'],
+  panukbLicense: ['Complex traits', 'Creative Commons Attribution 4.0, the license of the Pan-UKB results'],
 };
 
 const biobank = (name, people, qualifier, measure, source) => ({
