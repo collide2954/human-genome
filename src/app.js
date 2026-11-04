@@ -3,7 +3,7 @@ import {
   SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES,
 } from './facts.js';
 import {
-  exact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, codonOf, perLitre,
+  exact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, AA3, codonOf, perLitre,
 } from './lib.js';
 import { pearson, linearFit } from './stats.js';
 import { FILES } from './queries.js';
@@ -643,10 +643,6 @@ const renderTranslation = () => {
   const parts = [['TGA', 'var(--s1)'], ['TAA', 'var(--s2)'], ['TAG', 'var(--s3)']].map(([codon, color]) => ({ label: codon, value: MN.stops[codon], color }));
   waffle({ mount: $('#stop-chart'), parts, aria: 'Stop codons of MANE coding sequences' });
   attachData('#stop-chart', 'stop-codons', ['Stop codon', 'Coding sequences'], parts.map((p) => [p.label, p.value]));
-};
-
-const AA3 = {
-  A: 'Ala', R: 'Arg', N: 'Asn', D: 'Asp', C: 'Cys', Q: 'Gln', E: 'Glu', G: 'Gly', H: 'His', I: 'Ile', L: 'Leu', K: 'Lys', M: 'Met', F: 'Phe', P: 'Pro', S: 'Ser', T: 'Thr', W: 'Trp', Y: 'Tyr', V: 'Val', '*': 'Stop',
 };
 
 const renderCodons = () => {

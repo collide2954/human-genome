@@ -348,6 +348,10 @@ const TABLE_ONE = 'FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEG
 
 export const GENETIC_CODE = Object.fromEntries([...TABLE_ONE].map((aa, i) => [`${TCAG[i >> 4]}${TCAG[(i >> 2) & 3]}${TCAG[i & 3]}`, aa]));
 
+export const AA3 = {
+  A: 'Ala', R: 'Arg', N: 'Asn', D: 'Asp', C: 'Cys', Q: 'Gln', E: 'Glu', G: 'Gly', H: 'His', I: 'Ile', L: 'Leu', K: 'Lys', M: 'Met', F: 'Phe', P: 'Pro', S: 'Ser', T: 'Thr', W: 'Trp', Y: 'Tyr', V: 'Val', '*': 'Stop',
+};
+
 export const AMINO_ACIDS = {
   A: 'Alanine', R: 'Arginine', N: 'Asparagine', D: 'Aspartic acid', C: 'Cysteine', Q: 'Glutamine', E: 'Glutamic acid', G: 'Glycine', H: 'Histidine', I: 'Isoleucine',
   L: 'Leucine', K: 'Lysine', M: 'Methionine', F: 'Phenylalanine', P: 'Proline', S: 'Serine', T: 'Threonine', W: 'Tryptophan', Y: 'Tyrosine', V: 'Valine',
