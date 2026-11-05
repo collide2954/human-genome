@@ -1,6 +1,7 @@
 import snapshot from './snapshot.js';
 import {
   SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS, GENE_THERAPIES, GENE_THERAPIES_CHECKED, DIAGNOSTIC_YIELD, CFDNA_SCREENING, CARRIER_TIER3, BIOBANKS, GNOMAD_V4,
+  ZOONOMIA, DE_NOVO, ARCHAIC_GENOMES, ARCHAIC_ANCESTRY, APE_GENOMES,
 } from './facts.js';
 import {
   exact, cell, compact, bases, coords, signed, identify, matches, LENSES, readLens, inLens, lensSearch, toCsv, pct, longDate, information, GENETIC_CODE, AMINO_ACIDS, AA3, codonOf, perLitre, CHANNELS, SUBSTITUTIONS, wordy,
@@ -9,7 +10,7 @@ import {
   pearson, linearFit, linearEdges, summary,
 } from './stats.js';
 import {
-  FILES, TRIAL_MODALITIES, assemblyPage, gdcSsmPage,
+  FILES, TRIAL_MODALITIES, assemblyPage, gdcSsmPage, comparaFile, ensemblSpeciesFile, eukaryotePage, primatePage,
 } from './queries.js';
 import {
   findings, assemblyNumbers, sequenceNumbers, codingCounts, geneDensity, senseCodons, gtexTissues, plasmaLevel, proteomeResidues, proteinLabel, trnaPairs, titv,
@@ -2071,6 +2072,7 @@ const renderPanels = () => {
 };
 
 const ASSEMBLY_LEVELS = [['Contig', 'var(--s4)'], ['Scaffold', 'var(--s3)'], ['Chromosome', 'var(--s2)'], ['Complete Genome', 'var(--s5)']];
+const lengthTick = (v) => (v >= 1e9 ? `${v / 1e9} Gb` : v >= 1e6 ? `${v / 1e6} Mb` : v >= 1e3 ? `${v / 1e3} kb` : `${v} bp`);
 
 const renderAssemblies = () => {
   const known = ASSEMBLY_LEVELS.map(([l]) => l);
@@ -2105,7 +2107,7 @@ const renderAssemblies = () => {
     points,
     yLog: true,
     xFormat: (v) => String(v),
-    yFormat: (v) => (v >= 1e9 ? `${v / 1e9} Gb` : v >= 1e6 ? `${v / 1e6} Mb` : v >= 1e3 ? `${v / 1e3} kb` : `${v} bp`),
+    yFormat: lengthTick,
     xLabel: 'release date',
     yLabel: 'contig N50, log scale',
     legend: levels.map(([label, color]) => ({ label, color })),
@@ -3530,6 +3532,471 @@ const renderHeritability = () => {
   attachData('#heritability-pops-chart', 'panukb-estimates-by-group', ['Group', 'Estimates', 'Passing all flags'], pops.map((p) => [p, hp.byPop[p].estimates, hp.byPop[p].passing]));
 };
 
+const ORT = snapshot.orthologs;
+const CMP = snapshot.compara;
+const KIND_COLORS = {
+  primates: 'var(--accent)', mammals: 'var(--s2)', birds: 'var(--s4)', reptiles: 'var(--s3)', amphibians: 'var(--s5)', rayfinned: 'var(--data)', cartilaginous: 'var(--w1)', other: 'var(--data-2)',
+};
+const kindsIn = (labels, keys) => labels.filter((k) => keys.has(k.key)).map((k) => ({ ...k, color: KIND_COLORS[k.key] ?? 'var(--data)' }));
+const PERCENT_TICKS = [0, 25, 50, 75, 100];
+const percentTick = (t) => `${t}%`;
+const third = (v) => Number(v.toFixed(3));
+const nodeAt = (nodes, name) => nodes.findIndex((n) => n.name === name);
+
+const renderOrthologs = () => {
+  const v = ORT.vertebrates;
+  const share = (n) => (n / v.genes) * 100;
+  const label = Object.fromEntries(ORT.kinds.map((k) => [k.key, k.label]));
+  const rows = v.nodes.map((node, i) => ({
+    key: node.name,
+    label: `${node.name} (${node.species})`,
+    median: share(node.median),
+    points: v.species.filter((s) => s[3] === i).map((s) => ({ value: share(s[4]), kind: s[2], s })),
+  }));
+  const vi = nodeAt(v.nodes, 'Vertebrata');
+  const deepest = vi >= 0 ? vi : rows.length - 1;
+  const vertebrates = v.species.filter((s) => s[3] <= deepest);
+  const fewest = [...vertebrates].sort((a, b) => a[4] - b[4]).slice(0, 2);
+  $('#orthologs-dek').textContent = `${exact(v.species.length)} species, ${exact(vertebrates.length)} of them vertebrates, against ${exact(v.genes)} human protein-coding genes. Row medians run from ${pctOf(rows[0].median)} in ${rows[0].key} to ${pctOf(rows[deepest].median)} in ${rows[deepest].key}. The fewest among vertebrates: ${fewest.map((s) => `${s[1]}, ${exact(s[4])} genes`).join('; ')}.`;
+  dotRows({
+    mount: $('#orthologs-chart'),
+    rows,
+    kinds: kindsIn(ORT.kinds, new Set(v.species.map((s) => s[2]))),
+    scale: 'linear',
+    ticks: PERCENT_TICKS,
+    tickFormat: percentTick,
+    rowH: 18,
+    labelShare: 0.27,
+    aria: 'Share of human protein-coding genes with an NCBI ortholog in each species, by the deepest taxon shared with human',
+    describe: (r, p) => tipLines(`${exact(p.s[4])} genes, ${pctOf(p.value)}`, p.s[1], `${label[p.s[2]]}, shares ${r.key} with human`),
+  });
+  attachData('#orthologs-chart', 'ncbi-orthologs-by-species', ['Tax ID', 'Species', 'Group', 'Deepest shared taxon', 'Human genes with an ortholog', 'Share of human protein-coding genes'],
+    v.species.map((s) => [s[0], s[1], label[s[2]], v.nodes[s[3]].name, s[4], third(share(s[4]) / 100)]));
+};
+
+const renderDepth = () => {
+  const d = ORT.depth;
+  const rows = [...d.nodes.map((n) => ({
+    key: n.name, label: n.name, values: { genes: n.genes }, n,
+  })), {
+    key: 'none', label: 'No ortholog found', values: { genes: d.none.genes }, n: d.none,
+  }];
+  const vi = nodeAt(d.nodes, 'Vertebrata');
+  const pi = nodeAt(d.nodes, 'Primates');
+  const beyond = sumOf(d.nodes.slice(vi + 1).map((n) => n.genes));
+  const primates = sumOf(d.nodes.slice(0, pi + 1).map((n) => n.genes));
+  $('#depth-dek').textContent = `Of ${exact(d.genes)} human protein-coding genes, ${exact(beyond)} (${pct(beyond / d.genes)}) have an ortholog outside the vertebrates and ${exact(primates)} have orthologs in primates and no further. ${exact(d.none.genes)} have none in any species either source covers.`;
+  hbars({
+    mount: $('#depth-chart'),
+    rows,
+    segments: [{ key: 'genes', label: 'Genes', color: 'var(--data)' }],
+    labelShare: 0.24,
+    aria: 'Human protein-coding genes by the most distant taxon in which they have an ortholog',
+    describe: (r) => tipLines(`${exact(r.n.genes)} genes, ${pct(r.n.genes / d.genes)}`, r.key === 'none' ? 'no ortholog in any species checked' : `deepest ortholog in ${r.key}`, ...(r.n.examples.length ? [`for example ${r.n.examples.join(', ')}`] : [])),
+  });
+  attachData('#depth-chart', 'ortholog-depth', ['Deepest taxon with an ortholog', 'Human protein-coding genes', 'Examples'], rows.map((r) => [r.label, r.n.genes, r.n.examples.join(' ')]));
+};
+
+const renderModels = () => {
+  const m = ORT.models;
+  const share = (n) => (n / m.genes) * 100;
+  const segments = [
+    { key: 'all', label: 'All methods agree', color: 'var(--s2)' },
+    { key: 'most', label: 'At least half agree', color: 'var(--s4)' },
+    { key: 'fewer', label: 'Fewer than half', color: 'var(--data-2)' },
+  ];
+  const fly = m.species.find((s) => s.taxon === '7227');
+  $('#models-dek').textContent = `Alliance release ${m.version}, file of ${longDate(m.generated)}, against ${exact(m.genes)} human protein-coding genes, ${exact(m.disease)} of them with a definitive, strong or moderate ClinGen curation.${fly ? ` In ${fly.name}, all ${fly.methods} methods agree on ${exact(fly.all)} genes.` : ''}`;
+  hbars({
+    mount: $('#models-chart'),
+    rows: m.species.map((s) => ({
+      key: s.taxon, label: s.name, values: { all: share(s.all), most: share(s.most), fewer: share(s.fewer) }, s,
+    })),
+    segments,
+    max: 100,
+    tickFormat: percentTick,
+    valueText: (r) => pct(r.s.genes / m.genes),
+    labelShare: 0.3,
+    aria: 'Human protein-coding genes with an ortholog in each model organism, by how many prediction methods agree',
+    describe: (r) => tipLines(`${exact(r.s.genes)} genes, ${pct(r.s.genes / m.genes)}`, r.label, `methods compared: ${r.s.methods}`, `all agree: ${exact(r.s.all)}`, `at least half: ${exact(r.s.most)}`, `fewer than half: ${exact(r.s.fewer)}`),
+  });
+  attachData('#models-chart', 'alliance-model-orthologs', ['Species', 'Methods', 'Human genes with an ortholog', 'All methods agree', 'At least half agree', 'Fewer than half', 'ClinGen disease genes with an ortholog'],
+    m.species.map((s) => [s.name, s.methods, s.genes, s.all, s.most, s.fewer, s.disease]));
+  dumbbell({
+    mount: $('#models-disease-chart'),
+    rows: m.species.map((s) => ({
+      key: s.taxon, label: s.name, a: share(s.genes), b: (s.disease / m.disease) * 100, s,
+    })),
+    years: ['All protein-coding genes', 'ClinGen disease genes'],
+    format: (v) => pctOf(v),
+    tickFormat: percentTick,
+    valueText: (r) => pctOf(r.b),
+    aria: 'Share of all human protein-coding genes and of ClinGen disease genes with an ortholog in each model organism',
+    describe: (r) => tipLines(pctOf(r.b), `of ClinGen disease genes in ${r.label}`, `${pctOf(r.a)} of all protein-coding genes`),
+  });
+  attachData('#models-disease-chart', 'alliance-disease-gene-orthologs', ['Species', 'Share of protein-coding genes', 'Share of ClinGen disease genes'], m.species.map((s) => [s.name, third(s.genes / m.genes), third(s.disease / m.disease)]));
+};
+
+const renderIdentity = () => {
+  const label = Object.fromEntries(CMP.kinds.map((k) => [k.key, k.label]));
+  const rows = CMP.nodes.map((node, i) => ({
+    key: node.name,
+    label: `${node.name} (${node.species})`,
+    median: node.median,
+    points: CMP.species.filter((s) => s.node === i && s.median !== null).map((s) => ({ value: s.median, kind: s.kind, s })),
+  }));
+  const [first, last] = [CMP.nodes[0], CMP.nodes.at(-1)];
+  $('#identity-dek').textContent = `Ensembl release ${CMP.release}, ${exact(CMP.species.length)} species with orthologs of human genes. Row medians run from ${first.median}% in ${first.name} to ${last.median}% in ${last.name}. Ensembl marks ${pct(sumOf(CMP.species.map((s) => s.highConfidence * s.one2one)) / sumOf(CMP.species.map((s) => s.one2one)))} of one-to-one pairs as high confidence.`;
+  dotRows({
+    mount: $('#identity-chart'),
+    rows,
+    kinds: kindsIn(CMP.kinds, new Set(CMP.species.map((s) => s.kind))),
+    scale: 'linear',
+    ticks: PERCENT_TICKS,
+    tickFormat: percentTick,
+    rowH: 18,
+    labelShare: 0.27,
+    aria: 'Median identity of one-to-one orthologs with human proteins in each Ensembl species, by the deepest taxon shared with human',
+    describe: (r, p) => tipLines(`${p.s.median}% median identity`, p.s.name, `middle half ${p.s.q1}% to ${p.s.q3}%`, `${exact(p.s.one2one)} one-to-one orthologs`, `${label[p.s.kind]}, shares ${r.key} with human`),
+  });
+  attachData('#identity-chart', 'ensembl-ortholog-identity', ['Species', 'Group', 'Deepest shared taxon', 'One-to-one', 'One-to-many', 'Many-to-many', 'High-confidence share of one-to-one', 'Median identity', 'Lower quartile', 'Upper quartile'],
+    CMP.species.map((s) => [s.name, label[s.kind], CMP.nodes[s.node].name, s.one2one, s.one2many, s.many2many, s.highConfidence, s.median, s.q1, s.q3]));
+  const keys = Object.keys(CMP.identity.bySpecies);
+  const bySpecies = Object.fromEntries(CMP.species.map((s) => [s.species, s]));
+  const nameOf = (k) => bySpecies[k]?.name ?? k;
+  const typeRows = keys.map((k) => {
+    const s = bySpecies[k];
+    const total = s.one2one + s.one2many + s.many2many;
+    return {
+      key: k, label: s.name, values: { one2one: (s.one2one / total) * 100, one2many: (s.one2many / total) * 100, many2many: (s.many2many / total) * 100 }, s, total,
+    };
+  });
+  hbars({
+    mount: $('#identity-types-chart'),
+    rows: typeRows,
+    segments: [
+      { key: 'one2one', label: 'One-to-one', color: 'var(--s2)' },
+      { key: 'one2many', label: 'One-to-many', color: 'var(--s4)' },
+      { key: 'many2many', label: 'Many-to-many', color: 'var(--data-2)' },
+    ],
+    max: 100,
+    tickFormat: percentTick,
+    valueText: (r) => compact(r.total),
+    labelShare: 0.34,
+    aria: 'Human ortholog pairs in eight Ensembl species by homology type',
+    describe: (r) => tipLines(`${exact(r.total)} ortholog pairs`, r.label, `one-to-one ${exact(r.s.one2one)}`, `one-to-many ${exact(r.s.one2many)}`, `many-to-many ${exact(r.s.many2many)}`),
+  });
+  attachData('#identity-types-chart', 'ensembl-homology-types', ['Species', 'One-to-one', 'One-to-many', 'Many-to-many'], typeRows.map((r) => [r.label, r.s.one2one, r.s.one2many, r.s.many2many]));
+  const merged = keys.map((k) => {
+    const c = CMP.identity.bySpecies[k];
+    return Array.from({ length: 25 }, (_, j) => c[2 * j] + (c[2 * j + 1] ?? 0));
+  });
+  const totals = merged.map((r) => sumOf(r));
+  shareGrid({
+    mount: $('#identity-hist-chart'),
+    rows: keys.map(nameOf),
+    cols: Array.from({ length: 25 }, (_, j) => String(j * 4)),
+    values: merged.map((r) => {
+      const top = Math.max(...r);
+      return r.map((n) => (top ? n / top : 0));
+    }),
+    format: () => '',
+    aria: 'Identity of one-to-one orthologs with human proteins in eight species, in steps of 4%',
+    describe: (i, j) => tipLines(`${pct(merged[i][j] / totals[i])} of one-to-one orthologs`, nameOf(keys[i]), `identity ${j * 4}% to ${j * 4 + 4}%`),
+  });
+  attachData('#identity-hist-chart', 'ensembl-identity-distribution', ['Species', ...Array.from({ length: 25 }, (_, j) => `${j * 4} to ${j * 4 + 4}%`)], keys.map((k, i) => [nameOf(k), ...merged[i]]));
+};
+
+const EUK = snapshot.eukaryotes;
+const GENOME_COLORS = ['var(--s2)', 'var(--s5)', 'var(--data)', 'var(--w1)', 'var(--s3)', 'var(--w3)', 'var(--s4)', 'var(--data-2)', 'var(--w2)'];
+
+const renderEukaryotes = () => {
+  const points = EUK.points.map(([mb, genes, group, name], i) => ({
+    key: String(i), x: mb, y: genes, color: GENOME_COLORS[group] ?? 'var(--data)', hi: name === 'Homo sapiens', name, group,
+  }));
+  const human = points.find((p) => p.hi);
+  const groups = EUK.groups.map((label, g) => ({ label, g, s: summary(EUK.points.filter((p) => p[2] === g).map((p) => p[1])) })).filter((b) => b.s);
+  const longest = points.reduce((a, b) => (b.x > a.x ? b : a));
+  const most = points.reduce((a, b) => (b.y > a.y ? b : a));
+  $('#eukaryotes-dek').textContent = `${exact(EUK.total)} species with an annotated reference genome. Human: ${bases(human.x * 1e6)} and ${exact(human.y)} protein-coding genes; the median for mammals is ${exact(groups[0].s.median)}. The longest assembly is ${longest.name}’s, ${bases(longest.x * 1e6)}; the most protein-coding genes as annotated, ${exact(most.y)}, are in ${most.name}.`;
+  scatter({
+    mount: $('#eukaryotes-chart'),
+    points,
+    xLog: true,
+    yLog: true,
+    height: 340,
+    xFormat: (v) => lengthTick(v * 1e6),
+    yFormat: compact,
+    xLabel: 'assembly length, log scale',
+    yLabel: 'protein-coding genes, log scale',
+    legend: EUK.groups.map((label, g) => ({ label, color: GENOME_COLORS[g] ?? 'var(--data)' })),
+    aria: 'Assembly length against protein-coding gene count for annotated eukaryote reference genomes, log scales',
+    describe: (p) => tipLines(`${exact(p.y)} protein-coding genes`, p.name, `${bases(p.x * 1e6)}, ${EUK.groups[p.group]}`),
+  });
+  attachData('#eukaryotes-chart', 'ncbi-eukaryote-genomes', ['Species', 'Group', 'Assembly length (Mb)', 'Protein-coding genes'], EUK.points.map(([mb, genes, group, name]) => [name, EUK.groups[group], mb, genes]));
+  dotplot({
+    mount: $('#eukaryotes-groups-chart'),
+    rows: groups.map((b) => ({
+      key: String(b.g), label: b.label, value: b.s.median, hi: b.g === 0, b,
+    })),
+    scale: 'log',
+    format: (v, r) => `${exact(v)}, n ${exact(r.b.s.n)}`,
+    labelShare: 0.3,
+    rowH: 20,
+    aria: 'Median protein-coding genes per annotated eukaryote genome by group',
+    describe: (r) => tipLines(`${exact(r.b.s.median)} protein-coding genes, median`, r.label, `middle half ${exact(r.b.s.q1)} to ${exact(r.b.s.q3)}`, `${exact(r.b.s.n)} genomes`),
+  });
+  attachData('#eukaryotes-groups-chart', 'ncbi-eukaryote-gene-medians', ['Group', 'Genomes', 'Lower quartile', 'Median', 'Upper quartile'], groups.map((b) => [b.label, b.s.n, b.s.q1, b.s.median, b.s.q3]));
+};
+
+const PRI = snapshot.primates;
+
+const renderPrimates = () => {
+  const present = [...new Set(PRI.points.map((p) => p[2]))].sort((a, b) => a - b);
+  const levelOf = (i) => ASSEMBLY_LEVELS[i] ?? ['Other', 'var(--data)'];
+  const points = PRI.points.map(([date, n50, level, name], i) => ({
+    key: String(i), x: yearOfDate(date), y: n50, color: levelOf(level)[1], date, level: levelOf(level)[0], name: PRI.names[name],
+  }));
+  const L = PRI.levels;
+  $('#primates-dek').textContent = `${exact(PRI.total)} GenBank assemblies of ${exact(PRI.species)} primate species other than human: ${exact(L['Complete Genome'] ?? 0)} complete genomes, ${exact(L.Chromosome ?? 0)} at chromosome level, ${exact(L.Scaffold ?? 0)} scaffolds and ${exact(L.Contig ?? 0)} contig assemblies. ${exact(PRI.apes.filter((a) => a.n50 >= 1e8).length)} ape species have an assembly with a contig N50 of 100 Mb or more.`;
+  scatter({
+    mount: $('#primates-chart'),
+    points,
+    yLog: true,
+    xFormat: (v) => String(v),
+    yFormat: lengthTick,
+    xLabel: 'release date',
+    yLabel: 'contig N50, log scale',
+    legend: present.map((i) => ({ label: levelOf(i)[0], color: levelOf(i)[1] })),
+    aria: 'Contig N50 of each non-human primate genome assembly in GenBank by release date, log scale',
+    describe: (p) => tipLines(bases(p.y), `contig N50, ${p.name}`, `${p.level}, released ${longDate(p.date)}`),
+  });
+  attachData('#primates-chart', 'primate-assemblies', ['Species', 'Release date', 'Level', 'Contig N50'], PRI.points.map(([date, n50, level, name]) => [PRI.names[name], date, levelOf(level)[0], n50]));
+  dotplot({
+    mount: $('#primates-apes-chart'),
+    rows: PRI.apes.map((a, i) => ({
+      key: a.accession, label: a.name, value: a.n50, hi: i === 0, a,
+    })),
+    scale: 'log',
+    format: (v) => bases(v),
+    tickFormat: lengthTick,
+    labelShare: 0.36,
+    rowH: 20,
+    aria: 'The most contiguous GenBank assembly of each ape species, by contig N50',
+    describe: (r) => tipLines(bases(r.value), `${r.a.name}, ${r.a.accession}`, `${r.a.level}, released ${longDate(r.a.date)}`),
+  });
+  attachData('#primates-apes-chart', 'ape-assemblies', ['Species', 'Accession', 'Level', 'Release date', 'Contig N50'], PRI.apes.map((a) => [a.name, a.accession, a.level, a.date, a.n50]));
+};
+
+const CON = snapshot.conservation;
+const TERRITORY = [['cds', 'Coding sequence'], ['utr', 'Other exonic bases of protein-coding genes'], ['ncExon', 'Exons of other genes'], ['intron', 'Rest of gene spans'], ['intergenic', 'Outside genes']];
+const conservedGenome = () => sumOf(Object.values(CON.byChrom).map((c) => c.length));
+
+const renderConservation = () => {
+  const genome = conservedGenome();
+  const segment = [{ key: 'share', label: 'In conserved elements', color: 'var(--s4)' }];
+  $('#conservation-dek').textContent = `${exact(CON.elements)} elements on chromosomes 1 to 22, X and Y cover ${bases(CON.bases)}, ${pct(CON.bases / genome)} of their sequenced bases. The median element is ${exact(CON.median)} bp and the longest, on chromosome ${CON.longest.chrom}, ${exact(CON.longest.length)} bp. Coding sequence holds ${pct(CON.classes.cds.conserved / CON.bases)} of conserved bases.`;
+  hbars({
+    mount: $('#conservation-classes-chart'),
+    rows: TERRITORY.map(([key, label]) => ({
+      key, label, values: { share: (CON.classes[key].conserved / CON.classes[key].bases) * 100 }, c: CON.classes[key],
+    })),
+    segments: segment,
+    tickFormat: percentTick,
+    valueText: (r) => pctOf(r.values.share),
+    labelShare: 0.4,
+    labelMax: 300,
+    aria: 'Share of each kind of GRCh38 territory inside conserved elements of the 470-mammal alignment',
+    describe: (r) => tipLines(pctOf(r.values.share), r.label, `${bases(r.c.conserved)} of ${bases(r.c.bases)}`, `${pct(r.c.conserved / CON.bases)} of all conserved bases`),
+  });
+  attachData('#conservation-classes-chart', 'conserved-territory', ['Territory', 'Bases', 'In conserved elements'], TERRITORY.map(([key, label]) => [label, CON.classes[key].bases, CON.classes[key].conserved]));
+  const { edges, counts } = CON.lengths;
+  histo({
+    mount: $('#conservation-lengths-chart'),
+    bins: counts.map((_, i) => i),
+    series: [{
+      key: 'n', label: 'Elements', color: 'var(--data)', values: counts,
+    }],
+    yLog: true,
+    tickEvery: 10,
+    tickLabel: (b) => lengthTick(edges[b]),
+    height: 200,
+    aria: 'Conserved elements of the 470-mammal alignment by length, log scale',
+    describe: (i) => tipLines(`${exact(counts[i])} elements`, `${Number(edges[i].toPrecision(3))} bp to under ${Number(edges[i + 1].toPrecision(3))} bp`),
+  });
+  attachData('#conservation-lengths-chart', 'conserved-element-lengths', ['Length from (bp)', 'Length to (bp)', 'Elements'], counts.map((n, i) => [edges[i], edges[i + 1], n]));
+  const chroms = Object.entries(CON.byChrom);
+  hbars({
+    mount: $('#conservation-chrom-chart'),
+    rows: chroms.map(([chrom, c]) => ({
+      key: chrom, label: chrom, values: { share: (c.conserved / c.length) * 100 }, c,
+    })),
+    segments: segment,
+    tickFormat: percentTick,
+    valueText: (r) => pctOf(r.values.share),
+    labelShare: 0.06,
+    rowH: 18,
+    aria: 'Share of each chromosome inside conserved elements of the 470-mammal alignment',
+    describe: (r) => tipLines(pctOf(r.values.share), `chromosome ${r.key}`, `${bases(r.c.conserved)} of ${bases(r.c.length)} sequenced`),
+  });
+  attachData('#conservation-chrom-chart', 'conserved-by-chromosome', ['Chromosome', 'Sequenced bases', 'In conserved elements'], chroms.map(([chrom, c]) => [chrom, c.length, c.conserved]));
+};
+
+const renderZoonomia = () => {
+  const z = ZOONOMIA;
+  const weekly = (CON.bases / conservedGenome()) * 100;
+  const rows = [
+    {
+      key: 'constrained', label: 'Constrained relative to neutral repeats, 240 mammals', values: { v: z.constrainedShare }, note: `at least ${bases(z.constrainedBases)}`,
+    },
+    {
+      key: 'significant', label: 'Significantly constrained single bases, 240 mammals', values: { v: z.significantShare }, note: `${compact(z.significantBases)} bases`,
+    },
+    {
+      key: 'phastcons', label: 'Inside phastCons elements, 470 mammals', values: { v: weekly }, note: `${bases(CON.bases)}, recomputed weekly`,
+    },
+  ];
+  $('#zoonomia-dek').textContent = `Of ${compact(z.significantBases)} significantly constrained single bases, ${z.outsideCoding}% lie outside protein-coding exons and ${z.unannotated}% have no functional annotation in ENCODE. The ${exact(z.hcondels)} human-specific deletions in conserved elements average ${z.hcondelLength} bp.`;
+  hbars({
+    mount: $('#zoonomia-chart'),
+    rows,
+    segments: [{ key: 'v', label: 'Share of the genome', color: 'var(--s4)' }],
+    tickFormat: percentTick,
+    valueText: (r) => `${Number(r.values.v.toFixed(1))}%`,
+    labelShare: 0.44,
+    labelMax: 360,
+    aria: 'Three measures of the share of the human genome conserved across mammals',
+    describe: (r) => tipLines(`${Number(r.values.v.toFixed(2))}%`, r.label, r.note),
+  });
+  attachData('#zoonomia-chart', 'mammalian-constraint', ['Measure', 'Share of the genome (%)', 'Bases'], rows.map((r) => [r.label, Number(r.values.v.toFixed(2)), r.note]));
+  const counts = [
+    { key: 'hcondels', label: 'Human-specific deletions in conserved elements', value: z.hcondels, source: 'Xue et al. 2023' },
+    { key: 'ultra', label: 'Ultraconserved elements', value: z.ultraconserved, source: 'Christmas et al. 2023' },
+    { key: 'active', label: 'hCONDELs that change regulatory activity', value: z.hcondelActive, source: 'Xue et al. 2023' },
+    { key: 'hars', label: 'Human accelerated regions, zooHARs', value: z.zooHARs, source: 'Keough et al. 2023' },
+  ];
+  dotplot({
+    mount: $('#zoonomia-counts-chart'),
+    rows: counts,
+    scale: 'log',
+    labelShare: 0.5,
+    labelMax: 380,
+    rowH: 20,
+    aria: 'Counts of ultraconserved elements, human-specific deletions and human accelerated regions from the Zoonomia papers',
+    describe: (r) => tipLines(exact(r.value), r.label, r.source),
+  });
+  attachData('#zoonomia-counts-chart', 'zoonomia-counts', ['Element', 'Count', 'Source'], counts.map((r) => [r.label, r.value, r.source]));
+};
+
+const signedPct = (v) => (v === 0 ? '0' : `${v > 0 ? '+' : '−'}${Math.abs(v)}%`);
+
+const renderMutation = () => {
+  const d = DE_NOVO;
+  $('#mutation-dek').textContent = `${exact(d.mutations)} de novo mutations in ${exact(d.trios)} trios, ${exact(d.phased)} of them traced to a parent. A ${d.hotspot.mb} Mb region of chromosome ${d.hotspot.arm} has a maternal C>G rate up to ${d.hotspot.fold} times the rest of the genome.`;
+  intervals({
+    mount: $('#mutation-chart'),
+    rows: d.slopes.map((s) => ({ ...s, kind: s.key })),
+    domain: [0, 2],
+    ticks: [0, 0.5, 1, 1.5, 2],
+    kinds: [{ key: 'father', label: 'Father', color: 'var(--s2)' }, { key: 'mother', label: 'Mother', color: 'var(--accent)' }],
+    format: (v) => String(v),
+    valueText: (r) => `${r.value} per year`,
+    aria: 'De novo mutations per year of the father’s and the mother’s age, with 95% confidence intervals',
+    describe: (r) => tipLines(`${r.value} more per year`, `de novo mutations by ${r.label.toLowerCase()}`, `95% CI ${r.lo} to ${r.hi}`),
+  });
+  attachData('#mutation-chart', 'de-novo-by-parental-age', ['Parent', 'Mutations per year of age', 'Lower 95% bound', 'Upper 95% bound'], d.slopes.map((s) => [s.label, s.value, s.lo, s.hi]));
+  intervals({
+    mount: $('#mutation-types-chart'),
+    rows: d.maternal.map((s) => ({ ...s, kind: 'maternal' })),
+    domain: [-0.4, 0.4],
+    ticks: [-0.4, 0, 0.4],
+    kinds: [{ key: 'maternal', label: 'Per year of the mother’s age', color: 'var(--accent)' }],
+    format: signedPct,
+    valueText: (r) => `${signedPct(r.value)} per year`,
+    aria: 'Change per year of the mother’s age in her CpG>TpG and C>G de novo mutations',
+    describe: (r) => tipLines(`${signedPct(r.value)} per year`, `${r.label} de novo mutations from mothers`, `95% CI ${signedPct(r.lo)} to ${signedPct(r.hi)}`),
+  });
+  attachData('#mutation-types-chart', 'maternal-mutation-types', ['Type', 'Change per year (%)', 'Lower 95% bound', 'Upper 95% bound'], d.maternal.map((s) => [s.label, s.value, s.lo, s.hi]));
+};
+
+const renderArchaic = () => {
+  const neandertal = ARCHAIC_ANCESTRY.find((a) => a.label === 'Non-Africans outside Oceania');
+  const papuans = ARCHAIC_ANCESTRY.find((a) => a.label === 'Papuans');
+  const years = ARCHAIC_GENOMES.map((g) => g.year);
+  $('#archaic-dek').textContent = `${ARCHAIC_GENOMES.length} genomes published from ${Math.min(...years)} to ${Math.max(...years)}, from ${Math.min(...ARCHAIC_GENOMES.map((g) => g.coverage))}-fold to ${Math.max(...ARCHAIC_GENOMES.map((g) => g.coverage))}-fold coverage. Neandertal DNA in non-Africans outside Oceania: ${neandertal.lo}–${neandertal.hi}%; Denisovan ancestry in Papuans: ${papuans.value}% by segment estimate.`;
+  dotplot({
+    mount: $('#archaic-chart'),
+    rows: ARCHAIC_GENOMES.map((g, i) => ({
+      key: String(i), label: `${g.name}, ${g.year}`, value: g.coverage, hi: g.group === 'Denisovan', g,
+    })),
+    scale: 'log',
+    format: (v) => `${v}×`,
+    tickFormat: (t) => `${t}×`,
+    labelShare: 0.5,
+    labelMax: 400,
+    rowH: 20,
+    aria: 'Sequence coverage of archaic hominin genomes, log scale',
+    describe: (r) => tipLines(`${r.g.coverage}-fold coverage`, r.g.name, `${r.g.group}, published ${r.g.year}`, ...(r.g.note ? [r.g.note] : [])),
+  });
+  attachData('#archaic-chart', 'archaic-genomes', ['Genome', 'Group', 'Year', 'Coverage', 'Note'], ARCHAIC_GENOMES.map((g) => [g.name, g.group, g.year, g.coverage, g.note ?? '']));
+  intervals({
+    mount: $('#archaic-ancestry-chart'),
+    rows: ARCHAIC_ANCESTRY.map((a, i) => ({
+      key: String(i), label: a.label, value: a.value, lo: a.lo, hi: a.hi, kind: a.kind, a,
+    })),
+    domain: [0, 3],
+    ticks: [0, 1, 2, 3],
+    kinds: [{ key: 'Neandertal', label: 'Neandertal DNA, range', color: 'var(--s2)' }, { key: 'Denisovan', label: 'Denisovan ancestry, point estimate', color: 'var(--accent)' }],
+    format: (v) => `${v}%`,
+    valueText: (r) => (r.value !== null ? `${r.value}%` : `${r.lo}–${r.hi}%`),
+    aria: 'Neandertal and Denisovan ancestry in present-day groups',
+    describe: (r) => tipLines(r.value !== null ? `${r.value}%` : `${r.lo}–${r.hi}%`, `${r.a.kind} ancestry, ${r.label}`, r.a.source === 'prufer2017' ? 'Prüfer et al. 2017' : 'Sankararaman et al. 2016'),
+  });
+  attachData('#archaic-ancestry-chart', 'archaic-ancestry', ['Group', 'Archaic source', 'Point estimate (%)', 'Range from (%)', 'Range to (%)'], ARCHAIC_ANCESTRY.map((a) => [a.label, a.kind, a.value, a.lo, a.hi]));
+};
+
+const renderApes = () => {
+  const a = APE_GENOMES;
+  $('#apes-dek').textContent = `The six assemblies have ${a.gapless} gapless chromosomes between them and fewer than one error in ${bases(a.errorEvery)}. Gap divergence affects ${a.gapFold[0]} to ${a.gapFold[1]} times as many megabases as single-nucleotide differences; at the MHC, the apes average ${a.mhc.deletions} kb of deletions and ${a.mhc.insertions} kb of insertions against human.`;
+  const fixed = [
+    {
+      key: 'unaligned', label: 'Not aligned one-to-one with human', value: null, lo: a.unaligned[0], hi: a.unaligned[1], kind: 'range',
+    },
+    {
+      key: 'inaccessible', label: 'Highly divergent, previously inaccessible', value: null, lo: a.inaccessible[0], hi: a.inaccessible[1], kind: 'range',
+    },
+  ];
+  intervals({
+    mount: $('#apes-fixed-chart'),
+    rows: fixed,
+    domain: [0, 30],
+    ticks: [0, 10, 20, 30],
+    kinds: [{ key: 'range', label: 'Range across six apes', color: 'var(--s5)' }],
+    format: (v) => `${v}%`,
+    valueText: (r) => `${r.lo}–${r.hi}%`,
+    aria: 'Share of each complete ape genome outside a one-to-one alignment with human, and in highly divergent regions',
+    describe: (r) => tipLines(`${r.lo}–${r.hi}%`, r.label, 'of each ape genome'),
+  });
+  attachData('#apes-fixed-chart', 'ape-genome-divergence', ['Measure', 'From (%)', 'To (%)'], fixed.map((r) => [r.label, r.lo, r.hi]));
+  const apes = CMP.species.filter((s) => ['Homininae', 'Hominidae', 'Hominoidea'].includes(CMP.nodes[s.node].name));
+  const floor = Math.min(90, Math.floor(Math.min(...apes.map((s) => s.q1)) / 5) * 5);
+  const step = 100 - floor > 10 ? 5 : 2;
+  intervals({
+    mount: $('#apes-chart'),
+    rows: apes.map((s) => ({
+      key: s.species, label: s.name, value: s.median, lo: s.q1, hi: s.q3, kind: 'identity', s,
+    })),
+    domain: [floor, 100],
+    ticks: Array.from({ length: (100 - floor) / step + 1 }, (_, i) => floor + i * step),
+    kinds: [{ key: 'identity', label: 'Median identity, interquartile range', color: 'var(--accent)' }],
+    format: (v) => `${v}%`,
+    valueText: (r) => `${r.value}%`,
+    aria: 'Median identity of one-to-one orthologs between human and each ape in Ensembl',
+    describe: (r) => tipLines(`${r.value}% median identity`, r.label, `middle half ${r.lo}% to ${r.hi}%`, `${exact(r.s.one2one)} one-to-one orthologs`),
+  });
+  attachData('#apes-chart', 'ape-ortholog-identity', ['Species', 'One-to-one orthologs', 'Lower quartile', 'Median identity', 'Upper quartile'], apes.map((s) => [s.name, s.one2one, s.q1, s.median, s.q3]));
+};
+
 const decode = () => {
   const value = $('#decoder-input').value;
   if (!value.trim()) {
@@ -3651,6 +4118,16 @@ const DATA_SOURCES = [
   ['PGS Catalog REST API, trait categories', FILES.pgsCategories],
   ['Pan-UKB heritability manifest', FILES.panukbH2],
   ['Pan-UKB phenotype manifest', FILES.panukbPhenotypes],
+  ['NCBI Gene orthologs, gene_orthologs', FILES.ncbiOrthologs],
+  ['NCBI Datasets taxonomy reports', FILES.taxonomyReport],
+  ['Alliance of Genome Resources combined orthology', FILES.allianceOrthology],
+  ['Ensembl FTP, for the current release', FILES.ensemblPub],
+  ['Ensembl Compara human homologies', comparaFile(CMP.release, 'homo_sapiens')],
+  ['Ensembl Compara mouse homologies, for the human and mouse pairs', comparaFile(CMP.release, 'mus_musculus')],
+  ['Ensembl species with NCBI tax IDs', ensemblSpeciesFile(CMP.release)],
+  ['NCBI Datasets annotated eukaryote reference genomes', eukaryotePage()],
+  ['NCBI Datasets primate genome assemblies in GenBank', primatePage()],
+  ['UCSC hg38 phastCons elements, 470 mammals', FILES.phastConsElements],
 ];
 
 const renderSources = () => {
@@ -3720,7 +4197,8 @@ const RENDERERS = [
   renderSpectrum, renderValidity, renderCnvRegions, renderExpansions, renderHpo, renderOrphanet, renderGtr, renderTherapy, renderYield,
   renderPrenatal, renderDrivers, renderTcga, renderBurden, renderSomatic, renderCpic, renderPhenotypes, renderCyp2d6, renderFdaLabels,
   renderClinpgx, renderManhattan, renderGwasGrowth, renderGwasTraits, renderEffects, renderPgs, renderPgsAncestry, renderPgsPerformance,
-  renderHeritability,
+  renderHeritability, renderOrthologs, renderDepth, renderModels, renderIdentity, renderEukaryotes, renderPrimates, renderConservation,
+  renderZoonomia, renderMutation, renderArchaic, renderApes,
 ];
 
 let drawRun = 0;

@@ -54,8 +54,8 @@
   <aside class="readme wrap" id="readme" aria-labelledby="readme-title">
     <h2 class="readme-title" id="readme-title">How to read these numbers</h2>
     <ul>
-      <li><b>Rebuilt weekly.</b> Counts come from the files and APIs of NCBI, UCSC, GENCODE, EBI and its GWAS Catalog, ClinGen, HPO, Orphanet, IGSR, the Allen Ancient DNA Resource, IntOGen, the NCI Genomic Data Commons, CPIC, ClinPGx, the PGS Catalog, Pan-UKB, FDA, ClinicalTrials.gov and STRchive, pulled every Sunday. A source that fails keeps last week’s numbers and its own date. Tap a mark for its numbers.</li>
-      <li><b>Fixed values.</b> A few figures come from cited papers rather than files, such as biobank sizes, diagnostic yields and screening rates; their captions say so, and they change only when the page is edited.</li>
+      <li><b>Rebuilt weekly.</b> Counts come from the files and APIs of NCBI, UCSC, GENCODE, EBI and its GWAS Catalog, ClinGen, HPO, Orphanet, IGSR, the Allen Ancient DNA Resource, IntOGen, the NCI Genomic Data Commons, CPIC, ClinPGx, the PGS Catalog, Pan-UKB, Ensembl, the Alliance of Genome Resources, FDA, ClinicalTrials.gov and STRchive, pulled every Sunday. A source that fails keeps last week’s numbers and its own date. Tap a mark for its numbers.</li>
+      <li><b>Fixed values.</b> A few figures come from cited papers rather than files, such as biobank sizes, diagnostic yields, screening rates and mutation rates; their captions say so, and they change only when the page is edited.</li>
       <li><b>GRCh38 coordinates.</b> Positions are on GRCh38.p14, counted from 1 with both ends included, as genome browsers show them. The UCSC tables count from 0; they are converted.</li>
       <li><b>Two assemblies.</b> GRCh38 is the reference the databases annotate. T2T-CHM13v2.0 is the first gapless assembly, from one cell line, with chromosome Y from a second person.</li>
       <li><b>Chromosomes only.</b> Counts cover chromosomes 1 to 22, X, Y and the mitochondrial genome where it says so. Alternate loci, patches and unplaced scaffolds are counted apart.</li>
@@ -1454,8 +1454,156 @@
     </figure>
   </section>
 
-  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+  <div class="chapter wrap" id="ch-evolution" data-chapter="evolution">
     <p class="chapter-no">Part 18</p>
+    <h2 class="chapter-title">Evolution</h2>
+    <p class="chapter-dek">The human genome set against other genomes: orthologs across vertebrates and model organisms, how far back each gene’s orthologs reach, protein identity across Ensembl species, genome size and gene number across eukaryotes, primate assemblies, conservation across 470 mammals, and cited values on new mutations, archaic humans and the apes.</p>
+  </div>
+
+  <section class="story wrap" id="orthologs" data-lens="genes" data-nav="Vertebrate orthologs">
+    <header class="head"><p class="label">Orthologs across vertebrates</p><h2 data-finding="orthologs">Orthologs across vertebrates</h2><p class="dek" id="orthologs-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="orthologs-chart"></div>
+      <figcaption>Each dot is a species in NCBI Orthologs, placed by the share of human protein-coding genes with an ortholog in it, in rows by the deepest NCBI taxon it shares with human, closest first, with the number of species; ticks mark row medians. Genes are HGNC protein-coding genes with an NCBI Gene ID, and NCBI assigns each at most one ortholog per species. Source: NCBI Gene gene_orthologs; NCBI Taxonomy; Sayers et al. 2025; Schoch et al. 2020.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="depth" data-lens="genes" data-nav="Ortholog depth">
+    <header class="head"><p class="label">How far back orthologs reach</p><h2 data-finding="depth">How far back orthologs reach</h2><p class="dek" id="depth-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="depth-chart"></div>
+      <figcaption>Human protein-coding genes by the most distant taxon in which they have an ortholog: NCBI Orthologs for the vertebrates, and the Alliance of Genome Resources’ stringent set for fly, worm and yeast. This is a minimum age, not a gene age: an ortholog either source misses places a gene at a closer taxon. Alliance data are released under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: NCBI Gene; Alliance of Genome Resources.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="models" data-lens="genes clinic" data-nav="Model organisms">
+    <header class="head"><p class="label">Model organisms</p><h2 data-finding="models">Model organisms</h2><p class="dek" id="models-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="models-chart"></div>
+      <figcaption>Human protein-coding genes with an ortholog in each model organism, as a share of all, split by how many prediction methods agree on the best-supported one; the Alliance combines nine or ten methods, and its Xenopus laevis orthologs come from Xenbase alone. Alliance data are released under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source: Alliance of Genome Resources, combined orthology, stringent filter; Alliance of Genome Resources Consortium 2024.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="models-disease-chart"></div>
+      <figcaption>Share of all human protein-coding genes, and of genes with a definitive, strong or moderate ClinGen gene–disease curation, that have an ortholog in each organism, log scale. Source: Alliance of Genome Resources; ClinGen gene-disease validity.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="identity" data-lens="genes" data-nav="Ortholog identity">
+    <header class="head"><p class="label">Protein identity</p><h2 data-finding="identity">Protein identity</h2><p class="dek" id="identity-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="identity-chart"></div>
+      <figcaption>Each dot is an Ensembl species, placed by the median identity of its one-to-one orthologs, as a share of the length of the human protein, in rows by the deepest NCBI taxon it shares with human, with the number of species; ticks mark row medians. Source: Ensembl Compara homology dumps, default protein trees; Dyer et al. 2025; Vilella et al. 2009.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="identity-types-chart"></div>
+        <figcaption>Human ortholog pairs in eight species by Ensembl’s homology type, with the number of pairs. Source: Ensembl Compara.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="identity-hist-chart"></div>
+        <figcaption>Identity of one-to-one orthologs in steps of 4%, shaded within each species relative to its busiest step. Source: Ensembl Compara.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="eukaryotes" data-lens="sequence genes" data-nav="Genome size">
+    <header class="head"><p class="label">Genome size and gene number</p><h2 data-finding="eukaryotes">Genome size and gene number</h2><p class="dek" id="eukaryotes-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="eukaryotes-chart"></div>
+      <figcaption>Annotated eukaryote reference genomes at NCBI by assembly length and protein-coding gene count, both log scale, one per species, coloured by group; human is marked. Counts are as each annotation reports them. Source: NCBI Datasets genome reports; NCBI Taxonomy; O’Leary et al. 2024.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="eukaryotes-groups-chart"></div>
+      <figcaption>Median protein-coding genes per genome by group, log scale, with the number of genomes. Source: NCBI Datasets.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="primates" data-lens="sequence" data-nav="Primate assemblies">
+    <header class="head"><p class="label">Primate assemblies</p><h2 data-finding="primates">Primate assemblies</h2><p class="dek" id="primates-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="primates-chart"></div>
+      <figcaption>Contig N50 of each non-human primate genome assembly in GenBank by release date, log scale, coloured by assembly level. Source: NCBI Datasets genome reports.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" id="primates-apes-chart"></div>
+      <figcaption>The most contiguous GenBank assembly of each ape species, by contig N50, log scale. Source: NCBI Datasets; Yoo et al. 2025.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="conservation" data-lens="sequence" data-nav="Conservation">
+    <header class="head"><p class="label">Conserved across 470 mammals</p><h2 data-finding="conservation">Conserved across 470 mammals</h2><p class="dek" id="conservation-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="conservation-classes-chart"></div>
+        <figcaption>Share of each kind of GRCh38 territory inside phastCons conserved elements of the 470-mammal alignment. Territory nests in order: coding sequence; other exonic bases of protein-coding genes, mostly UTRs; exons of other genes; the rest of gene spans; then everything outside genes, with gaps left out, from the latest GENCODE release. Source: UCSC hg38 phastConsElements470way; GENCODE; Siepel et al. 2005.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="conservation-lengths-chart"></div>
+        <figcaption>Conserved elements by length, ten bins per tenfold step, log scale. Source: UCSC hg38 phastConsElements470way.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig">
+      <div class="chart" id="conservation-chrom-chart"></div>
+      <figcaption>Share of each chromosome’s sequenced bases inside conserved elements. Source: UCSC hg38 phastConsElements470way and gap table.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="zoonomia" data-lens="sequence variation" data-nav="Constraint">
+    <header class="head"><p class="label">Constraint across mammals</p><h2 data-finding="zoonomia">Constraint across mammals</h2><p class="dek" id="zoonomia-dek"></p></header>
+    <figure class="fig">
+      <div class="chart" id="zoonomia-chart"></div>
+      <figcaption>Three measures of how much of the human genome is conserved across mammals: Zoonomia’s constraint relative to neutrally evolving repeats and its significantly constrained single bases, both from 240 mammals, and the share inside phastCons elements of the 470-mammal alignment, computed here each week. Fixed values from Christmas et al. 2023 and Sullivan et al. 2023; the last bar from UCSC.</figcaption>
+    </figure>
+    <figure class="fig narrow">
+      <div class="chart" id="zoonomia-counts-chart"></div>
+      <figcaption>Element counts from the Zoonomia papers, log scale. Fixed values from Christmas et al. 2023, Keough et al. 2023 and Xue et al. 2023; Zoonomia Consortium 2020.</figcaption>
+    </figure>
+  </section>
+
+  <section class="story wrap" id="mutation" data-lens="variation" data-nav="De novo mutations">
+    <header class="head"><p class="label">New mutations and parental age</p><h2 data-finding="mutation">New mutations and parental age</h2><p class="dek" id="mutation-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="mutation-chart"></div>
+        <figcaption>De novo mutations a child receives per year of each parent’s age, with 95% confidence intervals, from 1,548 Icelandic trios sequenced to 35×. Fixed values from Jónsson et al. 2017.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="mutation-types-chart"></div>
+        <figcaption>Change per year of the mother’s age in her CpG&gt;TpG and C&gt;G de novo mutations, in percent, with 95% confidence intervals. Fixed values from Jónsson et al. 2017.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="archaic" data-lens="variation" data-nav="Archaic genomes">
+    <header class="head"><p class="label">Archaic genomes</p><h2 data-finding="archaic">Archaic genomes</h2><p class="dek" id="archaic-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="archaic-chart"></div>
+        <figcaption>Archaic hominin genomes by sequence coverage, log scale, with the year published. Fixed values from Green et al. 2010, Meyer et al. 2012, Prüfer et al. 2014 and 2017 and Mafessoni et al. 2020; the 2010 draft’s coverage as Prüfer et al. 2014 give it.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="archaic-ancestry-chart"></div>
+        <figcaption>Archaic ancestry in present-day people: ranges of Neandertal DNA from Prüfer et al. 2017 and point estimates of Denisovan ancestry from Sankararaman et al. 2016, with groups named as the papers name them. Fixed values.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="story wrap" id="apes" data-lens="sequence" data-nav="Apes">
+    <header class="head"><p class="label">Human and the apes</p><h2 data-finding="apes">Human and the apes</h2><p class="dek" id="apes-dek"></p></header>
+    <div class="pair">
+      <figure class="fig">
+        <div class="chart" id="apes-fixed-chart"></div>
+        <figcaption>Ranges across the six complete ape genomes: the share of each genome that failed to align with human or did not align one-to-one, and the share in highly divergent, previously inaccessible regions. Fixed values from Yoo et al. 2025.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" id="apes-chart"></div>
+        <figcaption>Median identity of one-to-one orthologs between human and each ape in Ensembl, with the interquartile range. Source: Ensembl Compara.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="chapter wrap" id="ch-reference" data-chapter="reference">
+    <p class="chapter-no">Part 19</p>
     <h2 class="chapter-title">History and reference</h2>
     <p class="chapter-dek">How to read the identifiers on this page, and where every number comes from.</p>
   </div>
