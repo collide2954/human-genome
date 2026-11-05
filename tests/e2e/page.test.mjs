@@ -624,7 +624,7 @@ test('genome charts cover eukaryote genome sizes on log axes, primate assemblies
   assert.equal(await count('#eukaryotes-chart circle.pt'), E.points.length);
   assert.equal(await count('#eukaryotes-chart circle.pt.hi'), 1);
   assert.equal(await count('#eukaryotes-chart .legend li'), E.groups.length);
-  const xs = await page.$$eval('#eukaryotes-chart circle.pt', (cs) => cs.map((c) => Number(c.getAttribute('cx'))));
+  const xs = await page.$$eval('#eukaryotes-chart circle.pt', (cs) => cs.map((c) => [Number(c.dataset.k), Number(c.getAttribute('cx'))]).sort((a, b) => a[0] - b[0]).map(([, cx]) => cx));
   assert.ok(xs.every((v, i) => i === 0 || v >= xs[i - 1] - 0.01));
   const at = (mb) => xs[E.points.findIndex((p) => p[0] >= mb)];
   const [x10, x100, x1000] = [at(10), at(100), at(1000)];
