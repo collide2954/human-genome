@@ -3617,6 +3617,7 @@ const renderModels = () => {
     tickFormat: percentTick,
     valueText: (r) => pct(r.s.genes / m.genes),
     labelShare: 0.3,
+    labelMax: 220,
     aria: 'Human protein-coding genes with an ortholog in each model organism, by how many prediction methods agree',
     describe: (r) => tipLines(`${exact(r.s.genes)} genes, ${pct(r.s.genes / m.genes)}`, r.label, `methods compared: ${r.s.methods}`, `all agree: ${exact(r.s.all)}`, `at least half: ${exact(r.s.most)}`, `fewer than half: ${exact(r.s.fewer)}`),
   });
@@ -3683,6 +3684,7 @@ const renderIdentity = () => {
     tickFormat: percentTick,
     valueText: (r) => compact(r.total),
     labelShare: 0.34,
+    labelMax: 220,
     aria: 'Human ortholog pairs in eight Ensembl species by homology type',
     describe: (r) => tipLines(`${exact(r.total)} ortholog pairs`, r.label, `one-to-one ${exact(r.s.one2one)}`, `one-to-many ${exact(r.s.one2many)}`, `many-to-many ${exact(r.s.many2many)}`),
   });
