@@ -603,7 +603,7 @@ test('ortholog charts place species on the human lineage and model organisms by 
   assert.equal(await count('#identity-chart [data-row]'), C.nodes.length);
   assert.equal(await count('#identity-chart circle.pt'), C.species.length);
   assert.equal(await count('#identity-types-chart [data-row]'), Object.keys(C.identity.bySpecies).length);
-  assert.equal(await count('#identity-hist-chart path.line'), Object.keys(C.identity.bySpecies).length);
+  assert.equal(await count('#identity-hist-chart [data-cell]'), Object.keys(C.identity.bySpecies).length * 25);
   const chimp = O.vertebrates.species.findIndex((s) => s[0] === '9598');
   await page.hover(`#orthologs-chart circle.pt[data-k="${chimp}"]`);
   assert.match(await page.textContent('#tip'), /Pan troglodytes[\s\S]*Homininae/);
