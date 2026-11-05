@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS, TRIAL_MODALITIES, trialPage, assemblyPage, intogenFile, gdcSsmPage,
+  comparaFile, ensemblSpeciesFile, eukaryotePage, primatePage,
 } from '../../src/queries.js';
 
 test('network, pathway and ontology files point at STRING, Reactome and the GO release', () => {
@@ -26,6 +27,7 @@ test('every data file is an https URL on a known host', () => {
     'string-db.org', 'reactome.org', 'current.geneontology.org', 'gtrnadb.ucsc.edu', 'www.encodeproject.org', 's3-us-west-2.amazonaws.com',
     'raw.githubusercontent.com', 'api.github.com', 'www.orphadata.com', 'www.fda.gov', 'clinicaltrials.gov', 'dataverse.harvard.edu', 'www.internationalgenome.org',
     'www.intogen.org', 'api.gdc.cancer.gov', 'api.clinpgx.org', 'www.pgscatalog.org', 'pan-ukb-us-east-1.s3.amazonaws.com',
+    'fms.alliancegenome.org', 'ftp.ensembl.org',
   ]);
   for (const [key, url] of Object.entries(FILES)) {
     const u = new URL(url);
@@ -230,6 +232,28 @@ test('complex trait files point at the GWAS Catalog release, the PGS Catalog and
   const panukb = 'https://pan-ukb-us-east-1.s3.amazonaws.com/sumstats_release/';
   assert.equal(FILES.panukbH2, `${panukb}h2_manifest.tsv.bgz`);
   assert.equal(FILES.panukbPhenotypes, `${panukb}phenotype_manifest.tsv.bgz`);
+});
+
+test('evolution files point at NCBI orthologs and taxonomy, the Alliance, Ensembl Compara, NCBI Datasets genomes and UCSC conserved elements', () => {
+  assert.equal(FILES.ncbiOrthologs, 'https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene_orthologs.gz');
+  assert.equal(FILES.taxonomyReport, 'https://api.ncbi.nlm.nih.gov/datasets/v2/taxonomy/dataset_report');
+  assert.equal(FILES.allianceOrthology, 'https://fms.alliancegenome.org/download/ORTHOLOGY-ALLIANCE_COMBINED.tsv.gz');
+  assert.equal(FILES.ensemblPub, 'https://ftp.ensembl.org/pub/');
+  assert.equal(comparaFile(116, 'mus_musculus'), 'https://ftp.ensembl.org/pub/release-116/tsv/ensembl-compara/homologies/mus_musculus/Compara.116.protein_default.homologies.tsv.gz');
+  assert.equal(ensemblSpeciesFile(116), 'https://ftp.ensembl.org/pub/release-116/species_EnsemblVertebrates.txt');
+  assert.equal(FILES.phastConsElements, 'https://hgdownload.soe.ucsc.edu/goldenPath/hg38/phastCons470way/hg38.phastConsElements470way.bb');
+  const euk = new URL(eukaryotePage());
+  assert.equal(`${euk.origin}${euk.pathname}`, 'https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/2759/dataset_report');
+  assert.equal(euk.searchParams.get('filters.reference_only'), 'true');
+  assert.equal(euk.searchParams.get('filters.has_annotation'), 'true');
+  assert.equal(euk.searchParams.get('page_size'), '1000');
+  assert.equal(euk.searchParams.has('page_token'), false);
+  assert.equal(new URL(eukaryotePage('t2')).searchParams.get('page_token'), 't2');
+  const primates = new URL(primatePage('t3'));
+  assert.equal(`${primates.origin}${primates.pathname}`, 'https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/9443/dataset_report');
+  assert.equal(primates.searchParams.get('filters.assembly_source'), 'genbank');
+  assert.equal(primates.searchParams.get('page_size'), '1000');
+  assert.equal(primates.searchParams.get('page_token'), 't3');
 });
 
 test('lollipop proteins name their UniProt accessions', () => {
