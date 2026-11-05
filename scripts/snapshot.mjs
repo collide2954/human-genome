@@ -6,7 +6,12 @@ import { gunzipSync } from 'node:zlib';
 import { retry } from '../src/lib.js';
 import {
   FILES, USER_AGENT, PHAROS_QUERY, pharosLevelQuery, stringFiles, LOLLIPOPS, TRIAL_MODALITIES, trialPage, assemblyPage, intogenFile, gdcSsmPage,
+  comparaFile, ensemblSpeciesFile, eukaryotePage, primatePage,
 } from '../src/queries.js';
+import {
+  KINDS, taxonomyReports, lineageOf, sharedDepths, orthologPartners, orthologDepth, vertebrateOrthologs, allianceOrthologs, depthSummary,
+  ensemblRelease, ensemblTaxa, comparaSummary, comparaSpecies, genomePoints, primateSummary, readBigBed, gapIntervals, regionLayers, conservedSummary,
+} from './evolution.mjs';
 import {
   latestIntogen, intogenDrivers, intogenCohorts, gdcRelease, gdcPrograms, facetCounts, casesByProject,
 } from './cancer.mjs';
@@ -24,14 +29,14 @@ import {
 } from './rare.mjs';
 import { linearEdges } from '../src/stats.js';
 import {
-  buildAssembly, latestFile, toModule, rmskSummary, superDupsSummary, tandemSummary, parseAssemblyReport,
+  buildAssembly, latestFile, toModule, rmskSummary, superDupsSummary, tandemSummary, parseAssemblyReport, bare, isStandard,
 } from './parsers.mjs';
 import { gencodeSummary } from './genes.mjs';
 import {
-  hgncSummary, geneInfoSummary, maneSummary, codingSymbols,
+  hgncSummary, geneInfoSummary, maneSummary, codingSymbols, codingGenes,
 } from './catalogs.mjs';
 import {
-  clinvarVcf, vcfClassCounts, earliestFile, geneSummary, organizations, variantTable, pfamDomains, validitySummary, regionSummary, repeatLoci,
+  clinvarVcf, vcfClassCounts, earliestFile, geneSummary, organizations, variantTable, pfamDomains, validitySummary, supportedGenes, regionSummary, repeatLoci,
 } from './clinical.mjs';
 import {
   cacheName, downloadTo, anyLines, unzip, zipLines,
@@ -364,16 +369,18 @@ const igsr = async () => {
   return igsrSamples({ hits: { total, hits: [...byName.values()] } }, '1000 Genomes 30x on GRCh38');
 };
 
-const assemblies = async () => {
+const allPages = async (pageOf) => {
   const reports = [];
   let token = null;
   do {
-    const page = await json(assemblyPage(token));
+    const page = await json(pageOf(token));
     reports.push(...(page.reports ?? []));
     token = page.next_page_token ?? null;
   } while (token);
-  return assemblySummary(reports);
+  return reports;
 };
+
+const assemblies = async () => assemblySummary(await allPages(assemblyPage));
 
 const zipFiles = async (url) => unzip(await readFile(await file(url)));
 
@@ -471,8 +478,106 @@ const pgs = async () => {
 
 const panukb = async () => heritability(await text(FILES.panukbH2), await text(FILES.panukbPhenotypes));
 
+const TAXONOMY_BATCH = 1000;
+
+const taxonomy = async (ids) => {
+  const out = new Map();
+  const list = [...new Set(ids.map(String))];
+  for (let i = 0; i < list.length; i += TAXONOMY_BATCH) {
+    let token = null;
+    do {
+      const page = await postJson(FILES.taxonomyReport, { taxons: list.slice(i, i + TAXONOMY_BATCH), page_size: TAXONOMY_BATCH, ...(token ? { page_token: token } : {}) });
+      for (const [id, t] of taxonomyReports(page)) out.set(id, t);
+      token = page.next_page_token ?? null;
+    } while (token);
+  }
+  return out;
+};
+
+let lineageRun;
+const humanLineage = () => {
+  lineageRun ??= (async () => {
+    const human = (await taxonomy(['9606'])).get('9606');
+    if (!human) throw new Error('No NCBI taxonomy report for Homo sapiens');
+    return { parents: human.parents, lineage: lineageOf(human.parents, await taxonomy(human.parents)) };
+  })();
+  return lineageRun;
+};
+
+const KIND_LABELS = KINDS.map(({ key, label }) => ({ key, label }));
+const dateOf = (modified) => (modified ? new Date(modified).toISOString().slice(0, 10) : null);
+
+const orthologs = async () => {
+  const coding = codingGenes(await text(FILES.hgnc));
+  const entrez = new Set(coding.map((g) => g.entrez).filter(Boolean));
+  const partners = await summarize(FILES.ncbiOrthologs, orthologPartners({ genes: entrez }));
+  const { byGene, ...models } = allianceOrthologs(await text(FILES.allianceOrthology), {
+    genes: new Set(coding.map((g) => g.hgnc)), disease: supportedGenes(await text(FILES.clingenValidity)),
+  });
+  const { parents, lineage } = await humanLineage();
+  const species = [...new Set([...partners.keys(), ...models.species.map((s) => s.taxon)])];
+  const taxa = await taxonomy(species);
+  const depthOf = sharedDepths(taxa, parents);
+  const ncbi = await summarize(FILES.ncbiOrthologs, orthologDepth({ genes: entrez, depthOf }));
+  return {
+    file: dateOf((await headersOf(FILES.ncbiOrthologs)).get('last-modified')),
+    kinds: KIND_LABELS,
+    vertebrates: vertebrateOrthologs({
+      partners, taxa, lineage, depthOf, genes: entrez.size,
+    }),
+    depth: depthSummary({
+      genes: coding, ncbi, alliance: byGene, species, depthOf, lineage,
+    }),
+    models,
+  };
+};
+
+const COMPARA_KEYS = ['pan_troglodytes', 'macaca_mulatta', 'mus_musculus', 'canis_lupus_familiaris', 'gallus_gallus', 'danio_rerio', 'drosophila_melanogaster', 'saccharomyces_cerevisiae'];
+
+const compara = async () => {
+  const release = ensemblRelease(await text(FILES.ensemblPub));
+  if (!release) throw new Error('No numbered release in the Ensembl FTP listing');
+  const acc = comparaSummary();
+  for (const species of ['homo_sapiens', 'mus_musculus']) await feed(comparaFile(release, species), acc);
+  const summary = acc.result();
+  const prod = ensemblTaxa(await text(ensemblSpeciesFile(release)));
+  const { parents, lineage } = await humanLineage();
+  const reports = await taxonomy([...summary.keys()].map((s) => prod.get(s)).filter(Boolean));
+  return {
+    release,
+    kinds: KIND_LABELS,
+    ...comparaSpecies(summary, {
+      taxa: prod, reports, lineage, depthOf: sharedDepths(reports, parents), keys: COMPARA_KEYS,
+    }),
+  };
+};
+
+const taxaOf = (reports) => taxonomy(reports.map((r) => r.organism?.tax_id).filter(Boolean));
+
+const eukaryotes = async () => {
+  const reports = await allPages(eukaryotePage);
+  return genomePoints(reports, await taxaOf(reports));
+};
+
+const primates = async () => {
+  const reports = await allPages(primatePage);
+  return primateSummary(reports, await taxaOf(reports));
+};
+
+const conservation = async () => {
+  const gtf = latestFile(await text(FILES.gencodeDir), /gencode\.v(\d+)\.annotation\.gtf\.gz/);
+  if (!gtf) throw new Error('No GENCODE annotation in the latest release folder');
+  const layers = await summarize(`${FILES.gencodeDir}${gtf.file}`, regionLayers());
+  const elements = readBigBed(await readFile(await file(FILES.phastConsElements)));
+  const lengths = Object.fromEntries(elements.chroms.filter((c) => isStandard(c.name)).map((c) => [bare(c.name), c.size]));
+  const acc = conservedSummary({ layers, gaps: gapIntervals(await text(FILES.gaps)), lengths });
+  for (const [chrom, start, end] of elements.records()) if (isStandard(chrom)) acc.add(bare(chrom), start, end);
+  return { gencode: gtf.version, file: dateOf((await headersOf(FILES.phastConsElements)).get('last-modified')), ...acc.result() };
+};
+
 const SECTIONS = {
   assembly, sequence, repeats, genes, catalogs, proteins, targets, expression, networks, pathways, ontology, regulation, trnas, encode, structure, variation, constraint, ancestry, ancient, igsr, assemblies, clinvar, clinvarTable, domains, clinvarGrowth, validity, regions, expansions, hpo, orphanet, gtr, fda, trials, intogen, gdc, cpic, fdaPgx, clinpgx, gwas, pgs, panukb,
+  orthologs, compara, eukaryotes, primates, conservation,
 };
 
 const now = new Date();
