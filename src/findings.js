@@ -3,7 +3,7 @@ import {
 } from './lib.js';
 import { reverseComplement } from './stats.js';
 import {
-  GENE_THERAPIES, DIAGNOSTIC_YIELD, CFDNA_SCREENING, GNOMAD_V4,
+  GENE_THERAPIES, DIAGNOSTIC_YIELD, CFDNA_SCREENING, GNOMAD_V4, ZOONOMIA, DE_NOVO, ARCHAIC_GENOMES, ARCHAIC_ANCESTRY, APE_GENOMES,
 } from './facts.js';
 
 const nuclear = (list) => list.filter((c) => c.chrom !== 'MT');
@@ -599,7 +599,78 @@ const heritability = (snap) => {
   return `Median SNP heritability of ${exact(eur.passing)} UK Biobank traits in European-ancestry people is ${eur.median.toFixed(2)}; ${inline(eur.top[0].description)} reaches ${eur.top[0].h2.toFixed(2)}`;
 };
 
+const orthologs = (snap) => {
+  const { genes, species } = snap.orthologs.vertebrates;
+  const [top] = species;
+  const fish = species.find((s) => s[0] === '7955') ?? species.at(-1);
+  return `NCBI lists orthologs of human protein-coding genes in ${exact(species.length)} species; ${top[1]} has ${pct(top[4] / genes)}, ${fish[1]} ${pct(fish[4] / genes)}`;
+};
+
+const depth = (snap) => {
+  const { nodes, none } = snap.orthologs.depth;
+  const deepest = nodes.at(-1);
+  return `${exact(deepest.genes)} human protein-coding genes have orthologs as distant as ${deepest.name}; ${exact(none.genes)} have none in any species checked`;
+};
+
+const models = (snap) => {
+  const m = snap.orthologs.models;
+  const fly = m.species.find((s) => s.taxon === '7227') ?? m.species.at(-1);
+  return `${fly.name} has orthologs for ${pct(fly.genes / m.genes)} of human protein-coding genes and ${pct(fly.disease / m.disease)} of ClinGen disease genes`;
+};
+
+const identity = (snap) => {
+  const { species } = snap.compara;
+  const of = (key) => species.find((s) => s.species === key);
+  const [ape, mouse] = [of('pan_troglodytes') ?? species[0], of('mus_musculus') ?? species.at(-1)];
+  return `Across ${exact(species.length)} Ensembl species, one-to-one orthologs are a median ${ape.median}% identical in ${ape.name} and ${mouse.median}% in ${mouse.name}`;
+};
+
+const eukaryotes = (snap) => {
+  const { total: n, points } = snap.eukaryotes;
+  const human = points.find((p) => p[3] === 'Homo sapiens');
+  return `Of ${exact(n)} annotated eukaryote reference genomes, ${exact(points.filter((p) => p[1] > human[1]).length)} list more protein-coding genes than human’s ${exact(human[1])}`;
+};
+
+const primates = (snap) => {
+  const p = snap.primates;
+  const [best] = p.apes;
+  return `NCBI holds ${exact(p.total)} assemblies of ${exact(p.species)} non-human primate species; ${best.name} has the longest contig N50, ${bases(best.n50)}`;
+};
+
+const conservation = (snap) => {
+  const c = snap.conservation;
+  const genome = total(Object.values(c.byChrom).map((v) => v.length));
+  const share = (k) => pct(c.classes[k].conserved / c.classes[k].bases);
+  return `phastCons marks ${pct(c.bases / genome)} of GRCh38 as conserved across 470 mammals, including ${share('cds')} of coding bases and ${share('intergenic')} of intergenic ones`;
+};
+
+const zoonomia = () => `At least ${ZOONOMIA.constrainedShare}% of the human genome is constrained across ${ZOONOMIA.species} mammals; ${ZOONOMIA.outsideCoding}% of significantly constrained bases are outside coding exons`;
+
+const mutation = () => {
+  const [father, mother] = DE_NOVO.slopes;
+  return `De novo mutations from fathers rise by ${father.value} per year of age and from mothers by ${mother.value}, in ${exact(DE_NOVO.trios)} Icelandic trios`;
+};
+
+const archaic = () => {
+  const best = ARCHAIC_GENOMES.reduce((a, b) => (b.coverage > a.coverage ? b : a));
+  const neandertal = ARCHAIC_ANCESTRY.find((a) => a.label === 'Non-Africans outside Oceania');
+  return `The ${best.name.split(',')[0]} genome reached ${best.coverage}-fold coverage; non-Africans outside Oceania carry ${neandertal.lo}–${neandertal.hi}% Neandertal DNA`;
+};
+
+const apes = () => `Complete ape genomes leave ${APE_GENOMES.unaligned[0]}–${APE_GENOMES.unaligned[1]}% of each genome outside a one-to-one alignment with human; ${APE_GENOMES.gapless} chromosomes are gapless`;
+
 export const findings = (snap) => ({
+  orthologs: orthologs(snap),
+  depth: depth(snap),
+  models: models(snap),
+  identity: identity(snap),
+  eukaryotes: eukaryotes(snap),
+  primates: primates(snap),
+  conservation: conservation(snap),
+  zoonomia: zoonomia(),
+  mutation: mutation(),
+  archaic: archaic(),
+  apes: apes(),
   manhattan: manhattan(snap),
   gwasgrowth: gwasgrowth(snap),
   gwastraits: gwastraits(snap),
