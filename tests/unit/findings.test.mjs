@@ -412,6 +412,43 @@ test('findings state the complex trait sections as numbers', () => {
   assert.equal(f.heritability, 'Median SNP heritability of 452 UK Biobank traits in European-ancestry people is 0.12; standing height reaches 0.59');
 });
 
+fixture.orthologs = {
+  vertebrates: { genes: 19298, species: [['9598', 'Pan troglodytes', 'primates', 0, 17788], ['7955', 'Danio rerio', 'rayfinned', 3, 10811], ['7753', 'Lethenteron reissneri', 'other', 4, 4937]] },
+  depth: { genes: 19299, nodes: [{ name: 'Homininae', genes: 7, examples: [] }, { name: 'Bilateria', genes: 8004, examples: [] }, { name: 'Opisthokonta', genes: 4560, examples: [] }], none: { genes: 121, examples: [] } },
+  models: {
+    genes: 19299,
+    disease: 2499,
+    species: [{
+      taxon: '10090', name: 'Mus musculus', genes: 18184, disease: 2492,
+    }, {
+      taxon: '7227', name: 'Drosophila melanogaster', genes: 10710, disease: 1824,
+    }],
+  },
+};
+fixture.compara = { species: [{ species: 'pan_troglodytes', name: 'Pan troglodytes', median: 99.3 }, { species: 'mus_musculus', name: 'Mus musculus', median: 86.9 }, { species: 'danio_rerio', name: 'Danio rerio', median: 58.3 }] };
+fixture.eukaryotes = { total: 4, points: [[12.16, 6000, 7, 'Saccharomyces cerevisiae S288C'], [2728.22, 22000, 0, 'Mus musculus'], [3099.44, 20076, 0, 'Homo sapiens'], [9463.68, 1581980, 6, 'Tanacetum coccineum']] };
+fixture.primates = { total: 481, species: 249, apes: [{ name: 'Gorilla gorilla', n50: 151425642 }, { name: 'Pan paniscus', n50: 147478900 }] };
+fixture.conservation = {
+  bases: 194185798,
+  byChrom: { 1: { length: 2000000000, conserved: 150000000 }, 2: { length: 937659104, conserved: 44185798 } },
+  classes: { cds: { bases: 38472207, conserved: 24430514 }, intergenic: { bases: 860973000, conserved: 34287253 } },
+};
+
+test('findings state the evolution sections as numbers', () => {
+  const f = findings(fixture);
+  assert.equal(f.orthologs, 'NCBI lists orthologs of human protein-coding genes in 3 species; Pan troglodytes has 92.2%, Danio rerio 56%');
+  assert.equal(f.depth, '4,560 human protein-coding genes have orthologs as distant as Opisthokonta; 121 have none in any species checked');
+  assert.equal(f.models, 'Drosophila melanogaster has orthologs for 55.5% of human protein-coding genes and 73% of ClinGen disease genes');
+  assert.equal(f.identity, 'Across 3 Ensembl species, one-to-one orthologs are a median 99.3% identical in Pan troglodytes and 86.9% in Mus musculus');
+  assert.equal(f.eukaryotes, 'Of 4 annotated eukaryote reference genomes, 2 list more protein-coding genes than human’s 20,076');
+  assert.equal(f.primates, 'NCBI holds 481 assemblies of 249 non-human primate species; Gorilla gorilla has the longest contig N50, 151.4 Mb');
+  assert.equal(f.conservation, 'phastCons marks 6.6% of GRCh38 as conserved across 470 mammals, including 63.5% of coding bases and 4% of intergenic ones');
+  assert.equal(f.zoonomia, 'At least 10.7% of the human genome is constrained across 240 mammals; 80% of significantly constrained bases are outside coding exons');
+  assert.equal(f.mutation, 'De novo mutations from fathers rise by 1.51 per year of age and from mothers by 0.37, in 1,548 Icelandic trios');
+  assert.equal(f.archaic, 'The Altai Neandertal genome reached 52-fold coverage; non-Africans outside Oceania carry 1.8–2.6% Neandertal DNA');
+  assert.equal(f.apes, 'Complete ape genomes leave 12.5–27.3% of each genome outside a one-to-one alignment with human; 215 chromosomes are gapless');
+});
+
 test('findings state the variation and constraint sections as numbers', () => {
   const f = findings(fixture);
   assert.equal(f.dbsnp, 'dbSNP build 157 holds 1,206,053,617 reference SNP records from 4,849,775,973 submitted variants; 1,172,689,405 are live');
