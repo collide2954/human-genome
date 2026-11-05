@@ -1,8 +1,41 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  parseAssemblyReport, summarizeRoles, parseAssemblyStats, parseCytobands, parseGaps, parseCentromeres, buildAssembly,
+  parseAssemblyReport, summarizeRoles, parseAssemblyStats, parseCytobands, parseGaps, parseCentromeres, buildAssembly, toModule,
 } from '../../scripts/parsers.mjs';
+
+test('toModule writes the snapshot as an ES module with each array of plain values on one line', () => {
+  const out = toModule({
+    a: 1, list: [[1, 2.5, 'x'], [3, null, 'y']], nested: { tags: ['p', 'q'], empty: [], objs: [{ k: 1 }] },
+  });
+  assert.equal(out, [
+    'export default {',
+    '  "a": 1,',
+    '  "list": [',
+    '    [1, 2.5, "x"],',
+    '    [3, null, "y"]',
+    '  ],',
+    '  "nested": {',
+    '    "tags": ["p", "q"],',
+    '    "empty": [],',
+    '    "objs": [',
+    '      {',
+    '        "k": 1',
+    '      }',
+    '    ]',
+    '  }',
+    '};',
+    '',
+  ].join('\n'));
+});
+
+test('toModule keeps JSON semantics for dates, missing values, empty objects and non-finite numbers', () => {
+  const value = {
+    d: new Date('2026-11-04T00:00:00Z'), u: undefined, n: Number.NaN, arr: [undefined, Infinity, 1], none: {}, map: new Map([['k', 1]]),
+  };
+  const body = toModule(value).replace(/^export default /, '').replace(/;\n$/, '');
+  assert.deepEqual(JSON.parse(body), JSON.parse(JSON.stringify(value)));
+});
 
 const REPORT = [
   '# Assembly name:  GRCh38.p14',
