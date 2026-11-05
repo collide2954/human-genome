@@ -666,7 +666,7 @@ export const grid = ({
 };
 
 export const dotRows = ({
-  mount, rows, kinds, aria, describe, rowH = 16, labelShare = 0.32, labelMax = 260, tickFormat = compact,
+  mount, rows, kinds, aria, describe, rowH = 16, labelShare = 0.32, labelMax = 260, tickFormat = compact, scale = 'log', ticks = null,
 }) => {
   const W = widthOf(mount);
   const R = 14;
@@ -674,15 +674,17 @@ export const dotRows = ({
   const { lay, labelOf } = wrapLabels(rowLayout(rows, Math.min(labelMax, Math.max(96, W * labelShare)), rowH), rows, W);
   const { L } = lay;
   const H = T + rows.length * lay.rowH + 6;
-  const all = rows.flatMap((r) => r.points.map((p) => p.value)).filter((v) => v > 0);
-  const lo = 10 ** Math.floor(Math.log10(Math.min(...all)));
-  const hi = 10 ** Math.ceil(Math.log10(Math.max(...all)));
-  const x = scaleLog([lo, hi], [L, W - R]);
+  const log = scale === 'log';
+  const all = rows.flatMap((r) => r.points.map((p) => p.value)).filter((v) => (log ? v > 0 : Number.isFinite(v)));
+  const marks = log ? null : ticks ?? niceTicks(Math.max(...all), 4);
+  const lo = log ? 10 ** Math.floor(Math.log10(Math.min(...all))) : marks[0];
+  const hi = log ? 10 ** Math.ceil(Math.log10(Math.max(...all))) : marks.at(-1);
+  const x = log ? scaleLog([lo, hi], [L, W - R]) : scaleLinear([lo, hi], [L, W - R]);
   const at = (v) => x(Math.min(hi, Math.max(lo, v)));
   const colorOf = (kind) => kinds.find((k) => k.key === kind)?.color ?? 'var(--data)';
   const flat = [];
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
-    logTicks(lo, hi).map((t) => el('g', {},
+    (log ? logTicks(lo, hi) : marks).map((t) => el('g', {},
       el('line', {
         class: 'grid', x1: x(t), x2: x(t), y1: T - 6, y2: H,
       }),
@@ -970,8 +972,15 @@ export const histo = ({
   return series.length > 1 ? mountSvg(mount, svg, legendOf(series)) : mountSvg(mount, svg);
 };
 
+const decadeTicks = (values) => {
+  const positive = values.filter((v) => v > 0);
+  const lo = Math.floor(Math.log10(Math.min(...positive)));
+  const hi = Math.ceil(Math.log10(Math.max(...positive)));
+  return Array.from({ length: hi - lo + 1 }, (_, i) => 10 ** (lo + i));
+};
+
 export const scatter = ({
-  mount, points, aria, describe, xFormat = compact, yFormat = compact, xLabel, yLabel, trend, height = 300, yLog = false, legend = null,
+  mount, points, aria, describe, xFormat = compact, yFormat = compact, xLabel, yLabel, trend, height = 300, yLog = false, xLog = false, legend = null,
 }) => {
   const W = widthOf(mount);
   const L = 46;
@@ -980,11 +989,9 @@ export const scatter = ({
   const B = 34;
   const H = height;
   const xs = points.map((p) => p.x);
-  const xt = spanTicks(Math.min(...xs), Math.max(...xs));
-  const positive = points.map((p) => p.y).filter((v) => v > 0);
-  const decades = yLog ? [Math.floor(Math.log10(Math.min(...positive))), Math.ceil(Math.log10(Math.max(...positive)))] : null;
-  const yt = yLog ? Array.from({ length: decades[1] - decades[0] + 1 }, (_, i) => 10 ** (decades[0] + i)) : niceTicks(Math.max(...points.map((p) => p.y), 1e-9), 4);
-  const x = scaleLinear([xt[0], xt.at(-1)], [L, W - R]);
+  const xt = xLog ? decadeTicks(xs) : spanTicks(Math.min(...xs), Math.max(...xs));
+  const yt = yLog ? decadeTicks(points.map((p) => p.y)) : niceTicks(Math.max(...points.map((p) => p.y), 1e-9), 4);
+  const x = xLog ? scaleLog([xt[0], xt.at(-1)], [L, W - R]) : scaleLinear([xt[0], xt.at(-1)], [L, W - R]);
   const y = yLog ? scaleLog([yt[0], yt.at(-1)], [H - B, T]) : scaleLinear([0, yt.at(-1)], [H - B, T]);
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': aria },
     yt.map((t) => el('g', {},
@@ -994,9 +1001,12 @@ export const scatter = ({
     xLabel ? el('text', { class: 'axis-lab', x: W - R, y: H - 4, 'text-anchor': 'end' }, xLabel) : null,
     yLabel ? el('text', { class: 'axis-lab', x: L, y: T - 4 }, yLabel) : null,
     trend ? el('path', { class: 'trend', d: `M${x(xt[0])},${y(trend.intercept + trend.slope * xt[0])}L${x(xt.at(-1))},${y(trend.intercept + trend.slope * xt.at(-1))}` }) : null,
-    points.map((p, i) => el('circle', {
-      class: `dot pt${p.hi ? ' hi' : ''}`, cx: x(p.x), cy: y(p.y), r: p.hi ? 3.5 : 2.2, 'data-point': p.key, 'data-k': i, 'data-rank': i, style: `--i:${i % 60}${p.color ? `;--pt:${p.color}` : ''}`,
-    })));
+    [...points.keys()].sort((a, b) => Number(Boolean(points[a].hi)) - Number(Boolean(points[b].hi))).map((i) => {
+      const p = points[i];
+      return el('circle', {
+        class: `dot pt${p.hi ? ' hi' : ''}`, cx: x(p.x), cy: y(p.y), r: p.hi ? 3.5 : 2.2, 'data-point': p.key, 'data-k': i, 'data-rank': i, style: `--i:${i % 60}${p.color ? `;--pt:${p.color}` : ''}`,
+      });
+    }));
   hover(svg, (k) => describe(points[Number(k)]));
   return legend ? mountSvg(mount, svg, legendOf(legend)) : mountSvg(mount, svg);
 };
