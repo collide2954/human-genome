@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   germlineClass, consequenceOf, starsOf, CHANNELS, channelOf, clinvarVcf, vcfClassCounts, earliestFile,
-  geneSummary, organizations, proteinChange, variantTable, pfamDomains, validitySummary, regionSummary, repeatLoci,
+  geneSummary, organizations, proteinChange, variantTable, pfamDomains, validitySummary, supportedGenes, regionSummary, repeatLoci,
 } from '../../scripts/clinical.mjs';
 
 const locus = (fields) => ({
@@ -376,6 +376,22 @@ test('validitySummary counts ClinGen curations by class, inheritance, year and p
   assert.deepEqual(v.gceps[0], { name: 'Mitochondrial Diseases Gene Curation Expert Panel', n: 3 });
   assert.equal(v.gceps.length, 4);
   assert.deepEqual([...v.moiGenes], [['AARS1', 'AD'], ['AARS2', 'AR'], ['SCN2A', 'both'], ['MT-X', 'MT']]);
+});
+
+test('supportedGenes lists the HGNC IDs of genes with a definitive, strong or moderate ClinGen curation', () => {
+  const row = (gene, hgnc, cls) => quoted([gene, hgnc, 'a disease', 'MONDO:1', 'AD', 'SOP10', cls, 'https://search.clinicalgenome.org/kb/gene-validity/x', '2024-01-01T16:00:00.000Z', 'Panel']);
+  const text = [
+    quoted(['FILE CREATED: 2026-11-04', '', '', '', '', '', '', '', '', '']),
+    RULE,
+    quoted(['GENE SYMBOL', 'GENE ID (HGNC)', 'DISEASE LABEL', 'DISEASE ID (MONDO)', 'MOI', 'SOP', 'CLASSIFICATION', 'ONLINE REPORT', 'CLASSIFICATION DATE', 'GCEP']),
+    RULE,
+    row('AARS1', 'HGNC:20', 'Definitive'),
+    row('AARS2', 'HGNC:21022', 'Limited'),
+    row('AARS2', 'HGNC:21022', 'Moderate'),
+    row('GENE5', 'HGNC:5', 'Disputed'),
+    row('MT-X', 'HGNC:7', 'Strong'),
+  ].join('\n');
+  assert.deepEqual([...supportedGenes(text)], ['HGNC:20', 'HGNC:21022', 'HGNC:7']);
 });
 
 const REGION_HEAD = ['#ISCA ID', 'ISCA Region Name', 'cytoBand', 'Genomic Location', 'Haploinsufficiency Score', 'Haploinsufficiency Description', 'Haploinsufficiency PMID1', 'Triplosensitivity Score', 'Triplosensitivity Description', 'Date Last Evaluated'].join('\t');

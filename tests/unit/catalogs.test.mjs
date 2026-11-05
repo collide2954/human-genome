@@ -1,8 +1,19 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  hgncSummary, geneInfoSummary, maneSummary, codingSymbols,
+  hgncSummary, geneInfoSummary, maneSummary, codingSymbols, codingGenes,
 } from '../../scripts/catalogs.mjs';
+
+test('codingGenes lists approved protein-coding genes with their HGNC and NCBI Gene IDs', () => {
+  const text = [
+    'hgnc_id\tsymbol\tstatus\tlocus_group\tentrez_id',
+    'HGNC:12403\tTTN\tApproved\tprotein-coding gene\t7273',
+    'HGNC:44124\tTTN-AS1\tApproved\tnon-coding RNA\t100506866',
+    'HGNC:9\tOLD1\tEntry Withdrawn\tprotein-coding gene\t',
+    'HGNC:5\tNOID\tApproved\tprotein-coding gene\t',
+  ].join('\n');
+  assert.deepEqual(codingGenes(text), [{ hgnc: 'HGNC:12403', entrez: '7273', symbol: 'TTN' }, { hgnc: 'HGNC:5', entrez: null, symbol: 'NOID' }]);
+});
 
 test('codingSymbols lists approved protein-coding HGNC symbols', () => {
   const text = [
