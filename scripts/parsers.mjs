@@ -13,7 +13,23 @@ const rows = (text) => text.split('\n').filter((l) => l && !l.startsWith('#')).m
 
 const header = (text, key) => text.match(new RegExp(`^# ${key}:\\s*(.+?)\\s*$`, 'm'))?.[1] ?? null;
 
-export const toModule = (value) => `export default ${JSON.stringify(value, null, 2)};\n`;
+const isPlain = (v) => v === null || typeof v !== 'object';
+const scalar = (v) => JSON.stringify(v) ?? 'null';
+
+const layout = (value, indent) => {
+  if (value && typeof value.toJSON === 'function') return layout(value.toJSON(), indent);
+  if (isPlain(value)) return scalar(value);
+  const pad = `${indent}  `;
+  if (Array.isArray(value)) {
+    if (value.every(isPlain)) return `[${value.map(scalar).join(', ')}]`;
+    return `[\n${value.map((v) => `${pad}${layout(v, pad)}`).join(',\n')}\n${indent}]`;
+  }
+  const entries = Object.entries(value).filter(([, v]) => v !== undefined && typeof v !== 'function');
+  if (!entries.length) return '{}';
+  return `{\n${entries.map(([k, v]) => `${pad}${JSON.stringify(k)}: ${layout(v, pad)}`).join(',\n')}\n${indent}}`;
+};
+
+export const toModule = (value) => `export default ${layout(value, '')};\n`;
 
 const newer = (a, b) => {
   const x = a.split('.').map(Number);
