@@ -2,7 +2,66 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   SOURCES, SOURCE_TITLES, SOURCE_GROUPS, EXAMPLES, PARS, GENE_THERAPIES, GENE_THERAPIES_CHECKED, DIAGNOSTIC_YIELD, CFDNA_SCREENING, CARRIER_TIER3, BIOBANKS, GNOMAD_V4,
+  ZOONOMIA, DE_NOVO, ARCHAIC_GENOMES, ARCHAIC_ANCESTRY, APE_GENOMES,
 } from '../../src/facts.js';
+
+test('evolution sources are cited in their own group after complex traits, with the license of the Alliance data', () => {
+  for (const key of ['ncbiOrthologs', 'sayers2025', 'ncbiTaxonomy', 'schoch2020', 'alliance', 'alliance2024', 'allianceLicense', 'ensemblCompara', 'dyer2025', 'vilella2009',
+    'ucscCons470', 'siepel2005', 'zoonomia2020', 'christmas2023', 'sullivan2023', 'keough2023', 'xue2023', 'jonsson2017', 'green2010', 'meyer2012', 'prufer2014', 'prufer2017',
+    'mafessoni2020', 'sankararaman2016', 'yoo2025']) {
+    assert.equal(SOURCE_TITLES[key]?.[0], 'Evolution', key);
+  }
+  assert.equal(SOURCE_GROUPS.indexOf('Evolution'), SOURCE_GROUPS.indexOf('Complex traits') + 1);
+  assert.equal(SOURCES.allianceLicense, 'https://creativecommons.org/licenses/by/4.0/');
+});
+
+test('Zoonomia, de novo mutation, archaic and ape genome numbers are fixed values from their papers', () => {
+  assert.deepEqual(ZOONOMIA, {
+    species: 240, constrainedBases: 332000000, constrainedShare: 10.7, significantBases: 101000000, significantShare: 3.3, outsideCoding: 80, unannotated: 50, ultraconserved: 4552, zooHARs: 312, hcondels: 10032, hcondelLength: 2.56, hcondelActive: 800,
+  });
+  assert.deepEqual(DE_NOVO.slopes, [
+    {
+      key: 'father', label: "Father's age", value: 1.51, lo: 1.45, hi: 1.57,
+    },
+    {
+      key: 'mother', label: "Mother's age", value: 0.37, lo: 0.32, hi: 0.43,
+    },
+  ]);
+  assert.deepEqual(DE_NOVO.maternal, [
+    {
+      key: 'cpg', label: 'CpG>TpG', value: -0.26, lo: -0.33, hi: -0.19,
+    },
+    {
+      key: 'cg', label: 'C>G', value: 0.33, lo: 0.28, hi: 0.38,
+    },
+  ]);
+  assert.equal(DE_NOVO.trios, 1548);
+  assert.equal(DE_NOVO.mutations, 108778);
+  assert.equal(DE_NOVO.phased, 42961);
+  assert.equal(ARCHAIC_GENOMES.length, 6);
+  for (const g of ARCHAIC_GENOMES) {
+    assert.ok(SOURCES[g.source], g.name);
+    assert.ok(['Neandertal', 'Denisovan'].includes(g.group), g.name);
+    assert.ok(g.coverage > 0 && g.year >= 2010 && g.year <= 2020, g.name);
+  }
+  assert.deepEqual(ARCHAIC_GENOMES.find((g) => g.year === 2014 && g.coverage === 52), {
+    name: 'Altai Neandertal, Denisova Cave toe phalanx', group: 'Neandertal', year: 2014, coverage: 52, source: 'prufer2014', note: null,
+  });
+  for (const a of ARCHAIC_ANCESTRY) {
+    assert.ok(SOURCES[a.source], a.label);
+    assert.ok(a.value !== null || (a.lo !== null && a.hi !== null), a.label);
+  }
+  assert.deepEqual(ARCHAIC_ANCESTRY.map((a) => [a.label, a.kind, a.value, a.lo, a.hi]), [
+    ['East Asians', 'Neandertal', null, 2.3, 2.6],
+    ['People in Western Eurasia', 'Neandertal', null, 1.8, 2.4],
+    ['Non-Africans outside Oceania', 'Neandertal', null, 1.8, 2.6],
+    ['Papuans', 'Denisovan', 1.12, null, null],
+    ['Sherpas', 'Denisovan', 0.1, null, null],
+  ]);
+  assert.deepEqual(APE_GENOMES, {
+    species: 6, gapless: 215, errorEvery: 2700000, unaligned: [12.5, 27.3], gapFold: [5, 15], inaccessible: [10, 15], mhc: { deletions: 328, insertions: 422 }, spacer: { bonobo: 95.2, siamang: 80.6 },
+  });
+});
 
 test('chromosome structure sources are cited', () => {
   for (const key of ['anderson1981', 'andrews1999', 'laricchia2022', 'gnomadMito', 'altemose2022', 'rhie2023', 't2tAnnotation']) {
