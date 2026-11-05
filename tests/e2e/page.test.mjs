@@ -3,7 +3,9 @@ import assert from 'node:assert/strict';
 import { chromium, devices } from 'playwright';
 import { start } from '../../scripts/serve.mjs';
 import snapshot from '../../src/snapshot.js';
-import { EXAMPLES, DIAGNOSTIC_YIELD, CFDNA_SCREENING } from '../../src/facts.js';
+import {
+  EXAMPLES, DIAGNOSTIC_YIELD, CFDNA_SCREENING, DE_NOVO, ARCHAIC_GENOMES, ARCHAIC_ANCESTRY,
+} from '../../src/facts.js';
 import { exact } from '../../src/lib.js';
 import { findings } from '../../src/findings.js';
 
@@ -58,6 +60,7 @@ const CHAPTERS = {
   cancer: ['drivers', 'tcga', 'burden', 'somatic'],
   pgx: ['cpic', 'phenotypes', 'cyp2d6', 'fdalabels', 'clinpgx'],
   complex: ['manhattan', 'gwasgrowth', 'gwastraits', 'effects', 'pgs', 'pgsancestry', 'pgsperformance', 'heritability'],
+  evolution: ['orthologs', 'depth', 'models', 'identity', 'eukaryotes', 'primates', 'conservation', 'zoonomia', 'mutation', 'archaic', 'apes'],
   reference: ['decoder', 'sources'],
 };
 
@@ -583,6 +586,79 @@ test('complex trait charts cover the catalog Manhattan plot, GWAS growth, traits
   });
   assert.match(await page.textContent('#tip'), new RegExp(top[5].split(/\s|,/)[0]));
   assert.ok(await count('#heritability a[href="https://creativecommons.org/licenses/by/4.0/"]') >= 1);
+  await page.close();
+});
+
+test('ortholog charts place species on the human lineage and model organisms by how many methods agree', async () => {
+  const { page } = await open();
+  const O = snapshot.orthologs;
+  const C = snapshot.compara;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#orthologs-chart [data-row]'), O.vertebrates.nodes.length);
+  assert.equal(await count('#orthologs-chart circle.pt'), O.vertebrates.species.length);
+  assert.equal(await count('#orthologs-chart .legend li'), new Set(O.vertebrates.species.map((s) => s[2])).size);
+  assert.equal(await count('#depth-chart [data-row]'), O.depth.nodes.length + 1);
+  assert.equal(await count('#models-chart [data-row]'), O.models.species.length);
+  assert.equal(await count('#models-disease-chart [data-row]'), O.models.species.length);
+  assert.equal(await count('#identity-chart [data-row]'), C.nodes.length);
+  assert.equal(await count('#identity-chart circle.pt'), C.species.length);
+  assert.equal(await count('#identity-types-chart [data-row]'), Object.keys(C.identity.bySpecies).length);
+  assert.equal(await count('#identity-hist-chart path.line'), Object.keys(C.identity.bySpecies).length);
+  const chimp = O.vertebrates.species.findIndex((s) => s[0] === '9598');
+  await page.hover(`#orthologs-chart circle.pt[data-k="${chimp}"]`);
+  assert.match(await page.textContent('#tip'), /Pan troglodytes[\s\S]*Homininae/);
+  await page.hover('#depth-chart [data-row="none"]');
+  assert.match(await page.textContent('#tip'), new RegExp(O.depth.none.examples[0]));
+  const linear = await page.$$eval('#identity-chart text.tick', (ts) => ts.map((t) => t.textContent));
+  assert.ok(linear.includes('50%') && linear.includes('100%'), linear.join(' '));
+  assert.ok(await count('#models a[href="https://creativecommons.org/licenses/by/4.0/"]') >= 1);
+  await page.close();
+});
+
+test('genome charts cover eukaryote genome sizes on log axes, primate assemblies and conservation across 470 mammals', async () => {
+  const { page } = await open();
+  const E = snapshot.eukaryotes;
+  const P = snapshot.primates;
+  const K = snapshot.conservation;
+  const count = (sel) => page.locator(sel).count();
+  assert.equal(await count('#eukaryotes-chart circle.pt'), E.points.length);
+  assert.equal(await count('#eukaryotes-chart circle.pt.hi'), 1);
+  assert.equal(await count('#eukaryotes-chart .legend li'), E.groups.length);
+  const xs = await page.$$eval('#eukaryotes-chart circle.pt', (cs) => cs.map((c) => Number(c.getAttribute('cx'))));
+  assert.ok(xs.every((v, i) => i === 0 || v >= xs[i - 1] - 0.01));
+  const at = (mb) => xs[E.points.findIndex((p) => p[0] >= mb)];
+  const [x10, x100, x1000] = [at(10), at(100), at(1000)];
+  assert.ok(Math.abs((x100 - x10) - (x1000 - x100)) < 0.2 * (x1000 - x10), `${x10} ${x100} ${x1000}`);
+  assert.equal(await count('#eukaryotes-groups-chart [data-row]'), E.groups.length);
+  assert.equal(await count('#primates-chart circle.pt'), P.points.length);
+  assert.equal(await count('#primates-chart .legend li'), new Set(P.points.map((p) => p[2])).size);
+  assert.equal(await count('#primates-apes-chart [data-row]'), P.apes.length);
+  assert.equal(await count('#conservation-chrom-chart [data-row]'), Object.keys(K.byChrom).length);
+  assert.equal(await count('#conservation-classes-chart [data-row]'), Object.keys(K.classes).length);
+  assert.equal(await count('#conservation-lengths-chart [data-bin]'), K.lengths.counts.length);
+  await page.hover('#eukaryotes-chart circle.pt.hi');
+  assert.match(await page.textContent('#tip'), /Homo sapiens/);
+  await page.hover('#conservation-classes-chart [data-row="cds"]');
+  assert.match(await page.textContent('#tip'), /coding/i);
+  await page.close();
+});
+
+test('fixed evolution figures show Zoonomia constraint, de novo mutation rates, archaic genomes and the apes', async () => {
+  const { page } = await open();
+  const C = snapshot.compara;
+  const count = (sel) => page.locator(sel).count();
+  const apes = C.species.filter((s) => ['Homininae', 'Hominidae', 'Hominoidea'].includes(C.nodes[s.node].name));
+  assert.equal(await count('#zoonomia-chart [data-row]'), 3);
+  assert.equal(await count('#zoonomia-counts-chart [data-row]'), 4);
+  assert.equal(await count('#mutation-chart [data-row]'), DE_NOVO.slopes.length);
+  assert.equal(await count('#mutation-types-chart [data-row]'), DE_NOVO.maternal.length);
+  assert.equal(await count('#archaic-chart [data-row]'), ARCHAIC_GENOMES.length);
+  assert.equal(await count('#archaic-ancestry-chart [data-row]'), ARCHAIC_ANCESTRY.length);
+  assert.equal(await count('#apes-chart [data-row]'), apes.length);
+  assert.equal(await count('#apes-fixed-chart [data-row]'), 2);
+  for (const id of ['zoonomia', 'mutation', 'archaic', 'apes']) assert.match(await page.textContent(`#${id} figcaption`), /Fixed values/, id);
+  await page.hover('#mutation-chart [data-row="father"]');
+  assert.match(await page.textContent('#tip'), /1\.51[\s\S]*1\.45[\s\S]*1\.57/);
   await page.close();
 });
 
