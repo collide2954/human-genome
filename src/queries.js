@@ -46,9 +46,17 @@ export const TRIAL_MODALITIES = [
   { key: 'sirna', label: 'siRNA', query: 'siRNA OR "small interfering RNA"' },
 ];
 
-const ASSEMBLIES = 'https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/9606/dataset_report';
+const DATASETS = 'https://api.ncbi.nlm.nih.gov/datasets/v2/';
+const genomePage = (taxon, filters, token) => `${DATASETS}genome/taxon/${taxon}/dataset_report?${new URLSearchParams({ ...filters, page_size: '1000', ...(token ? { page_token: token } : {}) })}`;
 
-export const assemblyPage = (token = null) => `${ASSEMBLIES}?${new URLSearchParams({ page_size: '1000', ...(token ? { page_token: token } : {}) })}`;
+export const assemblyPage = (token = null) => genomePage(9606, {}, token);
+export const eukaryotePage = (token = null) => genomePage(2759, { 'filters.reference_only': 'true', 'filters.has_annotation': 'true' }, token);
+export const primatePage = (token = null) => genomePage(9443, { 'filters.assembly_source': 'genbank' }, token);
+
+const ENSEMBL = 'https://ftp.ensembl.org/pub/';
+
+export const comparaFile = (release, species) => `${ENSEMBL}release-${release}/tsv/ensembl-compara/homologies/${species}/Compara.${release}.protein_default.homologies.tsv.gz`;
+export const ensemblSpeciesFile = (release) => `${ENSEMBL}release-${release}/species_EnsemblVertebrates.txt`;
 
 export const trialPage = (query, token = null) => `${TRIALS}?${new URLSearchParams({
   'query.intr': query, 'filter.advanced': 'AREA[StudyType]INTERVENTIONAL', pageSize: '1000', fields: 'NCTId,StartDate,Phase,OverallStatus', ...(token ? { pageToken: token } : {}),
@@ -164,6 +172,11 @@ export const FILES = {
   pgsCategories: 'https://www.pgscatalog.org/rest/trait_category/all',
   panukbH2: `${PANUKB}h2_manifest.tsv.bgz`,
   panukbPhenotypes: `${PANUKB}phenotype_manifest.tsv.bgz`,
+  ncbiOrthologs: 'https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene_orthologs.gz',
+  taxonomyReport: `${DATASETS}taxonomy/dataset_report`,
+  allianceOrthology: 'https://fms.alliancegenome.org/download/ORTHOLOGY-ALLIANCE_COMBINED.tsv.gz',
+  ensemblPub: ENSEMBL,
+  phastConsElements: `${UCSC}/phastCons470way/hg38.phastConsElements470way.bb`,
   strchiveCommits: `https://api.github.com/repos/dashnowlab/STRchive/commits?${new URLSearchParams({ path: 'data/STRchive-loci.json', per_page: '1' })}`,
   ccre: 'https://downloads.wenglab.org/Registry-V4/GRCh38-cCREs.bed',
   cpgIslands: `${UCSC}/database/cpgIslandExt.txt.gz`,
