@@ -1,6 +1,6 @@
 export const SOURCE_GROUPS = [
   'Assemblies and sequence', 'Genes and proteins', 'Expression and regulation', 'Variation and populations', 'Clinical genetics',
-  'Cancer genomics', 'Pharmacogenomics', 'Complex traits', 'Research and funding', 'Methods', 'Landmark papers', 'History',
+  'Cancer genomics', 'Pharmacogenomics', 'Complex traits', 'Evolution', 'Research and funding', 'Methods', 'Landmark papers', 'History',
 ];
 
 export const SOURCES = {
@@ -144,6 +144,31 @@ export const SOURCES = {
   karczewski2024: 'https://doi.org/10.1101/2024.03.13.24303864',
   bulikSullivan2015: 'https://doi.org/10.1038/ng.3211',
   panukbLicense: 'https://creativecommons.org/licenses/by/4.0/',
+  ncbiOrthologs: 'https://ftp.ncbi.nlm.nih.gov/gene/DATA/',
+  sayers2025: 'https://doi.org/10.1093/nar/gkae979',
+  ncbiTaxonomy: 'https://www.ncbi.nlm.nih.gov/taxonomy',
+  schoch2020: 'https://doi.org/10.1093/database/baaa062',
+  alliance: 'https://www.alliancegenome.org/downloads',
+  alliance2024: 'https://doi.org/10.1093/genetics/iyae049',
+  allianceLicense: 'https://creativecommons.org/licenses/by/4.0/',
+  ensemblCompara: 'https://www.ensembl.org/info/genome/compara/homology_method.html',
+  dyer2025: 'https://doi.org/10.1093/nar/gkae1071',
+  vilella2009: 'https://doi.org/10.1101/gr.073585.107',
+  ucscCons470: 'https://genome.ucsc.edu/cgi-bin/hgTrackUi?db=hg38&g=cons470way',
+  siepel2005: 'https://doi.org/10.1101/gr.3715005',
+  zoonomia2020: 'https://doi.org/10.1038/s41586-020-2876-6',
+  christmas2023: 'https://doi.org/10.1126/science.abn3943',
+  sullivan2023: 'https://doi.org/10.1126/science.abn2937',
+  keough2023: 'https://doi.org/10.1126/science.abm1696',
+  xue2023: 'https://doi.org/10.1126/science.abn2253',
+  jonsson2017: 'https://doi.org/10.1038/nature24018',
+  green2010: 'https://doi.org/10.1126/science.1188021',
+  meyer2012: 'https://doi.org/10.1126/science.1224344',
+  prufer2014: 'https://doi.org/10.1038/nature12886',
+  prufer2017: 'https://doi.org/10.1126/science.aao1887',
+  mafessoni2020: 'https://doi.org/10.1073/pnas.2004944117',
+  sankararaman2016: 'https://doi.org/10.1016/j.cub.2016.03.037',
+  yoo2025: 'https://doi.org/10.1038/s41586-025-08816-3',
 };
 
 export const PARS = [
@@ -292,6 +317,31 @@ export const SOURCE_TITLES = {
   karczewski2024: ['Complex traits', 'Karczewski et al. 2024, Pan-UK Biobank GWAS improves discovery, analysis of genetic architecture, and resolution into ancestry-enriched effects, medRxiv preprint'],
   bulikSullivan2015: ['Complex traits', 'Bulik-Sullivan et al. 2015, LD Score regression distinguishes confounding from polygenicity in genome-wide association studies, Nature Genetics 47:291'],
   panukbLicense: ['Complex traits', 'Creative Commons Attribution 4.0, the license of the Pan-UKB results'],
+  ncbiOrthologs: ['Evolution', 'NCBI Gene, gene_orthologs, updated daily'],
+  sayers2025: ['Evolution', 'Sayers et al. 2025, Database resources of the National Center for Biotechnology Information in 2025, Nucleic Acids Research 53:D20'],
+  ncbiTaxonomy: ['Evolution', 'NCBI Taxonomy, lineages through the NCBI Datasets taxonomy API'],
+  schoch2020: ['Evolution', 'Schoch et al. 2020, NCBI Taxonomy: a comprehensive update on curation, resources and tools, Database 2020:baaa062'],
+  alliance: ['Evolution', 'Alliance of Genome Resources, combined orthology download (stringent filter)'],
+  alliance2024: ['Evolution', 'Alliance of Genome Resources Consortium 2024, Updates to the Alliance of Genome Resources central infrastructure, Genetics 227:iyae049'],
+  allianceLicense: ['Evolution', 'Creative Commons Attribution 4.0, the license of Alliance annotations and data'],
+  ensemblCompara: ['Evolution', 'Ensembl Compara, homology TSV dumps of the default protein gene trees'],
+  dyer2025: ['Evolution', 'Dyer et al. 2025, Ensembl 2025, Nucleic Acids Research 53:D948'],
+  vilella2009: ['Evolution', 'Vilella et al. 2009, EnsemblCompara GeneTrees: complete, duplication-aware phylogenetic trees in vertebrates, Genome Research 19:327'],
+  ucscCons470: ['Evolution', 'UCSC Genome Browser, hg38 470 mammals conservation track and phastCons elements'],
+  siepel2005: ['Evolution', 'Siepel et al. 2005, Evolutionarily conserved elements in vertebrate, insect, worm, and yeast genomes, Genome Research 15:1034'],
+  zoonomia2020: ['Evolution', 'Zoonomia Consortium 2020, A comparative genomics multitool for scientific discovery and conservation, Nature 587:240'],
+  christmas2023: ['Evolution', 'Christmas et al. 2023, Evolutionary constraint and innovation across hundreds of placental mammals, Science 380:eabn3943'],
+  sullivan2023: ['Evolution', 'Sullivan et al. 2023, Leveraging base-pair mammalian constraint to understand genetic variation and human disease, Science 380:eabn2937'],
+  keough2023: ['Evolution', 'Keough et al. 2023, Three-dimensional genome rewiring in loci with human accelerated regions, Science 380:eabm1696'],
+  xue2023: ['Evolution', 'Xue et al. 2023, The functional and evolutionary impacts of human-specific deletions in conserved elements, Science 380:eabn2253'],
+  jonsson2017: ['Evolution', 'Jónsson et al. 2017, Parental influence on human germline de novo mutations in 1,548 trios from Iceland, Nature 549:519'],
+  green2010: ['Evolution', 'Green et al. 2010, A draft sequence of the Neandertal genome, Science 328:710'],
+  meyer2012: ['Evolution', 'Meyer et al. 2012, A high-coverage genome sequence from an archaic Denisovan individual, Science 338:222'],
+  prufer2014: ['Evolution', 'Prüfer et al. 2014, The complete genome sequence of a Neanderthal from the Altai Mountains, Nature 505:43'],
+  prufer2017: ['Evolution', 'Prüfer et al. 2017, A high-coverage Neandertal genome from Vindija Cave in Croatia, Science 358:655'],
+  mafessoni2020: ['Evolution', 'Mafessoni et al. 2020, A high-coverage Neandertal genome from Chagyrskaya Cave, PNAS 117:15132'],
+  sankararaman2016: ['Evolution', 'Sankararaman et al. 2016, The combined landscape of Denisovan and Neanderthal ancestry in present-day humans, Current Biology 26:1241'],
+  yoo2025: ['Evolution', 'Yoo et al. 2025, Complete sequencing of ape genomes, Nature 641:401'],
 };
 
 const biobank = (name, people, qualifier, measure, source) => ({
@@ -387,6 +437,53 @@ export const CFDNA_SCREENING = [
 ];
 
 export const CARRIER_TIER3 = { genes: 97, definitive: 39, frequency: '1 in 200' };
+
+export const ZOONOMIA = {
+  species: 240, constrainedBases: 332000000, constrainedShare: 10.7, significantBases: 101000000, significantShare: 3.3, outsideCoding: 80, unannotated: 50, ultraconserved: 4552, zooHARs: 312, hcondels: 10032, hcondelLength: 2.56, hcondelActive: 800,
+};
+
+const perYear = (key, label, value, lo, hi) => ({
+  key, label, value, lo, hi,
+});
+
+export const DE_NOVO = {
+  trios: 1548,
+  coverage: 35,
+  mutations: 108778,
+  phased: 42961,
+  slopes: [perYear('father', "Father's age", 1.51, 1.45, 1.57), perYear('mother', "Mother's age", 0.37, 0.32, 0.43)],
+  maternal: [perYear('cpg', 'CpG>TpG', -0.26, -0.33, -0.19), perYear('cg', 'C>G', 0.33, 0.28, 0.38)],
+  hotspot: { arm: '8p', mb: 20, fold: 50 },
+};
+
+const archaic = (name, group, year, coverage, source, note = null) => ({
+  name, group, year, coverage, source, note,
+});
+
+export const ARCHAIC_GENOMES = [
+  archaic('Draft from three Vindija Cave Neandertals', 'Neandertal', 2010, 1.3, 'green2010', 'coverage as given by Prüfer et al. 2014'),
+  archaic('Denisova Cave finger phalanx', 'Denisovan', 2012, 30, 'meyer2012'),
+  archaic('Altai Neandertal, Denisova Cave toe phalanx', 'Neandertal', 2014, 52, 'prufer2014'),
+  archaic('Mezmaiskaya Cave infant', 'Neandertal', 2014, 0.5, 'prufer2014', '60,000 to 70,000 years old'),
+  archaic('Vindija 33.19', 'Neandertal', 2017, 30, 'prufer2017', 'about 50,000 years old'),
+  archaic('Chagyrskaya Cave Neandertal', 'Neandertal', 2020, 27, 'mafessoni2020'),
+];
+
+const ancestry = (label, kind, value, lo, hi, source) => ({
+  label, kind, value, lo, hi, source,
+});
+
+export const ARCHAIC_ANCESTRY = [
+  ancestry('East Asians', 'Neandertal', null, 2.3, 2.6, 'prufer2017'),
+  ancestry('People in Western Eurasia', 'Neandertal', null, 1.8, 2.4, 'prufer2017'),
+  ancestry('Non-Africans outside Oceania', 'Neandertal', null, 1.8, 2.6, 'prufer2017'),
+  ancestry('Papuans', 'Denisovan', 1.12, null, null, 'sankararaman2016'),
+  ancestry('Sherpas', 'Denisovan', 0.1, null, null, 'sankararaman2016'),
+];
+
+export const APE_GENOMES = {
+  species: 6, gapless: 215, errorEvery: 2700000, unaligned: [12.5, 27.3], gapFold: [5, 15], inaccessible: [10, 15], mhc: { deletions: 328, insertions: 422 }, spacer: { bonobo: 95.2, siamang: 80.6 },
+};
 
 export const EXAMPLES = [
   { id: 'NM_000546.6:c.215C>G', is: 'TP53 p.Pro72Arg, a common polymorphism' },
