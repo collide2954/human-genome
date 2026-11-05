@@ -395,10 +395,22 @@ const moiLabel = (set) => {
   return set.size === 1 ? [...set][0] : 'several';
 };
 
-export const validitySummary = (text) => {
+const validityRows = (text) => {
   const lines = text.split('\n').map((l) => l.replace(/\r$/, ''));
   const at = lines.findIndex((l) => l.startsWith('"GENE SYMBOL"'));
-  const col = Object.fromEntries(csvLine(lines[at]).map((h, i) => [h, i]));
+  return {
+    col: Object.fromEntries(csvLine(lines[at]).map((h, i) => [h, i])),
+    rows: lines.slice(at + 1).filter((line) => line && !line.startsWith('"+++')).map(csvLine),
+  };
+};
+
+export const supportedGenes = (text) => {
+  const { col, rows } = validityRows(text);
+  return new Set(rows.filter((c) => SUPPORTED.has(c[col.CLASSIFICATION])).map((c) => c[col['GENE ID (HGNC)']]));
+};
+
+export const validitySummary = (text) => {
+  const { col, rows } = validityRows(text);
   const classes = Object.fromEntries(VALIDITY.map((c) => [c, 0]));
   const byMoi = {};
   const byYear = {};
@@ -407,9 +419,7 @@ export const validitySummary = (text) => {
   const diseases = new Set();
   const moi = new Map();
   let curations = 0;
-  for (const line of lines.slice(at + 1)) {
-    if (!line || line.startsWith('"+++')) continue;
-    const c = csvLine(line);
+  for (const c of rows) {
     const gene = c[col['GENE SYMBOL']];
     const mode = c[col.MOI];
     const cls = c[col.CLASSIFICATION];

@@ -28,6 +28,12 @@ export const codingSymbols = (text) => {
   return new Set(rows.filter((r) => r[col.status] === 'Approved' && r[col.locus_group] === 'protein-coding gene').map((r) => r[col.symbol]));
 };
 
+export const codingGenes = (text) => {
+  const { col, rows } = table(text);
+  return rows.filter((r) => r[col.status] === 'Approved' && r[col.locus_group] === 'protein-coding gene')
+    .map((r) => ({ hgnc: r[col.hgnc_id], entrez: r[col.entrez_id] || null, symbol: r[col.symbol] }));
+};
+
 export const hgncSummary = (text) => {
   const { col, rows: all } = table(text);
   const rows = all.filter((r) => r[col.status] === 'Approved');
