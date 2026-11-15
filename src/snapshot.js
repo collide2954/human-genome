@@ -1,52 +1,52 @@
 export default {
-  "generated": "2026-11-08T13:16:18.843Z",
+  "generated": "2026-11-15T13:52:17.046Z",
   "asOf": {
-    "assembly": "2026-11-08T13:16:18.843Z",
-    "sequence": "2026-11-08T13:16:18.843Z",
-    "repeats": "2026-11-08T13:16:18.843Z",
-    "genes": "2026-11-08T13:16:18.843Z",
-    "catalogs": "2026-11-08T13:16:18.843Z",
-    "proteins": "2026-11-08T13:16:18.843Z",
-    "targets": "2026-11-08T13:16:18.843Z",
-    "expression": "2026-11-08T13:16:18.843Z",
-    "networks": "2026-11-08T13:16:18.843Z",
-    "pathways": "2026-11-08T13:16:18.843Z",
-    "ontology": "2026-11-08T13:16:18.843Z",
-    "regulation": "2026-11-08T13:16:18.843Z",
-    "trnas": "2026-11-08T13:16:18.843Z",
-    "encode": "2026-11-08T13:16:18.843Z",
-    "structure": "2026-11-08T13:16:18.843Z",
-    "variation": "2026-11-08T13:16:18.843Z",
-    "constraint": "2026-11-08T13:16:18.843Z",
-    "ancestry": "2026-11-08T13:16:18.843Z",
-    "ancient": "2026-11-08T13:16:18.843Z",
-    "igsr": "2026-11-08T13:16:18.843Z",
-    "assemblies": "2026-11-08T13:16:18.843Z",
-    "clinvar": "2026-11-08T13:16:18.843Z",
-    "clinvarTable": "2026-11-08T13:16:18.843Z",
-    "domains": "2026-11-08T13:16:18.843Z",
-    "clinvarGrowth": "2026-11-08T13:16:18.843Z",
-    "validity": "2026-11-08T13:16:18.843Z",
-    "regions": "2026-11-08T13:16:18.843Z",
-    "expansions": "2026-11-08T13:16:18.843Z",
-    "hpo": "2026-11-08T13:16:18.843Z",
-    "orphanet": "2026-11-08T13:16:18.843Z",
-    "gtr": "2026-11-08T13:16:18.843Z",
-    "fda": "2026-11-08T13:16:18.843Z",
-    "trials": "2026-11-08T13:16:18.843Z",
-    "intogen": "2026-11-08T13:16:18.843Z",
-    "gdc": "2026-11-08T13:16:18.843Z",
-    "cpic": "2026-11-08T13:16:18.843Z",
-    "fdaPgx": "2026-11-08T13:16:18.843Z",
-    "clinpgx": "2026-11-08T13:16:18.843Z",
-    "gwas": "2026-11-08T13:16:18.843Z",
-    "pgs": "2026-11-08T13:16:18.843Z",
-    "panukb": "2026-11-08T13:16:18.843Z",
-    "orthologs": "2026-11-08T13:16:18.843Z",
-    "compara": "2026-11-08T13:16:18.843Z",
-    "eukaryotes": "2026-11-08T13:16:18.843Z",
-    "primates": "2026-11-08T13:16:18.843Z",
-    "conservation": "2026-11-08T13:16:18.843Z"
+    "assembly": "2026-11-15T13:52:17.046Z",
+    "sequence": "2026-11-15T13:52:17.046Z",
+    "repeats": "2026-11-15T13:52:17.046Z",
+    "genes": "2026-11-15T13:52:17.046Z",
+    "catalogs": "2026-11-15T13:52:17.046Z",
+    "proteins": "2026-11-15T13:52:17.046Z",
+    "targets": "2026-11-15T13:52:17.046Z",
+    "expression": "2026-11-15T13:52:17.046Z",
+    "networks": "2026-11-15T13:52:17.046Z",
+    "pathways": "2026-11-15T13:52:17.046Z",
+    "ontology": "2026-11-15T13:52:17.046Z",
+    "regulation": "2026-11-15T13:52:17.046Z",
+    "trnas": "2026-11-15T13:52:17.046Z",
+    "encode": "2026-11-15T13:52:17.046Z",
+    "structure": "2026-11-15T13:52:17.046Z",
+    "variation": "2026-11-15T13:52:17.046Z",
+    "constraint": "2026-11-15T13:52:17.046Z",
+    "ancestry": "2026-11-15T13:52:17.046Z",
+    "ancient": "2026-11-15T13:52:17.046Z",
+    "igsr": "2026-11-15T13:52:17.046Z",
+    "assemblies": "2026-11-15T13:52:17.046Z",
+    "clinvar": "2026-11-15T13:52:17.046Z",
+    "clinvarTable": "2026-11-15T13:52:17.046Z",
+    "domains": "2026-11-15T13:52:17.046Z",
+    "clinvarGrowth": "2026-11-15T13:52:17.046Z",
+    "validity": "2026-11-15T13:52:17.046Z",
+    "regions": "2026-11-15T13:52:17.046Z",
+    "expansions": "2026-11-15T13:52:17.046Z",
+    "hpo": "2026-11-15T13:52:17.046Z",
+    "orphanet": "2026-11-15T13:52:17.046Z",
+    "gtr": "2026-11-15T13:52:17.046Z",
+    "fda": "2026-11-15T13:52:17.046Z",
+    "trials": "2026-11-15T13:52:17.046Z",
+    "intogen": "2026-11-15T13:52:17.046Z",
+    "gdc": "2026-11-15T13:52:17.046Z",
+    "cpic": "2026-11-15T13:52:17.046Z",
+    "fdaPgx": "2026-11-15T13:52:17.046Z",
+    "clinpgx": "2026-11-15T13:52:17.046Z",
+    "gwas": "2026-11-15T13:52:17.046Z",
+    "pgs": "2026-11-15T13:52:17.046Z",
+    "panukb": "2026-11-15T13:52:17.046Z",
+    "orthologs": "2026-11-15T13:52:17.046Z",
+    "compara": "2026-11-15T13:52:17.046Z",
+    "eukaryotes": "2026-11-15T13:52:17.046Z",
+    "primates": "2026-11-15T13:52:17.046Z",
+    "conservation": "2026-11-15T13:52:17.046Z"
   },
   "failed": [],
   "assembly": {
@@ -9388,17 +9388,17 @@ export default {
   },
   "catalogs": {
     "hgnc": {
-      "approved": 45326,
+      "approved": 45395,
       "locusGroups": {
         "protein-coding gene": 19299,
-        "non-coding RNA": 10352,
-        "pseudogene": 14671,
+        "non-coding RNA": 10395,
+        "pseudogene": 14697,
         "other": 1004
       },
       "locusTypes": {
         "gene with protein product": 19299,
-        "pseudogene": 14430,
-        "RNA, long non-coding": 7014,
+        "pseudogene": 14456,
+        "RNA, long non-coding": 7057,
         "RNA, micro": 1912,
         "RNA, transfer": 591,
         "RNA, small nucleolar": 568,
@@ -9462,7 +9462,7 @@ export default {
           [2023, 312],
           [2024, 112],
           [2025, 914],
-          [2026, 450]
+          [2026, 493]
         ],
         "symbolChanged": [
           [2001, 78],
@@ -9490,7 +9490,7 @@ export default {
           [2023, 147],
           [2024, 36],
           [2025, 93],
-          [2026, 119]
+          [2026, 120]
         ],
         "nameChanged": [
           [2001, 65],
@@ -9505,7 +9505,7 @@ export default {
           [2010, 513],
           [2011, 802],
           [2012, 1554],
-          [2013, 700],
+          [2013, 699],
           [2014, 423],
           [2015, 4726],
           [2016, 5415],
@@ -9518,22 +9518,22 @@ export default {
           [2023, 346],
           [2024, 205],
           [2025, 404],
-          [2026, 2639]
+          [2026, 2642]
         ]
       },
       "placeholders": {
         "orf": 206,
-        "fam": 363,
+        "fam": 366,
         "kiaa": 37
       },
       "groups": [
         {
           "name": "Antisense RNAs",
-          "n": 2947
+          "n": 2984
         },
         {
           "name": "Long independently transcribed non-coding RNAs",
-          "n": 2392
+          "n": 2394
         },
         {
           "name": "MicroRNAs",
@@ -9549,11 +9549,11 @@ export default {
         },
         {
           "name": "Divergent transcripts",
-          "n": 744
+          "n": 747
         },
         {
           "name": "Long non-coding RNAs with non-systematic symbols",
-          "n": 539
+          "n": 540
         },
         {
           "name": "Cytoplasmic transfer RNAs",
@@ -9573,7 +9573,7 @@ export default {
         },
         {
           "name": "Unitary pseudogenes",
-          "n": 326
+          "n": 328
         },
         {
           "name": "Ring finger proteins",
@@ -9604,16 +9604,16 @@ export default {
           "n": 212
         },
         {
-          "name": "EF-hand domain containing",
-          "n": 198
-        },
-        {
           "name": "Pleckstrin homology domain containing",
           "n": 191
         },
         {
           "name": "Immunoglobulin heavy locus at 14q32.33",
           "n": 188
+        },
+        {
+          "name": "EF-hand domain containing",
+          "n": 187
         },
         {
           "name": "Small nucleolar RNAs, H/ACA box",
@@ -9791,7 +9791,7 @@ export default {
         },
         {
           "parent": "RPS2",
-          "n": 55
+          "n": 58
         },
         {
           "parent": "RPS3A",
@@ -9864,7 +9864,7 @@ export default {
           "n": 19
         }
       ],
-      "uncharacterized": 14440
+      "uncharacterized": 14432
     },
     "mane": {
       "release": "1.5",
@@ -10510,63 +10510,63 @@ export default {
   },
   "expression": {
     "hpa": {
-      "file": "2026-06-03",
+      "file": "2026-11-10",
       "genes": 20162,
       "contexts": {
         "tissue": {
           "enriched": 3132,
           "group": 1547,
-          "enhanced": 6356,
-          "low": 8096,
+          "enhanced": 4666,
+          "low": 9786,
           "none": 1031
         },
         "singleCell": {
-          "enriched": 1906,
-          "group": 1995,
-          "enhanced": 13393,
-          "low": 1590,
-          "none": 1278
+          "enriched": 1631,
+          "group": 1926,
+          "enhanced": 5766,
+          "low": 9615,
+          "none": 1224
         },
         "blood": {
           "enriched": 1013,
           "group": 1252,
-          "enhanced": 2129,
-          "low": 8437,
+          "enhanced": 1801,
+          "low": 8765,
           "none": 7331
         },
         "brain": {
-          "enriched": 409,
-          "group": 186,
-          "enhanced": 469,
-          "low": 16768,
-          "none": 2330
+          "enriched": 241,
+          "group": 196,
+          "enhanced": 252,
+          "low": 17076,
+          "none": 2397
         },
         "cellLine": {
           "enriched": 1324,
           "group": 874,
-          "enhanced": 3709,
-          "low": 11651,
+          "enhanced": 2677,
+          "low": 12683,
           "none": 2604
         },
         "cancer": {
           "enriched": 1314,
           "group": 798,
-          "enhanced": 2986,
-          "low": 12658,
+          "enhanced": 2425,
+          "low": 13219,
           "none": 2217
         }
       },
       "blood": {
-        "proteins": 4426,
+        "proteins": 4435,
         "lowest": {
-          "gene": "IFNL3",
-          "im": 1700,
+          "gene": "IL1B",
+          "im": 1680,
           "ms": null
         },
         "edges": [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1000000000000, 10000000000000, 100000000000000, 1000000000000000],
         "im": {
-          "count": 457,
-          "counts": [0, 0, 0, 17, 68, 78, 82, 49, 56, 35, 39, 26, 5, 2, 0]
+          "count": 501,
+          "counts": [0, 0, 0, 19, 78, 88, 77, 60, 57, 40, 42, 31, 8, 1, 0]
         },
         "ms": {
           "count": 4285,
@@ -10575,48 +10575,48 @@ export default {
         "top": [
           {
             "gene": "ALB",
-            "im": 40000000000000,
+            "im": 42500000000000,
             "ms": null
           },
           {
+            "gene": "FGB",
+            "im": 3290000000000,
+            "ms": 170000000000
+          },
+          {
             "gene": "TF",
-            "im": 19800000000000,
+            "im": 2730000000000,
             "ms": 250000000000
           },
           {
             "gene": "SERPINA1",
-            "im": 1920000000000,
+            "im": 1930000000000,
             "ms": 230000000000
           },
           {
             "gene": "A2M",
-            "im": 1630000000000,
+            "im": 1650000000000,
             "ms": 420000000000
           },
           {
-            "gene": "APOB",
-            "im": 1490000000000,
-            "ms": 250000000000
-          },
-          {
-            "gene": "APOA1",
-            "im": 1450000000000,
-            "ms": 160000000000
-          },
-          {
-            "gene": "C3",
-            "im": 1260000000000,
-            "ms": 370000000000
-          },
-          {
             "gene": "HP",
-            "im": 998000000000,
+            "im": 1540000000000,
             "ms": 260000000000
           },
           {
-            "gene": "ORM1",
-            "im": 945000000000,
-            "ms": 66000000000
+            "gene": "APOA1",
+            "im": 1460000000000,
+            "ms": 160000000000
+          },
+          {
+            "gene": "APOB",
+            "im": 1330000000000,
+            "ms": 250000000000
+          },
+          {
+            "gene": "C3",
+            "im": 1310000000000,
+            "ms": 370000000000
           },
           {
             "gene": "AHSG",
@@ -10624,23 +10624,23 @@ export default {
             "ms": 110000000000
           },
           {
+            "gene": "ORM1",
+            "im": 772000000000,
+            "ms": 66000000000
+          },
+          {
+            "gene": "VTN",
+            "im": 755000000000,
+            "ms": 46000000000
+          },
+          {
             "gene": "SERPINA3",
             "im": 697000000000,
             "ms": 130000000000
           },
           {
-            "gene": "VTN",
-            "im": 606000000000,
-            "ms": 46000000000
-          },
-          {
-            "gene": "C4B",
-            "im": 447000000000,
-            "ms": 230000000000
-          },
-          {
             "gene": "HPX",
-            "im": 425000000000,
+            "im": 638000000000,
             "ms": 270000000000
           },
           {
@@ -10651,8 +10651,8 @@ export default {
         ]
       },
       "specificity": {
-        "Low tissue specificity": 8096,
-        "Tissue enhanced": 6356,
+        "Low tissue specificity": 9786,
+        "Tissue enhanced": 4666,
         "Group enriched": 1547,
         "Tissue enriched": 3132,
         "Not detected": 1031
@@ -10797,60 +10797,60 @@ export default {
       ],
       "cellTypes": [
         {
-          "cell": "Late spermatids",
-          "n": 244
+          "cell": "Plasma cells",
+          "n": 135
         },
         {
           "cell": "Hepatocytes",
-          "n": 130
-        },
-        {
-          "cell": "Esophageal apical cells",
-          "n": 117
-        },
-        {
-          "cell": "Neutrophils",
-          "n": 110
-        },
-        {
-          "cell": "Plasma cells",
-          "n": 79
+          "n": 131
         },
         {
           "cell": "Epididymal principal cells",
-          "n": 68
+          "n": 70
         },
         {
           "cell": "Oocytes",
+          "n": 62
+        },
+        {
+          "cell": "Early spermatids",
           "n": 56
         },
         {
-          "cell": "Platelets",
-          "n": 54
-        },
-        {
-          "cell": "Myonuclei",
-          "n": 40
+          "cell": "Late primary spermatocytes",
+          "n": 42
         },
         {
           "cell": "Syncytiotrophoblasts",
+          "n": 40
+        },
+        {
+          "cell": "Esophageal apical cells",
           "n": 39
         },
         {
-          "cell": "Cardiomyocytes",
+          "cell": "T-cells",
+          "n": 39
+        },
+        {
+          "cell": "Enterocytes",
+          "n": 36
+        },
+        {
+          "cell": "Platelets",
           "n": 36
         },
         {
           "cell": "Early primary spermatocytes",
-          "n": 33
+          "n": 35
         },
         {
-          "cell": "Enterocytes",
-          "n": 32
+          "cell": "Myonuclei",
+          "n": 35
         },
         {
-          "cell": "Early spermatids",
-          "n": 31
+          "cell": "Cardiomyocytes",
+          "n": 34
         },
         {
           "cell": "Oligodendrocytes",
@@ -10861,23 +10861,23 @@ export default {
           "n": 31
         },
         {
-          "cell": "Epicardial cells",
-          "n": 30
-        },
-        {
           "cell": "Proximal tubule cells",
-          "n": 30
+          "n": 31
         },
         {
-          "cell": "Late primary spermatocytes",
-          "n": 28
+          "cell": "Neutrophils",
+          "n": 26
         },
         {
           "cell": "Microglia",
-          "n": 25
+          "n": 24
         },
         {
           "cell": "Podocytes",
+          "n": 23
+        },
+        {
+          "cell": "Breast lactating cells",
           "n": 21
         },
         {
@@ -10885,70 +10885,70 @@ export default {
           "n": 21
         },
         {
-          "cell": "Tuft cells",
-          "n": 21
+          "cell": "Rod photoreceptor cells",
+          "n": 20
         },
         {
-          "cell": "Breast lactating cells",
+          "cell": "Tuft cells",
           "n": 19
         },
         {
-          "cell": "Rod photoreceptor cells",
+          "cell": "Choroid plexus epithelial cells",
           "n": 18
         }
       ],
       "secretome": {
         "Secreted to blood": 785,
-        "Intracellular and membrane": 619,
-        "Secreted in other tissues": 286,
-        "Secreted to extracellular matrix": 236,
+        "Intracellular and membrane": 625,
+        "Secreted in other tissues": 288,
+        "Secreted to extracellular matrix": 237,
         "Secreted in male reproductive system": 123,
-        "Secreted - unknown location": 116,
+        "Secreted - unknown location": 114,
         "Secreted to digestive system": 94,
-        "Secreted in brain": 76,
+        "Secreted in brain": 77,
         "Secreted in female reproductive system": 38,
         "Immunoglobulin genes": 147
       },
       "locations": [
         {
           "name": "Nucleoplasm",
-          "n": 4897
+          "n": 4895
         },
         {
           "name": "Cytosol",
-          "n": 3087
-        },
-        {
-          "name": "Vesicles",
-          "n": 1661
+          "n": 3102
         },
         {
           "name": "Plasma membrane",
-          "n": 1648
+          "n": 1679
+        },
+        {
+          "name": "Vesicles",
+          "n": 1657
         },
         {
           "name": "Mitochondria",
-          "n": 974
+          "n": 976
         },
         {
           "name": "Golgi apparatus",
-          "n": 886
+          "n": 887
         },
         {
           "name": "Nucleoli",
-          "n": 638
+          "n": 643
         },
         {
           "name": "Endoplasmic reticulum",
-          "n": 486
+          "n": 494
         },
         {
           "name": "Nuclear speckles",
-          "n": 412
+          "n": 413
         },
         {
           "name": "Nuclear bodies",
-          "n": 326
+          "n": 315
         },
         {
           "name": "Centrosome",
@@ -10956,23 +10956,31 @@ export default {
         },
         {
           "name": "Microtubules",
-          "n": 237
+          "n": 234
+        },
+        {
+          "name": "Nucleoli fibrillar center",
+          "n": 196
         },
         {
           "name": "Nuclear membrane",
           "n": 193
         },
         {
-          "name": "Nucleoli fibrillar center",
-          "n": 193
-        },
-        {
           "name": "Cell Junctions",
-          "n": 192
+          "n": 190
         },
         {
           "name": "Mid piece",
-          "n": 151
+          "n": 150
+        },
+        {
+          "name": "Basal body",
+          "n": 141
+        },
+        {
+          "name": "Actin filaments",
+          "n": 140
         },
         {
           "name": "Primary cilium",
@@ -10981,24 +10989,20 @@ export default {
         {
           "name": "Principal piece",
           "n": 140
-        },
-        {
-          "name": "Basal body",
-          "n": 139
-        },
-        {
-          "name": "Actin filaments",
-          "n": 138
         }
       ],
       "classes": [
         {
           "name": "Predicted intracellular proteins",
-          "n": 15915
+          "n": 15916
         },
         {
           "name": "Predicted membrane proteins",
           "n": 5573
+        },
+        {
+          "name": "Housekeeping proteins",
+          "n": 5461
         },
         {
           "name": "Disease related genes",
@@ -11018,19 +11022,19 @@ export default {
         },
         {
           "name": "Metabolic proteins",
-          "n": 2882
+          "n": 2376
+        },
+        {
+          "name": "Essential proteins",
+          "n": 2247
         },
         {
           "name": "Transporters",
           "n": 2138
         },
         {
-          "name": "Essential proteins",
-          "n": 2023
-        },
-        {
           "name": "Predicted secreted proteins",
-          "n": 1902
+          "n": 1904
         },
         {
           "name": "Potential drug targets",
@@ -11071,6 +11075,10 @@ export default {
         {
           "name": "Ribosomal proteins",
           "n": 180
+        },
+        {
+          "name": "Biomarker genes",
+          "n": 156
         },
         {
           "name": "Candidate cardiovascular disease genes",
@@ -13169,8 +13177,8 @@ export default {
         "inIsland": 12221,
         "bySpecificity": {
           "Tissue enhanced": {
-            "genes": 5958,
-            "inIsland": 3717
+            "genes": 4340,
+            "inIsland": 2655
           },
           "Tissue enriched": {
             "genes": 2884,
@@ -13181,8 +13189,8 @@ export default {
             "inIsland": 53
           },
           "Low tissue specificity": {
-            "genes": 7913,
-            "inIsland": 6753
+            "genes": 9531,
+            "inIsland": 7815
           },
           "Group enriched": {
             "genes": 1434,
@@ -15682,7 +15690,7 @@ export default {
       ]
     },
     "dosage": {
-      "date": "08 Nov,2026",
+      "date": "15 Nov,2026",
       "hi": {
         "0": 325,
         "1": 143,
@@ -24241,52 +24249,52 @@ export default {
     }
   },
   "clinvar": {
-    "release": "2026-11-01",
-    "records": 4616247,
+    "release": "2026-11-08",
+    "records": 4620536,
     "classes": {
-      "Pathogenic": 189754,
-      "Pathogenic/Likely pathogenic": 45653,
-      "Likely pathogenic": 131593,
-      "Uncertain significance": 2391793,
-      "Likely benign": 1142247,
-      "Benign/Likely benign": 83278,
-      "Benign": 193205,
-      "Conflicting": 183615,
+      "Pathogenic": 190061,
+      "Pathogenic/Likely pathogenic": 45710,
+      "Likely pathogenic": 131793,
+      "Uncertain significance": 2392477,
+      "Likely benign": 1143488,
+      "Benign/Likely benign": 84592,
+      "Benign": 193163,
+      "Conflicting": 184173,
       "Other": 11187,
-      "none": 243922
+      "none": 243892
     },
     "consequences": {
       "splice site": {
-        "Pathogenic": 15460,
-        "Pathogenic/Likely pathogenic": 5753,
-        "Likely pathogenic": 31462,
-        "Uncertain significance": 12841,
-        "Likely benign": 977,
+        "Pathogenic": 15495,
+        "Pathogenic/Likely pathogenic": 5767,
+        "Likely pathogenic": 31478,
+        "Uncertain significance": 12861,
+        "Likely benign": 980,
         "Benign/Likely benign": 114,
-        "Benign": 231,
-        "Conflicting": 2622,
-        "Other": 325
+        "Benign": 233,
+        "Conflicting": 2630,
+        "Other": 324
       },
       "nonsense": {
-        "Pathogenic": 54712,
-        "Pathogenic/Likely pathogenic": 11770,
-        "Likely pathogenic": 20937,
-        "Uncertain significance": 14243,
-        "Likely benign": 845,
+        "Pathogenic": 54779,
+        "Pathogenic/Likely pathogenic": 11785,
+        "Likely pathogenic": 20964,
+        "Uncertain significance": 14260,
+        "Likely benign": 849,
         "Benign/Likely benign": 66,
         "Benign": 227,
-        "Conflicting": 2482,
-        "Other": 506
+        "Conflicting": 2488,
+        "Other": 507
       },
       "frameshift": {
-        "Pathogenic": 90856,
-        "Pathogenic/Likely pathogenic": 12858,
-        "Likely pathogenic": 37415,
-        "Uncertain significance": 19987,
-        "Likely benign": 954,
-        "Benign/Likely benign": 67,
+        "Pathogenic": 91064,
+        "Pathogenic/Likely pathogenic": 12874,
+        "Likely pathogenic": 37482,
+        "Uncertain significance": 20013,
+        "Likely benign": 958,
+        "Benign/Likely benign": 68,
         "Benign": 417,
-        "Conflicting": 2416,
+        "Conflicting": 2426,
         "Other": 1214
       },
       "stop lost": {
@@ -24295,83 +24303,83 @@ export default {
         "Likely pathogenic": 153,
         "Uncertain significance": 1107,
         "Likely benign": 82,
-        "Benign/Likely benign": 9,
-        "Benign": 25,
+        "Benign/Likely benign": 10,
+        "Benign": 24,
         "Conflicting": 69,
         "Other": 8
       },
       "start lost": {
-        "Pathogenic": 927,
-        "Pathogenic/Likely pathogenic": 372,
-        "Likely pathogenic": 633,
+        "Pathogenic": 926,
+        "Pathogenic/Likely pathogenic": 373,
+        "Likely pathogenic": 634,
         "Uncertain significance": 3427,
         "Likely benign": 194,
         "Benign/Likely benign": 35,
         "Benign": 64,
-        "Conflicting": 370,
+        "Conflicting": 372,
         "Other": 11
       },
       "in-frame indel": {
-        "Pathogenic": 1529,
-        "Pathogenic/Likely pathogenic": 486,
-        "Likely pathogenic": 1805,
-        "Uncertain significance": 22123,
-        "Likely benign": 1756,
-        "Benign/Likely benign": 668,
-        "Benign": 702,
-        "Conflicting": 2286,
-        "Other": 228
+        "Pathogenic": 1539,
+        "Pathogenic/Likely pathogenic": 489,
+        "Likely pathogenic": 1827,
+        "Uncertain significance": 22424,
+        "Likely benign": 1813,
+        "Benign/Likely benign": 688,
+        "Benign": 711,
+        "Conflicting": 2326,
+        "Other": 230
       },
       "missense": {
-        "Pathogenic": 22440,
-        "Pathogenic/Likely pathogenic": 13107,
-        "Likely pathogenic": 35608,
-        "Uncertain significance": 2184654,
-        "Likely benign": 109586,
-        "Benign/Likely benign": 16970,
-        "Benign": 28032,
-        "Conflicting": 122893,
+        "Pathogenic": 22438,
+        "Pathogenic/Likely pathogenic": 13118,
+        "Likely pathogenic": 35688,
+        "Uncertain significance": 2185142,
+        "Likely benign": 109948,
+        "Benign/Likely benign": 17023,
+        "Benign": 27966,
+        "Conflicting": 123338,
         "Other": 4536
       },
       "synonymous": {
         "Pathogenic": 283,
-        "Pathogenic/Likely pathogenic": 180,
-        "Likely pathogenic": 362,
-        "Uncertain significance": 21556,
-        "Likely benign": 636221,
-        "Benign/Likely benign": 44929,
-        "Benign": 35819,
-        "Conflicting": 29421,
+        "Pathogenic/Likely pathogenic": 179,
+        "Likely pathogenic": 363,
+        "Uncertain significance": 21591,
+        "Likely benign": 636831,
+        "Benign/Likely benign": 46123,
+        "Benign": 35845,
+        "Conflicting": 29448,
         "Other": 411
       },
       "UTR": {
-        "Pathogenic": 331,
+        "Pathogenic": 330,
         "Pathogenic/Likely pathogenic": 66,
-        "Likely pathogenic": 164,
-        "Uncertain significance": 41762,
-        "Likely benign": 15728,
-        "Benign/Likely benign": 2535,
-        "Benign": 17332,
-        "Conflicting": 2827,
+        "Likely pathogenic": 156,
+        "Uncertain significance": 41731,
+        "Likely benign": 15745,
+        "Benign/Likely benign": 2532,
+        "Benign": 17351,
+        "Conflicting": 2829,
         "Other": 621
       },
       "intron": {
-        "Pathogenic": 1681,
-        "Pathogenic/Likely pathogenic": 805,
-        "Likely pathogenic": 2190,
-        "Uncertain significance": 58185,
-        "Likely benign": 371188,
-        "Benign/Likely benign": 17422,
-        "Benign": 104867,
-        "Conflicting": 17761,
-        "Other": 2749
+        "Pathogenic": 1672,
+        "Pathogenic/Likely pathogenic": 803,
+        "Likely pathogenic": 2184,
+        "Uncertain significance": 58000,
+        "Likely benign": 371335,
+        "Benign/Likely benign": 17471,
+        "Benign": 104843,
+        "Conflicting": 17780,
+        "Other": 2747
       },
       "non-coding RNA": {
         "Pathogenic": 43,
         "Pathogenic/Likely pathogenic": 9,
         "Likely pathogenic": 74,
-        "Uncertain significance": 2324,
-        "Likely benign": 522,
+        "Uncertain significance": 2328,
+        "Likely benign": 528,
         "Benign/Likely benign": 14,
         "Benign": 279,
         "Conflicting": 43,
@@ -24382,7 +24390,7 @@ export default {
         "Pathogenic/Likely pathogenic": 11,
         "Likely pathogenic": 55,
         "Uncertain significance": 297,
-        "Likely benign": 210,
+        "Likely benign": 213,
         "Benign/Likely benign": 27,
         "Benign": 337,
         "Conflicting": 19,
@@ -24392,40 +24400,40 @@ export default {
         "Pathogenic": 1275,
         "Pathogenic/Likely pathogenic": 214,
         "Likely pathogenic": 735,
-        "Uncertain significance": 9287,
-        "Likely benign": 3984,
-        "Benign/Likely benign": 422,
-        "Benign": 4873,
-        "Conflicting": 406,
+        "Uncertain significance": 9296,
+        "Likely benign": 4012,
+        "Benign/Likely benign": 421,
+        "Benign": 4866,
+        "Conflicting": 405,
         "Other": 470
       }
     },
     "stars": {
-      "Pathogenic": [19880, 125937, 34099, 9815, 23],
-      "Pathogenic/Likely pathogenic": [576, 30, 45042, 5, 0],
-      "Likely pathogenic": [9202, 105960, 13388, 3043, 0],
-      "Uncertain significance": [33759, 2026402, 327555, 4077, 0],
-      "Likely benign": [25549, 934298, 179536, 2864, 0],
-      "Benign/Likely benign": [110, 377, 82790, 1, 0],
-      "Benign": [6348, 100798, 83182, 2877, 0],
-      "Conflicting": [343, 183270, 0, 2, 0],
+      "Pathogenic": [19868, 126178, 34175, 9817, 23],
+      "Pathogenic/Likely pathogenic": [576, 30, 45099, 5, 0],
+      "Likely pathogenic": [9200, 106141, 13409, 3043, 0],
+      "Uncertain significance": [33743, 2026865, 327792, 4077, 0],
+      "Likely benign": [25471, 935118, 180035, 2864, 0],
+      "Benign/Likely benign": [110, 377, 84104, 1, 0],
+      "Benign": [6335, 100842, 83109, 2877, 0],
+      "Conflicting": [343, 183828, 0, 2, 0],
       "Other": [10801, 113, 167, 78, 28]
     },
     "types": {
-      "Deletion": 174828,
-      "single nucleotide variant": 4285975,
-      "Microsatellite": 41303,
-      "Insertion": 15845,
-      "Indel": 21051,
-      "Duplication": 74988,
-      "Variation": 696,
-      "Inversion": 1561
+      "Deletion": 175099,
+      "single nucleotide variant": 4289716,
+      "Microsatellite": 41367,
+      "Insertion": 15866,
+      "Indel": 21105,
+      "Duplication": 75122,
+      "Variation": 697,
+      "Inversion": 1564
     },
     "origin": {
-      "germline": 4306806,
+      "germline": 4310732,
       "somatic": 7009,
       "both": 3508,
-      "unknown": 298924
+      "unknown": 299287
     },
     "oncogenicity": {
       "Likely oncogenic": 1299,
@@ -24443,184 +24451,184 @@ export default {
       "Tier IV - Benign/Likely benign": 41
     },
     "spectrum": {
-      "plp": [1876, 5937, 1379, 1325, 1310, 1294, 1013, 2084, 1364, 1819, 1284, 971, 4417, 4221, 3334, 3780, 1776, 3630, 1498, 1899, 876, 945, 1209, 2581, 666, 681, 772, 890, 3030, 740, 711, 1497, 6128, 9371, 4125, 2325, 13045, 3455, 7783, 4763, 7029, 3002, 4587, 1389, 4324, 3275, 4769, 1798, 528, 1081, 1638, 402, 639, 560, 1723, 518, 1129, 721, 1363, 415, 1708, 1559, 2427, 807, 1062, 1105, 2033, 1039, 2296, 1167, 6680, 1163, 3077, 741, 2200, 618, 357, 677, 818, 644, 510, 542, 1830, 559, 644, 365, 2423, 559, 1345, 373, 1622, 345, 1301, 283, 457, 293],
-      "blb": [7144, 6549, 4211, 2397, 9794, 11548, 10622, 5276, 9234, 9296, 10962, 3699, 6867, 8165, 4535, 6909, 7348, 3663, 3275, 3788, 11273, 14835, 13235, 10989, 6535, 6555, 5740, 4804, 8504, 9066, 4084, 12935, 38966, 26896, 57410, 29222, 38309, 40029, 76191, 50943, 28515, 30219, 54382, 37267, 28387, 32517, 38376, 36457, 3392, 3409, 4880, 2730, 2268, 4579, 7075, 2892, 1785, 2658, 4113, 1870, 4054, 3128, 3117, 4150, 27283, 11383, 44964, 27069, 11572, 15290, 36775, 23355, 11347, 9474, 22076, 16936, 13525, 13143, 19141, 22157, 2480, 1593, 4703, 2255, 2770, 6412, 12556, 5747, 1859, 2217, 6463, 2255, 3610, 4580, 6441, 7537],
+      "plp": [1878, 5943, 1381, 1325, 1314, 1294, 1014, 2086, 1364, 1824, 1285, 971, 4425, 4233, 3341, 3786, 1779, 3632, 1500, 1900, 876, 947, 1210, 2586, 667, 682, 774, 890, 3035, 742, 712, 1498, 6136, 9381, 4128, 2329, 13056, 3458, 7785, 4769, 7034, 3003, 4585, 1391, 4330, 3276, 4773, 1799, 529, 1081, 1641, 402, 639, 562, 1723, 518, 1131, 721, 1366, 415, 1709, 1561, 2431, 809, 1064, 1106, 2037, 1039, 2299, 1170, 6692, 1165, 3080, 742, 2202, 618, 358, 678, 818, 645, 511, 542, 1832, 559, 644, 365, 2426, 560, 1345, 373, 1624, 345, 1303, 284, 458, 293],
+      "blb": [7153, 6554, 4222, 2404, 9810, 11570, 10641, 5290, 9246, 9306, 10985, 3706, 6881, 8179, 4547, 6910, 7354, 3667, 3285, 3793, 11291, 14865, 13271, 11003, 6545, 6568, 5755, 4811, 8513, 9085, 4092, 12952, 39016, 26953, 57551, 29255, 38380, 40093, 76422, 51021, 28557, 30282, 54537, 37325, 28431, 32572, 38471, 36505, 3395, 3414, 4884, 2734, 2271, 4587, 7093, 2897, 1786, 2665, 4121, 1871, 4056, 3134, 3128, 4151, 27320, 11409, 45032, 27113, 11602, 15312, 36844, 23399, 11367, 9489, 22112, 16960, 13548, 13171, 19167, 22192, 2480, 1599, 4705, 2257, 2775, 6427, 12582, 5749, 1861, 2221, 6471, 2256, 3612, 4587, 6450, 7542],
       "mismatches": 0,
       "skipped": 543
     },
     "genes": {
-      "date": "October 31, 2026",
-      "genes": 19258,
-      "withPlp": 8541,
-      "plp": 411619,
-      "vus": 2582860,
+      "date": "November 9, 2026",
+      "genes": 19260,
+      "withPlp": 8544,
+      "plp": 412249,
+      "vus": 2601955,
       "top": [
         {
           "gene": "TTN",
-          "plp": 6183,
-          "vus": 12270,
-          "conflicts": 4459,
-          "alleles": 40949
+          "plp": 6192,
+          "vus": 12674,
+          "conflicts": 4591,
+          "alleles": 41475
         },
         {
           "gene": "BRCA2",
-          "plp": 6017,
-          "vus": 4356,
-          "conflicts": 5744,
-          "alleles": 22068
+          "plp": 6028,
+          "vus": 4345,
+          "conflicts": 5759,
+          "alleles": 22079
         },
         {
           "gene": "NF1",
-          "plp": 5988,
-          "vus": 6048,
-          "conflicts": 1357,
-          "alleles": 17948
+          "plp": 6002,
+          "vus": 5953,
+          "conflicts": 1439,
+          "alleles": 18013
         },
         {
           "gene": "BRCA1",
-          "plp": 4739,
-          "vus": 2612,
-          "conflicts": 2925,
-          "alleles": 16089
+          "plp": 4745,
+          "vus": 2607,
+          "conflicts": 2933,
+          "alleles": 16101
         },
         {
           "gene": "ATM",
-          "plp": 4124,
-          "vus": 8472,
-          "conflicts": 1524,
-          "alleles": 19825
+          "plp": 4134,
+          "vus": 8440,
+          "conflicts": 1561,
+          "alleles": 19845
         },
         {
           "gene": "FBN1",
           "plp": 3859,
-          "vus": 2827,
-          "conflicts": 733,
-          "alleles": 9717
+          "vus": 2853,
+          "conflicts": 741,
+          "alleles": 9761
         },
         {
           "gene": "DMD",
-          "plp": 3582,
-          "vus": 3523,
-          "conflicts": 736,
-          "alleles": 12151
+          "plp": 3586,
+          "vus": 3540,
+          "conflicts": 742,
+          "alleles": 12187
         },
         {
           "gene": "APC",
-          "plp": 2748,
-          "vus": 8861,
-          "conflicts": 791,
-          "alleles": 17210
+          "plp": 2754,
+          "vus": 8849,
+          "conflicts": 807,
+          "alleles": 17246
         },
         {
           "gene": "PKD1",
-          "plp": 2624,
-          "vus": 3480,
-          "conflicts": 531,
-          "alleles": 7963
+          "plp": 2659,
+          "vus": 3637,
+          "conflicts": 604,
+          "alleles": 8436
         },
         {
           "gene": "USH2A",
-          "plp": 2536,
-          "vus": 3396,
-          "conflicts": 554,
-          "alleles": 10284
+          "plp": 2538,
+          "vus": 3434,
+          "conflicts": 576,
+          "alleles": 10432
         },
         {
           "gene": "MSH2",
           "plp": 2485,
-          "vus": 2382,
-          "conflicts": 1431,
-          "alleles": 8636
+          "vus": 2357,
+          "conflicts": 1458,
+          "alleles": 8648
         },
         {
           "gene": "MSH6",
-          "plp": 2409,
-          "vus": 4575,
-          "conflicts": 1243,
-          "alleles": 10835
+          "plp": 2412,
+          "vus": 4540,
+          "conflicts": 1277,
+          "alleles": 10850
         },
         {
           "gene": "LDLR",
-          "plp": 2330,
-          "vus": 1232,
-          "conflicts": 348,
-          "alleles": 4960
+          "plp": 2333,
+          "vus": 1231,
+          "conflicts": 352,
+          "alleles": 4965
         },
         {
           "gene": "SCN1A",
-          "plp": 2287,
-          "vus": 1748,
-          "conflicts": 387,
-          "alleles": 5525
+          "plp": 2288,
+          "vus": 1764,
+          "conflicts": 390,
+          "alleles": 5547
         },
         {
           "gene": "NEB",
           "plp": 2125,
-          "vus": 3402,
-          "conflicts": 1015,
-          "alleles": 12691
+          "vus": 3431,
+          "conflicts": 1036,
+          "alleles": 12919
         },
         {
           "gene": "MLH1",
           "plp": 2110,
-          "vus": 2187,
+          "vus": 2185,
           "conflicts": 530,
-          "alleles": 6511
+          "alleles": 6521
         },
         {
           "gene": "PKHD1",
-          "plp": 1752,
-          "vus": 2189,
-          "conflicts": 471,
-          "alleles": 7029
+          "plp": 1753,
+          "vus": 2270,
+          "conflicts": 498,
+          "alleles": 7260
         },
         {
           "gene": "CFTR",
           "plp": 1701,
-          "vus": 2581,
-          "conflicts": 407,
-          "alleles": 6476
+          "vus": 2585,
+          "conflicts": 415,
+          "alleles": 6511
         },
         {
           "gene": "DNAH5",
           "plp": 1684,
-          "vus": 1565,
-          "conflicts": 605,
-          "alleles": 6953
+          "vus": 1581,
+          "conflicts": 621,
+          "alleles": 7483
         },
         {
-          "gene": "TSC2",
-          "plp": 1644,
-          "vus": 4519,
-          "conflicts": 1619,
-          "alleles": 12826
+          "gene": "COL4A5",
+          "plp": 1650,
+          "vus": 637,
+          "conflicts": 163,
+          "alleles": 3929
         }
       ],
-      "lorenz": [0, 0.3098, 0.4152, 0.4857, 0.5397, 0.5844, 0.6232, 0.658, 0.6882, 0.7153, 0.7389, 0.76, 0.7788, 0.796, 0.8119, 0.8261, 0.8391, 0.8509, 0.8616, 0.8716, 0.8806, 0.889, 0.8967, 0.9038, 0.9104, 0.9164, 0.922, 0.9271, 0.9318, 0.9362, 0.9403, 0.9441, 0.9475, 0.9508, 0.9538, 0.9567, 0.9593, 0.9617, 0.9639, 0.966, 0.9679, 0.9698, 0.9714, 0.973, 0.9745, 0.9759, 0.9772, 0.9784, 0.9795, 0.9806, 0.9816, 0.9826, 0.9834, 0.9842, 0.985, 0.9859, 0.9865, 0.9871, 0.9877, 0.9883, 0.989, 0.9896, 0.99, 0.9904, 0.9908, 0.9913, 0.9917, 0.9921, 0.9925, 0.9929, 0.9933, 0.9937, 0.9942, 0.9944, 0.9946, 0.9948, 0.995, 0.9952, 0.9954, 0.9956, 0.9959, 0.9961, 0.9963, 0.9965, 0.9967, 0.9969, 0.9971, 0.9973, 0.9975, 0.9977, 0.9979, 0.9981, 0.9983, 0.9985, 0.9988, 0.999, 0.9992, 0.9994, 0.9996, 0.9998, 1]
+      "lorenz": [0, 0.3098, 0.4151, 0.4856, 0.5396, 0.5844, 0.6236, 0.6579, 0.6885, 0.7152, 0.7388, 0.76, 0.7787, 0.7961, 0.8119, 0.8262, 0.8391, 0.8508, 0.8617, 0.8715, 0.8806, 0.889, 0.8968, 0.9038, 0.9104, 0.9164, 0.922, 0.9271, 0.9318, 0.9363, 0.9403, 0.9441, 0.9475, 0.9508, 0.9539, 0.9567, 0.9593, 0.9617, 0.9639, 0.966, 0.9679, 0.9698, 0.9714, 0.973, 0.9745, 0.9759, 0.9772, 0.9784, 0.9795, 0.9806, 0.9816, 0.9826, 0.9834, 0.9842, 0.985, 0.9859, 0.9865, 0.9871, 0.9877, 0.9883, 0.989, 0.9896, 0.99, 0.9904, 0.9908, 0.9913, 0.9917, 0.9921, 0.9925, 0.9929, 0.9933, 0.9937, 0.9942, 0.9944, 0.9946, 0.9948, 0.995, 0.9952, 0.9954, 0.9956, 0.9959, 0.9961, 0.9963, 0.9965, 0.9967, 0.9969, 0.9971, 0.9973, 0.9975, 0.9977, 0.9979, 0.9981, 0.9983, 0.9985, 0.9988, 0.999, 0.9992, 0.9994, 0.9996, 0.9998, 1]
     },
     "organizations": {
-      "organizations": 3607,
-      "submissions": 7412837,
+      "organizations": 3614,
+      "submissions": 7425575,
       "types": [
         {
           "type": "lab",
-          "orgs": 2494,
-          "submissions": 7179527
+          "orgs": 2498,
+          "submissions": 7191949
         },
         {
           "type": "consortium",
-          "orgs": 80,
-          "submissions": 79741
+          "orgs": 81,
+          "submissions": 79766
         },
         {
           "type": "resource",
           "orgs": 18,
-          "submissions": 47567
+          "submissions": 47588
         },
         {
           "type": "clinic",
-          "orgs": 691,
-          "submissions": 43618
+          "orgs": 693,
+          "submissions": 43888
         },
         {
           "type": "other",
@@ -24647,7 +24655,7 @@ export default {
         {
           "country": "United States",
           "orgs": 611,
-          "submissions": 5888211
+          "submissions": 5891130
         },
         {
           "country": "Canada",
@@ -24662,7 +24670,7 @@ export default {
         {
           "country": "Germany",
           "orgs": 147,
-          "submissions": 197980
+          "submissions": 207549
         },
         {
           "country": "not stated",
@@ -24671,8 +24679,8 @@ export default {
         },
         {
           "country": "Iran",
-          "orgs": 120,
-          "submissions": 57748
+          "orgs": 121,
+          "submissions": 57758
         },
         {
           "country": "Netherlands",
@@ -24686,18 +24694,18 @@ export default {
         },
         {
           "country": "China",
-          "orgs": 663,
-          "submissions": 25709
+          "orgs": 664,
+          "submissions": 25714
         },
         {
           "country": "United Kingdom",
           "orgs": 93,
-          "submissions": 23471
+          "submissions": 23555
         },
         {
           "country": "Australia",
           "orgs": 68,
-          "submissions": 21995
+          "submissions": 21996
         },
         {
           "country": "India",
@@ -24711,8 +24719,8 @@ export default {
         },
         {
           "country": "France",
-          "orgs": 122,
-          "submissions": 15516
+          "orgs": 123,
+          "submissions": 15517
         },
         {
           "country": "Denmark",
@@ -24743,7 +24751,7 @@ export default {
           "name": "GeneDx",
           "type": "lab",
           "country": "United States",
-          "submissions": 453403
+          "submissions": 453405
         },
         {
           "name": "Blueprint Genetics",
@@ -24767,7 +24775,7 @@ export default {
           "name": "CeGaT Center for Human Genetics Tuebingen",
           "type": "lab",
           "country": "Germany",
-          "submissions": 151347
+          "submissions": 160516
         },
         {
           "name": "Breakthrough Genomics",
@@ -24803,7 +24811,7 @@ export default {
           "name": "Myriad Genetics, Inc.",
           "type": "lab",
           "country": "United States",
-          "submissions": 64047
+          "submissions": 66413
         },
         {
           "name": "Mayo Clinic Laboratories; Mayo Clinic",
@@ -24813,36 +24821,36 @@ export default {
         }
       ],
       "methods": {
-        "clinical testing": 6525380,
-        "research": 76700,
-        "literature only": 66179,
-        "curation": 67443,
+        "clinical testing": 6538043,
+        "research": 76747,
+        "literature only": 66200,
+        "curation": 67446,
         "phenotyping": 6659
       }
     }
   },
   "clinvarTable": {
-    "records": 4639270,
+    "records": 4643623,
     "types": {
-      "Indel": 21196,
-      "Deletion": 178800,
-      "single nucleotide variant": 4288289,
-      "Duplication": 76581,
-      "Microsatellite": 41391,
-      "Insertion": 15998,
-      "Variation": 701,
+      "Indel": 21250,
+      "Deletion": 179071,
+      "single nucleotide variant": 4292033,
+      "Duplication": 76715,
+      "Microsatellite": 41455,
+      "Insertion": 16019,
+      "Variation": 702,
       "Translocation": 28,
-      "Inversion": 1579,
-      "copy number gain": 7450,
-      "copy number loss": 7240,
+      "Inversion": 1582,
+      "copy number gain": 7485,
+      "copy number loss": 7266,
       "Complex": 17
     },
     "submitters": {
       "bins": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11+"],
-      "P/LP": [255511, 56074, 22845, 12331, 7517, 5201, 3642, 2699, 2069, 1589, 6852],
-      "VUS": [2041959, 238845, 69353, 25546, 11165, 5255, 2583, 1375, 735, 479, 825],
-      "B/LB": [1040631, 224037, 71190, 31690, 17493, 10802, 7269, 5203, 3763, 2693, 9067],
-      "Conflicting": [767, 62115, 41265, 25856, 16784, 10858, 7569, 5039, 3451, 2455, 7655]
+      "P/LP": [255934, 56147, 22878, 12348, 7525, 5214, 3647, 2707, 2057, 1597, 6869],
+      "VUS": [2042465, 238943, 69399, 25583, 11169, 5266, 2592, 1376, 733, 482, 829],
+      "B/LB": [1041519, 224410, 71805, 31963, 17638, 10881, 7319, 5210, 3786, 2705, 9116],
+      "Conflicting": [767, 62214, 41365, 25902, 16866, 10934, 7600, 5079, 3473, 2467, 7706]
     },
     "evaluated": {
       "P/LP": {
@@ -24859,43 +24867,43 @@ export default {
         "1988": 15,
         "1989": 42,
         "1990": 79,
-        "1991": 84,
-        "1992": 152,
-        "1993": 139,
-        "1994": 141,
+        "1991": 83,
+        "1992": 151,
+        "1993": 138,
+        "1994": 140,
         "1995": 188,
         "1996": 159,
         "1997": 189,
-        "1998": 260,
+        "1998": 259,
         "1999": 255,
         "2000": 265,
         "2001": 385,
         "2002": 361,
         "2003": 361,
         "2004": 327,
-        "2005": 260,
-        "2006": 375,
+        "2005": 259,
+        "2006": 373,
         "2007": 325,
         "2008": 392,
         "2009": 531,
         "2010": 1183,
-        "2011": 2936,
+        "2011": 2935,
         "2012": 1510,
         "2013": 3569,
-        "2014": 2285,
-        "2015": 2911,
-        "2016": 9497,
-        "2017": 9354,
-        "2018": 10192,
-        "2019": 14602,
-        "2020": 13959,
-        "2021": 21903,
-        "2022": 38449,
-        "2023": 52388,
-        "2024": 66889,
-        "2025": 72858,
-        "2026": 32982,
-        "none": 13541
+        "2014": 2284,
+        "2015": 2910,
+        "2016": 9492,
+        "2017": 9350,
+        "2018": 10191,
+        "2019": 14592,
+        "2020": 13948,
+        "2021": 21882,
+        "2022": 38404,
+        "2023": 52350,
+        "2024": 66796,
+        "2025": 72723,
+        "2026": 33954,
+        "none": 13536
       },
       "VUS": {
         "1991": 1,
@@ -24914,21 +24922,21 @@ export default {
         "2010": 799,
         "2011": 1742,
         "2012": 918,
-        "2013": 1699,
-        "2014": 1866,
-        "2015": 2635,
-        "2016": 6021,
-        "2017": 13193,
-        "2018": 59601,
-        "2019": 30571,
-        "2020": 31878,
-        "2021": 145876,
-        "2022": 266254,
-        "2023": 308642,
-        "2024": 521062,
-        "2025": 877744,
-        "2026": 115568,
-        "none": 11753
+        "2013": 1698,
+        "2014": 1864,
+        "2015": 2633,
+        "2016": 6017,
+        "2017": 13182,
+        "2018": 59588,
+        "2019": 30553,
+        "2020": 31868,
+        "2021": 145808,
+        "2022": 266118,
+        "2023": 308494,
+        "2024": 520712,
+        "2025": 877210,
+        "2026": 117585,
+        "none": 11750
       },
       "B/LB": {
         "1983": 1,
@@ -24955,20 +24963,20 @@ export default {
         "2011": 1670,
         "2012": 1317,
         "2013": 1072,
-        "2014": 616,
-        "2015": 4609,
-        "2016": 3730,
-        "2017": 10115,
-        "2018": 105374,
-        "2019": 61754,
-        "2020": 32120,
-        "2021": 80669,
-        "2022": 139766,
-        "2023": 226312,
-        "2024": 251511,
-        "2025": 340334,
-        "2026": 158258,
-        "none": 3246
+        "2014": 615,
+        "2015": 4608,
+        "2016": 3728,
+        "2017": 10099,
+        "2018": 105296,
+        "2019": 61629,
+        "2020": 32064,
+        "2021": 80599,
+        "2022": 139493,
+        "2023": 225919,
+        "2024": 250548,
+        "2025": 337314,
+        "2026": 165773,
+        "none": 3243
       },
       "Conflicting": {
         "1990": 1,
@@ -24990,15 +24998,15 @@ export default {
         "2015": 45,
         "2016": 164,
         "2017": 227,
-        "2018": 1438,
-        "2019": 659,
-        "2020": 710,
-        "2021": 1687,
-        "2022": 5098,
-        "2023": 11938,
-        "2024": 26882,
-        "2025": 75307,
-        "2026": 59423,
+        "2018": 1435,
+        "2019": 655,
+        "2020": 708,
+        "2021": 1682,
+        "2022": 5079,
+        "2023": 11890,
+        "2024": 26754,
+        "2025": 74448,
+        "2026": 61050,
         "none": 27
       }
     },
@@ -26539,7 +26547,7 @@ export default {
           [1099, "synonymous", 1, "Phe"],
           [1100, "synonymous", 1, "Gln"],
           [1102, "synonymous", 1, "Arg"],
-          [1106, "synonymous", 1, "Ile"],
+          [1106, "synonymous", 2, "Ile"],
           [1108, "synonymous", 2, "Val"],
           [1109, "synonymous", 1, "Ile"],
           [1110, "synonymous", 1, "Phe"],
@@ -26736,7 +26744,7 @@ export default {
         ],
         "unplaced": {
           "up": 120,
-          "down": 686
+          "down": 687
         }
       },
       "TP53": {
@@ -28003,6 +28011,7 @@ export default {
           [72, "synonymous", 1, "Lys"],
           [74, "missense", 1, "Asp"],
           [74, "synonymous", 1, "Asp"],
+          [82, "synonymous", 1, "Pro"],
           [84, "synonymous", 1, "Phe"],
           [86, "synonymous", 1, "Lys"],
           [87, "synonymous", 2, "Ile"],
@@ -28466,7 +28475,7 @@ export default {
           [1073, "synonymous", 1, "Lys"],
           [1076, "synonymous", 1, "Leu"],
           [1078, "synonymous", 1, "Glu"],
-          [1079, "synonymous", 1, "Arg"],
+          [1079, "synonymous", 2, "Arg"],
           [1080, "synonymous", 2, "Leu"],
           [1085, "synonymous", 1, "Phe"],
           [1086, "synonymous", 1, "Glu"],
@@ -29136,7 +29145,7 @@ export default {
           [234, "truncating", 3, "Thr"],
           [235, "truncating", 2, "Asn"],
           [236, "truncating", 3, "Thr"],
-          [237, "truncating", 1, "Glu"],
+          [237, "truncating", 2, "Glu"],
           [239, "truncating", 1, "His"],
           [240, "truncating", 2, "Gln"],
           [242, "truncating", 2, "Ser"],
@@ -29694,7 +29703,7 @@ export default {
           [892, "truncating", 1, "Leu"],
           [893, "truncating", 2, "Lys"],
           [894, "truncating", 6, "Lys"],
-          [895, "truncating", 5, "Gln"],
+          [895, "truncating", 6, "Gln"],
           [896, "truncating", 4, "Ser"],
           [897, "truncating", 3, "Pro"],
           [898, "truncating", 1, "Lys"],
@@ -29733,7 +29742,7 @@ export default {
           [937, "truncating", 3, "Lys"],
           [938, "truncating", 2, "Pro"],
           [939, "truncating", 2, "Val"],
-          [940, "truncating", 2, "Asp"],
+          [940, "truncating", 3, "Asp"],
           [941, "truncating", 1, "Asn"],
           [943, "truncating", 2, "Lys"],
           [944, "truncating", 5, "Cys"],
@@ -30018,7 +30027,7 @@ export default {
           [1267, "truncating", 2, "Leu"],
           [1270, "truncating", 1, "Cys"],
           [1271, "truncating", 2, "Ser"],
-          [1272, "truncating", 3, "Asn"],
+          [1272, "truncating", 4, "Asn"],
           [1273, "truncating", 4, "Gln"],
           [1274, "truncating", 1, "Val"],
           [1275, "truncating", 3, "Ile"],
@@ -30404,7 +30413,7 @@ export default {
           [1700, "missense", 1, "Thr"],
           [1700, "truncating", 1, "Thr"],
           [1701, "truncating", 2, "Leu"],
-          [1702, "missense", 2, "Lys"],
+          [1702, "missense", 3, "Lys"],
           [1702, "truncating", 1, "Lys"],
           [1703, "missense", 2, "Tyr"],
           [1703, "truncating", 1, "Tyr"],
@@ -32348,7 +32357,7 @@ export default {
         ],
         "unplaced": {
           "up": 388,
-          "down": 1606
+          "down": 1607
         }
       }
     }
@@ -32622,55 +32631,55 @@ export default {
         }
       },
       {
-        "release": "2026-11-01",
-        "records": 4616247,
+        "release": "2026-11-08",
+        "records": 4620536,
         "classes": {
-          "Pathogenic": 189754,
-          "Pathogenic/Likely pathogenic": 45653,
-          "Likely pathogenic": 131593,
-          "Uncertain significance": 2391793,
-          "Likely benign": 1142247,
-          "Benign/Likely benign": 83278,
-          "Benign": 193205,
-          "Conflicting": 183615,
+          "Pathogenic": 190061,
+          "Pathogenic/Likely pathogenic": 45710,
+          "Likely pathogenic": 131793,
+          "Uncertain significance": 2392477,
+          "Likely benign": 1143488,
+          "Benign/Likely benign": 84592,
+          "Benign": 193163,
+          "Conflicting": 184173,
           "Other": 11187,
-          "none": 243922
+          "none": 243892
         }
       }
     ]
   },
   "validity": {
-    "date": "2026-11-08",
-    "curations": 3727,
-    "genes": 3076,
-    "diseases": 2187,
+    "date": "2026-11-15",
+    "curations": 3733,
+    "genes": 3080,
+    "diseases": 2188,
     "classes": {
-      "Definitive": 2326,
+      "Definitive": 2332,
       "Strong": 83,
-      "Moderate": 465,
-      "Limited": 556,
+      "Moderate": 464,
+      "Limited": 555,
       "Disputed": 200,
       "Refuted": 49,
-      "No Known Disease Relationship": 48
+      "No Known Disease Relationship": 50
     },
     "byMoi": {
       "AD": {
-        "Definitive": 818,
+        "Definitive": 820,
         "Limited": 273,
         "Strong": 35,
-        "No Known Disease Relationship": 23,
+        "No Known Disease Relationship": 24,
         "Refuted": 40,
         "Disputed": 143,
         "Moderate": 166
       },
       "AR": {
-        "Definitive": 1270,
-        "Limited": 249,
-        "Moderate": 266,
+        "Definitive": 1274,
+        "Limited": 248,
+        "Moderate": 265,
         "Disputed": 33,
         "Strong": 44,
         "Refuted": 6,
-        "No Known Disease Relationship": 9
+        "No Known Disease Relationship": 10
       },
       "XL": {
         "Moderate": 22,
@@ -32742,7 +32751,7 @@ export default {
       "2021": {
         "No Known Disease Relationship": 3,
         "Definitive": 253,
-        "Moderate": 36,
+        "Moderate": 34,
         "Limited": 50,
         "Disputed": 21,
         "Refuted": 4,
@@ -32751,33 +32760,33 @@ export default {
       "2022": {
         "Definitive": 345,
         "Moderate": 31,
-        "Limited": 45,
+        "Limited": 43,
         "Strong": 6,
         "Disputed": 22,
         "Refuted": 4,
-        "No Known Disease Relationship": 3
+        "No Known Disease Relationship": 4
       },
       "2023": {
-        "Moderate": 64,
+        "Moderate": 63,
         "Strong": 11,
         "Definitive": 346,
-        "Limited": 65,
+        "Limited": 64,
         "Disputed": 27,
         "Refuted": 22,
-        "No Known Disease Relationship": 5
+        "No Known Disease Relationship": 6
       },
       "2024": {
         "Definitive": 377,
-        "Limited": 129,
+        "Limited": 128,
         "Refuted": 4,
         "Moderate": 103,
-        "Disputed": 32,
+        "Disputed": 31,
         "No Known Disease Relationship": 11,
         "Strong": 22
       },
       "2025": {
-        "Definitive": 284,
-        "Moderate": 101,
+        "Definitive": 285,
+        "Moderate": 102,
         "Limited": 103,
         "Strong": 14,
         "No Known Disease Relationship": 4,
@@ -32785,11 +32794,11 @@ export default {
         "Refuted": 4
       },
       "2026": {
-        "Definitive": 164,
-        "Disputed": 17,
-        "Limited": 90,
+        "Definitive": 169,
+        "Disputed": 18,
+        "Limited": 93,
         "Refuted": 5,
-        "Moderate": 90,
+        "Moderate": 91,
         "Strong": 18,
         "No Known Disease Relationship": 1
       }
@@ -32797,7 +32806,7 @@ export default {
     "gceps": [
       {
         "name": "Intellectual Disability and Autism Gene Curation Expert Panel",
-        "n": 382
+        "n": 383
       },
       {
         "name": "Mitochondrial Diseases Gene Curation Expert Panel",
@@ -32817,7 +32826,7 @@ export default {
       },
       {
         "name": "Epilepsy Gene Curation Expert Panel",
-        "n": 154
+        "n": 155
       },
       {
         "name": "Retina Gene Curation Expert Panel",
@@ -32844,12 +32853,12 @@ export default {
         "n": 91
       },
       {
-        "name": "Congenital Disorders of Glycosylation Gene Curation Expert Panel",
-        "n": 84
+        "name": "Kidney Cystic and Ciliopathy Disorders Gene Curation Expert Panel",
+        "n": 85
       },
       {
-        "name": "Kidney Cystic and Ciliopathy Disorders Gene Curation Expert Panel",
-        "n": 83
+        "name": "Congenital Disorders of Glycosylation Gene Curation Expert Panel",
+        "n": 84
       },
       {
         "name": "Motile Ciliopathy Gene Curation Expert Panel",
@@ -32869,7 +32878,7 @@ export default {
       },
       {
         "name": "Antibody Deficiencies Gene Curation Expert Panel",
-        "n": 64
+        "n": 63
       },
       {
         "name": "Brain Malformations Gene Curation Expert Panel",
@@ -32904,12 +32913,12 @@ export default {
         "n": 49
       },
       {
-        "name": "Lysosomal Diseases Gene Curation Expert Panel",
+        "name": "Leukodystrophy and Leukoencephalopathy Gene Curation Expert Panel",
         "n": 45
       },
       {
-        "name": "Leukodystrophy and Leukoencephalopathy Gene Curation Expert Panel",
-        "n": 44
+        "name": "Lysosomal Diseases Gene Curation Expert Panel",
+        "n": 45
       },
       {
         "name": "Monogenic Diabetes Gene Curation Expert Panel",
@@ -32972,11 +32981,11 @@ export default {
         "n": 16
       },
       {
-        "name": "Breast/Ovarian Cancer Gene Curation Expert Panel",
-        "n": 14
+        "name": "Monogenic Systemic and Incomplete Lupus Erythematosus Gene Curation Expert Panel",
+        "n": 16
       },
       {
-        "name": "Monogenic Systemic and Incomplete Lupus Erythematosus Gene Curation Expert Panel",
+        "name": "Breast/Ovarian Cancer Gene Curation Expert Panel",
         "n": 14
       },
       {
@@ -33034,14 +33043,14 @@ export default {
     ],
     "loeufByMoi": {
       "other": {
-        "n": 15038,
+        "n": 15033,
         "median": 0.991,
-        "counts": [2, 21, 64, 145, 206, 262, 302, 368, 407, 383, 429, 453, 498, 515, 518, 591, 594, 592, 634, 647, 725, 615, 665, 551, 515, 439, 394, 361, 325, 288, 231, 211, 224, 184, 224, 221, 262, 411, 392, 169]
+        "counts": [2, 21, 64, 145, 205, 261, 302, 368, 407, 383, 429, 453, 497, 515, 518, 590, 595, 592, 634, 647, 724, 615, 665, 551, 515, 439, 394, 361, 325, 288, 231, 211, 224, 184, 224, 221, 262, 410, 392, 169]
       },
       "AR": {
-        "n": 1355,
-        "median": 0.939,
-        "counts": [0, 0, 0, 3, 2, 6, 6, 16, 20, 22, 35, 50, 45, 47, 58, 86, 92, 113, 91, 93, 98, 79, 67, 60, 41, 36, 30, 22, 20, 16, 27, 6, 11, 11, 10, 7, 11, 5, 10, 3]
+        "n": 1358,
+        "median": 0.9395,
+        "counts": [0, 0, 0, 3, 2, 6, 6, 16, 20, 22, 35, 50, 46, 47, 58, 87, 91, 113, 91, 93, 99, 79, 67, 60, 41, 36, 30, 22, 20, 16, 27, 6, 11, 11, 10, 7, 11, 6, 10, 3]
       },
       "both": {
         "n": 125,
@@ -33049,9 +33058,9 @@ export default {
         "counts": [0, 0, 0, 1, 2, 3, 4, 7, 3, 10, 4, 12, 4, 6, 5, 5, 11, 8, 6, 6, 4, 5, 4, 3, 1, 3, 1, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 1, 0, 3]
       },
       "AD": {
-        "n": 759,
-        "median": 0.406,
-        "counts": [1, 24, 56, 59, 79, 49, 54, 52, 49, 32, 34, 28, 29, 29, 13, 17, 14, 18, 17, 8, 10, 10, 12, 3, 9, 8, 3, 3, 3, 6, 5, 3, 2, 1, 1, 2, 3, 2, 5, 6]
+        "n": 761,
+        "median": 0.404,
+        "counts": [1, 24, 56, 59, 80, 50, 54, 52, 49, 32, 34, 28, 29, 29, 13, 17, 14, 18, 17, 8, 10, 10, 12, 3, 9, 8, 3, 3, 3, 6, 5, 3, 2, 1, 1, 2, 3, 2, 5, 6]
       },
       "SD": {
         "n": 43,
@@ -33066,21 +33075,21 @@ export default {
     }
   },
   "regions": {
-    "date": "28 Apr,2026",
-    "regions": 513,
+    "date": "15 Nov,2026",
+    "regions": 516,
     "hi": {
-      "0": 92,
-      "1": 9,
-      "2": 7,
-      "3": 42,
+      "0": 91,
+      "1": 12,
+      "2": 6,
+      "3": 44,
       "30": 3,
       "40": 359
     },
     "ts": {
-      "0": 372,
+      "0": 376,
       "1": 20,
-      "2": 9,
-      "3": 20,
+      "2": 7,
+      "3": 21,
       "40": 92
     },
     "sensitive": [
@@ -33136,7 +33145,7 @@ export default {
         "start": 96073264,
         "end": 97005692,
         "hi": 3,
-        "ts": 1,
+        "ts": 0,
         "recurrent": true
       },
       {
@@ -33195,6 +33204,17 @@ export default {
         "recurrent": true
       },
       {
+        "id": "ISCA-46759",
+        "name": "6p25.3 Region (includes FOXC1)",
+        "band": "6p25.3",
+        "chrom": "6",
+        "start": 1347995,
+        "end": 1713458,
+        "hi": 3,
+        "ts": 3,
+        "recurrent": false
+      },
+      {
         "id": "ISCA-37442",
         "name": "6q24 region (includes PLAGL1)",
         "band": "6q24",
@@ -33246,7 +33266,7 @@ export default {
         "start": 8242542,
         "end": 11908820,
         "hi": 3,
-        "ts": 2,
+        "ts": 1,
         "recurrent": true
       },
       {
@@ -33259,6 +33279,17 @@ export default {
         "hi": 3,
         "ts": 1,
         "recurrent": true
+      },
+      {
+        "id": "ISCA-46758",
+        "name": "11p13 PAX6 Downstream Regulatory Region (within introns 5-7 of ELP4)",
+        "band": "",
+        "chrom": "11",
+        "start": 31626701,
+        "end": 31644792,
+        "hi": 3,
+        "ts": 0,
+        "recurrent": false
       },
       {
         "id": "ISCA-37401",
@@ -33339,7 +33370,7 @@ export default {
       },
       {
         "id": "ISCA-46296",
-        "name": "15q24 recurrent region (LCR A-LCR C)",
+        "name": "15q24 recurrent region (LCR A-C)",
         "band": "15q24.1-q24.2",
         "chrom": "15",
         "start": 72671374,
@@ -33350,8 +33381,8 @@ export default {
       },
       {
         "id": "ISCA-46300",
-        "name": "15q24 recurrent region (LCR C-LCR D) (includes SIN3A)",
-        "band": "15q24",
+        "name": "15q24 recurrent region (LCR A-D, B-D, C-D, or B-E) (includes SIN3A)",
+        "band": "15q24.2",
         "chrom": "15",
         "start": 75339446,
         "end": 75680568,
@@ -33444,7 +33475,7 @@ export default {
         "start": 30780079,
         "end": 31937008,
         "hi": 3,
-        "ts": 2,
+        "ts": 1,
         "recurrent": true
       },
       {
@@ -33509,7 +33540,7 @@ export default {
         "chrom": "22",
         "start": 16912063,
         "end": 18109094,
-        "hi": 0,
+        "hi": 1,
         "ts": 3,
         "recurrent": true
       },
@@ -35963,7 +35994,7 @@ export default {
     },
     {
       "trade": "ADSTILADRIN",
-      "name": "ADSTILADRIN (nadofaragene firadenovec-vcng)",
+      "name": "ADSTILADRIN (nadofaragene firadenovec-vncg)",
       "url": "https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/adstiladrin"
     },
     {
@@ -36234,7 +36265,7 @@ export default {
   ],
   "trials": {
     "aav": {
-      "total": 407,
+      "total": 408,
       "byYear": {
         "1999": 1,
         "2003": 3,
@@ -36260,22 +36291,22 @@ export default {
         "2023": 46,
         "2024": 49,
         "2025": 43,
-        "2026": 48,
+        "2026": 49,
         "2027": 2
       },
       "undated": 0,
       "phases": {
-        "Phase 2": 204,
-        "Phase 1": 97,
+        "Phase 2": 205,
         "Early phase 1": 29,
         "Phase 3": 56,
-        "Phase 4": 3,
-        "Not applicable": 18
+        "Phase 1": 97,
+        "Not applicable": 18,
+        "Phase 4": 3
       },
-      "recruiting": 109
+      "recruiting": 107
     },
     "lentiviral": {
-      "total": 420,
+      "total": 423,
       "byYear": {
         "2003": 1,
         "2004": 1,
@@ -36299,17 +36330,17 @@ export default {
         "2023": 27,
         "2024": 32,
         "2025": 38,
-        "2026": 48,
+        "2026": 51,
         "2027": 10,
         "2028": 1
       },
       "undated": 0,
       "phases": {
-        "Phase 1": 199,
-        "Phase 2": 146,
+        "Phase 1": 201,
+        "Early phase 1": 39,
+        "Phase 2": 147,
         "Not applicable": 24,
-        "Phase 3": 12,
-        "Early phase 1": 39
+        "Phase 3": 12
       },
       "recruiting": 85
     },
@@ -36357,17 +36388,17 @@ export default {
       },
       "undated": 14,
       "phases": {
-        "Not applicable": 47,
         "Phase 2": 104,
-        "Phase 3": 38,
         "Phase 1": 91,
         "Phase 4": 35,
+        "Not applicable": 47,
+        "Phase 3": 38,
         "Early phase 1": 8
       },
       "recruiting": 24
     },
     "cart": {
-      "total": 2556,
+      "total": 2562,
       "byYear": {
         "1997": 1,
         "2003": 1,
@@ -36389,20 +36420,20 @@ export default {
         "2022": 211,
         "2023": 234,
         "2024": 354,
-        "2025": 399,
-        "2026": 385,
-        "2027": 39
+        "2025": 400,
+        "2026": 388,
+        "2027": 41
       },
       "undated": 0,
       "phases": {
-        "Phase 1": 1104,
-        "Phase 2": 811,
-        "Not applicable": 199,
+        "Phase 1": 1106,
         "Early phase 1": 383,
+        "Phase 2": 814,
+        "Not applicable": 199,
         "Phase 3": 53,
-        "Phase 4": 6
+        "Phase 4": 7
       },
-      "recruiting": 865
+      "recruiting": 867
     },
     "editing": {
       "total": 158,
@@ -36427,16 +36458,16 @@ export default {
       },
       "undated": 0,
       "phases": {
-        "Phase 3": 10,
-        "Early phase 1": 16,
-        "Phase 2": 50,
         "Phase 1": 60,
-        "Not applicable": 22
+        "Phase 2": 50,
+        "Phase 3": 10,
+        "Not applicable": 22,
+        "Early phase 1": 16
       },
       "recruiting": 42
     },
     "antisense": {
-      "total": 362,
+      "total": 363,
       "byYear": {
         "1993": 1,
         "1997": 1,
@@ -36468,22 +36499,22 @@ export default {
         "2023": 14,
         "2024": 29,
         "2025": 32,
-        "2026": 27,
+        "2026": 28,
         "2027": 1
       },
       "undated": 0,
       "phases": {
         "Phase 1": 113,
-        "Phase 2": 186,
-        "Phase 3": 32,
+        "Phase 2": 187,
         "Not applicable": 21,
-        "Early phase 1": 7,
-        "Phase 4": 3
+        "Phase 3": 32,
+        "Phase 4": 3,
+        "Early phase 1": 7
       },
       "recruiting": 48
     },
     "sirna": {
-      "total": 165,
+      "total": 167,
       "byYear": {
         "2005": 1,
         "2006": 1,
@@ -36506,18 +36537,18 @@ export default {
         "2023": 15,
         "2024": 18,
         "2025": 15,
-        "2026": 30
+        "2026": 32
       },
       "undated": 0,
       "phases": {
+        "Phase 2": 68,
         "Phase 3": 26,
         "Phase 1": 65,
-        "Phase 2": 66,
         "Early phase 1": 4,
-        "Not applicable": 2,
-        "Phase 4": 2
+        "Phase 4": 2,
+        "Not applicable": 2
       },
-      "recruiting": 36
+      "recruiting": 35
     }
   },
   "intogen": {
@@ -47512,7 +47543,7 @@ export default {
     }
   },
   "orthologs": {
-    "file": "2026-11-08",
+    "file": "2026-11-15",
     "kinds": [
       {
         "key": "primates",
@@ -47587,13 +47618,13 @@ export default {
         },
         {
           "name": "Euarchontoglires",
-          "species": 58,
-          "median": 16213
+          "species": 59,
+          "median": 16189
         },
         {
           "name": "Boreoeutheria",
-          "species": 154,
-          "median": 16362
+          "species": 155,
+          "median": 16361
         },
         {
           "name": "Eutheria",
@@ -47613,7 +47644,7 @@ export default {
         {
           "name": "Amniota",
           "species": 254,
-          "median": 13258
+          "median": 13260
         },
         {
           "name": "Tetrapoda",
@@ -47735,6 +47766,7 @@ export default {
         ["51337", "Jaculus jaculus", "mammals", 7, 16105],
         ["38674", "Onychomys torridus", "mammals", 7, 16098],
         ["105255", "Dipodomys spectabilis", "mammals", 7, 16089],
+        ["3774380", "Megascapheus bottae", "mammals", 7, 16053],
         ["109678", "Phodopus roborovskii", "mammals", 7, 16046],
         ["214514", "Perognathus longimembris pacificus", "mammals", 7, 15985],
         ["10020", "Dipodomys ordii", "mammals", 7, 15981],
@@ -47839,6 +47871,7 @@ export default {
         ["9768", "Balaenoptera borealis", "mammals", 8, 16325],
         ["9925", "Capra hircus", "mammals", 8, 16322],
         ["9433", "Miniopterus schreibersii", "mammals", 8, 16314],
+        ["148082", "Furipterus horrens", "mammals", 8, 16306],
         ["9874", "Odocoileus virginianus", "mammals", 8, 16304],
         ["1574408", "Cervus canadensis", "mammals", 8, 16298],
         ["391180", "Enhydra lutris kenyoni", "mammals", 8, 16284],
@@ -47990,6 +48023,7 @@ export default {
         ["31138", "Trachemys scripta elegans", "reptiles", 12, 13794],
         ["38654", "Alligator sinensis", "reptiles", 12, 13788],
         ["103942", "Vipera ursinii", "reptiles", 12, 13786],
+        ["9054", "Phasianus colchicus", "birds", 12, 13774],
         ["933632", "Sphaerodactylus townsendi", "reptiles", 12, 13748],
         ["9117", "Grus americana", "birds", 12, 13747],
         ["8957", "Astur gentilis", "birds", 12, 13689],
@@ -48024,8 +48058,8 @@ export default {
         ["1497555", "Lichenostomus cassidix", "birds", 12, 13414],
         ["30423", "Coloeus monedula", "birds", 12, 13411],
         ["107022", "Bucephala clangula", "birds", 12, 13409],
+        ["9031", "Gallus gallus", "birds", 12, 13406],
         ["197941", "Clangula hyemalis", "birds", 12, 13404],
-        ["9031", "Gallus gallus", "birds", 12, 13399],
         ["39617", "Aphelocoma coerulescens", "birds", 12, 13397],
         ["8839", "Anas platyrhynchos", "birds", 12, 13392],
         ["189534", "Aythya marila", "birds", 12, 13389],
@@ -48089,7 +48123,6 @@ export default {
         ["1196302", "Corvus moneduloides", "birds", 12, 13126],
         ["188344", "Leptosomus discolor", "birds", 12, 13122],
         ["91951", "Catharus ustulatus", "birds", 12, 13114],
-        ["9054", "Phasianus colchicus", "birds", 12, 13108],
         ["308060", "Apteryx rowi", "birds", 12, 13101],
         ["111811", "Caprimulgus europaeus", "birds", 12, 13101],
         ["415023", "Manacus candei", "birds", 12, 13095],
@@ -48510,6 +48543,7 @@ export default {
         ["74940", "Oncorhynchus tshawytscha", "rayfinned", 16, 5818],
         ["7957", "Carassius auratus", "rayfinned", 16, 5769],
         ["8023", "Oncorhynchus nerka", "rayfinned", 16, 5767],
+        ["8022", "Oncorhynchus mykiss", "rayfinned", 16, 5627],
         ["8017", "Oncorhynchus gorbuscha", "rayfinned", 16, 5610],
         ["8019", "Oncorhynchus kisutch", "rayfinned", 16, 5573],
         ["59291", "Coregonus lavaretus", "rayfinned", 16, 5528],
@@ -48520,7 +48554,6 @@ export default {
         ["8030", "Salmo salar", "rayfinned", 16, 5396],
         ["70543", "Myxocyprinus asiaticus", "rayfinned", 16, 5394],
         ["490388", "Oncorhynchus clarkii lewisi", "rayfinned", 16, 5378],
-        ["8022", "Oncorhynchus mykiss", "rayfinned", 16, 5331],
         ["7962", "Cyprinus carpio", "rayfinned", 16, 5294],
         ["8040", "Salvelinus namaycush", "rayfinned", 16, 5283],
         ["2691554", "Salvelinus sp. IW2-2015", "rayfinned", 16, 5223],
@@ -48606,12 +48639,12 @@ export default {
         },
         {
           "name": "Euarchontoglires",
-          "genes": 262,
+          "genes": 261,
           "examples": ["ANKRD30BL", "ANKRD36", "ANKRD62", "APOBEC3D", "APOBEC3F", "ARL17B"]
         },
         {
           "name": "Boreoeutheria",
-          "genes": 133,
+          "genes": 134,
           "examples": ["ADM5", "ANKRD30A", "ANKRD30B", "APOBEC3C", "ARHGEF35", "BEX1"]
         },
         {
@@ -48694,7 +48727,7 @@ export default {
       "version": "9.0.0",
       "generated": "2026-04-05",
       "genes": 19299,
-      "disease": 2502,
+      "disease": 2507,
       "species": [
         {
           "taxon": "10090",
@@ -48704,7 +48737,7 @@ export default {
           "all": 14345,
           "most": 3398,
           "fewer": 441,
-          "disease": 2495
+          "disease": 2500
         },
         {
           "taxon": "10116",
@@ -48714,7 +48747,7 @@ export default {
           "all": 13085,
           "most": 4271,
           "fewer": 969,
-          "disease": 2497
+          "disease": 2502
         },
         {
           "taxon": "7955",
@@ -48724,7 +48757,7 @@ export default {
           "all": 6909,
           "most": 4678,
           "fewer": 3674,
-          "disease": 2382
+          "disease": 2386
         },
         {
           "taxon": "8364",
@@ -48734,7 +48767,7 @@ export default {
           "all": 9772,
           "most": 4668,
           "fewer": 1533,
-          "disease": 2374
+          "disease": 2378
         },
         {
           "taxon": "8355",
@@ -48744,7 +48777,7 @@ export default {
           "all": 13604,
           "most": 0,
           "fewer": 0,
-          "disease": 2256
+          "disease": 2260
         },
         {
           "taxon": "7227",
@@ -48754,7 +48787,7 @@ export default {
           "all": 3558,
           "most": 4890,
           "fewer": 2262,
-          "disease": 1825
+          "disease": 1827
         },
         {
           "taxon": "6239",
@@ -48764,7 +48797,7 @@ export default {
           "all": 2889,
           "most": 4352,
           "fewer": 2394,
-          "disease": 1645
+          "disease": 1647
         },
         {
           "taxon": "559292",
@@ -48774,7 +48807,7 @@ export default {
           "all": 1241,
           "most": 1900,
           "fewer": 1419,
-          "disease": 785
+          "disease": 786
         }
       ]
     }
@@ -51526,7 +51559,7 @@ export default {
     }
   },
   "eukaryotes": {
-    "total": 5073,
+    "total": 5080,
     "groups": ["Mammals", "Birds", "Ray-finned fishes", "Other vertebrates", "Insects", "Other animals", "Green plants", "Fungi", "Other eukaryotes"],
     "points": [
       [2.19, 1831, 7, "Encephalitozoon romaleae SJ-2008"],
@@ -53921,7 +53954,7 @@ export default {
       [160.73, 11511, 4, "Cephus cinctus"],
       [160.9, 26842, 8, "Discosporangium mesarthrocarpum"],
       [161.45, 16891, 5, "Daphnia magna"],
-      [162.19, 24874, 7, "Mycena venus"],
+      [162.19, 24874, 7, "Glaucomycena venus"],
       [162.94, 13631, 5, "Rodentolepis nana"],
       [163.17, 13272, 4, "Drosophila mojavensis"],
       [163.27, 14343, 4, "Drosophila pseudoobscura"],
@@ -54266,7 +54299,6 @@ export default {
       [319.19, 12810, 4, "Pieris napi"],
       [319.21, 20013, 5, "Ancylostoma duodenale"],
       [319.61, 17528, 5, "Antedon bifida"],
-      [320.34, 23795, 6, "Punica granatum"],
       [320.38, 21636, 6, "Morus notabilis"],
       [321.65, 33355, 6, "Arabis ciliata"],
       [322.12, 17732, 6, "Carica papaya"],
@@ -54342,6 +54374,7 @@ export default {
       [365.12, 10718, 4, "Bombus affinis"],
       [366.29, 21500, 2, "Takifugu flavidus"],
       [366.68, 27399, 6, "Lithospermum erythrorhizon"],
+      [366.71, 22322, 6, "Punica granatum"],
       [366.83, 31566, 6, "Salvia hispanica"],
       [368, 25461, 6, "Nymphaea thermarum"],
       [368.21, 15089, 4, "Trichoplusia ni"],
@@ -54523,7 +54556,6 @@ export default {
       [471.56, 33426, 6, "Striga asiatica"],
       [471.61, 6409, 5, "Pycnogonum litorale"],
       [471.9, 13604, 4, "Galleria mellonella"],
-      [471.97, 21535, 6, "Physcomitrium patens"],
       [472.53, 33371, 6, "Musa banksii"],
       [473.42, 32011, 6, "Oxalis oulophora"],
       [474.2, 37994, 6, "Vigna mungo"],
@@ -54540,6 +54572,7 @@ export default {
       [480.43, 22019, 2, "Pungitius pungitius"],
       [480.81, 17524, 4, "Metopolophium dirhodum"],
       [480.92, 20492, 5, "Hydractinia symbiolongicarpus"],
+      [481.36, 21298, 6, "Physcomitrium patens"],
       [484.26, 53716, 6, "Rosa luciae x Rosa x odorata"],
       [484.69, 14450, 4, "Leptopilina heterotoma"],
       [485.71, 20082, 4, "Diaphorina citri"],
@@ -54618,7 +54651,6 @@ export default {
       [534.41, 32940, 8, "Baffinella frigidus"],
       [535.35, 13663, 4, "Episyrphus balteatus"],
       [535.89, 26380, 6, "Panicum hallii"],
-      [537.15, 29679, 6, "Phaseolus vulgaris"],
       [537.17, 44784, 6, "Antirrhinum majus var. pseudomajus"],
       [538.1, 21958, 2, "Clinocottus analis"],
       [538.22, 21619, 2, "Scophthalmus maximus"],
@@ -54652,6 +54684,7 @@ export default {
       [557.81, 45090, 6, "Paspalum saurae"],
       [558.12, 13489, 5, "Clonorchis sinensis"],
       [560.23, 12985, 4, "Chrysoperla carnea"],
+      [560.3, 27117, 6, "Phaseolus vulgaris"],
       [560.47, 35391, 5, "Stylophora pistillata"],
       [561.47, 13230, 4, "Formica fusca"],
       [563.99, 26073, 5, "Magallana gigas"],
@@ -54784,6 +54817,7 @@ export default {
       [650.78, 39340, 6, "Malus domestica"],
       [652.16, 19926, 2, "Phyllopteryx taeniolatus"],
       [652.16, 40021, 6, "Rhododendron molle"],
+      [652.72, 23930, 5, "Phalangium opilio"],
       [652.8, 25221, 6, "Akebia trifoliata"],
       [652.93, 24310, 2, "Triplophysa tibetana"],
       [653.47, 33225, 6, "Rhodiola kirilowii"],
@@ -54969,6 +55003,7 @@ export default {
       [785.97, 23750, 2, "Pagrus major"],
       [786.31, 26665, 2, "Clupea harengus"],
       [786.34, 67429, 5, "Elysia crispata"],
+      [788.74, 18556, 5, "Leiobunum rupestre"],
       [789.19, 32231, 6, "Quercus robur"],
       [789.25, 31642, 5, "Montipora foliosa"],
       [789.8, 23273, 2, "Hemibagrus wyckioides"],
@@ -55098,7 +55133,6 @@ export default {
       [909.23, 22180, 2, "Borostomias antarcticus"],
       [910.68, 11497, 1, "Tichodroma muraria"],
       [912.73, 18045, 5, "Diadema setosum"],
-      [912.95, 21004, 6, "Benincasa hispida"],
       [914.26, 54621, 6, "Cymbomonas tetramitiformis"],
       [914.77, 32822, 6, "Dipteronia dyeriana"],
       [915.49, 25076, 5, "Tegillarca granosa"],
@@ -55163,6 +55197,7 @@ export default {
       [972.04, 28716, 6, "Tasmannia lanceolata"],
       [972.14, 13744, 1, "Upupa epops"],
       [972.2, 25233, 2, "Pelmatolapia mariae"],
+      [975.62, 22517, 6, "Benincasa hispida"],
       [975.85, 22774, 6, "Cuscuta europaea"],
       [976.09, 25366, 2, "Anguilla rostrata"],
       [976.89, 28950, 2, "Rhamphochromis longiceps"],
@@ -55225,7 +55260,6 @@ export default {
       [1015.91, 13868, 1, "Sapayoa aenigma"],
       [1016.02, 15998, 1, "Lagopus leucura"],
       [1016.62, 13396, 1, "Cisticola juncidis"],
-      [1017.51, 16222, 1, "Phasianus colchicus"],
       [1018.93, 13170, 4, "Cryptotermes secundus"],
       [1019.25, 10616, 4, "Calliopsis andreniformis"],
       [1019.4, 13366, 1, "Nothocercus julius"],
@@ -55464,6 +55498,7 @@ export default {
       [1108.53, 57587, 6, "Forsythia ovata"],
       [1109.6, 14081, 1, "Urocolius indicus"],
       [1109.67, 15471, 1, "Eudromia elegans"],
+      [1109.79, 19535, 1, "Phasianus colchicus"],
       [1109.87, 29877, 2, "Megalobrama amblycephala"],
       [1110.56, 13511, 1, "Ptilorrhoa leucosticta"],
       [1111.15, 13916, 1, "Lophotis ruficrista"],
@@ -55736,6 +55771,7 @@ export default {
       [1285.49, 15891, 1, "Falco biarmicus"],
       [1285.83, 17126, 1, "Caloenas nicobarica"],
       [1287.32, 17777, 1, "Anser brachyrhynchus"],
+      [1288.75, 17863, 1, "Columba oenas"],
       [1288.77, 47687, 6, "Zizania palustris"],
       [1290.94, 16540, 1, "Streptopelia decaocto"],
       [1294.79, 15540, 1, "Morus bassanus"],
@@ -56012,6 +56048,7 @@ export default {
       [2002.92, 21739, 5, "Chionoecetes opilio"],
       [2008.06, 20078, 0, "Eptesicus fuscus"],
       [2008.37, 43092, 6, "Tetrastigma harmandii"],
+      [2025.63, 20266, 0, "Megascapheus bottae"],
       [2034.58, 19953, 0, "Myotis lucifugus"],
       [2034.99, 54730, 6, "Vicia villosa"],
       [2049.52, 14717, 3, "Crocodylus porosus"],
@@ -56084,6 +56121,7 @@ export default {
       [2217.24, 20304, 3, "Caretta caretta"],
       [2217.99, 18974, 3, "Eretmochelys imbricata"],
       [2219.02, 19713, 3, "Lepidochelys kempii"],
+      [2224.06, 19525, 0, "Furipterus horrens"],
       [2226.88, 26659, 5, "Ixodes scapularis"],
       [2232.41, 18660, 0, "Rhinolophus trifoliatus"],
       [2234.49, 29196, 5, "Ixodes pacificus"],
@@ -56105,6 +56143,7 @@ export default {
       [2286.85, 32592, 6, "Agalinis fasciculata"],
       [2287.34, 20077, 0, "Microtus ochrogaster"],
       [2289.37, 29227, 5, "Bradybaena similaris"],
+      [2290.95, 41348, 2, "Oncorhynchus mykiss"],
       [2292.06, 22368, 5, "Homarus americanus"],
       [2294.27, 39473, 2, "Coregonus suidteri"],
       [2294.75, 21239, 3, "Hemicordylus capensis"],
@@ -56127,7 +56166,6 @@ export default {
       [2334.45, 18432, 0, "Aethalodelphis obliquidens"],
       [2338.92, 19332, 0, "Hipposideros larvatus"],
       [2340.85, 39345, 2, "Myxocyprinus asiaticus"],
-      [2341.67, 41896, 2, "Oncorhynchus mykiss"],
       [2341.92, 24873, 2, "Neoarius graeffei"],
       [2345.5, 39192, 2, "Salvelinus namaycush"],
       [2345.53, 20695, 0, "Vulpes lagopus"],
@@ -56439,6 +56477,7 @@ export default {
       [3146.47, 17182, 5, "Stegodyphus dumicola"],
       [3146.6, 20078, 0, "Megaptera novaeangliae"],
       [3158.49, 19248, 0, "Dugong dugon"],
+      [3166.47, 14561, 5, "Mastigoproctus giganteus"],
       [3174.31, 49341, 6, "Camellia sinensis"],
       [3176.52, 23057, 5, "Macrobrachium rosenbergii"],
       [3177.74, 22543, 0, "Pan troglodytes"],
@@ -56477,6 +56516,7 @@ export default {
       [3427.62, 20663, 0, "Mesoplodon mirus"],
       [3427.79, 24504, 2, "Notolepis coatsorum"],
       [3437.86, 20548, 0, "Mustela nivalis"],
+      [3441.82, 14863, 5, "Typopeltis vanoorti"],
       [3442.54, 19485, 0, "Balaenoptera physalus"],
       [3447.46, 21604, 0, "Notamacropus eugenii"],
       [3453.85, 20017, 0, "Carlito syrichta"],
